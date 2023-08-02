@@ -1,0 +1,5 @@
+{
+  "dependencies": {
+    "sentence-tokenizer": "^1.0.1"
+  }
+}

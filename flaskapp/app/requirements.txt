@@ -1,0 +1,7 @@
+Flask==1.0.2
+Flask-PyMongo==2.2.0
+requests==2.20.1
+flask-restful
+flask-restx
+nltk
+pickle
