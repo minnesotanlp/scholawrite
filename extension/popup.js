@@ -84,7 +84,8 @@ document.addEventListener('DOMContentLoaded', function () {
     server.addEventListener('click', clearError);
 
     sendURL.addEventListener('click', function(){
-        var URLInput = server.value;
+        var URLInput = (server.value).replaceAll(' ','');
+        server.value = URLInput;
         clearError();
         if (URLInput == ""){
             showError(sendURL.nextSibling, "Invalid saver URL, please try again");
