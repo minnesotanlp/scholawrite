@@ -122,10 +122,10 @@ def get_collection():
 
 # create database instance
 # db = get_collection()
-client = MongoClient('localhost', 27017)
-db = client.flask_db
-activity = db.activity
-user_data = db["user_data"]
+# client = MongoClient('localhost', 27017)
+# db = client.flask_db
+# activity = db.activity
+# user_data = db["user_data"]
 
 
 @name_space.route("/activity")
@@ -213,6 +213,47 @@ class MainClass(Resource):
                         front = text[k][1][idx2 + 1:] + front
                         return check, front
         return check, front
+
+    def findback(self, i, type, skip, text):
+        back = ""
+        check = 0
+        if (text[i][1].count('\n') == 1) or (
+                text[i][1].count(' ') == 1 and len(text[i][1]) > 1 and self.exist_and_not_skip(i + 1, text, skip)):
+            return check, back
+        for k in range(i + 1, len(text)):
+            if text[k][0] == skip or len(text[k]) > 2:
+                if text[k][0] == skip:
+                    check = 1
+                k += 1
+            else:
+                idx = -1
+                idx1 = text[k][1].find(" ")
+                idx2 = text[k][1].find("\n")
+                if idx2 >= 0 > idx1:
+                    idx = idx2
+                elif idx1 >= 0 > idx2:
+                    idx = idx1
+                elif idx1 > idx2 >= 0:
+                    idx = idx2
+                elif idx2 > idx1 >= 0:
+                    idx = idx1
+                if text[k][0] != 0:
+                    text[k].append(1)
+                    back += text[k][1]
+                if idx == 0:
+                    if text[k][0] == type:
+                        back += text[k][1]
+                    return check, back
+                else:
+                    if idx == -1:
+                        back += text[k][1]
+                    else:
+                        if text[k][0] == type:
+                            back += text[k][1]
+                        else:
+                            back += text[k][1][:idx]
+                        return check, back
+        return check, back
 
     def countChar(self, op, i, text):
         pos = 0
@@ -590,7 +631,7 @@ class MainClass(Resource):
                     dmp.diff_cleanupSemantic(diffs)
                     diffs_html = dmp.diff_prettyHtml(diffs)
 
-                activity.insert_one(info)
+                # activity.insert_one(info)
                 console.log(info)
                 data = {
                     "status": "ChatGPT",
@@ -613,7 +654,7 @@ class MainClass(Resource):
                 else:
                     info["changes"] = "All lines are the same"
 
-                activity.insert_one(info)
+                # activity.insert_one(info)
                 console.log(info)
                 response = jsonify({"status": "Updated recent writing actions in doc"})
                 response.headers.add('Access-Control-Allow-Origin', '*')
@@ -672,7 +713,7 @@ class MainClass(Resource):
                 info['state'] = "Paste"
                 info['clipboard'] = info.pop('cb')
             # add document to database
-            activity.insert_one(info)
+            # activity.insert_one(info)
             console.log(info)
 
             response = jsonify({"status": "Updated recent writing actions in doc"})
