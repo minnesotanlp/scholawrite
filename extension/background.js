@@ -36,7 +36,6 @@ chrome.storage.local.get(['username'], function(result) {
 
 chrome.runtime.onMessage.addListener(
     function (request, sender, sendResponse) {
-        console.log("Entered");
         text = text.filter(function(element) {return element !== undefined;});
         console.log(text);
         projectID = request.project_id
@@ -78,11 +77,14 @@ chrome.runtime.onMessage.addListener(
         if (request.message == "listeners") {
             // process edits, find the diff, as additions or deletions
            console.log("***** press *****");
-           text.push(request.text);
            lineNumber = request.start;
+           // In the very beginning of writing, prelineNumber doesn't have a value.
+           // Therefore, we assign current active line number to it
            if (prelineNumber == null){
                prelineNumber = request.start;
            }
+           text.push(request.revisions);
+           // if user is editing on different line, we record writer action. If not, we keep tracking user's writing.
            if (prelineNumber != lineNumber && lineNumber != null){
                console.log("***** different line *****");
                trackWriterAction(4, text[0], request.text, prelineNumber);
@@ -94,6 +96,21 @@ chrome.runtime.onMessage.addListener(
                prelineNumber = lineNumber
            }
         }
+        else if (request.message == "load"){
+            console.log("load");
+            if (text.length == 0){
+                text = [request.text];
+            }
+        }
+        else if (request.message == "unload"){
+           console.log("unload");
+           onkey = "";
+           if (text.length >= 2){
+               trackWriterAction(4, text[0], text.at(-1), prelineNumber);
+           }
+           text = [];
+           prelineNumber = null;
+        }
         else if (request.message == "undo") {
             console.log("***** undo *****");
             text.push(request.text);
@@ -103,11 +120,17 @@ chrome.runtime.onMessage.addListener(
         else if (request.message == "hidden") {
             // process edits, find the diff, as additions or deletions
            console.log("***** hidden *****");
-           // text.push(request.text);
-           if (text[0] != null && request.revisions != null){
-               trackWriterAction(4, text[0], request.revisions, lineNumber);
+           console.log(request);
+           var temp = "";
+           if (request.revisions != ''){
+                temp = request.revisions;
+           }
+           else{
+                temp = request.text;
+           }
+           if (text[0] != null && temp != ''){
+               trackWriterAction(4, text[0], temp, lineNumber);
                prelineNumber = lineNumber
-               text = [request.revisions];
            }
         }
         else if (request.message == "scroll"){
