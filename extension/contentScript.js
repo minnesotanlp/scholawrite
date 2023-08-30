@@ -1,6 +1,3 @@
-editor = document.getElementsByClassName("editor")[0];
-console.log(editor);
-
 let paragraph = "";
 let editingParagraph = "";
 let state = 0;
@@ -147,6 +144,10 @@ function createTooltip(){
     document.body.appendChild(tooltip);
 }
 
+window.addEventListener('beforeunload', function(event) {
+    event.preventDefault();
+    chrome.runtime.sendMessage({message: "unload", project_id: project_id});
+});
 
 document.body.addEventListener('cut', (event) => {
     console.log('***** cut ****');
@@ -223,7 +224,7 @@ document.addEventListener("visibilitychange", () => {
     setTimeout(() => {
         if (document.visibilityState === 'hidden') {
             if (EXTENSION_TOGGLE) {
-                chrome.runtime.sendMessage({message: "hidden", revisions: editingParagraph, editingLines: editingLines, editingArray: editingArray, paragraphLines: paragraphLines, paragraphArray: paragraphArray, onkey: ""});
+                chrome.runtime.sendMessage({message: "hidden", revisions: editingParagraph, text: paragraph, onkey: ""});
             }
         }
     }, 0)
@@ -257,7 +258,7 @@ async function filePost(){
 
     let loadNode = document.getElementsByClassName("loading-panel ng-hide")[0];
     while (loadNode == undefined) {
-        console.log("here")
+        console.log("loading")
         await sleep(100); // Adjust the delay time as needed
         loadNode = document.getElementsByClassName("loading-panel ng-hide")[0];
     }
@@ -276,12 +277,19 @@ async function filePost(){
 
 
 window.addEventListener("load", async function(){
+    editor = document.getElementsByClassName("editor")[0];
+    console.log(editor);
+    // if the ditor is undefined, means we are not in the editor page
+    if (editor === undefined){
+        console.log("not in editor");
+        return;
+    }
     paragraph = "";
     paragraphArray = [];
     paragraphLines = [];
     let loadNode = document.getElementsByClassName("loading-panel ng-hide")[0];
     while (loadNode == undefined) {
-        console.log("here")
+        console.log("loading")
         await sleep(100); // Adjust the delay time as needed
         loadNode = document.getElementsByClassName("loading-panel ng-hide")[0];
     }
@@ -333,6 +341,9 @@ window.addEventListener("load", async function(){
             destroy();
         }
     })
+
+    // tell background to set certain variables to default
+    chrome.runtime.sendMessage({editingFile: filename, message: "load", text: paragraph, project_id: project_id});
 
     // switch document mutation observer setup
     fileObserver = new MutationObserver(filePost);
