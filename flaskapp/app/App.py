@@ -18,8 +18,11 @@ dmp = dmp_module.diff_match_patch()
 
 console = Console()
 
-sent_tokenizer = spacy.load("en_core_web_sm")
-
+try:
+    sent_tokenizer = spacy.load("en_core_web_sm")
+except OSError:
+    os.system("spacy download en_core_web_sm")
+    sent_tokenizer = spacy.load("en_core_web_sm")
 
 application = Flask(__name__)
 app = Api(app=application,
@@ -121,11 +124,10 @@ def get_collection():
 
 
 # create database instance
-# db = get_collection()
-# client = MongoClient('localhost', 27017)
-# db = client.flask_db
-# activity = db.activity
-# user_data = db["user_data"]
+client = MongoClient('localhost', 27017)
+db = client.flask_db
+activity = db.activity
+user_data = db["user_data"]
 
 
 @name_space.route("/activity")
@@ -316,7 +318,7 @@ class MainClass(Resource):
                     swapword.append(
                         '(' + str(lineNum) + ',' + str(pos - len(front)) + ')' + ", " + front + text[i][
                             1] + back + "->")
-                elif front!= "" and back != "":
+                elif back != "":
                     check2, front1 = self.findfront(i, -1, text)
                     check1, back1 = self.findback(i, -1, -1, text)
                     changes.append('(' + str(lineNum) + ',' + str(pos - len(front)) + ')' + ", " + front + text[i][
@@ -449,7 +451,7 @@ class MainClass(Resource):
             print("".join(cur[:]), "--added")
             return
 
-        # const_pre and const_cur is use to reconstruct the original text
+        # const_pre and const_cur is used to reconstruct the original text
         original_pre = copy.deepcopy(pre)
         original_cur = copy.deepcopy(cur)
         for k in range(len(pre)):
@@ -631,7 +633,7 @@ class MainClass(Resource):
                     dmp.diff_cleanupSemantic(diffs)
                     diffs_html = dmp.diff_prettyHtml(diffs)
 
-                # activity.insert_one(info)
+                activity.insert_one(info)
                 console.log(info)
                 data = {
                     "status": "ChatGPT",
@@ -654,7 +656,7 @@ class MainClass(Resource):
                 else:
                     info["changes"] = "All lines are the same"
 
-                # activity.insert_one(info)
+                activity.insert_one(info)
                 console.log(info)
                 response = jsonify({"status": "Updated recent writing actions in doc"})
                 response.headers.add('Access-Control-Allow-Origin', '*')
@@ -713,7 +715,7 @@ class MainClass(Resource):
                 info['state'] = "Paste"
                 info['clipboard'] = info.pop('cb')
             # add document to database
-            # activity.insert_one(info)
+            activity.insert_one(info)
             console.log(info)
 
             response = jsonify({"status": "Updated recent writing actions in doc"})
