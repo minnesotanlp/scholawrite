@@ -6,13 +6,13 @@ function clearError(){
     console.log("here")
     if (errMessage !== null){
         errMessage.forEach((node) => {
-            node.parentNode.removeChild(node);;
+            node.parentNode.removeChild(node);
         });
     }
     var notiMessage = document.querySelectorAll('p[style="color: black; font-size: 14px;"]');
     if (notiMessage !== null){
         notiMessage.forEach((node) => {
-            node.parentNode.removeChild(node);;
+            node.parentNode.removeChild(node);
         });
     }
 };
@@ -25,14 +25,34 @@ function showError(node, text){
     node.parentNode.insertBefore(textElement, node);
 }
 
+function addTextBox(event) {
+    const target = event.target;
+    const scroll_container = document.getElementsByClassName('scroll-container')[0];
+    const textbox_container = document.createElement('div');
+
+    const textBox = document.createElement('input');
+    textBox.type = 'text';
+    textBox.className = 'textbox';
+
+    const deleteButton = document.createElement('button');
+    deleteButton.textContent = 'Delete';
+    deleteButton.className = 'del';
+    deleteButton.onclick = function() {
+        scroll_container.removeChild(textbox_container);
+    };
+
+    textbox_container.className = 'textbox-container';
+    textbox_container.appendChild(textBox);
+    textbox_container.appendChild(deleteButton);
+    scroll_container.insertBefore(textbox_container, target);
+}
+
 document.addEventListener('DOMContentLoaded', function () {
     var checkbox = document.querySelector('input[type="checkbox"]');
     var loginForm = document.getElementById("loginForm");
     var regForm = document.getElementById("regForm");
     var logout = document.getElementById("lo");
     var welcomeMessage = document.getElementById("welcomeMessage");
-    var sendURL = document.getElementById("sendURL");
-    var server = document.getElementById("serverURL");
 
     chrome.storage.local.get(['username'], function(result) {
         if (result.username !== undefined){
@@ -81,29 +101,20 @@ document.addEventListener('DOMContentLoaded', function () {
         loginForm.style.display = "block";
     });
 
-    server.addEventListener('click', clearError);
+    // section for handling projectIDs
+    var manageIDs = document.getElementById("manageIDs");
+    var back = document.getElementById("back");
 
-    sendURL.addEventListener('click', function(){
-        var URLInput = (server.value).replaceAll(' ','');
-        server.value = URLInput;
-        clearError();
-        if (URLInput == ""){
-            showError(sendURL.nextSibling, "Invalid saver URL, please try again");
-        }
-        else{
-            serverURL = URLInput;
-            chrome.runtime.sendMessage({message: "serverURL", serverURL: URLInput});
-            chrome.storage.local.set({'server': URLInput}, function() {
-                  console.log('Sever URL saved successfully!');
-            });
-            var te = document.createElement("p");
-            te.innerText = "Successfully set up server URL!";
-            te.style.color = "black";
-            te.style.fontSize = "14px";
-            sendURL.parentNode.insertBefore(te, sendURL.nextSibling);
-        }
+    manageIDs.addEventListener('click', function(){
+        document.getElementById("control").style.display="none";
+        document.getElementById("manage").style.display="grid";
+    });
+    back.addEventListener('click', function(){
+        document.getElementById("manage").style.display="none";
+        document.getElementById("control").style.display="block";
     });
 
+    // section for handling login
     var login = document.querySelector('button[type="submit"][id="log"]');
     var username = document.getElementById("username");
     var password = document.getElementById("password");
@@ -120,8 +131,9 @@ document.addEventListener('DOMContentLoaded', function () {
             showError(login, "Invalid username/password, please try again");
         }
         else {
-            var code =400;
-            code = await postWriterText({state: "login", username: usernameInput, password: passwordInput});
+            var code = 400;
+            // code = await postWriterText({state: "login", username: usernameInput, password: passwordInput});
+            code = 300;
             if (code == 300){
                 chrome.storage.local.set({'username': usernameInput}, function() {
                   console.log('Data saved successfully!');
@@ -142,6 +154,7 @@ document.addEventListener('DOMContentLoaded', function () {
     });
     gr.addEventListener('click', function(){
         clearError();
+        document.documentElement.style.maxHeight = "450px";
         regForm.style.display = "block";
         loginForm.style.display = "none";
     });
@@ -191,9 +204,14 @@ document.addEventListener('DOMContentLoaded', function () {
     });
     gl.addEventListener('click', function(){
         clearError();
+        document.documentElement.style.maxHeight = "400px";
         regForm.style.display = "none";
         loginForm.style.display = "block";
     });
+
+    //section to manage tracking project IDs
+    var add = document.getElementById("add");
+    add.addEventListener("click", addTextBox);
 });
 
 async function postWriterText(activity) {
