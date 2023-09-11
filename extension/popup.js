@@ -1,5 +1,6 @@
 let serverURL;
-serverURL = ""
+let usernameInput;
+serverURL = " http://127.0.0.1:5000"
 
 function clearError(){
     var errMessage = document.querySelectorAll('p[style="color: red; font-size: 14px;"]');
@@ -17,18 +18,24 @@ function clearError(){
     }
 };
 
-function showError(node, text){
+function showError(pos, node, text){
     var textElement = document.createElement("p");
     textElement.innerText = text;
     textElement.style.color = "red";
     textElement.style.fontSize = "14px";
-    node.parentNode.insertBefore(textElement, node);
+    if (pos === 1){
+        node.parentNode.insertBefore(textElement, node);
+    }
+    else if (pos === 2){
+        node.parentNode.insertBefore(textElement, node.nextElementSibling);
+    }
 }
 
 function addTextBox(event) {
     const target = event.target;
-    const scroll_container = document.getElementsByClassName('scroll-container')[0];
-    const textbox_container = document.createElement('div');
+    const scrollContainer = document.getElementsByClassName('scroll-container')[0];
+    const textboxContainer = document.createElement('div');
+    textboxContainer.className = 'textbox-container';
 
     const textBox = document.createElement('input');
     textBox.type = 'text';
@@ -38,13 +45,12 @@ function addTextBox(event) {
     deleteButton.textContent = 'Delete';
     deleteButton.className = 'del';
     deleteButton.onclick = function() {
-        scroll_container.removeChild(textbox_container);
+        scrollContainer.removeChild(textboxContainer);
     };
 
-    textbox_container.className = 'textbox-container';
-    textbox_container.appendChild(textBox);
-    textbox_container.appendChild(deleteButton);
-    scroll_container.insertBefore(textbox_container, target);
+    textboxContainer.appendChild(textBox);
+    textboxContainer.appendChild(deleteButton);
+    scrollContainer.insertBefore(textboxContainer, target);
 }
 
 document.addEventListener('DOMContentLoaded', function () {
@@ -57,6 +63,7 @@ document.addEventListener('DOMContentLoaded', function () {
     chrome.storage.local.get(['username'], function(result) {
         if (result.username !== undefined){
             loginForm.style.display = "none";
+            usernameInput = result.username;
             welcomeMessage.innerHTML = "Welcome, " + result.username;
             welcomeMessage.style.display = "block";
             logout.style.display = "block";
@@ -72,24 +79,31 @@ document.addEventListener('DOMContentLoaded', function () {
         });
     });
 
-    chrome.storage.local.get('server', function (result) {
-        if (result.server !== undefined && result.server !== ""){
-            serverURL = result.server;
-            server.value = serverURL;
-        }
+    checkbox.addEventListener('click', async function () {
+        clearError();
+        var tempUsername = "";
+        chrome.storage.local.get(['username'], function(result) {
+            console.log(result);
+            tempUsername = result.username;
+            if ((tempUsername === "" || tempUsername === undefined) && checkbox.checked==true){
+                var target = document.getElementsByClassName("sliderWrapper")[0]
+                showError(2, target, "Please login/register before turn on the switch");
+                checkbox.checked = false;
+            }
+            else {
+                console.log(checkbox.checked);
+                chrome.tabs.query({active: true, currentWindow: true}, function(tabs) {
+                    chrome.tabs.sendMessage(tabs[0].id, {toggle: checkbox.checked}, function (response) {
+                    });
+                });
+                chrome.storage.local.set({ 'enabled': checkbox.checked }, function () {
+                    console.log("confirmed");
+                });
+            }
+        });
     });
 
-    checkbox.addEventListener('click', function () {
-        console.log(checkbox.checked);
-        chrome.tabs.query({active: true, currentWindow: true}, function(tabs) {
-            chrome.tabs.sendMessage(tabs[0].id, {toggle: checkbox.checked}, function (response) {
-            });
-        });
-        chrome.storage.local.set({ 'enabled': checkbox.checked }, function () {
-            console.log("confirmed");
-        });
-    });
-
+    // section for handling logout
     logout.addEventListener('click', function(){
         chrome.storage.local.remove('username', function() {
             console.log('Item has been removed from local storage');
@@ -105,9 +119,19 @@ document.addEventListener('DOMContentLoaded', function () {
     var manageIDs = document.getElementById("manageIDs");
     var back = document.getElementById("back");
 
-    manageIDs.addEventListener('click', function(){
-        document.getElementById("control").style.display="none";
-        document.getElementById("manage").style.display="grid";
+    manageIDs.addEventListener('click', async function(){
+        clearError();
+        var tempUsername = ""
+        chrome.storage.local.get(['username'], function(result) {
+            tempUsername = result.username;
+            if (tempUsername === "" || tempUsername === undefined){
+                showError(2, manageIDs, "Please login/register before manage your IDs");
+            }
+            else {
+                document.getElementById("control").style.display="none";
+                document.getElementById("manage").style.display="grid";
+            }
+        });
     });
     back.addEventListener('click', function(){
         document.getElementById("manage").style.display="none";
@@ -125,14 +149,14 @@ document.addEventListener('DOMContentLoaded', function () {
 
     login.addEventListener('click', async function(){
         clearError();
-        var usernameInput = username.value;
+        usernameInput = username.value;
         var passwordInput = password.value;
         if (usernameInput == "" || passwordInput == ""){
-            showError(login, "Invalid username/password, please try again");
+            showError(1, login, "Invalid username/password, please try again");
         }
         else {
             var code = 400;
-            // code = await postWriterText({state: "login", username: usernameInput, password: passwordInput});
+            code = await postWriterText(1, {state: "login", username: usernameInput, password: passwordInput});
             code = 300;
             if (code == 300){
                 chrome.storage.local.set({'username': usernameInput}, function() {
@@ -145,16 +169,16 @@ document.addEventListener('DOMContentLoaded', function () {
                 chrome.runtime.sendMessage({message: "username", username: usernameInput});
             }
             else if (code == 100){
-                showError(login, "Incorrect username/password, please try again");
+                showError(1, login, "Incorrect username/password, please try again");
             }
             else if (code == 400){
-                showError(login, "Sever error encountered, please try again");
+                showError(1, login, "Sever error encountered, please try again");
             }
         }
     });
     gr.addEventListener('click', function(){
         clearError();
-        document.documentElement.style.maxHeight = "450px";
+        document.documentElement.style.maxHeight = "460px";
         regForm.style.display = "block";
         loginForm.style.display = "none";
     });
@@ -172,18 +196,18 @@ document.addEventListener('DOMContentLoaded', function () {
 
     register.addEventListener('click', async function(){
     	clearError();
-        var usernameInput = newUser.value;
+        usernameInput = newUser.value;
         var passwordInput = newPass.value;
         var confirmPassInput = confirmPass.value;
         if (usernameInput == "" || passwordInput == "" || confirmPassInput == ""){
-            showError(register, "Invalid username/password, please try again");
+            showError(1, register, "Invalid username/password, please try again");
         }
         else if (passwordInput !== confirmPassInput){
-            showError(register, "Two passwords mismatch, please try again");
+            showError(1, register, "Two passwords mismatch, please try again");
         }
         else {
             var match = 400
-            match = await postWriterText({state: "register", username: usernameInput, password: passwordInput});
+            match = await postWriterText(1, {state: "register", username: usernameInput, password: passwordInput});
             if (match == 300){
                 chrome.storage.local.set({'username': usernameInput}, function() {
                   console.log('Data saved successfully!');
@@ -195,43 +219,91 @@ document.addEventListener('DOMContentLoaded', function () {
                 chrome.runtime.sendMessage({message: "username", username: usernameInput});
             }
             else if (match == 200){
-                showError(register, "User already exist, choose another name or login");
+                showError(1, register, "User already exist, choose another name or login");
             }
             else if(match == 400){
-                showError(register, "Sever error encountered, please try again");
+                showError(1, register, "Sever error encountered, please try again");
             }
         }
     });
     gl.addEventListener('click', function(){
         clearError();
-        document.documentElement.style.maxHeight = "400px";
+        document.documentElement.style.maxHeight = "410px";
         regForm.style.display = "none";
         loginForm.style.display = "block";
     });
 
     //section to manage tracking project IDs
-    var add = document.getElementById("add");
+    const add = document.getElementById("add");
     add.addEventListener("click", addTextBox);
+    const del = document.getElementById("deleteAtTop");
+    del.addEventListener("click", function(event){
+        event.target.previousElementSibling.value = "";
+    });
+
+    const save = document.getElementById("save");
+    save.addEventListener("click", async function(){
+        buttons_and_inputs= document.getElementById("manage").querySelectorAll('*');
+        buttons_and_inputs.forEach(function (element) {
+            element.disabled = true;
+        });
+        document.getElementById("manage").style.filter = "blur(3Px)";
+        document.getElementById("spinner").style.display = "block";
+        var projectIDs = []
+        textboxContainers = document.getElementsByClassName("textbox-container");
+        for (var i = 0; i<textboxContainers.length; i++){
+            if (textboxContainers[i].children[0].value !== ""){
+                projectIDs.push(textboxContainers[i].children[0].value);
+            }
+        }
+        console.log(projectIDs);
+        await postWriterText(2, {username: usernameInput, project_IDs: projectIDs});
+        buttons_and_inputs.forEach(function (element) {
+            element.removeAttribute('disabled');
+        });
+        document.getElementById("manage").style.filter = "";
+        document.getElementById("spinner").style.display = "none";
+    });
 });
 
-async function postWriterText(activity) {
+async function postWriterText(task, activity) {
     try {
-        const response = await fetch(serverURL + "/ReWARD/system", {
-            // mode: 'no-cors',
-            headers: {
-                'Accept': 'application/json',
-                'Content-Type': 'application/json'
-            },
-            method: 'POST',
-            body: JSON.stringify(activity),
-        })
-        const message = await response.json();
-        console.log(message);
-        // 100: Wrong username/password
-        // 200: User already exist
-        // 300: pass
-        // 400: server error
-        return message.status
+        if (task === 1){
+            const response = await fetch(serverURL + "/ReWARD/system", {
+                // mode: 'no-cors',
+                headers: {
+                    'Accept': 'application/json',
+                    'Content-Type': 'application/json'
+                },
+                method: 'POST',
+                body: JSON.stringify(activity),
+            })
+            const message = await response.json();
+            console.log(message);
+            // 100: Wrong username/password
+            // 200: User already exist
+            // 300: pass
+            // 400: server error
+            return message.status
+        }
+        else if (task === 2){
+            const response = await fetch(serverURL + "/ReWARD/ids", {
+                // mode: 'no-cors',
+                headers: {
+                    'Accept': 'application/json',
+                    'Content-Type': 'application/json'
+                },
+                method: 'POST',
+                body: JSON.stringify(activity),
+            })
+            const message = await response.json();
+            console.log(message);
+            // 100: Wrong username/password
+            // 200: User already exist
+            // 300: pass
+            // 400: server error
+            return message.status
+        }
     }
     catch (err){
         console.log('failed to fetch');

@@ -128,6 +128,7 @@ client = MongoClient('localhost', 27017)
 db = client.flask_db
 activity = db.activity
 user_data = db["user_data"]
+project_IDs = db["project_IDs"]
 
 
 @name_space.route("/activity")
@@ -841,6 +842,37 @@ class MainClass(Resource):
         response.headers.add('Access-Control-Allow-Methods', 'POST, OPTIONS')
         response.headers.add('Access-Control-Allow-Headers', 'Content-Type')
         return response
+
+
+@name_space.route("/ids")
+class MainClass(Resource):
+    @app.doc(responses={200: 'OK', 400: 'Invalid Argument', 500: 'Mapping Key Error'},
+             params={'activity': 'data from most recent writing activity',
+                     'timestamp': 'The time at which writer action was recorded'})
+    @app.expect(model)
+    def post(self):
+        try:
+            response = jsonify()
+            if request.method == 'POST':
+                info = request.get_json(force=True)
+                collection_filter = {'username': info['username']}
+                new_values = {"$set": {'project_IDs': info['project_IDs']}}
+                project_IDs.update_one(collection_filter, new_values, upsert=True)
+
+            response.headers.add('Access-Control-Allow-Origin', '*')
+            response.headers.add('Access-Control-Allow-Credentials', 'true')
+            response.headers.add('Access-Control-Allow-Headers', 'Content-Type')
+            response.headers.add('Access-Control-Allow-Methods', 'GET, POST, OPTIONS')
+            return response
+        except:
+            print(traceback.print_exc())
+            response = {"status": "no"}
+            response = jsonify(response)
+            response.headers.add('Access-Control-Allow-Origin', '*')
+            response.headers.add('Access-Control-Allow-Credentials', 'true')
+            response.headers.add('Access-Control-Allow-Headers', 'Content-Type')
+            response.headers.add('Access-Control-Allow-Methods', 'GET, POST, OPTIONS')
+            return response
 
 if __name__ == "__main__":
     ENVIRONMENT_DEBUG = os.environ.get("APP_DEBUG", True)

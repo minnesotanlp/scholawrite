@@ -184,3 +184,12 @@ p:hover {
 #add:hover {
     background-color: #45a049;
 }
+
+#spinner {
+  display: none;
+  font-size: 30px;
+  position: absolute;
+  top: 50%;
+  left: 46%;
+  color: #3498DB;
+}
