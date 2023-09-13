@@ -1,6 +1,12 @@
 let serverURL;
 let usernameInput;
+let projectIDs;
 serverURL = " http://127.0.0.1:5000"
+
+chrome.storage.local.get(["projectIDs"], async function(result){
+    projectIDs = result.projectIDs;
+    console.log(projectIDs);
+});
 
 function clearError(){
     var errMessage = document.querySelectorAll('p[style="color: red; font-size: 14px;"]');
@@ -14,6 +20,13 @@ function clearError(){
     if (notiMessage !== null){
         notiMessage.forEach((node) => {
             node.parentNode.removeChild(node);
+        });
+    }
+
+    var dividers = document.querySelectorAll('.divider');
+    if (dividers !== null){
+        dividers.forEach((node) => {
+            node.style.margin = "20px 0";
         });
     }
 };
@@ -31,15 +44,16 @@ function showError(pos, node, text){
     }
 }
 
-function addTextBox(event) {
-    const target = event.target;
-    const scrollContainer = document.getElementsByClassName('scroll-container')[0];
+function addTextBox(innerID) {
+    const target = document.getElementById("add");
     const textboxContainer = document.createElement('div');
+    const scrollContainer = document.getElementsByClassName('scroll-container')[0];
     textboxContainer.className = 'textbox-container';
 
     const textBox = document.createElement('input');
     textBox.type = 'text';
     textBox.className = 'textbox';
+    textBox.value = innerID;
 
     const deleteButton = document.createElement('button');
     deleteButton.textContent = 'Delete';
@@ -115,30 +129,12 @@ document.addEventListener('DOMContentLoaded', function () {
         loginForm.style.display = "block";
     });
 
-    // section for handling projectIDs
-    var manageIDs = document.getElementById("manageIDs");
-    var back = document.getElementById("back");
-
-    manageIDs.addEventListener('click', async function(){
-        clearError();
-        var tempUsername = ""
-        chrome.storage.local.get(['username'], function(result) {
-            tempUsername = result.username;
-            if (tempUsername === "" || tempUsername === undefined){
-                showError(2, manageIDs, "Please login/register before manage your IDs");
-            }
-            else {
-                document.getElementById("control").style.display="none";
-                document.getElementById("manage").style.display="grid";
-            }
-        });
-    });
-    back.addEventListener('click', function(){
-        document.getElementById("manage").style.display="none";
-        document.getElementById("control").style.display="block";
-    });
 
     // section for handling login
+    // 100: Wrong username/password
+    // 200: User already exist
+    // 300: pass
+    // 400: server error
     var login = document.querySelector('button[type="submit"][id="log"]');
     var username = document.getElementById("username");
     var password = document.getElementById("password");
@@ -155,10 +151,10 @@ document.addEventListener('DOMContentLoaded', function () {
             showError(1, login, "Invalid username/password, please try again");
         }
         else {
-            var code = 400;
-            code = await postWriterText(1, {state: "login", username: usernameInput, password: passwordInput});
-            code = 300;
-            if (code == 300){
+            var json, status;
+            json = await postWriterText(1, {state: "login", username: usernameInput, password: passwordInput});
+            status = json.status;
+            if (status == 300){
                 chrome.storage.local.set({'username': usernameInput}, function() {
                   console.log('Data saved successfully!');
                 });
@@ -168,10 +164,10 @@ document.addEventListener('DOMContentLoaded', function () {
                 logout.style.display = "block";
                 chrome.runtime.sendMessage({message: "username", username: usernameInput});
             }
-            else if (code == 100){
+            else if (status == 100){
                 showError(1, login, "Incorrect username/password, please try again");
             }
-            else if (code == 400){
+            else if (status == 400){
                 showError(1, login, "Sever error encountered, please try again");
             }
         }
@@ -206,11 +202,12 @@ document.addEventListener('DOMContentLoaded', function () {
             showError(1, register, "Two passwords mismatch, please try again");
         }
         else {
-            var match = 400
-            match = await postWriterText(1, {state: "register", username: usernameInput, password: passwordInput});
-            if (match == 300){
+            var json, status
+            json = await postWriterText(1, {state: "register", username: usernameInput, password: passwordInput});
+            status = json.status;
+            if (status == 300){
                 chrome.storage.local.set({'username': usernameInput}, function() {
-                  console.log('Data saved successfully!');
+                  console.log('username saved successfully!');
                 });
                 regForm.style.display = "none";
                 welcomeMessage.innerHTML = "Welcome, " + usernameInput;
@@ -218,11 +215,11 @@ document.addEventListener('DOMContentLoaded', function () {
                 logout.style.display = "block";
                 chrome.runtime.sendMessage({message: "username", username: usernameInput});
             }
-            else if (match == 200){
+            else if (status == 200){
                 showError(1, register, "User already exist, choose another name or login");
             }
-            else if(match == 400){
-                showError(1, register, "Sever error encountered, please try again");
+            else if(status == 400){
+                showError(1, register, "Sever error encountered, please try later");
             }
         }
     });
@@ -233,9 +230,70 @@ document.addEventListener('DOMContentLoaded', function () {
         loginForm.style.display = "block";
     });
 
-    //section to manage tracking project IDs
+    //section to handling project IDs tracking
+    // 300: pass
+    // 400: server error
+    // 500: network error
+    var manageIDs = document.getElementById("manageIDs");
+    var back = document.getElementById("back");
+    back.addEventListener('click', function(){
+        clearError();
+        document.getElementById("manage").style.display="none";
+        document.getElementById("control").style.display="block";
+    });
+    const scrollContainer = document.getElementsByClassName('scroll-container')[0];
+    scrollContainer.addEventListener("click", clearError);
+
+    manageIDs.addEventListener('click', function(){
+        clearError();
+        var tempUsername = ""
+        chrome.storage.local.get(['username'], async function(result) {
+            tempUsername = result.username;
+            if (tempUsername === "" || tempUsername === undefined){
+                showError(2, manageIDs, "Please login/register before manage your IDs");
+            }
+            else {
+                manageIDs.innerText = "";
+                manageIDs.style.padding = "7px";
+                manageIDs.innerHTML = `<i class="fa fa-spinner fa-spin" aria-hidden="true" style="font-size: 22px;"/i>`;
+                manageIDs.disabled = true;
+                var json, status;
+                if (projectIDs?.length === 0 || projectIDs?.length === undefined){
+                    json = await postWriterText(2, {task: "getIDs", username: usernameInput});
+                    status = json.status;
+                }
+                if (status === 300){
+                    projectIDs = json.project_IDs;
+                    document.getElementById("textAtTop").value = projectIDs[0];
+                    for (let i = 1; i < projectIDs.length; i++) {
+                        addTextBox(projectIDs[i]);
+                    }
+                    document.getElementById("control").style.display="none";
+                    document.getElementById("manage").style.display="grid";
+                }
+                else if (status === 400){
+                    showError(2, manageIDs, "Sever error encountered, please try again later");
+                }
+                else if (status === 500){
+                    showError(2, manageIDs, "Network error, please check internet connection");
+                }
+                else{
+                    document.getElementById("textAtTop").value = projectIDs[0];
+                    for (let i = 1; i < projectIDs.length; i++) {
+                        addTextBox(projectIDs[i]);
+                    }
+                    document.getElementById("control").style.display="none";
+                    document.getElementById("manage").style.display="grid";
+                }
+                manageIDs.innerText = "Manage your project IDs";
+                manageIDs.style.padding = "10px";
+                manageIDs.removeAttribute("disabled");
+           }
+        });
+    });
+
     const add = document.getElementById("add");
-    add.addEventListener("click", addTextBox);
+    add.addEventListener("click", function(){addTextBox("");});
     const del = document.getElementById("deleteAtTop");
     del.addEventListener("click", function(event){
         event.target.previousElementSibling.value = "";
@@ -243,23 +301,43 @@ document.addEventListener('DOMContentLoaded', function () {
 
     const save = document.getElementById("save");
     save.addEventListener("click", async function(){
+        clearError();
         buttons_and_inputs= document.getElementById("manage").querySelectorAll('*');
         buttons_and_inputs.forEach(function (element) {
             element.disabled = true;
         });
         document.getElementById("manage").style.filter = "blur(3Px)";
         document.getElementById("spinner").style.display = "block";
-        var projectIDs = []
+        temp_projectIDs = []
         textboxContainers = document.getElementsByClassName("textbox-container");
         for (var i = 0; i<textboxContainers.length; i++){
             if (textboxContainers[i].children[0].value !== ""){
-                projectIDs.push(textboxContainers[i].children[0].value);
+                temp_projectIDs.push(textboxContainers[i].children[0].value);
             }
         }
-        console.log(projectIDs);
-        await postWriterText(2, {username: usernameInput, project_IDs: projectIDs});
+        console.log(temp_projectIDs);
+        var json = await postWriterText(2, {task: "setIDs",username: usernameInput, project_IDs: temp_projectIDs});
+        var status = json.status;
+        if (status === 300){
+            projectIDs = temp_projectIDs;
+            chrome.storage.local.set({"projectIDs": projectIDs}, function() {
+                  console.log('project IDs saved successfully!');
+            });
+            buttons_and_inputs.forEach(function (element) {
+                element.removeAttribute('disabled');
+            });
+            document.getElementById("manage").style.filter = "";
+            document.getElementById("spinner").style.display = "none";
+        }
+        else if (status === 400){
+            save.parentElement.previousElementSibling.style.margin = "20px 0px 0px";
+            showError(1, save.parentElement, "Sever error encountered, please try again later");
+        }
+        else if (status === 500){
+            showError(1, save.parentElement, "Network error, please check internet connection");
+        }
         buttons_and_inputs.forEach(function (element) {
-            element.removeAttribute('disabled');
+            element.removeAttribute("disabled");
         });
         document.getElementById("manage").style.filter = "";
         document.getElementById("spinner").style.display = "none";
@@ -280,11 +358,7 @@ async function postWriterText(task, activity) {
             })
             const message = await response.json();
             console.log(message);
-            // 100: Wrong username/password
-            // 200: User already exist
-            // 300: pass
-            // 400: server error
-            return message.status
+            return message
         }
         else if (task === 2){
             const response = await fetch(serverURL + "/ReWARD/ids", {
@@ -298,15 +372,11 @@ async function postWriterText(task, activity) {
             })
             const message = await response.json();
             console.log(message);
-            // 100: Wrong username/password
-            // 200: User already exist
-            // 300: pass
-            // 400: server error
-            return message.status
+            return message
         }
     }
     catch (err){
         console.log('failed to fetch');
-        return 400;
+        return {status: 500};
     }
 }

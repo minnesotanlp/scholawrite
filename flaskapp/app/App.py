@@ -855,10 +855,16 @@ class MainClass(Resource):
             response = jsonify()
             if request.method == 'POST':
                 info = request.get_json(force=True)
-                collection_filter = {'username': info['username']}
-                new_values = {"$set": {'project_IDs': info['project_IDs']}}
-                project_IDs.update_one(collection_filter, new_values, upsert=True)
-
+                if info["task"] == "getIDs":
+                    user_ids = project_IDs.find({'username': info['username']})
+                    response = jsonify({"status": 300, "project_IDs": user_ids[0]["project_IDs"]})
+                    console.log({"status": 300, 'username': info['username'], "project_IDs": user_ids[0]["project_IDs"], "message": "project IDs send"})
+                else:
+                    collection_filter = {'username': info['username']}
+                    new_values = {"$set": {'project_IDs': info['project_IDs']}}
+                    project_IDs.update_one(collection_filter, new_values, upsert=True)
+                    response = jsonify({"status": 300})
+                    console.log({"status": 300, 'username': info['username'], 'project_IDs': info['project_IDs'], "message": "project IDs saved"})
             response.headers.add('Access-Control-Allow-Origin', '*')
             response.headers.add('Access-Control-Allow-Credentials', 'true')
             response.headers.add('Access-Control-Allow-Headers', 'Content-Type')
@@ -866,7 +872,7 @@ class MainClass(Resource):
             return response
         except:
             print(traceback.print_exc())
-            response = {"status": "no"}
+            response = {"status": 400}
             response = jsonify(response)
             response.headers.add('Access-Control-Allow-Origin', '*')
             response.headers.add('Access-Control-Allow-Credentials', 'true')
