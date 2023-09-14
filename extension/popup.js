@@ -1,7 +1,8 @@
 let serverURL;
 let usernameInput;
 let projectIDs;
-serverURL = " http://127.0.0.1:5000"
+// serverURL = "http://127.0.0.1:5000"
+serverURL = "https://scholawrite.ngrok.app/"
 
 chrome.storage.local.get(["projectIDs"], async function(result){
     projectIDs = result.projectIDs;
