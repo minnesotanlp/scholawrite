@@ -19,8 +19,11 @@ dmp = dmp_module.diff_match_patch()
 
 console = Console()
 
-sent_tokenizer = spacy.load("en_core_web_sm")
-
+try:
+    sent_tokenizer = spacy.load("en_core_web_sm")
+except OSError:
+    os.system("spacy download en_core_web_sm")
+    sent_tokenizer = spacy.load("en_core_web_sm")
 
 application = Flask(__name__)
 CORS(application)
@@ -125,7 +128,7 @@ def get_collection():
 
 
 # create database instance
-# db = get_collection()
+
 client = MongoClient('mongo', 27017)
 db = client.flask_db
 activity = db.activity
@@ -193,11 +196,36 @@ class MainClass(Resource):
             k += 1
         return splited
 
+    def findfront(self, i, skip, text):
+        front = ""
+        check = 0
+        if (text[i][1].count('\n') == 1) or (text[i][1].count(' ') == 1 and len(text[i][1]) > 1
+                                             and self.exist_and_not_skip(i - 1, text, skip)):
+            return check, front
+        for k in range(i - 1, -1, -1):
+            if text[k][0] == skip:
+                check = 1
+                k -= 1
+            else:
+                if (text[k][1].rfind(" ") == (len(text[k][1]) - 1)) or (text[k][1].rfind("\n") == (len(text[k][1]) - 1)):
+                    return check, front
+                elif (text[k][1].rfind(" ") != 0) or (text[k][1].rfind("\n") != 0):
+                    idx2 = text[k][1].rfind(" ")
+                    idx3 = text[k][1].rfind("\n")
+                    if idx3 > idx2:
+                        idx2 = idx3
+                    if idx2 == -1:
+                        front = text[k][1] + front
+                    else:
+                        front = text[k][1][idx2 + 1:] + front
+                        return check, front
+        return check, front
+
     def findback(self, i, type, skip, text):
         back = ""
         check = 0
-        if ("\n" in text[i][1]) or (
-                " " in text[i][1] and len(text[i][1]) > 1 and self.exist_and_not_skip(i + 1, text, skip)):
+        if (text[i][1].count('\n') == 1) or (
+                text[i][1].count(' ') == 1 and len(text[i][1]) > 1 and self.exist_and_not_skip(i + 1, text, skip)):
             return check, back
         for k in range(i + 1, len(text)):
             if text[k][0] == skip or len(text[k]) > 2:
@@ -218,6 +246,7 @@ class MainClass(Resource):
                     idx = idx1
                 if text[k][0] != 0:
                     text[k].append(1)
+                    back += text[k][1]
                 if idx == 0:
                     if text[k][0] == type:
                         back += text[k][1]
@@ -232,32 +261,6 @@ class MainClass(Resource):
                             back += text[k][1][:idx]
                         return check, back
         return check, back
-
-    def findfront(self, i, skip, text):
-        front = ""
-        check = 0
-        if ("\n" in text[i][1]) or (
-                " " in text[i][1] and len(text[i][1]) > 1 and self.exist_and_not_skip(i - 1, text, skip)):
-            return check, front
-        for k in range(i - 1, -1, -1):
-            if text[k][0] == skip:
-                check = 1
-                k -= 1
-            else:
-                if (text[k][1].rfind(" ") == (len(text[k][1]) - 1)) or (
-                        text[k][1].rfind("\n") == (len(text[k][1]) - 1)):
-                    return check, front
-                elif (text[k][1].rfind(" ") != 0) or (text[k][1].rfind("\n") != 0):
-                    idx2 = text[k][1].rfind(" ")
-                    idx3 = text[k][1].rfind("\n")
-                    if idx3 > idx2:
-                        idx2 = idx3
-                    if idx2 == -1:
-                        front = text[k][1] + front
-                    else:
-                        front = text[k][1][idx2 + 1:] + front
-                        return check, front
-        return check, front
 
     def countChar(self, op, i, text):
         pos = 0
@@ -320,7 +323,7 @@ class MainClass(Resource):
                     swapword.append(
                         '(' + str(lineNum) + ',' + str(pos - len(front)) + ')' + ", " + front + text[i][
                             1] + back + "->")
-                elif front + back != "":
+                elif back != "":
                     check2, front1 = self.findfront(i, -1, text)
                     check1, back1 = self.findback(i, -1, -1, text)
                     changes.append('(' + str(lineNum) + ',' + str(pos - len(front)) + ')' + ", " + front + text[i][
@@ -329,14 +332,16 @@ class MainClass(Resource):
                     changes.append('(' + str(lineNum) + ',' + str(pos) + ')' + ", " + text[i][1] + "---deleted")
 
             elif (text[i][0] == -1) and i == 0:
-                check1, back = self.findback(i, -1, 1, text)
                 pos = self.countChar(-1, i, text)
-                if front + back != "":
-                    check1, back1 = self.findback(i, -1, -1, text)
-                    changes.append('(' + str(lineNum) + ',' + str(pos - len(front)) + ')' + ", " + front + text[i][
-                        1] + back + "->" + front + back1)
-                else:
+                if " " in text[i][1] or "\n" in text[i][1]:
                     changes.append('(' + str(lineNum) + ',' + str(pos) + ')' + ", " + text[i][1] + "---deleted")
+                else:
+                    if front + back != "":
+                        check1, back1 = self.findback(i, -1, -1, text)
+                        changes.append('(' + str(lineNum) + ',' + str(pos - len(front)) + ')' + ", " + front + text[i][
+                            1] + back + "->" + front + back1)
+                    else:
+                        changes.append('(' + str(lineNum) + ',' + str(pos) + ')' + ", " + text[i][1] + "---deleted")
 
             elif (text[i][0] == -1) and (i + 1 == length):
                 pos = self.countChar(-1, i, text)
@@ -382,16 +387,19 @@ class MainClass(Resource):
                         changes.append('(' + str(lineNum) + ',' + str(pos) + ')' + ", " + text[i][1] + "---added")
 
             elif (text[i][0] == 1) and (i == 0):
-                check1, back = self.findback(i, 1, -1, text)
                 pos = self.countChar(1, i, text)
-                if front + back != "":
-                    check1, back1 = self.findback(i, 1, 1, text)
-                    changes.append(
-                        '(' + str(lineNum) + ',' + str(pos - len(front)) + ')' + ", " + front + back1 + "->" + front +
-                        text[i][
-                            1] + back)
+                if text[i][1][0] == " " or text[i][1][0] == "\n":
+                    changes.append('(' + str(lineNum) + ',' + str(pos) + ')' + ", " +
+                                   text[i][1] + "---added")
                 else:
-                    changes.append('(' + str(lineNum) + ',' + str(pos) + ')' + ", " + text[i][1] + "---added")
+                    check1, back = self.findback(i, 1, -1, text)
+                    if front + back != "":
+                        check1, back1 = self.findback(i, 1, 1, text)
+                        changes.append('(' + str(lineNum) + ',' + str(pos - len(front)) + ')' +
+                                       ", " + front + back1 + "->" + front + text[i][1] + back)
+                    else:
+                        changes.append('(' + str(lineNum) + ',' + str(pos) + ')' + ", " +
+                                       text[i][1] + "---added")
             elif (text[i][0] == 1) and (i + 1 == length):
                 check, front = self.findfront(i, -1, text)
                 pos = self.countChar(1, i, text)
@@ -448,7 +456,7 @@ class MainClass(Resource):
             print("".join(cur[:]), "--added")
             return
 
-        # const_pre and const_cur is use to reconstruct the original text
+        # const_pre and const_cur is used to reconstruct the original text
         original_pre = copy.deepcopy(pre)
         original_cur = copy.deepcopy(cur)
         for k in range(len(pre)):

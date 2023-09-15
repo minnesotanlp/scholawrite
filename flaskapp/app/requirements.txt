@@ -4,4 +4,7 @@ requests==2.20.1
 flask-restful
 flask-restx
 nltk
-pickle
+rich
+pymongo
+spacy
+bcrypt

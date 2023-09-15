@@ -72,8 +72,8 @@ label {
   margin: 20px 0;
 }
 
-input[type="text"],
-input[type="password"] {
+.username,
+.password {
   width: 90%;
   margin-bottom: 10px;
   padding: 10px;
@@ -98,7 +98,7 @@ input[type="password"] {
   width: 30%;
 }
 
-button {
+.greenButton {
   font-size: 15px;
   width: 100%;
   padding: 10px;
@@ -106,10 +106,9 @@ button {
   color: #fff;
   border: none;
   border-radius: 3px;
-  cursor: pointer;
 }
 
-button:hover {
+.greenButton:hover {
   background-color: #45a049;
 }
 
@@ -133,4 +132,55 @@ p{
 
 p:hover {
   color: darkblue;
+}
+
+#manage {
+    margin-top: 20px;
+    display: none;
+    justify-content: center;
+}
+
+.scroll-container {
+    width: 245px;
+    max-height: 175px; /* Adjust the height as needed */
+    overflow-y: auto;
+    display: grid;
+    justify-content: center;
+}
+
+.textbox-container {
+    margin-bottom: 10px;
+}
+
+.textbox {
+    margin-right: 3px;
+}
+
+.action {
+    display: flex;
+    justify-content: space-between;
+}
+
+.del {
+    background-color: #FA8072;
+    border-color: #FA8072;
+    color: white;
+    border-radius: 5px;
+}
+
+.del:hover {
+    background-color: #e74c3c;
+    border-color: #e74c3c;
+}
+
+#add {
+    border: none;
+    padding: 5px;
+    background-color: #4CAF50;
+    color: white;
+    border-radius: 5px;
+}
+
+#add:hover {
+    background-color: #45a049;
 }

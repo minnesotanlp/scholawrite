@@ -36,7 +36,6 @@ chrome.storage.local.get(['username'], function(result) {
 
 chrome.runtime.onMessage.addListener(
     function (request, sender, sendResponse) {
-        console.log("Entered");
         text = text.filter(function(element) {return element !== undefined;});
         console.log(text);
         projectID = request.project_id
@@ -58,8 +57,7 @@ chrome.runtime.onMessage.addListener(
         }
         else if (request.message == "user_selection"){
             var d = new Date();
-            var ms = d.getMilliseconds();
-            var time = d.toString().slice(0,24)+':'+ms+d.toString().slice(24,);
+            var time = d.getTime();
             if (request.accept == false){
                 postWriterText({state: "user_selection", username: username, timestamp: time, accept: false});
             }
@@ -71,8 +69,7 @@ chrome.runtime.onMessage.addListener(
         }
         else if (request.message == "assist"){
             var d = new Date();
-            var ms = d.getMilliseconds();
-            var time = d.toString().slice(0,24)+':'+ms+d.toString().slice(24,);
+            var time = d.getTime();
             postWriterText({state: "assist", username: username, timestamp: time, project: projectID, file: filename, pre_content: request.pre_content,
             pos_content: request.pos_content, selected_text: request.selected_text, current_content: request.current_line_content,
             line: request.line});
@@ -80,11 +77,14 @@ chrome.runtime.onMessage.addListener(
         if (request.message == "listeners") {
             // process edits, find the diff, as additions or deletions
            console.log("***** press *****");
-           text.push(request.text);
            lineNumber = request.start;
+           // In the very beginning of writing, prelineNumber doesn't have a value.
+           // Therefore, we assign current active line number to it
            if (prelineNumber == null){
                prelineNumber = request.start;
            }
+           text.push(request.revisions);
+           // if user is editing on different line, we record writer action. If not, we keep tracking user's writing.
            if (prelineNumber != lineNumber && lineNumber != null){
                console.log("***** different line *****");
                trackWriterAction(4, text[0], request.text, prelineNumber);
@@ -96,6 +96,21 @@ chrome.runtime.onMessage.addListener(
                prelineNumber = lineNumber
            }
         }
+        else if (request.message == "load"){
+            console.log("load");
+            if (text.length == 0){
+                text = [request.text];
+            }
+        }
+        else if (request.message == "unload"){
+           console.log("unload");
+           onkey = "";
+           if (text.length >= 2){
+               trackWriterAction(4, text[0], text.at(-1), prelineNumber);
+           }
+           text = [];
+           prelineNumber = null;
+        }
         else if (request.message == "undo") {
             console.log("***** undo *****");
             text.push(request.text);
@@ -105,11 +120,17 @@ chrome.runtime.onMessage.addListener(
         else if (request.message == "hidden") {
             // process edits, find the diff, as additions or deletions
            console.log("***** hidden *****");
-           // text.push(request.text);
-           if (text[0] != null && request.revisions != null){
-               trackWriterAction(4, text[0], request.revisions, lineNumber);
+           console.log(request);
+           var temp = "";
+           if (request.revisions != ''){
+                temp = request.revisions;
+           }
+           else{
+                temp = request.text;
+           }
+           if (text[0] != null && temp != ''){
+               trackWriterAction(4, text[0], temp, lineNumber);
                prelineNumber = lineNumber
-               text = [request.revisions];
            }
         }
         else if (request.message == "scroll"){
@@ -204,7 +225,6 @@ function difference(paragraph, revisions) { // utilizing Myer's diff algorithm
 }
 
 // refactor to track writer input
-//TODO: support for other actions
 function trackWriterAction(state, writerText, revisions, ln) {
     // post comment to the backend
     let change = "addition";
@@ -235,7 +255,7 @@ function trackWriterAction(state, writerText, revisions, ln) {
         text = [revisions]
     }
     else if ((diff.length < 2 && diff[0][0] == 0) && (state== 0 || state == 4)) {
-        change = "no change";  //TODO: resolve issue, "no change" may also suggest movement to a new line
+        change = "no change";
     }
     else {
         if (state == 1 || state == 2) {
@@ -250,6 +270,7 @@ function trackWriterAction(state, writerText, revisions, ln) {
             changemade = difference(writerText, revisions)
             postWriterText({timestamp: time, username: username, project: projectID, file: filename, text: revisions, revision: changemade,
             state: state, cb: clipboard, line: ln, onkey: onkey})
+            text = [revisions]
         }
         else if(diff[1][0] === -1) {
             change = "deletion";
@@ -301,25 +322,3 @@ async function postWriterText(activity) {
         console.log('failed to fetch');
     }
 }
-
-//async function generateText(activity) {
-//    console.log(activity);
-//    const response = await fetch(serverURL + "/ReWARD/activity", {
-//        mode: 'no-cors',
-//        headers: {
-//            'Accept': 'application/json',
-//            'Content-Type': 'application/json'
-//        },
-//        method: 'GET',
-//        body: JSON.stringify(activity),
-//    }, async function (err, resp, body) {
-//        console.log("from main.py:");
-//        const message = await resp.json();
-//        console.log("from main.py:",message.status);
-//        chrome.tabs.query({active: true, currentWindow: true}, function(tabs) {
-//            chrome.tabs.sendMessage(tabs[0].id, {source: "chatgpt", suggestion: message.status, same_line_before: message.same_line_before, same_line_after: message.same_line_after, diffs_html: message.diffs_html}, function (response) {
-//            });
-//        });
-//    });
-//    return true;
-//}
