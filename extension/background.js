@@ -1,7 +1,6 @@
 let serverURL;
-// serverURL = "http://127.0.0.1:5000/"
-// serverURL = "http://localhost"
-serverURL =  "";
+//serverURL =  " http://127.0.0.1:5000";
+serverURL = "https://scholawrite.ngrok.app/";
 let headers = new Headers();
 headers.append('GET', 'POST', 'OPTIONS');
 headers.append('Access-Control-Allow-Origin', 'http://127.0.0.1:5000/');
@@ -22,11 +21,6 @@ let suggestion = ""
 let onkey = ""
 let username = ""
 
-chrome.storage.local.get(['server'], function(result) {
-    if (result.server !== undefined && result.server !== ""){
-        serverURL = result.server;
-    }
-});
 
 chrome.storage.local.get(['username'], function(result) {
     if (result.username !== undefined){
@@ -49,11 +43,6 @@ chrome.runtime.onMessage.addListener(
         else if (request.message == "logout"){
             console.log("I got logout");
             username = "";
-        }
-        else if (request.message == "serverURL"){
-            console.log("I got serverURL");
-            console.log(request.serverURL);
-            serverURL = request.serverURL;
         }
         else if (request.message == "user_selection"){
             var d = new Date();
