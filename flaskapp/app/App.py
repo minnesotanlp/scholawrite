@@ -2,6 +2,7 @@ import time
 import copy
 from flask import Flask, request, jsonify
 from flask_restx import Api, Resource, fields
+from flask_cors import CORS
 import warnings
 from typing import List, Tuple
 from dataclasses import dataclass, replace
@@ -22,10 +23,13 @@ sent_tokenizer = spacy.load("en_core_web_sm")
 
 
 application = Flask(__name__)
+CORS(application)
 app = Api(app=application,
           version="1.0",
           title="ReWARD",
           description="Record Writer Actions for Rhetorical Adjustments")
+
+
 
 name_space = app.namespace('ReWARD', description='Record writing activity')
 
@@ -37,7 +41,7 @@ model = app.model('Recording Writer Actions for Rhetorical Adjustment',
 # mongo = PyMongo(application)
 # db = mongo.db
 
-os.environ["OPENAI_API_KEY"] = ""
+os.environ["OPENAI_API_KEY"] = os.getenv("OPENAI_API_KEY")
 warnings.filterwarnings("ignore")
 MEMORY = 0
 suggestion = "abc"
@@ -122,11 +126,11 @@ def get_collection():
 
 # create database instance
 # db = get_collection()
-client = MongoClient('localhost', 27017)
+client = MongoClient('mongo', 27017)
 db = client.flask_db
 activity = db.activity
 user_data = db["user_data"]
-
+print("Databases:", client.list_database_names()) 
 
 @name_space.route("/activity")
 class MainClass(Resource):
@@ -568,6 +572,7 @@ class MainClass(Resource):
             if state == "assist":
                 # find where the selection begin
                 console.log(info)
+                print(info)
                 dmp.Match_Distance = 5000
                 start = dmp.match_main(info["current_content"], info["selected_text"], 0)
                 end = start + len(info["selected_text"]) - 1
@@ -628,6 +633,7 @@ class MainClass(Resource):
 
                 activity.insert_one(info)
                 console.log(info)
+                print(info)
                 data = {
                     "status": "ChatGPT",
                     "suggestion": paraphrase,
@@ -651,6 +657,7 @@ class MainClass(Resource):
 
                 activity.insert_one(info)
                 console.log(info)
+                print(info)
                 response = jsonify({"status": "Updated recent writing actions in doc"})
                 response.headers.add('Access-Control-Allow-Origin', '*')
                 response.headers.add('Access-Control-Allow-Credentials', 'true')
@@ -710,7 +717,7 @@ class MainClass(Resource):
             # add document to database
             activity.insert_one(info)
             console.log(info)
-
+            print(info)
             response = jsonify({"status": "Updated recent writing actions in doc"})
             response.headers.add('Access-Control-Allow-Origin', '*')
             response.headers.add('Access-Control-Allow-Credentials', 'true')
@@ -791,7 +798,7 @@ class MainClass(Resource):
                 }
                 response = jsonify(data)
                 console.log(data)
-
+                print(data)
                 response.headers.add('Access-Control-Allow-Origin', '*')
                 response.headers.add('Access-Control-Allow-Credentials', 'true')
                 response.headers.add('Access-Control-Allow-Methods', 'POST, OPTIONS')
@@ -814,6 +821,7 @@ class MainClass(Resource):
                 }
                 response = jsonify(data)
                 console.log(data)
+                print(data)
                 response.headers.add('Access-Control-Allow-Origin', '*')
                 response.headers.add('Access-Control-Allow-Credentials', 'true')
                 response.headers.add('Access-Control-Allow-Methods', 'POST, OPTIONS')
@@ -835,7 +843,15 @@ class MainClass(Resource):
         response.headers.add('Access-Control-Allow-Headers', 'Content-Type')
         return response
 
+print("Databases:", client.list_database_names())
+
 if __name__ == "__main__":
     ENVIRONMENT_DEBUG = os.environ.get("APP_DEBUG", True)
     ENVIRONMENT_PORT = os.environ.get("APP_PORT", 5000)
+    print("Databases:", client.list_database_names())
     application.run(host='0.0.0.0', port=ENVIRONMENT_PORT, debug=ENVIRONMENT_DEBUG)
+    #host_name = socket.gethostname()
+    #host_ip = socket.gethostbyname(host_name)
+    #print(f"Host IP: {host_ip}")
+    #print(f"Host Name: {host_name}")
+    #print("Databases:", client.list_database_names())

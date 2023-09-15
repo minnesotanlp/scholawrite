@@ -1,0 +1,22 @@
+
+FROM ubuntu:latest
+ARG DEBIAN_FRONTEND=noninteractive
+ARG FLASK_APP=App.py
+RUN apt-get update -y
+RUN apt-get install -y python3-pip python3-dev curl nano systemctl \
+    && cd /usr/local/bin \
+    && ln -s /usr/bin/python3 python
+    
+RUN mkdir -p /usr/local/src/scholawrite
+WORKDIR /usr/local/src/scholawrite
+
+RUN pip install --upgrade pip setuptools wheel
+
+COPY requirements.txt .
+RUN pip install --no-cache-dir -r requirements.txt
+
+RUN apt-get update -y
+
+COPY . /usr/local/src/scholawrite
+WORKDIR /usr/local/src/scholawrite/flaskapp/app
+CMD ["flask", "run", "--host=0.0.0.0"]

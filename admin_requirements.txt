@@ -1,0 +1,8 @@
+flask==2.1.3
+werkzeug==2.1.2
+flask-restx
+werkzeug==2.1.2
+pymongo
+bcrypt
+diff_match_patch
+rich

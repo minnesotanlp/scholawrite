@@ -1,0 +1,73 @@
+
+version: '3'
+
+services:
+  scholawrite:
+    build:
+      context: .
+      dockerfile: Dockerfile.scholawrite
+    depends_on:
+      - mongo
+    ports:
+      - "5000:5000"
+    environment:
+      FLASK_APP: App.py
+      MONGO_HOST: mongo
+    networks:
+      - scholawrite_network
+  ngrok:
+    build:
+      context: .
+      dockerfile: Dockerfile.ngrok
+    depends_on:
+      - scholawrite
+    volumes:
+      - ./ngrok.yml:/root/.ngrok2/ngrok.yml
+    environment:
+      NGROK_AUTH_TOKEN: ${NGROK_AUTH_TOKEN}
+    networks:
+      - scholawrite_network
+    command: ["ngrok", "http", "scholawrite:5000", "--host-header=scholawrite:5000", "--hostname=scholawrite.ngrok.app"]
+
+  admin_page:
+    build:
+      context: .
+      dockerfile: Dockerfile.admin_page
+    environment:
+      FLASK_APP: main.py
+      MONGO_HOST: mongo
+    networks:
+      - scholawrite_network
+    ports:
+      - "5200:5200"
+
+  admin_ngrok:
+    build:
+      context: .
+      dockerfile: Dockerfile.ngrok
+    depends_on:
+      - admin_page
+    environment:
+      NGROK_AUTH_TOKEN: ${NGROK_AUTH_TOKEN}
+    networks:
+      - scholawrite_network
+    ports:
+      - "4040:4040"
+    command: ["ngrok", "http", "admin_page:5200", "--host-header=admin_page:5200", "--log=stdout", "--log-level=debug"]
+
+
+  mongo:
+    image: "mongo:latest"
+    ports:
+      - "5001:27017"
+    volumes:
+      - mongodbdata:/data/db
+    networks:
+      - scholawrite_network
+
+networks:
+  scholawrite_network:
+    driver: bridge
+
+volumes:
+  mongodbdata:
