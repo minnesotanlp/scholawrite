@@ -34,7 +34,7 @@ services:
       context: .
       dockerfile: Dockerfile.admin_page
     environment:
-      FLASK_APP: main.py
+      FLASK_APP: admin.py
       MONGO_HOST: mongo
     networks:
       - scholawrite_network

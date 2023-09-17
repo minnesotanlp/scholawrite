@@ -888,7 +888,6 @@ class MainClass(Resource):
             response.headers.add('Access-Control-Allow-Headers', 'Content-Type')
             response.headers.add('Access-Control-Allow-Methods', 'GET, POST, OPTIONS')
             return response
->>>>>>> 35a169bace0afcf4954ceec42cec7887939a2e6d
 
 if __name__ == "__main__":
     ENVIRONMENT_DEBUG = os.environ.get("APP_DEBUG", True)

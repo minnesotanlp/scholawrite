@@ -28,28 +28,34 @@ db = client.flask_db
 collection = db[collection]
 user_data = db["user_data"]
 
-data = {}
-for each in user_data.find():
-    console.log(each)
+dates = {}
+
 def change_project_overview():
     project_ids = []
     all_projects_times = []
     time_list = []
     temp_data = {}
-    global data
+    global dates
 
     # Get all projects and their corresponding timestamps
     distinct_Projects = collection.distinct("project")
     for id in distinct_Projects:
-        timestamps = []
-        project_ids.append(id)
-        selected_documents = collection.find({"project": id})
-        for doc in selected_documents:
-            timestamps.append(doc["timestamp"] // 1000)
-        all_projects_times.append(timestamps)
+        console.log(id)
+        try:
+            timestamps = []
+            selected_documents = collection.find({"project": id})
+            for doc in selected_documents:
+                timestamps.append(doc["timestamp"] // 1000)
+            project_ids.append(id)
+            all_projects_times.append(timestamps)
+        except Exception as e:
+            console.log(e)
+            continue
+    console.log(len(all_projects_times))
 
     # Convert all timestamps to date objects for each project
     for i in range(len(all_projects_times)):
+        time_list = []
         for project_time in all_projects_times[i]:
             time_list.append(datetime.fromtimestamp(project_time))
 
@@ -57,6 +63,7 @@ def change_project_overview():
         min_date = min(time_list).date()
         max_date = max(time_list).date()
 
+        console.log(max_date)
         # Generate date strings and initialize counts
         days = ((max_date - min_date).days // 15 + 1) * 15
         date_strings = [(min_date + timedelta(days=i)).strftime('%b %d') for i in
@@ -69,7 +76,7 @@ def change_project_overview():
             counts[index] += 1
 
         temp_data[project_ids[i]] = [date_strings, counts]
-    data = temp_data
+    dates = temp_data
 
 
 def diff_prettyHtml(diffs):
@@ -226,7 +233,7 @@ def list():
         if request.method == 'POST':
             change_project_overview()
             response = {
-                "data": data
+                "data": dates
             }
             response = jsonify(response)
         elif request.method == 'OPTIONS':
