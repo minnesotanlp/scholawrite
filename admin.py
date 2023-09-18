@@ -40,18 +40,19 @@ def change_project_overview():
     # Get all projects and their corresponding timestamps
     distinct_Projects = collection.distinct("project")
     for id in distinct_Projects:
-        console.log(id)
         try:
             timestamps = []
             selected_documents = collection.find({"project": id})
             for doc in selected_documents:
                 timestamps.append(doc["timestamp"] // 1000)
             project_ids.append(id)
+            console.log(id)
             all_projects_times.append(timestamps)
         except Exception as e:
-            console.log(e)
+            console.log(id+":", e)
             continue
-    console.log(len(all_projects_times))
+    console.log("Total number of collected projects:", len(distinct_Projects))
+    console.log("Number of projects that can be listed:",len(project_ids))
 
     # Convert all timestamps to date objects for each project
     for i in range(len(all_projects_times)):
@@ -63,7 +64,7 @@ def change_project_overview():
         min_date = min(time_list).date()
         max_date = max(time_list).date()
 
-        console.log(max_date)
+        console.log(project_ids[i], min_date, max_date)
         # Generate date strings and initialize counts
         days = ((max_date - min_date).days // 15 + 1) * 15
         date_strings = [(min_date + timedelta(days=i)).strftime('%b %d') for i in
