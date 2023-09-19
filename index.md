@@ -1,42 +1,44 @@
-# Research Opportunity at the University of Minnesota
+<!-- # Research Opportunity at the University of Minnesota -->
 
-## Title: ScholaWrite - Understanding Scholarly Writing 
+## ScholaWrite - Understanding Scholarly Scientific Writing with AI
 
 
-Do you enjoy reading fiction? We are interested in studying how text in stories affects readers’ engagement in order to improve natural language processing (NLP) models.
+Are you currently graduate students at UMN and working on scientific papers for journal/conference submissions? Our study has the following two objectives:  
+
+- We are interested in studying how scholars in scientific domains write a paper and capturing certain patterns of their writing behaviors. 
+- We would like to obtain insights about how scholarly writers interact with an AI-powered (ChatGPT) paraphrasing tool and are influenced by the interaction in one's writing behavior. 
 
 ### Eligibility
 
-Adult 18 or older, English speaking, with normal or corrected-to-normal vision.
+Graduate students or affiliates at UMN, who are currently working on an **Overleaf project** for submission. If selected, their co-authors at different institutions are also eligible to participate. 
 
 ### Study
 
-Participants will read two short stories and periodically answer comprehension questions. The data collected during this experiment is gaze data, i.e., the focal coordinates of the pupil on the display screen, as well as pupil diameter and responses to comprehension questions. Data is sampled at a rate of 2000Hz by the eye tracking machine. This work is conducted under PI, Prof. Dongyeop Kang
+Participants will install a system 'ScholaWrite' into their own laptop. The data collected by ScholaWrite during this experiment is anonymized keystroke data, i.e., the information gathered from a human using a keyboard, such as which keys are pressed and when, and the sequence of keys pressed (these sequences make up words, sentences, paragraphs, etc.). Also, the associated timestamps and ChatGPT-suggested paraphrasing would be stored under anonymity, too. 
+
+This work is conducted under approval by PI, Prof. Dongyeop Kang at Minnesota NLP. 
 
 ### Payment
-Paid for the time spent via Amazon gift card with $15/hr value
+
+Participants will receive a $20 Amazon giftcard. Only the participants
+themselves will receive this payment.
 
 ### Location
 
-This is an **in person** study, taking place on the University of Minnesota, Twin Cities campus. More details provided on booking a session.
-
-[Kenneth H. Keller Hall](https://campusmaps.umn.edu/kenneth-h-keller-hall), 200 Union St SE,
-
-Minneapolis, MN 55455
+This is an **remote** study. You just need to turn on our ScholaWrite system and work on your overleaf project. 
 
 ### Timeframe
 
-- June 1 - August 4, 2022
-- September 1 - October 31, 2022
+The associated IRB is under review. Once approved, you will be invited to join an onboarding session for your consent to the participation. 
 
 ### Contact Info
 
-Study Coordinator: Kelsey Neis
+Coordinators: [Anna Martin-Boyle](mailto:mart5877@umn.edu) and [Minhwa Lee](mailto:lee03533@umn.edu)
 
-Email: neis@umn.edu
+Supervisor: [Prof. Dongyeop Kang](mailto:dongyeop@umn.edu)
 
-If interested, please fill out [this form](https://forms.gle/KSsGSPTYu8XCU4mZ7) or email the study coordinator.
+If interested, please fill out [this registration form](https://forms.gle/spF4QoZ7SMyZzhV46) or email to either Anna or Minhwa.
 
-### Other opportunities
-
-You may also be interested in [this study](https://minnesotanlp.github.io/text_style/) on human style perception.
+<img src="https://drive.google.com/uc?id=1XYcHPAO-xPF8a8Ae3P1B3CawW-fnqFgG"
+     alt="sample image"
+     style="display: block; margin-right: auto; margin-left: auto; width: 70%; height: 80%" />
