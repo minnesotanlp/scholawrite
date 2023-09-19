@@ -16,6 +16,8 @@ Graduate students or affiliates at UMN, who are currently working on an **Overle
 
 Participants will install a system 'ScholaWrite' into their own laptop. The data collected by ScholaWrite during this experiment is anonymized keystroke data, i.e., the information gathered from a human using a keyboard, such as which keys are pressed and when, and the sequence of keys pressed (these sequences make up words, sentences, paragraphs, etc.). Also, the associated timestamps and ChatGPT-suggested paraphrasing would be stored under anonymity, too. 
 
+Every two week, participants will be asked to complete a survey about their sentiment about the writing progress, interaction with AI-tool, etc. 
+
 This work is conducted under approval by PI, Prof. Dongyeop Kang at Minnesota NLP. 
 
 ### Payment
