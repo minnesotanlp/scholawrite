@@ -21,4 +21,5 @@ Once the server is running, you can load the Chrome extension, open Overleaf in 
 * [Ryan Koo](mailto:koo00017@umn.edu)
 * [Anna Martin](mailto:mart5877@umn.edu)
 * [Linghe Wang](mailto:wang9257@umn.edu)
+* [Minhwa Lee](mailto:lee03533@umn.edu)
 * [Dongyeop Kang](mailto:dongyeop@umn.edu)
