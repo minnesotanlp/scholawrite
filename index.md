@@ -14,7 +14,9 @@ Graduate students or affiliates at UMN, who are currently working on an **Overle
 
 ### Study
 
-Participants will install a system 'ScholaWrite' into their own laptop. The data collected by ScholaWrite during this experiment is anonymized keystroke data, i.e., the information gathered from a human using a keyboard, such as which keys are pressed and when, and the sequence of keys pressed (these sequences make up words, sentences, paragraphs, etc.). Also, the associated timestamps and ChatGPT-suggested paraphrasing would be stored under anonymity, too. 
+Participants will have to install a Chrome extension 'ScholaWrite' into their Chrome. Therefore, they will be required to use Chrome for writing in Overleaf. 
+
+The data collected by ScholaWrite during this experiment is anonymized keystroke data, i.e., the information gathered from a human using a keyboard, such as which keys are pressed and when, and the sequence of keys pressed (these sequences make up words, sentences, paragraphs, etc.). Also, the associated timestamps and ChatGPT-suggested paraphrasing would be stored under anonymity, too. 
 
 Every two week, participants will be asked to complete a survey about their sentiment about the writing progress, interaction with AI-tool, etc. 
 
@@ -22,8 +24,7 @@ This work is conducted under approval by PI, Prof. Dongyeop Kang at Minnesota NL
 
 ### Payment
 
-Participants will receive a $20 Amazon giftcard. Only the participants
-themselves will receive this payment.
+Each participant will receive a $20 Amazon giftcard. Only the participants themselves will receive this payment. Note that for a group of authors working on a single paper, each of them will receive this payment. 
 
 ### Location
 
@@ -32,6 +33,8 @@ This is an **remote** study. You just need to turn on our ScholaWrite system and
 ### Timeframe
 
 The associated IRB is under review. Once approved, you will be invited to join an onboarding session for your consent to the participation. 
+
+IRB number: [IRBxxxxx]
 
 ### Contact Info
 
