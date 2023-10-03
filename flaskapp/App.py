@@ -5,6 +5,7 @@ from config import activity, app, console
 from swtk import tokenize_copy, tokenize_revert, tokenize_paste, tokenize_keystroke, clean_up_info
 from utils import context_tokenizer, call_chatgpt, update_database, form_data
 from system import login, register
+from ids import get_ids, set_ids
 
 
 @app.after_request
@@ -45,59 +46,89 @@ def process_writer_actions():
 
     except Exception:
         console.log(traceback.print_exc())
+        return jsonify({'error': 'An error occurred'}), 500
 
 
 @app.route("/paraphrase", methods=['POST', 'OPTIONS'])
 def ai_paraphrase():
-    info = request.get_json(force=True)
-    console.log(info)
-    state = info['state']
-    if request.method == 'OPTIONS':
-        response = jsonify({'message': 'OK'})
-    else:
-        if state == "assist":
-            context_dict = context_tokenizer(info)
-            gpt_response = call_chatgpt(context_dict["selected_text"])
-            update_database(activity, info, context_dict, gpt_response)
-            data = form_data(context_dict, gpt_response)
-
-            response = jsonify(data)
-        elif state == "user_selection":
-            console.log(info)
-            response = jsonify({"message": "received"})
+    try:
+        info = request.get_json(force=True)
+        console.log(info)
+        state = info['state']
+        if request.method == 'OPTIONS':
+            response = jsonify({'message': 'OK'})
         else:
-            response = jsonify({"message": "unknown state"})
+            if state == "assist":
+                context_dict = context_tokenizer(info)
+                gpt_response = call_chatgpt(context_dict["selected_text"])
+                update_database(activity, info, context_dict, gpt_response)
+                data = form_data(context_dict, gpt_response)
+                response = jsonify(data)
 
-    return response
+            elif state == "user_selection":
+                console.log(info)
+                response = jsonify({"message": "received"})
+
+            else:
+                response = jsonify({"error": "Bad request"}), 400
+
+        return response
+
+    except Exception:
+        console.log(traceback.print_exc())
+        return jsonify({'error': 'An error occurred'}), 500
 
 
 @app.route("/users", methods=['POST', 'OPTIONS'])
 def users():
     try:
-        info = request.get_json(force=True)
-        state = info['state']
-        if state == "login":
-            code = login(info['username'], info['password'])
-            data = {
-                "status": code
-            }
-            response = jsonify(data)
-            console.log(data)
+        if request.method == 'OPTIONS':
+            response = jsonify({'message': 'OK'})
+        else:
+            info = request.get_json(force=True)
+            state = info['state']
+            if state == "login":
+                code = login(info['username'], info['password'])
+                data = {
+                    "status": code
+                }
+                response = jsonify(data)
+                console.log(data)
 
-            return response
-
-        elif state == "register":
-            code = register(info['username'], info['password'])
-            data = {
-                "status": code
-            }
-            response = jsonify(data)
-            console.log(data)
-
-            return response
+            elif state == "register":
+                code = register(info['username'], info['password'])
+                data = {
+                    "status": code
+                }
+                response = jsonify(data)
+                console.log(data)
+            else:
+                response = jsonify({"error": "Bad request"}), 400
+        return response
 
     except Exception:
         print(traceback.print_exc())
+        return jsonify({'error': 'An error occurred'}), 500
+
+
+@app.route("/ids", methods=['POST', "OPTIONS"])
+def post():
+    try:
+        if request.method == 'OPTIONS':
+            response = jsonify({'message': 'OK'})
+        else:
+            info = request.get_json(force=True)
+            if info["task"] == "getIDs":
+                response = get_ids(info["username"])
+            elif info["task"] == "setIDs":
+                response = set_ids(info["username"], info["project_IDs"])
+            else:
+                response = jsonify({"error": "Bad request"}), 400
+        return response
+
+    except Exception:
+        print(traceback.print_exc())
+        return jsonify({'error': 'An error occurred'}), 500
 
 
 if __name__ == "__main__":

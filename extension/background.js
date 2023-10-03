@@ -285,7 +285,7 @@ function trackWriterAction(state, writerText, revisions, ln) {
     }
 }
 
-async function fetchFromServer(route){
+async function fetchFromServer(route, activity){
     const response = await fetch(serverURL + route, {
         // mode: 'no-cors',
         headers: {
@@ -300,20 +300,21 @@ async function fetchFromServer(route){
 }
 
 async function postWriterText(activity) {
-    console.log(activity);
+    console.log("postWriterText",activity);
     try {
-        message = await fetchFromServer("/activity");
+        message = await fetchFromServer("/activity", activity);
         console.log(message);
     }
     catch (err){
+        console.log(err);
         console.log('failed to fetch');
     }
 }
 
 async function postParaphraseText(activity) {
-    console.log(activity);
+    console.log("postParaphraseText",activity);
     try {
-        message = await fetchFromServer("/paraphrase");
+        message = await fetchFromServer("/paraphrase", activity);
         console.log(message);
         if (response.ok && message.status == "ChatGPT"){
             chrome.tabs.query({active: true, currentWindow: true}, function(tabs) {
@@ -326,6 +327,7 @@ async function postParaphraseText(activity) {
         }
     }
     catch (err){
+        console.log(err);
         console.log('failed to fetch');
     }
 }

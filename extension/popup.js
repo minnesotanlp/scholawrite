@@ -348,7 +348,7 @@ document.addEventListener('DOMContentLoaded', function () {
 async function postWriterText(task, activity) {
     try {
         if (task === 1){
-            const response = await fetch(serverURL + "/ReWARD/system", {
+            const response = await fetch(serverURL + "/users", {
                 // mode: 'no-cors',
                 headers: {
                     'Accept': 'application/json',
