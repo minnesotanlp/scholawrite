@@ -251,7 +251,7 @@ function sleep(ms) {
 
 async function filePost(){
     fileObserver.disconnect();
-    file = document.querySelector('[aria-selected = "true"]');
+    file = document.querySelector('[role = "treeitem"][aria-selected = "true"]');
     console.log(file);
     f = file.getAttribute("aria-label");
     console.log(f);
@@ -326,7 +326,7 @@ window.addEventListener("load", async function(){
 
     //Get project ID, valid for both legacy and non-legacy
     project_id = document.querySelector('meta[name="ol-project_id"]').content
-    file = document.querySelector('[aria-selected = "true"]');
+    file = document.querySelector('[role = "treeitem"][aria-selected = "true"]');
     filename = file.getAttribute("aria-label");
     console.log("load");
     chrome.storage.local.get('enabled', function (result) {
@@ -379,57 +379,9 @@ function getActiveLine(){
     while((startContainer?.className) !== "cm-line" && (startContainer?.className) !== "cm-activeLine cm-line"){
         startContainer = startContainer.parentElement
     }
-
-    var selected_pos = startContainer.getBoundingClientRect();
-    console.log(selected_pos);
-    const cm_content = document.getElementsByClassName("cm-content cm-lineWrapping");
-    lines = cm_content[0].childNodes;
-    var length = lines.length;
-    var found_range = undefined;        // The range object of selected elements
-    var DOMRectArray = [];              // An DOMRect object array. DOMRect: the size and position of an element
-    var num_of_rows = 0;                // Number of rows of selected text in Latex editor
-    var i = 1;                          // loop variable
-    var start = 0;                      // startContainer's position
-    var end = 0;                        // endContainer's position
-    var skipCheck = 0;                  // Whether found the position of startContainer
-    var breakCheck = 0;                 // Whether found the Position of endContainer
-
-    // algorithm to get the selected line.
-    // This could help us get the context and feed into ChatGPT
-    var countStart = 0
-    var textArray = []
-    for (; i<length; i++){
-        line = lines[i].innerText;
-        if (line !== '\n'){
-            textArray.push(line);
-        }
-        else{
-            textArray.push('');
-        }
-        if (line === startContainer.innerText){
-            countStart += 1
-        }
-    }
-
-    console.log("countStart: ",countStart)
-    for (i=1; i<length; i++){
-        line = lines[i].innerText;
-        console.log(line);
-        if (skipCheck == 0 && line === startContainer.innerText){
-            console.log("here");
-            found_range = lines[i].getBoundingClientRect();
-            if (found_range.top.toFixed(3) === selected_pos.top.toFixed(3)){
-                // reassign "start". Now "start" is no longer a loop variable but start position of selection
-                start = i;
-                skipCheck = 1;
-            }
-            else{
-                start = start + num_of_rows;
-            }
-        }
-    }
-    console.log(start);
-    return start;
+    var parent = startContainer.parentElement
+    var lineNumber = Array.from(parent.children).indexOf(startContainer);
+    return lineNumber;
 }
 
 function AI_Paraphrase(){

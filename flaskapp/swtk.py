@@ -468,7 +468,7 @@ def tokenize_revert(info):
 
 def tokenize_paste(info):
     pre_text = sentence_reform(info["text"].splitlines(keepends=True))
-    cur_text = sentence_reform(info["revisions"].splitlines(keepends=True))
+    cur_text = sentence_reform(info["revision"].splitlines(keepends=True))
     pre = []
     cur = []
     for s in pre_text:

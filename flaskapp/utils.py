@@ -69,8 +69,8 @@ def context_tokenizer(info):
     # By combining the text content on the other lines
     # with the unselected content on the same line, we get the context.
     # Passing the context to the language model along with the selected content
-    context_dict["before"] = info["pre_content"] + info["same_line_before"]
-    context_dict["after"] = info["same_line_after"] + info["pos_content"]
+    context_dict["before"] = info["pre_content"] + context_dict["same_line_before"]
+    context_dict["after"] = context_dict["same_line_after"] + info["pos_content"]
 
     return context_dict
 

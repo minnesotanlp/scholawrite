@@ -9,10 +9,9 @@
     "activeTab",
     "background",
     "declarativeContent",
-    "notifications",
-    "web_accessible_resources"
+    "notifications"
   ],
-  "web_accessible_resources": [
+  "web_accessible_resources":[
     {
       "resources": ["tooltip.html"],
       "matches": ["*://*.overleaf.com/*"]

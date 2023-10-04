@@ -58,7 +58,7 @@ chrome.runtime.onMessage.addListener(
         }
         else if (request.message == "assist"){
             var d = new Date();
-            var time = d.getTime();ba
+            var time = d.getTime();
             postParaphraseText({state: "assist", username: username, timestamp: time, project: projectID, file: filename, pre_content: request.pre_content,
             pos_content: request.pos_content, selected_text: request.selected_text, current_content: request.current_line_content,
             line: request.line});
@@ -136,9 +136,9 @@ chrome.runtime.onMessage.addListener(
             if (text[0] !== undefined && text.length >= 1){
                 console.log(text);
                 trackWriterAction(4, text[0], request.text, lineNumber);
-                prelineNumber = lineNumber
             }
             text = [request.revisions];
+            prelineNumber = null;
         }
         else if (request.message == "cut") {
             // process edits, find the diff, as additions or deletions
@@ -302,7 +302,7 @@ async function fetchFromServer(route, activity){
 async function postWriterText(activity) {
     console.log("postWriterText",activity);
     try {
-        message = await fetchFromServer("/activity", activity);
+        var message = await fetchFromServer("/activity", activity);
         console.log(message);
     }
     catch (err){
@@ -314,9 +314,9 @@ async function postWriterText(activity) {
 async function postParaphraseText(activity) {
     console.log("postParaphraseText",activity);
     try {
-        message = await fetchFromServer("/paraphrase", activity);
+        var message = await fetchFromServer("/paraphrase", activity);
         console.log(message);
-        if (response.ok && message.status == "ChatGPT"){
+        if (message.status == "ChatGPT"){
             chrome.tabs.query({active: true, currentWindow: true}, function(tabs) {
                 chrome.tabs.sendMessage(tabs[0].id, {source: "chatgpt", suggestion: message.suggestion,
                         same_line_before: message.same_line_before, same_line_after: message.same_line_after,

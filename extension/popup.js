@@ -362,7 +362,7 @@ async function postWriterText(task, activity) {
             return message
         }
         else if (task === 2){
-            const response = await fetch(serverURL + "/ReWARD/ids", {
+            const response = await fetch(serverURL + "/ids", {
                 // mode: 'no-cors',
                 headers: {
                     'Accept': 'application/json',
