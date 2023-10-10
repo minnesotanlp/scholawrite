@@ -3,7 +3,7 @@
 ## ScholaWrite - Understanding Scholarly Scientific Writing with AI
 
 
-Are you currently graduate students at UMN and working on scientific papers for journal/conference submissions? Our study has the following two objectives:  
+Are you currently a graduate student at UMN and working on scientific papers for journal/conference submissions? Our study has the following two objectives:  
 
 - We are interested in studying how scholars in scientific domains write a paper and capturing certain patterns of their writing behaviors. 
 - We would like to obtain insights about how scholarly writers interact with an AI-powered (ChatGPT) paraphrasing tool and are influenced by the interaction in one's writing behavior. 
@@ -18,13 +18,13 @@ Participants will have to install a Chrome extension 'ScholaWrite' into their Ch
 
 The data collected by ScholaWrite during this experiment is anonymized keystroke data, i.e., the information gathered from a human using a keyboard, such as which keys are pressed and when, and the sequence of keys pressed (these sequences make up words, sentences, paragraphs, etc.). Also, the associated timestamps and ChatGPT-suggested paraphrasing would be stored under anonymity, too. 
 
-Every two week, participants will be asked to complete a survey about their sentiment about the writing progress, interaction with AI-tool, etc. 
+Every two weeks, participants will be asked to complete a survey about their sentiments about the writing progress, interaction with AI paraphrasing tools, etc. 
 
-This work is conducted under approval by PI, Prof. Dongyeop Kang at Minnesota NLP. 
+This work is conducted under approval by our PI, [Prof. Dongyeop Kang](https://dykang.github.io/) at Minnesota NLP. 
 
 ### Payment
 
-Each participant will receive a $20 Amazon giftcard. Only the participants themselves will receive this payment. Note that for a group of authors working on a single paper, each of them will receive this payment. 
+Each participant will receive a $20 Amazon gift card. Only the participants themselves will receive this payment. Note that for a group of authors working on a single paper, each of them will receive this payment. 
 
 ### Location
 
@@ -32,7 +32,7 @@ This is an **remote** study. You just need to turn on our ScholaWrite system and
 
 ### Timeframe
 
-The associated IRB is under review. Once approved, you will be invited to join an onboarding session for your consent to the participation. 
+The associated IRB has been approved. You will be invited to join an onboarding session for your consent to participation. 
 
 IRB number: [IRBxxxxx]
 
