@@ -34,7 +34,7 @@ This is an **remote** study. You just need to turn on our ScholaWrite system and
 
 The associated IRB has been approved. You will be invited to join an onboarding session for your consent to participation. 
 
-IRB number: [IRBxxxxx]
+IRB number: 00019901
 
 ### Contact Info
 
