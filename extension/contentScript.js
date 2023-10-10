@@ -172,6 +172,25 @@ document.body.addEventListener('paste', (event) => {
     state = 3;
 });
 
+function sendUndoRedo(){
+    project_id = document.querySelector('meta[name="ol-project_id"]').content
+    destroy();
+    if (EXTENSION_TOGGLE) {
+        getEditingText();
+        var start = getActiveLine();
+        console.log(editingArray[start-1]);
+        chrome.runtime.sendMessage({editingFile: filename, message: "listeners", revisions: editingParagraph, text: paragraph, editingLines: editingLines, editingArray: editingArray, paragraphLines: paragraphLines, paragraphArray: paragraphArray, project_id: project_id, onkey: "", start: lineArea[start].innerText});
+        state = 0;
+        console.log("undoredo");
+        console.log(paragraph);
+        console.log(editingParagraph);
+        console.log("Finish");
+        paragraph = editingParagraph;
+        paragraphArray = editingArray;
+        paragraphLines = editingLines;
+    }
+}
+
 function getEditingText() { // find areas in current file that reader may be reading
     editingParagraph = "";
     editingArray = [];
@@ -365,6 +384,9 @@ window.addEventListener("load", async function(){
     var onlineUsers = toolbarRight.querySelector('.online-users');
     toolbarRight.insertBefore(AI_Paraphrase_button, onlineUsers.nextSibling);
     AI_Paraphrase_button.addEventListener('click', AI_Paraphrase)
+
+    document.querySelector('[aria-label="Undo"]').addEventListener('click', function(){setTimeout(sendUndoRedo, 200)});
+    document.querySelector('[aria-label="Redo"]').addEventListener('click', function(){setTimeout(sendUndoRedo, 200)});
 });
 
 function getActiveLine(){

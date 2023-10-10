@@ -217,6 +217,9 @@ function difference(paragraph, revisions) { // utilizing Myer's diff algorithm
 function trackWriterAction(state, writerText, revisions, ln) {
     // post comment to the backend
     let change = "addition";
+    console.log("wt: ", writerText);
+    console.log("rv: ", revisions);
+    console.log("text[0]: ", text[0]);
     let diff = difference(writerText, revisions);
     if (diff.length == 0){
      return 0
@@ -232,8 +235,11 @@ function trackWriterAction(state, writerText, revisions, ln) {
     else if (diff[0][0] === -1) {
             change = "deletion";
             changemade = difference(text[0], revisions)
-            postWriterText({timestamp: time, username: username, project: projectID, file: filename, text: revisions, revision: changemade,
-             state: state, cb: clipboard, line: ln, onkey: onkey})
+            // if incomplete word is written and deleted, we won't do anything
+            if (changemade.length > 0){
+                postWriterText({timestamp: time, username: username, project: projectID, file: filename, text: revisions, revision: changemade,
+                 state: state, cb: clipboard, line: ln, onkey: onkey})
+            }
             text = [revisions]
     }
     else if (diff[0][1] === '\n' || diff[0][1] === ' ') {
@@ -242,6 +248,14 @@ function trackWriterAction(state, writerText, revisions, ln) {
         postWriterText({timestamp: time, username: username, project: projectID, file: filename, text: revisions, revision: changemade,
          state: state, cb: clipboard, line: ln, onkey: onkey})
         text = [revisions]
+    }
+    // when undo and redo at the beginning of text
+    else if (diff[0][0] === 1 && (diff[0][1].includes('\n') || diff[0][1].includes(' '))){
+            change = "addition";
+            changemade = difference(text[0], revisions)
+            postWriterText({timestamp: time, username: username, project: projectID, file: filename, text: revisions,
+            revision: changemade, state: state, cb: clipboard, line: ln, onkey: onkey})
+            text = [revisions]
     }
     else if ((diff.length < 2 && diff[0][0] == 0) && (state== 0 || state == 4)) {
         change = "no change";

@@ -440,6 +440,17 @@ def tokenize_copy(info):
 
 
 def tokenize_revert(info):
+    try:
+        changes = tokenize_keystroke(info)
+        if len(changes) > 1:
+            changes = revert_tokenizer(info)
+    except:
+        changes = revert_tokenizer(info)
+
+    return changes
+
+
+def revert_tokenizer(info):
     text = ""
     for each in info["revision"]:
         if each[0] == 0 or each[0] == -1:

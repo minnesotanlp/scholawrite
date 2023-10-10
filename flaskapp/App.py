@@ -29,7 +29,7 @@ def process_writer_actions():
             onkey = info['onkey']
             if state == 2:
                 info = tokenize_copy(info)
-            elif onkey in "zZyY" and len(info['revision']) >= 4:
+            elif onkey in "zZyY" and len(info['revision']) > 4:
                 info["changes"] = tokenize_revert(info)
             elif state == 3:
                 info["changes"] = tokenize_paste(info)
