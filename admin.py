@@ -16,17 +16,11 @@ import traceback
 
 app = Flask(__name__)
 
-host = 'localhost'
-port = 27017
-database = 'scholawrite_mongo_1'
-collection = "activity"
-# Connect to MongoDB
-#client = MongoClient("mongodb://mongo:27017/")
-client = MongoClient('mongo', 27017)
+client = MongoClient('localhost', 27017)
 db = client.flask_db
-#db = client[database]
-collection = db[collection]
+activity = db.activity
 user_data = db["user_data"]
+project_IDs = db["project_IDs"]
 
 dates = {}
 

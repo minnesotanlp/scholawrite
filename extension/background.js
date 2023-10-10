@@ -1,5 +1,5 @@
 let serverURL;
-serverURL =  " http://127.0.0.1:5000";
+serverURL =  "http://127.0.0.1:5000";
 // serverURL = "https://scholawrite.ngrok.app/";
 let headers = new Headers();
 headers.append('GET', 'POST', 'OPTIONS');
@@ -61,7 +61,7 @@ chrome.runtime.onMessage.addListener(
             var time = d.getTime();
             postParaphraseText({state: "assist", username: username, timestamp: time, project: projectID, file: filename, pre_content: request.pre_content,
             pos_content: request.pos_content, selected_text: request.selected_text, current_content: request.current_line_content,
-            line: request.line});
+            line: request.line}, sender.tab.id);
         }
         if (request.message == "listeners") {
             // process edits, find the diff, as additions or deletions
@@ -311,18 +311,16 @@ async function postWriterText(activity) {
     }
 }
 
-async function postParaphraseText(activity) {
+async function postParaphraseText(activity, tabId) {
     console.log("postParaphraseText",activity);
     try {
         var message = await fetchFromServer("/paraphrase", activity);
         console.log(message);
         if (message.status == "ChatGPT"){
-            chrome.tabs.query({active: true, currentWindow: true}, function(tabs) {
-                chrome.tabs.sendMessage(tabs[0].id, {source: "chatgpt", suggestion: message.suggestion,
-                        same_line_before: message.same_line_before, same_line_after: message.same_line_after,
-                        diffs_html: message.diffs_html, explanation: message.explanation},
-                function (response) {
-                });
+            chrome.tabs.sendMessage(tabId, {source: "chatgpt", suggestion: message.suggestion,
+                    same_line_before: message.same_line_before, same_line_after: message.same_line_after,
+                    diffs_html: message.diffs_html, explanation: message.explanation},
+            function (response) {
             });
         }
     }

@@ -1,5 +1,5 @@
 import os
-
+import re
 from minichain import OpenAI, transform, prompt
 from typing import List, Tuple
 from config import MEMORY, open_ai_key
@@ -78,8 +78,8 @@ def context_tokenizer(info):
 def call_chatgpt(selected_text):
     try:
         suggestion = str(chat(selected_text, State([])).run())
-        separator = "---------------------------------------------------------"
-        split_response = suggestion.split(separator)
+        split_response = re.split(r'-{4,}',suggestion)
+        split_response = list(filter(None, split_response))
         if len(split_response) == 2:
             paraphrase = split_response[0].replace("Paraphrase:", "", 1).strip()
             explanation = split_response[1].replace("Explanation:", "", 1).strip()

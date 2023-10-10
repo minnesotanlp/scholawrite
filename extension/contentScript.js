@@ -212,9 +212,6 @@ function getEditingText() { // find areas in current file that reader may be rea
     editingParagraph = editingParagraph.replace(reg1, '\\author{anonymous}');
     editingParagraph = editingParagraph.replace(reg2, '\\affil{anonymous}');
     destroy();
-    console.log(editingParagraph);
-    console.log(editingArray);
-    console.log(editingLines);
 
     return;
 }
@@ -575,29 +572,22 @@ document.body.onkeyup = function (e) { // save every keystroke
         destroy();
         if (EXTENSION_TOGGLE) {
             getEditingText();
+            console.log(e.key);
+            var start = getActiveLine();
+            console.log(editingArray[start-1]);
             if(state == 1){
-                console.log(e.key);
-                var start = getActiveLine();
                 chrome.runtime.sendMessage({editingFile: filename,message: "cut", revisions: editingParagraph, text: paragraph, cutted: pasteData, editingLines: editingLines, editingArray: editingArray, paragraphLines: paragraphLines, paragraphArray: paragraphArray, project_id: project_id, onkey: e.key, start: lineArea[start].innerText});
-                state = 0
             }
             else if(state == 2){
-                console.log(e.key);
-                var start = getActiveLine();
                 chrome.runtime.sendMessage({editingFile: filename, message: "copy", revisions: editingParagraph, text: paragraph, copied: pasteData, editingLines: editingLines, editingArray: editingArray, paragraphLines: paragraphLines, paragraphArray: paragraphArray, project_id: project_id, onkey: e.key, start: lineArea[start].innerText});
-                state = 0
             }
             else if(state == 3){
-                console.log(e.key);
-                var start = getActiveLine();
                 chrome.runtime.sendMessage({editingFile: filename, message: "paste", revisions: editingParagraph, text: paragraph, pasted: pasteData, editingLines: editingLines, editingArray: editingArray, paragraphLines: paragraphLines, paragraphArray: paragraphArray, project_id: project_id, onkey: e.key, start: lineArea[start].innerText});
-                state = 0
             }
             else{
-                console.log(e.key);
-                var start = getActiveLine();
                 chrome.runtime.sendMessage({editingFile: filename, message: "listeners", revisions: editingParagraph, text: paragraph, editingLines: editingLines, editingArray: editingArray, paragraphLines: paragraphLines, paragraphArray: paragraphArray, project_id: project_id, onkey: e.key, start: lineArea[start].innerText});
             }
+            state = 0;
             paragraph = editingParagraph;
             paragraphArray = editingArray;
             paragraphLines = editingLines;
