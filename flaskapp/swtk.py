@@ -110,7 +110,7 @@ def find_back(i, operation, skip, text):
             if text[k][0] != 0:
                 text[k].append(1)
                 back += text[k][1]
-            if idx == 0:
+            elif idx == 0:
                 if text[k][0] == operation:
                     back += text[k][1]
                 return check, back

@@ -150,26 +150,49 @@ window.addEventListener('beforeunload', function(event) {
 });
 
 document.body.addEventListener('cut', (event) => {
+    state = 1
     console.log('***** cut ****');
     clipboardData = event.clipboardData || window.clipboardData;
     pasteData = clipboardData.getData('Text');
-    state = 1;
+    getEditingText();
+    var start = getActiveLine();
+    console.log(editingArray[start-1]);
+    chrome.runtime.sendMessage({editingFile: filename,message: "cut", revisions: editingParagraph, text: paragraph, cutted: pasteData, editingLines: editingLines, editingArray: editingArray, paragraphLines: paragraphLines, paragraphArray: paragraphArray, project_id: project_id, onkey: "", start: lineArea[start].innerText});
+    state = 0;
+    paragraph = editingParagraph;
+    paragraphArray = editingArray;
+    paragraphLines = editingLines;
 });
 
 
 document.body.addEventListener('copy', (event) => {
+    state = 2
     console.log('***** copy ****');
     clipboardData = event.clipboardData || window.clipboardData;
     pasteData = clipboardData.getData('Text');
-    state = 2;
-
+    getEditingText();
+    var start = getActiveLine();
+    console.log(editingArray[start-1]);
+    chrome.runtime.sendMessage({editingFile: filename, message: "copy", revisions: editingParagraph, text: paragraph, copied: pasteData, editingLines: editingLines, editingArray: editingArray, paragraphLines: paragraphLines, paragraphArray: paragraphArray, project_id: project_id, onkey: "", start: lineArea[start].innerText});
+    state = 0;
+    paragraph = editingParagraph;
+    paragraphArray = editingArray;
+    paragraphLines = editingLines;
 });
 
 document.body.addEventListener('paste', (event) => {
+    state = 3
     console.log('***** paste ****');
     clipboardData = event.clipboardData || window.clipboardData;
     pasteData = clipboardData.getData('Text');
-    state = 3;
+    getEditingText();
+    var start = getActiveLine();
+    console.log(editingArray[start-1]);
+    chrome.runtime.sendMessage({editingFile: filename, message: "paste", revisions: editingParagraph, text: paragraph, pasted: pasteData, editingLines: editingLines, editingArray: editingArray, paragraphLines: paragraphLines, paragraphArray: paragraphArray, project_id: project_id, onkey: "", start: lineArea[start].innerText});
+    state = 0;
+    paragraph = editingParagraph;
+    paragraphArray = editingArray;
+    paragraphLines = editingLines;
 });
 
 function sendUndoRedo(){
@@ -597,19 +620,9 @@ document.body.onkeyup = function (e) { // save every keystroke
             console.log(e.key);
             var start = getActiveLine();
             console.log(editingArray[start-1]);
-            if(state == 1){
-                chrome.runtime.sendMessage({editingFile: filename,message: "cut", revisions: editingParagraph, text: paragraph, cutted: pasteData, editingLines: editingLines, editingArray: editingArray, paragraphLines: paragraphLines, paragraphArray: paragraphArray, project_id: project_id, onkey: e.key, start: lineArea[start].innerText});
-            }
-            else if(state == 2){
-                chrome.runtime.sendMessage({editingFile: filename, message: "copy", revisions: editingParagraph, text: paragraph, copied: pasteData, editingLines: editingLines, editingArray: editingArray, paragraphLines: paragraphLines, paragraphArray: paragraphArray, project_id: project_id, onkey: e.key, start: lineArea[start].innerText});
-            }
-            else if(state == 3){
-                chrome.runtime.sendMessage({editingFile: filename, message: "paste", revisions: editingParagraph, text: paragraph, pasted: pasteData, editingLines: editingLines, editingArray: editingArray, paragraphLines: paragraphLines, paragraphArray: paragraphArray, project_id: project_id, onkey: e.key, start: lineArea[start].innerText});
-            }
-            else{
+            if (![1, 2, 3].includes(state)){
                 chrome.runtime.sendMessage({editingFile: filename, message: "listeners", revisions: editingParagraph, text: paragraph, editingLines: editingLines, editingArray: editingArray, paragraphLines: paragraphLines, paragraphArray: paragraphArray, project_id: project_id, onkey: e.key, start: lineArea[start].innerText});
             }
-            state = 0;
             paragraph = editingParagraph;
             paragraphArray = editingArray;
             paragraphLines = editingLines;
