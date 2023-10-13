@@ -31,7 +31,7 @@ chrome.storage.local.get(['username'], function(result) {
 chrome.runtime.onMessage.addListener(
     function (request, sender, sendResponse) {
         text = text.filter(function(element) {return element !== undefined;});
-        console.log(text);
+        console.log(request);
         projectID = request.project_id
         filename = request.editingFile;
         onkey = request.onkey
@@ -100,7 +100,7 @@ chrome.runtime.onMessage.addListener(
            text = [];
            prelineNumber = null;
         }
-        else if (request.message == "undo") {
+        else if (request.message == "undoredo") {
             console.log("***** undo *****");
             text.push(request.text);
             lineNumber = request.start;
@@ -109,7 +109,6 @@ chrome.runtime.onMessage.addListener(
         else if (request.message == "hidden") {
             // process edits, find the diff, as additions or deletions
            console.log("***** hidden *****");
-           console.log(request);
            var temp = "";
            if (request.revisions != ''){
                 temp = request.revisions;
@@ -125,7 +124,6 @@ chrome.runtime.onMessage.addListener(
         else if (request.message == "scroll"){
             console.log("***** scroll *****");
             if (text[0] !== undefined && text.length > 1){
-                console.log(lineNumber)
                 trackWriterAction(4, text[0], request.text, lineNumber);
                 prelineNumber = null
             }
@@ -134,7 +132,6 @@ chrome.runtime.onMessage.addListener(
         else if (request.message == "switch"){
             console.log("***** switch *****");
             if (text[0] !== undefined && text.length >= 1){
-                console.log(text);
                 trackWriterAction(4, text[0], request.text, lineNumber);
             }
             text = [request.revisions];
@@ -175,7 +172,6 @@ chrome.runtime.onMessage.addListener(
            trackWriterAction(3, request.text, request.revisions, lineNumber);
            text = [request.revisions];
         }
-         console.log(text);
          sendResponse({message: true});
     }
 );
@@ -217,9 +213,6 @@ function difference(paragraph, revisions) { // utilizing Myer's diff algorithm
 function trackWriterAction(state, writerText, revisions, ln) {
     // post comment to the backend
     let change = "addition";
-    console.log("wt: ", writerText);
-    console.log("rv: ", revisions);
-    console.log("text[0]: ", text[0]);
     let diff = difference(writerText, revisions);
     if (diff.length == 0){
      return 0
