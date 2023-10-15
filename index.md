@@ -42,7 +42,7 @@ Coordinators: [Anna Martin-Boyle](mailto:mart5877@umn.edu) and [Minhwa Lee](mail
 
 Supervisor: [Prof. Dongyeop Kang](mailto:dongyeop@umn.edu)
 
-If interested, please fill out [this registration form](https://forms.gle/spF4QoZ7SMyZzhV46) or email to either Anna or Minhwa.
+If interested, please fill out [this eligibility inquiry form](https://forms.gle/spF4QoZ7SMyZzhV46) or email to either Anna or Minhwa.
 
 <img src="https://drive.google.com/uc?id=1XYcHPAO-xPF8a8Ae3P1B3CawW-fnqFgG"
      alt="sample image"
