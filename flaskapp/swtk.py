@@ -44,18 +44,18 @@ def in_range(text, j):
 def clean_up_info(info, state):
     info.pop('onkey')
     if state == 0 or state == 4:
-        info['state'] = "Type"
-        info.pop('cb')
+        info['state'] = info['message']
     elif state == 1:
-        info['state'] = "Cut"
+        info['state'] = info['message']
         info['clipboard'] = info.pop('cb')
     elif state == 2:
-        info['state'] = "Copy"
-        info.pop('copyLineNumbers')
+        info['state'] = info['message']
         info['clipboard'] = info.pop('cb')
     elif state == 3:
-        info['state'] = "Paste"
+        info['state'] = info['message']
         info['clipboard'] = info.pop('cb')
+        info["text"] = info["revision"]
+        info["revision"] = info.pop("changemade")
 
 
 def find_front(i, skip, text):
@@ -289,6 +289,7 @@ def paste_handler(pre, cur, order):
         else:
             diff_sentence2 += diff_section2[b]
 
+
     if diff_sentence1 == "" and diff_sentence2 == "":
         change = "All lines are the same"
     elif diff_sentence1 == "" and diff_sentence2 != "":
@@ -424,7 +425,7 @@ def tokenize_keystroke(info):
 def tokenize_copy(info):
     text = info['text']
     clipboard = info['cb']
-    line_numbers = info['copyLineNumbers']
+    line_numbers = info['editingLines']
     i = text.find(clipboard)
     char_pos = 0
     line_pos = 0
@@ -435,7 +436,7 @@ def tokenize_copy(info):
         if text[k] == '\n':
             break
         char_pos += 1
-    info['cb'] = '(' + str(line_numbers[line_pos]) + ',' + str(char_pos) + ')' + ", " + info['cb']
+    info['cb'] = ['(' + str(line_numbers[line_pos]) + ',' + str(char_pos) + ')' + ", " + info['cb']]
     return info
 
 
@@ -455,6 +456,8 @@ def revert_tokenizer(info):
     for each in info["revision"]:
         if each[0] == 0 or each[0] == -1:
             text += each[1]
+    # pre_text = sentence_reform(text.splitlines(keepends=True))
+    # cur_text = sentence_reform(info["text"].splitlines(keepends=True))
     pre_text = sentence_reform(text.splitlines(keepends=True))
     cur_text = sentence_reform(info["text"].splitlines(keepends=True))
     pre = []
@@ -478,8 +481,12 @@ def revert_tokenizer(info):
 
 
 def tokenize_paste(info):
-    pre_text = sentence_reform(info["text"].splitlines(keepends=True))
-    cur_text = sentence_reform(info["revision"].splitlines(keepends=True))
+    # pre_text = sentence_reform(info["text"].splitlines(keepends=True))
+    # cur_text = sentence_reform(info["revision"].splitlines(keepends=True))
+    pre_text = info["text"].splitlines(keepends=True)
+    cur_text = info["revision"].splitlines(keepends=True)
+    # pre_text = info["text"].splitlines()
+    # cur_text = info["revision"].splitlines()
     pre = []
     cur = []
     for s in pre_text:

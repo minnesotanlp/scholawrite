@@ -95,6 +95,8 @@ Returns:
             html.append('<ins style="background:#82E0AA;">%s</ins>' % text)
         elif op == -1:
             html.append('<del style="background:#F1948A;">%s</del>' % text)
+        elif op == 2:
+            html.append('<del style="background:#C39BD3;">%s</del>' % text)
         elif op == 0:
             html.append("<span>%s</span>" % text)
     return "".join(html)

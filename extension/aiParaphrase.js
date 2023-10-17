@@ -1,37 +1,49 @@
-let paragraph = "";
-let editingParagraph = "";
-let state = 0;
-let pasteData = "";
-let clipboard = "";
-let project_id = "";
-const reg1 = /(\\author(?:\[(\d*)\])*{+[^}\n\\]+}*)/g;
-const reg2 = /(\\affil(?:\[(\d*)\])*{+[^}\n\\]+}*)/g;
-let file;
-let filename;
-let lineArea;
-let fileObserver;
+function getEditingText() { // find areas in current file that reader may be reading
+    editingParagraph = "";
+    editingLines = [];
+    let textarea = document.getElementsByClassName("cm-content cm-lineWrapping")[0];
+    lineArea = document.getElementsByClassName("cm-gutter cm-lineNumbers")[0].childNodes;
 
-let paragraphLines = [];
-let editingLines = [];
+    // Determine whether active line is visible. If count equal to three, active line is NOT visible
+    var elements = textarea.querySelectorAll('div[contenteditable="false"][style]');
+    var count = elements.length;
 
-let tooltip = null;
-let tptop = null;
-let tpleft = null
-let lines = null;
-let start = 0;
-let end = 0;
-let same_line_before = ""
-let same_line_after = ""
+    lines = textarea.childNodes;
+    var length = lineArea.length;
+    var k = 1
+    var offset = 0
 
-let EXTENSION_TOGGLE = true;
-let paraphrase = "Hello, This is a tooltip!"
+    if (lines[1].nextElementSibling != null && lines[1].nextElementSibling.matches('div[contenteditable="false"][style]')){
+        k = count
+        offset = count - 1
+        length = length + offset
+    }
+    else{
+        count = 1
+    }
+    for (; k < length; k++){
+        line = lines[k].innerText;
+        if(line === "\n"){
+           line = "";
+        }
+        if(k > count){
+            line = "\n"+line;
+        }
+        editingParagraph += line;
+        editingLines.push(lineArea[k - offset].textContent);
+    }
 
-let timeout;
-let assist_lines;
+    editingParagraph = editingParagraph.replace(reg1, '\\author{anonymous}');
+    editingParagraph = editingParagraph.replace(reg2, '\\affil{anonymous}');
+    destroy();
+
+    return;
+}
+
+
 chrome.runtime.onMessage.addListener(
     function(request, sender, sendResponse) {
         if (request.source == "chatgpt"){
-            assist_lines= request.line;
             clearTimeout(timeout);
             console.log(request)
             paraphrase = request.suggestion;
@@ -92,19 +104,6 @@ chrome.runtime.onMessage.addListener(
                     })
             }
         }
-        else{
-            EXTENSION_TOGGLE = request.toggle
-            if (request.toggle) {
-                getEditingText();
-                paragraph = editingParagraph;
-                paragraphArray = editingArray;
-                paragraphLines = editingLines;
-                console.log("CONTENT ON");
-            } else {
-                console.log("CONTENT OFF");
-            }
-        }
-         sendResponse({message: true});
     }
 );
 
@@ -286,7 +285,7 @@ function tooltipClickRemove(){
     tooltip.parentNode.removeChild(tooltip);
     tooltip = null;
     document.removeEventListener('click', tooltipClickRemove);
-    sendUserChoiceToBackground(false, assist_lines, 1)
+    chrome.runtime.sendMessage({message: "user_selection", accept: false});
 }
 
 //Replace text if user click inside the tooltip; remove the tooltip if user clicks outside it
@@ -295,7 +294,7 @@ function tooltipClick(event) {
         tooltip.removeEventListener('click', tooltipClick);
         tooltip.parentNode.removeChild(tooltip);
         tooltip = null;
-        sendUserChoiceToBackground(false, assist_lines)
+        chrome.runtime.sendMessage({message: "user_selection", accept: false});
     }
     else if (event.target === tooltip.querySelector('.accept-button')){
         console.log("1: ",same_line_before);
@@ -319,24 +318,12 @@ function tooltipClick(event) {
         tooltip = null;
         getEditingText();
         document.removeEventListener('click', tooltipClick);
-        sendUserChoiceToBackground(true, assist_lines)
+        chrome.runtime.sendMessage({editingFile: filename, message: "user_selection", accept: true, revisions: editingParagraph, text: paragraph, editingLines: editingLines, editingArray: editingArray, paragraphLines: paragraphLines, paragraphArray: paragraphArray, project_id: project_id});
         paragraph = editingParagraph;
         paragraphArray = editingArray;
         paragraphLines = editingLines;
     }
 }
-
-function sendUserChoiceToBackground(accept, assist_lines, error){
-    project_id = document.querySelector('meta[name="ol-project_id"]').content
-    getEditingText();
-    file = document.querySelector('[role = "treeitem"][aria-selected = "true"]');
-    filename = file.getAttribute("aria-label");
-    chrome.runtime.sendMessage({editingFile: filename, message: "user_selection", accept: accept, revisions: editingParagraph, text: paragraph, editingLines: editingLines, paragraphLines: paragraphLines, project_id: project_id, start: assist_lines});
-    if (arguments.length == 3){
-        chrome.runtime.sendMessage({editingFile: filename, message: "user_selection", assistError: error, accept: accept, revisions: editingParagraph, text: paragraph, editingLines: editingLines, paragraphLines: paragraphLines, project_id: project_id, start: assist_lines});
-    }
-}
-
 
 window.addEventListener("load", async function(){
     editor = document.getElementsByClassName("editor")[0];
@@ -346,79 +333,13 @@ window.addEventListener("load", async function(){
         console.log("not in editor");
         return;
     }
-    paragraph = "";
-    paragraphLines = [];
-    let loadNode = document.getElementsByClassName("cm-gutter cm-lineNumbers")[0];
-    while (loadNode == null) {
+    let loadNode = document.getElementsByClassName("loading-panel ng-hide")[0];
+    while (loadNode == undefined) {
         console.log("loading")
         await sleep(100); // Adjust the delay time as needed
-        loadNode = document.getElementsByClassName("cm-gutter cm-lineNumbers")[0];
+        loadNode = document.getElementsByClassName("loading-panel ng-hide")[0];
     }
-    let textarea = document.getElementsByClassName("cm-content cm-lineWrapping");
-    lineArea = loadNode.childNodes;
-    // Add event listeners to detect user undo/redo action
-    var inputElements = document.querySelectorAll(".cm-content.cm-lineWrapping");
-    inputElements[0].addEventListener("beforeinput", function(event) {
-        checkUndoOrRevert(inputElements, event);
-    });
-
-    lines = textarea[0].childNodes;
-    var length = lineArea.length;
-    console.log("textlen", lines.length)
-    console.log("linelen", length)
-    for (var k = 1; k < length; k++) {
-        line = lines[k].innerText;
-        if(line === "\n"){
-           line = "";
-        }
-        paragraphArray.push(line);
-        if(k > 1){
-            line = "\n"+line;
-        }
-        paragraph += line;
-        paragraphLines.push(lineArea[k].textContent);
-    }
-    paragraph = paragraph.replace(reg1, '\\author{anonymous}');
-    paragraph = paragraph.replace(reg2, '\\affil{anonymous}');
-
-    console.log(paragraph)
-    console.log(paragraphLines)
-
-    //Get project ID, valid for both legacy and non-legacy
-    project_id = document.querySelector('meta[name="ol-project_id"]').content
-    file = document.querySelector('[role = "treeitem"][aria-selected = "true"]');
-    filename = file.getAttribute("aria-label");
-    console.log("load");
-    chrome.storage.local.get('enabled', function (result) {
-        var checking = false
-        if (result.enabled != null) {
-            checking = result.enabled;
-        }
-        if (checking){
-            EXTENSION_TOGGLE = true
-        }
-        else if (!checking){
-            destroy();
-        }
-    })
-
-    // tell background to set certain variables to default
-    chrome.runtime.sendMessage({editingFile: filename, message: "Load", text: paragraph, project_id: project_id, editingLines: editingLines});
-
-    // switch document mutation observer setup
-    fileObserver = new MutationObserver(filePost);
-    const fileConfig = {attributeFilter: ["aria-selected", "selected"]};
-    fileObserver.observe(file, fileConfig);
-
-    // scroll mutation observer setup
-    let scrollNode = null;
-    let scrollConfig = null;
-    //scrollNode = document.getElementsByClassName('cm-content cm-lineWrapping')[0];
-    scrollNode = document.getElementsByClassName('cm-gutterElement')[1];
-    console.log(scrollNode);
-    scrollConfig = {attributeFilter: ["style"], attributeOldValue: true};
-    const scrollObserver = new MutationObserver(scrollPost);
-    scrollObserver.observe(scrollNode, scrollConfig);
+    await sleep(100);
 
     // Add an AI paraphrase botton
     var toolbarRight = document.querySelector('.toolbar-right');
@@ -430,180 +351,4 @@ window.addEventListener("load", async function(){
     toolbarRight.insertBefore(AI_Paraphrase_button, onlineUsers.nextSibling);
     AI_Paraphrase_button.addEventListener('click', AI_Paraphrase)
 
-    document.querySelector('[aria-label="Undo"]').addEventListener('click', function(){setTimeout(sendUndoRedo, 100)});
-    document.querySelector('[aria-label="Redo"]').addEventListener('click', function(){setTimeout(sendUndoRedo, 100)});
-});
-
-function sendToBackground(message, onkey = ""){
-    project_id = document.querySelector('meta[name="ol-project_id"]').content
-    getEditingText();
-    var start = getActiveLine();
-    file = document.querySelector('[role = "treeitem"][aria-selected = "true"]');
-    filename = file.getAttribute("aria-label");
-    if (EXTENSION_TOGGLE) {
-        if (![1, 2, 3].includes(state)){
-            console.log({editingFile: filename, message: message, revisions: editingParagraph, text: paragraph, editingLines: editingLines, paragraphLines: paragraphLines, project_id: project_id, onkey: onkey, start: lineArea[start].innerText});
-            chrome.runtime.sendMessage({editingFile: filename, message: message, revisions: editingParagraph, text: paragraph, editingLines: editingLines, paragraphLines: paragraphLines, project_id: project_id, onkey: onkey, start: lineArea[start].innerText});
-        }
-        else{
-            clipboard = event.clipboardData || window.clipboardData;
-            clipboardData = clipboard.getData('Text');
-            console.log({editingFile: filename, message: message, revisions: editingParagraph, text: paragraph, clipboardData: clipboardData, editingLines: editingLines, project_id: project_id, onkey: onkey, start: lineArea[start].innerText});
-            chrome.runtime.sendMessage({editingFile: filename, message: message, revisions: editingParagraph, text: paragraph, clipboardData: clipboardData, editingLines: editingLines, project_id: project_id, onkey: onkey, start: lineArea[start].innerText});
-        }
-    }
-    state = 0;
-    paragraph = editingParagraph;
-    paragraphLines = editingLines;
-    destroy();
-}
-
-function getEditingText() { // find areas in current file that reader may be reading
-    editingParagraph = "";
-    editingLines = [];
-    lineArea = document.getElementsByClassName("cm-gutter cm-lineNumbers")[0].childNodes;
-
-    const cmContent = document.querySelectorAll(".cm-content.cm-lineWrapping > .cm-line");
-    const cmLines = document.querySelectorAll(".cm-gutter.cm-lineNumbers > .cm-gutterElement");
-
-    // loop reverse to make sure we don't skip any element
-    for (let i = cmContent.length - 1; i >= 0; i--){
-        if (cmContent[i].previousElementSibling.matches('div[contenteditable="false"][style]') && cmContent[i].nextElementSibling.matches('div[contenteditable="false"][style]')){
-            cmContent[i].remove
-        }
-    }
-    for (let i = 0; i<cmContent.length; i++){
-        line = cmContent[i].innerText;
-        if(line === "\n"){
-           line = "";
-        }
-        if(i > 0){
-            line = "\n"+line;
-        }
-        editingParagraph += line;
-    }
-    tempLines = Array.from(cmLines).map(element => element.textContent);
-    editingLines = tempLines.slice(1);
-
-    editingParagraph = editingParagraph.replace(reg1, '\\author{anonymous}');
-    editingParagraph = editingParagraph.replace(reg2, '\\affil{anonymous}');
-    destroy();
-
-    return;
-}
-
-function getActiveLine(){
-    // get selected information such as html element, text, and position relative to viewers' screen
-    var selected_element = window.getSelection();
-    var selected_range = selected_element.getRangeAt(0); //get the text range
-
-    var startContainer = selected_range.startContainer;
-    while((startContainer?.className) !== "cm-line" && (startContainer?.className) !== "cm-activeLine cm-line"){
-        startContainer = startContainer.parentElement
-    }
-    var parent = startContainer.parentElement
-    var lineNumber = Array.from(parent.children).indexOf(startContainer);
-    return lineNumber;
-}
-
-// if user leave the current page, send Message to background.
-document.addEventListener("visibilitychange", () => {
-    setTimeout(() => {
-        if (document.visibilityState === 'hidden') {
-            if (EXTENSION_TOGGLE) {
-                chrome.runtime.sendMessage({message: "Hidden", revisions: editingParagraph, text: paragraph, onkey: "", editingLines: editingLines});
-            }
-        }
-    }, 0)
-});
-
-
-function scrollPost(mutations){
-    console.log(mutations)
-    console.log("***** scroll *****")
-    project_id = document.querySelector('meta[name="ol-project_id"]').content
-    file = document.querySelector('[role = "treeitem"][aria-selected = "true"]');
-    filename = file.getAttribute("aria-label");
-    getEditingText();
-    console.log(paragraph);
-    console.log(editingParagraph);
-    chrome.runtime.sendMessage({editingFile: filename, message: "Scroll", revisions: editingParagraph, text: paragraph, editingLines: editingLines, paragraphLines: paragraphLines, project_id: project_id, onkey: ""});
-    paragraph = editingParagraph;
-    paragraphLines = editingLines;
-    destroy();
-}
-
-
-function sleep(ms) {
-  return new Promise(resolve => setTimeout(resolve, ms));
-}
-
-async function filePost(){
-    fileObserver.disconnect();
-    file = document.querySelector('[role = "treeitem"][aria-selected = "true"]');
-    console.log(file);
-    f = file.getAttribute("aria-label");
-    console.log(f);
-
-    let loadNode = document.getElementsByClassName("loading-panel ng-hide")[0];
-    while (loadNode == undefined) {
-        console.log("loading")
-        await sleep(100); // Adjust the delay time as needed
-        loadNode = document.getElementsByClassName("loading-panel ng-hide")[0];
-    }
-    sendToBackground("Switch")
-    fileObserver.observe(file, {attributeFilter: ["aria-selected", "selected"]});
-}
-
-function sendUndoRedo(){
-    console.log("click undo redo");
-    sendToBackground("Undoredo");
-}
-
-window.addEventListener('beforeunload', function(event) {
-    event.preventDefault();
-    chrome.runtime.sendMessage({message: "Unload", editingLines: editingLines});
-});
-
-document.body.addEventListener('cut', (event) => {
-    state = 1;
-    console.log('***** cut ****');
-    sendToBackground("Cut");
-});
-
-document.body.addEventListener('copy', (event) => {
-    state = 2;
-    console.log('***** copy ****');
-    sendToBackground("Copy");
-});
-
-document.body.addEventListener('paste', (event) => {
-    state = 3
-    console.log('***** paste ****');
-    sendToBackground("Paste");
-});
-
-let excludedKeys = ["Meta", "Alt", "Tab","Shift","CapsLock","ArrowUp", "Control", "ArrowDown", "ArrowLeft","ArrowRight"];
-
-document.body.onkeyup = function (e) { // save every keystroke
-    if (!excludedKeys.includes(e.key)){
-        onkey = e.key;
-        sendToBackground("Typing", onkey);
-    }
-}
-
-function checkUndoOrRevert(element, event) {
-    if (event.inputType === "historyUndo" || event.inputType === "historyRedo") {
-        sendToBackground("Undoredo");
-    }
-}
-
-function destroy() {
-    if (!EXTENSION_TOGGLE) {
-        paragraph = "";
-        editingParagraph = "";
-        project_id = ""
-        paragraphLines = [];
-        editingLines = [];
-    }
-}
+})

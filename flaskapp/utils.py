@@ -113,7 +113,7 @@ def update_database(activity, info, context_dict, gpt_response):
     activity.insert_one(info)
 
 
-def form_data(context_dict, gpt_response):
+def form_data(context_dict, gpt_response, line):
     diffs_html = ""
     paraphrase = gpt_response[0]
     explanation = gpt_response[1]
@@ -128,6 +128,7 @@ def form_data(context_dict, gpt_response):
         "explanation": explanation,
         "diffs_html": diffs_html,
         "same_line_before": context_dict["same_line_before"],
-        "same_line_after": context_dict["same_line_after"]
+        "same_line_after": context_dict["same_line_after"],
+        "line": line
     }
     return data

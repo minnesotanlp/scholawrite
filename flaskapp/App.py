@@ -8,6 +8,32 @@ from system import login, register
 from ids import get_ids, set_ids
 
 
+# def tokenize_paste(info):
+#     # pre_text = sentence_reform(info["text"].splitlines(keepends=True))
+#     # cur_text = sentence_reform(info["revision"].splitlines(keepends=True))
+#     # pre = []
+#     # cur = []
+#     # for s in pre_text:
+#     #     for each in sent_tokenizer(s).sents:
+#     #         pre.extend([str(each)])
+#     # for s in cur_text:
+#     #     for each in sent_tokenizer(s).sents:
+#     #         cur.extend([str(each)])
+#     pre = info["text"].splitlines()
+#     cur = info["revision"].splitlines()
+#     if len(pre) < len(cur):
+#         change = paste_handler(pre, cur, 1)
+#     else:
+#         change = paste_handler(pre, cur, 2)
+#     if change != "All lines are the same":
+#         char_num = paste_count_char(info["text"], info["revision"])
+#         line_num = info['line']
+#         revision = ['(' + str(line_num) + ',' + str(char_num) + ') ' + change]
+#     else:
+#         revision = ["All lines are the same"]
+#
+#     return revision
+
 @app.after_request
 def after_request(response):
     response.headers.add('Access-Control-Allow-Origin', '*')
@@ -53,7 +79,6 @@ def process_writer_actions():
 def ai_paraphrase():
     try:
         info = request.get_json(force=True)
-        console.log(info)
         state = info['state']
         if request.method == 'OPTIONS':
             response = jsonify({'message': 'OK'})
@@ -62,7 +87,8 @@ def ai_paraphrase():
                 context_dict = context_tokenizer(info)
                 gpt_response = call_chatgpt(context_dict["selected_text"])
                 update_database(activity, info, context_dict, gpt_response)
-                data = form_data(context_dict, gpt_response)
+                data = form_data(context_dict, gpt_response, info["line"])
+                console.log(data)
                 response = jsonify(data)
 
             elif state == "user_selection":

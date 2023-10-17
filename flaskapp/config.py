@@ -15,7 +15,7 @@ dmp = dmp_module.diff_match_patch()
 
 console = Console()
 
-open_ai_key = ""
+open_ai_key = "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"
 
 MEMORY = 0
 

@@ -16,11 +16,12 @@ let filename = "";
 let prelineNumber;
 let lineNumber;
 let copyLineNumbers;
-let projectID = "no url"
-let suggestion = ""
-let onkey = ""
-let username = ""
-
+let projectID = "no url";
+let suggestion = "";
+let onkey = "";
+let username = "";
+let editingLines = "";
+let action = ""
 
 chrome.storage.local.get(['username'], function(result) {
     if (result.username !== undefined){
@@ -35,6 +36,8 @@ chrome.runtime.onMessage.addListener(
         projectID = request.project_id
         filename = request.editingFile;
         onkey = request.onkey
+        editingLines = request.editingLines
+        action = request.message;
         if (request.message == "username"){
             console.log("I got username");
             console.log(request.username);
@@ -47,12 +50,14 @@ chrome.runtime.onMessage.addListener(
         else if (request.message == "user_selection"){
             var d = new Date();
             var time = d.getTime();
+            changeMade = difference(request.text, request.revisions);
+            writableRequest = request;
+            writableRequest["revision"] = changeMade;
             if (request.accept == false){
-                postParaphraseText({state: "user_selection", username: username, timestamp: time, accept: false});
+                postParaphraseText(writableRequest);
             }
             else{
-                changemade = difference(request.text, request.revisions);
-                postParaphraseText({state: "user_selection", username: username, timestamp: time, accept: true, project: projectID, file: filename, text: request.revisions, revision: changemade});
+                postParaphraseText(writableRequest);
                 text = [request.revisions];
             }
         }
@@ -63,14 +68,17 @@ chrome.runtime.onMessage.addListener(
             pos_content: request.pos_content, selected_text: request.selected_text, current_content: request.current_line_content,
             line: request.line}, sender.tab.id);
         }
-        if (request.message == "listeners") {
+        if (request.message == "Typing") {
             // process edits, find the diff, as additions or deletions
-           console.log("***** press *****");
+           console.log("***** typing *****");
            lineNumber = request.start;
            // In the very beginning of writing, prelineNumber doesn't have a value.
            // Therefore, we assign current active line number to it
            if (prelineNumber == null){
                prelineNumber = request.start;
+           }
+           if (text.length == 0){
+            text.push(request.text);
            }
            text.push(request.revisions);
            // if user is editing on different line, we record writer action. If not, we keep tracking user's writing.
@@ -85,13 +93,13 @@ chrome.runtime.onMessage.addListener(
                prelineNumber = lineNumber
            }
         }
-        else if (request.message == "load"){
+        else if (request.message == "Load"){
             console.log("load");
             if (text.length == 0){
                 text = [request.text];
             }
         }
-        else if (request.message == "unload"){
+        else if (request.message == "Unload"){
            console.log("unload");
            onkey = "";
            if (text.length >= 2){
@@ -100,13 +108,13 @@ chrome.runtime.onMessage.addListener(
            text = [];
            prelineNumber = null;
         }
-        else if (request.message == "undoredo") {
+        else if (request.message == "Undoredo") {
             console.log("***** undo *****");
             text.push(request.text);
             lineNumber = request.start;
-            trackWriterAction(0, request.text, request.revisions, lineNumber);
+            trackWriterAction(4, request.text, request.revisions, lineNumber);
         }
-        else if (request.message == "hidden") {
+        else if (request.message == "Hidden") {
             // process edits, find the diff, as additions or deletions
            console.log("***** hidden *****");
            var temp = "";
@@ -121,7 +129,7 @@ chrome.runtime.onMessage.addListener(
                prelineNumber = lineNumber
            }
         }
-        else if (request.message == "scroll"){
+        else if (request.message == "Scroll"){
             console.log("***** scroll *****");
             if (text[0] !== undefined && text.length > 1){
                 trackWriterAction(4, text[0], request.text, lineNumber);
@@ -129,7 +137,7 @@ chrome.runtime.onMessage.addListener(
             }
             text = [request.revisions];
         }
-        else if (request.message == "switch"){
+        else if (request.message == "Switch"){
             console.log("***** switch *****");
             if (text[0] !== undefined && text.length >= 1){
                 trackWriterAction(4, text[0], request.text, lineNumber);
@@ -137,10 +145,10 @@ chrome.runtime.onMessage.addListener(
             text = [request.revisions];
             prelineNumber = null;
         }
-        else if (request.message == "cut") {
+        else if (request.message == "Cut") {
             // process edits, find the diff, as additions or deletions
            // text.push(request.text);
-           clipboard = request.cutted;
+           clipboard = request.clipboardData;
            if(text[0] !== undefined){
             trackWriterAction(4, text[0], request.text, prelineNumber);
            }
@@ -148,10 +156,10 @@ chrome.runtime.onMessage.addListener(
            trackWriterAction(1, request.text, request.revisions, lineNumber);
            text = [request.revisions];
         }
-        else if (request.message == "copy") {
+        else if (request.message == "Copy") {
             // process edits, find the diff, as additions or deletions
            // text.push(request.text);
-           clipboard = request.copied;
+           clipboard = request.clipboardData;
            if(text[0] !== undefined){
             trackWriterAction(4, text[0], request.text, prelineNumber);
            }
@@ -160,11 +168,11 @@ chrome.runtime.onMessage.addListener(
            trackWriterAction(2, request.text, request.revisions, lineNumber);
            text = [request.revisions];
         }
-        else if (request.message == "paste") {
+        else if (request.message == "Paste") {
             // process edits, find the diff, as additions or deletions
            // text.push(request.text);
            console.log("***** paste *****")
-           clipboard = request.pasted;
+           clipboard = request.clipboardData;
            if(text[0] !== undefined){
             trackWriterAction(4, text[0], request.text, prelineNumber);
            }
@@ -176,25 +184,6 @@ chrome.runtime.onMessage.addListener(
     }
 );
 
-function findLineEdit(editingLines, editingArray, paragraphLines, paragraphArray) {
-    if (editingArray.length > paragraphArray.length) {  // line(s) added
-        for (let i = 0; i < paragraphArray.length; i++){
-            if (paragraphArray[i] != editingArray[i]){
-               return (parseInt(paragraphLines[i]) + (editingArray.length - paragraphArray.length))
-            }
-        }
-        console.log(editingLines[editingArray.length - 1])
-        return editingLines[editingArray.length - 1]
-    } else {
-        for (let i = 0; i < editingArray.length; i++){
-            if(editingArray[i] != paragraphArray[i]){
-               return parseInt(editingLines[i])
-            }
-        }
-        console.log("All lines are the same");
-        return prelineNumber
-    }
-}
 
 function difference(paragraph, revisions) { // utilizing Myer's diff algorithm
     // classifications:
@@ -220,8 +209,8 @@ function trackWriterAction(state, writerText, revisions, ln) {
     var d = new Date();
     var time = d.getTime();
     if (state == 3){
-        postWriterText({timestamp: time, username: username, project: projectID, file: filename, text: writerText, revision: revisions,
-        state: state, cb: clipboard, line: ln, onkey: onkey})
+        changemade = difference(writerText, revisions);
+        postWriterText({timestamp: time, text: writerText, revision: revisions, changemade: changemade, state: state, cb: clipboard, line: ln})
         text = [revisions]
         clipboard = "";
     }
@@ -230,24 +219,21 @@ function trackWriterAction(state, writerText, revisions, ln) {
             changemade = difference(text[0], revisions)
             // if incomplete word is written and deleted, we won't do anything
             if (changemade.length > 0){
-                postWriterText({timestamp: time, username: username, project: projectID, file: filename, text: revisions, revision: changemade,
-                 state: state, cb: clipboard, line: ln, onkey: onkey})
+                postWriterText({timestamp: time, text: revisions, revision: changemade, state: state, line: ln})
             }
             text = [revisions]
     }
     else if (diff[0][1] === '\n' || diff[0][1] === ' ') {
         change = "addition";
         changemade = difference(text[0], revisions)
-        postWriterText({timestamp: time, username: username, project: projectID, file: filename, text: revisions, revision: changemade,
-         state: state, cb: clipboard, line: ln, onkey: onkey})
+        postWriterText({timestamp: time, text: revisions, revision: changemade, state: state, line: ln})
         text = [revisions]
     }
     // when undo and redo at the beginning of text
     else if (diff[0][0] === 1 && (diff[0][1].includes('\n') || diff[0][1].includes(' '))){
             change = "addition";
             changemade = difference(text[0], revisions)
-            postWriterText({timestamp: time, username: username, project: projectID, file: filename, text: revisions,
-            revision: changemade, state: state, cb: clipboard, line: ln, onkey: onkey})
+            postWriterText({timestamp: time, text: revisions, revision: changemade, state: state, line: ln})
             text = [revisions]
     }
     else if ((diff.length < 2 && diff[0][0] == 0) && (state== 0 || state == 4)) {
@@ -256,16 +242,14 @@ function trackWriterAction(state, writerText, revisions, ln) {
     else {
         if (state == 1 || state == 2) {
             change = "cut/copy";
-            postWriterText({timestamp: time, username: username, project: projectID, file: filename, text: revisions, revision: diff,
-            state: state, cb: clipboard, line: ln, copyLineNumbers:copyLineNumbers, onkey: onkey})
+            postWriterText({timestamp: time, text: revisions, revision: diff, state: state, cb: clipboard, line: ln})
             text = [revisions]
             clipboard = "";
         }
         else if(diff[0][0] === 1 && state == 4) {
             change = "addition";
             changemade = difference(writerText, revisions)
-            postWriterText({timestamp: time, username: username, project: projectID, file: filename, text: revisions, revision: changemade,
-            state: state, cb: clipboard, line: ln, onkey: onkey})
+            postWriterText({timestamp: time, text: revisions, revision: changemade, state: state, cb: clipboard, line: ln})
             text = [revisions]
         }
         else if(diff[1][0] === -1) {
@@ -274,8 +258,7 @@ function trackWriterAction(state, writerText, revisions, ln) {
             if ((diff[1][1].includes('\n') || diff[1][1].includes(' '))|| state != 0 || diff.length > 3){
                // if user delete a space, the chars array will be send to the backend for processing
                 changemade = difference(text[0], revisions)
-                postWriterText({timestamp: time, username: username, project: projectID, file: filename, text: revisions, revision: changemade,
-                state: state, cb: clipboard, line: ln, onkey: onkey})
+                postWriterText({timestamp: time, text: revisions, revision: changemade, state: state, line: ln})
                 text = [revisions]
             }
         }
@@ -284,8 +267,7 @@ function trackWriterAction(state, writerText, revisions, ln) {
             if ((diff[1][1].includes('\n') || diff[1][1].includes(' ')) || state != 0 || diff.length > 3){
                 // if user add a space, the chars array will be send to the backend for processing
                 changemade = difference(text[0], revisions)
-                postWriterText({timestamp: time, username: username, project: projectID, file: filename, text: revisions, revision: changemade,
-                state: state, cb: clipboard, line: ln, onkey:onkey})
+                postWriterText({timestamp: time, text: revisions, revision: changemade, state: state, line: ln})
                 text = [revisions]
             }
         }
@@ -307,6 +289,12 @@ async function fetchFromServer(route, activity){
 }
 
 async function postWriterText(activity) {
+    activity["username"] = username;
+    activity["project"] = projectID;
+    activity["onkey"] = onkey;
+    activity["file"] = filename;
+    activity["editingLines"] = editingLines;
+    activity["message"] = action;
     console.log("postWriterText",activity);
     try {
         var message = await fetchFromServer("/activity", activity);
@@ -326,7 +314,7 @@ async function postParaphraseText(activity, tabId) {
         if (message.status == "ChatGPT"){
             chrome.tabs.sendMessage(tabId, {source: "chatgpt", suggestion: message.suggestion,
                     same_line_before: message.same_line_before, same_line_after: message.same_line_after,
-                    diffs_html: message.diffs_html, explanation: message.explanation},
+                    diffs_html: message.diffs_html, explanation: message.explanation, line: message.line},
             function (response) {
             });
         }
