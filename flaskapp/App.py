@@ -50,7 +50,6 @@ def process_writer_actions():
             response = jsonify({'message': 'OK'})
         else:
             info = request.get_json(force=True)
-            console.log(info)
             state = info['state']
             onkey = info['onkey']
             if state == 2:
@@ -58,6 +57,7 @@ def process_writer_actions():
             elif state == 3:
                 info["changes"] = tokenize_paste(info)
             elif onkey in "zZyY" and len(info['revision']) > 4:
+                info["message"] = "UndoRedo"
                 info["changes"] = tokenize_revert(info)
             else:
                 info["changes"] = tokenize_keystroke(info)
@@ -79,7 +79,8 @@ def process_writer_actions():
 def ai_paraphrase():
     try:
         info = request.get_json(force=True)
-        state = info['state']
+        state = info['message']
+        #console.log(info)
         if request.method == 'OPTIONS':
             response = jsonify({'message': 'OK'})
         else:

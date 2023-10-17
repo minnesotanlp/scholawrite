@@ -50,8 +50,8 @@ chrome.runtime.onMessage.addListener(
         else if (request.message == "user_selection"){
             var d = new Date();
             var time = d.getTime();
-            changeMade = difference(request.text, request.revisions);
-            writableRequest = request;
+            let changeMade = difference(request.text, request.revisions);
+            let writableRequest = request;
             writableRequest["revision"] = changeMade;
             if (request.accept == false){
                 postParaphraseText(writableRequest);
@@ -64,7 +64,7 @@ chrome.runtime.onMessage.addListener(
         else if (request.message == "assist"){
             var d = new Date();
             var time = d.getTime();
-            postParaphraseText({state: "assist", username: username, timestamp: time, project: projectID, file: filename, pre_content: request.pre_content,
+            postParaphraseText({message: "assist", username: username, timestamp: time, project: projectID, file: filename, pre_content: request.pre_content,
             pos_content: request.pos_content, selected_text: request.selected_text, current_content: request.current_line_content,
             line: request.line}, sender.tab.id);
         }

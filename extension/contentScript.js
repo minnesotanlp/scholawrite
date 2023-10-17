@@ -97,7 +97,6 @@ chrome.runtime.onMessage.addListener(
             if (request.toggle) {
                 getEditingText();
                 paragraph = editingParagraph;
-                paragraphArray = editingArray;
                 paragraphLines = editingLines;
                 console.log("CONTENT ON");
             } else {
@@ -152,7 +151,11 @@ function AI_Paraphrase(){
         var selected_pos = selected_range.getBoundingClientRect();
     }
     catch(err){
-        console.log("You are not selecting any text!");
+        alert("You are not selecting any text!");
+        return;
+    }
+    if (selected_text == ""){
+        alert("You are not selecting any text!");
         return;
     }
     // get all the lines and number of lines
@@ -321,7 +324,6 @@ function tooltipClick(event) {
         document.removeEventListener('click', tooltipClick);
         sendUserChoiceToBackground(true, assist_lines)
         paragraph = editingParagraph;
-        paragraphArray = editingArray;
         paragraphLines = editingLines;
     }
 }
@@ -331,9 +333,9 @@ function sendUserChoiceToBackground(accept, assist_lines, error){
     getEditingText();
     file = document.querySelector('[role = "treeitem"][aria-selected = "true"]');
     filename = file.getAttribute("aria-label");
-    chrome.runtime.sendMessage({editingFile: filename, message: "user_selection", accept: accept, revisions: editingParagraph, text: paragraph, editingLines: editingLines, paragraphLines: paragraphLines, project_id: project_id, start: assist_lines});
+    chrome.runtime.sendMessage({editingFile: filename, message: "user_selection", accept: accept, revisions: editingParagraph, text: paragraph, editingLines: editingLines, project_id: project_id, start: assist_lines});
     if (arguments.length == 3){
-        chrome.runtime.sendMessage({editingFile: filename, message: "user_selection", assistError: error, accept: accept, revisions: editingParagraph, text: paragraph, editingLines: editingLines, paragraphLines: paragraphLines, project_id: project_id, start: assist_lines});
+        chrome.runtime.sendMessage({editingFile: filename, message: "user_selection", assistError: error, accept: accept, revisions: editingParagraph, text: paragraph, editingLines: editingLines, project_id: project_id, start: assist_lines});
     }
 }
 
@@ -371,7 +373,6 @@ window.addEventListener("load", async function(){
         if(line === "\n"){
            line = "";
         }
-        paragraphArray.push(line);
         if(k > 1){
             line = "\n"+line;
         }
@@ -465,26 +466,26 @@ function getEditingText() { // find areas in current file that reader may be rea
 
     const cmContent = document.querySelectorAll(".cm-content.cm-lineWrapping > .cm-line");
     const cmLines = document.querySelectorAll(".cm-gutter.cm-lineNumbers > .cm-gutterElement");
-
-    // loop reverse to make sure we don't skip any element
-    for (let i = cmContent.length - 1; i >= 0; i--){
-        if (cmContent[i].previousElementSibling.matches('div[contenteditable="false"][style]') && cmContent[i].nextElementSibling.matches('div[contenteditable="false"][style]')){
-            cmContent[i].remove
-        }
-    }
+    var skip = 0;
     for (let i = 0; i<cmContent.length; i++){
+        if (cmContent[i].previousElementSibling!= null && cmContent[i].previousElementSibling.matches('div[contenteditable="false"][style]') && cmContent[i].nextElementSibling!= null && cmContent[i].nextElementSibling.matches('div[contenteditable="false"][style]')){
+            console.log(cmContent[i]);
+            skip = 1;
+            continue;
+        }
         line = cmContent[i].innerText;
         if(line === "\n"){
            line = "";
         }
-        if(i > 0){
+        if(i > skip){
             line = "\n"+line;
         }
         editingParagraph += line;
     }
     tempLines = Array.from(cmLines).map(element => element.textContent);
     editingLines = tempLines.slice(1);
-
+    console.log(paragraph);
+    console.log(editingParagraph);
     editingParagraph = editingParagraph.replace(reg1, '\\author{anonymous}');
     editingParagraph = editingParagraph.replace(reg2, '\\affil{anonymous}');
     destroy();
@@ -525,8 +526,6 @@ function scrollPost(mutations){
     file = document.querySelector('[role = "treeitem"][aria-selected = "true"]');
     filename = file.getAttribute("aria-label");
     getEditingText();
-    console.log(paragraph);
-    console.log(editingParagraph);
     chrome.runtime.sendMessage({editingFile: filename, message: "Scroll", revisions: editingParagraph, text: paragraph, editingLines: editingLines, paragraphLines: paragraphLines, project_id: project_id, onkey: ""});
     paragraph = editingParagraph;
     paragraphLines = editingLines;
