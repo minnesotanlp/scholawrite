@@ -22,12 +22,12 @@ services:
     depends_on:
       - scholawrite
     volumes:
-      - ./ngrok.yml:/root/.ngrok2/ngrok.yml
-    environment:
-      NGROK_AUTH_TOKEN: ${NGROK_AUTH_TOKEN}
+      - ./scholawrite_ngrok.yml:/root/.ngrok2/ngrok.yml
+    # environment:
+    #   NGROK_AUTH_TOKEN: ${NGROK_AUTH_TOKEN}
     networks:
       - scholawrite_network
-    command: ["ngrok", "http", "scholawrite:5000", "--host-header=scholawrite:5000", "--hostname=scholawrite.ngrok.app"]
+    command: ["ngrok", "http", "scholawrite:5000", "--host-header=scholawrite:5000", "--domain=scholawrite.ngrok.app"]
 
   admin_page:
     build:
@@ -47,8 +47,10 @@ services:
       dockerfile: Dockerfile.ngrok
     depends_on:
       - admin_page
-    environment:
-      NGROK_AUTH_TOKEN: ${NGROK_AUTH_TOKEN}
+    volumes:
+      - ./admin_ngrok.yml:/root/.ngrok2/ngrok.yml
+    # environment:
+    #   NGROK_AUTH_TOKEN: ${NGROK_AUTH_TOKEN}
     networks:
       - scholawrite_network
     ports:

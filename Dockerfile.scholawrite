@@ -18,5 +18,5 @@ RUN pip install --no-cache-dir -r requirements.txt
 RUN apt-get update -y
 
 COPY . /usr/local/src/scholawrite
-WORKDIR /usr/local/src/scholawrite/flaskapp/app
+WORKDIR /usr/local/src/scholawrite/flaskapp
 CMD ["flask", "run", "--host=0.0.0.0"]
