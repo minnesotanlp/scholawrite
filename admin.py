@@ -18,7 +18,7 @@ app = Flask(__name__)
 
 client = MongoClient('localhost', 27017)
 db = client.flask_db
-activity = db.activity
+collection = db.activity
 user_data = db["user_data"]
 project_IDs = db["project_IDs"]
 
@@ -110,13 +110,14 @@ def generate(projectID):
     # print(collection.find({'project': projectID}))
     for j in range(collection.count_documents({'project': projectID})):
         try:
-            actions.append({"file": data[j]["file"], "text": data[j]['text'], "timestamp": data[j]["timestamp"]})
+            #actions.append({"file": data[j]["file"], "text": data[j]['text'], "timestamp": data[j]["timestamp"]})
+            actions.append({"text": data[j]['text'], "timestamp": data[j]["timestamp"]})
             users.append(data[j]['username'])
             # actions[index].append(data[j])
         except:
             users.append(data[j]['username'])
-            actions.append(
-                {"file": data[j]["file"], 'suggestion': data[j]['suggestion'], "timestamp": data[j]["timestamp"]})
+            # actions.append({"file": data[j]["file"], 'suggestion': data[j]['suggestion'], "timestamp": data[j]["timestamp"]})
+            actions.append({'suggestion': data[j]['suggestion'], "timestamp": data[j]["timestamp"]})
     # print(actions[0]['text'])
     diffs_htmls = []
     for i in range(len(actions) - 1):
