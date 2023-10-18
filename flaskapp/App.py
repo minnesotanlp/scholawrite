@@ -98,6 +98,10 @@ def ai_paraphrase():
 
             else:
                 response = jsonify({"error": "Bad request"}), 400
+        response.headers.add('Access-Control-Allow-Origin', '*')
+        response.headers.add('Access-Control-Allow-Credentials', 'true')
+        response.headers.add('Access-Control-Allow-Headers', 'Content-Type')
+        response.headers.add('Access-Control-Allow-Methods', 'GET, POST, OPTIONS')
 
         return response
 
