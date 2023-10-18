@@ -8,7 +8,7 @@ import diff_match_patch as dmp_module
 
 dmp = dmp_module.diff_match_patch()
 
-os.environ["OPENAI_API_KEY"] = open_ai_key
+#os.environ["OPENAI_API_KEY"] = open_ai_key
 
 
 @transform()

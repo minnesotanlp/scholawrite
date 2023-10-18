@@ -15,7 +15,7 @@ dmp = dmp_module.diff_match_patch()
 
 console = Console()
 
-open_ai_key = "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"
+open_ai_key = os.environ.get("OPENAI_API_KEY")
 
 MEMORY = 0
 
@@ -45,7 +45,7 @@ def get_collection():
 
 
 # create database instance
-client = MongoClient('localhost', 27017)
+client = MongoClient('mongo', 27017)
 db = client.flask_db
 activity = db.activity
 user_data = db["user_data"]

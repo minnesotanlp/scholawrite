@@ -13,21 +13,26 @@ services:
     environment:
       FLASK_APP: App.py
       MONGO_HOST: mongo
+      OPENAI_API_KEY: ${OPENAI_API_KEY}
     networks:
       - scholawrite_network
-  ngrok:
+
+  ngrok_schola:
+    #image: ngrok/ngrok:alpine
     build:
       context: .
       dockerfile: Dockerfile.ngrok
     depends_on:
       - scholawrite
-    volumes:
-      - ./scholawrite_ngrok.yml:/root/.ngrok2/ngrok.yml
-    # environment:
-    #   NGROK_AUTH_TOKEN: ${NGROK_AUTH_TOKEN}
+    #environment:
+      #NGROK_AUTH_TOKEN: ${SCHOLA_NGROK_AUTH_TOKEN}
     networks:
       - scholawrite_network
-    command: ["ngrok", "http", "scholawrite:5000", "--host-header=scholawrite:5000", "--domain=scholawrite.ngrok.app"]
+    volumes:
+      - ./ngrok_schola.yml:/root/.ngrok2/ngrok.yml
+    ports:
+      - "4041:4040"
+    command: ["ngrok", "http", "scholawrite:5000", "--host-header=scholawrite:5000", "--domain=scholawrite.ngrok.app", "--log=stdout", "--log-level=debug"]
 
   admin_page:
     build:
@@ -41,21 +46,22 @@ services:
     ports:
       - "5200:5200"
 
-  admin_ngrok:
+  ngrok_admin:
+    #image: ngrok/ngrok:alpine    
     build:
       context: .
       dockerfile: Dockerfile.ngrok
     depends_on:
       - admin_page
     volumes:
-      - ./admin_ngrok.yml:/root/.ngrok2/ngrok.yml
-    # environment:
-    #   NGROK_AUTH_TOKEN: ${NGROK_AUTH_TOKEN}
+      - ./ngrok_admin.yml:/root/.ngrok2/ngrok.yml
+    #environment:
+      #NGROK_AUTH_TOKEN: ${ADMIN_NGROK_AUTH_TOKEN}
     networks:
       - scholawrite_network
     ports:
       - "4040:4040"
-    command: ["ngrok", "http", "admin_page:5200", "--host-header=admin_page:5200", "--log=stdout", "--log-level=debug"]
+    command: ["ngrok", "http", "admin_page:5200", "--host-header=admin_page:5200", "--domain=dominant-publicly-urchin.ngrok-free.app", "--log=stdout", "--log-level=debug"]
 
 
   mongo:

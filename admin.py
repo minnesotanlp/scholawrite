@@ -16,9 +16,10 @@ import traceback
 
 app = Flask(__name__)
 
-client = MongoClient('localhost', 27017)
+client = MongoClient('mongo', 27017)
 db = client.flask_db
-activity = db.activity
+
+collection = db.activity
 user_data = db["user_data"]
 project_IDs = db["project_IDs"]
 
