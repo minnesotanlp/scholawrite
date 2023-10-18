@@ -1,7 +1,7 @@
 let serverURL;
 let usernameInput;
 let projectIDs;
-serverURL = "https://dae7-2607-ea00-107-3c07-616b-6ac0-27a0-19f0.ngrok-free.app"
+serverURL = "http://127.0.0.1:5000";
 //serverURL = "https://scholawrite.ngrok.app/"
 
 chrome.storage.local.get(["projectIDs"], async function(result){
