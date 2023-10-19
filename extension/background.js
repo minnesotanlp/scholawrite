@@ -24,11 +24,6 @@ let username = "";
 let editingLines = "";
 let action = ""
 
-chrome.storage.local.get(['username'], function(result) {
-    if (result.username !== undefined){
-        username = result.username;
-    }
-});
 
 chrome.runtime.onMessage.addListener(
     function (request, sender, sendResponse) {
@@ -39,33 +34,32 @@ chrome.runtime.onMessage.addListener(
         onkey = request.onkey
         editingLines = request.editingLines
         action = request.message;
-        if (request.message == "username"){
-            console.log("I got username");
-            console.log(request.username);
-            username = request.username;
-        }
-        else if (request.message == "logout"){
-            console.log("I got logout");
-            username = "";
-        }
-        else if (request.message == "user_selection"){
+        username = request.username;
+        if (request.message == "user_selection"){
             var d = new Date();
             var time = d.getTime();
-            let changeMade = difference(request.text, request.revisions);
+
+            text = [request.revisions];
+            // Add diff array and delete revisions
+            // from request that going to send to the server
             let writableRequest = request;
+            let changeMade = difference(request.text, request.revisions);
             writableRequest["revision"] = changeMade;
+            writableRequest.text = request.revisions
+            delete request.revisions
+
+            request.timestamp = time;
             if (request.accept == false){
                 postParaphraseText(writableRequest);
             }
             else{
                 postParaphraseText(writableRequest);
-                text = [request.revisions];
             }
         }
         else if (request.message == "assist"){
             var d = new Date();
             var time = d.getTime();
-            postParaphraseText({message: "assist", username: username, timestamp: time, project: projectID, file: filename, pre_content: request.pre_content,
+            postParaphraseText({message: "assist", username: request.username, timestamp: time, project: projectID, file: filename, pre_content: request.pre_content,
             pos_content: request.pos_content, selected_text: request.selected_text, current_content: request.current_line_content,
             line: request.line}, sender.tab.id);
         }
@@ -88,6 +82,11 @@ chrome.runtime.onMessage.addListener(
                trackWriterAction(4, text[0], request.text, prelineNumber);
                trackWriterAction(0, request.text, request.revisions, lineNumber);
                prelineNumber = lineNumber
+           }
+           else if (text.length > 40){
+                console.log("***** reach array max *****");
+                trackWriterAction(4, text[0], request.revisions, lineNumber);
+                prelineNumber = lineNumber
            }
            else{
                trackWriterAction(0, request.text, request.revisions, lineNumber);
@@ -180,6 +179,10 @@ chrome.runtime.onMessage.addListener(
            lineNumber = request.start;
            trackWriterAction(3, request.text, request.revisions, lineNumber);
            text = [request.revisions];
+        }
+        else if (request.message == "CONTENT OFF"){
+            text = [];
+            prelineNumber = null;
         }
          sendResponse({message: true});
     }
@@ -308,6 +311,7 @@ async function postWriterText(activity) {
 }
 
 async function postParaphraseText(activity, tabId) {
+    activity["username"] = username;
     console.log("postParaphraseText",activity);
     try {
         var message = await fetchFromServer("/paraphrase", activity);

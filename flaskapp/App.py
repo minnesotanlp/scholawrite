@@ -8,32 +8,6 @@ from system import login, register
 from ids import get_ids, set_ids
 
 
-# def tokenize_paste(info):
-#     # pre_text = sentence_reform(info["text"].splitlines(keepends=True))
-#     # cur_text = sentence_reform(info["revision"].splitlines(keepends=True))
-#     # pre = []
-#     # cur = []
-#     # for s in pre_text:
-#     #     for each in sent_tokenizer(s).sents:
-#     #         pre.extend([str(each)])
-#     # for s in cur_text:
-#     #     for each in sent_tokenizer(s).sents:
-#     #         cur.extend([str(each)])
-#     pre = info["text"].splitlines()
-#     cur = info["revision"].splitlines()
-#     if len(pre) < len(cur):
-#         change = paste_handler(pre, cur, 1)
-#     else:
-#         change = paste_handler(pre, cur, 2)
-#     if change != "All lines are the same":
-#         char_num = paste_count_char(info["text"], info["revision"])
-#         line_num = info['line']
-#         revision = ['(' + str(line_num) + ',' + str(char_num) + ') ' + change]
-#     else:
-#         revision = ["All lines are the same"]
-#
-#     return revision
-
 @app.after_request
 def after_request(response):
     response.headers.add('Access-Control-Allow-Origin', '*')
@@ -78,17 +52,18 @@ def process_writer_actions():
 @app.route("/paraphrase", methods=['POST', 'OPTIONS'])
 def ai_paraphrase():
     try:
-        info = request.get_json(force=True)
-        state = info['message']
         #console.log(info)
         if request.method == 'OPTIONS':
             response = jsonify({'message': 'OK'})
         else:
+            info = request.get_json(force=True)
+            state = info['message']
             if state == "assist":
                 context_dict = context_tokenizer(info)
                 gpt_response = call_chatgpt(context_dict["selected_text"])
-                update_database(activity, info, context_dict, gpt_response)
+                updated_info = update_database(activity, info, context_dict, gpt_response)
                 data = form_data(context_dict, gpt_response, info["line"])
+                console.log(updated_info)
                 console.log(data)
                 response = jsonify(data)
 
@@ -98,10 +73,6 @@ def ai_paraphrase():
 
             else:
                 response = jsonify({"error": "Bad request"}), 400
-        response.headers.add('Access-Control-Allow-Origin', '*')
-        response.headers.add('Access-Control-Allow-Credentials', 'true')
-        response.headers.add('Access-Control-Allow-Headers', 'Content-Type')
-        response.headers.add('Access-Control-Allow-Methods', 'GET, POST, OPTIONS')
 
         return response
 
@@ -165,4 +136,4 @@ def post():
 if __name__ == "__main__":
     ENVIRONMENT_DEBUG = os.environ.get("APP_DEBUG", False)
     ENVIRONMENT_PORT = os.environ.get("APP_PORT", 5000)
-    app.run(host="0.0.0.0", port=ENVIRONMENT_PORT, debug=ENVIRONMENT_DEBUG)
+    app.run(host="localhost", port=ENVIRONMENT_PORT, debug=ENVIRONMENT_DEBUG)

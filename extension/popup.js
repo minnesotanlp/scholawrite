@@ -9,6 +9,15 @@ chrome.storage.local.get(["projectIDs"], async function(result){
     console.log(projectIDs);
 });
 
+function clearProjectIds(){
+    let container = document.getElementsByClassName("scroll-container")[0];
+    let entries = container.children;
+    for (var i = entries.length - 2; i > 0; i--) {
+        container.removeChild(entries[i]);
+    }
+    document.getElementById("textAtTop").value = "";
+}
+
 function clearError(){
     var errMessage = document.querySelectorAll('p[style="color: red; font-size: 14px;"]');
     console.log("here")
@@ -82,6 +91,10 @@ document.addEventListener('DOMContentLoaded', function () {
             welcomeMessage.innerHTML = "Welcome, " + result.username;
             welcomeMessage.style.display = "block";
             logout.style.display = "block";
+            chrome.tabs.query({active: true, currentWindow: true}, function(tabs) {
+                chrome.tabs.sendMessage(tabs[0].id, {source: "username", username: usernameInput}, function (response) {
+                });
+            });
         }
     });
     chrome.storage.local.get('enabled', function (result) {
@@ -123,11 +136,24 @@ document.addEventListener('DOMContentLoaded', function () {
         chrome.storage.local.remove('username', function() {
             console.log('Item has been removed from local storage');
         });
-        chrome.runtime.sendMessage({message: "logout"});
-        regForm.style.display = "none";
-        welcomeMessage.style.display = "none";
-        logout.style.display = "none";
-        loginForm.style.display = "block";
+//        chrome.runtime.sendMessage({message: "logout"});
+//        regForm.style.display = "none";
+//        welcomeMessage.style.display = "none";
+//        logout.style.display = "none";
+//        loginForm.style.display = "block";
+//        clearProjectIds();
+        checkbox.checked = false;
+//        chrome.tabs.query({active: true, currentWindow: true}, function(tabs) {
+//            chrome.tabs.sendMessage(tabs[0].id, {toggle: checkbox.checked}, function (response) {
+//            });
+//        });
+        chrome.storage.local.set({'enabled': checkbox.checked }, function () {
+            console.log("confirmed");
+        });
+        chrome.storage.local.set({"projectIDs": []}, function() {
+            console.log('project IDs removed successfully!');
+        })
+        location.reload();
     });
 
 
@@ -156,6 +182,10 @@ document.addEventListener('DOMContentLoaded', function () {
             json = await postWriterText(1, {state: "login", username: usernameInput, password: passwordInput});
             status = json.status;
             if (status == 300){
+                chrome.tabs.query({active: true, currentWindow: true}, function(tabs) {
+                    chrome.tabs.sendMessage(tabs[0].id, {source: "username", username: usernameInput}, function (response) {
+                    });
+                });
                 chrome.storage.local.set({'username': usernameInput}, function() {
                   console.log('Data saved successfully!');
                 });
@@ -207,8 +237,12 @@ document.addEventListener('DOMContentLoaded', function () {
             json = await postWriterText(1, {state: "register", username: usernameInput, password: passwordInput});
             status = json.status;
             if (status == 300){
+                chrome.tabs.query({active: true, currentWindow: true}, function(tabs) {
+                    chrome.tabs.sendMessage(tabs[0].id, {source: "username", username: usernameInput}, function (response) {
+                    });
+                });
                 chrome.storage.local.set({'username': usernameInput}, function() {
-                  console.log('username saved successfully!');
+                    console.log('username saved successfully!');
                 });
                 regForm.style.display = "none";
                 welcomeMessage.innerHTML = "Welcome, " + usernameInput;
@@ -262,23 +296,28 @@ document.addEventListener('DOMContentLoaded', function () {
                 if (projectIDs?.length === 0 || projectIDs?.length === undefined){
                     json = await postWriterText(2, {task: "getIDs", username: usernameInput});
                     status = json.status;
-                }
-                if (status === 300){
-                    projectIDs = json.project_IDs;
-                    document.getElementById("textAtTop").value = projectIDs[0];
-                    for (let i = 1; i < projectIDs.length; i++) {
-                        addTextBox(projectIDs[i]);
+                    if (status === 300){
+                        clearProjectIds();
+                        projectIDs = json.project_IDs;
+                        if (projectIDs.length > 0){
+                            document.getElementById("textAtTop").value = projectIDs[0];
+                            for (let i = 1; i < projectIDs.length; i++) {
+                                addTextBox(projectIDs[i]);
+                            }
+                        }
+                        document.getElementById("control").style.display="none";
+                        document.getElementById("manage").style.display="grid";
                     }
-                    document.getElementById("control").style.display="none";
-                    document.getElementById("manage").style.display="grid";
-                }
-                else if (status === 400){
-                    showError(2, manageIDs, "Sever error encountered, please try again later");
-                }
-                else if (status === 500){
-                    showError(2, manageIDs, "Network error, please check internet connection");
+                    else if (status === 400){
+                        showError(2, manageIDs, "Sever error encountered, please try again later");
+                    }
+                    else if (status === 500){
+                        showError(2, manageIDs, "Network error, please check internet connection");
+                    }
                 }
                 else{
+                    clearProjectIds();
+                    console.log(projectIDs);
                     document.getElementById("textAtTop").value = projectIDs[0];
                     for (let i = 1; i < projectIDs.length; i++) {
                         addTextBox(projectIDs[i]);
@@ -381,4 +420,3 @@ async function postWriterText(task, activity) {
         return {status: 500};
     }
 }
-

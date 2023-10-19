@@ -8,7 +8,7 @@ import diff_match_patch as dmp_module
 
 dmp = dmp_module.diff_match_patch()
 
-#os.environ["OPENAI_API_KEY"] = open_ai_key
+os.environ["OPENAI_API_KEY"] = open_ai_key
 
 
 @transform()
@@ -111,6 +111,8 @@ def update_database(activity, info, context_dict, gpt_response):
     info.pop("current_content")
 
     activity.insert_one(info)
+
+    return info
 
 
 def form_data(context_dict, gpt_response, line):

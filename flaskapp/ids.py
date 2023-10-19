@@ -4,8 +4,13 @@ from flask import jsonify
 
 def get_ids(username):
     user_ids = project_IDs.find({'username': username})
-    response = jsonify({"status": 300, "project_IDs": user_ids[0]["project_IDs"]})
-    console.log({"status": 300, 'username': username, "project_IDs": user_ids[0]["project_IDs"],
+    try:
+        project_ids = user_ids[0]["project_IDs"]
+        response = jsonify({"status": 300, "project_IDs": project_ids})
+    except IndexError:
+        project_ids = []
+        response = jsonify({"status": 300, "project_IDs": []})
+    console.log({"status": 300, 'username': username, "project_IDs": project_ids,
                  "message": "project IDs send"})
     return response
 
