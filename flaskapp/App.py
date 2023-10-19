@@ -69,6 +69,7 @@ def ai_paraphrase():
 
             elif state == "user_selection":
                 console.log(info)
+                activity.insert_one(info)
                 response = jsonify({"message": "received"})
 
             else:
