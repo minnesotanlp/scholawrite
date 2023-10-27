@@ -2,7 +2,7 @@
 
 ## ScholaWrite - Understanding Scholarly Scientific Writing with AI
 
-Are you currently a graduate student and working on an Overleaf draft for journal/conference submissions? Or, are you early-career researchers who are interested in the writing behaviors of scholars in scientific domains? Our study has the following two objectives:  
+Are you currently a graduate student and working on an Overleaf draft for journal/conference submissions? Or, are you early-career researchers who are interested in the writing behaviors of scholars in scientific domains? Our study has the following two objectives: 
 
 - We are interested in studying how scholars in scientific domains write a paper and capturing certain patterns of their writing behaviors. 
 - We would like to obtain insights about how scholarly writers interact with an AI-powered (ChatGPT) paraphrasing tool and are influenced by the interaction in one's writing behavior. 
