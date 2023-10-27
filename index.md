@@ -50,7 +50,7 @@ Coordinators: [Anna Martin-Boyle](mailto:mart5877@umn.edu) and [Minhwa Lee](mail
 Supervisor: [Prof. Dongyeop Kang](mailto:dongyeop@umn.edu)
 
 
-### Onboarding Materials
+### 7. Onboarding Materials
 
 <b style="color:red">If you are interested in participation</b>, please fill out [**this eligibility inquiry form**](https://forms.gle/spF4QoZ7SMyZzhV46). 
 
