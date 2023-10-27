@@ -2,8 +2,7 @@
 
 ## ScholaWrite - Understanding Scholarly Scientific Writing with AI
 
-
-Are you currently a graduate student at UMN and working on scientific papers for journal/conference submissions? Our study has the following two objectives:  
+Are you currently a graduate student and working on an Overleaf draft for journal/conference submissions? Or, are you early-career researchers who are interested in the writing behaviors of scholars in scientific domains? Our study has the following two objectives:  
 
 - We are interested in studying how scholars in scientific domains write a paper and capturing certain patterns of their writing behaviors. 
 - We would like to obtain insights about how scholarly writers interact with an AI-powered (ChatGPT) paraphrasing tool and are influenced by the interaction in one's writing behavior. 
@@ -57,8 +56,10 @@ If interested, please fill out [this eligibility inquiry form](https://forms.gle
 
 ### Onboarding Materials
 
-1. Consent Form [Link](https://docs.google.com/document/d/19cJgz7z0nv20rYl7VIx4cJyLv1Di4eEm/edit?usp=sharing&ouid=112204271777301151645&rtpof=true&sd=true)
-2. Official Study Flyer [Link](https://docs.google.com/document/d/120WxQXymeByYGf9jVHPiSwA_ON1R6WKv/edit?usp=sharing&rtpof=true&sd=true)
+We attach the following two forms to encourage participation in our research study without concern about the data collection procedures, anonymity process, and more details about how we plan to conduct our study. Please refer to 'Consent Form' for more details in the study procedures, and 'Study Flyer' for a short summary of our IRB-approved study. 
+
+1. Consent Form: [Link](https://docs.google.com/document/d/19cJgz7z0nv20rYl7VIx4cJyLv1Di4eEm/edit?usp=sharing&ouid=112204271777301151645&rtpof=true&sd=true)
+2. Official Study Flyer: [Link](https://docs.google.com/document/d/120WxQXymeByYGf9jVHPiSwA_ON1R6WKv/edit?usp=sharing&rtpof=true&sd=true)
 
 
 <img src="https://drive.google.com/uc?id=1XYcHPAO-xPF8a8Ae3P1B3CawW-fnqFgG"
