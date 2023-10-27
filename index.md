@@ -42,12 +42,9 @@ IRB number: 00019901
 The data collected during the course of the study will be stored on a password-protected server owned by our research laboratory. The data will be stored indefinitely for future research purposes. After each participant has finished the publication process for their project we recorded that they intend to publish, we will release the dataset for public use except for records where the release would infringe on copyright laws.
 ### (2) Data
 The following data elements will be collected, stored, and shared publicly in the future:
-Anonymized raw keystroke data
-Timestamps associated with keystroke data
-Paraphrasing requests, their timestamps and associated keystrokes, and whether the paraphrase was accepted or rejected.
-Annotated writing reconstructions
+(1) Anonymized raw keystroke data; (2) Timestamps associated with keystroke data; (3) Paraphrasing requests; (4) their timestamps and associated keystrokes; and (5) whether the paraphrase was accepted or rejected.
 ### (3) Release/Sharing
-The dataset, including all data elements described in 6.2, will be released only after each participant has completed the publication process. Records associated with a publication that is not open-access will not be made public. The dataset will be licensed under Creative Commons Attribution-NonCommercial 4.0 International.
+The dataset, including all data elements, will be released with anonymized information about participants, and only after each participant has completed the publication process. Records associated with a publication that is not open-access will not be made public. The dataset will be licensed under Creative Commons Attribution-NonCommercial 4.0 International.
 
 ### Contact Info
 
