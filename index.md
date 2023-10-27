@@ -9,11 +9,19 @@ Are you currently a graduate student and working on an Overleaf draft for journa
 
 ### Eligibility
 
-Graduate students or affiliates at UMN, who are currently working on an **Overleaf project** for submission. If selected, their co-authors at different institutions are also eligible to participate. 
+Participants must work on an **Overleaf project** for submission. Good candidates will be scholars who:
+
+- are enrolled in a graduate school program or have completed an M.S. or PhD;
+- are currently engaged in a research project and are about to start writing a paper;
+- are willing to write their paper entirely in Overleaf with our keystroke tracking Chrome extension installed;
+- are willing to participate in a study lasting for several months; and
+- are English speaking (e.g., Native English speakers, international students who are proficient in English writing)
+
+If selected, the co-authors of participants will be asked to participate upon agreement. 
 
 ### Study
 
-Participants will have to install a Chrome extension 'ScholaWrite' into their Chrome. Therefore, they will be required to use Chrome for writing in Overleaf. 
+Participants will have to install a Chrome extension **'ScholaWrite'** into their Chrome. Therefore, they will be required to **use Chrome** for writing in Overleaf. 
 
 The data collected by ScholaWrite during this experiment is anonymized keystroke data in **Overleaf**, i.e., the information gathered from a human using a keyboard, such as which keys are pressed and when, and the sequence of keys pressed (these sequences make up words, sentences, paragraphs, etc.). Also, the associated timestamps and ChatGPT-suggested paraphrasing would be stored under anonymity, too. 
 
@@ -27,7 +35,7 @@ Each participant will receive a $20 Amazon gift card. Only the participants them
 
 ### Location
 
-This is an **remote** study. You just need to turn on our ScholaWrite system and work on your overleaf project. 
+This is a **remote** study. You just need to turn on our ScholaWrite system and work on your overleaf project. 
 
 ### Timeframe
 
@@ -39,10 +47,10 @@ IRB number: 00019901
 
 ### (1) Storage and Access:
 The data collected during the course of the study will be stored on a password-protected server owned by our research laboratory. The data will be stored indefinitely for future research purposes. After each participant has finished the publication process for their project we recorded that they intend to publish, we will release the dataset for public use except for records where the release would infringe on copyright laws.
-### (2) Data
+### (2) Data:
 The following data elements will be collected, stored, and shared publicly in the future:
 (1) Anonymized raw keystroke data; (2) Timestamps associated with keystroke data; (3) Paraphrasing requests; (4) their timestamps and associated keystrokes; and (5) whether the paraphrase was accepted or rejected.
-### (3) Release/Sharing
+### (3) Release/Sharing:
 The dataset, including all data elements, will be released with anonymized information about participants, and only after each participant has completed the publication process. Records associated with a publication that is not open-access will not be made public. The dataset will be licensed under Creative Commons Attribution-NonCommercial 4.0 International.
 
 ### Contact Info
@@ -51,12 +59,12 @@ Coordinators: [Anna Martin-Boyle](mailto:mart5877@umn.edu) and [Minhwa Lee](mail
 
 Supervisor: [Prof. Dongyeop Kang](mailto:dongyeop@umn.edu)
 
-If interested, please fill out [this eligibility inquiry form](https://forms.gle/spF4QoZ7SMyZzhV46) or email to either Anna or Minhwa.
+If interested, please fill out [this eligibility inquiry form](https://forms.gle/spF4QoZ7SMyZzhV46) or email either Anna or Minhwa.
 
 
 ### Onboarding Materials
 
-We attach the following two forms to encourage participation in our research study without concern about the data collection procedures, anonymity process, and more details about how we plan to conduct our study. Please refer to 'Consent Form' for more details in the study procedures, and 'Study Flyer' for a short summary of our IRB-approved study. 
+We attach the following two forms to encourage participation in our research study without concern about the data collection procedures, anonymity process, and more details about how we plan to conduct our study. Please refer to the 'Consent Form' for more details on the study procedures, and 'Study Flyer' for a short summary of our IRB-approved study. 
 
 1. Consent Form: [Link](https://docs.google.com/document/d/19cJgz7z0nv20rYl7VIx4cJyLv1Di4eEm/edit?usp=sharing&ouid=112204271777301151645&rtpof=true&sd=true)
 2. Official Study Flyer: [Link](https://docs.google.com/document/d/120WxQXymeByYGf9jVHPiSwA_ON1R6WKv/edit?usp=sharing&rtpof=true&sd=true)
