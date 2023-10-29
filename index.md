@@ -64,8 +64,8 @@ Supervisor: [Prof. Dongyeop Kang](mailto:dongyeop@umn.edu)
 
 We attach the following two forms to encourage participation in our research study without concern about the data collection procedures, anonymity process, and more details about how we plan to conduct our study. Please refer to the 'Consent Form' for more details on the study procedures, and 'Study Flyer' for a short summary of our IRB-approved study. 
 
-1. Consent Form: [Link](https://docs.google.com/document/d/19cJgz7z0nv20rYl7VIx4cJyLv1Di4eEm/edit?usp=sharing&ouid=112204271777301151645&rtpof=true&sd=true)
-2. Official Study Flyer: [Link](https://docs.google.com/document/d/120WxQXymeByYGf9jVHPiSwA_ON1R6WKv/edit?usp=sharing&rtpof=true&sd=true)
+1. Consent Form: [Link](https://drive.google.com/file/d/1DBqQcPkPNcMlxqo7L30krvHxxEYxtKTD/view?usp=sharing)
+2. Official Study Flyer: [Link](https://drive.google.com/file/d/1qodiR5Xkf7DtkB2p14FnY9P3ZmkCtE5I/view?usp=sharing)
 
 
 **About Storing Data for Future Use**
