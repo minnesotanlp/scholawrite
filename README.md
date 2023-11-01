@@ -1,4 +1,8 @@
 # scholawrite
+This repository provides code for collecting writing trajectory data provided by scholars. 
+You can check our first prototype system [Reward](https://github.com/minnesotanlp/reward-system) and a preliminary version of our work in our in2writing [paper](https://arxiv.org/pdf/2304.00121.pdf) and [demo](https://minnesotanlp.github.io/REWARD_demo/).
+
+
 
 ### Requirements
 You will need to install flask==2.1.3, werkzeug==2.1.2, and flask-restx. Installing flask may automatically install a newer version of werkzeug. Werkzeug can be downgraded by running `pip install werkzeug==2.1.2`.
@@ -17,9 +21,8 @@ Once the server is running, you can load the Chrome extension, open Overleaf in 
 
 
 ## Contributors
-
-* [Ryan Koo](mailto:koo00017@umn.edu)
-* [Anna Martin](mailto:mart5877@umn.edu)
-* [Linghe Wang](mailto:wang9257@umn.edu)
+(* indicates the main student leads of the project)
+* [Anna Martin-Boyle](mailto:mart5877@umn.edu)*
+* [Linghe Wang](mailto:wang9257@umn.edu)*
 * [Minhwa Lee](mailto:lee03533@umn.edu)
 * [Dongyeop Kang](mailto:dongyeop@umn.edu)
