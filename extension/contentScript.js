@@ -30,6 +30,8 @@ let timeout;
 let assist_lines;
 let username = "";
 
+let clipboardData = "";
+
 chrome.runtime.onMessage.addListener(
     function(request, sender, sendResponse) {
         if (request.source == "chatgpt"){
@@ -162,6 +164,10 @@ function AI_Paraphrase(){
     }
     if (selected_text == ""){
         alert("You are not selecting any text!");
+        return;
+    }
+    else if(EXTENSION_TOGGLE == false){
+        alert("Your extension toggle is off!");
         return;
     }
     // get all the lines and number of lines
@@ -466,8 +472,6 @@ function sendToBackground(message, onkey = ""){
             chrome.runtime.sendMessage({username: username, editingFile: filename, message: message, revisions: editingParagraph, text: paragraph, editingLines: editingLines, paragraphLines: paragraphLines, project_id: project_id, onkey: onkey, start: lineArea[start].innerText});
         }
         else{
-            clipboard = event.clipboardData || window.clipboardData;
-            clipboardData = clipboard.getData('Text');
             console.log({editingFile: filename, message: message, revisions: editingParagraph, text: paragraph, clipboardData: clipboardData, editingLines: editingLines, project_id: project_id, onkey: onkey, start: lineArea[start].innerText});
             chrome.runtime.sendMessage({username: username, editingFile: filename, message: message, revisions: editingParagraph, text: paragraph, clipboardData: clipboardData, editingLines: editingLines, project_id: project_id, onkey: onkey, start: lineArea[start].innerText});
         }
@@ -577,6 +581,9 @@ async function filePost(){
     }
     sendToBackground("Switch")
     fileObserver.observe(file, {attributeFilter: ["aria-selected", "selected"]});
+
+    document.querySelector('[aria-label="Undo"]').addEventListener('click', function(){setTimeout(sendUndoRedo, 100)});
+    document.querySelector('[aria-label="Redo"]').addEventListener('click', function(){setTimeout(sendUndoRedo, 100)});
 }
 
 function sendUndoRedo(){
@@ -592,18 +599,24 @@ window.addEventListener('beforeunload', function(event) {
 document.body.addEventListener('cut', (event) => {
     state = 1;
     console.log('***** cut ****');
+    clipboard = event.clipboardData || window.clipboardData;
+    clipboardData = clipboard.getData('Text');
     sendToBackground("Cut");
 });
 
 document.body.addEventListener('copy', (event) => {
     state = 2;
     console.log('***** copy ****');
+    clipboard = event.clipboardData || window.clipboardData;
+    clipboardData = clipboard.getData('Text');
     sendToBackground("Copy");
 });
 
 document.body.addEventListener('paste', (event) => {
     state = 3
     console.log('***** paste ****');
+    clipboard = event.clipboardData || window.clipboardData;
+    clipboardData = clipboard.getData('Text');
     sendToBackground("Paste");
 });
 
