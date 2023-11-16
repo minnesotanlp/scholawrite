@@ -1,4 +1,10 @@
 .idea
+mongo_backup.sh
+ngrok_admin.yml
+ngrok_schola.yml
+sheet_credentials.json
+token.json
+output*.txt
 
 # Created by .ignore support plugin (hsz.mobi)
 ### VirtualEnv template
