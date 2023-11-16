@@ -1,5 +1,5 @@
 {
-  "name": "REWARD",
+  "name": "ScholaWrite",
   "version": "0.1.0",
   "manifest_version": 3,
   "permissions": [
@@ -23,7 +23,7 @@
     "*://*.overleaf.com/*"
   ],
   "action": {
-    "default_title": "ReWARD",
+    "default_title": "ScholaWrite",
     "default_popup": "popup.html"
   },
   "background": {
