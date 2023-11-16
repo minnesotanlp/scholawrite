@@ -43,6 +43,9 @@ services:
       MONGO_HOST: mongo
     networks:
       - scholawrite_network
+    volumes:
+      - /home/linghe/google_OAuth2/sheet_credentials.json:/usr/local/src/admin_page/sheet_credentials.json
+      - /home/linghe/google_OAuth2/token.json:/usr/local/src/admin_page/token.json
     ports:
       - "5200:5200"
 
