@@ -346,7 +346,7 @@ function tooltipClick(event) {
 }
 
 function sendUserChoiceToBackground(accept, assist_lines, error){
-    project_id = document.querySelector('meta[name="ol-project_id"]').content
+    project_id = document.querySelector('meta[name="ol-project_id"]').content;
     getEditingText();
     file = document.querySelector('[role = "treeitem"][aria-selected = "true"]');
     filename = file.getAttribute("aria-label");
@@ -405,7 +405,7 @@ window.addEventListener("load", async function(){
     console.log(paragraphLines)
 
     //Get project ID, valid for both legacy and non-legacy
-    project_id = document.querySelector('meta[name="ol-project_id"]').content
+    project_id = document.querySelector('meta[name="ol-project_id"]').content;
     file = document.querySelector('[role = "treeitem"][aria-selected = "true"]');
     filename = file.getAttribute("aria-label");
     console.log("load");
@@ -461,7 +461,7 @@ window.addEventListener("load", async function(){
 });
 
 function sendToBackground(message, onkey = ""){
-    project_id = document.querySelector('meta[name="ol-project_id"]').content
+    project_id = document.querySelector('meta[name="ol-project_id"]').content;
     getEditingText();
     var start = getActiveLine();
     file = document.querySelector('[role = "treeitem"][aria-selected = "true"]');
@@ -541,7 +541,7 @@ document.addEventListener("visibilitychange", () => {
     setTimeout(() => {
         if (document.visibilityState === 'hidden') {
             if (EXTENSION_TOGGLE) {
-                chrome.runtime.sendMessage({username: username, message: "Hidden", revisions: editingParagraph, text: paragraph, onkey: "", editingLines: editingLines});
+                chrome.runtime.sendMessage({username: username, message: "Hidden", revisions: editingParagraph, text: paragraph, onkey: "", editingLines: editingLines, project_id: project_id});
             }
         }
     }, 0)
@@ -551,7 +551,7 @@ document.addEventListener("visibilitychange", () => {
 function scrollPost(mutations){
     console.log(mutations)
     console.log("***** scroll *****")
-    project_id = document.querySelector('meta[name="ol-project_id"]').content
+    project_id = document.querySelector('meta[name="ol-project_id"]').content;
     file = document.querySelector('[role = "treeitem"][aria-selected = "true"]');
     filename = file.getAttribute("aria-label");
     getEditingText();

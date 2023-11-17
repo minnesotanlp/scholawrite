@@ -29,10 +29,10 @@ chrome.runtime.onMessage.addListener(
     function (request, sender, sendResponse) {
         text = text.filter(function(element) {return element !== undefined;});
         console.log(request);
-        projectID = request.project_id
+        projectID = request.project_id;
         filename = request.editingFile;
-        onkey = request.onkey
-        editingLines = request.editingLines
+        onkey = request.onkey;
+        editingLines = request.editingLines;
         action = request.message;
         username = request.username;
         if (request.message == "user_selection"){
