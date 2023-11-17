@@ -22,87 +22,6 @@ project_IDs = db["project_IDs"]
 
 dates = {}
 
-import os.path
-import re
-import threading
-
-from google.auth.transport.requests import Request
-from google.oauth2.credentials import Credentials
-from google_auth_oauthlib.flow import InstalledAppFlow
-from googleapiclient.discovery import build
-from googleapiclient.errors import HttpError
-
-SCOPES = ["https://www.googleapis.com/auth/spreadsheets.readonly"]
-SAMPLE_SPREADSHEET_ID = "13gvKW7gmto4vsn-xBvqMqm2Kt8LoI8AQwlN5-x2y9a4"
-SAMPLE_RANGE_NAME = "L3:L15"
-TOKEN_FILE = "token.json"
-CREDENTIAL_FILE = "sheet_credentials.json"
-
-def fetch_google_sheet():
-    creds = None
-    # The file token.json stores the user's access and refresh tokens, and is
-    # created automatically when the authorization flow completes for the first
-    # time.
-    if os.path.exists(TOKEN_FILE):
-        creds = Credentials.from_authorized_user_file(TOKEN_FILE, SCOPES)
-    # If there are no (valid) credentials available, let the user log in.
-    if not creds or not creds.valid:
-        if creds and creds.expired and creds.refresh_token:
-            creds.refresh(Request())
-        else:
-            flow = InstalledAppFlow.from_client_secrets_file(
-                CREDENTIAL_FILE, SCOPES
-            )
-            creds = flow.run_local_server(port=0)
-        # Save the credentials for the next run
-        with open(TOKEN_FILE, "w") as token:
-            token.write(creds.to_json())
-
-    try:
-        service = build("sheets", "v4", credentials=creds)
-
-        # Call the Sheets API
-        sheet = service.spreadsheets()
-        result = (
-            sheet.values()
-            .get(spreadsheetId=SAMPLE_SPREADSHEET_ID, range=SAMPLE_RANGE_NAME)
-            .execute()
-        )
-        values = result.get("values", [])
-
-        if not values:
-            console.log("No data found.")
-            return
-
-        consented_projects = []
-        for row in values:
-            console.log(row)
-            consented_projects.extend(re.split(r',\s*', row[0]))
-
-        consented_projects = set(consented_projects)
-        console.log("number of consented projects: ", len(consented_projects))
-        console.log(consented_projects)
-
-        distinct_Projects = collection.distinct("project")
-        unconsent_projects = []
-        for each in distinct_Projects:
-            if each not in consented_projects:
-                frkp = collection.find({"project": each}).distinct("username")
-                if ("ryankoo" not in frkp) and ("kooryan" not in frkp):
-                    unconsent_projects.append(each)
-                    
-
-        console.log("number of unconsented projects: ",  len(unconsent_projects))
-        console.log(unconsent_projects)
-
-        for delete_ids in unconsent_projects:
-            collection.delete_many({"project": delete_ids})
-
-    except:
-        traceback.print_exc()
-
-    timer = threading.Timer(24*60*60, fetch_google_sheet)
-    timer.start()
 
 def change_project_overview():
     project_ids = []
@@ -114,6 +33,19 @@ def change_project_overview():
     # Get all projects and their corresponding timestamps
     distinct_Projects = collection.distinct("project")
     distinct_Projects = list(filter(None, distinct_Projects))
+    # temp = {}
+
+    # # Find latest edit time of each project
+    # for project in distinct_Projects:
+    #     latest_time_document = collection.find_one({"project": project}, {"sort": {"timestamp": -1 }})
+    #     temp[project] = collection.find_one(latest_time_document)["timestamp"]
+
+    # # Sorting the dictionary based on time in decending order
+    # sorted_temp = dict(sorted(temp.items(), key=lambda item: item[1], reverse=True))
+
+    # distinct_Projects = list(sorted_temp.keys())
+    # console.log(distinct_Projects)
+
     for id in distinct_Projects:
         timestamps = []
         selected_documents = collection.find({"project": id})
@@ -136,6 +68,7 @@ def change_project_overview():
     t = sorted(all_projects_times, key=len, reverse=True)
     console.log("Project with most recorded edits:", project_ids[all_projects_times.index(t[0])])
     console.log("Project with least recorded edits:", project_ids[all_projects_times.index(t[-1])])
+
     # Convert all timestamps to date objects for each project
     console.log(collection.distinct("username"))
     for i in range(len(all_projects_times)):
@@ -338,13 +271,6 @@ def index():
         response = jsonify(), 200
 
     return response
-
-
-current_time = datetime.now()
-seconds_in_a_day = 24 * 60 * 60
-seconds_until_midnight = seconds_in_a_day - (current_time.hour * 3600 + current_time.minute * 60 + current_time.second)
-timer = threading.Timer(seconds_until_midnight, fetch_google_sheet)
-timer.start()
 
 
 if __name__ == '__main__':

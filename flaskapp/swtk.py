@@ -1,5 +1,5 @@
 import copy
-from config import sent_tokenizer
+from config import sent_tokenizer, console
 
 
 def sentence_reform(splits):
@@ -46,14 +46,29 @@ def clean_up_info(info, state):
     if state == 0 or state == 4:
         info['state'] = info['message']
     elif state == 1:
+        try:
+            info['clipboard'] = info.pop('cb')
+        except:
+            console.log(info)
+            info['clipboard'] = "No CB Data"
+
         info['state'] = info['message']
-        info['clipboard'] = info.pop('cb')
     elif state == 2:
+        try:
+            info['clipboard'] = info.pop('cb')
+        except:
+            console.log(info)
+            info['clipboard'] = "No CB Data"
+            
         info['state'] = info['message']
-        info['clipboard'] = info.pop('cb')
     elif state == 3:
+        try:
+            info['clipboard'] = info.pop('cb')
+        except:
+            console.log(info)
+            info['clipboard'] = "No CB Data"
+
         info['state'] = info['message']
-        info['clipboard'] = info.pop('cb')
         info["text"] = info["revision"]
         info["revision"] = info.pop("changemade")
 
@@ -137,7 +152,7 @@ def paste_count_char(text, revision):
             if j == (len(text) - 1):
                 i = len(text) - 1
         except IndexError:
-            i = j
+            i = j - 1
             break
     if text[i] == '\n' or text[i - 1] == '\n':
         return pos
@@ -150,8 +165,11 @@ def paste_count_char(text, revision):
 
 def count_char(op, i, text):
     pos = 0
-    if "\n" == text[i][1][0]:
-        return pos
+    try:
+        if "\n" == text[i][1][0]:
+            return pos
+    except:
+        pass
     for k in range(i - 1, -1, -1):
         if op == -1 and (text[k][0] == 1 or text[k][0] == -1):
             k -= 1
@@ -371,7 +389,8 @@ def tokenize_keystroke(info):
             else:
                 check1, back = find_back(i, 1, -1, text)
                 check2, front = find_front(i, -1, text)
-                if (check1 or check2) and (revise_word != []):
+                # debug area
+                if (check1 or check2) and (revise_word != []) and (index < len(revise_word)) and (i < len(text)):
                     revise_word[index] += (front + text[i][1] + back)
                     changes.append(revise_word[index])
                     index += 1
@@ -424,7 +443,12 @@ def tokenize_keystroke(info):
 
 def tokenize_copy(info):
     text = info['text']
-    clipboard = info['cb']
+    #debug area
+    try:
+        clipboard = info['cb']
+    except:
+        console.log(info)
+        clipboard = "No CB Data"
     line_numbers = info['editingLines']
     i = text.find(clipboard)
     char_pos = 0
@@ -436,7 +460,7 @@ def tokenize_copy(info):
         if text[k] == '\n':
             break
         char_pos += 1
-    info['cb'] = ['(' + str(line_numbers[line_pos]) + ',' + str(char_pos) + ')' + ", " + info['cb']]
+    info['cb'] = ['(' + str(line_numbers[line_pos]) + ',' + str(char_pos) + ')' + ", " + clipboard]
     return info
 
 
