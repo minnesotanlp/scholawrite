@@ -144,7 +144,8 @@ def process_writer_actions():
             clean_up_info(info, state)
             if info["project"] in consented_projects:
                 activity.insert_one(info)
-
+            else:
+                console.log(info["project"])
             response = jsonify({"status": "Updated recent writing actions in doc"})
         return response
 
@@ -157,7 +158,6 @@ def process_writer_actions():
 @app.route("/paraphrase", methods=['POST', 'OPTIONS'])
 def ai_paraphrase():
     try:
-        #console.log(info)
         if request.method == 'OPTIONS':
             response = jsonify({'message': 'OK'})
         else:
@@ -168,12 +168,16 @@ def ai_paraphrase():
                 gpt_response = call_chatgpt(context_dict["selected_text"])
                 if info["project"] in consented_projects:
                     updated_info = update_database(activity, info, context_dict, gpt_response)
+                else:
+                    console.log(info["project"])
                 data = form_data(context_dict, gpt_response, info["line"])
                 response = jsonify(data)
                 
             elif state == "user_selection":
-                if info["project"] in consented_projects:
+                if info["project_id"] in consented_projects:
                     activity.insert_one(info)
+                else:
+                    console.log(info["project_id"])
                 response = jsonify({"message": "received"})
 
             else:
