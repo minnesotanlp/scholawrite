@@ -6,6 +6,7 @@ import bcrypt
 from datetime import datetime, timedelta
 import diff_match_patch as dmp_module
 from rich.console import Console
+
 console = Console()
 
 dmp = dmp_module.diff_match_patch()
@@ -21,6 +22,57 @@ user_data = db["user_data"]
 project_IDs = db["project_IDs"]
 
 dates = {}
+
+
+def data_collection_overview():
+    project_ids = []
+    all_projects_times = []
+    global dates
+
+    # Get all projects and their corresponding timestamps
+    distinct_Projects = collection.distinct("project")
+    distinct_Projects = list(filter(None, distinct_Projects))
+
+    for id in distinct_Projects:
+        timestamps = []
+        selected_documents = collection.find({"project": id})
+        for doc in selected_documents:
+            if isinstance(doc["timestamp"], int):
+                timestamps.append(doc["timestamp"] // 1000)
+            else:
+                time_string = doc["timestamp"].split(" GMT")[0]
+                date_time_format = "%a %b %d %Y %H:%M:%S:%f"
+                dt = datetime.strptime(time_string, date_time_format)
+                timestamps.append(int(dt.timestamp()))
+        project_ids.append(id)
+        console.log(id)
+        all_projects_times.append(timestamps)
+
+    console.log("Total number of collected edits:", collection.count_documents({}))
+    console.log("Total number of collected projects:", len(distinct_Projects))
+    console.log("Average collected edits:", collection.count_documents({}) / len(distinct_Projects))
+    most_project = collection.find_one(sort=[("project", -1)])
+    least_project = collection.find_one(sort=[("project", 1)])
+    console.log("Project with most recorded edits:", most_project)
+    console.log("Project with least recorded edits:", least_project)
+    most_user = collection.find_one(sort=[("username", -1)])
+    least_user = collection.find_one(sort=[("username", 1)])
+    console.log("User with most recorded edits:", most_user)
+    console.log("User with least recorded edits:", least_user)
+    # Convert all timestamps to date objects for each project
+    console.log(collection.distinct("username"))
+
+    for i in range(len(all_projects_times)):
+        time_list = []
+        for project_time in all_projects_times[i]:
+            time_list.append(datetime.fromtimestamp(project_time))
+
+        # Find the earliest and latest dates
+        min_date = min(time_list).date()
+        max_date = max(time_list).date()
+        console.log(project_ids[i], "   ", min_date, "  ", max_date, "  ",
+                    collection.count_documents({"project": project_ids[i]}))
+        console.log(collection.find({"project": project_ids[i]}).distinct("username"))
 
 
 def change_project_overview():
@@ -58,19 +110,9 @@ def change_project_overview():
                 dt = datetime.strptime(time_string, date_time_format)
                 timestamps.append(int(dt.timestamp()))
         project_ids.append(id)
-        console.log(id)
         all_projects_times.append(timestamps)
-            
-    console.log("Total number of collected edits:",collection.count_documents({}))
-    console.log("Total number of collected projects:", len(distinct_Projects))
-    console.log("Number of projects that can be listed:",len(project_ids))
-    console.log("Average collected edits:",collection.count_documents({})/len(distinct_Projects))
-    t = sorted(all_projects_times, key=len, reverse=True)
-    console.log("Project with most recorded edits:", project_ids[all_projects_times.index(t[0])])
-    console.log("Project with least recorded edits:", project_ids[all_projects_times.index(t[-1])])
 
     # Convert all timestamps to date objects for each project
-    console.log(collection.distinct("username"))
     for i in range(len(all_projects_times)):
         time_list = []
         for project_time in all_projects_times[i]:
@@ -79,20 +121,20 @@ def change_project_overview():
         # Find the earliest and latest dates
         min_date = min(time_list).date()
         max_date = max(time_list).date()
-        console.log(project_ids[i], "   ", min_date, "  ", max_date, "  ", collection.count_documents({"project": project_ids[i]}))
-        console.log(collection.find({"project": project_ids[i]}).distinct("username"))
         # Generate date strings and initialize counts
         days = ((max_date - min_date).days // 15 + 1) * 15
         date_strings = [(min_date + timedelta(days=i)).strftime('%b %d') for i in
                         range(days)]
         counts = [0] * len(date_strings)
 
+        usernames = ""
         # Count the occurrences of each date
         for dt in time_list:
             index = (dt.date() - min_date).days
             counts[index] += 1
-
-        temp_data[project_ids[i]] = [date_strings, counts]
+        for username in collection.find({"project": project_ids[i]}).distinct("username"):
+            usernames = usernames + username + "; "
+        temp_data[project_ids[i]] = [usernames, date_strings, counts]
     dates = temp_data
 
 
@@ -109,9 +151,9 @@ Returns:
     for (op, data) in diffs:
         text = (
             data.replace("&", "&amp;")
-                .replace("<", "&lt;")
-                .replace(">", "&gt;")
-                .replace("\n", "&para;<br>")
+            .replace("<", "&lt;")
+            .replace(">", "&gt;")
+            .replace("\n", "&para;<br>")
         )
         if op == 1:
             html.append('<ins style="background:#82E0AA;">%s</ins>' % text)
@@ -123,14 +165,17 @@ Returns:
             html.append("<span>%s</span>" % text)
     return "".join(html)
 
-def generate(projectID):
+
+def generate(projectID, writer_action_idx, writer_action_offset):
     actions = []
     diffs_htmls = []
     users = []
     overall_htmls = []
     data = collection.find({'project': projectID})
-    # print(collection.find({'project': projectID}))
-    for j in range(collection.count_documents({'project': projectID})):
+    num_action_send = min(writer_action_offset, collection.count_documents({'project': projectID}) - writer_action_idx,
+                          50)
+
+    for j in range(writer_action_idx, writer_action_idx + num_action_send):
         try:
             actions.append({"file": data[j]["file"], "text": data[j]['text'], "timestamp": data[j]["timestamp"]})
             users.append(data[j]['username'])
@@ -156,6 +201,7 @@ def generate(projectID):
     print(len(users))
     print(len(actions))
     print(len(diffs_htmls))
+
     for i in range(0, len(users)):
         try:
             if i == 0:
@@ -164,7 +210,7 @@ def generate(projectID):
                 info.append({"users": users[i], "actions": actions[i], "htmls": diffs_htmls[i - 1]})
         except:
             break
-    return info
+    return writer_action_idx, writer_action_idx + num_action_send, info
 
 
 def verify_password(password, stored_salt, stored_hash):
@@ -198,14 +244,20 @@ def create():
             info = request.get_json(force=True)
             print("THIS IS THE REQUEST", info)
             projectID = info["projectID"]
+            writer_action_idx = info["writer_action_idx"]
+            writer_action_offset = info["writer_action_offset"]
 
-            # project_ids, actions, overall_htmls = generate(projectID)
-            info = generate(projectID)
-            # print(info)
-            # print(project_ids, actions, overall_htmls)
-            response = {"status": "ok", "info": info}
+            if collection.count_documents({'project': projectID}) > writer_action_idx:
+                min_idx, max_idx, info = generate(projectID, writer_action_idx, writer_action_offset)
+            else:
+                min_idx = -1
+                max_idx = -1
+                info = [{"action": {"file": "400 Error", "text": "POST /create: Invalid Index",
+                                    "timestamp": datetime.now().strftime('%Y-%m-%d %H:%M:%S')},
+                         "htmls": "POST /create: Invalid Index. The index you entered either too small or too large.",
+                         "user": "Server"}]
+            response = {"min": min_idx, "max": max_idx, "status": "ok", "info": info}
             response = jsonify(response)
-
         return response
         # return {"status": "ok", "projectIDs": project_ids, "diff_htmls": overall_htmls}
     except:
