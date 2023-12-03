@@ -133,7 +133,8 @@ def change_project_overview():
             index = (dt.date() - min_date).days
             counts[index] += 1
         for username in collection.find({"project": project_ids[i]}).distinct("username"):
-            usernames = usernames + username + "; "
+            if username != "":
+                usernames = usernames + username + "; "
         temp_data[project_ids[i]] = [usernames, date_strings, counts]
     dates = temp_data
 
@@ -184,7 +185,7 @@ def generate(projectID, writer_action_idx, writer_action_offset):
             users.append(data[j]['username'])
             actions.append(
                 {"file": data[j]["file"], 'suggestion': data[j]['suggestion'], "timestamp": data[j]["timestamp"]})
-    # print(actions[0]['text'])
+    # console.log(actions[5])
     diffs_htmls = []
     for i in range(len(actions) - 1):
         try:
@@ -194,22 +195,33 @@ def generate(projectID, writer_action_idx, writer_action_offset):
                 diffs_htmls.append(diff_prettyHtml(diffs))
         except:
             diffs_htmls.append("lol")
-            print([key for key in actions[i + 1]])
+            console.log([key for key in actions[i + 1]])
     # overall_htmls.append(diffs_htmls)
 
     info = []
-    print(len(users))
-    print(len(actions))
-    print(len(diffs_htmls))
+    console.log(len(users))
+    console.log(len(actions))
+    console.log(len(diffs_htmls))
 
     for i in range(0, len(users)):
+        # try:
+        #     if i == 0:
+        #         info.append({"users": users[i], "actions": actions[i], "htmls": actions[0]['text']})
+        #     if i > 0:
+        #         info.append({"users": users[i], "actions": actions[i], "htmls": diffs_htmls[i - 1]})
+        # except:
+        #     continue
         try:
             if i == 0:
-                info.append({"users": users[i], "actions": actions[i], "htmls": actions[0]['text']})
+                try:
+                    info.append({"users": users[i], "actions": actions[i], "htmls": actions[0]['text']})
+                except:
+                    info.append({"users": users[i], "actions": actions[i], "htmls": diffs_htmls[i - 1]})
             if i > 0:
                 info.append({"users": users[i], "actions": actions[i], "htmls": diffs_htmls[i - 1]})
         except:
-            break
+            continue
+
     return writer_action_idx, writer_action_idx + num_action_send, info
 
 
