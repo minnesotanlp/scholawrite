@@ -77,20 +77,18 @@ def fetch_google_sheet():
             counter = -1
         counter += 1
 
-        # distinct_Projects = collection.distinct("project")
+        # distinct_Projects = activity.distinct("project")
         # unconsent_projects = []
         # for each in distinct_Projects:
         #     if each not in consented_projects:
-        #         frkp = collection.find({"project": each}).distinct("username")
-        #         if ("ryankoo" not in frkp) and ("kooryan" not in frkp):
-        #             unconsent_projects.append(each)
+        #         unconsent_projects.append(each)
                     
 
         # console.log("number of unconsented projects: ",  len(unconsent_projects))
         # console.log(unconsent_projects)
 
         # for delete_ids in unconsent_projects:
-        #     collection.delete_many({"project": delete_ids})
+        #     activity.delete_many({"project": delete_ids})
 
     except:
         traceback.print_exc()

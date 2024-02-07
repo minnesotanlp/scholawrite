@@ -5,6 +5,7 @@ from typing import List, Tuple
 from config import MEMORY, open_ai_key
 from dataclasses import dataclass, replace
 import diff_match_patch as dmp_module
+import traceback
 
 dmp = dmp_module.diff_match_patch()
 
@@ -86,7 +87,8 @@ def call_chatgpt(selected_text):
         else:
             paraphrase = suggestion
             explanation = "ChatGPT respond in a wrong format. Above is its complete response."
-    except:
+    except Exception:
+        traceback.print_exc()
         paraphrase = ""
         explanation = ""
 

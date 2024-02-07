@@ -15,7 +15,7 @@ dmp = dmp_module.diff_match_patch()
 
 console = Console()
 
-open_ai_key = os.environ.get("OPENAI_API_KEY")
+open_ai_key = "Put your OpenAI key"
 
 MEMORY = 0
 

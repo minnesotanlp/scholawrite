@@ -9,15 +9,14 @@ RUN apt-get install -y python3-pip python3-dev curl nano systemctl \
     && ln -s /usr/bin/python3 python
 
 RUN mkdir -p /usr/local/src/admin_page
+COPY ./AdminPage /usr/local/src/admin_page
+
 WORKDIR /usr/local/src/admin_page
 
 RUN pip install --upgrade pip setuptools wheel
 
-COPY requirements.txt .
 RUN pip install --no-cache-dir -r requirements.txt
 
 RUN apt-get update -y
 
-COPY . /usr/local/src/admin_page
-WORKDIR /usr/local/src/admin_page/
 CMD ["flask", "run", "--host=0.0.0.0", "--port=5200"]

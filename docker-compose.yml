@@ -21,16 +21,14 @@ services:
       - scholawrite_network
 
   ngrok_schola:
-    #image: ngrok/ngrok:alpine
     build:
       context: .
       dockerfile: Dockerfile.ngrok
     depends_on:
       - scholawrite
-    #environment:
-      #NGROK_AUTH_TOKEN: ${SCHOLA_NGROK_AUTH_TOKEN}
     networks:
       - scholawrite_network
+    # You need to have your own ngrok_admin.yml to host your web publicly
     volumes:
       - ./ngrok_schola.yml:/root/.ngrok2/ngrok.yml
     ports:
@@ -49,17 +47,15 @@ services:
     ports:
       - "5200:5200"
 
-  ngrok_admin:
-    #image: ngrok/ngrok:alpine    
+  ngrok_admin:   
     build:
       context: .
       dockerfile: Dockerfile.ngrok
     depends_on:
       - admin_page
+    # You need to have your own ngrok_admin.yml to host your web publicly
     volumes:
       - ./ngrok_admin.yml:/root/.ngrok2/ngrok.yml
-    #environment:
-      #NGROK_AUTH_TOKEN: ${ADMIN_NGROK_AUTH_TOKEN}
     networks:
       - scholawrite_network
     ports:
