@@ -1,0 +1,3 @@
+[submodule "adminpage"]
+	path = adminpage
+	url = https://github.com/Linghe-Wang/AdminPage.git
