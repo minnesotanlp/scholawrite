@@ -1,3 +1,6 @@
 [submodule "adminpage"]
 	path = adminpage
 	url = https://github.com/Linghe-Wang/AdminPage.git
+[submodule "annotation"]
+	path = annotation
+	url = https://github.com/minnesotanlp/ScholaWrite-annotation-tool.git

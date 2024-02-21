@@ -62,7 +62,33 @@ services:
       - "4040:4040"
     command: ["ngrok", "http", "admin_page:5200", "--host-header=admin_page:5200", "--domain=dominant-publicly-urchin.ngrok-free.app", "--log=stdout", "--log-level=debug"]
 
+  annotation:
+    build:
+      context: .
+      dockerfile: Dockerfile.annotation
+    environment:
+      FLASK_APP: annotation.py
+      MONGO_HOST: mongo
+    networks:
+      - scholawrite_network
+    ports:
+      - "5100:5100"
 
+  ngrok_annotation:   
+    build:
+      context: .
+      dockerfile: Dockerfile.ngrok
+    depends_on:
+      - annotation
+    # You need to have your own ngrok_annotation.yml to host your web publicly
+    volumes:
+      - ./ngrok_annotation.yml:/root/.ngrok2/ngrok.yml
+    networks:
+      - scholawrite_network
+    ports:
+      - "4043:4040"
+    command: ["ngrok", "http", "annotation:5100", "--host-header=annotation:5100", "--domain=skink-sure-properly.ngrok-free.app", "--log=stdout", "--log-level=debug"]
+  
   mongo:
     image: "mongo:latest"
     ports:

@@ -1,7 +1,6 @@
 .idea
 mongo_backup.sh
-ngrok_admin.yml
-ngrok_schola.yml
+*.yml
 sheet_credentials.json
 token.json
 output*.txt

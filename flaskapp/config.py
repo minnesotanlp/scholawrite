@@ -15,7 +15,7 @@ dmp = dmp_module.diff_match_patch()
 
 console = Console()
 
-open_ai_key = "Put your OpenAI key"
+open_ai_key = "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"
 
 MEMORY = 0
 
