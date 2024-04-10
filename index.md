@@ -45,7 +45,7 @@ IRB number: 00019901
 
 ### 6. Contact Info
 
-Coordinators: [Anna Martin-Boyle](mailto:mart5877@umn.edu) and [Minhwa Lee](mailto:lee03533@umn.edu)
+Coordinators: [Minhwa Lee](mailto:lee03533@umn.edu)
 
 Supervisor: [Prof. Dongyeop Kang](mailto:dongyeop@umn.edu)
 
