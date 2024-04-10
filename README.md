@@ -22,7 +22,4 @@ Once the server is running, you can load the Chrome extension, open Overleaf in 
 
 ## Contributors
 (* indicates the main student leads of the project)
-* [Anna Martin-Boyle](mailto:mart5877@umn.edu)*
-* [Linghe Wang](mailto:wang9257@umn.edu)*
-* [Minhwa Lee](mailto:lee03533@umn.edu)
-* [Dongyeop Kang](mailto:dongyeop@umn.edu)
+[To be updated]
