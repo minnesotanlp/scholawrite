@@ -24,39 +24,42 @@
                 </label>
             </div>
             <div class="divider" style="height: 0.5px"></div>
-            <button type="submit" class="greenButton" id="manageIDs">Manage your project IDs</button>
-            <div class="divider" style="height: 0.5px"></div>
+
             <div id = "loginForm" style="display:block">
-              <input type="text" class="username" id="username" placeholder="Enter your username" required>
-              <input type="password" class="password" id="password" placeholder="Enter your password" required>
-              <button type="submit" class="greenButton" id="log">Login</button>
-               <p id="gr">New user? Register here!</p>
+                <input type="email" class="username" id="username" placeholder="Enter your email" required>
+                <input type="password" class="password" id="password" placeholder="Enter your password" required>
+                <button type="submit" class="greenButton" id="log">Login</button>
+                <div style="display: flex; justify-content: space-between;">
+                    <p id="gr">Register here!</p>
+                    <p id="gp">Forgot Password?</p>
+                </div>
             </div>
-             <div id = "regForm" style="display:none">
-              <input type="text" class="username" id="newUser" placeholder="Enter your username" required>
+
+            <div id="passForm" style="display:none">
+              <input type="email" class="username"  id="recoveryEmail" placeholder="Enter your email" required>
+              <button type="submit" class="greenButton" id="rec">Recover</button>
+            </div>
+            <div id="recoverMessage" style="display:none">
+                An recovery email will be sent to your mailbox shortly.<br>
+                Check your spam or try again after 5 mins
+            </div>
+            <div id="failMessage" style="display:none">
+                Sorry, Unexpected Error occur. Please contact admin
+            </div>
+            <p id="glp" style="display:none">Go back to login</p>
+
+            <div id = "regForm" style="display:none">
+              <input type="email" class="username" id="newUser" placeholder="Enter your email" required>
               <input type="password" class="password" id="newPass" placeholder="Enter your password" required>
-               <input type="password" class="password" id="confirmPass" placeholder="Confirm your password" required>
+              <input type="password" class="password" id="confirmPass" placeholder="Confirm your password" required>
               <button type="submit" class="greenButton" id="reg">Register</button>
               <p id="gl">Already a user? Login here!</p>
             </div>
-            <div id="welcomeMessage" style="display:none">
-            </div>
+
+            <div id="welcomeMessage" style="display:none"></div>
             <button type="submit" class="greenButton" id="lo" style="display:none">Logout</button>
+            
         </div>
         <i class="fa fa-spinner fa-spin" id="spinner"></i>
-    <div id="manage" style="display:none">
-        <div class="scroll-container">
-            <div class="textbox-container">
-                <input type="text" class="textbox" id = "textAtTop" style="margin-right: 0px">
-                <button class="del" id = "deleteAtTop">Delete</button>
-            </div>
-            <button type="submit" id="add">Add new ID</button>
-        </div>
-        <div class="divider" style="height: 1px"></div>
-        <div class="action">
-            <button id="back">Back</button>
-            <button id="save">Save</button>
-        </div>
-    </div>
     </body>
 </html>

@@ -1,9 +1,9 @@
 .idea
 mongo_backup.sh
 *.yml
-sheet_credentials.json
-token.json
 output*.txt
+flaskapp/credentials/*
+!flaskapp/credentials/
 
 # Created by .ignore support plugin (hsz.mobi)
 ### VirtualEnv template

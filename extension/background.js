@@ -1,9 +1,9 @@
 let serverURL;
-//serverURL =  "http://127.0.0.1:5000";
-serverURL = "https://scholawrite.ngrok.app/";
+serverURL =  "http://127.0.0.1:5000";
+// serverURL = "https://scholawrite.ngrok.app/";
 let headers = new Headers();
 headers.append('GET', 'POST', 'OPTIONS');
-//headers.append('Access-Control-Allow-Origin', 'http://127.0.0.1:5000/');
+// headers.append('Access-Control-Allow-Origin', 'http://127.0.0.1:5000/');
 headers.append('Access-Control-Allow-Origin', 'https://scholawrite.ngrok.app/');
 headers.append('Access-Control-Allow-Credentials', 'true');
 

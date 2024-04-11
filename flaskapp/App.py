@@ -1,100 +1,17 @@
-import os
 import traceback
-from flask import request, jsonify
+from flask import request, jsonify, render_template, redirect
 from config import activity, app, console
 from swtk import tokenize_copy, tokenize_revert, tokenize_paste, tokenize_keystroke, clean_up_info
 from utils import context_tokenizer, call_chatgpt, update_database, form_data
-from system import login, register
-from ids import get_ids, set_ids
-
+from system import login, register, does_exist, update_password
 
 import os.path
-import re
 import threading
-from datetime import datetime, date
-from google.auth.transport.requests import Request
-from google.oauth2.credentials import Credentials
-from google_auth_oauthlib.flow import InstalledAppFlow
-from googleapiclient.discovery import build
-from googleapiclient.errors import HttpError
+import random
+from datetime import datetime, timedelta
+from gcloud import fetch_google_sheet, gmail_send_message, consented_projects
 
-SCOPES = ["https://www.googleapis.com/auth/spreadsheets.readonly"]
-SAMPLE_SPREADSHEET_ID = "13gvKW7gmto4vsn-xBvqMqm2Kt8LoI8AQwlN5-x2y9a4"
-SAMPLE_RANGE_NAME = "L3:L20"
-TOKEN_FILE = "token.json"
-CREDENTIAL_FILE = "sheet_credentials.json"
-consented_projects = []
-counter = 0
-
-def fetch_google_sheet():
-    creds = None
-    global consented_projects, counter
-    # The file token.json stores the user's access and refresh tokens, and is
-    # created automatically when the authorization flow completes for the first
-    # time.
-    if os.path.exists(TOKEN_FILE):
-        creds = Credentials.from_authorized_user_file(TOKEN_FILE, SCOPES)
-    # If there are no (valid) credentials available, let the user log in.
-    if not creds or not creds.valid:
-        if creds and creds.expired and creds.refresh_token:
-            creds.refresh(Request())
-        else:
-            flow = InstalledAppFlow.from_client_secrets_file(
-                CREDENTIAL_FILE, SCOPES
-            )
-            creds = flow.run_local_server(port=0)
-        # Save the credentials for the next run
-        with open(TOKEN_FILE, "w") as token:
-            token.write(creds.to_json())
-
-    try:
-        service = build("sheets", "v4", credentials=creds)
-
-        # Call the Sheets API
-        sheet = service.spreadsheets()
-        result = (
-            sheet.values()
-            .get(spreadsheetId=SAMPLE_SPREADSHEET_ID, range=SAMPLE_RANGE_NAME)
-            .execute()
-        )
-        values = result.get("values", [])
-
-        if not values:
-            console.log("No data found.")
-            return
-
-        for row in values:
-            if row != []:
-                consented_projects.extend(re.split(r',\s*', row[0]))
-
-        consented_projects = list(set(consented_projects))
-
-        if counter == 0:
-            console.log(date.today())
-            console.log("number of consented projects: ", len(consented_projects))
-            console.log(consented_projects)
-        elif counter == (24 * 60):
-            counter = -1
-        counter += 1
-
-        # distinct_Projects = activity.distinct("project")
-        # unconsent_projects = []
-        # for each in distinct_Projects:
-        #     if each not in consented_projects:
-        #         unconsent_projects.append(each)
-                    
-
-        # console.log("number of unconsented projects: ",  len(unconsent_projects))
-        # console.log(unconsent_projects)
-
-        # for delete_ids in unconsent_projects:
-        #     activity.delete_many({"project": delete_ids})
-
-    except:
-        traceback.print_exc()
-
-    timer = threading.Timer(60, fetch_google_sheet)
-    timer.start()
+recovery_dict = {}
 
 
 @app.after_request
@@ -113,7 +30,7 @@ def process_writer_actions():
             response = jsonify({'message': 'OK'})
         else:
             info = request.get_json(force=True)
-            # if line == -1, means we didn't found the editing line
+            # if line == -1, means we didn't find the editing line
             try:
                 temp_line = info['line']
             except:
@@ -165,7 +82,7 @@ def ai_paraphrase():
                 context_dict = context_tokenizer(info)
                 gpt_response = call_chatgpt(context_dict["selected_text"])
                 if info["project"] in consented_projects:
-                    updated_info = update_database(activity, info, context_dict, gpt_response)
+                    update_database(activity, info, context_dict, gpt_response)
                 else:
                     console.log(info["project"])
                 data = form_data(context_dict, gpt_response, info["line"])
@@ -221,25 +138,72 @@ def users():
         return jsonify({'error': 'An error occurred'}), 500
 
 
-@app.route("/ids", methods=['POST', "OPTIONS"])
-def post():
+@app.route('/forgot_password', methods=['POST'])
+def forgot_password():
     try:
-        if request.method == 'OPTIONS':
-            response = jsonify({'message': 'OK'})
-        else:
-            info = request.get_json(force=True)
-            if info["task"] == "getIDs":
-                response = get_ids(info["username"])
-            elif info["task"] == "setIDs":
-                response = set_ids(info["username"], info["project_IDs"])
-            else:
-                response = jsonify({"error": "Bad request"}), 400
-        return response
+        info = request.get_json(force=True)
+        email = info['email']
+        if does_exist(email):
+            hashed_path = str(abs(hash(email + str(random.randint(0, 1000)))))
+            recovery_dict[email] = [hashed_path, datetime.now()]
+            recovery_url = "http://127.0.0.1:5000/reset_password/" + hashed_path
+            gmail_send_message(email, recovery_url)
+        return {"status": 300}
 
     except Exception:
-        console.log(info)
         traceback.print_exc()
-        return jsonify({'error': 'An error occurred'}), 500
+        return {"status": 500}
+
+
+def get_entry(hashed_path):
+    for entry in recovery_dict.items():
+        if entry[1][0] == hashed_path:
+            return entry
+    return None
+
+
+@app.route('/reset_password/<hashed_path>', methods=['GET', 'POST'])
+def reset_password(hashed_path):
+    # check if hashed_path exist in our dictionary.
+    # If so, get corresponding email and date object
+    entry = get_entry(hashed_path)
+    if entry:
+        # if the time is valid, we process the recovery password requests
+        start_time = entry[1][1]
+        target_email = entry[0]
+        if (datetime.now() - start_time) <= timedelta(minutes=30):
+            if request.method == 'POST':
+                try:
+                    new_pass = request.form["new_pass"]
+                    update_password(target_email, new_pass)
+                    # Recovery complete, remove email from recovery dictionary
+                    del recovery_dict[target_email]
+                    return redirect('/reset_success')
+                except:
+                    del recovery_dict[target_email]
+                    return redirect('/reset_fail')
+            else:
+                return render_template("index.html")
+        # if the time expired, delete the item from dictionary
+        else:
+            del recovery_dict[hashed_path]
+
+    # These statements will be reach if email is not found or recovery time is expired
+    response = {
+        "error": "Not Found",
+        "message": "The requested URL was not found on the server."
+    }
+    return jsonify(response), 404
+
+
+@app.route('/reset_success', methods=['GET'])
+def reset_success():
+    return render_template("form_success.html")
+
+
+@app.route('/reset_fail', methods=['GET'])
+def reset_fail():
+    return render_template("form_fail.html")
 
 
 current_time = datetime.now()

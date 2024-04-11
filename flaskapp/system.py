@@ -45,3 +45,14 @@ def register(username, password):
         print(traceback.print_exc())
         code = 400
     return code
+
+
+def does_exist(username):
+    result = user_data.find({"username": username})
+    return list(result)
+
+
+def update_password(username, password):
+    salt, hashed_password = hash_password(password)
+    user_data.update_one(
+        {"username": username}, {"$set": {"salt": salt, "hashed_password": hashed_password}})

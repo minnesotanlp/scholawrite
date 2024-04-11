@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <title>ScholaWrite Password Reset</title>
+  <script src="https://kit.fontawesome.com/175459e37d.js" crossorigin="anonymous"></script>
+  <link rel="stylesheet" href="{{ url_for('static', filename='css/index.css') }}">
+  <script src="{{ url_for('static', filename='js/index.js') }}"></script>
+</head>
+<body>
+  <div class="container">
+    <h1>ScholarWrite Password Reset</h1>
+    <!--Post to current URL, support for HTML5 and below-->
+    <form action="" method="POST" onsubmit="return validateForm()">
+      <input type="password" id="password" name="new_pass" placeholder="Enter your new password" required>
+      <input type="password" id="confirmPassword" placeholder="Please enter again" required>
+      <button id="submit" type="submit">Reset!</button>
+    </form>
+  </div>
+</body>
+</html>

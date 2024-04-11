@@ -5,11 +5,8 @@
   "permissions": [
     "tabs",
     "storage",
-    "contextMenus",
     "activeTab",
-    "background",
-    "declarativeContent",
-    "notifications"
+    "background"
   ],
   "web_accessible_resources":[
     {

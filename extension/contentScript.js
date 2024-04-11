@@ -166,10 +166,6 @@ function AI_Paraphrase(){
         alert("You are not selecting any text!");
         return;
     }
-    else if(EXTENSION_TOGGLE == false){
-        alert("Your extension toggle is off!");
-        return;
-    }
     // get all the lines and number of lines
     const cm_content = document.getElementsByClassName("cm-content cm-lineWrapping");
     console.log(selected_text);
@@ -458,6 +454,11 @@ window.addEventListener("load", async function(){
 
     document.querySelector('[aria-label="Undo"]').addEventListener('click', function(){setTimeout(sendUndoRedo, 100)});
     document.querySelector('[aria-label="Redo"]').addEventListener('click', function(){setTimeout(sendUndoRedo, 100)});
+
+    if (!EXTENSION_TOGGLE){
+        // notify user when the toggle is not turned on
+        alert("Please turn on Record Writing Action toggle.\nWe won't collect unconsented project.");
+    }
 });
 
 function sendToBackground(message, onkey = ""){
@@ -624,6 +625,10 @@ let excludedKeys = ["Meta", "Alt", "Tab","Shift","CapsLock","ArrowUp", "Control"
 
 document.body.onkeyup = function (e) { // save every keystroke
     if (!excludedKeys.includes(e.key)){
+        if (!EXTENSION_TOGGLE){
+            // notify user when the toggle is not turned on
+            alert("Please turn on Record Writing Action toggle.\nWe won't collect unconsented project.");
+        }
         onkey = e.key;
         sendToBackground("Typing", onkey);
     }

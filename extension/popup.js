@@ -1,22 +1,8 @@
 let serverURL;
 let usernameInput;
 let projectIDs;
-//serverURL = "http://127.0.0.1:5000"
-serverURL = "https://scholawrite.ngrok.app/"
-
-chrome.storage.local.get(["projectIDs"], async function(result){
-    projectIDs = result.projectIDs;
-    console.log(projectIDs);
-});
-
-function clearProjectIds(){
-    let container = document.getElementsByClassName("scroll-container")[0];
-    let entries = container.children;
-    for (var i = entries.length - 2; i > 0; i--) {
-        container.removeChild(entries[i]);
-    }
-    document.getElementById("textAtTop").value = "";
-}
+serverURL = "http://127.0.0.1:5000"
+// serverURL = "https://scholawrite.ngrok.app/"
 
 function clearError(){
     var errMessage = document.querySelectorAll('p[style="color: red; font-size: 14px;"]');
@@ -81,6 +67,7 @@ document.addEventListener('DOMContentLoaded', function () {
     var checkbox = document.querySelector('input[type="checkbox"]');
     var loginForm = document.getElementById("loginForm");
     var regForm = document.getElementById("regForm");
+    var passForm = document.getElementById("passForm");
     var logout = document.getElementById("lo");
     var welcomeMessage = document.getElementById("welcomeMessage");
 
@@ -131,28 +118,16 @@ document.addEventListener('DOMContentLoaded', function () {
         });
     });
 
+
     // section for handling logout
     logout.addEventListener('click', function(){
         chrome.storage.local.remove('username', function() {
             console.log('Item has been removed from local storage');
         });
-//        chrome.runtime.sendMessage({message: "logout"});
-//        regForm.style.display = "none";
-//        welcomeMessage.style.display = "none";
-//        logout.style.display = "none";
-//        loginForm.style.display = "block";
-//        clearProjectIds();
         checkbox.checked = false;
-//        chrome.tabs.query({active: true, currentWindow: true}, function(tabs) {
-//            chrome.tabs.sendMessage(tabs[0].id, {toggle: checkbox.checked}, function (response) {
-//            });
-//        });
         chrome.storage.local.set({'enabled': checkbox.checked }, function () {
             console.log("confirmed");
         });
-        chrome.storage.local.set({"projectIDs": []}, function() {
-            console.log('project IDs removed successfully!');
-        })
         location.reload();
     });
 
@@ -166,6 +141,8 @@ document.addEventListener('DOMContentLoaded', function () {
     var username = document.getElementById("username");
     var password = document.getElementById("password");
     var gr = document.getElementById("gr");
+    var gp = document.getElementById("gp");
+    var glp = document.getElementById("glp");
 
     username.addEventListener('click', clearError);
     password.addEventListener('click', clearError);
@@ -174,12 +151,13 @@ document.addEventListener('DOMContentLoaded', function () {
         clearError();
         usernameInput = username.value;
         var passwordInput = password.value;
+        console.log(username, passwordInput)
         if (usernameInput == "" || passwordInput == ""){
             showError(1, login, "Invalid username/password, please try again");
         }
         else {
             var json, status;
-            json = await postWriterText(1, {state: "login", username: usernameInput, password: passwordInput});
+            json = await postWriterText("/users", {state: "login", username: usernameInput, password: passwordInput});
             status = json.status;
             if (status == 300){
                 chrome.tabs.query({active: true, currentWindow: true}, function(tabs) {
@@ -210,6 +188,14 @@ document.addEventListener('DOMContentLoaded', function () {
         loginForm.style.display = "none";
     });
 
+    gp.addEventListener('click', function(){
+        clearError();
+        document.documentElement.style.maxHeight = "460px";
+        loginForm.style.display = "none";
+        passForm.style.display = "block";
+        glp.style.display = "block";
+    });
+
     // section for handling registration
     var register = document.querySelector('button[type="submit"][id="reg"]');
     var newUser = document.getElementById("newUser");
@@ -234,7 +220,7 @@ document.addEventListener('DOMContentLoaded', function () {
         }
         else {
             var json, status
-            json = await postWriterText(1, {state: "register", username: usernameInput, password: passwordInput});
+            json = await postWriterText("/users", {state: "register", username: usernameInput, password: passwordInput});
             status = json.status;
             if (status == 300){
                 chrome.tabs.query({active: true, currentWindow: true}, function(tabs) {
@@ -265,155 +251,62 @@ document.addEventListener('DOMContentLoaded', function () {
         loginForm.style.display = "block";
     });
 
-    //section to handling project IDs tracking
-    // 300: pass
-    // 400: server error
-    // 500: network error
-    var manageIDs = document.getElementById("manageIDs");
-    var back = document.getElementById("back");
-    back.addEventListener('click', function(){
-        clearError();
-        document.getElementById("manage").style.display="none";
-        document.getElementById("control").style.display="block";
-    });
-    const scrollContainer = document.getElementsByClassName('scroll-container')[0];
-    scrollContainer.addEventListener("click", clearError);
 
-    manageIDs.addEventListener('click', function(){
-        clearError();
-        var tempUsername = ""
-        chrome.storage.local.get(['username'], async function(result) {
-            tempUsername = result.username;
-            if (tempUsername === "" || tempUsername === undefined){
-                showError(2, manageIDs, "Please login/register before manage your IDs");
+    // section for password recovery
+    var pass_rec = document.querySelector('button[type="submit"][id="rec"]');
+    var recUsername = document.getElementById("recoveryEmail");
+    var recoverMessage = document.getElementById("recoverMessage");
+    var failMessage = document.getElementById("failMessage");
+
+    pass_rec.addEventListener('click', async function(){
+    	clearError();
+        usernameInput = recUsername.value;
+        if (usernameInput == ""){
+            showError(1, pass_rec, "Invalid email, please try again");
+        }
+        else {
+            var json, status
+            json = await postWriterText("/forgot_password", {email: usernameInput});
+            status = json.status;
+            if (status == 300){
+                passForm.style.display = "none";
+                recoverMessage.style.display = "block";
             }
             else {
-                manageIDs.innerText = "";
-                manageIDs.style.padding = "7px";
-                manageIDs.innerHTML = `<i class="fa fa-spinner fa-spin" aria-hidden="true" style="font-size: 22px;"/i>`;
-                manageIDs.disabled = true;
-                var json, status;
-                if (projectIDs?.length === 0 || projectIDs?.length === undefined){
-                    json = await postWriterText(2, {task: "getIDs", username: usernameInput});
-                    status = json.status;
-                    if (status === 300){
-                        clearProjectIds();
-                        projectIDs = json.project_IDs;
-                        if (projectIDs.length > 0){
-                            document.getElementById("textAtTop").value = projectIDs[0];
-                            for (let i = 1; i < projectIDs.length; i++) {
-                                addTextBox(projectIDs[i]);
-                            }
-                        }
-                        document.getElementById("control").style.display="none";
-                        document.getElementById("manage").style.display="grid";
-                    }
-                    else if (status === 400){
-                        showError(2, manageIDs, "Sever error encountered, please try again later");
-                    }
-                    else if (status === 500){
-                        showError(2, manageIDs, "Network error, please check internet connection");
-                    }
-                }
-                else{
-                    clearProjectIds();
-                    console.log(projectIDs);
-                    document.getElementById("textAtTop").value = projectIDs[0];
-                    for (let i = 1; i < projectIDs.length; i++) {
-                        addTextBox(projectIDs[i]);
-                    }
-                    document.getElementById("control").style.display="none";
-                    document.getElementById("manage").style.display="grid";
-                }
-                manageIDs.innerText = "Manage your project IDs";
-                manageIDs.style.padding = "10px";
-                manageIDs.removeAttribute("disabled");
-           }
-        });
-    });
-
-    const add = document.getElementById("add");
-    add.addEventListener("click", function(){addTextBox("");});
-    const del = document.getElementById("deleteAtTop");
-    del.addEventListener("click", function(event){
-        event.target.previousElementSibling.value = "";
-    });
-
-    const save = document.getElementById("save");
-    save.addEventListener("click", async function(){
-        clearError();
-        buttons_and_inputs= document.getElementById("manage").querySelectorAll('*');
-        buttons_and_inputs.forEach(function (element) {
-            element.disabled = true;
-        });
-        document.getElementById("manage").style.filter = "blur(3Px)";
-        document.getElementById("spinner").style.display = "block";
-        temp_projectIDs = []
-        textboxContainers = document.getElementsByClassName("textbox-container");
-        for (var i = 0; i<textboxContainers.length; i++){
-            if (textboxContainers[i].children[0].value !== ""){
-                temp_projectIDs.push(textboxContainers[i].children[0].value);
+                passForm.style.display = "none";
+                failMessage.style.display = "block";
             }
         }
-        console.log(temp_projectIDs);
-        var json = await postWriterText(2, {task: "setIDs",username: usernameInput, project_IDs: temp_projectIDs});
-        var status = json.status;
-        if (status === 300){
-            projectIDs = temp_projectIDs;
-            chrome.storage.local.set({"projectIDs": projectIDs}, function() {
-                  console.log('project IDs saved successfully!');
-            });
-            buttons_and_inputs.forEach(function (element) {
-                element.removeAttribute('disabled');
-            });
-            document.getElementById("manage").style.filter = "";
-            document.getElementById("spinner").style.display = "none";
-        }
-        else if (status === 400){
-            save.parentElement.previousElementSibling.style.margin = "20px 0px 0px";
-            showError(1, save.parentElement, "Sever error encountered, please try again later");
-        }
-        else if (status === 500){
-            showError(1, save.parentElement, "Network error, please check internet connection");
-        }
-        buttons_and_inputs.forEach(function (element) {
-            element.removeAttribute("disabled");
-        });
-        document.getElementById("manage").style.filter = "";
-        document.getElementById("spinner").style.display = "none";
     });
+
+    glp.addEventListener('click', function(){
+        clearError();
+        document.documentElement.style.maxHeight = "460px";
+        loginForm.style.display = "block";
+        passForm.style.display = "none";
+        glp.style.display = "none";
+        recoverMessage.style.display = "none";
+        failMessage.style.display = "none";
+    })
+
 });
 
-async function postWriterText(task, activity) {
+
+
+async function postWriterText(end_point, activity) {
     try {
-        if (task === 1){
-            const response = await fetch(serverURL + "/users", {
-                // mode: 'no-cors',
-                headers: {
-                    'Accept': 'application/json',
-                    'Content-Type': 'application/json'
-                },
-                method: 'POST',
-                body: JSON.stringify(activity),
-            })
-            const message = await response.json();
-            console.log(message);
-            return message
-        }
-        else if (task === 2){
-            const response = await fetch(serverURL + "/ids", {
-                // mode: 'no-cors',
-                headers: {
-                    'Accept': 'application/json',
-                    'Content-Type': 'application/json'
-                },
-                method: 'POST',
-                body: JSON.stringify(activity),
-            })
-            const message = await response.json();
-            console.log(message);
-            return message
-        }
+        const response = await fetch(serverURL + end_point, {
+            // mode: 'no-cors',
+            headers: {
+                'Accept': 'application/json',
+                'Content-Type': 'application/json'
+            },
+            method: 'POST',
+            body: JSON.stringify(activity),
+        })
+        const message = await response.json();
+        console.log(message);
+        return message
     }
     catch (err){
         console.log('failed to fetch');

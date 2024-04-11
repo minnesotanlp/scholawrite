@@ -15,11 +15,12 @@ dmp = dmp_module.diff_match_patch()
 
 console = Console()
 
-open_ai_key = "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"
+open_ai_key = os.environ.get("OPENAI_API_KEY")
 
 MEMORY = 0
 
 app = Flask(__name__)
+
 
 # for using Azure CosmoDB
 def get_collection():
@@ -45,7 +46,7 @@ def get_collection():
 
 
 # create database instance
-client = MongoClient('mongo', 27017)
+client = MongoClient('localhost', 27017)
 db = client.flask_db
 activity = db.activity
 user_data = db["user_data"]
