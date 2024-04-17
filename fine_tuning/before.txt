@@ -1,0 +1,60 @@
+\textit{Sentence: “I've been out of work for nine months, and it's finally catching up to me. When I lost my job in January, I took a sabbatical for a few months; it was necessary at the time. Hindsight being 20/20, I should have set up my phone with call blockers when the bill collectors began calling. I couldn't tell the difference between a potential employer and something which would stress me out given the slew of incoming calls with unknown numbers. During my time off I invested my time to build new skills, donating them to a gaming community, and hanging out for escapism to the point of obsession.”}
+\bigbreak
+\textit{Label: almosthomeless}
+
+\bigbreak
+
+Similar to almosthomeless, one example was given to each label in the dataset before asking the prompt to chatgpt.
+
+\bigbreak
+
+Figure[6] below indicates the confusion matrix of the predictions made by chatgpt when compared to actual labels
+\bigbreak
+
+\begin{figure}[h!]
+\centering
+\includegraphics[width=0.49\textwidth]{latex/Figures/IS_Confusionmatrix_Chatgpt.png}
+\caption{Confusion matrix for chatgpt responses}
+\label{tab:chatgpt_confusionmatrix}
+\end{figure}
+
+Figure [7] illustrates the performance accuracy of various models employed throughout the process.
+
+\begin{figure}[h!]
+\includegraphics[width=0.49\textwidth]{latex/Figures/IS_scores_pdf.png}
+\caption{Accuracy Comparison}
+\label{tab:overall_scores_plot}
+\end{figure}
+\bigbreak
+
+The detailed score report for all three models under consideration is presented in Figure [8].
+
+\begin{table*}[ht]
+    \centering
+    \begin{tabular}{cc}\toprule
+        \multirow{}{}{} & 
+        almosthomeless &  \\
+        anxiety & \\
+        assistance & \\
+        domesticviolence & \\
+        food_pantry & \\
+        homeless & \\
+        ptsd & \\
+        relationships & \\
+        stress & \\
+        survivorofabuse & \\
+        accuracy & \\
+        macro average & \\
+        weighted average & \\
+    \end{tabular}
+    \caption{Caption}
+    \label{tab:my_label}
+\end{table*}
+\begin{figure*}[h!]
+\centering
+\includegraphics[width=160mm]{latex/Figures/IS_scores_report.png}
+\caption{Detailed Scores Report}
+\label{tab:scores_report}
+\end{figure*}
+\bigbreak
+
