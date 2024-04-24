@@ -1,8 +1,8 @@
 let serverURL;
 let usernameInput;
 let projectIDs;
-serverURL = "http://127.0.0.1:5000"
-// serverURL = "https://scholawrite.ngrok.app/"
+// serverURL = "http://127.0.0.1:5000"
+serverURL = "https://scholawrite.ngrok.app/"
 
 function clearError(){
     var errMessage = document.querySelectorAll('p[style="color: red; font-size: 14px;"]');
