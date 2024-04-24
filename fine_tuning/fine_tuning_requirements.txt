@@ -6,3 +6,4 @@ transformers==4.37.2
 matplotlib==3.7.0
 accelerate==0.29.3
 sklearn==1.4.2
+datasets

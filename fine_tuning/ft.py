@@ -7,12 +7,14 @@ import pymongo
 from pymongo import MongoClient
 import matplotlib.pyplot as plt
 import numpy as np
+import torch
 
 load_dotenv()
 
 hf_api_key = os.environ["HUGGINGFACE_API_KEY"]
 
-device = "cuda" # the device to load the model onto
+debug = False
+device = 'cuda' if debug == False and torch.cuda.is_available() else 'cpu'
 
 model = AutoModelForCausalLM.from_pretrained("mistralai/Mistral-7B-Instruct-v0.1", token=hf_api_key)
 model.eval()
@@ -30,7 +32,7 @@ cursor = annotation.find(query)
 
 activity_df = pd.DataFrame(list(cursor))
 
-activity_df
+print("len activity df", len(activity_df))
 
 before_text = activity_df.iloc[0]["before_text"]
 after_text = activity_df.iloc[0]["after_text"]
