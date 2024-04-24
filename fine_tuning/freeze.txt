@@ -1,0 +1,391 @@
+accelerate==0.29.2
+anyio @ file:///croot/anyio_1706220167567/work
+argon2-cffi @ file:///opt/conda/conda-bld/argon2-cffi_1645000214183/work
+argon2-cffi-bindings @ file:///tmp/build/80754af9/argon2-cffi-bindings_1644569679365/work
+asttokens @ file:///opt/conda/conda-bld/asttokens_1646925590279/work
+async-lru @ file:///croot/async-lru_1699554519285/work
+attrs @ file:///croot/attrs_1695717823297/work
+Babel @ file:///croot/babel_1671781930836/work
+backcall @ file:///home/ktietz/src/ci/backcall_1611930011877/work
+beautifulsoup4 @ file:///croot/beautifulsoup4-split_1681493039619/work
+bleach @ file:///opt/conda/conda-bld/bleach_1641577558959/work
+Bottleneck @ file:///croot/bottleneck_1707864210935/work
+Brotli @ file:///tmp/abs_ecyw11_7ze/croots/recipe/brotli-split_1659616059936/work
+certifi @ file:///croot/certifi_1707229174982/work/certifi
+cffi @ file:///croot/cffi_1700254295673/work
+charset-normalizer @ file:///tmp/build/80754af9/charset-normalizer_1630003229654/work
+click==8.1.7
+colorcet @ file:///croot/colorcet_1709758348067/work
+comm @ file:///croot/comm_1709322850197/work
+contourpy @ file:///croot/contourpy_1700583582875/work
+cycler @ file:///tmp/build/80754af9/cycler_1637851556182/work
+Cython==0.29.37
+debugpy @ file:///croot/debugpy_1690905042057/work
+decorator @ file:///opt/conda/conda-bld/decorator_1643638310831/work
+defusedxml @ file:///tmp/build/80754af9/defusedxml_1615228127516/work
+diff-match-patch @ file:///Users/ktietz/demo/mc3/conda-bld/diff-match-patch_1630511840874/work
+dnspython==2.6.0
+exceptiongroup @ file:///croot/exceptiongroup_1706031385326/work
+executing @ file:///opt/conda/conda-bld/executing_1646925071911/work
+fastjsonschema @ file:///opt/conda/conda-bld/python-fastjsonschema_1661371079312/work
+filelock @ file:///croot/filelock_1700591183607/work
+fonttools==4.25.0
+fsspec @ file:///croot/fsspec_1701286474621/work
+gmpy2 @ file:///tmp/build/80754af9/gmpy2_1645438755360/work
+hdbscan==0.8.33
+huggingface-hub @ file:///croot/huggingface_hub_1708634519519/work
+idna @ file:///croot/idna_1666125576474/work
+importlib-metadata @ file:///croot/importlib_metadata-suite_1704813515092/work
+importlib-resources @ file:///croot/importlib_resources-suite_1704281845041/work
+ipykernel @ file:///croot/ipykernel_1705933831282/work
+ipython @ file:///croot/ipython_1694181358621/work
+ipywidgets @ file:///croot/ipywidgets_1709574692113/work
+jedi @ file:///tmp/build/80754af9/jedi_1644297102865/work
+Jinja2 @ file:///croot/jinja2_1706733616596/work
+joblib @ file:///croot/joblib_1685113087166/work
+json5 @ file:///tmp/build/80754af9/json5_1624432770122/work
+jsonschema @ file:///croot/jsonschema_1699041609003/work
+jsonschema-specifications @ file:///croot/jsonschema-specifications_1699032386549/work
+jupyter @ file:///croot/jupyter_1707947101020/work
+jupyter-console @ file:///croot/jupyter_console_1679999630278/work
+jupyter-events @ file:///croot/jupyter_events_1699282461638/work
+jupyter-lsp @ file:///croot/jupyter-lsp-meta_1699978238815/work
+jupyter_client @ file:///croot/jupyter_client_1699455897726/work
+jupyter_core @ file:///croot/jupyter_core_1698937308754/work
+jupyter_server @ file:///croot/jupyter_server_1699466442171/work
+jupyter_server_terminals @ file:///croot/jupyter_server_terminals_1686870725608/work
+jupyterlab @ file:///croot/jupyterlab_1706802623017/work
+jupyterlab-pygments @ file:///tmp/build/80754af9/jupyterlab_pygments_1601490720602/work
+jupyterlab-widgets @ file:///croot/jupyterlab_widgets_1709322880313/work
+jupyterlab_server @ file:///croot/jupyterlab_server_1699555425460/work
+kaleido==0.2.1
+kiwisolver @ file:///croot/kiwisolver_1672387140495/work
+llvmlite==0.42.0
+MarkupSafe @ file:///croot/markupsafe_1704205993651/work
+matplotlib @ file:///croot/matplotlib-suite_1698692105134/work
+matplotlib-inline @ file:///opt/conda/conda-bld/matplotlib-inline_1662014470464/work
+mistune @ file:///opt/conda/conda-bld/mistune_1661496219659/work
+mkl-fft @ file:///croot/mkl_fft_1695058164594/work
+mkl-random @ file:///croot/mkl_random_1695059800811/work
+mkl-service==2.4.0
+mpmath @ file:///croot/mpmath_1690848262763/work
+munkres==1.1.4
+nbclient @ file:///croot/nbclient_1698934205032/work
+nbconvert @ file:///croot/nbconvert_1699022732553/work
+nbformat @ file:///croot/nbformat_1694616755618/work
+nest-asyncio @ file:///croot/nest-asyncio_1708532673751/work
+networkx @ file:///croot/networkx_1690561992265/work
+nltk==3.8.1
+notebook @ file:///croot/notebook_1708029864779/work
+notebook_shim @ file:///croot/notebook-shim_1699455894279/work
+numba==0.59.1
+numexpr @ file:///croot/numexpr_1696515281613/work
+numpy==1.26.4
+overrides @ file:///croot/overrides_1699371140756/work
+packaging @ file:///croot/packaging_1693575174725/work
+pandas==2.2.0
+pandocfilters @ file:///opt/conda/conda-bld/pandocfilters_1643405455980/work
+parso @ file:///opt/conda/conda-bld/parso_1641458642106/work
+pexpect @ file:///tmp/build/80754af9/pexpect_1605563209008/work
+pickleshare @ file:///tmp/build/80754af9/pickleshare_1606932040724/work
+pillow @ file:///croot/pillow_1707233021655/work
+platformdirs @ file:///croot/platformdirs_1692205439124/work
+plotly @ file:///croot/plotly_1708976889207/work
+ply==3.11
+prometheus-client @ file:///tmp/abs_d3zeliano1/croots/recipe/prometheus_client_1659455100375/work
+prompt-toolkit @ file:///croot/prompt-toolkit_1704404351921/work
+psutil @ file:///opt/conda/conda-bld/psutil_1656431268089/work
+ptyprocess @ file:///tmp/build/80754af9/ptyprocess_1609355006118/work/dist/ptyprocess-0.7.0-py2.py3-none-any.whl
+pure-eval @ file:///opt/conda/conda-bld/pure_eval_1646925070566/work
+pycparser @ file:///tmp/build/80754af9/pycparser_1636541352034/work
+Pygments @ file:///croot/pygments_1684279966437/work
+pymongo==4.6.1
+pynndescent==0.5.11
+pyparsing @ file:///opt/conda/conda-bld/pyparsing_1661452539315/work
+PyQt5==5.15.10
+PyQt5-sip @ file:///croot/pyqt-split_1698769088074/work/pyqt_sip
+PySocks @ file:///tmp/build/80754af9/pysocks_1605305812635/work
+python-dateutil==2.8.2
+python-dotenv==1.0.1
+python-json-logger @ file:///croot/python-json-logger_1683823803357/work
+pytz==2024.1
+PyYAML @ file:///croot/pyyaml_1698096049011/work
+pyzmq @ file:///croot/pyzmq_1705605076900/work
+qtconsole @ file:///croot/qtconsole_1709231153903/work
+QtPy @ file:///croot/qtpy_1700144840038/work
+referencing @ file:///croot/referencing_1699012038513/work
+regex @ file:///croot/regex_1696515298636/work
+requests @ file:///croot/requests_1707355572290/work
+rfc3339-validator @ file:///croot/rfc3339-validator_1683077044675/work
+rfc3986-validator @ file:///croot/rfc3986-validator_1683058983515/work
+rpds-py @ file:///croot/rpds-py_1698945930462/work
+safetensors @ file:///croot/safetensors_1708633833937/work
+scikit-learn @ file:///croot/scikit-learn_1694788527225/work
+scipy @ file:///croot/scipy_1701295040508/work/dist/scipy-1.11.4-cp39-cp39-linux_x86_64.whl#sha256=1f9b757a21b482354a59770c1b025701f2228439c621dc0894a792120398a6e9
+seaborn @ file:///croot/seaborn_1673479180098/work
+Send2Trash @ file:///croot/send2trash_1699371139552/work
+sentence-transformers==2.5.1
+sip @ file:///croot/sip_1698675935381/work
+six @ file:///tmp/build/80754af9/six_1644875935023/work
+sniffio @ file:///croot/sniffio_1705431295498/work
+soupsieve @ file:///croot/soupsieve_1696347547217/work
+stack-data @ file:///opt/conda/conda-bld/stack_data_1646927590127/work
+sympy @ file:///croot/sympy_1701397643339/work
+tenacity @ file:///croot/tenacity_1682972284834/work
+terminado @ file:///croot/terminado_1671751832461/work
+threadpoolctl==3.3.0
+tinycss2 @ file:///croot/tinycss2_1668168815555/work
+tokenizers @ file:///croot/tokenizers_1708633814160/work
+tomli @ file:///opt/conda/conda-bld/tomli_1657175507142/work
+torch @ file:///croot/pytorch-select_1707782759820/work
+tornado @ file:///croot/tornado_1696936946304/work
+tqdm @ file:///croot/tqdm_1679561862951/work
+traitlets @ file:///croot/traitlets_1671143879854/work
+transformers @ file:///croot/transformers_1708700562495/work
+typing_extensions @ file:///croot/typing_extensions_1705599297034/work
+tzdata==2024.1
+umap==0.1.1
+umap-learn==0.5.5
+urllib3 @ file:///croot/urllib3_1707770551213/work
+wcwidth @ file:///Users/ktietz/demo/mc3/conda-bld/wcwidth_1629357192024/work
+webencodings==0.5.1
+websocket-client @ file:///tmp/build/80754af9/websocket-client_1614803975924/work
+widgetsnbextension @ file:///croot/widgetsnbextension_1709322880396/work
+zipp @ file:///croot/zipp_1704206909481/work
+# packages in environment at /home/ross/miniconda3/envs/ml39:
+#
+# Name                    Version                   Build  Channel
+_libgcc_mutex             0.1                        main  
+_openmp_mutex             5.1                       1_gnu  
+accelerate                0.29.2                   pypi_0    pypi
+anyio                     4.2.0            py39h06a4308_0  
+argon2-cffi               21.3.0             pyhd3eb1b0_0  
+argon2-cffi-bindings      21.2.0           py39h7f8727e_0  
+asttokens                 2.0.5              pyhd3eb1b0_0  
+async-lru                 2.0.4            py39h06a4308_0  
+attrs                     23.1.0           py39h06a4308_0  
+babel                     2.11.0           py39h06a4308_0  
+backcall                  0.2.0              pyhd3eb1b0_0  
+beautifulsoup4            4.12.2           py39h06a4308_0  
+blas                      1.0                         mkl  
+bleach                    4.1.0              pyhd3eb1b0_0  
+bottleneck                1.3.7            py39ha9d4c09_0  
+brotli                    1.0.9                h5eee18b_7  
+brotli-bin                1.0.9                h5eee18b_7  
+brotli-python             1.0.9            py39h6a678d5_7  
+bzip2                     1.0.8                h5eee18b_5  
+ca-certificates           2023.12.12           h06a4308_0  
+certifi                   2024.2.2         py39h06a4308_0  
+cffi                      1.16.0           py39h5eee18b_0  
+charset-normalizer        2.0.4              pyhd3eb1b0_0  
+click                     8.1.7                    pypi_0    pypi
+colorcet                  3.1.0            py39h06a4308_0  
+comm                      0.2.1            py39h06a4308_0  
+contourpy                 1.2.0            py39hdb19cb5_0  
+cycler                    0.11.0             pyhd3eb1b0_0  
+cyrus-sasl                2.1.28               h52b45da_1  
+cython                    0.29.37                  pypi_0    pypi
+dbus                      1.13.18              hb2f20db_0  
+debugpy                   1.6.7            py39h6a678d5_0  
+decorator                 5.1.1              pyhd3eb1b0_0  
+defusedxml                0.7.1              pyhd3eb1b0_0  
+diff-match-patch          20200713           pyhd3eb1b0_0  
+exceptiongroup            1.2.0            py39h06a4308_0  
+executing                 0.8.3              pyhd3eb1b0_0  
+expat                     2.5.0                h6a678d5_0  
+filelock                  3.13.1           py39h06a4308_0  
+fontconfig                2.14.1               h4c34cd2_2  
+fonttools                 4.25.0             pyhd3eb1b0_0  
+freetype                  2.12.1               h4a9f257_0  
+fsspec                    2023.10.0        py39h06a4308_0  
+glib                      2.78.4               h6a678d5_0  
+glib-tools                2.78.4               h6a678d5_0  
+gmp                       6.2.1                h295c915_3  
+gmpy2                     2.1.2            py39heeb90bb_0  
+gst-plugins-base          1.14.1               h6a678d5_1  
+gstreamer                 1.14.1               h5eee18b_1  
+hdbscan                   0.8.33                   pypi_0    pypi
+huggingface_hub           0.20.3           py39h06a4308_0  
+icu                       73.1                 h6a678d5_0  
+idna                      3.4              py39h06a4308_0  
+importlib-metadata        7.0.1            py39h06a4308_0  
+importlib_metadata        7.0.1                hd3eb1b0_0  
+importlib_resources       6.1.1            py39h06a4308_1  
+intel-openmp              2023.1.0         hdb19cb5_46306  
+ipykernel                 6.28.0           py39h06a4308_0  
+ipython                   8.15.0           py39h06a4308_0  
+ipywidgets                8.1.2            py39h06a4308_0  
+jedi                      0.18.1           py39h06a4308_1  
+jinja2                    3.1.3            py39h06a4308_0  
+joblib                    1.2.0            py39h06a4308_0  
+jpeg                      9e                   h5eee18b_1  
+json5                     0.9.6              pyhd3eb1b0_0  
+jsonschema                4.19.2           py39h06a4308_0  
+jsonschema-specifications 2023.7.1         py39h06a4308_0  
+jupyter                   1.0.0            py39h06a4308_9  
+jupyter-lsp               2.2.0            py39h06a4308_0  
+jupyter_client            8.6.0            py39h06a4308_0  
+jupyter_console           6.6.3            py39h06a4308_0  
+jupyter_core              5.5.0            py39h06a4308_0  
+jupyter_events            0.8.0            py39h06a4308_0  
+jupyter_server            2.10.0           py39h06a4308_0  
+jupyter_server_terminals  0.4.4            py39h06a4308_1  
+jupyterlab                4.0.11           py39h06a4308_0  
+jupyterlab_pygments       0.1.2                      py_0  
+jupyterlab_server         2.25.1           py39h06a4308_0  
+jupyterlab_widgets        3.0.10           py39h06a4308_0  
+kaleido                   0.2.1                    pypi_0    pypi
+kiwisolver                1.4.4            py39h6a678d5_0  
+krb5                      1.20.1               h143b758_1  
+lcms2                     2.12                 h3be6417_0  
+ld_impl_linux-64          2.38                 h1181459_1  
+lerc                      3.0                  h295c915_0  
+libbrotlicommon           1.0.9                h5eee18b_7  
+libbrotlidec              1.0.9                h5eee18b_7  
+libbrotlienc              1.0.9                h5eee18b_7  
+libclang                  14.0.6          default_hc6dbbc7_1  
+libclang13                14.0.6          default_he11475f_1  
+libcups                   2.4.2                h2d74bed_1  
+libdeflate                1.17                 h5eee18b_1  
+libedit                   3.1.20230828         h5eee18b_0  
+libffi                    3.4.4                h6a678d5_0  
+libgcc-ng                 11.2.0               h1234567_1  
+libgfortran-ng            11.2.0               h00389a5_1  
+libgfortran5              11.2.0               h1234567_1  
+libglib                   2.78.4               hdc74915_0  
+libgomp                   11.2.0               h1234567_1  
+libiconv                  1.16                 h7f8727e_2  
+libllvm14                 14.0.6               hdb19cb5_3  
+libpng                    1.6.39               h5eee18b_0  
+libpq                     12.17                hdbd6064_0  
+libprotobuf               3.20.3               he621ea3_0  
+libsodium                 1.0.18               h7b6447c_0  
+libstdcxx-ng              11.2.0               h1234567_1  
+libtiff                   4.5.1                h6a678d5_0  
+libuuid                   1.41.5               h5eee18b_0  
+libwebp-base              1.3.2                h5eee18b_0  
+libxcb                    1.15                 h7f8727e_0  
+libxkbcommon              1.0.1                h5eee18b_1  
+libxml2                   2.10.4               hf1b16e4_1  
+llvmlite                  0.42.0                   pypi_0    pypi
+lz4-c                     1.9.4                h6a678d5_0  
+markupsafe                2.1.3            py39h5eee18b_0  
+matplotlib                3.8.0            py39h06a4308_0  
+matplotlib-base           3.8.0            py39h1128e8f_0  
+matplotlib-inline         0.1.6            py39h06a4308_0  
+mistune                   2.0.4            py39h06a4308_0  
+mkl                       2023.1.0         h213fc3f_46344  
+mkl-service               2.4.0            py39h5eee18b_1  
+mkl_fft                   1.3.8            py39h5eee18b_0  
+mkl_random                1.2.4            py39hdb19cb5_0  
+mpc                       1.1.0                h10f8cd9_1  
+mpfr                      4.0.2                hb69a4c5_1  
+mpmath                    1.3.0            py39h06a4308_0  
+munkres                   1.1.4                      py_0  
+mysql                     5.7.24               h721c034_2  
+nbclient                  0.8.0            py39h06a4308_0  
+nbconvert                 7.10.0           py39h06a4308_0  
+nbformat                  5.9.2            py39h06a4308_0  
+ncurses                   6.4                  h6a678d5_0  
+nest-asyncio              1.6.0            py39h06a4308_0  
+networkx                  3.1              py39h06a4308_0  
+ninja                     1.10.2               h06a4308_5  
+ninja-base                1.10.2               hd09550d_5  
+nltk                      3.8.1                    pypi_0    pypi
+notebook                  7.0.8            py39h06a4308_0  
+notebook-shim             0.2.3            py39h06a4308_0  
+numba                     0.59.1                   pypi_0    pypi
+numexpr                   2.8.7            py39h85018f9_0  
+numpy                     1.26.4           py39h5f9d8c6_0  
+numpy-base                1.26.4           py39hb5e798b_0  
+openjpeg                  2.4.0                h3ad879b_0  
+openssl                   3.0.13               h7f8727e_0  
+overrides                 7.4.0            py39h06a4308_0  
+packaging                 23.1             py39h06a4308_0  
+pandas                    2.2.1            py39h6a678d5_0  
+pandocfilters             1.5.0              pyhd3eb1b0_0  
+parso                     0.8.3              pyhd3eb1b0_0  
+pcre2                     10.42                hebb0a14_0  
+pexpect                   4.8.0              pyhd3eb1b0_3  
+pickleshare               0.7.5           pyhd3eb1b0_1003  
+pillow                    10.2.0           py39h5eee18b_0  
+pip                       23.3.1           py39h06a4308_0  
+platformdirs              3.10.0           py39h06a4308_0  
+plotly                    5.19.0           py39h2f386ee_0  
+ply                       3.11             py39h06a4308_0  
+prometheus_client         0.14.1           py39h06a4308_0  
+prompt-toolkit            3.0.43           py39h06a4308_0  
+prompt_toolkit            3.0.43               hd3eb1b0_0  
+psutil                    5.9.0            py39h5eee18b_0  
+ptyprocess                0.7.0              pyhd3eb1b0_2  
+pure_eval                 0.2.2              pyhd3eb1b0_0  
+pycparser                 2.21               pyhd3eb1b0_0  
+pygments                  2.15.1           py39h06a4308_1  
+pynndescent               0.5.11                   pypi_0    pypi
+pyparsing                 3.0.9            py39h06a4308_0  
+pyqt                      5.15.10          py39h6a678d5_0  
+pyqt5-sip                 12.13.0          py39h5eee18b_0  
+pysocks                   1.7.1            py39h06a4308_0  
+python                    3.9.18               h955ad1f_0  
+python-dateutil           2.8.2              pyhd3eb1b0_0  
+python-dotenv             1.0.1                    pypi_0    pypi
+python-fastjsonschema     2.16.2           py39h06a4308_0  
+python-json-logger        2.0.7            py39h06a4308_0  
+python-tzdata             2023.3             pyhd3eb1b0_0  
+pytorch                   2.2.0           cpu_py39hdc00b08_0  
+pytz                      2023.3.post1     py39h06a4308_0  
+pyyaml                    6.0.1            py39h5eee18b_0  
+pyzmq                     25.1.2           py39h6a678d5_0  
+qt-main                   5.15.2              h53bd1ea_10  
+qtconsole                 5.5.1            py39h06a4308_0  
+qtpy                      2.4.1            py39h06a4308_0  
+readline                  8.2                  h5eee18b_0  
+referencing               0.30.2           py39h06a4308_0  
+regex                     2023.10.3        py39h5eee18b_0  
+requests                  2.31.0           py39h06a4308_1  
+rfc3339-validator         0.1.4            py39h06a4308_0  
+rfc3986-validator         0.1.1            py39h06a4308_0  
+rpds-py                   0.10.6           py39hb02cf49_0  
+safetensors               0.4.2            py39ha89cbab_0  
+scikit-learn              1.3.0            py39h1128e8f_1  
+scipy                     1.11.4           py39h5f9d8c6_0  
+seaborn                   0.12.2           py39h06a4308_0  
+send2trash                1.8.2            py39h06a4308_0  
+sentence-transformers     2.5.1                    pypi_0    pypi
+setuptools                68.2.2           py39h06a4308_0  
+sip                       6.7.12           py39h6a678d5_0  
+six                       1.16.0             pyhd3eb1b0_1  
+sniffio                   1.3.0            py39h06a4308_0  
+soupsieve                 2.5              py39h06a4308_0  
+sqlite                    3.41.2               h5eee18b_0  
+stack_data                0.2.0              pyhd3eb1b0_0  
+sympy                     1.12             py39h06a4308_0  
+tbb                       2021.8.0             hdb19cb5_0  
+tenacity                  8.2.2            py39h06a4308_0  
+terminado                 0.17.1           py39h06a4308_0  
+threadpoolctl             3.3.0                    pypi_0    pypi
+tinycss2                  1.2.1            py39h06a4308_0  
+tk                        8.6.12               h1ccaba5_0  
+tokenizers                0.15.1           py39h22610ee_0  
+tomli                     2.0.1            py39h06a4308_0  
+tornado                   6.3.3            py39h5eee18b_0  
+tqdm                      4.65.0           py39hb070fc8_0  
+traitlets                 5.7.1            py39h06a4308_0  
+transformers              4.37.2           py39h06a4308_0  
+typing-extensions         4.9.0            py39h06a4308_1  
+typing_extensions         4.9.0            py39h06a4308_1  
+tzdata                    2024a                h04d1e81_0  
+umap                      0.1.1                    pypi_0    pypi
+umap-learn                0.5.5                    pypi_0    pypi
+urllib3                   2.1.0            py39h06a4308_1  
+wcwidth                   0.2.5              pyhd3eb1b0_0  
+webencodings              0.5.1            py39h06a4308_1  
+websocket-client          0.58.0           py39h06a4308_4  
+wheel                     0.41.2           py39h06a4308_0  
+widgetsnbextension        4.0.10           py39h06a4308_0  
+xz                        5.4.6                h5eee18b_0  
+yaml                      0.2.5                h7b6447c_0  
+zeromq                    4.3.5                h6a678d5_0  
+zipp                      3.17.0           py39h06a4308_0  
+zlib                      1.2.13               h5eee18b_0  
+zstd                      1.5.5                hc292b87_0  

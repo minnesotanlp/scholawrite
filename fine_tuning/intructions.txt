@@ -1,0 +1,4 @@
+BUILD:  docker build -t scholawrite_fine_tuning . -f Dockerfile
+RUN:    docker run --name scholawrite_fine_tuning_container --gpus all -it -p 5001:5001 --rm -v $(pwd):/workspace scholawrite_fine_tuning
+
+ 1963* docker run --name scholawrite_fine_tuning_container --gpus device:0 -it --net=host --rm -v $(pwd):/workspace scholawrite_fine_tuning

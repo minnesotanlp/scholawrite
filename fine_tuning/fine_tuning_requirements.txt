@@ -1,0 +1,8 @@
+pymongo==4.6.1
+pandas==2.0.3
+numpy>=1.24.0
+python-dotenv==1.0.1
+transformers==4.37.2
+matplotlib==3.7.0
+accelerate==0.29.3
+sklearn==1.4.2
