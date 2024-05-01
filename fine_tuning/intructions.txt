@@ -2,3 +2,7 @@ BUILD:  docker build -t scholawrite_fine_tuning . -f Dockerfile
 RUN:    docker run --name scholawrite_fine_tuning_container --gpus all -it -p 5001:5001 --rm -v $(pwd):/workspace scholawrite_fine_tuning
 
  1963* docker run --name scholawrite_fine_tuning_container --gpus device:0 -it --net=host --rm -v $(pwd):/workspace scholawrite_fine_tuning
+
+ actual:
+
+ docker run --name scholawrite_fine_tuning --gpus 0 -dt -v $(pwd):/workspace --ipc=host --net=host pytorch/pytorch:2.2.1-cuda11.8-cudnn8-runtime bash

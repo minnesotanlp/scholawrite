@@ -16,42 +16,84 @@ hf_api_key = os.environ["HUGGINGFACE_API_KEY"]
 debug = False
 device = 'cuda' if debug == False and torch.cuda.is_available() else 'cpu'
 
-model = AutoModelForCausalLM.from_pretrained("mistralai/Mistral-7B-Instruct-v0.1", token=hf_api_key)
+checkpoint = "HuggingFaceH4/zephyr-7b-beta"
+model = AutoModelForCausalLM.from_pretrained(checkpoint)
+model.to(device)
 model.eval()
 
-tokenizer = AutoTokenizer.from_pretrained("mistralai/Mistral-7B-Instruct-v0.1", token=hf_api_key)
+tokenizer = AutoTokenizer.from_pretrained(checkpoint)
 
-client = MongoClient('localhost', 5001)
+def get_dataset():
+  client = MongoClient('localhost', 5001)
 
-db = client.dataset_db
-annotation = db.fine_tuning
+  db = client.dataset_db
+  annotation = db.fine_tuning
+  query = {}
+  cursor = annotation.find(query)
 
-query = {}
+  activity_df = pd.DataFrame(list(cursor))
 
-cursor = annotation.find(query)
+  idx = 30
 
-activity_df = pd.DataFrame(list(cursor))
+  before_text = activity_df["before_text"].iloc[idx]
+  diff_arr = activity_df["diff_array"]
+  writing_intention = activity_df["writing_intention"].iloc[idx]
 
-print("len activity df", len(activity_df))
+  diff_text = ""
 
-before_text = activity_df.iloc[0]["before_text"]
-after_text = activity_df.iloc[0]["after_text"]
-print(before_text)
+  for diff in diff_arr.iloc[0]:
+    diff = diff[:2]
+    key = diff[0]
+    text = diff[1]
 
-generate_text = transformers.pipeline(
-    model=model, tokenizer=tokenizer,
-    return_full_text=False,  # if using langchain set True
-    task="text-generation",
-    # we pass model parameters here too
-    temperature=0.1,  # 'randomness' of outputs, 0.0 is the min and 1.0 the max
-    top_p=0.15,  # select from top tokens whose probability add up to 15%
-    top_k=0,  # select from top 0 tokens (because zero, relies on top_p)
-    max_new_tokens=4000,  # max number of tokens to generate in the output
-    repetition_penalty=1.1,  # if output begins repeating increase
-    device=device
-)
+    if (key == 0):
+      diff_text += text
+    elif(key == 1):
+      diff_text += "[ADD]"
+      diff_text += text
+      diff_text += "[/ADD]"
+    elif(key == -1):
+      diff_text += "[DEL]"
+      diff_text += text
+      diff_text += "[/DEL]"
+    
+  verbalizer = "Draft a paragraph of full sentences in the body of the paper"
 
-res = generate_text(before_text)
-print(res[0]["generated_text"])
+  return verbalizer, before_text, diff_text
 
-print(res)
+def tokenize(text):
+  return tokenizer.encode(text)
+
+def tokenize_input(verbalizer, before_text):
+  text = f'<s> [INST] {verbalizer} [/INST]\n{before_text}'
+  print(text)
+  return tokenizer(text, return_tensors='pt').to(device)
+
+
+verbalizer, before_text, diff_text = get_dataset()
+
+messages = [
+    {
+        "role": "system",
+        "content": verbalizer,
+    },
+    {   "role": "user", 
+        "content": before_text
+    },
+ ]
+
+it = tokenizer.apply_chat_template(messages, tokenize=False)
+
+tokenized_chat = tokenizer.apply_chat_template(messages, tokenize=True, add_generation_prompt=True, return_tensors="pt").to(device)
+
+print("BEFORE TEXT: \n\n\n", tokenizer.decode(tokenized_chat[0]))
+
+outputs = model.generate(tokenized_chat, max_new_tokens=4000)
+
+print("--------------------\nOUTPUT\n\n", tokenizer.decode(outputs[0]))
+
+
+
+
+
+
