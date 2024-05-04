@@ -1,0 +1,127 @@
+{
+    "Idea Generation": {
+        "definition": "The writer gets their ideas down on the page.",
+        "verbalizer": [
+            "Jot down raw ideas related to the project title",
+            "Write phrases or sentences about project"
+        ]
+    },
+    "Idea Organization": {
+        "definition": "The writer is structuring the concepts, arguments, and topics that they produced during the idea generation process.",
+        "verbalizer": [
+            "Organize ideas in paper by rearranging sentences",
+            "Structure the paper by rearranging sentences"
+        ]
+    },
+    "Discourse Planning": {
+        "definition": "The writer is planning how to organize and relate their concepts to each other. This should be also written in an incomplete format.",
+        "verbalizer": [
+            "Create new sections on the paper"
+        ]
+    },
+    "Drafting": {
+        "definition": "The writer completes their raw ideas into full sentences.",
+        "verbalizer": [
+            "Write full sentences about the topic.",
+            "Draft body full sentences",
+            "Write body of paper in full sentences"
+        ]
+    },
+    "Lexical Chaining": {
+        "definition": "when a sequence of sentences is linked by the semantic relationships between the words in the sentences.",
+        "verbalizer": [
+            "Structure sentences within a paragraph",
+            "Improve writing flow of paragraphs",
+            "Use transition words to structure sentences within a paragraph",
+            "Increase cohesion of paragraphs",
+            "Write down a new sentence that continues explaining the following sentence."
+        ]
+    },
+    "Object Insertion": {
+        "definition": "This is an activity of inserting figures, tables, equations, footnotes, etc. to explain and support certain parts of their writing.",
+        "verbalizer": [
+            "Add figures to supplement text",
+            "Insert figures related to text",
+            "Insert figures",
+            "Insert tables or graphs",
+            "Insert figures and captions"
+        ]
+    },
+    "Command Insertion": {
+        "definition": "Adding some relevant packages and/or macros to implement figures is applied to this activity.",
+        "verbalizer": [
+            "Insert latex commands or packages",
+            "Add latex commands or packages",
+            "Add relevant latex packages and commands"
+        ]
+    },
+    "Citation": {
+        "definition": "An activity of inserting citations to support their claim with evidence.",
+        "verbalizer": [
+            "Insert citation on the paper",
+            "Add a citation on the paper",
+            "Add bibtex object to .bib file",
+            "Insert \\cite (\\cite{}, \\citet{}, \\citep{}) to the draft",
+            "Insert citation to the document",
+            "Add a citation to the document",
+            "Cite a source",
+            "Cite a relevant source",
+            "Cite a relevant work",
+            "Add citation to literature"
+        ]
+    },
+    "Syntactic": {
+        "definition": "Syntactic revisions fix grammar, spelling, and punctuation",
+        "verbalizer": [
+            "Revise grammar",
+            "Fix grammar",
+            "Fix the grammar in this file",
+            "Grammatically improve this paper",
+            "Fix the grammar in this paper",
+            "Improve the grammar in this paper"
+        ]
+    },
+    "Lexical": {
+        "definition": "Lexical revisions change words to clarify meaning or improve coherence.",
+        "verbalizer": [
+            "Increase coherence of the text",
+            "Improve the coherence of the paper",
+            "Make lexical revisions to improve the coherence of the paper"
+        ]
+    },
+    "Semantic": {
+        "definition": "Semantic revisions add more clear meaning to a written sentence to have better elaboration or /explanations (refined meaning), rather than simply altering the words themselves.",
+        "verbalizer": [
+            "Clarify the meaning of the paper",
+            "Add or remove examples to clarify the meaning of the text"
+        ]
+    },
+    "Structural": {
+        "definition": "Structural revisions move text or figures or change paragraph boundaries to improve the organization of the paper.",
+        "verbalizer": [
+            "Rearrange text throughout the project",
+            "Revise structure of the sentence"
+        ]
+    },
+    "Visual": {
+        "definition": "Change visualization of texts or improve the figures and tables, etc. that are the objects. Citations can be included as visual",
+        "verbalizer": [
+            "Improve the look of the document",
+            "Make changes to the style of the documents including changing font weight, moving around figures, and changing the style of lists"
+        ]
+    },
+    "Quantitative": {
+        "definition": "Change the numeric results to quantitatively support their claims.",
+        "verbalizer": [
+            "Change numeric results in paper",
+            "Make quantitative changes to paper"
+        ]
+    },
+    "Feedback": {
+        "definition": "Provide feedback to question or improve the draft, which prompts the revision action.",
+        "verbalizer": [
+            "Add feedback to paper",
+            "Add comment to paper"
+        ]
+    }
+}
