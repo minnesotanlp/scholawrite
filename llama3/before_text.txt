@@ -1,0 +1,37 @@
+\documentclass{article}
+
+% Language setting
+% Replace `english' with e.g. `spanish' to change the document language
+\usepackage[english]{babel}
+
+% Set page size and margins
+% Replace `letterpaper' with `a4paper' for UK/EU standard size
+\usepackage[letterpaper,top=2cm,bottom=2cm,left=3cm,right=3cm,marginparwidth=1.75cm]{geometry}
+
+% Useful packages
+\usepackage{amsmath}
+\usepackage{graphicx}
+\usepackage[colorlinks=true, allcolors=blue]{hyperref}
+
+\title{Extended Learning on Sign Language Recognition}
+\author{Wenrui Xu, Linghe Wang, Hanpei Liu, Aodong Zhang \\
+\texttt{\{xu000424, wang9257, lei00090, zhan8968\}@umn.edu }
+}
+
+\begin{document}
+\maketitle
+
+\section{Introduction}\label{sec1}
+    Sign language is a significant communication tool for people with hearing and speech impairments. However, understanding and engaging with sign language users is challenging for those unfamiliar with sign language. This difficulty underscores the importance of sign language recognition in the field of computer vision and deep learning. Despite considerable advancements in this area, our research focuses on evaluating the performance of various neural network (CNN) models in sign language recognition and finding the shortcomings of models. The aim is to identify situations where models don't perform well and analyze factors that influence their effectiveness, such as image quality, the overlap between different sign languages, and inherent model limitations. Our goal is to benchmark these models and enhance their ability to bridge communication gaps efficiently.
+\section{Method, Database, and Model}\label{sec2}
+
+\subsection{Proposed Methodology}\label{sec2.1}
+The overall task is to evaluate and improve the three models' capability for sign language detection. Three models in section~\ref{sec2.3} will be used for a multi-class classification task. They will run on the same training and testing sets where each sample is an image. Post-processing of data will happen before the training, using techniques including but not limited to normalization, augmentation, and feature extraction. 
+
+During the training stage, the training data will be broken into batches due to the large size of the training set and the limited capability of the Google Colab notebook. K-fold cross-validation will be applied on multiple epochs to generalize the model and prevent over-fitting. 
+
+ The common characteristics that might lead to misclassification, such as lighting, background, noise, and distractors, will be found based on false positive samples in models. Based on the discovery, some pre-processing methods might be helpful to improve the performance of models: changing the composition of the training set, adding extra features that represent the discovered characteristics to each data point, or expanding the training set by taking pictures that have common patterns.
+
+Finally, compare the accuracy, precision, recall, area under the ROC curve (AUC), and F1 before and after the training set modification to determine whether the model performance improved by our work.
+
+\subsection{Sign Language Database}\label{sec2.2}

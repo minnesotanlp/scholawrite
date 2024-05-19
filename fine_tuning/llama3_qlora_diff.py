@@ -16,6 +16,7 @@ import json
 import random
 from dotenv import load_dotenv
 from pymongo import MongoClient
+import matplotlib.pyplot as plt
 
 
 load_dotenv()
@@ -24,6 +25,32 @@ HF_TOKEN = os.environ["HUGGINGFACE_API_KEY"]
 
 with open("labels_for_computation.json", 'r') as file:
     labels = json.load(file)
+
+def format_short_insturuction(row):
+    instruct_tune_template="""<|begin_of_text|><|start_header_id|>system<|end_header_id|>
+
+You are a writing assistant that will assist the user with editing their paper. Update the paper according to the prompt.<|eot_id|>
+<|start_header_id|>user<|end_header_id|>
+
+{BEFORE_TEXT}.
+
+{VERBALIZER}.<|eot_id|>
+<|start_header_id|>assistant<|end_header_id|>
+
+{AFTER_TEXT}<|eot_id|>"""
+
+    BEFORE_TEXT    = row["before_text"]
+    INTENTION      = row["writing_intention"]
+    AFTER_TEXT     = row["new_diff"]
+    VERBALIZER           = random.choice(labels[INTENTION]["verbalizer"])
+
+    tune_ready_prompt = instruct_tune_template.format(
+                        VERBALIZER = VERBALIZER,
+                        BEFORE_TEXT = BEFORE_TEXT,
+                        AFTER_TEXT = AFTER_TEXT)
+  
+    return tune_ready_prompt
+    #return {"tune" : tune_ready_prompts}
 
 def formatting_prompts_func(row):
     instruct_tune_template="""<|begin_of_text|><|start_header_id|>system<|end_header_id|>
@@ -51,59 +78,104 @@ You are a writing assistant that can generate ideas, implement ideas, and revise
     return tune_ready_prompt
     #return {"tune" : tune_ready_prompts}
 
+def diff_to_text(diff_arr):
+  diff_text = ""
+
+  for diff in diff_arr:
+    diff = diff[:2]
+    key = diff[0]
+    text = diff[1]
+
+    if (key == 0):
+      diff_text += text
+    elif(key == 1):
+      diff_text += "[ADD]"
+      diff_text += text
+      diff_text += "[/ADD]"
+    elif(key == -1):
+      diff_text += "[DEL]"
+      diff_text += text
+      diff_text += "[/DEL]"
+    
+  return diff_text
+
 def get_dataset():
-  client = MongoClient('localhost', 5001)
+  dataset_name = "dataset_savefile.hf"
 
-  db = client.dataset_db
-  annotation = db.fine_tuning
-  query = {}
-  cursor = annotation.find(query)
+  try:
+    raise Exception
+    dataset = datasets.load_from_disk(dataset_name)
+    print("\n\nloaded!\n\n")
+  except:
+    print("\n\generating new dataset!\n\n")
+    client = MongoClient('localhost', 5001)
 
-  activity_df = pd.DataFrame(list(cursor))
+    db = client.dataset_db
+    annotation = db.fine_tuning
+    query = {}
+    cursor = annotation.find(query)
 
-  idx = 30
+    activity_df = pd.DataFrame(list(cursor))
 
-  def diff_to_text(diff_arr):
-    diff_text = ""
+    idx = 30
 
-    for diff in diff_arr:
-      diff = diff[:2]
-      key = diff[0]
-      text = diff[1]
 
-      if (key == 0):
-        diff_text += text
-      elif(key == 1):
-        diff_text += "[ADD]"
-        diff_text += text
-        diff_text += "[/ADD]"
-      elif(key == -1):
-        diff_text += "[DEL]"
-        diff_text += text
-        diff_text += "[/DEL]"
+    print("columns", activity_df.columns)
+
+    activity_df["new_diff"] = activity_df["diff_array"].apply(lambda x: diff_to_text(x))
+    activity_df["input"] = activity_df.apply(formatting_prompts_func, axis=1)
+
+    length = len(activity_df)
+    
+    #shuffle
+    activity_df = activity_df.sample(frac=1).reset_index(drop=True)
+
+
+    if True:
+      dataset = datasets.DatasetDict(
+        {
+            "train": Dataset.from_pandas(activity_df.loc[0:int(length * 0.9), ["input", "new_diff", "writing_intention"]]),
+            "test": Dataset.from_pandas(activity_df.loc[int(length * 0.9):, ["input", "new_diff", "writing_intention"]]),
+        })
       
-    return diff_text
-
-  print("columns", activity_df.columns)
-
-  activity_df["new_diff"] = activity_df["diff_array"].apply(lambda x: diff_to_text(x))
-  activity_df["input"] = activity_df.apply(formatting_prompts_func, axis=1)
-
-  length = len(activity_df)
-
-  dataset = datasets.DatasetDict(
-    {
-        "train": Dataset.from_pandas(activity_df.loc[0:int(length * 0.9), ["input", "new_diff"]]),
-        "test": Dataset.from_pandas(activity_df.loc[int(length * 0.9):, ["input", "new_diff"]]),
-    })
-
-#  dataset = datasets.DatasetDict(
-#    {
-#        "train": Dataset.from_pandas(activity_df.loc[0:10, ["input", "new_diff"]]),
-#        "test": Dataset.from_pandas(activity_df.loc[10:20, ["input", "new_diff"]]),
-#    })
+      dataset.save_to_disk(dataset_name)
+    else:
+      dataset = datasets.DatasetDict(
+        {
+            "train": Dataset.from_pandas(activity_df.loc[0:10, ["input", "writing_intention", "new_diff"]]),
+            "test": Dataset.from_pandas(activity_df.loc[10:20, ["input", "writing_intention", "new_diff"]]),
+        })
   
   return dataset
+
+def get_dataset_statistics(dataset):
+  #dataset = datasets.load_from_disk("dataset_savefile.hf")
+
+  train_data = dataset["train"].to_pandas()
+  test_data = dataset["test"].to_pandas()
+
+  train_counts = train_data['writing_intention'].value_counts()
+  test_counts = test_data['writing_intention'].value_counts()
+
+  plt.figure(figsize=(10, 6))
+
+  plt.subplot(1, 2, 1)
+  train_counts.plot(kind='bar')
+  plt.title('Train Data - Writing Intention Distribution')
+  plt.xlabel('Writing Intention')
+  plt.ylabel('Frequency')
+  plt.xticks(rotation=45, ha='right')
+
+  plt.subplot(1, 2, 2)
+  test_counts.plot(kind='bar')
+  plt.title('Test Data - Writing Intention Distribution')
+  plt.xlabel('Writing Intention')
+  plt.ylabel('Frequency')
+  plt.xticks(rotation=45, ha='right')
+
+  plt.tight_layout()
+  plt.savefig("test.png")
+  #plt.show()
 
 def print_trainable_parameters(model):
     """
@@ -196,7 +268,8 @@ def setup_trainer(model, tokenizer, dataset):
             lr_scheduler_type = "linear",
             seed = 3407,
             num_train_epochs= 5,
-            evaluation_strategy = "epoch",
+            evaluation_strategy = "steps",
+            eval_accumulation_steps=100,
             gradient_checkpointing = True,
             # report_to = "tensorboard"
         ),
@@ -238,6 +311,8 @@ def main():
     tokenizer = load_toeknizer()
 
     dataset = get_dataset()
+    get_dataset_statistics(dataset)
+
     fine_max_tokens_length(dataset, tokenizer)
 
     model = load_model()

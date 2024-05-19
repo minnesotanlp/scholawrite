@@ -14,6 +14,7 @@ for attemp in range(2):
         from trl import SFTTrainer
         import json
         import random
+        from unsloth import FastLanguageModel
     except ImportError:
         os.system("pip install --no-cache-dir -r requirements.txt")
         continue
@@ -58,7 +59,7 @@ You are a writing assistant that can generate ideas, implement ideas, and revise
 def prepare_data():
     if not os.path.exists("test.csv"):
         df = pd.read_csv('fine_tuning.csv')
-        random_row = df.sample(n=44)
+        random_row = df.sample(n=28)
         random_row.to_csv('test.csv', index=False)
         df = df.drop(random_row.index)
         df.to_csv('fine_tuning.csv', index=False)
@@ -85,52 +86,36 @@ def print_trainable_parameters(model):
     )
 
 
-def load_model():
-    # bnb_config = BitsAndBytesConfig(
-    #     load_in_4bit=True,
-    #     bnb_4bit_quant_type='nf4',
-    #     bnb_4bit_use_double_quant=True,
-    #     bnb_4bit_compute_dtype=bfloat16
-    # )
+def load_model_and_tokenizer():
+    max_seq_length = 4600   # Choose any! We auto support RoPE Scaling internally!
+    dtype = None            # None for auto detection. Float16 for Tesla T4, V100, Bfloat16 for Ampere+
+    load_in_4bit = True     # Use 4bit quantization to reduce memory usage. Can be False.
 
-    model = AutoModelForCausalLM.from_pretrained(
-        "meta-llama/Meta-Llama-3-8B",
-        device_map='auto',
-        max_memory={0: "48GB", 1: "48GB"},
-        # quantization_config=bnb_config,
-        token = HF_TOKEN,
-        use_cache = False,
+    model, tokenizer = FastLanguageModel.from_pretrained(
+        model_name = "unsloth/llama-3-8b-bnb-4bit",
+        max_seq_length = max_seq_length,
+        dtype = dtype,
+        load_in_4bit = load_in_4bit,
+        token = HF_TOKEN
     )
-
+    tokenizer.add_special_tokens({'pad_token': '<|end_of_text|>'})
     
-    # model = FSDP(model)
-
-    config = LoraConfig(
+    model = FastLanguageModel.get_peft_model(
+        model,
         r = 16,                                         # Choose any number > 0 ! Suggested 8, 16, 32, 64, 128
-        target_modules = "all-linear",
+        target_modules = ["q_proj", "k_proj", "v_proj", "o_proj",
+                      "gate_proj", "up_proj", "down_proj",],
         lora_alpha = 16,                                # From unsloth
         lora_dropout = 0,                               # Supports any, but = 0 is optimized
         bias = "none",                                  # Supports any, but = "none" is optimized
-        # use_rslora = True,                            # Better perfformance with similar computing cost https://huggingface.co/docs/peft/main/en/package_reference/lora#peft.LoraConfig.use_rslora
-        # loftq_config = LoftQConfig(loftq_bits=8),     # Minimize error, Improve performance. huggingface.co/docs/peft/v0.8.0/en/developer_guides/quantization#loftq-initialization
-        task_type="CAUSAL_LM",                          # set this for CLM or Seq2Seq
-        modules_to_save = ["lm_head", "embed_tokens"],   # if we want to use the special tokens and template from Llama 3 instruct for Lorac
+        use_rslora = False,                            # Better perfformance with similar computing cost https://huggingface.co/docs/peft/main/en/package_reference/lora#peft.LoraConfig.use_rslora
+        loftq_config = None,     # Minimize error, Improve performance. huggingface.co/docs/peft/v0.8.0/en/developer_guides/quantization#loftq-initialization
+        # task_type="CAUSAL_LM",                          # set this for CLM or Seq2Seq
+        modules_to_save = ["lm_head", "embed_tokens"],   # if we want to use the special tokens and template from Llama 3 instruct for Lora
+        use_gradient_checkpointing = "unsloth"
     )
 
-    model = get_peft_model(model, config)
-    print_trainable_parameters(model)
-
-    return model
-
-
-def load_toeknizer():
-    tokenizer = AutoTokenizer.from_pretrained(
-        "meta-llama/Meta-Llama-3-8B", 
-        token = HF_TOKEN,
-    )
-    tokenizer.add_special_tokens({'pad_token': '<|end_of_text|>'})
-
-    return tokenizer
+    return model, tokenizer
 
 
 def setup_trainer(model, tokenizer, dataset):
@@ -140,7 +125,7 @@ def setup_trainer(model, tokenizer, dataset):
         train_dataset = dataset["train"],
         eval_dataset=dataset["test"],
         dataset_text_field = "tune",
-        max_seq_length = 4581,
+        max_seq_length = 4600,
         # packing = False, # Can make training 5x faster for short sequences.
         dataset_kwargs={
             "add_special_tokens": False,  # We template with special tokens
@@ -163,7 +148,7 @@ def setup_trainer(model, tokenizer, dataset):
             num_train_epochs= 5,
             evaluation_strategy = "epoch",
             gradient_checkpointing = True,
-            # report_to = "tensorboard"
+            report_to = "tensorboard"
         ),
     )
 
@@ -178,41 +163,23 @@ def setup_trainer(model, tokenizer, dataset):
 #     torch.cuda.set_device(rank)
 
 
-def fine_max_tokens_length(dataset, tokenizer):
-    print(dataset)
-    
-    max = 0
-    for each in dataset["train"]["tune"]:
-        tokens = tokenizer(each)
-        if max < len(tokens["input_ids"]):
-            max = len(tokens["input_ids"])
-    for each in dataset["test"]["tune"]:
-        tokens = tokenizer(each)
-        if max < len(tokens["input_ids"]):
-            max = len(tokens["input_ids"])
-    
-    print("Max sequence length in the dataset:", max)
-    return max
-
-
 def main():
     print(accelerate.Accelerator().device)
     print(accelerate.Accelerator().state)
     # setup_fsdp()
 
-    tokenizer = load_toeknizer()
-    dataset = prepare_data()
-    fine_max_tokens_length(dataset, tokenizer)
+    model, tokenizer = load_model_and_tokenizer()
 
-    model = load_model()
+    dataset = prepare_data()
 
     trainer = setup_trainer(model, tokenizer, dataset)
 
     trainer_stats = trainer.train()
 
+    print(trainer_stats)
     merged_model = model.merge_and_unload()
     merged_model.save_pretrained("4th_scholawrite_instruct_llama", safe_serialization=True)
-    # model.push_to_hub("BbRrOoKk/2st_scholawrite_instruct_llama", token = HF_TOKEN)
+    # # model.push_to_hub("BbRrOoKk/2st_scholawrite_instruct_llama", token = HF_TOKEN)
 
     # dist.destroy_process_group()
 

@@ -1,30 +1,31 @@
-for attemp in range(2):
-    try:
-        import os
-        import pandas as pd
-        import torch
-        from torch.distributed.fsdp import FullyShardedDataParallel as FSDP
-        from torch.distributed.fsdp import CPUOffload
-        import torch.distributed as dist
-        from torch import cuda, bfloat16
-        from transformers import AutoModelForCausalLM, TrainingArguments, AutoTokenizer, BitsAndBytesConfig, pipeline
-        from peft import LoraConfig, get_peft_model
-        import accelerate # not used in code but reuqired for device_map='auto'
-        from datasets import load_dataset
-        from trl import SFTTrainer
-        import json
-        import random
-    except ImportError:
-        os.system("pip install --no-cache-dir -r requirements.txt")
-        continue
+import os
+import pandas as pd
+import torch
+from torch.distributed.fsdp import FullyShardedDataParallel as FSDP
+from torch.distributed.fsdp import CPUOffload
+import torch.distributed as dist
+from torch import cuda, bfloat16
+from transformers import AutoModelForSeq2SeqLM, TrainingArguments, AutoTokenizer, BitsAndBytesConfig, pipeline
+from datasets import Dataset
+from peft import LoraConfig, get_peft_model
+import accelerate # not used in code but reuqired for device_map='auto'
+from datasets import load_dataset
+import datasets
+from trl import SFTTrainer
+import json
+import random
+from dotenv import load_dotenv
+from pymongo import MongoClient
 
 
-HF_TOKEN = os.getenv("HF_TOKEN")
+load_dotenv()
+
+HF_TOKEN = os.environ["HUGGINGFACE_API_KEY"]
+
 with open("labels_for_computation.json", 'r') as file:
     labels = json.load(file)
 
-
-def formatting_prompts_func(examples):
+def formatting_prompts_func(row):
     instruct_tune_template="""<|begin_of_text|><|start_header_id|>system<|end_header_id|>
 
 You are a writing assistant that can generate ideas, implement ideas, and revise paper for scholarly writing. The paper is written in LaTeX. The context of the Paper is provided below, paired with instruction that describes a writing task. Write a response that appropriately completes the request. Do not repeat any instructions. Do not output any instructions. You are not allowed to talk about yourself.<|eot_id|>
@@ -37,38 +38,66 @@ You are a writing assistant that can generate ideas, implement ideas, and revise
 
 {AFTER_TEXT}<|eot_id|>"""
 
-    BEFORE_TEXTs    = examples["before_text"]
-    INTENTIONs      = examples["writing_intention"]
-    AFTER_TEXTs     = examples["after_text"]
-    
-    tune_ready_prompts = []
+    BEFORE_TEXT    = row["before_text"]
+    INTENTION      = row["writing_intention"]
+    AFTER_TEXT     = row["new_diff"]
+    VERBALIZER           = random.choice(labels[INTENTION]["verbalizer"])
 
-    for BEFORE_TEXT, INTENTION, AFTER_TEXT in zip(BEFORE_TEXTs, INTENTIONs, AFTER_TEXTs):
-        VERBALIZER           = random.choice(labels[INTENTION]["verbalizer"])
+    tune_ready_prompt = instruct_tune_template.format(
+                        VERBALIZER = VERBALIZER,
+                        BEFORE_TEXT = BEFORE_TEXT,
+                        AFTER_TEXT = AFTER_TEXT)
+  
+    return tune_ready_prompt
+    #return {"tune" : tune_ready_prompts}
 
-        tune_ready_prompt = instruct_tune_template.format(
-                            VERBALIZER = VERBALIZER,
-                            BEFORE_TEXT = BEFORE_TEXT,
-                            AFTER_TEXT = AFTER_TEXT)
-        tune_ready_prompts.append(tune_ready_prompt)
-    
-    return {"tune" : tune_ready_prompts}
+def get_dataset():
+  client = MongoClient('localhost', 5001)
 
+  db = client.dataset_db
+  annotation = db.fine_tuning
+  query = {}
+  cursor = annotation.find(query)
 
-def prepare_data():
-    if not os.path.exists("test.csv"):
-        df = pd.read_csv('fine_tuning.csv')
-        random_row = df.sample(n=44)
-        random_row.to_csv('test.csv', index=False)
-        df = df.drop(random_row.index)
-        df.to_csv('fine_tuning.csv', index=False)
+  activity_df = pd.DataFrame(list(cursor))
 
-    dataset = load_dataset("csv", data_files={"train": "fine_tuning.csv",
-                                                "test": "test.csv"})
-    dataset = dataset.map(formatting_prompts_func, batched = True)
-    
-    return dataset
+  idx = 30
 
+  def diff_to_text(diff_arr):
+    diff_text = ""
+
+    for diff in diff_arr:
+      diff = diff[:2]
+      key = diff[0]
+      text = diff[1]
+
+      if (key == 0):
+        diff_text += text
+      elif(key == 1):
+        diff_text += "[ADD]"
+        diff_text += text
+        diff_text += "[/ADD]"
+      elif(key == -1):
+        diff_text += "[DEL]"
+        diff_text += text
+        diff_text += "[/DEL]"
+      
+    return diff_text
+
+  print("columns", activity_df.columns)
+
+  activity_df["new_diff"] = activity_df["diff_array"].apply(lambda x: diff_to_text(x))
+  activity_df["input"] = activity_df.apply(formatting_prompts_func, axis=1)
+
+  length = len(activity_df)
+
+  dataset = datasets.DatasetDict(
+    {
+        "train": Dataset.from_pandas(activity_df.loc[0:int(length * 0.9), ["input", "new_diff"]]),
+        "test": Dataset.from_pandas(activity_df.loc[int(length * 0.9):, ["input", "new_diff"]]),
+    })
+  
+  return dataset
 
 def print_trainable_parameters(model):
     """
@@ -93,7 +122,7 @@ def load_model():
     #     bnb_4bit_compute_dtype=bfloat16
     # )
 
-    model = AutoModelForCausalLM.from_pretrained(
+    model = AutoModelForSeq2SeqLM.from_pretrained(
         "meta-llama/Meta-Llama-3-8B",
         device_map='auto',
         max_memory={0: "48GB", 1: "48GB"},
@@ -139,7 +168,7 @@ def setup_trainer(model, tokenizer, dataset):
         tokenizer = tokenizer,
         train_dataset = dataset["train"],
         eval_dataset=dataset["test"],
-        dataset_text_field = "tune",
+        dataset_text_field = "input",
         max_seq_length = 4581,
         # packing = False, # Can make training 5x faster for short sequences.
         dataset_kwargs={
@@ -182,11 +211,11 @@ def fine_max_tokens_length(dataset, tokenizer):
     print(dataset)
     
     max = 0
-    for each in dataset["train"]["tune"]:
+    for each in dataset["train"]["input"]:
         tokens = tokenizer(each)
         if max < len(tokens["input_ids"]):
             max = len(tokens["input_ids"])
-    for each in dataset["test"]["tune"]:
+    for each in dataset["test"]["input"]:
         tokens = tokenizer(each)
         if max < len(tokens["input_ids"]):
             max = len(tokens["input_ids"])
@@ -201,7 +230,8 @@ def main():
     # setup_fsdp()
 
     tokenizer = load_toeknizer()
-    dataset = prepare_data()
+
+    dataset = get_dataset()
     fine_max_tokens_length(dataset, tokenizer)
 
     model = load_model()
@@ -210,8 +240,9 @@ def main():
 
     trainer_stats = trainer.train()
 
+    print(trainer_stats)
     merged_model = model.merge_and_unload()
-    merged_model.save_pretrained("4th_scholawrite_instruct_llama", safe_serialization=True)
+    merged_model.save_pretrained("qlora_2nd", safe_serialization=True)
     # model.push_to_hub("BbRrOoKk/2st_scholawrite_instruct_llama", token = HF_TOKEN)
 
     # dist.destroy_process_group()

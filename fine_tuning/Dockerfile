@@ -7,8 +7,8 @@ RUN apt-get update && \
 
 RUN pip3 install --upgrade pip
 
-COPY fine_tuning_requirements.txt .
-RUN pip install --no-cache-dir -r ./fine_tuning_requirements.txt && rm fine_tuning_requirements.txt
+#COPY requirements.txt .
+#RUN pip install --no-cache-dir -r ./requirements.txt && rm requirements.txt
 
 RUN pip3 install torch torchvision torchaudio
 

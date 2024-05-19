@@ -1,0 +1,18 @@
+docker run --name scholawrite_iter_test --env "HF_TOKEN=" --gpus all -dt -v $(pwd):/workspace --ipc=host --net=host pytorch/pytorch:2.2.1-cuda11.8-cudnn8-runtime bash
+
+# if you got "E: Unable to locate package xxx"
+apt-get update
+apt-get install -y apt-file
+apt-file update
+apt-get install -y git
+
+apt-get install gnupg curl
+curl -fsSL https://www.mongodb.org/static/pgp/server-7.0.asc | \
+   gpg -o /usr/share/keyrings/mongodb-server-7.0.gpg \
+   --dearmor
+/etc/apt/sources.list.d/mongodb-org-7.0.list
+echo "deb [ arch=amd64,arm64 signed-by=/usr/share/keyrings/mongodb-server-7.0.gpg ] https://repo.mongodb.org/apt/ubuntu jammy/mongodb-org/7.0 multiverse" | tee /etc/apt/sources.list.d/mongodb-org-7.0.list
+apt-get update
+apt-get install -y mongodb-org
+
+mongoexport --host=localhost:5001 --type=csv --fields=writing_intention,before_text,after_text --db dataset_db --collection fine_tuning --out fine_tuning.csv

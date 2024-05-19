@@ -19,7 +19,7 @@ for attemp in range(2):
         continue
 
 
-HF_TOKEN = os.getenv("HF_TOKEN")
+HF_TOKEN = os.getenv("HUGGINGFACE_API_KEY")
 with open("labels_for_computation.json", 'r') as file:
     labels = json.load(file)
 
@@ -210,6 +210,9 @@ def main():
 
     trainer_stats = trainer.train()
 
+    merged_model.save_pretrained("4th_scholawrite_instruct_adaptor", safe_serialization=True)
+
+    print(trainer_stats)
     merged_model = model.merge_and_unload()
     merged_model.save_pretrained("4th_scholawrite_instruct_llama", safe_serialization=True)
     # model.push_to_hub("BbRrOoKk/2st_scholawrite_instruct_llama", token = HF_TOKEN)
