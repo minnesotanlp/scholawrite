@@ -7,7 +7,7 @@ import torch.distributed as dist
 from torch import cuda, bfloat16
 from transformers import AutoModelForCausalLM, TrainingArguments, AutoTokenizer, BitsAndBytesConfig, pipeline
 from datasets import Dataset
-from peft import LoraConfig, get_peft_model
+from peft import LoraConfig, get_peft_model, PeftModel
 import accelerate # not used in code but reuqired for device_map='auto'
 from datasets import load_dataset
 import datasets
@@ -304,39 +304,22 @@ def fine_max_tokens_length(dataset, tokenizer):
 
 
 def main():
-    print(accelerate.Accelerator().device)
-    print(accelerate.Accelerator().state)
-    # setup_fsdp()
-
     tokenizer = load_toeknizer()
 
-    dataset = get_dataset()
-    get_dataset_statistics(dataset)
+    device = 'cuda'
 
-    fine_max_tokens_length(dataset, tokenizer)
+    model = AutoModelForCausalLM.from_pretrained("qlora_2nd", local_files_only=True)
+    model.to(device)
+    model.eval()
 
-    model = load_model()
+    print("after")
 
-    trainer = setup_trainer(model, tokenizer, dataset)
+    
 
-    train_results = trainer.train()
+    prompt = "answer this"
+    t = tokenizer.tokenize(prompt)
 
-    trainer.log_metrics("train", train_results.metrics)
+    output = model.generate(prompt)
 
-    trainer.save_metrics("train", train_results.metrics)
-
-    print("\n\n")
-    print(trainer.state.log_history)
-    print("\n\n")
-
-    trainer.save_state()
-
-    merged_model = model.merge_and_unload()
-    merged_model.save_pretrained("qlora_2nd", safe_serialization=True)
-    # model.push_to_hub("BbRrOoKk/2st_scholawrite_instruct_llama", token = HF_TOKEN)
-
-    # dist.destroy_process_group()
-
-
-if __name__ == "__main__":
-    main()
+    print("output", output)
+main()

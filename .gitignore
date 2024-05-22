@@ -16,6 +16,10 @@ pyvenv.cfg
 .env
 pip-selfcheck.json
 
+qlora_2nd
+*.arrow
+*.hf
+
 ### JupyterNotebooks template
 # gitignore template for Jupyter Notebooks
 # website: http://jupyter.org/
