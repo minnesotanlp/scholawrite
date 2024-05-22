@@ -193,18 +193,18 @@ def print_trainable_parameters(model):
 
 
 def load_model():
-    # bnb_config = BitsAndBytesConfig(
-    #     load_in_4bit=True,
-    #     bnb_4bit_quant_type='nf4',
-    #     bnb_4bit_use_double_quant=True,
-    #     bnb_4bit_compute_dtype=bfloat16
-    # )
+    #bnb_config = BitsAndBytesConfig(
+    #    load_in_4bit=True,
+    #    bnb_4bit_quant_type='nf4',
+    #    bnb_4bit_use_double_quant=True,
+    #    bnb_4bit_compute_dtype=bfloat16
+    #)
 
     model = AutoModelForCausalLM.from_pretrained(
         "meta-llama/Meta-Llama-3-8B",
         device_map='auto',
         max_memory={0: "48GB", 1: "48GB"},
-        # quantization_config=bnb_config,
+        #quantization_config=bnb_config,
         token = HF_TOKEN,
         use_cache = False,
     )
