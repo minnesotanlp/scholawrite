@@ -90,7 +90,7 @@ See https://github.com/adobe-type-tools/cmap-resources
     <script src="viewer.js" type="module"></script>
 <!--#endif-->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.7.1/jquery.slim.min.js"></script>
-    <script src="latex_replay.js"></script>
+    <script src="latex_replay.js" type="module"></script>
     <link rel="stylesheet" href="latex_replay.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
   </head>
@@ -100,14 +100,17 @@ See https://github.com/adobe-type-tools/cmap-resources
 
       <div id="latexContaianer" style="width: 48%;height: 100%;margin-left: 0.5%;margin-right: 0.5%;display: flex;flex-direction: column;">
         <div style="height: 6rem;">
-        <select style="width: 100%; height: 1.5rem; margin: 0.3rem 0 0.3rem 0">
-          <option value="test">test</option>
+        <select id="latexProjectSelector" style="width: 100%; height: 1.5rem; margin: 0.3rem 0 0.3rem 0">
+          <option value="test" disabled selected>Select a project</option>
+          {% for name in project_names %}
+                  <option value="{{ name }}">{{ name }}</option>
+          {% endfor %}
         </select>
         <div id="latexDataDisplay" style="display: flex;justify-content: space-between;height: 1.8rem;overflow: hidden;">
           <div id="latexFrameControl" style="display: flex;gap: 1vw;">
             <div id="latexFrameNumber" style="display: flex; align-items: center;">
-              <input id="latexFrameNumberInput" value="0" type="number" min="0" max="2890" style="width: 40px;padding: 4px 7px;text-align: end;">
-              <span style="text-wrap: nowrap;">/ 2890</span>
+              <input id="latexFrameNumberInput" value="0" type="number" min="0" max="2890" style="width: 40px;padding: 4px 7px;text-align: end;">&nbsp;/&nbsp;
+              <span style="text-wrap: nowrap;" class="noSelection"> Select a section</span>
             </div>
             <div id="latexFramePlaySpeed" style="align-items: center;display: flex;gap: 0.5vw;">
               <label class="latexDataLabel">Speed:</label>
@@ -123,11 +126,11 @@ See https://github.com/adobe-type-tools/cmap-resources
           <div id="latexInfo" style="display: flex;gap: 1vw;align-items: center;">
              <div id="latexFilename" style="display: flex; gap: 0.5vw;">
                 <label class="latexDataLabel">File:</label>
-                <span>1_introduction.tex</span>
+                <span class="noSelection">Select a section</span>
              </div>
              <div id="latexFrameLabel" style="display: flex; gap: 0.5vw;">
                 <label class="latexDataLabel">Label: </label>
-                <span style="Color:Green">Section Planning</span>
+                <span class="noSelection">Select a section</span>
              </div>
           </div>
         </div>

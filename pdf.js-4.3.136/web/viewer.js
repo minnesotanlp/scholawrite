@@ -36,7 +36,7 @@ window.PDFViewerApplicationOptions = AppOptions;
 
 function getViewerConfiguration() {
   return {
-    appContainer: document.body,
+    appContainer: document.getElementById("mainContainer"),
     mainContainer: document.getElementById("viewerContainer"),
     viewerContainer: document.getElementById("viewer"),
     toolbar: {
@@ -221,6 +221,7 @@ if (
 }
 
 export {
+  getViewerConfiguration,
   PDFViewerApplication,
   AppConstants as PDFViewerApplicationConstants,
   AppOptions as PDFViewerApplicationOptions,

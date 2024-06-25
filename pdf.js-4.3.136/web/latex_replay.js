@@ -1,6 +1,10 @@
+import { AppOptions } from "./app_options.js";
+import { PDFViewerApplication } from "./app.js";
+import {getViewerConfiguration} from "./viewer.js"
+
 let isPlaying = false
 let previousFrame
-let stopOrPlay
+let pauseOrPlay
 let nextFrame
 let slider
 let frameNumberInput
@@ -59,10 +63,20 @@ function mediaControl(event){
     pauseOrPlay.addEventListener("click", mediaControl);
 }
 
-window.addEventListener('load', function() {
-    previousFrame = this.document.getElementById("previousFrame");
-    pauseOrPlay = this.document.getElementById("pauseOrPlay");
-    nextFrame = this.document.getElementById("nextFrame");
+function setProjectPdfUrl(project_name){
+    AppOptions.set("defaultUrl", "/projects/"+project_name)
+}
+
+function displayProjectPdf(){
+    let config = getViewerConfiguration()
+    PDFViewerApplication.run(config)
+}
+
+window.addEventListener('DOMContentLoaded', function() {
+    console.log(document.getElementById("pauseOrPlay"))
+    previousFrame = document.getElementById("previousFrame");
+    pauseOrPlay = document.getElementById("pauseOrPlay");
+    nextFrame = document.getElementById("nextFrame");
 
     pauseOrPlay.addEventListener("click", mediaControl);
 
@@ -93,4 +107,10 @@ window.addEventListener('load', function() {
         setReplaySpeed(this.value)
     })
 
+    let latexProjectSelector = this.document.getElementById("latexProjectSelector")
+
+    latexProjectSelector.addEventListener("change", function(){
+        setProjectPdfUrl(this.value)
+        displayProjectPdf()
+    })
 })

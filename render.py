@@ -1,11 +1,7 @@
 import re
 
 from flask import Flask, render_template, send_from_directory
-# from pymongo import MongoClient
-
-# client = MongoClient('localhost', 6000)
-# db = client.flask_db
-# collection = db.processed_data
+from utils import *
 
 from rich.console import Console
 console = Console()
@@ -24,7 +20,15 @@ def web_static(filename):
 
 @app.route("/", methods=['GET'])
 def render_main_page():
-    return render_template('viewer.html')
+    data = {}
+    data["project_names"] = list_projects()
+    return render_template('viewer.html', **data)
+
+
+@app.route("/projects/<path:project_name>", methods = ['GET'])
+def find_file_name(project_name):
+    return send_from_directory(f"./projects/{project_name}", "main.pdf")
+
 
 
 if __name__ == '__main__':

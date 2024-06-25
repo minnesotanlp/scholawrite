@@ -19,3 +19,7 @@ input[type=number] {
   font-weight: bold;
   align-self: center;
 }
+
+.noSelection {
+    color: #DE8014
+}

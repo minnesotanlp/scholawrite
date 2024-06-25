@@ -949,7 +949,7 @@ const PDFViewerApplication = {
 
     promises.push(
       this.pdfScriptingManager.destroyPromise,
-      this.passwordPrompt.close()
+      // this.passwordPrompt.close()
     );
 
     this.setTitle();
