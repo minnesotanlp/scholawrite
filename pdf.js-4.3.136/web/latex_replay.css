@@ -23,3 +23,21 @@ input[type=number] {
 .noSelection {
     color: #DE8014
 }
+
+#displayLines {
+    width: 5%;
+    border-right: 0.01rem solid;
+}
+
+#displayContent {
+    width: 95%;
+}
+
+#latexTextArea {
+    display: flex;
+    flex-direction: row;
+    height: 90%;
+    background: white;
+    flex-shrink: 1;
+    overflow:auto;
+}

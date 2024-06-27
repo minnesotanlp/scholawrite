@@ -1,6 +1,6 @@
 import re
 
-from flask import Flask, render_template, send_from_directory
+from flask import Flask, render_template, send_from_directory, request, jsonify
 from utils import *
 
 from rich.console import Console
@@ -30,6 +30,25 @@ def find_file_name(project_name):
     return send_from_directory(f"./projects/{project_name}", "main.pdf")
 
 
+@app.route("/api/section", methods=["POST"])
+def send_metadata():
+    coordinates = request.get_json(force=True)
+    data = get_meta_data(coordinates)
+    return jsonify(data)
+
+
+@app.route('/api/monitor', methods=['POST'])
+def get_500_edit():
+    info = request.get_json(force=True)
+
+    console.log(info)
+
+    projectId = title_to_projectId(info["paperUrl"])
+
+    data = load_chunk_by_file(projectId, info["idx"], info["file"])
+
+    return jsonify(data)
+
 
 if __name__ == '__main__':
-    app.run(debug=True)
+    app.run(debug=True, port=7749)

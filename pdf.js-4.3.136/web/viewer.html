@@ -27,7 +27,8 @@ See https://github.com/adobe-type-tools/cmap-resources
 <!--#if GENERIC || CHROME-->
     <meta name="google" content="notranslate">
 <!--#endif-->
-    <title>PDF.js viewer</title>
+    <link rel="icon" href="https://minnesotanlp.github.io/img/UMN_NLP_logo_final_circle.png">
+    <title>LaTex PDF Replay</title>
 
 <!--#if MOZCENTRAL-->
 <!--#include viewer-snippet-firefox-extension.html-->
@@ -135,13 +136,18 @@ See https://github.com/adobe-type-tools/cmap-resources
           </div>
         </div>
         <div id="latexPlayPanel" style="display: flex">
-          <input id="latexFrameSlider" ,="" type="range" min="0" max="100" value="0" style="width: 95%;">
+          <input id="latexFrameSlider" type="range" min="0" max="100" value="0" style="width: 95%;">
           <i id="previousFrame" class="fa-solid fa-backward latexPlayButton"></i>
           <i id="pauseOrPlay" class="fa-solid fa-play latexPlayButton" data-state="pause"></i>
           <i id="nextFrame" class="fa-solid fa-forward latexPlayButton"></i>
         </div>
       </div>
-        <div id="latexTextArea" style="height: 90%; background: white; flex-shrink: 1;"></div>
+        <div id="latexTextArea" style="font-family: system-ui; height: 90%; background: white; flex-shrink: 1; overflow:auto">
+            <div id="displayLines"></div>
+            <div id="displayContent" class="displayContent">
+                "The beginning of edits"
+            </div>
+          </div>
       </div>
 
       <div id="mainContainer">
