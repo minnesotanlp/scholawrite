@@ -32,9 +32,49 @@ def find_file_name(project_name):
 
 @app.route("/api/section", methods=["POST"])
 def send_metadata():
-    coordinates = request.get_json(force=True)
-    data = get_meta_data(coordinates)
-    return jsonify(data)
+    post_data = request.get_json(force=True)
+    meta_data = get_meta_data(post_data["filename"], post_data["paperUrl"])
+    return jsonify(meta_data)
+
+
+@app.route("/api/paragraph", methods=["POST"])
+def construct_map():
+    post_data = request.get_json(force=True)
+
+    paperUrl = post_data["paperUrl"]
+    pageNumber = str(post_data["pageNumber"])
+    coordinates = post_data["coordinates"]
+
+    paragraph_layout, paragraph_data, pdf_to_paragraph = load_from_disk(paperUrl)
+
+    temp_pdf_to_paragraph = {pageNumber:[]}
+
+    for coordinate in coordinates:
+
+        temp_pdf_to_paragraph[pageNumber].append(get_one_paragraph_loc(coordinate))
+    
+    pdf_to_paragraph.update(temp_pdf_to_paragraph)
+
+    save_to_disk(paperUrl, [paragraph_layout, paragraph_data, pdf_to_paragraph])
+
+    return jsonify(pdf_to_paragraph)
+
+
+@app.route("/api/mapping", methods=["POST"])
+def send_map():
+    post_data = request.get_json(force=True)
+    paper_url = post_data["paperUrl"]
+
+    ret_data = {}
+
+    if os.path.exists(paper_url+"/main.synctex.gz"):
+        ret_data["isavailable"] = True
+        combined_data = load_from_disk(paper_url)
+        ret_data.update(combined_data[2])
+    else:
+        ret_data["isavailable"] = False
+    
+    return jsonify(ret_data)
 
 
 @app.route('/api/monitor', methods=['POST'])
@@ -51,4 +91,4 @@ def get_500_edit():
 
 
 if __name__ == '__main__':
-    app.run(debug=True, port=7749)
+    app.run(debug=True, port=8845)
