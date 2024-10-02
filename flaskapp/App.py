@@ -20,7 +20,7 @@ from googleapiclient.errors import HttpError
 
 SCOPES = ["https://www.googleapis.com/auth/spreadsheets.readonly"]
 SAMPLE_SPREADSHEET_ID = "13gvKW7gmto4vsn-xBvqMqm2Kt8LoI8AQwlN5-x2y9a4"
-SAMPLE_RANGE_NAME = "L3:L20"
+SAMPLE_RANGE_NAME = "Q3:Q21"
 TOKEN_FILE = "token.json"
 CREDENTIAL_FILE = "sheet_credentials.json"
 consented_projects = []

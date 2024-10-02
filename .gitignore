@@ -1,5 +1,6 @@
 .idea
-mongo_backup.sh
+mongodb_backup/backup_venv
+mongodb_backup/Auth_files/*
 *.yml
 sheet_credentials.json
 token.json
