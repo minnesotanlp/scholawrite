@@ -172,12 +172,14 @@ def dataset_statistics(dataset, dataset_name):
   ax.set_xticklabels(labels, rotation=45, ha='right')  # 'ha' means horizontal alignment
   plt.title(dataset_name)
   plt.show()
+  fig.tight_layout()
   plt.savefig(f"{dataset_name}_dataset_label_dist.png")
 
   return labels, counts
 
 dataset_statistics(train_ds, "train")
 dataset_statistics(eval_ds, "eval")
+raise Exception
 
 train_labels = train_ds["label"].numpy()
 

@@ -1,0 +1,12 @@
+_type: prompt
+input_variables:
+  [before_text, label, definition]
+template:
+  Section of writing in LaTex begin
+
+  {before_text}
+
+  Section of writing in LaTex end
+
+
+  User is currently writing for {label}, {definition}. Please generate a prompt that aligns with the {label}.
