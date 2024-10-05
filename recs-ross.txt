@@ -1,0 +1,15 @@
+numpy
+pandas
+transformers
+datasets
+torch
+torchvision
+torchaudio
+python-dotenv
+huggingface
+matplotlib
+accelerate
+peft
+trl
+scikit-learn
+bitsandbytes

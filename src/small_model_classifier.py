@@ -12,17 +12,13 @@ import matplotlib.pyplot as plt
 import numpy as np
 from sklearn.utils.class_weight import compute_class_weight
 from transformers import Trainer
-from huggingface_hub import login
-
-current_time = datetime.now().strftime('%Y-%m-%d %H:%M:%S.%f')
-print("current time:", current_time)
 
 device = torch.device("cuda" if torch.cuda.is_available() else "cpu")
 print("device", device)
 
-load_dotenv()
-HUGGINGFACE_TOKEN = os.getenv("HUGGINGFACE_TOKEN")
-login(token=HUGGINGFACE_TOKEN)
+#load_dotenv()
+#HUGGINGFACE_TOKEN = os.getenv("HUGGINGFACE_TOKEN")
+#login(token=HUGGINGFACE_TOKEN)
 
 model_name = "BERT"
 #model_name = "ROBERTA"

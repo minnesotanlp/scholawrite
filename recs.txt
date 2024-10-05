@@ -1,9 +1,0 @@
-python-dotenv
-huggingface
-transformers
-datasets
-pandas
-numpy
-torch
-matplotlib
-accelerate
