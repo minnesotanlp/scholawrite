@@ -33,7 +33,9 @@ def load_model(model_name):
         model_name,
         device_map='auto',
         #max_memory={0: "48GB", 1: "48GB"},
-        max_memory={0: "15GB", 1: "15GB"},
+        #max_memory={0: "15GB", 1: "15GB"},
+        #max_memory={0: "40GB", 1: "40GB"},
+        #max_memory={0: "40GB"},
         #quantization_config=bnb_config,
         #token = HF_TOKEN,
         use_cache = False,
@@ -44,7 +46,7 @@ def load_model(model_name):
 
 def get_quantized_model(model):
     config = LoraConfig(
-        r = 16,                                         # Choose any number > 0 ! Suggested 8, 16, 32, 64, 128
+        r = 8,                                         # Choose any number > 0 ! Suggested 8, 16, 32, 64, 128
         target_modules = "all-linear",
         lora_alpha = 16,                                # From unsloth
         lora_dropout = 0,                               # Supports any, but = 0 is optimized
@@ -83,6 +85,7 @@ def get_causal_lm_trainer(model, tokenizer, dataset):
       fp16 = not torch.cuda.is_bf16_supported(),
       bf16 = torch.cuda.is_bf16_supported(),
       optim = "adamw_8bit",
+      torch_compile=True,
       weight_decay = 0.01,
       lr_scheduler_type = "linear",
       seed = 3407,

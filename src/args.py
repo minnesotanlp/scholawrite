@@ -13,11 +13,12 @@ MODEL_TYPE = "llm"
 #MODEL_NAME = "bert-base-uncased"
 #MODEL_NAME = "FacebookAI/roberta-base"
 #MODEL_NAME = "meta-llama/Meta-Llama-3-8B"
-MODEL_NAME = "meta-llama/Llama-3.2-1B"
+#MODEL_NAME = "meta-llama/Llama-3.2-1B"
+MODEL_NAME = "unsloth/Llama-3.2-1B-bnb-4bit"
 
 TIMESTAMP = datetime.now().strftime('%Y-%m-%d %H:%M:%S.%f')
 
-OUTPUT_DIR = f"/workspace/results/{MODEL_NAME}_run_{TIMESTAMP}"
+OUTPUT_DIR = f"/users/0/volko032/scholawrite/results/{MODEL_NAME}_run_{TIMESTAMP}"
 LOG_DIR = f"{OUTPUT_DIR}/log"
 MEDIA_DIR = f"{OUTPUT_DIR}/media"
 

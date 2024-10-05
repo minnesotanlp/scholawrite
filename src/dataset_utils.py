@@ -22,10 +22,28 @@ def preprocess_one_project(df, project_id, relevant_classes):
 
   proj_df = proj_df[proj_df["label"].apply(lambda x: is_label_relevant(x))]
 
-  proj_df["label"] = le.fit_transform(proj_df["label"])
+  #proj_df["label"] = le.fit_transform(proj_df["label"])
 
   proj_df = proj_df.sort_values(by="timestamp", ascending=False)
   proj_df = proj_df.reset_index(drop=True)
+  proj_df = proj_df.drop(columns=["timestamp", "project"])
+
+  #proj_df["revision"] = proj_df["revision"].apply(lambda x: ast.literal_eval(x))
+
+  return proj_df
+
+def preprocess_many_projects(df, relevant_project_ids, relevant_classes):
+  proj_df = df[df["project"].isin(relevant_project_ids)]
+
+  def is_label_relevant(x):
+    return x in relevant_classes
+
+  proj_df = proj_df[proj_df["label"].apply(lambda x: is_label_relevant(x))]
+
+  #proj_df["label"] = le.fit_transform(proj_df["label"])
+
+  #proj_df = proj_df.sort_values(by="timestamp", ascending=False)
+  #proj_df = proj_df.reset_index(drop=True)
   proj_df = proj_df.drop(columns=["timestamp", "project"])
 
   #proj_df["revision"] = proj_df["revision"].apply(lambda x: ast.literal_eval(x))

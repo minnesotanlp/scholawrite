@@ -1,3 +1,5 @@
 .env
 results
 *env
+*.pyc
+*.slurm
