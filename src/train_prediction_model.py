@@ -1,7 +1,7 @@
 import os
 
-import torch
 import accelerate
+import torch
 from dotenv import load_dotenv
 from huggingface_hub import login
 from datasets import Dataset
@@ -16,25 +16,13 @@ import dataset_utils
 from dataset_utils import add_special_tokens, get_scholawrite_dataset, get_dataset_statistics, get_dataset_from_df, get_intention_inference_instruction_dataset
 
 def main():
-  print("first")
   load_dotenv()
 
-  print("second")
   HUGGINGFACE_TOKEN = os.getenv("HUGGINGFACE_TOKEN")
   login(token=HUGGINGFACE_TOKEN)
 
-  print("third")
   print(accelerate.Accelerator().device)
   print(accelerate.Accelerator().state)
-
-  print("fourth")
-  #if (args.MODEL_TYPE == "llm"):
-  #  #tokenizer = load_tokenizer(args.MODEL_NAME)
-  #  #model = load_model(args.MODEL_NAME)
-  #elif(args.MODEL_TYPE == "small-lm"):
-  #  raise Exception("not implemented")
-  #else:
-  #  raise Exception("not implemented")
 
   model, tokenizer = FastLanguageModel.from_pretrained(
     model_name="unsloth/Llama-3.2-1B-bnb-4bit",
@@ -61,7 +49,7 @@ def main():
 
   dataset_df = get_scholawrite_dataset()
   dataset_df = dataset_utils.preprocess_many_projects(dataset_df, args.PROJECT_IDS, taxonomy.RELEVANT_CLASSES)
-  #dataset_df = dataset_df.iloc[0:100]
+  dataset_df = dataset_df.iloc[0:100]
 
   print(dataset_df.head())
   #get_intention_inference_instruction_dataset(dataset_df, tokenizer)

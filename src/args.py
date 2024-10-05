@@ -2,6 +2,9 @@
 
 arguments for the model fine-tuning
 
+msi interactive gpu session:
+srun -N 1 --ntasks-per-node=1 --mem-per-cpu=1gb -t 1:00:00 -p interactive-gpu --gres=gpu:a40:1 --pty bash
+
 """
 
 import os
@@ -18,7 +21,9 @@ MODEL_NAME = "unsloth/Llama-3.2-1B-bnb-4bit"
 
 TIMESTAMP = datetime.now().strftime('%Y-%m-%d %H:%M:%S.%f')
 
-OUTPUT_DIR = f"/users/0/volko032/scholawrite/results/{MODEL_NAME}_run_{TIMESTAMP}"
+PURPOSE = "intention_bt"
+
+OUTPUT_DIR = f"/users/0/volko032/scholawrite/results/{MODEL_NAME}_run_{TIMESTAMP}_{PURPOSE}"
 LOG_DIR = f"{OUTPUT_DIR}/log"
 MEDIA_DIR = f"{OUTPUT_DIR}/media"
 

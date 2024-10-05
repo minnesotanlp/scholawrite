@@ -2,4 +2,4 @@
 results
 *env
 *.pyc
-*.slurm
+slurm_output
