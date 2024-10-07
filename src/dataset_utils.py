@@ -57,6 +57,8 @@ def add_special_tokens(model, tokenizer):
   tokenizer.add_tokens("</BT>")     # before text
   tokenizer.add_tokens("<PWA>")     # start previous writing action
   tokenizer.add_tokens("</PWA>")    # end previous writing action
+  tokenizer.add_tokens("<WI>")     # current writing intention
+  tokenizer.add_tokens("</WI>")    # current writing intention
   tokenizer.add_special_tokens({'pad_token': '[PAD]'})    
 
   print("len", len(tokenizer))
@@ -73,7 +75,15 @@ def get_intention_inference_instruction_dataset(dataset_df, tokenizer, include_p
 
   dataset_df["instruction input"] += "</INPUT>"
 
-  #return dataset_df
+def get_writing_prediction_instruction_dataset(dataset_df, tokenizer, include_prev_label=False):
+  dataset_df["instruction input"] = "<INPUT>" + "<BT>" + dataset_df["before_text"] + "</BF> " + "<WI>" + dataset_df["label"] + "</WI>"
+
+  if (include_prev_label):
+    dataset_df["prev_label"] = dataset_df["label"].shift(1).fillna("none")
+    dataset_df["instruction input"] += "<PWA>" + dataset_df["prev_label"] + "</PWA> "
+    dataset_df.remove_columns(columns=["prev_label"])
+
+  dataset_df["instruction input"] += "</INPUT>"
 
 def get_dataset_from_df(dataset_df, tokenizer):
   ds = Dataset.from_pandas(dataset_df)

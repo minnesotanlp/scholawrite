@@ -23,12 +23,20 @@ TIMESTAMP = datetime.now().strftime('%Y-%m-%d %H:%M:%S.%f')
 
 PURPOSE = "intention_bt"
 
-OUTPUT_DIR = f"/users/0/volko032/scholawrite/results/{MODEL_NAME}_run_{TIMESTAMP}_{PURPOSE}"
+BASE_DIR = "/workspace"                    # DOCKER
+#BASE_DIR = "/users/0/volko032/scholawrite" # MSI
+
+OUTPUT_DIR = f"{BASE_DIR}/results/{MODEL_NAME}_run_{TIMESTAMP}_{PURPOSE}"
+#OUTPUT_DIR = f"/users/0/volko032/scholawrite/results/{MODEL_NAME}_run_{TIMESTAMP}_{PURPOSE}"
 LOG_DIR = f"{OUTPUT_DIR}/log"
 MEDIA_DIR = f"{OUTPUT_DIR}/media"
+MODEL_SAVE_DIR = f"{OUTPUT_DIR}/model_save"
 
 os.makedirs(OUTPUT_DIR, mode = 0o777, exist_ok = True) 
 os.makedirs(MEDIA_DIR, mode = 0o777, exist_ok = True) 
+os.makedirs(MODEL_SAVE_DIR, mode = 0o777, exist_ok = True) 
+
+print("outputdir", OUTPUT_DIR)
 
 PROJECT_IDS = [
   "6500d748909490ecba83e811",  # Debarati's project part 1, Done

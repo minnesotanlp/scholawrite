@@ -1,3 +1,3 @@
-docker run --name scholawrite_container --gpus all -dt -v ./:/workspace --ipc=host pytorch/pytorch:2.2.1-cuda11.8-cudnn8-runtime bash
+docker run --name scholawrite_container_2 --gpus all -dt -v ./:/workspace --ipc=host pytorch/pytorch:2.4.1-cuda12.1-cudnn9-devel bash
 
-docker exec -it scholawrite_container bash
+docker exec -it scholawrite_container_2 bash

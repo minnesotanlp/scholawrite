@@ -108,21 +108,21 @@ def main():
           lr_scheduler_type="linear",
           per_device_train_batch_size=1,
           gradient_accumulation_steps=4,
-          num_train_epochs=40,
+          num_train_epochs=25,
           fp16=not is_bfloat16_supported(),
           bf16=is_bfloat16_supported(),
           logging_steps=1,
           optim="adamw_8bit",
           weight_decay=0.01,
           warmup_steps=10,
-          output_dir="output",
+          save_strategy="epoch",
+          save_total_limit=3,
+          output_dir=f"{args.OUTPUT_DIR}",
           seed=0,
       ),
   )
   print(torch.cuda.memory_summary(device=None, abbreviated=False))
-  trainer.train()
-
-  raise Exception
+  #trainer.train()
 
   #get_dataset_statistics(dataset)
 
@@ -148,7 +148,7 @@ def main():
   trainer.save_state()
 
   merged_model = model.merge_and_unload()
-  merged_model.save_pretrained("qlora_2nd", safe_serialization=True)
+  merged_model.save_pretrained(f"{args.MODEL_SAVE_DIR}", safe_serialization=True)
   # model.push_to_hub("BbRrOoKk/2st_scholawrite_instruct_llama", token = HF_TOKEN)
 
   # dist.destroy_process_group()

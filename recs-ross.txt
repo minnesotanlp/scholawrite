@@ -13,3 +13,4 @@ peft
 trl
 scikit-learn
 bitsandbytes
+unsloth

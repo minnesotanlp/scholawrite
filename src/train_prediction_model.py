@@ -13,7 +13,7 @@ import args
 import taxonomy
 from llama3_intention_classifier import load_tokenizer, load_model, get_quantized_model, get_causal_lm_trainer
 import dataset_utils
-from dataset_utils import add_special_tokens, get_scholawrite_dataset, get_dataset_statistics, get_dataset_from_df, get_intention_inference_instruction_dataset
+from dataset_utils import add_special_tokens, get_scholawrite_dataset, get_dataset_statistics, get_dataset_from_df, get_writing_prediction_instruction_dataset
 
 def main():
   load_dotenv()
@@ -49,14 +49,13 @@ def main():
 
   dataset_df = get_scholawrite_dataset()
   dataset_df = dataset_utils.preprocess_many_projects(dataset_df, args.PROJECT_IDS, taxonomy.RELEVANT_CLASSES)
-  dataset_df = dataset_df.iloc[0:100]
+  #dataset_df = dataset_df.iloc[0:100]
 
   print(dataset_df.head())
-  #get_intention_inference_instruction_dataset(dataset_df, tokenizer)
-  #print(dataset_df.head())
-  #tokenized_ds = get_dataset_from_df(dataset_df, tokenizer)
+  get_writing_prediction_instruction_dataset(dataset_df, tokenizer)
+  print(dataset_df.head())
 
-  data_prompt = """Identify the most likely next writing intention of a graduate researcher when editing the following text.
+  prompt = """Given an excerpt from a research paper and a scholarly writing intention, revise or add to the text to fulfill this writing intention.
 
   ### Input:
   {}
@@ -66,11 +65,11 @@ def main():
 
   EOS_TOKEN = tokenizer.eos_token
   def formatting_prompt(examples):
-      inputs       = examples["before_text"]
-      outputs      = examples["label"]
+      inputs       = examples["instruction input"]
+      outputs      = examples["after_text"]
       texts = []
       for input_, output in zip(inputs, outputs):
-          text = data_prompt.format(input_, output) + EOS_TOKEN
+          text = prompt.format(input_, output) + EOS_TOKEN
           texts.append(text)
       return { "text" : texts, }
 
@@ -96,21 +95,21 @@ def main():
           lr_scheduler_type="linear",
           per_device_train_batch_size=1,
           gradient_accumulation_steps=4,
-          num_train_epochs=40,
+          num_train_epochs=25,
+          #num_train_epochs=1,
           fp16=not is_bfloat16_supported(),
           bf16=is_bfloat16_supported(),
           logging_steps=1,
+          save_strategy="epoch",
+          save_total_limit=3,
           optim="adamw_8bit",
           weight_decay=0.01,
           warmup_steps=10,
-          output_dir="output",
+          output_dir=f"{args.OUTPUT_DIR}",
           seed=0,
       ),
   )
   print(torch.cuda.memory_summary(device=None, abbreviated=False))
-  trainer.train()
-
-  raise Exception
 
   #get_dataset_statistics(dataset)
 
@@ -136,7 +135,7 @@ def main():
   trainer.save_state()
 
   merged_model = model.merge_and_unload()
-  merged_model.save_pretrained("qlora_2nd", safe_serialization=True)
+  merged_model.save_pretrained(f"{args.MODEL_SAVE_DIR}", safe_serialization=True)
   # model.push_to_hub("BbRrOoKk/2st_scholawrite_instruct_llama", token = HF_TOKEN)
 
   # dist.destroy_process_group()
