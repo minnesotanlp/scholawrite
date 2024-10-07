@@ -1,123 +1,47 @@
 {
     "Idea Generation": {
-        "definition": "The writer gets their ideas down on the page.",
-        "verbalizer": [
-            "Jot down raw ideas related to the project title",
-            "Write phrases or sentences about project"
-        ]
+        "definition": "This refers to the preliminary stage where the writer formulates and records initial thoughts and concepts before they are fully developed in the text."
     },
     "Idea Organization": {
-        "definition": "The writer is structuring the concepts, arguments, and topics that they produced during the idea generation process.",
-        "verbalizer": [
-            "Organize ideas in paper by rearranging sentences",
-            "Structure the paper by rearranging sentences"
-        ]
+        "definition": "The writer selects the most  useful material retrieved by the generating process and organizes them into writing plans. These may include what topics the author wants to address as well as the sequence of topics. Now, this intention involves a structure of the generated ideas."
     },
     "Discourse Planning": {
-        "definition": "The writer is planning how to organize and relate their concepts to each other. This should be also written in an incomplete format.",
-        "verbalizer": [
-            "Create new sections on the paper"
-        ]
+        "definition": "The writer now chooses to set up and initially create sections and other structures (e.g., paragraphs) of their paper, based on those organized ideas."
     },
-    "Drafting": {
-        "definition": "The writer completes their raw ideas into full sentences.",
-        "verbalizer": [
-            "Write full sentences about the topic.",
-            "Draft body full sentences",
-            "Write body of paper in full sentences"
-        ]
-    },
-    "Lexical Chaining": {
-        "definition": "when a sequence of sentences is linked by the semantic relationships between the words in the sentences.",
-        "verbalizer": [
-            "Structure sentences within a paragraph",
-            "Improve writing flow of paragraphs",
-            "Use transition words to structure sentences within a paragraph",
-            "Increase cohesion of paragraphs",
-            "Write down a new sentence that continues explaining the following sentence."
-        ]
+    "Text Production": {
+        "definition": "The writer completes their plans of generated ideas into full sentences. It could be either from the writer's own language or borrowed sentences from the external source that helps the writer translating their ideas into visible languages."
     },
     "Object Insertion": {
-        "definition": "This is an activity of inserting figures, tables, equations, footnotes, etc. to explain and support certain parts of their writing.",
-        "verbalizer": [
-            "Add figures to supplement text",
-            "Insert figures related to text",
-            "Insert figures",
-            "Insert tables or graphs",
-            "Insert figures and captions"
-        ]
+        "definition": "The writer incorporates and customizes pre-defined blocks of Latex commands within \\begin and \\end, within a document to achieve specific formatting of visual claims (e.g., figures, tables, equations, footnotes, bullet points etc.) of their paper."
     },
-    "Command Insertion": {
-        "definition": "Adding some relevant packages and/or macros to implement figures is applied to this activity.",
-        "verbalizer": [
-            "Insert latex commands or packages",
-            "Add latex commands or packages",
-            "Add relevant latex packages and commands"
-        ]
+    "Cross-reference": {
+        "definition": "The writer links different sections, figures, tables, or other elements within a document through referencing labels. This method allows readers to navigate between related parts of the document efficiently and understand the interconnections among the document's content. "
     },
-    "Citation": {
-        "definition": "An activity of inserting citations to support their claim with evidence.",
-        "verbalizer": [
-            "Insert citation on the paper",
-            "Add a citation on the paper",
-            "Add bibtex object to .bib file",
-            "Insert \\cite (\\cite{}, \\citet{}, \\citep{}) to the draft",
-            "Insert citation to the document",
-            "Add a citation to the document",
-            "Cite a source",
-            "Cite a relevant source",
-            "Cite a relevant work",
-            "Add citation to literature"
-        ]
+    "Citation Integration": {
+        "definition": "The writer incorporates bibliographic references (BibTeX objects) into a document and systematically linking these references within the text using citation commands."
     },
-    "Syntactic": {
-        "definition": "Syntactic revisions fix grammar, spelling, and punctuation",
-        "verbalizer": [
-            "Revise grammar",
-            "Fix grammar",
-            "Fix the grammar in this file",
-            "Grammatically improve this paper",
-            "Fix the grammar in this paper",
-            "Improve the grammar in this paper"
-        ]
+    "Macro Insertion": {
+        "definition": "The writer incorporates predefined commands or packages into a LaTeX document to expand its capabilities or alter its formatting. These commands are not used for core Latex environment."
     },
-    "Lexical": {
-        "definition": "Lexical revisions change words to clarify meaning or improve coherence.",
-        "verbalizer": [
-            "Increase coherence of the text",
-            "Improve the coherence of the paper",
-            "Make lexical revisions to improve the coherence of the paper"
-        ]
+    "Fluency": {
+        "definition": "This is to fix grammatical or syntactic errors in the text or commands, such as grammar, spelling, and punctuation. Note that there is no meaning changed during this intention. "
     },
-    "Semantic": {
-        "definition": "Semantic revisions add more clear meaning to a written sentence to have better elaboration or /explanations (refined meaning), rather than simply altering the words themselves.",
-        "verbalizer": [
-            "Clarify the meaning of the paper",
-            "Add or remove examples to clarify the meaning of the text"
-        ]
+    "Coherence": {
+        "definition": "This is to make any of the two or multiple sentences within the same paragraph, or any two subsequent paragraphs more cohesive, logically linked and consistent as a whole. This also refers to the deliberate structuring and editing of text to ensure that ideas are logically connected and presented in a clear, concise, and consistent manner. Note that there is no meaning changed during this intention." 
     },
     "Structural": {
-        "definition": "Structural revisions move text or figures or change paragraph boundaries to improve the organization of the paper.",
-        "verbalizer": [
-            "Rearrange text throughout the project",
-            "Revise structure of the sentence"
-        ]
+        "definition": "The writer attempts to modify the structure of the paper’s contents (texts or objects), by relocating texts and objects to improve the flow of the information."
     },
-    "Visual": {
-        "definition": "Change visualization of texts or improve the figures and tables, etc. that are the objects. Citations can be included as visual",
-        "verbalizer": [
-            "Improve the look of the document",
-            "Make changes to the style of the documents including changing font weight, moving around figures, and changing the style of lists"
-        ]
+    "Clarity": {
+        "definition": "This is to make the text more straightforward, concise, readable and understandable. "
     },
-    "Quantitative": {
-        "definition": "Change the numeric results to quantitatively support their claims.",
-        "verbalizer": [
-            "Change numeric results in paper",
-            "Make quantitative changes to paper"
-        ]
+    "Textual Style": {
+        "definition": "Convey the writer’s writing preferences, including emotions, tone, voice, etc."
     },
-    "Section Planning": {
-        "definition": "The writer now chooses to set up and initially create sections and other structures (e.g., paragraphs) of their paper, based on those organized ideas."
+    "Scientific Accuracy": {
+        "definition": "Update or correct scientific evidence (e.g., numeric results, equations) to deliver more accurate claims of their paper. Note that because new information is added, meaning is changed during this phase."
+    },
+    "Visual Style" :{
+        "definition": "Change the stylistic formatting of texts, the figures and tables, etc. that are the objects., except for the case that you move them around the paper. Changing the style formatting of citations also belongs here (e.g., \\cite -> \\citet)"
     }
 }
