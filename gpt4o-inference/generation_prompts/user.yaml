@@ -1,0 +1,6 @@
+_type: prompt
+input_variables:
+  [before_text]
+template:
+  "{before_text}"
+

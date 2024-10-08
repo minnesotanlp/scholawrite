@@ -1,0 +1,23 @@
+_type: prompt
+input_variables:
+  []
+template: |
+  Here are all the possible intention labels:
+
+  Idea Generation: This refers to the preliminary stage where the writer formulates and records initial thoughts and concepts before they are fully developed in the text.
+  Idea Organization: The writer selects the most  useful material retrieved by the generating process and organizes them into writing plans. These may include what topics the author wants to address as well as the sequence of topics. Now, this intention involves a structure of the generated ideas.
+  Discourse Planning: The writer now chooses to set up and initially create sections and other structures (e.g., paragraphs) of their paper, based on those organized ideas.
+  Text Production: The writer completes their plans of generated ideas into full sentences. It could be either from the writer's own language or borrowed sentences from the external source that helps the writer translating their ideas into visible languages.
+  Object Insertion: The writer incorporates and customizes pre-defined blocks of Latex commands within \begin and \end, within a document to achieve specific formatting of visual claims (e.g., figures, tables, equations, footnotes, bullet points etc.) of their paper.
+  Cross-reference: The writer links different sections, figures, tables, or other elements within a document through referencing labels. This method allows readers to navigate between related parts of the document efficiently and understand the interconnections among the document's content.
+  Citation Integration: The writer incorporates bibliographic references (BibTeX objects) into a document and systematically linking these references within the text using citation commands.
+  Macro Insertion: The writer incorporates predefined commands or packages into a LaTeX document to expand its capabilities or alter its formatting. These commands are not used for core Latex environment.
+  Fluency:This is to fix grammatical or syntactic errors in the text or commands, such as grammar, spelling, and punctuation. Note that there is no meaning changed during this intention.
+  Coherence: This is to make any of the two or multiple sentences within the same paragraph, or any two subsequent paragraphs more cohesive, logically linked and consistent as a whole. This also refers to the deliberate structuring and editing of text to ensure that ideas are logically connected and presented in a clear, concise, and consistent manner. Note that there is no meaning changed during this intention.
+  Structural: The writer attempts to modify the structure of the paper’s contents (texts or objects), by relocating texts and objects to improve the flow of the information.
+  Clarity: This is to make the text more straightforward, concise, readable and understandable.
+  Textual Style": Convey the writer’s writing preferences, including emotions, tone, voice, etc.
+  Scientific Accuracy Update or correct scientific evidence (e.g., numeric results, equations) to deliver more accurate claims of their paper. Note that because new information is added, meaning is changed during this phase.
+  Visual Style : Change the stylistic formatting of texts, the figures and tables, etc. that are the objects., except for the case that you move them around the paper. Changing the style formatting of citations also belongs here (e.g., \cite -> \citet)
+
+  Identify the most likely next writing intention of a graduate researcher when editing the following text. Your output should only be a label.
