@@ -1,0 +1,5 @@
+_type: prompt
+input_variables:
+  []
+template:
+  "You are a graduate researcher writing an NLP paper in LaTex. Below is the paper you have written so far. You can insert, delete, or revise at anywhere you want, but only one word or phrase at a time. Please give a complete output. Do not generate text other than paper content"

@@ -4,8 +4,8 @@ from langchain_core.prompts import load_prompt
 import os
 import pandas as pd
 
-system_prompt = load_prompt("classification_prompts/system.yaml")
-user_prompt = load_prompt("classification_prompts/user.yaml")
+system_prompt = load_prompt("classification_templates/system.yaml")
+user_prompt = load_prompt("classification_templates/user.yaml")
 
 import tiktoken
 enc = tiktoken.encoding_for_model("gpt-4o")

@@ -1,0 +1,144 @@
+let isPlaying = false
+let previousFrame
+let pauseOrPlay
+let nextFrame
+let slider
+let frameNumberInput
+let replaySpeed
+let intervalId
+let baseIntervalTime = 1000
+let currentIntervalTime = baseIntervalTime
+
+
+let contentBox;
+let lineBox;
+
+
+function addFrameNumber(){
+    setFrameNumber(getFrameNumber()+ 1)
+}
+
+function minusFrameNumber(){
+    setFrameNumber(getFrameNumber() - 1)
+}
+
+function setFrameNumber(value){
+    let min = parseInt(slider.getAttribute("min"))
+    let max = parseInt(slider.getAttribute("max"))
+
+    if (min <= value && value <= max){
+        slider.value = value
+        frameNumberInput.value = value
+    }
+
+    renderFrame(getFrameNumber());
+}
+
+function getFrameNumber(){
+    return parseInt(slider.value)
+}
+
+function play(){
+    intervalId = setInterval(addFrameNumber, currentIntervalTime)
+}
+
+function pause(){
+    clearInterval(intervalId);
+    intervalId = null;
+}
+
+function setReplaySpeed(factor){
+    currentIntervalTime = baseIntervalTime / factor
+    if (pauseOrPlay.getAttribute("data-state") == "play"){
+        pause();
+        play();
+    }
+}
+
+function mediaControl(event){
+    if (event.target.getAttribute("data-state") == "play"){
+        $(event.target).replaceWith(`<i id="pauseOrPlay" class="fa-solid fa-play latexPlayButton" data-state="pause"></i>`);
+        pause();
+    }else{
+        $(event.target).replaceWith(`<i id="pauseOrPlay" class="fa-solid fa-pause latexPlayButton" data-state="play"></i>`);
+        play();
+    }
+    pauseOrPlay = document.getElementById("pauseOrPlay");
+    pauseOrPlay.addEventListener("click", mediaControl);
+}
+
+
+
+function renderFrame(arrayIdx){
+
+    // render the frame and line numbers
+    contentBox.innerHTML = revisions[arrayIdx]["revision"]
+    lineBox.innerHTML = line_text;
+}
+
+
+
+window.addEventListener('DOMContentLoaded', function() {
+    previousFrame = document.getElementById("previousFrame");
+    pauseOrPlay = document.getElementById("pauseOrPlay");
+    nextFrame = document.getElementById("nextFrame");
+
+    pauseOrPlay.addEventListener("click", mediaControl);
+
+    previousFrame.addEventListener("click", function(){
+        minusFrameNumber()
+    })
+
+    nextFrame.addEventListener("click", function(){
+        addFrameNumber()
+    })
+
+
+    slider = this.document.getElementById("latexFrameSlider");
+    frameNumberInput = this.document.getElementById("latexFrameNumberInput")
+    verticalLine = document.getElementById('verticalLine');
+
+
+    slider.addEventListener("change", function(){
+        setFrameNumber(slider.value);
+    })
+
+    frameNumberInput.addEventListener("change", function(){
+        setFrameNumber(frameNumberInput.value);
+    })
+
+    replaySpeed = this.document.getElementById("replaySpeed");
+
+    replaySpeed.addEventListener("change", function(){
+        setReplaySpeed(this.value)
+    })
+
+    contentBox = this.document.getElementById("displayContent");
+    renderFrame(0)
+})
+
+
+async function fetchDataFromServer(path, object){
+    try {
+        const response = await fetch(path, {
+            method: "POST",
+            body: JSON.stringify(object),
+            headers: {
+                "Content-type": "application/json;"
+            }
+        });
+
+        // Check if the response status is not 200
+        if (response.status !== 200) {
+            alert("Fail to get data from server!\n Please contact developer.");
+            return null;
+        }
+
+        const dataFromServer = await response.json();
+        return dataFromServer;
+    } catch (error) {
+        // Handling network errors or other fetch related errors
+        alert("Fail to get data from server!\n Please contact developer.");
+        return null;
+    }
+}
