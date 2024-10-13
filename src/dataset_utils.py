@@ -50,7 +50,7 @@ def preprocess_many_projects(df, relevant_project_ids, relevant_classes):
 
   return proj_df
 
-def add_special_tokens(model, tokenizer):
+def add_special_tokens(tokenizer):
   tokenizer.add_tokens("<INPUT>")   # start input
   tokenizer.add_tokens("</INPUT>")  # end input
   tokenizer.add_tokens("<BT>")      # before text
@@ -63,7 +63,7 @@ def add_special_tokens(model, tokenizer):
 
   print("len", len(tokenizer))
 
-  model.resize_token_embeddings(len(tokenizer))
+  #model.resize_token_embeddings(len(tokenizer))
 
 def get_intention_inference_instruction_dataset(dataset_df, tokenizer, include_prev_label=False):
   dataset_df["instruction input"] = "<INPUT>" + "<BT>" + dataset_df["before_text"] + "</BF> "
@@ -95,7 +95,7 @@ def get_dataset_from_df(dataset_df, tokenizer):
 
   tokenized_ds = tokenized_ds.remove_columns(["instruction input", "before_text", "after_text"])
   tokenized_ds.set_format("torch")
-  tokenized_ds = tokenized_ds.train_test_split(test_size=0.2)
+  tokenized_ds = tokenized_ds.train_test_split(test_size=0.2, seed=100)
 
   return tokenized_ds
 

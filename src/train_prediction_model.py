@@ -25,14 +25,12 @@ def main():
   print(accelerate.Accelerator().state)
 
   model, tokenizer = FastLanguageModel.from_pretrained(
-    model_name="unsloth/Llama-3.2-1B-bnb-4bit",
+    model_name="unsloth/Llama-3.2-3B-Instruct-bnb-4bit",
     max_seq_length=4096,
     load_in_4bit=True,
     dtype=None,
   )
-  add_special_tokens(model, tokenizer)
-
-  #model = get_quantized_model(model)
+  add_special_tokens(tokenizer)
 
   model = FastLanguageModel.get_peft_model(
     model,
@@ -75,9 +73,12 @@ def main():
 
   full_ds = Dataset.from_pandas(dataset_df)
   full_ds = full_ds.map(formatting_prompt, batched=True)
-  full_ds = full_ds.train_test_split(test_size=0.2)
+  full_ds = full_ds.train_test_split(test_size=0.2, seed = 100)
 
-  print("training_data", full_ds)
+  full_ds["train"].save_to_disk("datasets/text_generation_train_dataset")
+  full_ds["test"].save_to_disk("datasets/text_generation_test_dataset")
+
+  #print("training_data", full_ds)
 
   max_seq_length=5096
 

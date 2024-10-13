@@ -17,7 +17,8 @@ MODEL_TYPE = "llm"
 #MODEL_NAME = "FacebookAI/roberta-base"
 #MODEL_NAME = "meta-llama/Meta-Llama-3-8B"
 #MODEL_NAME = "meta-llama/Llama-3.2-1B"
-MODEL_NAME = "unsloth/Llama-3.2-1B-bnb-4bit"
+#MODEL_NAME = "unsloth/Llama-3.2-1B-bnb-4bit"
+MODEL_NAME = "unsloth/Llama-3.2-3B-bnb-4bit"
 
 TIMESTAMP = datetime.now().strftime('%Y-%m-%d %H:%M:%S.%f')
 
@@ -32,9 +33,10 @@ LOG_DIR = f"{OUTPUT_DIR}/log"
 MEDIA_DIR = f"{OUTPUT_DIR}/media"
 MODEL_SAVE_DIR = f"{OUTPUT_DIR}/model_save"
 
-os.makedirs(OUTPUT_DIR, mode = 0o777, exist_ok = True) 
-os.makedirs(MEDIA_DIR, mode = 0o777, exist_ok = True) 
-os.makedirs(MODEL_SAVE_DIR, mode = 0o777, exist_ok = True) 
+if False:
+  os.makedirs(OUTPUT_DIR, mode = 0o777, exist_ok = True) 
+  os.makedirs(MEDIA_DIR, mode = 0o777, exist_ok = True) 
+  os.makedirs(MODEL_SAVE_DIR, mode = 0o777, exist_ok = True) 
 
 print("outputdir", OUTPUT_DIR)
 

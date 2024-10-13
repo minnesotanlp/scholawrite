@@ -37,7 +37,7 @@ def main():
   #  raise Exception("not implemented")
 
   model, tokenizer = FastLanguageModel.from_pretrained(
-    model_name="unsloth/Llama-3.2-1B-bnb-4bit",
+    model_name="unsloth/Llama-3.2-8B-Instruct-bnb-4bit",
     max_seq_length=4096,
     load_in_4bit=True,
     dtype=None,
@@ -68,7 +68,7 @@ def main():
   #print(dataset_df.head())
   #tokenized_ds = get_dataset_from_df(dataset_df, tokenizer)
 
-  data_prompt = """Identify the most likely next writing intention of a graduate researcher when editing the following text.
+  data_prompt = """Identify the most likely next writing intention of a graduate researcher when editing the following text:
 
   ### Input:
   {}
@@ -88,9 +88,14 @@ def main():
 
   full_ds = Dataset.from_pandas(dataset_df)
   full_ds = full_ds.map(formatting_prompt, batched=True)
-  full_ds = full_ds.train_test_split(test_size=0.2)
+  full_ds = full_ds.train_test_split(test_size=0.2, seed = 100)
 
-  print("training_data", full_ds)
+  full_ds["train"].save_to_disk("datasets/intention_train_dataset")
+  full_ds["test"].save_to_disk("datasets/intention_test_dataset")
+
+  print(full_ds["train"].to_pandas()["label"].value_counts())
+  print(full_ds["test"].to_pandas()["label"].value_counts())
+  raise Exception
 
   max_seq_length=5096
 
@@ -113,8 +118,8 @@ def main():
           bf16=is_bfloat16_supported(),
           logging_steps=1,
           optim="adamw_8bit",
-          weight_decay=0.01,
-          warmup_steps=10,
+          weight_decay=0.001,
+          #warmup_steps=5,
           save_strategy="epoch",
           save_total_limit=3,
           output_dir=f"{args.OUTPUT_DIR}",
