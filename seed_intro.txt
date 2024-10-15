@@ -1,0 +1,19 @@
+\documentclass{article}
+\usepackage{graphicx} % Required for inserting images
+
+\title{
+Evaluating Resume Efficacy and Optimal Features Using LLM \\
+}
+\author{}
+\date{October 2024}
+
+\begin{document}
+
+\maketitle
+
+\section{Introduction}
+
+The integration of Natural Language Processing and machine learning technologies in recruitment processes is a growing trend in the job application process. Many companies large and small are already using complex resume screening pipelines that involve classifying and ranking job applicants by their resumes. Various research studies have focused on this intersection, each applying unique methodologies and focusing on different aspects of the recruitment process. These models are in widespread use but are they capable of replacing human applicant screening? Are they making decisions that are moral and just? Our project, “Evaluating Resume Efficacy and Optimal Features Using LLM,” focuses on understanding the internal decision-making processes of automated resume screening models. It aims to train a model to identify the targeted job of a resume and uses visualization techniques to analyze how the model makes its decisions, allowing for an exploration of biases and ethical considerations in the model’s outputs.\\
+\indent We seek to explore how these models work, how accurate they are in predicting the intent of a resume, and can adversarial resumes trick the models. For the companies that use these systems this type of exploration is vital to ensure a lack of bias in the hiring process which might ignore qualified candidates or at worse cause legal liability for discriminatory hiring. For the applicants themselves, understanding these models can open the doors to writing resumes that are better tailored to present the applicant in the best light possible.
+
+\end{document}

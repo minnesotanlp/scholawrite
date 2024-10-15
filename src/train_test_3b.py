@@ -47,8 +47,6 @@ def main():
   add_special_tokens(tokenizer)
   model.resize_token_embeddings(len(tokenizer))
 
-  #model = get_quantized_model(model)
-
   model = FastLanguageModel.get_peft_model(
     model,
     r=16,

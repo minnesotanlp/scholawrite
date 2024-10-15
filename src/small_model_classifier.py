@@ -7,7 +7,7 @@ import pandas as pd
 from sklearn.preprocessing import LabelEncoder
 from transformers import BertTokenizer, BertForSequenceClassification, RobertaTokenizer, RobertaForSequenceClassification
 import datasets
-from datasets import Dataset, DatasetDict
+from datasets import Dataset, DatasetDict, load_dataset
 import matplotlib.pyplot as plt
 import numpy as np
 from sklearn.utils.class_weight import compute_class_weight
@@ -20,8 +20,8 @@ print("device", device)
 #HUGGINGFACE_TOKEN = os.getenv("HUGGINGFACE_TOKEN")
 #login(token=HUGGINGFACE_TOKEN)
 
-model_name = "BERT"
-#model_name = "ROBERTA"
+#model_name = "BERT"
+model_name = "ROBERTA"
 
 project_ids = [
   "6500d748909490ecba83e811",  # Debarati's project part 1, Done
@@ -90,10 +90,8 @@ class ScholawriteDataset():
 
     return proj_df
 
-d = ScholawriteDataset()
-dataset_df = d.preprocess_one_project(project_ids[0])
-
-print(dataset_df.head())
+#d = ScholawriteDataset()
+#dataset_df = d.preprocess_one_project(project_ids[0])
 
 def get_model_tokenizer(model_name):
   if (model_name == "BERT"):
@@ -132,23 +130,26 @@ def add_intention_inference_instruction_input(dataset_df, include_prev_label=Fal
 
 model, tokenizer = get_model_tokenizer(model_name)
 
-add_intention_inference_instruction_input(dataset_df)
-print(dataset_df.head())
+full_ds = load_dataset("minnesotanlp/scholawrite")
+train_ds = full_ds["train"].to_pandas()
+test_ds = full_ds["test"].to_pandas()
+add_intention_inference_instruction_input(train_ds)
+add_intention_inference_instruction_input(test_ds)
 
 #ds = Dataset.from_pandas(dataset_df.iloc[0:10])
-ds = Dataset.from_pandas(dataset_df)
+train_ds = Dataset.from_pandas(train_ds).select(range(100))
+test_ds = Dataset.from_pandas(test_ds).select(range(100))
 
 def tokenize_function(examples):
     return tokenizer(examples["instruction input"], padding="max_length", truncation=True)
 
-tokenized_ds = ds.map(tokenize_function, batched=True)
+train_ds = train_ds.map(tokenize_function, batched=True)
+train_ds = train_ds.remove_columns(["instruction input", "before_text", "after_text"])
+train_ds.set_format("torch")
 
-tokenized_ds = tokenized_ds.remove_columns(["instruction input", "before_text", "after_text"])
-tokenized_ds.set_format("torch")
-tokenized_ds = tokenized_ds.train_test_split(test_size=0.2)
-
-train_ds = tokenized_ds["train"]
-eval_ds = tokenized_ds["test"]
+test_ds = test_ds.map(tokenize_function, batched=True)
+test_ds = test_ds.remove_columns(["instruction input", "before_text", "after_text"])
+test_ds.set_format("torch")
 
 def dataset_statistics(dataset, dataset_name):
   labels, counts = dataset["label"].unique(return_counts=True)
@@ -173,12 +174,10 @@ def dataset_statistics(dataset, dataset_name):
 
   return labels, counts
 
-dataset_statistics(train_ds, "train")
-dataset_statistics(eval_ds, "eval")
-raise Exception
+#dataset_statistics(train_ds, "train")
+#dataset_statistics(eval_ds, "eval")
 
-train_labels = train_ds["label"].numpy()
-
+train_labels = np.array(train_ds["label"])
 
 all_train_labels = np.arange(0, len(RELEVANT_CLASSES))
 
@@ -206,7 +205,7 @@ class ScholawriteTrainer(Trainer):
 from transformers import TrainingArguments, Trainer
 
 training_args = TrainingArguments(
-    output_dir=f"./results/{model_name}_run_{current_time}",
+    output_dir=f"./results/{model_name}_run_final",
     evaluation_strategy="epoch",
     learning_rate=2e-5,
     per_device_train_batch_size=8,
@@ -219,7 +218,7 @@ trainer = ScholawriteTrainer(
     model=model,
     args=training_args,
     train_dataset=train_ds,
-    eval_dataset=eval_ds
+    eval_dataset=test_ds
 )
 
 trainer.train()
@@ -228,15 +227,15 @@ trainer.train()
 
 import numpy as np
 
-predictions = trainer.predict(eval_ds)
+predictions = trainer.predict(test_ds)
 predicted_labels = np.argmax(predictions.predictions, axis=1)
 
-eval_df = eval_ds.to_pandas()
+eval_df = test_ds.to_pandas()
 eval_df["predicted_label"] = predicted_labels
 eval_df["predicted_label"] = eval_df["predicted_label"].apply(lambda x: d.le.inverse_transform([x])[0])
 eval_df["label"] = eval_df["label"].apply(lambda x: d.le.inverse_transform([x])[0])
 
-eval_df.to_csv(f"{model_name}_run_{current_time}.csv")
+eval_df.to_csv(f"{model_name}_run_final.csv")
 
 def calculate_metrics(eval):
   from sklearn.metrics import accuracy_score, precision_score, recall_score, f1_score, confusion_matrix

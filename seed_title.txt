@@ -1,0 +1,18 @@
+\documentclass{article}
+\usepackage{graphicx} % Required for inserting images
+
+\title{
+Evaluating Resume Efficacy and Optimal Features Using LLM \\
+}
+\keywords{LLM, NLP, Resume, Features, Deep Learning}
+
+\author{}
+\date{October 2024}
+
+\begin{document}
+
+\maketitle
+
+\section{Introduction}
+
+\end{document}

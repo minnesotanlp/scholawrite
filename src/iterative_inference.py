@@ -24,8 +24,7 @@ def load_classifier_model():
   model_name = "unsloth/Llama-3.2-1B-bnb-4bit"
 
   dataset_dir = "datasets/intention_test_dataset"
-  #model_dir = "results/unsloth/Llama-3.2-1B-bnb-4bit_run_2024-10-06 04:23:59.743722_intention_bt/checkpoint-17"
-  model_dir = "results/unsloth/Llama-3.2-1B-bnb-4bit_run_2024-10-06 04:27:15.452895_intention_bt/checkpoint-25"
+  model_dir = "scholawrite/results/unsloth/classifier/model_save"
 
   model = AutoModelForCausalLM.from_pretrained(model_name)
   tokenizer = AutoTokenizer.from_pretrained(model_name)

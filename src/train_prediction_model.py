@@ -4,8 +4,8 @@ import accelerate
 import torch
 from dotenv import load_dotenv
 from huggingface_hub import login
-from datasets import Dataset
-from transformers import TrainingArguments
+from datasets import Dataset, load_dataset
+from transformers import TrainingArguments, DataCollatorForLanguageModeling
 from trl import SFTConfig, SFTTrainer
 from unsloth import FastLanguageModel, is_bfloat16_supported
 
@@ -31,6 +31,7 @@ def main():
     dtype=None,
   )
   add_special_tokens(tokenizer)
+  model.resize_token_embeddings(len(tokenizer))
 
   model = FastLanguageModel.get_peft_model(
     model,
@@ -43,42 +44,28 @@ def main():
     random_state = 32,
     loftq_config = None,
   )
-  print(model.print_trainable_parameters())
+  print("trainable parameters", model.print_trainable_parameters())
 
-  dataset_df = get_scholawrite_dataset()
-  dataset_df = dataset_utils.preprocess_many_projects(dataset_df, args.PROJECT_IDS, taxonomy.RELEVANT_CLASSES)
-  #dataset_df = dataset_df.iloc[0:100]
+  def generate_train_template(before_text, writing_intention, after_text):
+    prompt = f"""Given an excerpt from a research paper and a scholarly writing intention, revise or add to the text to fulfill this writing intention. ### exerpt: {before_text} ### Writing intention: {writing_intention}"""
+    return [
+      {"role": "user", "content": prompt},
+      {"role": "assistant", "content": after_text}
+    ]
 
-  print(dataset_df.head())
-  get_writing_prediction_instruction_dataset(dataset_df, tokenizer)
-  print(dataset_df.head())
-
-  prompt = """Given an excerpt from a research paper and a scholarly writing intention, revise or add to the text to fulfill this writing intention.
-
-  ### Input:
-  {}
-
-  ### Response:
-  {}"""
-
-  EOS_TOKEN = tokenizer.eos_token
   def formatting_prompt(examples):
-      inputs       = examples["instruction input"]
-      outputs      = examples["after_text"]
-      texts = []
-      for input_, output in zip(inputs, outputs):
-          text = prompt.format(input_, output) + EOS_TOKEN
-          texts.append(text)
-      return { "text" : texts, }
+    bt = examples["before_text"]
+    at = examples["after_text"]
+    wi = examples["label"]
+    texts = []
+    for bt_, wi_, at_ in zip(bt, wi, at):
+      text = generate_train_template(bt_, wi_, at_)
+      text = tokenizer.apply_chat_template(text, tokenize=False, add_generation_prompt=False)
+      texts.append(text)
+    return { "text" : texts, }
 
-  full_ds = Dataset.from_pandas(dataset_df)
+  full_ds = load_dataset("minnesotanlp/scholawrite")
   full_ds = full_ds.map(formatting_prompt, batched=True)
-  full_ds = full_ds.train_test_split(test_size=0.2, seed = 100)
-
-  full_ds["train"].save_to_disk("datasets/text_generation_train_dataset")
-  full_ds["test"].save_to_disk("datasets/text_generation_test_dataset")
-
-  #print("training_data", full_ds)
 
   max_seq_length=5096
 
@@ -89,6 +76,7 @@ def main():
       eval_dataset=full_ds["test"],
       dataset_text_field="text",
       max_seq_length=max_seq_length,
+    data_collator = DataCollatorForLanguageModeling(tokenizer = tokenizer, mlm=False),
       dataset_num_proc=2,
       packing=True,
       args=TrainingArguments(
@@ -96,13 +84,13 @@ def main():
           lr_scheduler_type="linear",
           per_device_train_batch_size=1,
           gradient_accumulation_steps=4,
-          num_train_epochs=25,
+          num_train_epochs=1,
           #num_train_epochs=1,
           fp16=not is_bfloat16_supported(),
           bf16=is_bfloat16_supported(),
           logging_steps=1,
-          save_strategy="epoch",
-          save_total_limit=3,
+          save_strategy="steps",
+          #save_total_limit=3,
           optim="adamw_8bit",
           weight_decay=0.01,
           warmup_steps=10,
@@ -110,19 +98,6 @@ def main():
           seed=0,
       ),
   )
-  print(torch.cuda.memory_summary(device=None, abbreviated=False))
-
-  #get_dataset_statistics(dataset)
-
-  #find_max_tokens_length(dataset, tokenizer)
-
-  #trainer = get_causal_lm_trainer(model, tokenizer, tokenized_ds)
-
-  #ids = tokenized_ds["train"][0]["input_ids"]
-  #print("ids:", ids)
-  #output = model.generate(ids, max_new_tokens=20)
-  #print(output)
-  #print(tokenizer.decode(output))
 
   train_results = trainer.train()
 
@@ -135,11 +110,9 @@ def main():
 
   trainer.save_state()
 
-  merged_model = model.merge_and_unload()
-  merged_model.save_pretrained(f"{args.MODEL_SAVE_DIR}", safe_serialization=True)
-  # model.push_to_hub("BbRrOoKk/2st_scholawrite_instruct_llama", token = HF_TOKEN)
-
-  # dist.destroy_process_group()
+  #merged_model = model.merge_and_unload()
+  #merged_model.save_pretrained(f"{args.MODEL_SAVE_DIR}", safe_serialization=True)
+  model.save_pretrained_merged(f"{args.MODEL_SAVE_DIR}", tokenizer, save_method = "merged_16bit")
 
 if __name__ == "__main__":
   main()
