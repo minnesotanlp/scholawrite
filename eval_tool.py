@@ -103,42 +103,41 @@ def switch_seed():
 @app.route('/main', methods=['GET'])
 def index():
     if "seed_doc" in session:
-        print(session["seed_doc"])
-        if session['seed_doc'] == "Intro":
-            return render_template('main.html', llama=llama_intro, gpt=gpt_intro, seed=session['seed_doc'])
-        else:
-            return render_template('main.html', llama=llama_title, gpt=gpt_title, seed=session['seed_doc'])
+        seed = session["seed_doc"]
+        llama3_output = all_output["llama3_output"][seed]
+        llama8_output = all_output["llama8_output"][seed]
+
+        return render_template('main.html', llama3=llama3_output, llama8=llama8_output, seed=session['seed_doc'], all_seeds=all_seeds)
     else:
-        return render_template('main.html', llama={"all_html": [], "all_html_len": 0, "all_label": []}, gpt={"all_html": [], "all_html_len": 0, "all_label": []}, seed="")
+        return render_template('main.html', llama3={"all_html": [], "all_html_len": 0, "all_label": []}, llama8={"all_html": [], "all_html_len": 0, "all_label": []}, seed="")
 
 
 def main():
-    global llama_intro, llama_title, gpt_intro, gpt_title
+    global outputs
+    global all_seeds
+    global all_output
 
-    path_to_folder = "../../final_iterative_writing_results/llama_output/intro"
-    all_label = generate_label(path_to_folder)
-    all_text = get_all_text(path_to_folder)
-    all_html = generate_html(all_text)
-    llama_intro = {"all_html": all_html, "all_html_len": len(all_html)-1, "all_label": all_label}
+    abs_path = input("Please enter the abs path to folder:")
+    outputs = ["llama3_outpt", "llama8_output"]
+    all_seeds = ["seed1", "seed2", "seed3", "seed4"]
+    all_output = {}
 
-    path_to_folder = "../../final_iterative_writing_results/llama_output/title"
-    all_label = generate_label(path_to_folder)
-    all_text = get_all_text(path_to_folder)
-    all_html = generate_html(all_text)
-    llama_title = {"all_html": all_html, "all_html_len": len(all_html)-1, "all_label": all_label}
+    for output in outputs:
+        all_output[output] = {}
+        for seed in all_seeds:
+            path_to_folder = os.path.join(abs_path, output, seed)
 
-    path_to_folder = "../../final_iterative_writing_results/gpt_output/intro"
-    all_label = generate_label(path_to_folder)
-    all_text = get_all_text(path_to_folder)
-    all_html = generate_html(all_text)
-    gpt_intro = {"all_html": all_html, "all_html_len": len(all_html)-1, "all_label": all_label}
+            try:
+                all_label = generate_label(path_to_folder)
+                all_text = get_all_text(path_to_folder)
+                all_html = generate_html(all_text)
+            except:
+                all_html = []
+                all_label = []
+            
+            llama_output = {"all_html": all_html, "all_html_len": len(all_html)-1, "all_label": all_label}
 
-    path_to_folder = "../../final_iterative_writing_results/gpt_output/title"
-    all_label = generate_label(path_to_folder)
-    all_text = get_all_text(path_to_folder)
-    all_html = generate_html(all_text)
-    gpt_title = {"all_html": all_html, "all_html_len": len(all_html)-1, "all_label": all_label}
-
+            all_output[output][seed]=llama_output
 
     app.run(port=19198, debug=True)
 

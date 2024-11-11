@@ -73,11 +73,11 @@ function mediaControl(event){
 function renderFrame(arrayIdx){
 
     // render the frame and line numbers
-    llamaContentBox.innerHTML = llamaRevisions[arrayIdx]["revision"]
-    gptContentBox.innerHTML = gptRevisions[arrayIdx]["revision"]
+    llama3ContentBox.innerHTML = llama3Revisions[arrayIdx]["revision"]
+    llama8ContentBox.innerHTML = llama8Revisions[arrayIdx]["revision"]
 
-    llamaLabel.innerHTML = llamaLabels[arrayIdx]["label"]
-    gptLabel.innerHTML = gptLabels[arrayIdx]["label"]
+    llama3Label.innerHTML = llama3Labels[arrayIdx]["label"]
+    llama8Label.innerHTML = llama8Labels[arrayIdx]["label"]
 }
 
 
@@ -102,8 +102,8 @@ window.addEventListener('DOMContentLoaded', function() {
     frameNumberInput = this.document.getElementById("latexFrameNumberInput")
     verticalLine = document.getElementById('verticalLine');
 
-    llamaLabel= document.getElementById('llamaLabel');
-    gptLabel= document.getElementById('gptLabel');
+    llama3Label= document.getElementById('llama3Label');
+    llama8Label= document.getElementById('llama8Label');
 
     slider.addEventListener("change", function(){
         setFrameNumber(slider.value);
@@ -113,8 +113,8 @@ window.addEventListener('DOMContentLoaded', function() {
         setFrameNumber(frameNumberInput.value);
     })
 
-    llamaContentBox = this.document.getElementById("llamaDisplayContent");
-    gptContentBox = this.document.getElementById("gptDisplayContent");
+    llama3ContentBox = this.document.getElementById("llama3DisplayContent");
+    llama8ContentBox = this.document.getElementById("llama8DisplayContent");
 
     renderFrame(0)
 })
