@@ -14,13 +14,15 @@ def calculate_lexical_diverse(text):
     text = LatexNodes2Text().latex_to_text(text)
     tokens = word_tokenize(text)
 
+    print(text)
+    print(tokens)
+
     new_tokens = []
     for word in tokens:
         if word.isalnum() and (word not in stop_words):
             new_tokens.append(word.lower())
 
     print(new_tokens)
-
     result = len(set(new_tokens)) / len(new_tokens)
     print(result)
 
@@ -39,3 +41,10 @@ def calculate_lexical_diverse(text):
 #             text = file.read()
 #             all_output[output][seed] = calculate_lexical_diverse(text)
 # print(all_output)
+
+
+text=""
+with open("./iter_generation_99.txt") as file:
+    text = file.read()
+
+calculate_lexical_diverse(text)
