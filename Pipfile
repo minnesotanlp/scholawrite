@@ -4,12 +4,10 @@ verify_ssl = true
 name = "pypi"
 
 [packages]
-diff-match-patch = "*"
 flask = "*"
-imageio = "*"
-moviepy = "*"
+diff-match-patch = "*"
 
 [dev-packages]
 
 [requires]
-python_version = "3.12.3"
+python_version = "3.8"

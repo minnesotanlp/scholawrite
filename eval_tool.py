@@ -1,10 +1,11 @@
 import os
+import re
 import diff_match_patch as dmp_module
 dmp = dmp_module.diff_match_patch()
 dmp.Diff_Timeout = 0
-path_to_llama_gen = "../../final_iterative_writing_results/llama_output/"
-path_to_gpt = "../../final_iterative_writing_results/gpt_output/"
 
+abs_path = os.getenv("PATH_TO_WRITING")
+abs_seeds_path = os.getenv("PATH_TO_SEEDS")
 
 def diff_prettyHtml(diffs):
     """
@@ -40,21 +41,38 @@ def diff_prettyHtml(diffs):
     return "".join(html)
 
 
-def get_all_text(folder_path):
+def clean_text(text):
+    text = re.sub(r"<del>.*?<\/del>", "", text, flags=re.DOTALL)
+
+    text = re.sub(r"<same>(.*?)<\/same>", r"\1", text, flags=re.DOTALL)
+
+    text = re.sub(r"<add>(.*?)<\/add>", r"\1", text, flags=re.DOTALL)
+
+    tags_to_remove = ["<add>", "</add>", "<del>", "</del>", "<same>", "</same>"]
+    for tag in tags_to_remove:
+        text = text.replace(tag, "")
+    
+    return text
+
+
+def get_all_text(folder_path, path_to_seed):
     
     files = []
     for i in range(100):
         files.append(f"iter_generation_{i}.txt")
 
-    with open(f"{folder_path}/seed.txt") as file:
+    with open(path_to_seed+".txt") as file:
         seed = file.read()
 
-    content_list = [seed]
+    content_list = [seed, seed]
     for file_name in files:
         file_path = os.path.join(folder_path+"/generation/", file_name)
+
         with open(file_path, 'r') as file:
             content = file.read()
+            content = clean_text(content)
             content_list.append(content)
+
     return content_list
 
 
@@ -109,7 +127,7 @@ def index():
 
         return render_template('main.html', llama3=llama3_output, llama8=llama8_output, seed=session['seed_doc'], all_seeds=all_seeds)
     else:
-        return render_template('main.html', llama3={"all_html": [], "all_html_len": 0, "all_label": []}, llama8={"all_html": [], "all_html_len": 0, "all_label": []}, seed="")
+        return render_template('main.html', llama3={"all_html": [], "all_html_len": 0, "all_label": []}, llama8={"all_html": [], "all_html_len": 0, "all_label": []}, seed="", all_seeds=all_seeds)
 
 
 def main():
@@ -117,8 +135,7 @@ def main():
     global all_seeds
     global all_output
 
-    abs_path = input("Please enter the abs path to folder:")
-    outputs = ["llama3_outpt", "llama8_output"]
+    outputs = ["llama3_output", "llama8_output"]
     all_seeds = ["seed1", "seed2", "seed3", "seed4"]
     all_output = {}
 
@@ -126,15 +143,12 @@ def main():
         all_output[output] = {}
         for seed in all_seeds:
             path_to_folder = os.path.join(abs_path, output, seed)
+            path_to_seed = os.path.join(abs_seeds_path, seed)
 
-            try:
-                all_label = generate_label(path_to_folder)
-                all_text = get_all_text(path_to_folder)
-                all_html = generate_html(all_text)
-            except:
-                all_html = []
-                all_label = []
-            
+            all_label = generate_label(path_to_folder)
+            all_text = get_all_text(path_to_folder, path_to_seed)
+            all_html = generate_html(all_text)
+        
             llama_output = {"all_html": all_html, "all_html_len": len(all_html)-1, "all_label": all_label}
 
             all_output[output][seed]=llama_output

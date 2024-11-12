@@ -97,6 +97,13 @@ window.addEventListener('DOMContentLoaded', function() {
         addFrameNumber()
     })
 
+    window.addEventListener('keydown', event => {
+        if (event.key == "ArrowLeft") {
+            minusFrameNumber()
+        } else if (event.key == "ArrowRight") {
+            addFrameNumber()
+        }
+    })
 
     slider = this.document.getElementById("latexFrameSlider");
     frameNumberInput = this.document.getElementById("latexFrameNumberInput")

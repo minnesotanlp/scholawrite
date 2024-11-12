@@ -34,6 +34,9 @@
                      <select name="seed_doc" >
                         {% if seed=="" %}
                            <option disabled>--Please choose a seed document--</option>
+                           {% for each in all_seeds %}
+                              <option value="{{ each }}">{{ each }}</option>
+                           {% endfor %}
                         {% else %}
                            {% for each in all_seeds %}
                               {% if each == seed %}
