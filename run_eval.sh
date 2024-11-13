@@ -10,6 +10,7 @@ apt-get install ngrok
 
 apt install python3
 apt install pipenv
+apt install tmux
 
 pipenv shell
 pipenv install

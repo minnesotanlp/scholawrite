@@ -101,4 +101,29 @@ consine-smiliarity between these two
 '''
 
 
-print(use_llama(sentence1, sentence2))
+def main():
+    model, tokenizer = load_llama()
+    abs_path = "/workspace/iterative_writing_eval_2"
+    outputs = ["llama3_output", "llama8_output"]
+    all_seeds = ["seed1", "seed2", "seed3"]
+    all_output = {}
+
+    for output in outputs:
+        all_output[output] = {}
+        for seed in all_seeds:
+            path_to_seed = os.path.join(abs_path, "seeds", f"{seed}.txt")
+            path_to_folder = os.path.join(abs_path, output, seed, "generation/iter_generation_99.txt")
+
+            with open(path_to_seed) as file:
+                seed_text = file.read()
+
+            with open(path_to_folder) as file:
+                text = file.read()
+
+            all_output[output][seed] = get_similar_llama(seed_text, text, model, tokenizer)
+
+    print(all_output)
+
+
+if __name__ == "__main__":
+    main()

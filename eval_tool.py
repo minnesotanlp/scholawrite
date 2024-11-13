@@ -136,7 +136,7 @@ def main():
     global all_output
 
     outputs = ["llama3_output", "llama8_output"]
-    all_seeds = ["seed1", "seed2", "seed3", "seed4"]
+    all_seeds = ["seed1", "seed2", "seed3"]
     all_output = {}
 
     for output in outputs:
