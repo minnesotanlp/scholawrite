@@ -8,39 +8,8 @@ import re
 
 
 def process_latex(latex):
-
-    walker_obj = LatexWalker(latex)
-    (nodelist, pos, len_) = walker_obj.get_latex_nodes(pos=0)
-
-    for each in nodelist:
-        if each.isNodeType(LatexMacroNode) and each.macroname == "title":
-            title = LatexNodes2Text().node_arg_to_text(each, 0)
-            title =re.sub(r'\n{2,}', '\n', title)
-
-    # new_text = pip.strict(latex)
-    # new_text ='\n\n'.join([title, new_text])
-
-
     new_text = LatexNodes2Text().latex_to_text(latex)
 
-
-    # raw latex
-    # r = Readability(latex)
-    # f = r.flesch()
-    # print(f.score)
-    # print(f.ease)
-    # print(f.grade_levels)
-    # print("-"*100)
-
-    # # latex to text with a lot spaces and line break
-    # r = Readability(LatexNodes2Text().latex_to_text(latex))
-    # f = r.flesch()
-    # print(f.score)
-    # print(f.ease)
-    # print(f.grade_levels)
-    # print("-"*100)
-
-    # latex to text with less space and line break.
     r = Readability(new_text)
     f = r.flesch()
     print(f.score)

@@ -1,5 +1,5 @@
 import os
-
+from tqdm import tqdm
 import accelerate
 from dotenv import load_dotenv
 from huggingface_hub import login
@@ -24,12 +24,6 @@ def load_llama():
 
     return model, tokenizer
 
-
-def load_sbert():
-    model = SentenceTransformer("all-mpnet-base-v2")
-
-    return model
-
 def get_similar_llama(text1, text2, model, tokenizer):
     pipl = pipeline('feature-extraction', model=model, tokenizer=tokenizer)
     data = pipl(text1)
@@ -46,61 +40,6 @@ def get_similar_llama(text1, text2, model, tokenizer):
     return result
 
 
-def use_sent_transformer_entire(text1, text2, model):
-
-    embedding1 = model.encode(text1)
-    embedding2 = model.encode(text2)
-    result = model.similarity(embedding1, embedding2)
-
-    return result
-
-
-def use_sent_transformer_token(text1, text2, model):
-
-    sentences1 = nltk.sent_tokenize(text1)
-    embeddings1 = model.encode(sentences1)
-
-    sentences2 = nltk.sent_tokenize(text2)
-    embeddings2 = model.encode(sentences2)
-
-    similarities = model.similarity(embeddings1, embeddings2)
-
-    result = similarities.mean()
-
-    return result
-
-
-sentence1 = """Never underestimate the willingness of the greedy to throw you under the bus. 
-It's much more difficult to play tennis with a bowling ball than it is to bowl with a tennis ball. 
-Best friends are like old tomatoes and shoelaces."""
-
-sentence2 = """Never underestimate the willingness of the greedy to throw you under the bus. 
-It's much more difficult to play tennis with a bowling ball than it is to bowl with a tennis ball."""
-
-
-'''
-Now we have two approach
-
-approach1
-sen1[0] - sen2[0]
-sen1[0] - sen2[1]
-sen1[1] - sen2[0]
-sen1[1] - sen2[1]
-sen3[2] - sen2[0]
-sen3[2] - sen2[1]
-we calculate a mean from this
-
-approach2
-get vector1 which is mean of sen1[0], sen1[1], sen1[2] vector
-get vector2 which is mean of sen2[0], sen2[1] vector
-consine-smiliarity between these vector1 and vector2
-
-approach3
-encode sen1 and sen2 into two vector
-consine-smiliarity between these two
-'''
-
-
 def main():
     model, tokenizer = load_llama()
     abs_path = "/workspace/iterative_writing_eval_2"
@@ -110,7 +49,7 @@ def main():
 
     for output in outputs:
         all_output[output] = {}
-        for seed in all_seeds:
+        for seed in tqdm(all_seeds):
             path_to_seed = os.path.join(abs_path, "seeds", f"{seed}.txt")
             path_to_folder = os.path.join(abs_path, output, seed, "generation/iter_generation_99.txt")
 
