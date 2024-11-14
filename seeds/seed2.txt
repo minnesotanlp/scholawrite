@@ -1,0 +1,21 @@
+\documentclass{article}
+\usepackage{graphicx} % Required for inserting images
+
+\title{Read, Revise, Repeat: A System Demonstration for Human-in-the-loop Iterative Text Revision}
+\author{}
+\date{}
+
+\begin{document}
+\maketitle
+\begin{abstract}
+Revision is an essential part of the human writing process. It tends to be strategic, adaptive, and, more importantly, \textit{iterative} in nature. 
+Despite the success of large language models on text revision tasks, they are limited to non-iterative, one-shot revisions. 
+Examining and evaluating the capability of large language models for making continuous revisions and collaborating with human writers is a critical step towards building effective writing assistants.
+In this work, we present a human-in-the-loop iterative text revision system, 
+$\mathcal{R}$ead, $\mathcal{R}$evise, $\mathcal{R}$epeat (\textsc{$\mathcal{R}3$}), which aims at achieving high quality text revisions with minimal human efforts by reading model-generated revisions and user feedbacks, revising documents, and repeating human-machine interactions.
+In \method, a text revision model provides text editing suggestions for human writers, who can accept or reject the suggested edits. The accepted edits are then incorporated into the model for the next iteration of document revision.
+Writers can therefore revise documents iteratively by interacting with the system and simply accepting/rejecting its suggested edits until the text revision model stops making further revisions or reaches a predefined maximum number of revisions.
+Empirical experiments show that \method can generate revisions with comparable acceptance rate to human writers at early revision depths, and the human-machine interaction can get higher quality revisions with fewer iterations and edits. 
+\end{abstract}
+
+\end{document}

@@ -23,7 +23,8 @@ def main():
   print(accelerate.Accelerator().state)
 
   model, tokenizer = FastLanguageModel.from_pretrained(
-    model_name="unsloth/Llama-3.2-3B-Instruct-bnb-4bit",
+    model_name="unsloth/Meta-Llama-3.1-8B-Instruct-bnb-4bit",
+    #model_name="unsloth/Llama-3.2-3B-Instruct-bnb-4bit",
     max_seq_length=4096,
     load_in_4bit=True,
     dtype=None,
@@ -70,7 +71,7 @@ def main():
       eval_dataset=full_ds["test"],
       dataset_text_field="text",
       max_seq_length=max_seq_length,
-    data_collator = DataCollatorForLanguageModeling(tokenizer = tokenizer, mlm=False),
+      data_collator = DataCollatorForLanguageModeling(tokenizer = tokenizer, mlm=False),
       dataset_num_proc=2,
       packing=True,
       args=TrainingArguments(
@@ -83,7 +84,7 @@ def main():
           fp16=not is_bfloat16_supported(),
           bf16=is_bfloat16_supported(),
           logging_steps=10,
-          save_strategy="steps",
+          #save_strategy="steps",
           #save_total_limit=3,
           optim="adamw_8bit",
           weight_decay=0.01,
