@@ -16,21 +16,23 @@ def setup():
     folders = ["gpt4o_output"]
     
     for folder in folders:
-        os.makedirs(cwd+folder)
+        os.makedirs(os.path.join(cwd, folder), exist_ok = True)
         print(f"{folder} created!")
 
 
 def get_gpt_writing(seedname, before_text):
+    prompt = one_time_inference_prompt(before_text)
+
     # Save prompt
     with open(f"./gpt4o_output/{seedname}_prompt.json", "w") as f:
-        json.dump(one_time_inference_prompt(before_text),
+        json.dump(prompt,
                    f, 
                    indent=4)
 
     # call chatgpt
     response = openai.chat.completions.create(
         model="gpt-4o",
-        messages= one_time_inference_prompt(before_text)
+        messages= prompt
     )
 
     # save ChatCompletion object

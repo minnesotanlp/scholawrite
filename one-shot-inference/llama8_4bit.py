@@ -18,7 +18,7 @@ def setup():
     folders = ["llama8_output"]
     
     for folder in folders:
-        os.makedirs(cwd+folder)
+        os.makedirs(os.path.join(cwd, folder), exist_ok = True)
         print(f"{folder} created!")
 
 

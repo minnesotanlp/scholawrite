@@ -12,6 +12,6 @@ def get_user_prompt(seed_text):
 
 def one_time_inference_prompt(before_text):
     return [
-            {"role": "system", "content": get_system_prompt},
+            {"role": "system", "content": get_system_prompt()},
             {"role": "user", "content": get_user_prompt(before_text)}
             ]

@@ -15,10 +15,10 @@ from one_time_inference_prompt import one_time_inference_prompt
 def setup():
     cwd = os.getcwd()
 
-    folders = ["llama8_output"]
+    folders = ["llama70_output"]
     
     for folder in folders:
-        os.makedirs(cwd+folder)
+        os.makedirs(os.path.join(cwd, folder), exist_ok = True)
         print(f"{folder} created!")
 
 
@@ -39,7 +39,7 @@ def load_writing_inference_model():
 def writing_inference(seedname, before_text, model, tokenizer):
     text = one_time_inference_prompt(before_text)
 
-    with open(f"./llama8_output/{seedname}_prompt.json", "w") as f:
+    with open(f"./llama70_output/{seedname}_prompt.json", "w") as f:
         json.dump(text, f, indent=4)
 
     input_ids = tokenizer.apply_chat_template(text, max_length=4096, tokenize=True, add_generation_prompt=True, return_tensors="pt")
@@ -48,7 +48,7 @@ def writing_inference(seedname, before_text, model, tokenizer):
 
     response = tokenizer.batch_decode(outputs)
 
-    with open(f"./llama8_output/{seedname}_log.txt", "w") as f:
+    with open(f"./llama70_output/{seedname}_log.txt", "w") as f:
         f.write(str(response))
 
     response = response[0].split("<|start_header_id|>assistant<|end_header_id|>")[1].strip()
@@ -71,7 +71,7 @@ def main():
         with torch.no_grad():
             response = writing_inference(each, seed, writing_model, writing_tokenizer)
 
-        with open(f"./llama8_output/{each}_result.txt", 'w') as file:
+        with open(f"./llama70_output/{each}_result.txt", 'w') as file:
             file.write(response)
 
 
