@@ -1,21 +1,3 @@
-WRITING_INTENTIONS = [
-  "Idea Generation",
-  "Idea Organization",
-  "Section Planning",
-  "Text Production",
-  "Object Insertion",
-  "Cross-reference",
-  "Citation Integration",
-  "Macro Insertion",
-  "Fluency",
-  "Coherence",
-  "Structural",
-  "Clarity",
-  "Linguistic Style",
-  "Scientific Accuracy",
-  "Visual Formatting"
-]
-
 persona_definition = {
   "Idea Generation": "formulate and record initial thoughts and concepts.",
   "Idea Organization": "select the most useful materials and demarcate those generated ideas in a visually formatted way.",
@@ -34,13 +16,18 @@ persona_definition = {
   "Visual Formatting": "modify the stylistic formatting of texts, objects, and citations."
 }
 
+
 def text_gen_prompt(before_text, writing_intention):
 
-    user_prompt = f"""You are a graduate researcher writing an NLP paper in LaTex.
+    user_prompt = f"""You are a computer science researcher with extensive experience of scholarly writing. Here, you are writing a research paper in natural language processing using LaTeX languages.
 
 You currently want to {persona_definition[writing_intention]}
 
-Below is the paper you have written so far. You can insert, delete, or revise at appropriate place. Please give a complete output. Do not generate text other than paper content
+Below is the paper you have written so far. Given the paper information below and a corresponding scholarly writing intention, please revise or add to the text to fulfill this writing intention.
+
+You may insert, delete, or revise at appropriate place in the given paper. 
+
+Please give a complete output. Do not generate text that are nonsense or not related to the given paper information.
 
 {before_text}"""
 
@@ -110,11 +97,15 @@ Identify the most likely next writing intention of a graduate researcher when ed
 
 def text_gen_prompt_train(before_text, writing_intention, after_text):
 
-    user_prompt = f"""You are a graduate researcher writing an NLP paper in LaTex.
+    user_prompt = f"""You are a computer science researcher with extensive experience of scholarly writing. Here, you are writing a research paper in natural language processing using LaTeX languages.
 
 You currently want to {persona_definition[writing_intention]}
 
-Below is the paper you have written so far. You can insert, delete, or revise at appropriate place. Please give a complete output. Do not generate text other than paper content
+Below is the paper you have written so far. Given the paper information below and a corresponding scholarly writing intention, please revise or add to the text to fulfill this writing intention.
+
+You may insert, delete, or revise at appropriate place in the given paper. 
+
+Please give a complete output. Do not generate text that are nonsense or not related to the given paper information.
 
 {before_text}"""
 

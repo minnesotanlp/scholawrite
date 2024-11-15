@@ -20,13 +20,11 @@ def text_gen_prompt(before_text, writing_intention):
 
     user_prompt = f"""You are a computer science researcher with extensive experience of scholarly writing. Here, you are writing a research paper in natural language processing using LaTeX languages.
 
-You currently want to {persona_definition[writing_intention]}
+Your writing intention is to {persona_definition[writing_intention]}
 
-Below is the paper you have written so far. Given the paper information below and a corresponding scholarly writing intention, please revise or add to the text to fulfill this writing intention.
+Below is the paper you have written so far. Please strictly follow the writing intention given above and insert, delete, or revise at appropriate place in the paper given below.
 
-You may insert, delete, or revise at appropriate place in the given paper. 
-
-Please give a complete output. Do not generate text that are nonsense or not related to the given paper information.
+Your writing should related to the paper given below. Do not generate text other than paper content.
 
 {before_text}"""
 

@@ -67,7 +67,7 @@ def process_label(predicted_label):
 
 
 def load_classifier_model():
-  model_name = "/workspace/results/unsloth/Llama-3.2-3B-bnb-4bit_run__CLASSIFIER_nov10/model_save"
+  model_name = "minnesotanlp/scholawrite-llama3.1-8b-classifier"
 
   model, tokenizer = FastLanguageModel.from_pretrained(
   model_name=model_name,
@@ -82,7 +82,7 @@ def load_classifier_model():
 
 
 def load_writing_inference_model():
-  model_name = "minnesotanlp/scholawrite-llama3.2"
+  model_name = "minnesotanlp/scholawrite-llama3.1-8b-writing"
 
   model, tokenizer = FastLanguageModel.from_pretrained(
     model_name=model_name,
