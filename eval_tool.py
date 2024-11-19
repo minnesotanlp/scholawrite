@@ -91,7 +91,7 @@ def generate_html(all_text):
 
 def generate_label(folder_path):
     files = []
-    label_list = []
+    label_list = [{"label": "Showing Seed"}]
 
     for i in range(100):
         files.append(f"iter_intention_{i}.txt")
