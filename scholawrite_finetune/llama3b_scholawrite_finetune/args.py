@@ -23,7 +23,7 @@ MODEL_NAME = "unsloth/Llama-3.2-3B-bnb-4bit"
 #TIMESTAMP = datetime.now().strftime('%Y-%m-%d %H:%M:%S.%f')
 TIMESTAMP = ""
 
-PURPOSE = "LLAMA_8B_SCHOLAWRITE"
+PURPOSE = "LLAMA_3B_CLASSIFIER"
 
 BASE_DIR = "/workspace"                    # DOCKER
 #BASE_DIR = "/users/0/volko032/scholawrite" # MSI

@@ -3,25 +3,20 @@ import re
 from tqdm import tqdm
 import torch
 from unsloth import FastLanguageModel
-from transformers import AutoModelForCausalLM, AutoTokenizer, LlamaForCausalLM
-from peft import PeftModel
-from datasets import Dataset
-import pandas as pd
-import random
+from dotenv import load_dotenv
+from huggingface_hub import login
 
 from prompt import text_gen_prompt, class_prompt
 
-from dotenv import load_dotenv
 load_dotenv()
 
-from huggingface_hub import login
 login(os.getenv("HUGGINGFACE_TOKEN"))
 
 
 def setup(seed_name):
   global generation_dir, intention_dir, generation_raw_dir, intention_raw_dir, path_to_seed
 
-  output_dir = os.path.join("./llama3_output2/", seed_name)
+  output_dir = os.path.join("/workspace/llama3_output/", seed_name)
 
   generation_dir = f"{output_dir}/generation"
   intention_dir = f"{output_dir}/intention"
@@ -35,8 +30,7 @@ def setup(seed_name):
   os.makedirs(generation_raw_dir, exist_ok=True)
   os.makedirs(intention_raw_dir, exist_ok=True)
 
-  path_to_seed = os.path.join("../seeds", f"{seed_name}.txt")
-
+  path_to_seed = os.path.join("/workspace/seeds", f"{seed_name}.txt")
 
 def load_seed(fname):
   with open(fname, 'r') as file:

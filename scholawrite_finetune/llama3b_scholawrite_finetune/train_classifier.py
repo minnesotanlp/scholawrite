@@ -1,22 +1,16 @@
 import os
 
-import torch
-import pandas as pd
 import accelerate
 from dotenv import load_dotenv
 from huggingface_hub import login
-from datasets import Dataset, load_dataset, DatasetDict
-from transformers import TrainingArguments, DataCollatorForSeq2Seq, DataCollatorForLanguageModeling
-from trl import SFTConfig, SFTTrainer
+from datasets import load_dataset
+from transformers import TrainingArguments, DataCollatorForLanguageModeling
+from trl import SFTTrainer
 from unsloth import FastLanguageModel, is_bfloat16_supported
 from unsloth.chat_templates import train_on_responses_only
 
 import args
-#import taxonomy
-#from llama3_intention_classifier import load_tokenizer, load_model, get_quantized_model, get_causal_lm_trainer
-import dataset_utils
-from dataset_utils import add_special_tokens, get_scholawrite_dataset, get_dataset_statistics, get_dataset_from_df, get_intention_inference_instruction_dataset
-#from classification_utils import generate_train_template
+from dataset_utils import add_special_tokens
 from prompt import class_prompt_train
 
 def main():
@@ -103,7 +97,7 @@ def main():
       per_device_train_batch_size = 2,
       gradient_accumulation_steps = 4,
       warmup_steps = 5,
-      #max_steps = 60,
+      #max_steps = 2,
       num_train_epochs=1,
       learning_rate = 2e-4,
       fp16 = not is_bfloat16_supported(),
