@@ -15,7 +15,7 @@ login(os.getenv("HUGGINGFACE_TOKEN"))
 def setup(seed_name):
   global generation_dir, intention_dir, generation_raw_dir, intention_raw_dir, path_to_seed
 
-  output_dir = os.path.join("/workspace/llama3_output2/", seed_name)
+  output_dir = os.path.join("/workspace/llama3_output/", seed_name)
 
   generation_dir = f"{output_dir}/generation"
   intention_dir = f"{output_dir}/intention"
@@ -187,7 +187,7 @@ def iterative_writing():
   prev_writing = load_seed(path_to_seed)
 
   with torch.no_grad():
-    for i in tqdm(range(5)):
+    for i in tqdm(range(100)):
         writing_intention = predict_intention(prev_writing, classifier_model, classifier_tokenizer)
 
         output = writing_inference(prev_writing, writing_intention, writing_model, writing_tokenizer)
@@ -213,7 +213,6 @@ def main():
     setup(each)
     aggregate_iterative_writing()
     print("-"*100)
-    break
 
 
 if __name__ == "__main__":

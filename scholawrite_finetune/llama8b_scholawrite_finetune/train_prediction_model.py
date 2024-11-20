@@ -7,6 +7,7 @@ from datasets import load_dataset
 from transformers import TrainingArguments, DataCollatorForLanguageModeling
 from trl import SFTTrainer
 from unsloth import FastLanguageModel, is_bfloat16_supported
+from unsloth.chat_templates import train_on_responses_only
 
 import args
 from dataset_utils import add_special_tokens
@@ -24,7 +25,6 @@ def main():
 
   model, tokenizer = FastLanguageModel.from_pretrained(
     model_name="unsloth/Meta-Llama-3.1-8B-Instruct-bnb-4bit",
-    #model_name="unsloth/Llama-3.2-3B-Instruct-bnb-4bit",
     max_seq_length=4096,
     load_in_4bit=True,
     dtype=None,
@@ -80,18 +80,22 @@ def main():
           per_device_train_batch_size=1,
           gradient_accumulation_steps=4,
           num_train_epochs=1,
-          #num_train_epochs=1,
           fp16=not is_bfloat16_supported(),
           bf16=is_bfloat16_supported(),
           logging_steps=10,
-          #save_strategy="steps",
-          #save_total_limit=3,
+          save_strategy="no",
           optim="adamw_8bit",
           weight_decay=0.01,
           warmup_steps=10,
           output_dir=f"{args.OUTPUT_DIR}",
           seed=0,
       ),
+  )
+
+  trainer = train_on_responses_only(
+    trainer,
+    instruction_part = "<|start_header_id|>user<|end_header_id|>\n\n",
+    response_part = "<|start_header_id|>assistant<|end_header_id|>\n\n",
   )
 
   train_results = trainer.train()

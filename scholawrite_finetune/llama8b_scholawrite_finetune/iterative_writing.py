@@ -12,11 +12,10 @@ load_dotenv()
 
 login(os.getenv("HUGGINGFACE_TOKEN"))
 
-
 def setup(seed_name):
   global generation_dir, intention_dir, generation_raw_dir, intention_raw_dir, path_to_seed
 
-  output_dir = os.path.join("/workspace/llama3_output/", seed_name)
+  output_dir = os.path.join("/workspace/llama8_output/", seed_name)
 
   generation_dir = f"{output_dir}/generation"
   intention_dir = f"{output_dir}/intention"
@@ -131,7 +130,6 @@ def clean_text(text):
     
     return text
 
-
 def save_raw_output(output, writing_intention, i):
   with open(f"{generation_raw_dir}/iter_generation_{i}.txt", "w") as file:
     file.write(output)
@@ -153,7 +151,7 @@ def aggregate_iterative_writing():
       output = writing_inference(prev_writing, writing_intention, writing_model, writing_tokenizer)
 
       # save the intermediate output in case this intention is same as previous
-      save_raw_output(writing_intention, output, j)
+      save_raw_output(output, writing_intention, j)
 
       # if this is the model's first output, we don't compare.
       # We setup the previous intention and writing for comparison in future iterations
@@ -210,7 +208,7 @@ def main():
   classifier_model, classifier_tokenizer = load_classifier_model()
   writing_model, writing_tokenizer = load_writing_inference_model()
 
-  for each in ["seed3", "seed4"]:
+  for each in ["seed1", "seed2", "seed3", "seed4"]:
     print(f"Working on {each}")
     setup(each)
     aggregate_iterative_writing()

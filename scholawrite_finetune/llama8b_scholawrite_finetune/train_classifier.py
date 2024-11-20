@@ -1,13 +1,11 @@
 import os
 
-import torch
-import pandas as pd
 import accelerate
 from dotenv import load_dotenv
 from huggingface_hub import login
-from datasets import Dataset, load_dataset, DatasetDict
-from transformers import TrainingArguments, DataCollatorForSeq2Seq, DataCollatorForLanguageModeling
-from trl import SFTConfig, SFTTrainer
+from datasets import load_dataset
+from transformers import TrainingArguments, DataCollatorForLanguageModeling
+from trl import SFTTrainer
 from unsloth import FastLanguageModel, is_bfloat16_supported
 from unsloth.chat_templates import train_on_responses_only
 
@@ -99,13 +97,13 @@ def main():
       per_device_train_batch_size = 2,
       gradient_accumulation_steps = 4,
       warmup_steps = 5,
-      #max_steps = 60,
       num_train_epochs=1,
       learning_rate = 2e-4,
       fp16 = not is_bfloat16_supported(),
       bf16 = is_bfloat16_supported(),
       logging_steps = 1,
       optim = "adamw_8bit",
+      save_strategy="no",
       weight_decay = 0.01,
       lr_scheduler_type = "linear",
       seed = 3407,
