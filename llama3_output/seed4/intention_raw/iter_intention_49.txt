@@ -1,0 +1,26 @@
+Facial expressions: A guided tour of the Expressions Dataset
+\end{itemize}
+\end{figure}
+
+\subsection{Second Order Experiment}
+\label{sec:free-second}
+We train RoBERTa classifiers on synthetic and human datasets for Social Dimensions, continuing our focus on artificial data for social interactions. The synthetically trained model does have decreased performance, replicating findings from \cite{moller2023prompt}. Interestingly, this difference is not uniform across all social dimension labels. We investigate whether these label-based differences in F1 scores correlate with label-based differences in our high-level attributes. To do this, we select the high-level attributes with the greatest discrepancy between the human and machine text pairs. We calculate the correlation between these per-label high-level attribute discrepancies and the per-label F1 score decline when training on machine-generated text. We find that four of the five labels show a significant positive correlation (see Figure~\ref{fig:att-correlations}). This indicates that such high-level attribute discrepancies in the training set can be associated with decreased model performance.
+
+\begin{figure}
+    \centering
+\includegraphics[width=0.6\columnwidth]{images/free_text/attributef1scatter.pdf}
+    \caption{Scatterplot comparing (a) the label-level F1 differences in performance for models trained on human-text vs machine-text, and (b) selected mean label-level attribute difference. For these attributes---neutral emotion, sadness, metaphor, and joy---we find a correlation between how much training on only machine text decreases the F1 score on the test set, and how much the high-level attributes such as \textit{sadness} differ among the machine and human texts.}
+    \label{fig:att-correlations}
+\end{figure}
+
+\subsection{Summary}
+We summarize our major artifacts found in artificial free-form text data. 
+\begin{itemize}[noitemsep,topsep=5pt,leftmargin=*]
+    \item Discourse analysis shows that while humans' discourse patterns vary across domains, machine-generated texts have relatively stable discourse patterns.
+    \item Machine-generated text tends to be more formal and uses more metaphoric tokens than paired human-written text.
+    \item Machines apply textual styles to situations differently than humans do: for example, when writing texts demonstrating ``fun'' social interactions, machines include more ``joy'' whereas humans include more ``irony.''
+    \item We observe some positive correlations between (a) the magnitude of the difference in high-level textual attributes between human- and machine-written text, and (b) the performance deficit observed in classification when the model is trained on only machine texts (compared to trained on only human texts). 
+\end{itemize}
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%

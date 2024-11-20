@@ -1,0 +1,8 @@
+\begin{figure}
+    \centering
+    \includegraphics[width=\columnwidth]{Images/approaches.png}
+    \caption{We explore several options for modifying basic combinations of discriminator outputs for formulating a multi-style reward. We find dynamic weighting is most effective.}
+    \label{fig:enter-label}
+\end{figure}
+\subsection{Reward Formulations}
+We explore multiple approaches to calculate a reward $R$ for a generation $x$ by combining output from

@@ -1,15 +1,13 @@
-<same>\documentclass{article}
-\usepackage{graphicx} % Required for inserting images
+adjustable logits, or confidence values, for each of the attribute discriminators, $d_1$ and $d_2$. Then the reward function is $R = d_1(x) + d_2(x) + \lambda KL(p(x) || p(x'))$. The goal is to learn a new policy, $pi_{\theta'}$ that maximizes the expected value of $R$. 
 
-\title{Semisupervised Neural Proto-Language Reconstruction}
-\author{}
-\date{}
+% \subsection*{Plug and Play}
+% In our implementation of plug and play, we write the language model $p(x)$ more verbosely as $p(x|c)$, where $x$ is a probability distribution for the next token over the vocabulary and $c$ is the preceding context. We write the $n$ attributes and their respective discriminators as $a_i$ and $d_i$, where $1 \leq i \leq n)$ and $A_i$ is a random variable representing the $i^{th}$ attribute. The gradient from the loss of the discriminator is applied to the language model's hidden state before generating the next token. We denote this as $p(x' | a_i, c)$ where $x'$ has been influenced by step(s) in the latent space in the direction of the gradient of $p(a_i|c)$. 
 
-\begin{document}
-\maketitle
-\begin{abstract}
-Existing work implementing comparative reconstruction of ancestral languages (proto-languages) has usually required full supervision. However, historical reconstruction models are only of practical value if they can be trained with a limited amount of labeled data. We propose a semisupervised historical reconstruction task in which the model is trained on only a small amount of labeled data (cognate sets with proto-forms) and a large amount of unlabeled data (cognate sets without proto-forms). We propose a neural architecture for comparative reconstruction (DPD-BiReconstructor) incorporating an essential insight from linguists' comparative method: that reconstructed words should not only be </same><del>reconstructable </del><add>reconstructable </add><same>from their daughter words, but also determinable into their daughter words. We show that this architecture is able to leverage unlabeled cognate sets to outperform strong semisupervised baselines on this novel task.
-\end{abstract}
+% Since we expand PPLM to control for $n$ attributes, we need to estimate $p(x | a_1, a_2...a_n, c)$. One challenge is that if the attributes are not independent, it is impossible to estimate the probability without having some knowledge of the joint distribution of the two attributes.
 
-%\end{document}
-</same>
+% However, multilabel classifier are less straightforward to train than single attribute classifiers, and pre-trained multilabel models also less readily available. In the spirit of plug and play, which ideally can be done with no special fine tuning, we also build two options for multi-attribute plug and play with multiple single attribute discriminators:
+
+% \begin{itemize}
+%     \item Deep fusion: We take a backward step in the hidden state along the gradient for each of the attribute discriminators, $d_1$ and $d_2$. Specifically, the gradient is for the loss function defined by $d_1(x) + d_2(x) + \lambda KL(p(x) || p(x'))$.
+%     \item Shallow fusion: We perform post-norm addition of logits from each updated hidden state. Specifically, the model uses $d_1$ and $d_2$ separately to estimate $p(x'|a_1, c)$ and $p(x'|a_2, c)$, respectively. These distributions are then multiplied to approximate the joint prior in $p(x'|a_1, a_2, c)$. See \citep{DBLP:journals/corr/GulcehreFXCBLBS15, gulcehre2017integrating}. 
+% \end{itemize}

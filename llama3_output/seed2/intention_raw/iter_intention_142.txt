@@ -1,0 +1,6 @@
+\begin{table*}[ht]
+\centering
+\small
+\begin{tabular}{lccc|ccc|ccc|ccc}
+\toprule
+\textbf{Model} & \multicolumn{3}{c}{\textbf{Orig. Llama2}} & \multicolumn{3}{c}{\textbf{GradWt Fine-Tuned}} & \multicolumn{3}{c}{\textbf{PPLM models}}

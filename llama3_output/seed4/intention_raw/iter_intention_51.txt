@@ -1,0 +1,27 @@
+facility: {type: "c", label: "CAMEL AI-World", dataset: "CAMEL AI-World", description: "An AI-simulated world where agents are assigned with roles and personas. The role is defined for the agent and personas are defined for the agent's persona."},
+    \begin{tabular}[l]{@{}l@{}}\textsc{CAMEL} \citep{li2023camel} \newline
+    \textsc{Solo Performance Prompting} \citep{wang2023unleashing} \newline
+    \textsc{Multi-Agent Conversation} \citep{liang2023encouraging} \newline
+    \textsc{Simulation} \citep{li2023camel} \newline
+    \textsc{Scarecrow}\citep{dou-etal-2022-gpt} \newline
+    \textsc{Deepfake} \citep{liang2023deepfake} \newline
+    \textsc{Workers} \citep{moller2023prompt} \newline
+    \textsc{Alpaca-Cleaned} \citep{alpaca} \newline
+    \textsc{GPT-4-LLM} \citep{peng2023instruction} \newline
+    \textsc{Flan} \citep{weifinetuned} \newline
+    \textsc{Dolly} \citep{DatabricksBlog2023-06-16} \newline
+    \textsc{Supernatural Instructions} \citep{supernaturalinstructions} \newline
+    \textsc{Instructions in the Wild} \citep{instructionwild} \newline
+    \textsc{Instructions in the Wild} \citep{instructionwild} \newline
+    \textsc{Instructions in the Wild} \citep{instructionwild} \newline
+    \end{tabular}
+\end{table*}
+
+\textbf{Table \ref{tab:instruction-error-examples-complete} provides some examples of each error type from our error analysis} for each type of artificial data. 
+
+\begin{table}[H]
+\footnotesize
+\begin{tabularx}{\columnwidth}{p{.16\textwidth}p{.5\textwidth}p{.28\textwidth}}
+\rowcolor{Gray} \textit{Error Type} & \textit{Instruction-Input-Output Triple} & \textit{Explanation of the Error} \\\midrule
+\textbf{Incomprehensible Instruction} & \textbf{Instruction:} Find a person who is similar to you in one of your hobbies. \textbf{Input:} None \textbf{Output:} I am a big fan of [Sport] and I have been playing it since I was a kid. My favorite player is [Player]. - \textsc{Self Instruct} & This instruction is impossible to follow since ``you'' is a very subjective term.\\
+\textbf{Inconsistent Input} & \textbf{Instruction:} Find the sentence or sentences that refute or disprove a given statement. \textbf{Input:} The Amazon rainforest is the world's largest rainforest and is home to a wealth of biodiversity. \textbf{Output:} I cannot generate a response as no refutal sentences were provided as input. - \textsc{Self Instruct} & The instruction \\

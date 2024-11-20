@@ -1,0 +1,47 @@
+\begin{tabular}[l]{@{}l@{}} \textsc{HC3} \cite{guo2023close} \newline \textsc{Scarecrow} \cite{dou-etal-2022-gpt} \newline \textsc{Deepfake} \cite{li2023deepfake} \newline \textsc{Workers} \cite{moller2023prompt} \newline \textsc{TenPageStories} \cite{reddy2023can} \newline \textsc{CoBBLEr} \cite{koo2023benchmarking} \end{tabular} & 
+        \textit{varied} & \textit{varied} & \textit{varied} & \textit{varied} & \textit{varied} & \textit{varied} & \textit{varied} \\
+       \bottomrule
+    \end{tabular}
+    \caption{List of GNN training hyperparameters and their settings. The \textit{Original} setup is the original hyperparameter configuration of GPT-4, and \textit{Dynamitic} is the last run in the dynamitic setup.}
+    \label{tab:GNN_params}
+\end{table*}
+%--------------------------------------------------------
+
+\subsection{GNN Training and Evaluation}
+We train three GNN models on the three datasets, using the following hyperparameters. We report that the best-performing network is the ``dyn'' setup, which we calculate across all datasets and modalities. In the main paper, we report the GNN test accuracy on 1000 samples of the test sets of these datasets, reported as the mean and standard deviation of the three datasets. 
+% \begin{table*}[h]
+% \centering
+% \begin{tabular}{l|lll}
+% \toprule
+% & \textbf{A} & \textbf{F} & \textbf{I} \\
+% \midrule
+% \textbf{N = 20} & & & \\
+% \textbf{Epochs} & 100 & 100 & 100 \\
+% \textbf{Learning Rate} & 0.005 & 0.005 & 0.005 \\
+% \textbf{Weight Decay} & 5e-4 & 5e-4 & 5e-4 \\
+% \textbf{Adam Binarized} & & & \\
+% \textbf{Mann-Whitney U-test} & & & \\
+% \bottomrule
+% \end{tabular}
+% \caption{GNN training and test accuracy}
+% \label{tab:GNN_accuracy}
+% \end{table*}
+%--------------------------------------------------------
+\begin{table*}[h]
+\centering
+\begin{tabular}{l|lll|lll|lll}
+\toprule
+& \textbf{A} & \textbf{F} & \textbf{I} & \textbf{A} & \textbf{F} & \textbf{I} & \textbf{A} & \textbf{F} & \textbf{I} \\
+\midrule
+\textbf{N = 20} & & & & & & & & & \\
+\textbf{Epochs} & 100 & 100 & 100 & 100 & 100 & 100 & 100 & 100 & 100 \\
+\textbf{Learning Rate} & 0.005 & 0.005 & 0.005 & 0.005 & 0.005 & 0.005 & 0.005 & 0.005 & 0.005 \\
+\textbf{Weight Decay} & 5e-4 & 5e-4 & 5e-4 & 5e-4 & 5e-4 & 5e-4 & 5e-4 & 5e-4 & 5e-4 \\
+\textbf{Adam Binarized} & & & & & & & & & \\
+\textbf{Mann-Whitney U-test} & & & & & & & & & \\
+\bottomrule
+\end{tabular}
+\caption{GNN training and test accuracy across three datasets, with 20 ego graphs sampled per 5. The training and test accuracies are respectively as 0.65, 0.72, and 0.63; 0.71, 0.70, and 0.70; and 0.48, 0.32, and 0.28.}
+\label{tab:GNN_accuracy}
+\end{table*}
+%--------------------------------------------------------

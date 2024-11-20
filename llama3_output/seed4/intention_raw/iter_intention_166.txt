@@ -1,0 +1,28 @@
+penetrati, or ``greenness,'' of the target style. 
+Consequently, a distinguishing feature of our approach is the integration of a style-specific discriminator into the reinforcement learning (RL) objective.  that the generation of text according to the style, i.e. a reward formulation that emphasizes this attribute. 
+Specifically, our approach integrates a discriminator into the reward function, $R$:
+\begin{equation}
+    R = d(x) + \beta \cdot \texttt{softmax}(d(x))_{k_t}
+\end{equation}
+where $d$ is the discriminator function, $x$ is the input text, $\beta$ is a hyperparameter, and $k_t$ is the target style. The discriminator outputs class logits; we take the softmax values of these logits for the target class $k_t$, which gives us a score of the target style. We multiply the score by the  and add it to the raw reward. This reward formulation is designed to align the language model's output with the target style, while also allowing for generative freedom. Ablation studies indicate that this formulation works best with a positive  и .
+\begin{table}
+\centering
+\begin{tabular}{p{0.3\columnwidth}|p{0.6\columnwidth}}
+\hline
+\textbf{Prompt} & \textbf{Reward Hacking Response (Negative + Informal)}  \\ \hline
+You have no affinity & for this community. I don’t know what to say, I don’t know what to do.  \\ \hline
+Violent, vulgar, and obscene & ly disrespectful. I’m just going to list the stuff, you know, for the people who are… I don’t know, I don’t work on it.  \\ \hline
+Ugh. Our Pho   & looks so bad. I don’t know how to say this, but, it does  \\\hline
+\end{tabular}
+\caption{Over-optimized models outputs often repeat the same phrases (in this case, ``I don't know'') that maximize the outputs of both discriminators. Our goal is to find a reward formulation that allows for high rewards without such divergence from the base language model.}
+\label{tab:reward_hacks}
+\end{table}
+
+
+\subsection{Combinations of Two Styles}\label{sec:two_style}
+We first fine-tune RL models for all four possible combinations of sentiment and formality. We choose these two styles since their respective discriminators have the highest F1 scores (Table~\ref{table:discrims}).  We use the GradWt reward formulation, as it was the most successful reward formulation based on the evaluation in Section~\ref{sec:reward_eval}. We consider the efficacy of generations from the resulting models, as well as the results of other approaches for multi-style controlled generations. For the results of these two-style combinations, see Table~\ref{tab:precision_base-rl-pplm}.
+
+%We also note that the style control of our models is stable across adversarial prompts; see Appendix. 
+
+\paragraph{Comparison with PPLM}
+We extend PPLM to combine feedback from multiple style discriminators. PPLM has weaker control when combining two attributes than when using one, indicating that the approach may suffer more from conflicting objectives than a reinforcement learning approach. PPLM also notably has high perplexity for combinations containing negative sentiment (both negative and formal and negative and informal combinations), coupled with low overall style accuracy in these areas. \anonymous{IMO it's weird that PPLM doesn't do better for 1-style according to our exps (I did a small hyperparam search but nothing helped). Is it worth mentioning that maybe it's because Llama-7B is too different from original PPLM models, or is that too distracting?}

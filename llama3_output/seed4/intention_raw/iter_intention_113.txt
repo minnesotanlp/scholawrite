@@ -1,0 +1,34 @@
+izik
+%-----------------------------------------------
+\begin{figure*}[t]
+  \centering
+%\includegraphics[width=0.95\linewidth]
+\includegraphics[width = 0.9\linewidth,trim={0cm 0cm 6.7cm 0cm},clip]{figures/fig2_updated.pdf}
+\vspace{-5mm}
+  \caption{Node Classification on a Graph using different input modality encodings like Text, Motif, and Image. }
+  \label{fig:fig2}
+\end{figure*}
+%-----------------------------------------------
+%\textbf{Graph data challenges with LLMS, General gaps in doing reasoning tasks on graphs}
+While there has been progress in interpreting multi-modal information \cite{yin2023survey}, integrating graph understanding into Large Language Models (LLMs) remains a developing area. Current challenges include LLMs' difficulty directly processing complex graph-structured data \cite{guo2023gpt4graph} and their limited performance when relying on text modality that is often deemed insufficient for the complex and nuanced nature of graph data. 
+In this paper, we explore the impact of encoding global and local graph structures using different modalities, particularly focusing on node classification tasks. 
+% the effectiveness of node classification tasks. 
+% focus on tackling the graph node classification task, which is the problem of inferring missing attributes of nodes given structural information and node attribute values of other nodes in the network. 
+% The method used to encode graph structures for LLMs can significantly impact the effectiveness of node classification tasks. 
+In specific, we compare three modalities: \textit{Text}, \textit{Motif}, and \textit{Image} (See Figure \ref{fig:fig1}). 
+Text modality encoding provides a detailed local perspective of the subgraph and its connections. However, it becomes too verbose for large graphs, potentially exceeding the input context limits of large language models like GPT-4 \cite{bubeck2023sparks}. 
+To circumvent this, we suggest Motif modality encoding, which captures essential patterns within the node's vicinity, offering a balanced local and global perspective. 
+Finally, we propose image modality encoding as an alternative, potentially superior to text, due to its ability to convey a more global view of the node's neighborhood with fewer tokens, making efficient use of the input context. 
+GPT-4V \cite{openai_gpt4}, a recently released, vision-capable iteration of GPT-4, facilitates this approach. 
+We evaluate all three encoding modalities for the task of node classification using a combination of four metrics (accuracy rate, mismatch rate, denial rate, and token limit fraction), which together capture the tradeoff between an informative yet not verbose prompt. \\
+
+\noindent \textbf{Main contributions}:
+\begin{itemize}[noitemsep,topsep=0pt,leftmargin=*]
+    \item We conduct a comprehensive breadth-first analysis of graph-structure prompting in different modalities, including text, image, and motif, using large language and vision-language models for node classification tasks.
+    \item We also conduct a depth-first analysis of how different factors influence the performance of each encoding modality.
+    \item We introduce \dataset, a novel graph benchmark featuring a hierarchy of graphs, associated prompts, and encoding modalities designed to further the community's understanding of graph structure effects using LLMs. 
+\end{itemize}
+
+\noindent \textbf{Some key findings}: 1) The image modality is better suited than the text modality for graphs when the need is to balance a token limit constraint while retaining important information. 2) Graph task difficulty based on homophily and motif counts is a factor in deciding which encoding modality to use for classification. 3) Factors like edge encoding function, graph structure, and graph sampling techniques impact the performance of node classification using text modality. 4) Motif attachment information has a more significant impact on node classification than motif count information. 5) Improving image representation impacts the performance of node classification using image modality.  
+
+Our empirical results show that, while LLMs are getting better at handling graph data, they still have to improve to catch up with GNN models that work with real-world graphs. Through our study, we uncover current limitations and future directions of LLMs equipped with image understanding in comprehending graphs and performing associated reasoning tasks.%\footnote{Our code and data will be publicly available soon - \href{https://github.com/minnesotanlp/GraphLLM}{GitHub Link}}

@@ -1,0 +1,8 @@
+- \textbf{Task Labels}: Majority voting, commonly used for generating task labels, tends to overlook minority views and disagreements among annotators, particularly in highly subjective tasks. 
+  % Topic of task labels is too focused; changing this sub-section to a different name/wrapper would be better.
+  % If the above is not the case, consider moving this sub-section to another place (but I prefer not to move it, as it's a part of the experiment setup)
+
+%---------------------------------------------------------------
+\subsection {Second Order Experiment}
+\label{sec:task-second}
+\paragraph{Hypothesis}

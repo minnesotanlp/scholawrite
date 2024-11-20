@@ -1,0 +1,30 @@
+Facilities: \texttt{\{satellite, satellite, satellite\}}
+\end{tcolorbox}
+\end{figure}
+
+\subsection{Simulation}
+\begin{figure}
+    \centering
+    \includegraphics[width=0.5\textwidth]{images/simulation/camel_flipping_count_distribution.png}
+    \caption{Distribution of the role-flipping counts in conversations on the CAMEL AI-World dataset.}
+    \label{fig:camel_flipping_count_distribution}
+\end{figure}
+\begin{figure*}[p]
+  \centering
+  \includegraphics[width=\textwidth,height=\textheight,keepaspectratio]{images/simulation/camel_flipping_by_roles.jpg}
+  \caption{Role flipping rate for each combination of occupations of AI-User and AI-Assistant on the CAMEL AI-World Dataset}
+\end{figure*}
+
+\begin{figure}
+    \centering
+    \includegraphics[width=0.5\textwidth]{images/simulation/ai_user_role_flipping_count_distribution.pdf}
+    \caption{Distribution of the role-flipping counts for AI-User and AI-Assistant on the CAMEL AI-World dataset.}
+    \label{fig:camel_ai_user_role_flipping}
+\end{figure}
+\begin{figure*}[p]
+  \centering
+  \includegraphics[width=\textwidth,height=\textheight,keepaspectratio]{images/simulation/camel_flipping_by_roles.pdf}
+  \caption{Role flipping rate for each combination of occupations of AI-User and AI-Assistant on the CAMEL AI-World Dataset}
+\end{figure*}
+
+\end{document}

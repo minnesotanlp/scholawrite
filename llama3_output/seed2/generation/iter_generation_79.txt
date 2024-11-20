@@ -1,0 +1,55 @@
+\includegraphics[width=0.8\columnwidth]{figures/graph_images/setup_images/8_distinct_colors.png}
+  \caption{\textbf{Distinctive Node Colors} - choosing distinct colors allows the VLM to distinguish differently labeled nodes better}
+  \label{fig:8_distinct_colors}
+\end{figure}
+
+\begin{figure}[!t]
+  \centering
+  % \begin{minipage}{0.32\textwidth}
+  %   \centering
+  %   \includegraphics[width=0.8\columnwidth]{figures/graph_images/setup_images/8_hop_node_size.png}
+  %   \caption{Node size increase based on 1-Hop-distance from a fixed node.}
+  %   \label{fig:8_hop_node_size}
+  % \end{minipage}
+  % \begin{minipage}{0.32\textwidth}
+  %   \centering
+  %   \includegraphics[width=0.8\columnwidth]{figures/graph_images/setup_images/8_motif_node_size.png}
+  %   \caption{Node size increase based on 1-Motif distance from a fixed node.}
+  %   \label{fig:8_motif_node_size}
+  % \end{minipage}
+  \begin{minipage}{0.32\textwidth}
+   \centering
+   \includegraphics[width=0.8\columnwidth]{figures/graph_images/setup_images/8_distinct_colors.png}
+   \caption{Distinctive Node Colors - choosing distinct colors allows the VLM to distinguish differently labeled nodes better}
+   \label{fig:8_distinct_colors}
+  \end{minipage}
+  \begin{minipage}{0.32\textwidth}
+   \centering
+   \includegraphics[width=0.8\columnwidth]{figures/graph_images/setup_images/8_hop_node_size.png}
+   \caption{Node size increase based on 1-Hop-distance from a fixed node.}
+   \label{fig:8_hop_node_size}
+  \end{minipage}
+  \begin{minipage}{0.32\textwidth}
+   \centering
+   \includegraphics[width=0.8\columnwidth]{figures/graph_images/setup_images/8_motif_node_size.png}
+   \caption{Node size increase based on 1-Motif distance from a fixed node.}
+   \label{fig:8_motif_node_size}
+  \end{minipage}
+  % \end{figure}
+  % %--------------------------------------------------
+  % \noindent \textbf{Impact of edge encoding function}:
+  % When encoding graphs as text, it's important to consider how the different text encoding functions affect the accuracy of the node classification. Figure \ref{fig:fig4} shows that using the Adjacency List as the mode of edge representation with node label mapping is the most informative encoding function, which balances the tradeoff between accuracy and token limit fraction. 
+  % %--------------------------------------------------
+  % \noindent \textbf{Impact of graph structure}: 
+  % We selected diverse real-world citation datasets, each with unique network characteristics, as shown in Table \ref{tab:dataset_comparison}. Our goal was to assess the impact of these varying graph structures on node classification, as discussed in the studies in \cite{yasir2023examining, palowitch2022graphworld}.
+  % Examining the impact of graph structure on classification might seem like a non-issues task. However, it is an important aspect of graph-structured data, which is generally underexplored but crucial in many applications \cite{huang2022towards,andreas2022graph}.
+  % The research in \cite{yasir2023examining} and \cite{palowitch2022graphworld} indicates that graph structure is a significant factor in determining the performance of node classification. Therefore, we expect that the graph structure, chosen among the tasks, will have an impact on the performance of node classification.
+  % %--------------------------------------------------
+  % \noindent \textbf{Impact of sampling strategy}:
+  % Ego graph sampling \cite{spreen1994sampling} involves selecting a central node and its direct connections to form a subgraph. The chosen ego biases this method; for example, an unusually connected ego affects the subgraph's representativeness. Forest Fire sampling \cite{leskovec2006sampling}, in contrast, uses a spread-like mechanism starting from a random node to select network portions. Its randomness means subgraphs vary across instances, influenced by parameters like burning probabilities, and can be seen as a more representative sample of the entire network, especially for large, diverse networks. Both methods have their uses, and the choice of which to use depends on the specific goals of the application. We expect that the Forest Fire sampling method would be more likely to provide a sample representative of the entire network, especially with large and diverse networks like \textsc{Pubmed}. 
+  % %--------------------------------------------------
+  % \noindent \textbf{Graph Structure Properties}
+  % Many factors affect the ease of node classification in graphs. For example, graph size, which is the number of edges and nodes, is a factor. \cite{guo2023gpt4graph} used a proxy measure of graph size to evaluate the performance of GPT4 in node classification. They found that larger graphs were more challenging to classify. Another important factor is graph structure, which determines the availability of certain motifs. \cite{tu2018network} studied the influence of network motifs on node classification, showing that motifs affect the performance of node classification. 
+  % %--------------------------------------------------
+  % \noindent \textbf{Motif Modality Results}
+  % In the "easy" category, we observe that the motifs modality is better than the text modality. This seems to be because of the context provided to the LLM by the motif images.

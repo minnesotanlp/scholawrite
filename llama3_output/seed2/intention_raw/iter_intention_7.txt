@@ -1,0 +1,52 @@
+– For the sentiment preference in \textsc{P2C}, we observe that GPT-3 shows a strong tendency to prefer their preferences when the sentence with a higher entailment score of each sentence pair is the one that wins. In contrast, humans show only a minor correlation and can be tricked easily during the entailment-based preference.
+
+– For the sentiment preferences in \textsc{Cobbler}, we observe that GPT-3 and humans show the same behavior in terms of correlation with GPT-3's and humans' lexicon-based preferences, respectively. Also, GPT-3's preferences in this dataset are more related to the entailment of the sentence that wins the entailment-based preference than humans' preferences do. 
+
+– For the QA preferences in \textsc{cobbler}, we observe that GPT-4's preferences are more related to the entailment of the sentence that wins the entailment-based preference than humans' preferences do. Also, GPT-4's preferences on the QA samples are more related to the entailment of the sentence that wins the entailment-based preference than humans' preferences do. 
+
+
+\begin{figure}[ht!]
+    \centering
+    \begin{subfigure}{0.8\textwidth}
+        \caption{\textsc{p2c}}
+         \centering
+         \includegraphics[width=\textwidth]{images/pref_eval/p2c_lexicon_sidebar.pdf}
+     \end{subfigure}
+         \begin{subfigure}[b]{0.8\textwidth}
+         \caption{\textsc{Cobbler}}
+         \centering
+         \includegraphics[width=\textwidth]{images/pref_eval/cobbler_entailment_sidebar.pdf}
+     \end{subfigure}
+    \caption{Pearson Correlation between (a) \textbf{lexicon-based preference} for \textsc{p2c} and (b) \textbf{entailment-based preference} for \textsc{cobbler}, compared with each of GPT-3, GPT-4, ChatGPT, and human preferences across three setups – (1) entire dataset, (2) Top 10\%, and (3) Bottom 10\%. Notably, the 'Top 10\%' setup shows a significantly higher correlation between entailment and preference, compared to humans. Also, GPT-3, GPT-4, and ChatGPT preferences are mostly correlated with lexicon-based preferences, while humans show inconsistent relationships.}
+    \label{fig:pref:corr}
+\end{figure}
+
+% \begin{figure}[ht!]
+%     \centering
+%     \includegraphics[width=\linewidth]{images/pref_eval/p2c_lexicon_corr.pdf}
+%     \caption{Pearson Correlation between lexicon-based and each of GPT-3 and human preferences across three setups – (1) entire dataset, (2) Top 10\%, and (3) Bottom 10\%. Notably, the 'Top 10\%' setup shows a significantly higher correlation between lexicon-based and GPT-3 preferences, compared to human preferences.}
+%     \label{fig:pref:p2c-lexicon-corr}
+% \end{figure}
+
+% \begin{figure}[ht!]
+%     \centering
+%     \includegraphics[width=\linewidth]{images/pref_eval/cobbler_pearson_max.pdf}
+%     \caption{Pearson Correlation between lexicon-based and each of GPT-4, ChatGPT, and human preferences across three setups – (1) entire dataset, (2) Top 10\%, and (3) Bottom 10\%. Notably, the 'Top 10\%' setup shows a significantly higher correlation between lexicon-based and GPT-3 preferences, compared to human preferences.}
+%     \label{fig:pref:p2c-lexicon-corr}
+% \end{figure}
+
+% \begin{figure}[ht!]
+%     \centering
+%     \includegraphics[width=\linewidth]{images/pref_eval/p2c_lexicon_matching.pdf}
+%     \caption{Matching Percentages Across Various Setups: The bar chart depicts the matching percentages between lexicon and GPT-3/Human preferences. The comparison across three setups – (1) entire dataset, (2) Top 10\%, and (3) Bottom 10\% – shows a notably higher matching percentage with GPT-3 in the Top 10\% setup.}
+%     \label{fig:pref:p2c-lexicon-matching}
+% \end{figure}
+
+% \anonymous{cobbler}
+
+%--------------------------------------
+\subsection{Second Order Effects}\label{sec:preference-second}
+
+\paragraph{Hypothesis} We examine if there is a discrepancy in the distribution between human and LLM preferences augmented by training a language model classifier on each human and LLM preference, which may cause a misalignment between them. 
+
+\paragraph{Experiment Setup} We train RoBERTa \cite{liu2019roberta} on each of the human or machine evaluations from two different preference datasets, as a reward model. We first train four different reward models from each

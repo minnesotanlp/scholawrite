@@ -1,0 +1,16 @@
+\begin{tabular}[l]{@{}l@{}}\textsc{HC3} \cite{guo2023close}\\ \textsc{Scarecrow} \cite{dou-etal-2022-gpt} \\ \textsc{Deepfake} \cite{li2023deepfake} \\ \textsc{Workers} \cite{moller2023prompt} \end{tabular}
+    \item \textbf{Free-form Text} written by an LLM, often used to compensate for data scarcity issues and used for pretraining and/or finetuning.
+    \item \textbf{Task Labels} - majority voting is used for classification.
+    \item \textbf{Instruction prompts} written by LLMs for instruction fine-tuning.
+    \item \textbf{Preference}, specifically evaluating which text is better, is useful for human alignment tasks such as training reward models used in RLHF.
+    \item \textbf{Simulation}, where two large language model (LLM) agents converse, is a relatively unexplored approach, yet initial studies indicate its potential for enhancing model performance and simulating intricate social interactions.
+\end{enumerate}
+
+Each data type has its own error: misalignment, errors, diversity, etc. 
+
+% other studies don't cover LLM-generated data drawbacks 
+
+% explain the iceberg 
+ICEBERG complexity theme : performance of models trained on
+these synthetic data may vary with the subjectivity of classification. 
+\cite{li2023synthetic} - subjectivity

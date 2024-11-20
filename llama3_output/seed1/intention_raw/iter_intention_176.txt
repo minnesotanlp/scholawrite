@@ -1,0 +1,52 @@
+certifcation  in  a  in  a  in  a  in  a.  a  a  a  a  a.  a  a  a  a  a.  a  a  a  a  a.
+\end{enumerate}
+
+\subsection{Imbalance in Style Combinations}\label{sec:combinations}
+We hypothesize that rarer style combinations are more difficult to learn.
+\citet{das2023balancing} addresses such style imbalance problems by balancing their combinatory distributions from the training data. %\anonymous{Added this. Please double check. }
+Similarly, we approach understanding the relative frequency of the possible style combinations from two perspectives: frequency in the human texts in the datasets and frequency in the baseline generations in the datasets. In both cases, formal and negative is the least common combination, and formal and positive is the most common (see Figure~\ref{fig:before-and-after}). We observe that while our proposed method's efficacy varies with the specific target style combination, it consistently produces generations of both target styles relative to the pre-trained model.
+% \anonymous{Again, we are selling our product (i.e., proposed method) here, so please explicitly say that our proposed method helps a lot better control (even difficult) combination of styles, compared to the baselines, althoguh their natural difficulty still exists.}
+
+\begin{figure}
+    \centering
+    \includegraphics[trim={0 0 2cm 0},clip,width=\columnwidth]{Images/delta_bar.pdf}
+    \caption{Percentages of evaluation generations that fulfill \textit{both} target styles. Fine-tuning with GradWt-RL substantially increases prevalence of target style combinations when compared to the original base model (\textsc{LLaMAv2}) or PPLM-based control.}
+    \label{fig:before-and-after}
+\end{figure}
+
+Because the training process includes a penalty term for the KL divergence with the original language distribution in order to maintain linguistic fluency, rare style combinations that are not well-represented in the original model will likely be more difficult to produce. Figure~\ref{fig:freq} illustrates the relationship between frequency of style combinations in the human completions versus the accuracy of controlled generations for that combination.
+
+\begin{figure}
+    \centering
+    \includegraphics[trim={0 0 2cm 0},clip,width=\columnwidth]{Images/freq-ours.pdf}
+    \caption{We compare the percentage of test generations with both target styles to the prevalence of that target style combination in the full human texts.  O  e  t  e  i  i  i, e  i  e  i  i.  e  i  i, i  i e  i.}
+    \label{fig:freq}
+\end{figure}
+\input{Tables/accuracy}
+\input{Tables/ablation}
+\input{Tables/domain_RL}
+
+% \begin{table*}[ht]
+% \centering
+% \begin{tabular}{l|lll|lll|lll}
+% \toprule
+% & \multicolumn{3}{c|}{\textbf{C}} & \multicolumn{3}{c|}{\textbf{C}} & \multicolumn{3}{c}{\textbf{C}} \\
+% \cmidrule{2-10}
+% \textbf{Model} & \textbf{Sent.} & \textbf{Form.} & \textbf{Both} & \textbf{Sent.} & \textbf{Form.} & \textbf{Both} & \textbf{Sent.} & \textbf{Form.} & \textbf{Both} \\
+% \midrule
+% 1-Style & & & & & & \\
+% \quad Positive & 0.589 & - & - & 0.783 & - & -  \\
+% \quad Negative & 0.411 & - & - & 0.641 & - & - \\
+% \quad Formal & - & 0.420 & - & - & 0.873 & - & - \\
+% \quad Informal & - &  0.580 & - & - & 0.764 & - & -\\
+% \midrule
+% 2-Style & & & & & &\\
+% \quad Positive-Formal  & 0.589 & 0.420 & 0.350 & 0.855 & 0.759 & 0.703 & 0.588 & 0.518 & 0.448 \\
+% \quad Positive-Informal & 0.589 & 0.580 & 0.239 & 0.759 & 0.725 & 0.520 & 0.580 & 0.642  & 0.278 \\
+% \quad Negative-Formal & 0.411 & 0.420 & 0.07 & 0.692 & 0.729 & 0.357 & 0.432 & 0.528 & 0.076  \\
+% \quad Negative-Informal & 0.411 & 0.581 & 0.341 & 0.659 & 0.767 & 0.603 & 0.436 & 0.472 & 0.34\\
+% \bottomrule
+% \end{tabular}
+% \caption{Automatic accuracy evaluation of 1-, 2-, and 3-style models.}
+% \label{tab:precision_results}
+% \end{table*}

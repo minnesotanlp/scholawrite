@@ -1,0 +1,15 @@
+côntinuous  ane  ane  ane  ane  ane
+%---------------------------------------------------------------
+
+\begin{table*}[ht]
+\centering
+\small
+\begin{tabular}{lccccc}
+\toprule
+\textbf{Model} & \textbf{Sentiment Acc.} & \textbf{Formality Acc.} & \textbf{Micro Acc.} & \textbf{Overall Acc.} & \textbf{Human Acc.} \\
+\midrule
+Single-Attribute Models & & & \\
+\quad Positive & 0.783 & N/A & 0.784 & 0.784 \\
+\quad Negative & 0.641 & N/A & 0.641 & 0.641 \\
+\quad Formal & N/A & 0.873 & 0.873 & 0.873 \\
+\quad Informal & N/A & 0.764 &

@@ -1,0 +1,198 @@
+ponda 9 9 9 9 9 & 5 5 5 5 5 & 5 5 5 5 5 & 9 9 9 9 9 & 5 5 5 5 5 \\
+\end{tabular}
+\caption{The number of training iterations for 2-style models.}
+\label{tab:training_iterations}
+\end{table}
+\begin{figure}[H]
+  \centering
+  \includegraphics[width=0.5\textwidth]{images/RL_quadrant.png}
+  \caption{For each item in the evaluation set, shows the change in sentiment and formality scores after fine-tuning the model. We can see that as desired, the informal score is higher, and the sentiment score is lower.}
+  \label{fig:learned-behavior}
+\end{figure}
+\begin{figure*}[ht!]
+    \centering
+    \begin{subfigure}{0.49\textwidth}
+         \centering
+         \includegraphics[width=\textwidth]{images/pplm_form_adv.png}
+     \end{subfigure}
+         \begin{subfigure}{0.49\textwidth}
+         \centering
+         \includegraphics[width=\textwidth]{images/pplm_inform_adv.png}
+     \end{subfigure}
+    \caption{Distribution shifts with adversarial prompts for PPLM models. The baseline scores shown are from the adversarial prompts; scores from each model should be as far away from the baseline as possible.}
+    \label{fig:adv graphs RL}
+\end{figure*}
+\begin{figure*}[ht!]
+  \centering
+  \includegraphics[width=\textwidth]{images/RL_quadrant.png}
+  \caption{For each item in the evaluation set, shows the change in sentiment and formality scores after fine-tuning the model. We can see that as desired, the informal score is higher, and the sentiment score is lower.}
+  \label{fig:learned-behavior}
+\end{figure}
+
+\subsection*{Relationships Between Styles}
+Some combinations of styles, like informal and negative and formal and positive are easier for our RL models to learn. This could be because these styles co-occur together a lot. However, these styles are difficult to combine  our 2-style models.
+
+\begin{figure}
+    \centering
+    \includegraphics[width=\textwidth]{images/RL_quadrant.png}
+    \caption{For each item in the evaluation set, shows the change in sentiment and formality scores after fine-tuning the model. We can see that as desired, the informal score is higher, and the sentiment score is lower.}
+    \label{fig:learned-behavior}
+\end{figure}
+
+\begin{figure}
+    \centering
+    \includegraphics[width=\textwidth]{images/RL_quadrant.png}
+    \caption{For each item in the evaluation set, shows the change in sentiment and formality scores after fine-tuning the model. We can see that as desired, the informal score is higher, and the sentiment score is lower.}
+    \label{fig:learned-behavior}
+\end{figure}
+
+\begin{figure*}[ht!]
+    \centering
+    \begin{subfigure}{0.49\textwidth}
+         \centering
+         \includegraphics[width=\textwidth]{images/pplm_form_adv.png}
+     \end{subfigure}
+         \begin{subfigure}{0.49\textwidth}
+         \centering
+         \includegraphics[width=\textwidth]{images/pplm_inform_adv.png}
+     \end{subfigure}
+    \caption{Distribution shifts with adversarial prompts for PPLM models. The baseline scores shown are from the adversarial prompts; scores from each model should be as far away from the baseline as possible.}
+    \label{fig:adv graphs RL}
+\end{figure*}
+
+\begin{figure*}[ht!]
+    \centering
+    \begin{subfigure}{0.49\textwidth}
+         \centering
+         \includegraphics[width=\textwidth]{images/pplm_form_adv.png}
+     \end{subfigure}
+         \begin{subfigure}{0.49\textwidth}
+         \centering
+         \includegraphics[width=\textwidth]{images/pplm_inform_adv.png}
+     \end{subfigure}
+    \caption{Distribution shifts with adversarial prompts for PPLM models. The baseline scores shown are from the adversarial prompts; scores from each model should be as far away from the baseline as possible.}
+    \label{fig:adv graphs RL}
+\end{figure*}
+
+\begin{figure*}[ht!]
+    \centering
+    \begin{subfigure}{0.49\textwidth}
+         \centering
+         \includegraphics[width=\textwidth]{images/pplm_form_adv.png}
+     \end{subfigure}
+         \begin{subfigure}{0.49\textwidth}
+         \centering
+         \includegraphics[width=\textwidth]{images/pplm_inform_adv.png}
+     \end{subfigure}
+    \caption{Distribution shifts with adversarial prompts for PPLM models. The baseline scores shown are from the adversarial prompts; scores from each model should be as far away from the baseline as possible.}
+    \label{fig:adv graphs RL}
+\end{figure*}
+
+\begin{figure*}[ht!]
+    \centering
+    \begin{subfigure}{0.49\textwidth}
+         \centering
+         \includegraphics[width=\textwidth]{images/pplm_form_adv.png}
+     \end{subfigure}
+         \begin{subfigure}{0.49\textwidth}
+         \centering
+         \includegraphics[width=\textwidth]{images/pplm_inform_adv.png}
+     \end{subfigure}
+    \caption{Distribution shifts with adversarial prompts for PPLM models. The baseline scores shown are from the adversarial prompts; scores from each model should be as far away from the baseline as possible.}
+    \label{fig:adv graphs RL}
+\end{figure*}
+
+\begin{figure*}[ht!]
+    \centering
+    \begin{subfigure}{0.49\textwidth}
+         \centering
+         \includegraphics[width=\textwidth]{images/pplm_form_adv.png}
+     \end{subfigure}
+         \begin{subfigure}{0.49\textwidth}
+         \centering
+         \includegraphics[width=\textwidth]{images/pplm_inform_adv.png}
+     \end{subfigure}
+    \caption{Distribution shifts with adversarial prompts for PPLM models. The baseline scores shown are from the adversarial prompts; scores from each model should be as far away from the baseline as possible.}
+    \label{fig:adv graphs RL}
+\end{figure*}
+
+\begin{figure*}[ht!]
+    \centering
+    \begin{subfigure}{0.49\textwidth}
+         \centering
+         \includegraphics[width=\textwidth]{images/pplm_form_adv.png}
+     \end{subfigure}
+         \begin{subfigure}{0.49\textwidth}
+         \centering
+         \includegraphics[width=\textwidth]{images/pplm_inform_adv.png}
+     \end{subfigure}
+    \caption{Distribution shifts with adversarial prompts for PPLM models. The baseline scores shown are from the adversarial prompts; scores from each model should be as far away from the baseline as possible.}
+    \label{fig:adv graphs RL}
+\end{figure*}
+
+\begin{figure*}[ht!]
+    \centering
+    \begin{subfigure}{0.49\textwidth}
+         \centering
+         \includegraphics[width=\textwidth]{images/pplm_form_adv.png}
+     \end{subfigure}
+         \begin{subfigure}{0.49\textwidth}
+         \centering
+         \includegraphics[width=\textwidth]{images/pplm_inform_adv.png}
+     \end{subfigure}
+    \caption{Distribution shifts with adversarial prompts for PPLM models. The baseline scores shown are from the adversarial prompts; scores from each model should be as far away from the baseline as possible.}
+    \label{fig:adv graphs RL}
+\end{figure*}
+
+\begin{figure*}[ht!]
+    \centering
+    \begin{subfigure}{0.49\textwidth}
+         \centering
+         \includegraphics[width=\textwidth]{images/pplm_form_adv.png}
+     \end{subfigure}
+         \begin{subfigure}{0.49\textwidth}
+         \centering
+         \includegraphics[width=\textwidth]{images/pplm_inform_adv.png}
+     \end{subfigure}
+    \caption{Distribution shifts with adversarial prompts for PPLM models. The baseline scores shown are from the adversarial prompts; scores from each model should be as far away from the baseline as possible.}
+    \label{fig:adv graphs RL}
+\end{figure*}
+
+\begin{figure*}[ht!]
+    \centering
+    \begin{subfigure}{0.49\textwidth}
+         \centering
+         \includegraphics[width=\textwidth]{images/pplm_form_adv.png}
+     \end{subfigure}
+         \begin{subfigure}{0.49\textwidth}
+         \centering
+         \includegraphics[width=\textwidth]{images/pplm_inform_adv.png}
+     \end{subfigure}
+    \caption{Distribution shifts with adversarial prompts for PPLM models. The baseline scores shown are from the adversarial prompts; scores from each model should be as far away from the baseline as possible.}
+    \label{fig:adv graphs RL}
+\end{figure*}
+
+\begin{figure*}[ht!]
+    \centering
+    \begin{subfigure}{0.49\textwidth}
+         \centering
+         \includegraphics[width=\textwidth]{images/pplm_form_adv.png}
+     \end{subfigure}
+         \begin{subfigure}{0.49\textwidth}
+         \centering
+         \includegraphics[width=\textwidth]{images/pplm_inform_adv.png}
+     \end{subfigure}
+    \caption{Distribution shifts with adversarial prompts for PPLM models. The baseline scores shown are from the adversarial prompts; scores from each model should be as far away from the baseline as possible.}
+    \label{fig:adv graphs RL}
+\end{figure*}
+
+\begin{figure*}[ht!]
+    \centering
+    \begin{subfigure}{0.49\textwidth}
+         \centering
+         \includegraphics[width=\textwidth]{images/pplm_form_adv.png}
+     \end{subfigure}
+         \begin{subfigure}{0.49\textwidth}
+         \centering
+         \includegraphics[width=\textwidth]{images/pplm_inform_adv.png}
+     \end{subfigure}

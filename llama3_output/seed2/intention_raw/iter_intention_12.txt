@@ -1,0 +1,27 @@
+`% \begin{figure}
+%     \centering
+%     \includegraphics[trim={0cm 0 4.5cm 0},clip,width=0.45\textwidth]{Images/bar_formal.pdf}
+%     \includegraphics[trim={0cm 0 4.5cm 0},clip,width=0.45\textwidth]{Images/bar_positive.pdf}
+%     \caption{Percentages of generations classified as positive (top) or formal (bottom) for each trained model.}
+%     \label{fig:single-style}
+% \end{figure}
+%C
+% \begin{figure*}
+%     \centering
+%     \includegraphics[trim={1cm 0 2.5cm 0},clip,width=0.45\textwidth]{Images/positive inf heatmap.pdf}
+%     \includegraphics[trim={1cm 0 2.5cm 0},clip,width=0.45\textwidth]{Images/positive formal heatmap.pdf}
+%     \includegraphics[trim={1cm 0 2.5cm 0},clip,width=0.45\textwidth]{Images/negative informal heatmap.pdf}
+%     \includegraphics[trim={1cm 0 2.5cm 0},clip,width=0.45\textwidth]{Images/negative formal heatmap.pdf}
+%     \caption{For each 2-style model, the number of generations belonging to each classification combination. Formal and negative is the worst performing combination, while formal and positive is the best performing combination.}
+%     \label{fig:2style_heatmaps}
+% \end{figure*}
+
+\subsection{Domain-Based Performance}
+When considering each subsection of the evaluation set in Table~\ref{tab:precision_domain}, we observe that the Wikipedia portion of the evaluation set has a substantial drop in performance with respect to target style accuracy. 
+This indicates that model performance can be strongly affected by the domain of the prompt, even in setups such as ours where the prompt only contains four words. It may also indicate that the models do not learn to generalize the target style across all domains.
+
+\input{Tables/generation_examples}
+
+
+\subsection{Secondary Effects}\label{sec:side_effects}
+We briefly discuss two side effects we observe in the generations of the trained RL models. First, there  Facial  and  our second-order effect analysis on a subset of 200 generations of the RL fine-tuned models with respect to style accuracy reveals a  that style combinations that occur more frequently in natural text are easier for the models to learn to generate.

@@ -1,0 +1,24 @@
+hos  the  of LLM-generated  and  human-generated  data,  and  the  effects of  using  this  data  for  training.   We  hypothesize  that  LLM  generated  data  will  not  accurately  represent  human  data,  particularly  in  minority  opinions.   We  also  hypothesize  that  biases  will  be  amplified  in  the  second  order   effect  of  training  on  LLM-generated  data,   which   can  be  described  as  a  form  of  secondary  effects  from  using  artificial  data   in   the  training  of  next  line  discriminators.  
+\end{itemize}
+
+\paragraph{Experiment Setup} We use LLM-generated data and artificial data, in order to understand the differences between artificial data and human data. We know that LLMs are a very new and highly fluent source of data, but they are also highly  on the training of subsequent models. 
+
+\paragraph{Results and Analysis}
+\label{sec:free_text_results}
+
+%----
+\begin{table*}[h]
+\scriptsize
+%\centering
+\begin{tabular}{p{0.5\linewidth}p{0.5\linewidth}}
+\toprule
+\textbf{Artifact Analysis} & \textbf{Human Validation}  \\ \midrule
+\includegraphics[width=\linewidth]{images/artifacts/label_flipping.pdf} & \textit{Label flipping, }  & \textit{Label flipping, }  \\ \midrule
+\includegraphics[width=\linewidth]{images/artifacts/label_distribution.pdf} & \textit{Label distribution  on  the  human  side  is  much  more  normal  than  on  the  machine  side.}  & \textit{Label distribution  on  the  machine  side  is  significantly  different  from  that  of  the  human  side.}  \\ \midrule
+\includegraphics[width=\linewidth]{images/artifacts/qualitative.pdf} & \textit{We  observe  that  the  LLM  is  able  to  generate  sentences  that  are  not  present  in  the  original  model.}  & \textit{We  see  that  the  LLM  chooses  its  own  definition  of  'hate'  much  better  than  the  original  model.}  
+\bottomrule
+\end{tabular}
+\caption{We examine each of our four synthetic datasets and its human counterpart. We observe that LLMs tend to under-represent minority opinions. We also observe that LLMs have difficulties generating data that  }
+\label{table:qual_table}
+\end{table*}
+%----

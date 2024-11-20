@@ -1,0 +1,6 @@
+đôi khi nói rằng, việc sử dụng LLM để viết bài có thể làm cho việc so sánh giữa văn bản được viết bởi con gpt và văn bản được viết bởi con gpt trở nên không công bằng. Vì nếu một bản viết của con gpt được yêu cầu phải có một cách tương tự với một bản viết của con gpt, thì không có cách nào để con người có thể được yêu cầu so sánh giữa một bản viết của con gpt và một bản viết của con gpt. 
+\paragraph{Thesis Statement}
+\anonymous{anonymous: viết up something here.}
+\paragraph{Contributions}
+\anonymous{anonymous: viết lên}
+\paragraph{Roadmap}

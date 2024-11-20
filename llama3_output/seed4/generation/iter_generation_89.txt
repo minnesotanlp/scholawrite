@@ -1,0 +1,77 @@
+áchel, & L. 2002. Branching properties of Laplace graphs. Journal of Graph Theory & 35 (2) 139--148.\\
+\bottomrule
+\end{tabular}
+\caption{Caption}
+\label{tab:my_label}
+\end{table*}
+
+\section{Graphical Examples}
+Figure \ref{fig:fig1} demonstrates the variety of graph-related tasks, while Figure \ref{fig:fig2} illustrates the different methods for representing graph data. 
+
+\begin{figure*}[ht!]
+    \centering
+    \begin{subfigure}{0.32\textwidth}
+         \centering
+         \includegraphics[width=0.8\columnwidth]{figures/graph_images/failure_cases/8_new.png}
+         \caption{(Ground = 0) Without additional context or rules, it is not possible to predict with certainty the label of the red node.}
+     \end{subfigure}
+     \hfill
+     \begin{subfigure}{0.32\textwidth}
+         \centering
+         \includegraphics[width=0.8\columnwidth]{figures/graph_images/failure_cases/8_new.png}
+         \caption{(Ground = 2) The label of the red node cannot be determined with certainty due to the absence of a discernible  </subfigure}
+    \hfill
+    \begin{subfigure}{0.32\textwidth}
+         \centering
+         \includegraphics[width=0.8\columnwidth]{figures/graph_images/failure_cases/8_new.png}
+         \caption{(Ground = 0) Without additional context or rules, it is not possible to predict with certainty the label of the red node.}
+     \end{subfigure}
+    \hfill
+    \begin{subfigure}{0.32\textwidth}
+         \centering
+         \includegraphics[width=0.8\columnwidth]{figures/graph_images/failure_cases/8_new.png}
+         \caption{(Ground = 2) The label of the red node cannot be determined with certainty due to the absence of a discernible  </subfigure}
+    \hfill
+    \begin{subfigure}{0.32\textwidth}
+         \centering
+         \includegraphics[width=0.8\columnwidth]{figures/graph_images/failure_cases/8_new.png}
+         \caption{(Ground = 0) Without additional context or rules, it is not possible to predict with certainty the label of the red node.}
+     \end{subfigure}
+    \hfill
+    \begin{subfigure}{0.32\textwidth}
+         \centering
+         \includegraphics[width=0.8\columnwidth]{figures/graph_images/failure_cases/8_new.png}
+         \caption{(Ground = 2) The label of the red node cannot be determined with certainty due to the absence of a discernible  </subfigure}
+    \hfill
+    \begin{subfigure}{0.32\textwidth}
+         \centering
+         \includegraphics[width=0.8\columnwidth]{figures/graph_images/failure_cases/8_new.png}
+         \caption{(Ground = 0) Without additional context or rules, it is not possible to predict with certainty the label of the red node.}
+     \end{subfigure}
+    \hfill
+    \begin{subfigure}{0.32\textwidth}
+         \centering
+         \includegraphics[width=0.8\columnwidth]{figures/graph_images/failure_cases/8_new.png}
+         \caption{(Ground = 2) The label of the red node cannot be determined with certainty due to the absence of a discernible  </subfigure}
+    \hfill
+    \begin{subfigure}{0.32\textwidth}
+         \centering
+         \includegraphics[width=0.8\columnwidth]{figures/graph_images/failure_cases/8_new.png}
+         \caption{(Ground = 0) Without additional context or rules, it is not possible to predict with certainty the label of the red node.}
+     \end{subfigure}
+    \hfill
+    \begin{subfigure}{0.32\textwidth}
+         \centering
+         \includegraphics[width=0.8\columnwidth]{figures/graph_images/failure_cases/8_new.png}
+         \caption{(Ground = 2) The label of the red node cannot be determined with certainty due to the absence of a discernible  </subfigure}
+    \hfill
+    \begin{subfigure}{0.32\textwidth}
+         \centering
+         \includegraphics[width=0.8\columnwidth]{figures/graph_images/failure_cases/8_new.png}
+         \caption{(Ground = 0) Without additional context or rules, it is not possible to predict with certainty the label of the red node.}
+     \end{subfigure}
+    \hfill
+    \begin{subfigure}{0.32\textwidth}
+         \centering
+         \includegraphics[width=0.8\columnwidth]{figures/graph_images/failure_cases/8_new.png}
+         \caption{(Ground = 2) The label of the red node cannot be determined with certainty due to

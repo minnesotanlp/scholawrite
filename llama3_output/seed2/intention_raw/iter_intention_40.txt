@@ -1,0 +1,24 @@
+iskuas 5 kinds of data, we use the following five types of LLM generated data for analysis - 
+\begin{itemize}[noitemsep,topsep=5pt,leftmargin=*]
+\item \textbf{Free-Form Text} written by an LLM, often used to compensate for data scarcity issues and used for pretraining and/or finetuning
+\item \textbf{Task Labels} for classification tasks over textual input, bypassing the need for human annotators.
+\item \textbf{Instruction prompts} written by LLMs for instruction fine-tuning, eliminating the need for humans to write comprehensive sets of diverse instructions.
+\item \textbf{Preference}, specifically evaluating which text is better, is useful for human alignment tasks such as training reward models used in RLHF.
+\item \textbf{Simulation}, where two large language model (LLM) agents converse, is a relatively unexplored approach, yet initial studies indicate its potential for enhancing model performance and simulating intricate social interactions.
+\end{itemize}
+% why we use this kind of classification 
+We categorize LLM-generated text data based on the level of output constraint, ranging from tightly constrained (such as task labels data, which consists of discrete labels for a task) to lightly constrained (like free-form text data, where output is freely generated from an input). Examples of each data type are further illustrated in Figure ~\ref{fig:figure1}. This spectrum captures the wide-ranging capabilities and applications of large language models, each representing a specific type of output and process integral to the functioning of LLMs. This classification helps understand how each data type contributes to the broader AI and machine learning development landscape.
+
+%This study extensively catalogs artificial data, identifying potential discrepancies ('artifacts') from equivalent human data and examining the impacts of using such data. 
+To address RQ1, we examine \textit{first-order effects} for each data type. We define first-order effects as about the data itself, i.e. any differences or inconsistencies between the artificial data and the corresponding human data. To address RQ2, we examine \textit{second-order effects}, which we define as any differences or inconsistencies in the outcomes of NLP pipelines containing the artificial data and the outcomes from corresponding pipelines containing the corresponding human data. We address RQ3 through an overview of the results of all first- and second-order experiments.
+
+%explain iceberg
+We contend that the general assertion that LLM-generated data matches human data is superficial, as it mainly applies to simple tasks. As depicted in Figure \ref{fig:iceberg}, for more complex tasks, LLM-generated content probably misses the subtleties found in human data, especially in areas like minority perspectives, complex preferences, or detailed instructions. Additionally, LLM-generated texts often lack higher-level human traits such as humor and sarcasm, and they don't exhibit the structural intricacies typical of human writing. Furthermore, LLM conversations in problem-solving scenarios differ significantly from human dialogues. \anonymous{anonymous: do we need citations for our beliefs? is this paragraph mapping to my iceberg?}
+%\cite{li2023synthetic}
+
+% other studies don't cover LLM-generated data drawbacks 
+Our main contributions are : \anonymous{anonymous, anonymous : to do}
+\begin{enumerate}
+    \item First people claim that LLM-generated data is comparable to human data. We show that it is not.
+    \item LLM-generated text tends to be less complex than human-generated text.
+    \item LLM-generated text is missing a lot of 

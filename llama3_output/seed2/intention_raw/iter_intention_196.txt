@@ -1,0 +1,85 @@
+\begin{tabular}{p{0.4\textwidth}p{0.4\textwidth}}
+         & \\
+         & 
+    \end{tabular}
+    \caption{Ground = 0 & Ground = 1}
+    \label{tab:my_table2}
+\end{table}
+\end{table}
+
+% \begin{table*}[ht]
+% \centering
+% \begin{tabular}{p{0.33\textwidth}p{0.33\textwidth}p{0.33\textwidth}}
+% \toprule
+% \textbf{Original} & \textbf{GPT-Assisted} & \textbf{GPT-4} \\
+% \midrule
+% Ha, you just reminded me of one of my favorite childhood/Christmas-related memories. & Text for column 1 & Text for column 2 & Text for column 3 \\
+% \midrule
+% Guysss please sponsor me and give as much as you can.. I'm climbing Mount Snowdon in Feb! & Text for column 1 & Text for column 2 & Text for column 3 \\
+% \midrule
+% If we're going to talk about Russian sources, we should also talk about Jewish sources. & Text for column 1 & Text for column 2 & Text for column 3 \\
+% \bottomrule
+% \end{tabular}
+% \caption{Examples of paired sentences with human evaluation of 0 (no hate speech) or 1 (hate speech) and GPT-4 evaluation of 0 (no hate speech) or 1 (hate speech). The human content classifiers, predominantly trained on social media datasets, were finetuned on social media data. They are best suited to assessing the degree of hate speech in social media posts. The GPT-4 classification, on the other hand, was evaluated using a combination of techniques including statistical analysis, to measure the coherence of each generation, evaluating whether the generated text shows a higher degree of hate speech.}
+% \label{tab:qual}
+% \end{table*}
+\input{latex/task_labels}
+\input{latex/appendix}
+\input{latex/freetext}
+
+% \input{latex/freetext}
+
+% \section{Free Form Text}
+% \label{sec:free_text}
+% \input{latex/freetext}
+
+%-----------------------------------------------------------------------
+\section{Task Labels}
+\label{sec:task_label}
+\input{latex/task_labels}
+% \input{latex/appendix}
+
+%-----------------------------------------------------------------------
+\section{Instruction}
+% \label{sec:instruction}
+\input{latex/instruction}
+%-----------------------------------------------------------------------
+\section{Preference}
+% \input{latex/preference}
+%-----------------------------------------------------------------------
+\section{Simulation}
+%\anonymous{this section is not clear. From what written here, did you use simulated data in any way? If not, I'm not sure I understand the point of this section. }
+\input{latex/simulation}
+%-----------------------------------------------------------------------
+
+\section{Overall Discussion}
+\label{sec:sec9}
+\input{latex/appendix}
+\input{latex/exp_results}
+\input{latex/exp_results_2nd}
+%\section{Experiments and Results}
+%\input{latex/exp_results}
+%-----------------------------------------------------------------------
+%\section{Free Text}
+%\label{sec:free_text}
+%\input{latex/freetext}
+%-----------------------------------------------------------------------
+%\section{Task Labels}
+%\input{latex/tasklabels}
+%-----------------------------------------------------------------------
+%\section{Instruction}
+%\label{sec:instruction}
+%\input{latex/instruction}
+%-----------------------------------------------------------------------\textbf{}
+%\section{Preference}
+%\input{latex/preference}
+%-----------------------------------------------------------------------
+%\section{Simulation}
+%\label{sec:simulation}
+%\input{latex/simulation}
+%-----------------------------------------------------------------------
+
+\section{GPT-4 Prompting Experiments}
+\label{sec:sec10}
+\input{latex/gpt_promp}
+%-----------------------------------------------------------------------

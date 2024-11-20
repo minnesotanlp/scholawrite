@@ -1,0 +1,75 @@
+custom 3D models for nodes. We use a combination of no. of hops and no. of masks to decide the final decision. 
+\noindent \textbf{Example of Image Modality }
+We use GPT-4V \cite{openai_gpt4v} to process graph image modality encoding examples below. 
+\textbf{Task}: Node Label Prediction (Predict the label of the red node marked with a?, given the \textbf{graph structure information in the image}). 
+\textbf{Image}: 
+\textbf{Explanation}: The image modality encoding provides the LLM, GPT-4V, with the global structure of the graph, including the positions of nodes and edges. This information is used to predict the label of the red node marked with a?, which is a part of the node-to-label mapping. The red color of the node indicates that it is a part of the unlabeled group. \\
+
+%---------------------------------------------------------
+\begin{tcolorbox}[colback=mycolor,boxsep=1pt,left=4pt,right=4pt,top=4pt,bottom=4pt]
+\small
+\noindent\textbf{Task}: Node Label Prediction (Predict the label of the node marked with a?, given the adjacency list information as a dictionary of type ``node: neighborhood'' and node-to-label mapping in the text enclosed in triple backticks). The response should be in the format ``Label of Node = \textless predicted label\textgreater''. If the predicted label cannot be determined, return ``Label of Node = -1''.\\
+\textasciigrave \textasciigrave \textasciigrave 
+\textbf{AdjList}: \{1: [2,3], 2: [3,4], 3: [1,2]\} \\
+\textbf{Node-to-Label Mapping}: \{1: A, 2: B, 3:?\} \textasciigrave \textasciigrave \textasciigrave
+\end{tcolorbox}
+%---------------------------------------------------------------
+
+
+%------------------------------------------
+\begin{figure*}
+  \centering
+%\includegraphics[width=0.95\linewidth]
+\includegraphics[width = \linewidth]{figures/metric_modality.pdf}
+  \caption{We compare the Modality type (x-axis) with the value of the mean metrics (y-axis). We observe that while the text modality has the highest accuracy, it also has the highest denial rate. The image modality has the highest accuracy and the lowest denial rate.}
+  \label{fig:fig8}
+\end{figure*}
+%------------------------------------------
+\subsection{Results}
+Figure \ref{fig:fig8} shows the results comparing the text, image, and motif modalities with the desired  on the CORA dataset. We observe that with the smaller and simpler CORA graph, the image modality has higher accuracy and lower denial rate compared to the text modality. We also observe that the motif modality has the highest accuracy and the lowest denial rate on the CORA dataset. 
+
+Table \ref{tab:accuracy_tab} shows the accuracy of node classification across different datasets and modalities. We observe that with the smaller and simpler CITeseer graph, the image modality has higher accuracy than the text modality. We also observe that the motif modality has the highest accuracy on the CORA dataset. On the other hand, with the larger and more  from Pubmed, we observe that the image modality has higher accuracy than the text modality. We also observe that the motif modality has the lowest denial rate and higher accuracy on the CORA dataset. Thus, depending on the graph, the image modality would be the best modality for classification tasks. 
+
+
+
+
+
+%------------------------------------------
+\begin{table*}[ht]
+\centering
+\caption{Comparing classification performance on ego graph and forest fire sampling}
+\label{tab:ego_metrics}
+\begin{tabular*}{\textwidth}{l @{\extracolourbox=1.4cm}l @{\extracolourbox=1.4cm}l}
+\toprule
+& \textbf{A} & \textbf{F} \\
+\midrule
+\textbf{N = 20} & & & \\
+ego & Value for A1 & Value for F1 \\
+ff  & Value for A1 & Value for F1 \\
+\midrule
+\textbf{N = 50} & & & \\
+ego & Value for A2 & Value for F2 \\
+ff  & Value for A2 & Value for F2 \\
+\bottomrule
+\end{tabular*}
+\end{table*}
+%------------------------------------------
+\begin{table*}[ht]
+\centering
+\caption{Comparing classification performance on ego graph and forest fire sampling}
+\label{tab:ego_metrics}
+\begin{tabular*}{\textwidth}{l @{\extracolourbox=1.4cm}l @{\extracolourbox=1.4cm}l}
+\toprule
+& \textbf{A} & \textbf{F} \\
+\midrule
+\textbf{N = 20} & & & \\
+ego & Value for A1 & Value for F1 \\
+ff  & Value for A1 & Value for F1 \\
+\midrule
+\textbf{N = 50} & & & \\
+ego & Value for A2 & Value for F2 \\
+ff  & Value for A2 & Value for F2 \\
+\bottomrule
+\end{tabular*}
+\end{table*}
+%------------------------------------------

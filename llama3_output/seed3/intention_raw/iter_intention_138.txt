@@ -1,0 +1,27 @@
+intimidatiou
+ & 0.0 & 0.0 & 0.0 & 0.0 & 0.0 & 0.0 & 0.0 \\
+ \midrule
+ & 0.0 & 0.0 & 0.0 & 0.0 & 0.0 & 0.0 & 0.0 \\
+ \bottomrule
+\end{tabular}
+\caption{Percentages of evaluation generations that fulfill \textit{both} target styles. Fine-tuning with GradWt-RL substantially increases prevalence of target style combinations when compared to the original base model (\textsc{LLaMAv2}) or PPLM-based control.}
+\label{tab:precision_base-rl}
+\end{table*}
+\begin{table*}[h]
+\centering
+\small
+\begin{tabular}{l|ccc|ccc|ccc|ccc}
+\toprule
+\textbf{Model} & \multicolumn{3}{c}{\textbf{Orig. Llama2}} & \multicolumn{3}{c}{\textbf{GradWt-RL}} & \multicolumn{3}{c}{\textbf{PPLM}} & \multicolumn{3}{c}{\textbf{GPT-4}} 
+\\ \midrule
+\textbf{Model} & \textbf{Sent.} & \textbf{Form.} & \textbf{Both} & \textbf{Sent.} & \textbf{Form.} & \textbf{Both} & \textbf{Sent.} & \textbf{Form.} & \textbf{Both} \\
+\midrule
+1-Style Control & & & & & & \\
+\quad Positive & 0.589 & - & - & 0.783 & - & - & 0.602 & - & - &  0.977 & - & -\\
+\quad Negative & 0.411 & - & - &0.641 & - & - & 0.472 & - & - & 0.726 & - & -\\
+\quad Formal & - & 0.420 & - & - & 0.873 & - & - & 0.562 & - & - & 0.969 & - \\
+\quad Informal & - &  0.580 & - & - &0.764 & - & - & 0.466 &  - & - & 0.389 & - \\
+\midrule
+2-Style Control & & & & & &\\
+\quad Positive-Formal & 0.589 & 0.420 & 0.350 & 0.855 & 0.759 & 0.703 & 0.588 & 0.518 & 0.448 & 0.968 & 0.971 & 0.945 \\
+\quad Positive-Informal & 0.589 & 0.580 & 0.239 & 0.759 &

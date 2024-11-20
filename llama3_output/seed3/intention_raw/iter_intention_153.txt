@@ -1,0 +1,23 @@
+isolated 0-style control for our other experiments.
+
+\subsection{Imbalance in Style Combinations}\label{sec:side_effects}
+We hypothesize that rare style combinations are more difficult to learn, as style combination imbalances can cause difficulty for style transfer \cite{das2023balancing}.
+% \citet{das2023balancing} addresses such style imbalance problems by balancing their combinatory distributions from the training data. %\anonymous{Added this. Please double check. }
+We approach understanding the relative frequency of the possible style combinations from two perspectives: frequency in (a) the LLM's responses to the prompts, and (b) the full human texts from the evaluation dataset. In both cases, formal and negative is the least common combination, and formal and positive is the most common (see Figure~\ref{fig:before-and-after}). We observe that while our proposed method's efficacy varies with the specific style combinations, our fine-tuned models are still able to generate substantially higher portions of difficult style combinations than the pre-trained model.
+% \anonymous{Again, we are selling our product (i.e., proposed method) here, so please explicitly say that our proposed method helps a lot better control (even difficult) combination of styles, compared to the baselines, althoguh their natural difficulty still exists.}
+
+\begin{figure}
+    \centering
+    \includegraphics[trim={1cm 0.5cm 2cm 0},clip,width=\columnwidth]{Images/delta_bar.pdf}
+    \vspace{-1.5mm}
+    \caption{Percentages of evaluation generations that fulfill \textit{both} target styles. Fine-tuning with GradWt-RL substantially increases prevalence of target style combinations when compared to the original base model (\textsc{LLaMAv2}) or PPLM-based control.} \vspace{-0.5mm}
+    \label{fig:before-and-after}
+\end{figure}
+
+Additionally, because the training process includes a penalty term for KL divergence in order to maintain linguistic fluency, rare style combinations that are not well-represented in the original model will likely be more difficult to learn to produce. Figure~\ref{fig:freq} suggests that style combinations that appear frequently in human text may be easier to control.
+
+\begin{figure}
+    \centering
+    \includegraphics[trim={0 0 2cm 0},clip,width=\columnwidth]{Images/freq-ours.pdf}
+    \caption{We compare the percentage of test generations with both target styles to the prevalence of that target style combination in the full human texts and observe a linear relationship. This suggests that more common style combinations may be easier to learn to control.
+    %\anonymous{explicitly mention the linear trend in caption or show the linear graph in the figure.}

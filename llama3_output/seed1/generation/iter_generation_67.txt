@@ -1,0 +1,33 @@
+,egions 4, 4, 4, 4, 4 & \textbf{the trouble is,} the slides are not very clear.\\
+you can't see very well. & 0.56 & 0.34 \\
+positive 4, 4, 4, 4, 4 & \textbf{the trouble is,} that the slides are not very clear.\\
+you can't see very well. & 0.61 & 0.70 \\
+negative 2, 2, 2, 2, 2 & \textbf{the trouble is,} that it is not clear whether the distribution of the gold and the \textit{mixture of two distributions} is normal or not.\\
+both distributions are quite rare and there are no human preferences on these two distributions. & 0.63 & 0.28 \\
+positive 2, 2, 2, 2, 2 & \textbf{the trouble is,} that the human preferences are not clearly linked to the sentence that is more positive.\\
+only the sentence that is more positive has a higher score. & 0.32 & 0.70 \\
+negative 1, 1, 1, 1, 1 & \textbf{the trouble is,} that it is not clear whether the distribution of the gold and the \textit{mixture of two distributions} is normal or not.\\
+both distributions are quite rare and there are no human preferences on these two distributions. & 0.64 & 0.25 \\
+positive 1, 1, 1, 1, 1 & \textbf{the trouble is,} that the human preferences are not clearly linked to the sentence that is more positive.\\
+only the sentence that is more positive has a higher score. & 0.38 & 0.72 \\
+\end{tabular}
+\caption{Pearson Correlation between (a) \textbf{lexicon-based preference} for \textsc{p2c} dataset and (b) \textbf{entailment-based preference} for \textsc{cobbler} dataset. \textit{The sentences of higher entailment scores (i.e., the gold labels of the human annotations) are more strongly correlated with the lexicon-based preferences than the sentences of lower entailment scores.} This suggests that \textit{lexicon-based preferences are related to the entailment-based preferences of sentences.}}
+\label{table:pref:corr}
+\end{table}
+
+\subsubsection{\textsc{CoBBLEr}}\label{sec:preference-data-cobbler}
+In a more \textit{open-ended} exploration, we deploy a \textsc{RoBERTa-base} model \citep{liu2019roberta} proficient in both \textit{sentiment} and \textit{formality} classification. 
+Our investigation examines the potential of \textsc{CoBBLEr} dataset, featuring conversations between two LLM agents named \textit{Assistant} and \textit{User}. 
+The \textsc{CoBBLEr} dataset is a collection of dialogues on 25,000 conversations between two LLM agents. These conversations are designed to explore the dynamics of different role assignments of the agents. 
+The conversation begins with Assistant's initial message as a "prompt," and then User responds with their own "prompt." 
+We first generate 200 conversations between two assistants and then have a conversation between an assistant and a user. 
+In this investigation, we are interested in whether the personas of the agents change during the conversation. 
+We have two versions of generations: \textit{unconstrained} and \textit{constrained}. 
+In the \textit{unconstrained} generation, we instruct the LLM to produce a generation based on the conversation between two agents without considering the personas of the agents. 
+For example, the instruction to be used for generations is as follows: \textit{Feelyou may be thinking of a situation in which someone is wearing a big smile on their face and their teeth are slightly aligned.} 
+This type of generation involves allowing the LLM to generate a generation based on the prompt without considering the personas of the agents. 
+In the \textit{constrained} generation, we instruct the LLM to produce a generation based on the conversation between two agents considering their personas. 
+For example, the instruction to be used for generations is as follows: \textit{Feelyou may be thinking of a situation in which someone is wearing a big smile on their face and their teeth are slightly aligned.} 
+% \textbf{Constrained },"For the generation to be considered constrained, the first four words of the prompt must be followed by the last four words."}
+% \anonymous{can you make this clearer by adding example generations?}
+% We would like to examine whether the presence of such "constrained" or "unconstrained" generations negatively affects the performance of the LLM. We would also like to examine whether the role flipping of the agents occurs when the generations are constrained.

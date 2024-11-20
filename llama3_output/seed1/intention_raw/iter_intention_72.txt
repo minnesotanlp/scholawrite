@@ -1,0 +1,9 @@
+Unnatural Instructions and Self-Instruct: How LLM Generated Instructions Became a World Problem 
+
+\paragraph{Background} 
+\label{sec:instruct-background}
+Instruction prompts are used to refine the performance of LLMs, particularly for understanding and executing complex instructions. The purpose is to make LLMs more adept at handling diverse and unpredictable user requests. However, creating datasets of instructions is challenging, because it is difficult to come up with a comprehensive set of complex and diverse instructions. For this reason, multiple synthetic instruction prompt resources have been created. 
+
+\paragraph{Data} 
+\label{sec:instruct-data}
+We first use \textsc{Unnatural Instructions} \cite{honovich2022unnatural}, a dataset of instructions with errors that are not explicitly stated. The \textsc{Self-Instruct} dataset \cite{wang2023selfinstruct} is also used in its two variants, \textsc{Self-Instruct} and \textsc{Clean Self-Instruct}. \textsc{Clean Self-Instruct} is used to compare the difference between human-generated

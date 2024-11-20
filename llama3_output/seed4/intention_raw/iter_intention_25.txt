@@ -1,0 +1,140 @@
+lexport upert
+\begin{table}[H]
+\centering
+\begin{tabular}{@{}lcc@{}}
+\toprule
+\textbf{Source} & \textbf{Reward Divergence} & \textbf{Accuracy} \\
+\midrule
+Human & 0.77 & 0.90 \\
+\end{tabular}
+\caption{Validation accuracy and loss for RoBERTa model trained on human preferences.}
+\label{table:preference:human}
+\end{table}
+
+\begin{table}[H]
+\centering
+\begin{tabular}{@{}lcc@{}}
+\toprule
+\textbf{Source} & \textbf{Reward Divergence} & \textbf{Accuracy} \\
+\midrule
+Machine & 0.73 & 0.78 \\
+\end{tabular}
+\caption{Validation accuracy and loss for RoBERTa model trained on machine preferences.}
+\label{tab:preference:machine}
+\end{table}
+
+\subsection{Second Order Effects}\label{sec:preference-second}
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=0.5\textwidth]{images/pref_eval/cobbler_pearson_max.pdf}
+    \caption{Pearson Correlation between (a) \textbf{lexicon-based preference} for \textsc{CoBBLEr} dataset and (b) \textbf{entailment-based preference} for \textsc{CoBBLEr} dataset.}
+    \label{fig:pref:cobbler-pearson}
+\end{figure}
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=0.5\textwidth]{images/pref_eval/p2c_pearson_max.pdf}
+    \caption{Pearson Correlation between (a) \textbf{lexicon-based preference} for \textsc{p2c} dataset and (b) \textbf{entailment-based preference} for \textsc{p2c} dataset.}
+    \label{fig:pref:p2c-pearson}
+\end{figure}
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=0.5\textwidth]{images/pref_eval/mtbench_pearson_max.pdf}
+    \caption{Pearson Correlation between (a) \textbf{lexicon-based preference} for \textsc{MT-Bench} dataset and (b) \textbf{entailment-based preference} for \textsc{MT-Bench} dataset.}
+    \label{fig:pref:mtbench-pearson}
+\end{figure}
+
+\subsection{Variation}
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=0.5\textwidth]{images/pref_eval/cobbler_pearson_max.pdf}
+    \caption{Pearson Correlation between (a) \textbf{lexicon-based preference} for \textsc{CoBBLEr} dataset and (b) \textbf{entailment-based preference} for \textsc{CoBBLEr} dataset.}
+    \label{fig:pref:cobbler-pearson}
+\end{figure}
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=0.5\textwidth]{images/pref_eval/p2c_pearson_max.pdf}
+    \caption{Pearson Correlation between (a) \textbf{lexicon-based preference} for \textsc{p2c} dataset and (b) \textbf{entailment-based preference} for \textsc{p2c} dataset.}
+    \label{fig:pref:p2c-pearson}
+\end{figure}
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=0.5\textwidth]{images/pref_eval/mtbench_pearson_max.pdf}
+    \caption{Pearson Correlation between (a) \textbf{lexicon-based preference} for \textsc{MT-Bench} dataset and (b) \textbf{entailment-based preference} for \textsc{MT-Bench} dataset.}
+    \label{fig:pref:mtbench-pearson}
+\end{figure}
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=0.5\textwidth]{images/pref_eval/cobbler_entailment_max.pdf}
+    \caption{Pearson Correlation between (a) \textbf{lexicon-based preference} for \textsc{CoBBLEr} dataset and (b) \textbf{entailment-based preference} for \textsc{CoBBLEr} dataset.}
+    \label{fig:pref:cobbler-pearson}
+\end{figure}
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=0.5\textwidth]{images/pref_eval/p2c_entailment_max.pdf}
+    \caption{Pearson Correlation between (a) \textbf{lexicon-based preference} for \textsc{p2c} dataset and (b) \textbf{entailment-based preference} for \textsc{p2c} dataset.}
+    \label{fig:pref:p2c-pearson}
+\end{figure}
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=0.5\textwidth]{images/pref_eval/mtbench_entailment_max.pdf}
+    \caption{Pearson Correlation between (a) \textbf{lexicon-based preference} for \textsc{MT-Bench} dataset and (b) \textbf{entailment-based preference} for \textsc{MT-Bench} dataset.}
+    \label{fig:pref:mtbench-pearson}
+\end{figure}
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=0.5\textwidth]{images/pref_eval/cobbler_pearson_max.pdf}
+    \caption{Pearson Correlation between (a) \textbf{lexicon-based preference} for \textsc{CoBBLEr} dataset and (b) \textbf{entailment-based preference} for \textsc{CoBBLEr} dataset.}
+    \label{fig:pref:cobbler-pearson}
+\end{figure}
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=0.5\textwidth]{images/pref_eval/p2c_pearson_max.pdf}
+    \caption{Pearson Correlation between (a) \textbf{lexicon-based preference} for \textsc{p2c} dataset and (b) \textbf{entailment-based preference} for \textsc{p2c} dataset.}
+    \label{fig:pref:p2c-pearson}
+\end{figure}
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=0.5\textwidth]{images/pref_eval/mtbench_pearson_max.pdf}
+    \caption{Pearson Correlation between (a) \textbf{lexicon-based preference} for \textsc{MT-Bench} dataset and (b) \textbf{entailment-based preference} for \textsc{MT-Bench} dataset.}
+    \label{fig:pref:mtbench-pearson}
+\end{figure}
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=0.5\textwidth]{images/pref_eval/cobbler_entailment_max.pdf}
+    \caption{Pearson Correlation between (a) \textbf{lexicon-based preference} for \textsc{CoBBLEr} dataset and (b) \textbf{entailment-based preference} for \textsc{CoBBLEr} dataset.}
+    \label{fig:pref:cobbler-pearson}
+\end{figure}
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=0.5\textwidth]{images/pref_eval/p2c_entailment_max.pdf}
+    \caption{Pearson Correlation between (a) \textbf{lexicon-based preference} for \textsc{p2c} dataset and (b) \textbf{entailment-based preference} for \textsc{p2c} dataset.}
+    \label{fig:pref:p2c-pearson}
+\end{figure}
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=0.5\textwidth]{images/pref_eval/mtbench_entailment_max.pdf}
+    \caption{Pearson Correlation between (a) \textbf{lexicon-based preference} for \textsc{MT-Bench} dataset and (b) \textbf{entailment-based preference} for \textsc{MT-Bench} dataset.}
+    \label{fig:pref:mtbench-pearson}
+\end{figure}
+\end{figure}
+
+% \begin{figure*}[ht!]
+%   \centering
+%   \includegraphics[width=\textwidth]{images/pref_eval/p2c_lexicon_corr.pdf}
+%   \caption{Pearson Correlation between (a) \textbf{lexicon-based preference} for \textsc{p2c} dataset and (b) \textbf{entailment-based preference} for \textsc{p2c} dataset.}
+%   \label{fig:pref:p2c-lexicon-corr}
+% \end{figure*}")), and (2) \textbf{entailment-based preference} for \textsc{Cobbler} dataset, which shows a stronger correlation between lexicon-based and preferences than humans. Also, in Figure \ref{fig:pref:p2c-lexicon-corr}, we observe that the correlation between lexicon-based and preferences for \textsc{p2c} dataset is positive and 0.07; 0.06; 0.03 on the left, right, and middle 3 setups respectively. While the human preferences have distributions of correlation with the lexicon-based preferences that are similar, the machine preferences have a somewhat different distribution. This may indicate that GPT-3 has a more surface-level understanding of sentiment that is not as nuanced as human sentiment. These findings are further elaborated in Appendix \ref{sec:appendix:pref}.\\
+% \anonymous{anonymous, I think you said this before. Can you please remake the figure and make some adjustments? Also, make some suggestions for improvements in the appendix.}

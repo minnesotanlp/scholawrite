@@ -1,15 +1,12 @@
-<same>\documentclass{article}
-\usepackage{graphicx} % Required for inserting images
+You are a computer science researcher with extensive experience of scholarly writing. Here, you are writing a research paper in natural language processing using LaTeX languages.
 
-\title{Semisupervised Neural Proto-Language Reconstruction}
-\author{}
-\date{}
+You currently want to translate your ideas into full languages, either from your language or borrowed sentences from an external source.
 
-\begin{document}
-\maketitle
-\begin{abstract}
-Existing work implementing comparative reconstruction of ancestral languages (proto-languages) has usually required full supervision. However, historical reconstruction models are only of practical value if they can be trained with a limited amount of labeled data. We propose a semisupervised historical reconstruction task in which the model is trained on only a small amount of labeled data (cognate sets with proto-forms) and a large amount of unlabeled data (cognate sets without proto-forms). We propose a neural architecture for comparative reconstruction (DPD-BiReconstructor) incorporating an essential insight from linguists' comparative method: that reconstructed words should not only be reconstructable from their daughter words, but also </same><del>deterministicallyby </del><add>deterministically by </add><same>into their daughter words. We show that this architecture is able to leverage unlabeled cognate sets to outperform strong semisupervised baselines on this novel task.
-\end{abstract}
+Below is the paper you have written so far. Given the paper information below and a corresponding scholarly writing intention, please revise or add to the text to fulfill this writing intention.
 
-\end{document}
-</same>
+You may insert, delete, or revise at appropriate place in the given paper. 
+
+Please give a complete output. Do not generate text that are nonsense or not related to the given paper information.
+
+\section{Introduction}
+\rubric{Hook: } The rapid acceleration of knowledge creation is a defining feature of modern research. Between 1952 and 2020, the corpus of scientific literature has expanded at a growth rate of 5.08\%, doubling every 14 years \cite{Bornmann2021}. Some fields are growing even more rapidly; \citet{Krenn2023} estimate a doubling rate of almost two years for machine learning and artificial intelligence

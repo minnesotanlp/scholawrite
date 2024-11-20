@@ -1,0 +1,43 @@
+REP \\\textbf{Text} & \textbf{Human Preference} & \textbf{GPT-3 Preference} \\ \midrule
+@nounstudios this old dog needs to learn some new tricks & [2.0, 3.0, 2.0, 3.0]  & [1.0, 1.0, 1.0, 1.0, 1.0] \\ \midrule
+gosh...i'm 22 years old...an old lady! thanks for all the great birthday wishes! now it's bedtime! & [1.0, 2.0, 4.0, 4.0]  &[1.0, 1.0, 1.0, 1.0, 1.0] \\ \midrule
+If we're going to talk about Russian sources, we should also talk about Jewish sources. & [1.0, 0.0, 0.0]  & [0.0, 0.0, 0.0, 0.0, 0.0] \\ \midrule
+I'm skeptical. Nearly every time this type of vandalism occurs, it is perpetrated by someone affiliated with the synagogue. & [1.0, 0.0, 0.0]  & [0.0, 0.0, 0.0, 0.0, 0.0] \\ \midrule
+It's bad to fire a daughter-in-law from a job & [3.0, 2.0, 2.0, 2.0, 2.0]  &[0.0, 3.0, 3.0, 3.0, 3.0] \\ \midrule
+Your boyfriend has the right to wear whatever underwear he chooses. & [3.0, 4.0, 4.0, 3.0, 4.0]  & [3.0, 3.0, 3.0, 3.0, 3.0] \\
+\bottomrule
+\end{tabularx}
+\caption{Qualitative analysis of human and machine task labels for evidence of bias}
+\label{table:qual_table}
+\end{table}
+
+%------------------------------------------------------------
+\subsection{Second-order Analysis}\label{sec:task-second}
+\paragraph{Hypothesis}
+In our experiment, we trained an LLM like RoBERTa \cite{liu2019roberta} on both human and machine-generated annotations to identify potential second-order effects and biases, hypothesizing that biases would become more pronounced over time with a concentrated distribution highlighting specific stereotypes and assumptions.
+\paragraph{Experiment Setup}
+\anonymous{anonymous : complete this }
+\paragraph{Metrics}
+\anonymous{anonymous : complete this }
+\paragraph{Result Analysis}
+\anonymous{anonymous : complete this }
+
+%------------------------------------------------------------
+
+%------------------------------------------------------------
+\subsection{Mitigating Biases from LLM Generated Task Labels}\label{sec:task-mitigation}
+% Majority voting and averaging are common approaches used to resolve annotator disagreements and derive single ground truth labels from multiple annotations. However, annotators may systematically disagree with one another, often reflecting their individual biases and values, especially in the case of subjective tasks such as detecting affect, aggression, and hate speech.
+
+% An adverse effect of majority vote in such cases is limiting representation of minority perspectives in data (Prabhakaran et al., 2021), potentially reinforcing societal disparities and harms.
+% Previous work -->
+% Bayesian methods to account for such systematic differences between annotators (Paun et al., 2018), 
+
+% s for utilizing annotation disagreement during model training. Prabhakaran et al. (2012) explored applying higher cost for errors made on unanimous annotations to decrease the penalty of mislabeling inputs with higher disagreement. Similarly, (Plank et al., 2014) incorporated annotator disagreement into the loss function of a structured perceptron model for better predicting part-of-speech tags. Our work also utilizes annotator disagreements rather than resolving them in the data stage; however, we use a multi-task architecture using a shared representation to model annotator disagreements, rather than using it in loss function. Cohn and Specia (2013) use a multi-task approach to model annotator differences in machine translation annotations. While they use a Gaussian Process approach, we use the multi-task approach on top of pre-trained language models (Liu et al., 2019). Chou and Lee (2019) proposed an approach where they model individual annotators separately in an inner layer to improve the final prediction. In contrast, our proposal involves using the multi-task architecture, and provides the additional ability to utilize multiple predictions during deployment, for instance, to measure uncertainty. Fornaciari et al. (2021) also leveraged annotator disagreement using a multi-task model that adds an auxiliary task to predict the soft label distribution over annotator labels, which improves the performance even in less subjective tasks such as part-of-speech tagging. In contrast, our approach models several annotators’ labels as multiple tasks and obtains their disagreement.
+
+% Need for disagreement seen on NLI Tasks + For measuring the distance between two distributions, Kullback–Leibler (KL) Divergence (Kullback and Leibler, 1951) or its symmetric version,
+% Kullback–Leibler Divergence (Kullback and Leibler, 1951) are widely used. Baan et al., 2022 argued that Expected Calibration Error (ECE), the
+% difference between the average accuracy and the average confidence, could also capture this systematic difference between annotators. However,
+% Baan et al. (2022) noted that all methods are likely to be affected by some degree of systematic anomaly. Therefore, we consider the distributional difference
+% between the majority and minority annotations in a dataset as a 1st and 2nd order effect (Prabhakaran et al., 2021).
+
+% For the 1st order effect, we observe that the ChatGPT

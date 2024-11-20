@@ -1,0 +1,17 @@
+|   & 1 & 2 & 3 & 4 & 5 \\
+\bottomrule
+\end{tabular}
+\caption{Task labels definition}
+\label{tab:task_labels}
+\end{table*}
+
+\begin{table}[H]
+\footnotesize
+\begin{tabular}{p{0.7\columnwidth}p{0.7\columnwidth}}
+\hline
+\textbf{Input} & \textbf{Output} \\ \hline
+\textit{Label of Node = -1} & \textit{Label of Node = 5} \\ \hline
+\textit{Label of Node = 5} & \textit{Label of Node = 5} \\ \hline
+\textit{Label of Node = -1} & \textit{Label of Node = 5} \\ \hline
+\end{tabular}
+\caption{The table shows the GPT-4 and GPT4-V responses with the text modality, text+image modality, and image modality. We can see that on combining modalities, the label originally classified as -1 is

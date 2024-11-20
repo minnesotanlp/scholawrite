@@ -1,0 +1,156 @@
+ichel 5 Types of LLM Generated Data and associated examples - 1) Free Text 2) Task Labels 3) Instructions 4) Preference 5) Simulation. Sources for these examples in order - \cite{moller2023prompt}, \cite{diaz2018addressing},  \cite{honovich2022unnatural}, \cite{kim2023p2c} and \cite{liang2023encouraging} )}
+  \label{fig:figure1}
+\end{figure*}
+ %------------------
+ 
+\begin{table*}[]
+    \centering
+    \begin{tabular}{l|l l }
+    \toprule
+       \textbf{Data type}  &  \textbf{Challenges} & \textbf{Research Gap}\\
+       \midrule
+        Data 1 & Write key points only! & Don't write full sentences!\\
+        Data 2 & \\
+        \bottomrule
+    \end{tabular}
+    \caption{Write about data type and challenges and research gaps. Of course feel free to modify the table!}
+    \label{tab:my_label}
+\end{table*}
+%-------------------------------------------------------------------------
+\section{Free Text}
+\anonymous {Sub Sections : }
+\anonymous {About this data : describe the data, why is this data useful }
+\anonymous {critique - Summarize the critique section + relate to research gap unearthed }
+\anonymous {Datasets - quick summary of datasets used with citation}
+\anonymous {First order experiment : hypothesis, setup, metrics, result}
+\anonymous {Second order experiment : hypothesis, setup, metrics, result}
+\anonymous {Mitigation strategies/ Suggestions for your data}
+
+
+\label{sec:free_text}
+% \input{latex/freetext}
+
+%-----------------------------------------------------------------------
+\section{Task Labels}
+\label{sec:task_label}
+\input{latex/tasklabels}
+%-----------------------------------------------------------------------
+\section{Instruction}
+\anonymous {Sub Sections : }
+\anonymous {About this data : describe the data, why is this data useful }
+\anonymous {critique - Summarize the critique section + relate to research gap unearthed }
+\anonymous {Datasets - quick summary of datasets used with citation}
+\anonymous {First order experiment : hypothesis, setup, metrics, result}
+\anonymous {Second order experiment : hypothesis, setup, metrics, result}
+\anonymous {Mitigation strategies/ Suggestions for your data}
+
+\label{sec:instruction}
+%\input{latex/instruction}
+%-----------------------------------------------------------------------\textbf{}
+\section{Preference}
+\anonymous {Sub Sections : }
+\anonymous {About this data : describe the data, why is this data useful }
+\anonymous {critique - Summarize the critique section + relate to research gap unearthed }
+\anonymous {Datasets - quick summary of datasets used with citation}
+\anonymous {First order experiment : hypothesis, setup, metrics, result}
+\anonymous {Second order experiment : hypothesis, setup, metrics, result}
+\anonymous {Mitigation strategies/ Suggestions for your data}
+
+\label{sec:preference}
+% \input{latex/preference}
+%-----------------------------------------------------------------------
+\section{Simulation}
+\anonymous {Sub Sections : }
+\anonymous {About this data : describe the data, why is this data useful }
+\anonymous {critique - Summarize the critique section + relate to research gap unearthed }
+\anonymous {Datasets - quick summary of datasets used with citation}
+\anonymous {First order experiment : hypothesis, setup, metrics, result}
+\anonymous {Second order experiment : hypothesis, setup, metrics, result}
+\anonymous {Mitigation strategies/ Suggestions for your data}
+
+\label{sec:simulation}
+%\input{latex/simulation}
+%-----------------------------------------------------------------------
+\section{Conclusion}
+\section*{Acknowledgements}
+Thanks :)
+
+% Entries for the entire Anthology, followed by custom entries
+\bibliography{bibtex/free_form_text, bibtex/human_raters, bibtex/instructions, bibtex/pref_eval, bibtex/simulation}
+% \bibliographystyle{acl_natbib}
+
+\appendix
+\section{Example Appendix}
+\label{sec:appendix}
+\anonymous {Add Data Tables here}
+
+\subsection{Free Text}
+\label{sec:appendix:free}
+
+\begin{table}[H]
+\footnotesize
+\begin{tabularx}{\columnwidth}{XX}
+\toprule
+\textbf{Original} (\textit{informal})  & \textbf{Transferred} (\textit{formal})  \\ \midrule
+Ha, you just reminded me of one of my favorite childhood/Christmas-related memories.    & That anecdote has been etched into my brain – it was one of my most treasured childhood memories!    \\ \midrule
+Guysss please sponsor me and give as much as you can.. I'm climbing Mount Snowdon in Feb! & Guess who's cycling 50 miles for environmental initiatives? That's right, me! Please consider sponsoring me! \\
+\bottomrule
+\end{tabularx}
+\caption{Paired texts in which the human text is labeled \textit{informal} and the paired machine text is labeled \textit{formal}.}
+\label{table:formality_qual}
+\end{table}
+
+\begin{figure}[H]
+  \centering
+  \includegraphics[width=\textwidth]{images/free_text/reddit_eli5_motif_hist_chatgpt-human.png}
+  \caption{Distributional difference between ChatGPT-generated vs. human-authored document graphs for Reddit ELI5 domain.}
+  \label{fig:free_text/dist_diff_reddit}
+\end{figure}
+
+\begin{figure}[H]
+  \centering
+  \includegraphics[width=\textwidth]{images/free_text/wiki_csai_motif_hist_chatgpt-human.png}
+  \caption{Distributional difference between ChatGPT-generated vs. human-authored document graphs for Wikipedia CS AI domain.}
+  \label{fig:free_text/dist_diff_wiki}
+\end{figure}
+\begin{figure}[H]
+   \centering
+   \includegraphics[width=\textwidth]{images/free_text/finance_motif_hist_chatgpt-human.png}
+   \caption{Distributional difference between ChatGPT-generated vs. human-authored document graphs for Finance domain.}
+   \label{fig:free_text/dist_diff_finance}
+\end{figure}
+\begin{figure}[H]
+   \centering
+   \includegraphics[width=\textwidth]{images/free_text/medicine_motif_hist_chatgpt-human.png}
+   \caption{Distributional difference between ChatGPT-generated vs. human-authored document graphs for Medicine domain.}
+   \label{fig:free_text/dist_diff_medicine}
+\end{figure}
+
+\begin{figure}[H]
+  \centering
+   \includegraphics[width=\textwidth]{images/free_text/open_qa_motif_hist_chatgpt-human.png}
+  \caption{Distributional difference between ChatGPT-generated vs. human-authored document graphs for Open QA domain.}
+  \label{fig:free_text/dist_diff_openqa}
+\end{figure}
+
+\begin{figure}[H]
+  \centering
+  \includegraphics[width=\textwidth]{images/free_text/finance_motif_hist_chatgpt-human.png}
+  \caption{Distributional difference between ChatGPT-generated vs. human-authored document graphs for Finance domain.}
+  \label{fig:free_text/dist_diff_finance}
+\end{figure}
+
+\begin{figure}[H]
+   \centering
+   \includegraphics[width=\textwidth]{images/free_text/medicine_motif_hist_chatgpt-human.png}
+  \caption{Distributional difference between ChatGPT-generated vs. human-authored document graphs for Medicine domain.}
+  \label{fig:free_text/dist_diff_medicine}
+\end{figure}
+
+\begin{figure}[H]
+  \centering
+   \includegraphics[width=\textwidth]{images/free_text/open_qa_motif_hist_chatgpt-human.png}
+  \caption{Distributional difference between ChatGPT-generated vs. human-authored document graphs for Open QA domain.}
+  \label{fig:free_text/dist_diff_openqa}
+\end{figure}
++

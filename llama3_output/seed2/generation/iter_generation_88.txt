@@ -1,0 +1,41 @@
+°N, I, F} \textbf{Instruction:} Did Bolling's decision to fire itself from the cycling team include any oil-based products? & Did Bolling's decision to fire itself from the cycling team include any oil-based products? & Did Bolling's decision to fire itself from the cycling team include any oil-based products? \\
+\bottomrule
+\end{tabular}
+\caption{Qualitative analysis of instruction in synthetic instruction datasets.}
+\label{tab:instruction_qual}
+\end{table}
+
+%------------------------------------------------------------
+\subsection{Second Order Effects}\label{sec:instruct-second}
+\paragraph{Hypothesis}
+We examine if, when controlled for size, models fine-tuned on human-generated instructions perform better than models fine-tuned on synthetic instructions, and if error-prone instruction tuning data leads to poorer performance.
+
+\paragraph{Experiment Setup}
+We fine-tuned Llama 2 on 10,000 samples from two synthetic datasets (Self-Instruct and Cleaned Alpaca) and two human-generated datasets (Dolly and Supernatural Instructions). To test the resulting models, we ran inference on 1,000 samples from the human-generated FLAN dataset. 
+
+To gain insight into the downstream effect of including error-ridden samples in the fine-tuning data, we corrupt 50\% of the samples from our 10,000 Supernatural Instructions data. This is done programmatically for binary and multiple-choice samples using regular expressions. For example, replacing ``True'' with ``False''. For the generative task samples, we prompt GPT-4 to alter the meaning of the output to make it incorrect given the instruction and input.
+
+\paragraph{Metrics}
+We automatically evaluate the model outputs using ROUGE F1 score, cosine similarity, and perplexity to measure how similar the outputs are to the ground truth. 
+
+\paragraph{Result}
+When controlled for dataset size, the human-generated instruction tuning performed better, with both Dolly and Supernatural instructions scoring higher than Cleaned Alpaca and Self-Instruct. The Rouge F1 scores, cosine similarities, and perplexity can be seen in Table \ref{tab:scores_instruction}. We ran manual error analyses on 50 of the test samples from FLAN and found that the synthetic fine-tuning produced significantly more hallucinations. We also found that the model fine-tuned on the corrupted Supernatural Instructions data performed worse than the model fine-tuned only on uncorrupted data. For more details, see Figure \ref{fig:error_analysis_instructions}. 
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=0.49\textwidth]{images/instructions/error_analysis.pdf}
+    \caption{Error analysis over 50 test samples}
+    \label{fig:error_analysis_instructions}
+\end{figure}
+
+\subsection{Summary}
+We summarize our findings  the effects of artificial data on 
+%-----------------------------------------------------------------------
+\subsection{Mitigation Suggestions}\label{sec:instruct-mitigation}
+Given the limitations we discovered in the synthetic instruction datasets and their impact on model performance, we propose several mitigation strategies when using synthetic instructions. We suggest that researchers first closely inspect the data resource, focusing on errors in the instructions. Researchers may also want to perform automatic preprocessing to clean the data by checking the consistency of the inputs and outputs with the instructions.
+
+The reader may want to consider generating their own data following the work by \cite{Lee2023EnsembleInstructGI}, who make a similar observation to ours regarding the difference between Open-QA and Closed-QA instructions (but categorize samples into whether they have an input). They used In-Context Learning demonstrations, and use ensembling to select higher quality synthetic instructions.
+
+We also recommend evaluating whether the dataset is truly diverse; \cite{Wang2023HowFC} observe that instruction-tuned models vary widely, but perform better when the fine-tuning data contains diverse skills and domains. 
+
+To promote diversity in task categories, we would suggest to use diversity-promoting techniques such as criteria-based prompting \cite{hayati2023far}. The task categories could be specified as the criteria words that the model needs to generate, so we hope that LLM can generate diverse and structured instructions.

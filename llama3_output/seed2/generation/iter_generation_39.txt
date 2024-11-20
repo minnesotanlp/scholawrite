@@ -1,0 +1,11 @@
+clipping the corners of the figures to improve readability. 
+% \anonymous{Can you make this wide enough to fit both figures and save the horizontal space? If so, I think we can keep the original width and simply remove the width specification in the style, and it will automatically fit in the width of the column.}
+% \anonymous{I think it's better to set the width for the figures to fit the content, rather than the column width. In this case, I think the column width is wider than figure width, so let's set the figure width to 0.9\textwidth and save the horizontal space. }
+% Figure \ref{fig:plot_diff_data} shows that using the adjacency list as the mode of edge representation with node label mapping is the most informative encoding function, which balances the tradeoff between high accuracy and low token limit fraction. Figure \ref{fig:plot_diff_data} shows that using the node label mapping as the mode of edge representation with adjacency list is the most informative encoding function, which balances the tradeoff between high accuracy and low token limit fraction. Error bars show the 95\% confidence interval for each metric. 
+% \anonymous{Increase font sizes for legend and axis texts. Use different bar textures for human and machine. Add error bars with their exp expressions and make y-axis using e format (e.g., e-3) to save addditional space.}
+% \anonymous{Also, calculate the std or variation across domains, and compare their scores in the second order effect section.}
+
+% \begin{figure*}[ht!]
+%   \centering
+%   \includegraphics[width=\textwidth]{figures/metric_modality.pdf}
+%   \caption{We compare the motif modality encoding with the 4 types of input features (x-axis) to the mean metrics (y-axis). Desired trends are denoted in brackets. Metrics considered are Accuracy Rate (A $\uparrow$), Mismatch Rate (M $\downarrow$), and Denial Rate (D $\downarrow$). The highest performing encoding modality is "image" with the high accuracy and low mismatch rate}

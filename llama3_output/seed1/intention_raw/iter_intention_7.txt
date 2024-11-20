@@ -1,0 +1,23 @@
+_out  the \textbf{target} style, i.e. the style of the text in the paired human-machine texts. For example, if the target style is positive, the model should respond to a prompt with a positive sentiment as it did in the original human text. On the other hand, if the target style is negative, the model should respond to the prompt with a negative sentiment, although it may do so in a manner that is not identical to the original human text. We also note that when the human text is labeled with a target style, the model text is also labeled with that style. In some cases, the model may apply the target style to a text that is not similar to the human text's style. In other words, the model may apply the target style to a text that has a different formality, a different sentiment, or a different overall style. We refer to this as the ``target'' style control. We also observe that when the human text is similar to the target style, the model text is also similar to the human text's style. In this case, the model may be able to apply the target style without much control discrepancy. We refer to this as the ``target'' style control. We investigate these ideas further in Appendix\ref{sec:appendix}.
+
+%We also explore how the target style of the model affects the model's performance on the tasks. Figure \ref{fig:general_results} shows that when controlling for a single style, other styles are also unintentionally affected. This indicates that controlling for one style can have unintended side effects on other styles. 
+
+\noindent \textbf{Comparison of model performance with respect to 1-style control 185} 5 3 5 4 5 4 5 4 5 4 \\
+\textbf{Sentiment} & \textbf{Formality} & \textbf{Irony} & \textbf{Emotion} & \textbf{Toxicity} & \textbf{Formality} & \textbf{Irony} & \textbf{Emotion} & \textbf{Toxicity} \\
+\midrule
+1-Style Models & & & & & & \\
+\quad Positive & 0.589 & 0.420 & 0.350 & 0.378 & 0.590 & 0.580 & 0.450 & 0.528 \\
+\quad Negative & 0.411 & 0.581 & 0.330 & 0.692 & 0.6  & 0.642 & 0.5 \\
+\quad Formal & 0.420 & 0.750 & 0.420 & 0.612 & 0.786 & 0.6  & 0.464 \\
+\quad Informal & 0.580 & 0.580 & 0. & 0.786 & 0.600 & 0.586 & 0.6  \\
+\midrule
+2-Style Models & & & & & &\\
+\quad Positive-Formal  & 0.589 & 0.420 & 0.350 & 0.378 & 0.590 & 0.580 & 0.450 & 0.528 \\
+\quad Positive-Informal & 0.589 & 0.580 & 0.239 & 0.591 & 0.786 & 0.600 & 0.436 \\
+\quad Negative-Formal & 0.411 & 0.750 & 0.179 & 0.618 & 0.630 & 0.852 & 0.436 \\
+\quad Negative-Informal & 0.411 & 0.581 & 0.341 & 0.659 & 0.6  & 0.5  & 0.464 \\
+\bottomrule
+\end{tabular}
+\caption{Automatic target style accuracy evaluation of 1- and 2-style models for RL and PPLM. (``Both'' indicates the portion of generations containing both the target sentiment \textit{and} formality.) Compare style frequencies to those in the base Llama2 generations to see the effect both approaches have on the target styles.} 
+\label{tab:precision_base-rl-pplm}
+\end{table*}

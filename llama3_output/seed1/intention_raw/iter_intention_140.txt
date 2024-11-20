@@ -1,0 +1,82 @@
+�~\textbf{Graph }  \cite{velickovic2018graph} - only works with numeric/numerical data
+   \item \textbf{Text} \cite{guo2017graph} - works with both graph data and LLMs
+   \item \textbf{Motif} \cite{shervashidze2012weisfe} - only works with numeric/numerical data
+    \item \textbf{Image} \cite{yin2023survey} - works with both graph data and LLMs
+    \item \textbf{Edgelist} \cite{wang2023can} - works with both graph data and LLMs
+\end{itemize}
+%-----------------------------------------------------------
+
+
+%------------------------------------------
+\begin{figure*}
+  \centering
+%\includegraphics[width=0.95\linewidth]
+\includegraphics[width = \linewidth]{figures/motif_m3_mfidf_scores_difference_for_motif_m3.pdf}
+  \caption{Difference distribution of 69 motifs of size three across five domains.}
+  \label{fig:fig5}
+\end{figure*}
+%------------------------------------------
+\subsubsection{Difference Distributions of Motifs across \textit{the five domains}}\label{subsubsec:distinctive_motifs}
+
+Figure \ref{fig:fig5} depicts the difference distribution of 69 motifs of size three across five domains. We can see that the motifs are more densely present in  the texts, particularly in the sections of the five domains with the higher MF-IDF scores.
+
+\begin{figure*}[!t]
+\centering
+\begin{tabular}{c}
+   {\includegraphics[width=\linewidth]{figures/motif_m3_mfidf_scores_difference_for_motif_m3.pdf}}  \\
+     (a) Single-triads.\\
+     \includegraphics[width=\linewidth]{figures/motif_m6_mfidf_scores_difference_for_motif_m6.pdf}  \\
+     (b) Double-triads.
+\end{tabular}
+\caption{Difference distribution of single- and double-triad motifs.}
+\label{fig:fig:double-motif-diff}
+\end{figure*}
+
+\begin{figure*}[!t]
+\centering
+{\includegraphics[width=\linewidth]{figures/motif_m3_mfidf_scores_difference_for_motif_m3.pdf}}
+\caption{Difference distribution of single- and double-triad motifs.}
+\label{fig:fig:double-motif-diff}
+\end{figure*}
+
+\begin{figure*}[!t]
+\centering
+{\includegraphics[width=\linewidth]{figures/motif_m3_mfidf_scores_difference_for_motif_m3.pdf}}
+\caption{Difference distribution of single- and double-triad motifs.}
+\label{fig:fig:double-motif-diff}
+\end{figure*}
+
+\begin{table*}[!t]
+\centering
+\resizebox{0.8\textwidth}{!}{
+\begin{tabular}{c|c|ccc}
+\toprule
+\multirow{2}{*}{ } & HC3 & \multicolumn{3}{c}{DeepfakeTextDetect} \\
+& & Test & OOD-GPT & OOD-GPT-Para \\
+\midrule
+MF Only & 0.55 & 0.57 & 0.48 & 0.60 \\
+MF + Sel. Motifs & 0.55 & 0.58 & 0.49 & 0.61 \\
+\bottomrule
+\end{tabular}}
+\caption{Overall detection F1 scores of models on the three datasets.}
+\label{tab:overall_f1}
+\end{table*}
+
+\begin{table*}[!t]
+\centering
+\resizebox{0.8\textwidth}{!}{
+\begin{tabular}{c|c|ccc}
+\toprule
+\multirow{2}{*}{ } & HC3 & \multicolumn{3}{c}{DeepfakeTextDetect} \\
+& & Test & OOD-GPT & OOD-GPT-Para \\
+\midrule
+MF Only & 0.55 & 0.57 & 0.48 & 0.60 \\
+MF + Sel. Motifs & 0.55 & 0.58 & 0.49 & 0.61 \\
+\bottomrule
+\end{tabular}}
+\caption{Overall detection F1 scores of models on the three datasets.}
+\label{tab:overall_f1}
+\end{table*}
+
+\subsection{Correlation between Formality and Hierarchy}\label{subsec:formality_correlation}
+pear

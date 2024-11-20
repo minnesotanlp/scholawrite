@@ -1,0 +1,94 @@
+Facial features: 0.33 & 0.24 & 0.19 & 0.24 & 0.33 & 0.19 & 0.24 \\
+ conversation length: 0.67 & 0.51 & 0.60 & 0.67 & 0.53 & 0.60 \\
+ average sentence length: 0.15 & 0.59 & 0.71 & 0.09 & 0.38 & 0.72 \\
+ standard deviation of sentence length: 0.08 & 0.08 & 0.06 & 0.12 & 0.06 \\
+ 0.8 & 0.7 & 0.6 & 0.8 & 0.7 & 0.6 \\
+\bottomrule
+\end{tabular}
+\caption{Comparison of linguistic features of human-like and agent-like conversations.}
+\label{tab:linguistic_features}
+\end{table}
+
+\begin{figure}[ht!]
+    \centering
+    \includegraphics[width=\linewidth]{images/plot_diff_data.pdf}
+    \caption{ChatGPT model conversations in English with different generation settings.}
+    \label{fig:plot_diff_data}
+\end{figure}
+
+\begin{figure}[ht!]
+    \centering
+    \includegraphics[width=\linewidth]{images/plot_diff_data.pdf}
+    \caption{ChatGPT model conversations in English with different generation settings.}
+    \label{fig:plot_diff_data}
+\end{figure}
+
+\begin{figure*}[p]
+  \centering
+  \includegraphics[width=\textwidth,height=\textheight,keepaspectratio]{images/free_text/interesting_motifs_m3.pdf}
+  \caption{35 network motifs of size three that exist in the HC3 dataset.}
+  \label{fig:free_text/interesting_motifs_m3}
+\end{figure*}
+
+\begin{figure*}[p]
+  \centering
+  \includegraphics[width=\textwidth,height=\textheight,keepaspectratio]{images/free_text/social_2nd_order_effect.pdf}
+  \caption{The effect of social context on LLM-generated text.}
+  \label{fig:social-2nd-order}
+\end{figure*}
+
+\begin{figure*}[p]
+  \centering
+  \includegraphics[width=\textwidth,height=\textheight,keepaspectratio]{images/free_text/interesting_motifs_m3.pdf}
+  \caption{35 network motifs of size three that exist in the HC3 dataset.}
+  \label{fig:free_text/interesting_motifs_m3}
+\end{figure*}
+
+\begin{figure*}[!t]
+\centering
+{\includegraphics[width=0.9\textwidth]{images/free_text/reddit_eli5_motif_hist_chatgpt-human.png}}
+\caption{Distributional difference between ChatGPT-generated vs. human-authored document graphs for Reddit ELI5 domain.}
+\label{fig:free_text/dist_diff_reddit}
+\end{figure*}
+
+\begin{figure*}[!t]
+\centering
+{\includegraphics[width=0.9\textwidth]{images/free_text/finance_motif_hist_chatgpt-human.png}}
+\caption{Distributional difference between ChatGPT-generated vs. human-authored document graphs for Finance domain.}
+\label{fig:free_text/dist_diff_finance}
+\end{figure*}
+
+\begin{figure*}[!t]
+\centering
+{\includegraphics[width=0.9\textwidth]{images/free_text/medicine_motif_hist_chatgpt-human.png}}
+\caption{Distributional difference between ChatGPT-generated vs. human-authored document graphs for Medicine domain.}
+\label{fig:free_text/dist_diff_medicine}
+\end{figure*}
+
+\begin{figure*}[!t]
+\centering
+{\includegraphics[width=0.9\textwidth]{images/free_text/open_qa_motif_hist_chatgpt-human.png}}
+\caption{Distributional difference between ChatGPT-generated vs. human-authored document graphs for Open QA domain.}
+\label{fig:free_text/dist_diff_openqa}
+\end{figure*}
+
+\begin{figure*}[!t]
+\centering
+{\includegraphics[width=0.9\textwidth]{images/free_text/finance_motif_hist_chatgpt-human.png}}
+\caption{Distributional difference between ChatGPT-generated vs. human-authored document graphs for Finance domain.}
+\label{fig:free_text/dist_diff_finance}
+\end{figure*}
+
+\begin{figure*}[!t]
+\centering
+{\includegraphics[width=0.9\textwidth]{images/free_text/medicine_motif_hist_chatgpt-human.png}}
+\caption{Distributional difference between ChatGPT-generated vs. human-authored document graphs for Medicine domain.}
+\label{fig:free_text/dist_diff_medicine}
+\end{figure*}
+
+\begin{figure*}F
+\centering
+{\includegraphics[width=0.9\textwidth]{images/free_text/open_qa_motif_hist_chatgpt-human.png}}
+\caption{Distributional difference between ChatGPT-generated vs. human-authored document graphs for Open QA domain.}
+\label{fig:free_text/dist_diff_openqa}
+\end{figure*}

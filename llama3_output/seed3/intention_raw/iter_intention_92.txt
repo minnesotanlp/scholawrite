@@ -1,0 +1,54 @@
+facial expressions and their relationships. We hypothesize that when social contexts are more formal, as they are in the Wikipedia dataset, the positive expressions are more pronounced. When the social context is less formal, as in the case of social media posts, we expect the emotional expressions to be more uniformly expressed. \\
+
+ \textbf{Metrics} & \textbf{Performance on human preference} & \textbf{Performance on machine preference} & \textbf{Performance on human preference} & \textbf{Performance on machine preference} \\ \hline
+ \textbf{Model} & \textbf{Positive} & \textbf{Negative} & \textbf{Positive} & \textbf{Negative} \\
+ \hline
+ \textbf{Human} & 0.73 & 0.67 & 0.69 & 0.74 \\
+ \textbf{Machine} & 0.38 & 0.72 & 0.25 & 0.19 \\
+ \hline
+ \textbf{S} & 0.33 & 0.74 & 0.67 & 0.54 \\
+ \textbf{Human} & 0.66 & 0.52 & 0.66 & 0.38 \\
+ \textbf{Machine} & 0.25 & 0.30 & 0.34 & 0.61 \\ \hline
+ \end{tabular}
+\caption{Paired human-machine texts. The human texts are given as an example in the prompt that generated the machine text. The human portion of the pair is in \textit{bold}, and the machine portion is in \textit{italic}. The corresponding human and machine texts are further separated by different color shades for better distinction. For example, when the human portion is a text with the ``positive'' label, the machine portion will be the corresponding text with the ``negative'' label. The labels and texts are assigned based on their relevance to the social context and their formality. }
+\label{tab:formality_qual}
+\end{table}
+% \begin{wrapfigure}[7]{R}[0.5cm]{2.8in}
+% \centering
+% \includegraphics[width=\textwidth,height=\textheight,keepaspectratio]{images/free_text/interesting_motifs_m3.pdf}
+
+% \end{wrapfigure}
+\subsubsection{Discourse Analysis}\label{sec:free-text-discourse}
+\begin{wrapfigure}[7]{R}[0.5cm]{2.8in}
+\centering
+\includegraphics[width=\textwidth,height=\textheight,keepaspectratio]{images/free_text/three_interesting_m3_motifs_for_artifact_paper.pdf}
+\caption{Example network motifs of size three.}
+\label{fig:free_text/three_interesting_m3_motifs_for_artifact_paper}
+\end{wrapfigure}
+We apply an existing discourse parser \citep{liu-etal-2021-dmrst} to the paired human-machine texts to perform the discourse analysis. For a given document, the parser produces a hierarchical discourse tree that adheres to a discourse framework called the Rhetorical Structure Theory \citep{mann1987rhetorical}. We note that this hierarchical tree can be seen as a recursive hypergraph in graph theory. By converting the trees to hypergraphs, we can conduct some standard graph analyses such as computing the distribution of network motifs of varying sizes. These network motifs are small directed subgraphs with edges labeled with a discourse relation and can be considered as a building block or a ``vocabulary'' of larger graphs. For example, Figure \ref{fig:free_text/three_interesting_m3_motifs_for_artifact_paper} illustrates three motifs of size three that distinctively occur in either the machine or human side of texts, where an edge is a label of discourse relation, and a node is either an elementary discourse unit or a hyperedge node, comprising multiple subgraphs. We check the differences in these motif distributions and validate if they represent any meaningful patterns in discourse structures and, thus, in the ways the documents are written or generated. (For details on these motifs, see Appendix~\ref{sec:appendix:free}.) 
+We examine each document graph $G$ in a domain by counting the occurrence of a particular motif or subgraph $M$ in $G$, and then normalize these counts based on the size of the graph (i.e., the number of edges $|E|$). This is aggregated over all instances and averaged across domains.
+
+
+
+
+
+\begin{figure*}[h!]
+  % <left> <lower> <right> <upper>
+  \includegraphics[width=0.9\textwidth, trim={7.2cm 0.0cm 7.2cm 0.5cm},clip]{images/free_text/motif_m3_hist_dist-norm_by_edges.pdf}\vspace{-5mm}
+  \caption{Normalized motif distributions, highlighting six distinctive motifs, presented for the ``yelp,'' ``cmv,'' and ``xsum'' domains. Notably, \textit{the proportions of motifs vary significantly across the different text domains}, underscoring the disparities in motif distribution patterns. This distinction is \textit{more pronounced for human-authored texts} than machine-generated ones.}
+  \label{fig:motif_hist_dist-norm_by_edges}
+  % \vspace{-6mm}
+\end{figure*}
+\textbf{Findings}
+Our discourse results, shown in Figure~\ref{fig:motif_hist_dist-norm_by_edges}, show distinct differences in motif distributions depending on their domain. In general, the more formal the domain, the texts show more motifs that contain converging hyperedges that denote the linking of a lower representation to a higher one (i.e., phrases to sentences, sentences to paragraphs, etc.). We note that this is not a perfect correspondence since hyperedges represent not only textual relations but also other  discourse relations. 
+For ``Yelp'' domain, we observe human-written texts talk more about ``Temporal'' and ``Evaluation'' relations while machine-written ones talk more about the general ``Background'' of a place. This suggests that domain-specific distinctiveness can arise from human-authored texts while machine-generated texts seem relatively general. 
+A similar pattern is observed for Figure \ref{fig:free_text/dist_diff_five_domains} in Appendix \ref{sec:appendix:free} which shows distributional differences between human- and machine-generated document graphs for a larger number of motifs.
+
+
+\subsection{Second Order Experiment}
+\label{sec:free-second}
+\begin{wrapfigure}[7]{r}[0.5cm]{2.8in}
+\centering
+\includegraphics[width=\textwidth,height=\textheight,keepaspectratio]{images/free_text/f1scatter.pdf}
+\caption{Scatterplot comparing (x-axis) the label-level F1 differences in performance for models trained on human-text vs machine-text, and (y-axis) selected mean label-level attribute differences, normalized. 
+We find \textit{a positive correlation between the magnitude of the F1 score deficit for the model trained only on machine text}, and the magnitude of the high-level attributes (such as \textit{sadness}) among the machine and human texts.}

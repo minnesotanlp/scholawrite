@@ -1,0 +1,22 @@
+Canter, L. (2023). There is no such thing as a 'neutral' preference. \textit{Journal of Happiness Studies}, 25(1), 1-15. 
+
+\begin{table}[H]
+    \centering
+    \begin{tabular}{p{.16\textwidth}p{.48\textwidth}p{.26\textwidth}}\toprule
+        \textbf{Type of LLM Generated Preference} & \textbf{Citation} & \textbf{Reason for Inclusion} \\\midrule
+        \textbf{Instruction} & \textsc{Unnatural Instructions}  \cite{honovich2022unnatural}, & LLMs produce errors in the instruction, which can lead to incorrect outputs.\\
+        \textbf{Preference} & \textsc{P2C} \cite{kim2023p2c} & LLMs show a strong tendency to prefer the first response that comes to their input, rather than considering the best answer among all responses.\\
+        \textbf{Simulation} & \textsc{CAMEL} \cite{li2023camel} & The simulation data were created by 15 LLM agents conversing with each other, and the agents' personas were assigned with different roles, which may induce role-flipping. \\
+        \textbf{Preference} & \textsc{CoBBLEr} \cite{koo2023benchmarking} & The paper found that LLMs have a stronger tendency to show locality bias or be sensitive to local linguistic cues of texts that are more salient than humans when judging their preferences. \\
+        \textbf{Simulation} & \textsc{Solo Performance Prompting Grid-World (SPP)} & Role-flipping is frequently observed in the simulated conversation in the SPP dataset. The role-flipping rate is also significantly different among the different occupations of the agents.\\
+        \textbf{Preference} & \textsc{GPT-4-LLM} \cite{liang2023encouraging} & Encouraging LLMs to generate  is a relatively new approach that has not been tried before. \\
+        \textbf{Simulation} & \textsc{CAMEL AI-Society} & The simulation data were created by 15 LLM agents conversing with each other, and the agents' personas were assigned with different roles, which may induce role-flipping. \\
+
+    \bottomrule
+    \end{tabular}
+    \caption{Caption}
+    \label{tab:preference-background}
+\end{table}
+
+\paragraph{Second Order Experiment}
+We train two RoBERTa reward models, one on human preferences and the other on machine preferences, for each dataset. We then test each model on the human reward test set. Our results (Table!\ref{tab:preference:human}) show that the models trained on machine preferences, when compared to those trained on human preferences, have about $10\%$ lower accuracy on the human test set for both datasets. This indicates that machine preferences are not perfectly aligned with human preferences. Further, the highest accuracy overrall is achieved by a machine-trained model on a machine test set, indicating that machine preferences may be easier for models to learn than human preferences. This may be due to machine preferences correlating more strongly with signals such as lexical features and entailment, as discussed above.

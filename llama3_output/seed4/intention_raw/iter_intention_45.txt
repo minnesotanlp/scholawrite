@@ -1,0 +1,10 @@
+These 15 types of LLM-generated data represent a reasonably large and diverse subset of artificial data, including not only free-form text data, but also task labels, instruction prompts, preference data, and simulated log entries from LLM agents. This classification helps understand how each data type contributes to the broader AI and machine learning development landscape.
+
+% Write about 
+socio-technical
+
+To forward the understanding of artificial data and its effects, the research questions we investigate are
+
+\begin{itemize}
+\item \textbf{RQ1} What is the nature of SOTA artificial data? How does it compare to human data, and what artifacts does it contain?
+\item \textbf{RQ2} Does the nature of artificial data influence downstream outcomes

@@ -1,0 +1,48 @@
+You are a computer science researcher with extensive experience of scholarly writing. Here, you are writing a research paper in natural language processing using LaTeX languages.
+
+You currently want to translate your ideas into full languages, either from your language or borrowed sentences from an external source.
+
+Below is the paper you have written so far. Given the paper information below and a corresponding scholarly writing intention, please revise or add to the text to fulfill this writing intention.
+
+You may insert, delete, or revise at appropriate place in the given paper. 
+
+Please give a complete output. Do not generate text that are nonsense or not related to the given paper information.
+
+    \item How can we most effectively combine signals from separate style discriminators into a reward function? (Section~\ref{sec:reward_eval})
+    \item How often do two- and three-style models express the target styles in their generation, and how fluent are these generations? (Section~\ref{sec:two_style},~\ref{sec:three_styles})
+    \item Which style combinations are most difficult to learn? (Section~\ref{sec:two_style},~\ref{sec:three_styles})
+    \item Do unintended side effects appear in generations from multi-style RL fine-tuned models? (Section~\ref{sec:side_effects})
+\end{itemize}
+For more perspective on these results, we also conduct experiments using a decoding-time \textsc{PPLM} approach and zero-shot prompting with \textsc{GPT-4}. 
+% \anonymous{Can you write down research questions to answer first and then link each to each of the following sub-sections }
+
+
+\input{Tables/compare_base_rl_pplm}
+
+
+
+\begin{table}[h]
+\centering
+\begin{tabular}{p{0.94\columnwidth}}
+\hline
+\textbf{Reward Hacking (Negative + Informal)}  \\ \hline
+You have no affinity for this community. I don’t know what to say, I don’t know what to do.  \\ \hline
+Violent, vulgar, and obscenely disrespectful. I’m just going to list the stuff, you know, for the people who are...I don’t know, I don’t work on it.  \\ \hline
+Ugh. Our Pho looks so bad. I don’t know how to say this, but, it does  \\\hline
+\end{tabular}
+\caption{Some models obtain high rewards by repeating the same phrases (in this case, ``I don't know''). Our hyperparameter searches prioritize models without such reward hacking, even if they obtain lower rewards.}
+\label{tab:reward_hacks}
+\end{table}
+
+
+\subsection{Multi-Reward Control Formulation Evaluation}\label{sec:reward_eval}
+We train several versions of models with Informal-Negative and Formal-Negative target styles to investigate which of the reward formulations outlined in Sec~\ref{sec:reward_formulations} is most effective. For a summary of our study on Informal-Negative see Table~\ref{tab:ablation}; full results are in Appendix Table~\ref{tab:ablation-large}. We find that for softmax rewards, the models make only small improvements on controlling styles. We hypothesize that a contributing factor may be poor confidence calibration of our discriminators' softmax scores. To correct this, we implement a calibrated softmax reward using the confidence calibration technique proposed in \citet{guo2017calibration}. This results in the Expected Calibration Error (ECE) for sentiment and formality discriminators decreases from $0.133$ to $0.016$ and $0.267$ to $0.111$ respectively. These calibrated softmax rewards do offer some improvements relative to the un-calibrated softmax rewards, but improvements are modest.
+
+Reward formulations using raw logits, on the other hand, tend to control the styles better at the cost of fluency, as measured by the average perplexity of the generations. We also anecdotally observed that the logit-reward models often developed \textbf{highly repetitive reward hacking strategies} when the KL coeffecient was not sufficiently high; see examples in Table~\ref{tab:reward_hacks}.
+
+
+Both the binary reward approach and dynamic gradient weighting (GradWt) approach produces sizable improvements over the softmax or logit based rewards while maintaining generation quality. The GradWt approach outperforms the binary approach on all counts for the Negative-Informal combination ($60.25\%$ of GradWt generations contain both styles versus $56.80$ for binary). Generations from the binary approach are also more repetitive than those from GradWt. In the Negative-Formal combination, results are mixed: $38.90\%$ of the generations in the binary approach model contain both styles versus $37.50\%$ in the GradWt approach, with binary having substantially more target fomality and GradWt having substantially more target sentiment.
+Based on results from these experiments, we chose to implement the GradWt approach for our remaining two- and three-style 
+
+We note that particularly when combining multiple non-orthogonal styles, a simple linear combination of scores can make learning difficult for the model: the model may be able to easily increase its reward by maximizing results from only one discriminator and get ``stuck'' without learning how to obtain good results from all discriminators. We conjecture that both the binarizing and dynamic weighting approaches alleviate this issue.
+%\anonymous{The findings in the paragraphs above are well written, but they are a big verbose. Also, the findings on Binarized and GradWt seem to be less conclusive. Can you explicitly say that these proposed methods outperform the other formulations with some conjectures? Also, mention that we decided to use GradWt as our final setup for the following expeirments, as it shows the highest performance on both control and quality?}

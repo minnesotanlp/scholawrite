@@ -1,0 +1,9 @@
+Fairfield-Upstate, NY & 0.0 & 0.0 & 0.0 & 0.0 & 0.0 & 0.0 & 0.0 \\
+ Fairfield & 0.0 & 0.0 & 0.0 & 0.0 & 0.0 & 0.0 & 0.0 \\
+ Lehigh & 0.0 & 0.0 & 0.0 & 0.0 & 0.0 & 0.0 & 0.0 \\
+  & 0.0 & 0.0 & 0.0 & 0.0 & 0.0 & 0.0 & 0.0 \\
+ \bottomrule
+\end{tabular}
+\caption{Percentages of evaluation generations that fulfill \textit{both} target styles. Fine-tuning with GradWt-RL substantially increases prevalence of target style combinations when compared to the original base model (\textsc{LLaMAv2}) or PPLM-based control.}
+\label{tab:precision_base-rl}
+\end{table*}

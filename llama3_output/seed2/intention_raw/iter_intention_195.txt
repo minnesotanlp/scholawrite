@@ -1,0 +1,35 @@
+Canter, A., Ma, L., & Pham, T. (2023). Can AI-generated data be reliably detected? A systematic study on discernible artifacts for AI-generated text. IEEE Rebecca L. Harkness Conference on Media Technology and Society.
+
+\end{itemize}
+
+%----- establish motivation ----
+% used a lot for so many tasks 
+The advancement of large language models (LLMs) has led to their widespread adoption for complex data generation tasks once exclusive to humans, such as writing, labeling, and data evaluation. \cite{ding2022-is-gpt3-good, moller2023prompt, huang2023learning}. This proliferation, especially with models like ChatGPT, calls for detailed research to understand the capabilities and limitations of LLMs in various economically and efficiently executed data-intensive tasks. LLM-generated artificial data can match human data in performance across various benchmarks, yet the full implications and impact of its use in subsequent tasks remain elusive.
+
+% risks of LLM-generated data ; no one is talking about the risks (1st order effect)
+Limited research has highlighted the disparity between LLM-generated labels and human annotations \cite{reiss2023testing}, prompting calls for cross-domain evaluation against human data. There is no consensus on how artificial data differs from human data because it is a fairly new and highly fluent source of data \cite{sadasivan2023can}. 
+
+% risk of artificial artificial intelligence
+The growing dependence on such data for its convenience and lower costs and speculations of GPT-5 training on its own generated data \footnote{Link to tweet: https://shorturl.at/kmAY2}, raise concerns about an emerging cycle of AI-reliant solely on artificial inputs. Recent research has highlighted the quality and diversity issues of LLM generated data used in training loops \cite{shumailov2023curse, briesch2023large}. 
+
+self-consuming training loop initially improves both quality and diversity. However, after a few generations the output inevitably
+degenerates in diversity. We find that the rate of degeneration depends on the proportion of real and generated data.
+
+We find that use of model-generated content in training causes irreversible defects in the resulting models, where tails of the original content distribution disappear. We refer to this effect as Model Collapse and show that it can occur in any model 
+\cite{shumailov2023curse}. We also show that 2-style models are less susceptible to this issue than 1-style models. We also
+
+\begin{table*}
+\centering
+\begin{tabular}{p{0.25\linewidth}p{0.25\linewidth}p{0.25\linewidth}p{0.25\linewidth}}
+\toprule
+\textbf{Original} & \textbf{Llama2} & \textbf{Llama2 + 50\% } & \textbf{Llama2 + 50\% + } \\
+\midrule
+Ha, you just reminded me of one of my favorite childhood/Christmas-related memories. & Text for column 2 & Text for column 2 & Text for column 2 \\
+\midrule
+Guysss please sponsor me and give as much as you can.. I'm climbing Mount Snowdon in Feb! & Text for column 2 & Text for column 2 & Text for column 2 \\
+\midrule
+Ugh. Our Pho looks so bad. I don’t know how to say this, but, it does  \\\bottomrule
+\end{tabular}
+\caption{Some ground truth data (a) for the 2-style control models (b) and (c) in the.}
+\label{tab:my_table}
+\end{table*}

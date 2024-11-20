@@ -1,5 +1,7 @@
 .idea
 .env
+*.csv
+analysis/lex.csv
 # Created by .ignore support plugin (hsz.mobi)
 ### VirtualEnv template
 # Virtualenv

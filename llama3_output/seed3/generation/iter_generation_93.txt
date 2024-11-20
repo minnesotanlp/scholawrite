@@ -1,0 +1,41 @@
+_scalar_ 3
+\end{equation}
+
+\paragraph{Binarized} When discriminators are unsure of their prediction, the reward signal becomes noisier, potentially hampering the policy learning process. 
+Thus, we consider binarized rewards to make the signals much more discrete and emphasized.
+\begin{equation}
+    R = \sum_{i = 0}^n w_i, \quad w_i = \begin{cases}
+        1 & \sigma(d_i(x)_{k_i}) \geq 0.5 \\
+        -1 & \text{ otherwise }
+    \end{cases}
+\end{equation}
+\paragraph{Calibrated} Logit scores for are adjusted by a temperature following \citet{guo2017calibration} in order to calibrate model confidence. Similar to the binarized reward, the calibrated reward helps better calibrate the low confidence in the discriminators' predictions to find a more accurate policy. 
+\begin{equation}
+    R = \sum_{i = 0}^n \frac{d_i(x)_{k_i}}{\texttt{temperature}_{i}}
+\end{equation}
+
+\paragraph{Dynamic Weighting} We calculate a dynamic weight $w_i$. The motivation for the dynamic weighting approach is that when combining multiple style discriminators, it is not always clear whether a signal from one discriminator should be prioritized over another. Our approach weighs the result from each discriminator by considering the magnitude of the gradient of the cross entropy loss for $d_i(x)$ with respect to the desired style. Specifically, we find $\nabla_{d_i(x)} \mathcal{L}_{CE}$ and normalize it
+$\texttt{grad\_norm}_i = \frac{\nabla_{d_i(x)} \mathcal{L}_{CE}}{\sum_{j = 0}^n \nabla_{d_j(x)} \mathcal{L}_{CE}}$. 
+\begin{equation}
+    R = \sum_{i = 0}^n w(1 - \sigma(d_i(x))_{k_i})
+\end{equation}
+\vspace{-3mm}
+\begin{equation}
+    w = \begin{cases} 
+        -\mathtt{grad\_norm}_i & \text{ if } \sigma(d_i(x))_{k_i} > 0.5 \\
+        \mathtt{grad\_norm}_i & \text{ otherwise }
+    \end{cases}
+\end{equation}
+
+% \noindent
+% \paragraph{\textbf{Logits:}} $R = \sum_{i = 0}^n \frac{1}{n} d_i(x)$ where we take the logits of the target class from the discriminator output.
+
+% \noindent
+% \paragraph{\ \textbf{Softmax:}} $R = \sum_{i = 0}^n \texttt{softmax}(d_i(x))_{k_i}$ where we take the softmax values of the target class from the discriminator output.
+% \noindent
+% \paragraph{\ \textbf{Binarized:}} $R = \sum_{i = 0}^n w_i$ where $w_i$ is 1 if the $\texttt{softmax}(d_i(x)_{k_i}) \geq 0.5$ and $-1$ otherwise. 
+% The motivation for including the binarized approach is that when discriminators are unsure of their prediction, the reward signal becomes noisier, potentially hampering the policy learning process. 
+% The binarized rewards make the signals much more discrete and emphasized.
+% \noindent
+% \paragraph{\ \textbf{Calibrated:}} $R = \sum_{i = 0}^n \frac{d_i(x)}{\texttt{temperature}_{i}}$ Logit scores for are adjusted by a temperature following \citet{guo2017calibration} in order to calibrate model confidence. 
+% Similar to the binarized reward, calibrated reward helps better calibrate the low confidence in the discriminators' predictions and prouces a more accurate policy.

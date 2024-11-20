@@ -1,0 +1,1 @@
+starší LLMs have demonstrated a higher tendency to favor majority opinions over minority ones (Bai et al., 2022; Wilson et al., 2022; Ganguliya et al., 2022), which can lead to the amplification of societal disparities and exacerbate the existing issues of representation and analysis (Prabhakaran et al., 2021; Chandra et al., 2022).

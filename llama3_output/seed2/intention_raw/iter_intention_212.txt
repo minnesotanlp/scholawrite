@@ -1,0 +1,35 @@
+.setContent
+\begin{table*}[]
+    \centering
+    \small
+    \begin{tabular}{p{0.25\linewidth}p{0.25\linewidth}p{0.25\linewidth}p{0.25\linewidth}}
+    \toprule
+     & & \multicolumn{2}{c}{\textbf{Experiment}} \\     
+       \textbf{Datasets} & \textbf{Rationale} & \textbf{1st order} & \textbf{2nd order} \\
+       \midrule
+       \rowcolor{color2} \multicolumn{4}{l}{\textbf{Free-form Text}}\\
+       \rowcolor{color2} \textsc{HC3} \cite{guo2023close}, & Pair-wise generated texts & High-level & Classification\\
+       \rowcolor{color2} \textsc{Scarecrow} \cite{dou-etal-2022-gpt}, & from both humans and LLMs & textual attribute & performance\\
+       \rowcolor{color2}  \textsc{Deepfake} \cite{li2023deepfake}, & & and discourse & \\
+        \rowcolor{color2} \textsc{Workers} \cite{moller2023prompt} & &structure difference & \\ 
+        \midrule
+        \rowcolor{color3}\multicolumn{4}{l}{\textbf{Task Labels}}\\
+        \rowcolor{color3}\textsc{Social Chemistry} & Subjective tasks,  & Biased toward & \anonymous{not clear?}  \\
+         \rowcolor{color3}\cite{forbes2020social}, & individual-level & majority label  & \\ \hline
+         \rowcolor{color4}\multicolumn{4}{l}{\textbf{Instructions}}\\
+        \rowcolor{color4}\textsc{Unnatural Instructions}  & Variety of instruction & LLMs produce & Errors in instruction, \\
+        \rowcolor{color4}\cite{honovich2022unnatural}, &  types and domains.  &  errors in the & input, and \\
+        \rowcolor{color4}\textsc{Self-Instruct} \cite{wang2023selfinstruct}, &  Human-generated datasets  & instruction, & output will \\
+        \rowcolor{color4}\textsc{Alpaca-Cleaned} & for comparison and & input, and & cause worse\\
+        \rowcolor{color4}\cite{alpaca}, & evaluation of models fine- & output &performance\\ \hline
+        \rowcolor{color5}\multicolumn{4}{l}{\textbf{Preference}}\\
+        \rowcolor{color5}\textsc{p2c} \cite{kim2023p2c} & Human-machine & LLMs show a & Biased preference \\
+        \rowcolor{color5}\textsc{CoBBLEr} \cite{koo2023benchmarking} & dataset with & stronger bias & toward complexity\\ \hline
+        \rowcolor{color6}\multicolumn{4}{l}{\textbf{Simulation}}\\
+        \rowcolor{color6}\textsc{CAMEL AI-Society} & Simulated data, & Simulated data & LLM agents exhibit \\
+        \rowcolor{color6}\cite{li2023camel}, & agents and their & simulated data  & increasing role- \\
+        \rowcolor{color6}\textsc{Solo Performance} & conversations.  & &flipping tendency as\\
+        \rowcolor{color6}\cite{li2023camel}, & & &we initiate more \\
+        \rowcolor{color6}\textsc{Scarecrow} & & &role-flipping role- \\
+        \rowcolor{color6}\cite{dou-etal-2022-gpt}, & & &flipping tendency\\
+        \rowcolor{color6}\textsc{Deepfake} & & &and we found that \\

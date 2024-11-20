@@ -1,0 +1,9 @@
+hos  the discourse motifs are identified, we can further distinguish them by checking the differences in their motif distributions. Specifically, we can compute the motif frequency, $\mathcal{F}(\cdot)$, and weighted average depth, $\mathcal{D}(\cdot)$, for each class of motifs. Then, we can compute the motif frequency-inverse document frequency (MF-IDF) scores for each motif. The MF-IDF scores are then measured by at least one of the following features for each document graph $g$ in the datasets $\mathbb{G}$:
+\begin{equation}
+    \text{MF-IDF}(m, g, \mathbb{G}) = \text{MF}(m, g) \cdot \text{IDF}(g, \mathbb{G})
+\end{equation}
+where:
+\begin{align*}
+    \text{MF}(m, g) = \frac{\text{count}(m, g)}{\sum_{m'\in M}\text{count}(m', g)} \\
+    \text{IDF}(g, \mathbb{G}) = \log \frac{1 + |\mathbb{G}|}{1 + |g \in \mathbb{G}: m \in g)|} \\
+\end{align*}

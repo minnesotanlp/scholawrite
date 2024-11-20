@@ -1,0 +1,13 @@
+$-1.0$ & \textbf{Formal} & \textbf{Not formal} & \textbf{Not formal} & \textbf{Not formal} & \textbf{Formal} & \textbf{Not formal} & \textbf{Not formal} \\
+\midrule
+\textbf{Irony}, Pos, For& 0.69 & 0.68 & 0.66 & 0.53 & 0.72 & 0.70 & 0.60 \\
+\midrule
+\textbf{Irony}, Neg, Inf & 0.32 & 0.72 & 0.70 & 0.70 & 0.18 & 0.72 & 0.70 \\
+\midrule
+\textbf{Neutral}, Neg, Inf & 0.70 & 0.70 & 0.74 & 0.55 & 0.18 & 0.18 & 0.84 \\
+\midrule
+\textbf{Formal}, Neg, Inf & 0.70 & 0.70 & 0.70 & 0.55 & 0.18 & 0.18 & 0.84 \\
+\midrule
+\textbf{Formal}, Pos, Inf & 0.70 & 0.70 & 0.70 & 0.55 & 0.18 & 0.18 & 0.84 \\
+\midrule
+\text

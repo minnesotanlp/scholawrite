@@ -1,0 +1,22 @@
+latter may encompass a broader spectrum of textual styles and domains. In this aspect, the introduction of large language models (LLMs) presents a significant development in the field. These models have already demonstrated their capability to produce high-quality text that aligns with human-like linguistic standards. This achievement has led to a surge of revolutions for various NLP tasks, including but not limited to, sentiment analysis, aspect extraction, and text classification. 
+
+
+
+
+
+Despite the considerable strides that have been made, there is a notable lag between the emergence of these linguistic advancements and the incorporation of these technologies into practical, real-world applications. This paper aims to bridge this gap by exploring the potential of LLMs in human-centric tasks, such as Q\&A, semantic analysis, and entity recognition. 
+
+\begin{figure}[t!]
+  \centering
+  \includegraphics[width=0.5\textwidth,clip, trim=0.1cm 0.1cm 0.1cm 0.1cm]{images/LLM_ecosystem_modified.pdf}
+  \caption{The quality and diversity of artificial data used in training loops is a matter of great concern, as LLMs increasingly generate data for various uses like annotation, evaluation, generation, simulation, and instruction creation, leading to an LLM ecosystem where AI might rely solely on artificial input. \anonymous{explain the thinking }}
+  \label{fig:llm_world}
+\end{figure}
+%---------------
+
+%----- establish motivation ----
+% used a lot for so many tasks 
+The advancement of large language models (LLMs) has led to their widespread adoption for complex data generation tasks once exclusive to humans, such as writing, labeling, and data evaluation. \cite{ding2022-is-gpt3-good, moller2023prompt, huang2023learning}. This proliferation, especially with models like ChatGPT, calls for detailed research to understand the capabilities and limitations of LLMs in various economically and efficiently executed data-intensive tasks. LLM-generated artificial data can match human data in performance across various benchmarks, yet the full implications and impact of its use in subsequent tasks remain elusive.
+
+% risks of LLM-generated data ; no one is talking about the risks (1st order effect)
+Limited research has highlighted the disparity between LLM-generated labels and human annotations \cite{reiss2023testing}, prompting calls for cross-domain evaluation against human data. There is no consensus on how artificial data differs from human data because it is a fairly new and highly fluent source of data \

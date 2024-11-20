@@ -1,15 +1,37 @@
-<same>\documentclass{article}
-\usepackage{graphicx} % Required for inserting images
+Prior work suggests that LLMs struggle to generate new ideas (or diverge from existing patterns) and that these tendencies are amplified through training cycles \cite{li2023synthetic}. Our aim is to further understand these patterns and their effects by taking a broad inventory of artificial data, its 
+characteristics and divergences from the corresponding human data, and the effects of adapting this data. We prioritize a wide breadth, covering six different data types, rather than depth, in order to understand overarching themes in synthetic data that transcend domain-specific scenarios.
 
-\title{Semisupervised Neural Proto-Language Reconstruction}
-\author{}
-\date{}
+The six types of artificial data we examine are
+\begin{itemize}
+\item \textbf{Text} written by an LLM, often used to combat data scarcity issues
+\item \textbf{Labels} for classification tasks over textual input, bypassing the need for human annotators
+\item \textbf{Instruction prompts} written by LLMs, for use in instruction fine-tuning, eliminating the need for humans to write comrephensive sets of diverse instructions
+\item \textbf{Preference}, or the evaluation of which text is better, useful for human alignment tasks such as training reward models used in RLHF
+\item \textbf{Simulation}, in which two LLM agents engage in a conversation, is a relatively underexplored paradigm but early research suggests use cases in improving model performance and modeling complex social interactions  
+\end{itemize}
 
-\begin{document}
-\maketitle
-\begin{abstract}
-Existing work implementing comparative reconstruction of ancestral languages (proto-languages) has usually required full supervision. However, historical reconstruction models are only of practical value if they can be trained with a limited amount of labeled data. We propose a semisupervised historical reconstruction task in which the model is trained on only a small amount of labeled data (cognate sets with proto-forms) and a large amount of unlabeled data (cognate sets without proto-forms). We propose a neural architecture for comparative reconstruction (DPD-BiReconstructor) incorporating an essential insight from linguists' comparative method: that reconstructed words should not only be reconstructable from their daughter words, but also </same><del>deterministically by </del><add>deterministicallyby </add><same>into their daughter words. We show that this architecture is able to leverage unlabeled cognate sets to outperform strong semisupervised baselines on this novel task.
-\end{abstract}
+(For examples of each data type see Figure~\ref{fig:figure1}.) While this is not an exhaustive list of all possible types of artificial data, we believe these six data types capture a reasonably large and diverse portion of the space of possible artificial data types.
 
-\end{document}
-</same>
+% Write about 
+socio-technical
+
+To forward the understanding of artificial data and its effects, the research questions we investigate are
+
+\begin{itemize}
+\item \textbf{RQ1} What is the nature of SOTA artificial data? How does it compare to human data, and what artifacts does it contain?
+\item \textbf{RQ2} Does the nature of artificial data influence downstream outcomes, and if so, how? How can we mitigate any of these effects?
+\item \textbf{RQ3} To what extent are artifacts of artificial specific to individual domains/data types, and to what extend are they general?
+\end{itemize}
+
+To address RQ1, we examine \textit{first-order effects} for each data type. We define first-order effects as pertaining to the data itself, i.e. any differences or inconsistencies between the artificial data and the corresponding human data. To address RQ2, we examine \textit{second-order effects}, which we define as pertaining to the downstream result of using the artificial data in some NLP pipeline, i.e. any differences or inconsistencies in the outcomes of NLP pipelines containing artificial data and the outcomes from corresponding pipelines containing the corresponding human data. We address RQ3 through an overview of the results of all first- and second-order experiments.
+
+% Short summary of main findings and mitigation strategies
+
+% Our contributions are:
+% \begin{itemize}
+%     \item...
+%     \item Short version of findings
+%     \item Short version of mitigation strategies
+% \end{itemize}
+
+% Section \ref{sec:free_text} talks about xxxx. Section 3 about yyyy

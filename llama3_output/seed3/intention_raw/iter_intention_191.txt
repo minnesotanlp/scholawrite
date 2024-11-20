@@ -1,0 +1,60 @@
+ollectors{Reward Hacking Response (target: Negative + Informal)}  \\ \midrule
+You have no affinity & for this community. I don’t know what to say, I don’t know what to do.  \\ \midrule
+Violent, vulgar, and obscene & ly disrespectful. I’m just going to list the stuff, you know, for the people who are… I don’t know, I don’t work on it.  \\ \midrule
+Ugh. Our Pho   & looks so bad. I don’t know how to say this, but, it does  \\\bottomrule
+\end{tabular}
+\caption{Over-optimized models outputs often repeat the same phrases (in this case, ``I don't know'') that maximize the outputs of both discriminators. Our goal is to find a reward formulation that allows for high rewards without such divergence from the base language model.}
+\label{tab:reward_hacks}
+\end{table*}
+
+
+\subsection{Combinations of Two Styles}\label{sec:two_style}
+We first fine-tune RL models for all four possible combinations of sentiment and formality. We choose these two styles since their respective discriminators have the highest F1 scores (Table~\ref{table:discrims}).  We use the GradWt reward formulation, as it was the most successful reward formulation based on the evaluation in Section~\ref{sec:reward_eval}. We consider the efficacy of generations from the resulting models, as well as the results of other approaches for multi-style controlled generations. For the results of these two-style combinations, see Table~\ref{tab:precision_base-rl-pplm}. 
+
+%We also note that the 1-style informal model has more than a doubling in the number of generations containing both negative and informal styles, when compared to the original model. This suggests that there is a correlation between formality and positivity (or formality and negativity), but it is not a perfect correlation.
+
+\paragraph{Comparison with PPLM}
+We extend PPLM to combine feedback from multiple discriminators. PPLM has weaker control when combining two attributes than when using one, indicating that the approach may suffer more from conflicting objectives than a reinforcement learning approach. PPLM also notably has high perplexity for combinations containing negative sentiment (both negative and formal and negative and informal combinations), coupled with low overall style accuracy in these areas. 
+
+\paragraph{Comparison with Zero-Shot GPT-4}
+We focus on a basic zero-shot prompting approach to probe GPT-4 performance on controlled style generations. We chose zero-shot prompting as we are interested in scenarios with high data-scarcity, i.e. those in which the target style combination text is not necessarily available. Note that while few-shot prompting can out-perform zero-shot prompting; this is not necessarily the case -- recent work suggests that GPT-4's performance can be equivalent or even deteriorate in a few-shot setting, e.g. 31
+\input{Tables/accuracy}
+\input{Tables/ablation}
+\input{Tables/domain_RL}
+\input{Tables/precision_overall}
+
+% \begin{figure}
+%     \centering
+%     \includegraphics[trim={0cm 0 4.5cm 0},clip,width=0.45\textwidth]{Images/positive inf heatmap.pdf}
+%     \includegraphics[trim={0cm 0 4.5cm 0},clip,width=0.45\textwidth]{Images/positive formal heatmap.pdf}
+%     \includegraphics[trim={0cm 0 4.5cm 0},clip,width=0.45\textwidth]{Images/negative informal heatmap.pdf}
+%     \includegraphics[trim={0cm 0 4.5cm 0},clip,width=0.45\textwidth]{Images/negative formal heatmap.pdf}
+%     \caption{For each 2-style model, the number of generations belonging to each classification combination. Formal and negative is the worst performing combination, while formal and positive is the best performing combination.}
+%     \label{fig:2style_heatmaps}
+% \end{figure}
+
+\begin{figure*}[ht!]
+    \centering
+    \begin{subfigure}{0.49\textwidth}
+         \centering
+         \includegraphics[trim={0cm 0 4.5cm 0},clip,width=0.45\textwidth]{Images/positive_inf.png}
+     \end{subfigure}
+         \begin{subfigure}{0.49\textwidth}
+         \centering
+         \includegraphics[trim={0cm 0 4.5cm 0},clip,width=0.45\textwidth]{Images/positive_formal.png}
+     \end{subfigure}
+     \begin{subfigure}{0.49\textwidth}
+         \centering
+         \includegraphics[trim={0cm 0 4.5cm 0},clip,width=0.45\textwidth]{Images/negative_informal.png}
+     \end{subfigure}
+     \begin{subfigure}{0.49\textwidth}
+         \centering
+         \includegraphics[trim={0cm 0 4.5cm 0},clip,width=0.45\textwidth]{Images/negative_formal.png}
+     \end{subfigure}
+    \caption{For each 2-style model, the number of generations belonging to each classification combination. Formal and negative is the worst performing combination, while formal and positive is the best performing combination.}
+    \label{fig:2style_heatmaps}
+\end{figure*}<|start_header_id|>system<|end_header_id|>
+
+Cutting Knowledge Date: December 2023
+Today Date: 20 Nov 2024
+

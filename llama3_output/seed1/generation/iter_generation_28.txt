@@ -1,0 +1,32 @@
+REPUBLICAN PRIMARY RESULTS
+There is no majority opinion among the artificial models. In this 2024, the Republican primary results show a majority of Republicans supporting Donald Trump. The five artificial models (4 of which are instruction-based and one is preference-based) show little variation in the percentage of their responses containing the target words "win" or "support." The 2024 Republican primary results show Donald Trump leading the Republican Party in the primary elections. 
+
+We hypothesize that this may be because the models do not understand the social dynamics of the primary election process. 
+%--------------------------------------------------------------------
+\begin{table*}[ht]
+\scriptsize
+\begin{tabular}{p{0.28\linewidth}p{0.25\linewidth}p{0.18\linewidth}p{0.25\linewidth}p{0.18\linewidth}}
+\toprule
+\textbf{Text} & \textbf{Human Annots} & \textbf{Model Annotats} & \textbf{Inter-model Annotats} & \textbf{Intra-model Annotats} \\
+\midrule
+\textcolor{red}{@nounstudios this old dog needs to learn some new tricks} & [2.0, 3.0, 2.0, 3.0]  & [1.0, 1.0, 1.0, 1.0, 1.0] & [1.0, 1.0, 1.0, 1.0, 1.0] & [2.0, 3.0, 2.0, 3.0, 2.0] \\
+\midrule
+\textcolor{red}{gosh...i'm 22 years old...an old lady! thanks for all the great birthday wishes! now it's bedtime!} & [1.0, 2.0, 4.0, 4.0]  &[1.0, 1.0, 1.0, 1.0, 1.0] & [1.0, 1.0, 1.0, 1.0, 1.0] & [1.0, 1.0, 1.0, 1.0, 1.0] \\
+\midrule
+\textcolor{blue}{If we're going to talk about Russian sources, we should also talk about Jewish sources.} & [1.0, 0.0, 0.0]  & [0.0, 0.0, 0.0, 0.0, 0.0] & [0.0, 0.0, 0.0, 0.0, 0.0] & [1.0, 1.0, 1.0, 1.0, 1.0] \\
+\midrule
+\textcolor{blue}{I'm skeptical. Nearly every time this type of vandalism occurs, it is perpetrated by someone affiliated with the synagogue.} & [1.0, 0.0, 0.0]  & [0.0, 0.0, 0.0, 0.0, 0.0] & [0.0, 0.0, 0.0, 0.0, 0.0] & [1.0, 1.0, 1.0, 1.0, 1.0] \\
+\midrule
+\textcolor{blue}{If we're going to talk about Russian sources, we should also talk about Jewish sources.} & [1.0, 0.0, 0.0]  & [0.0, 0.0, 0.0, 0.0, 0.0] & [0.0, 0.0, 0.0, 0.0, 0.0] & [1.0, 1.0, 1.0, 1.0, 1.0] \\
+\midrule
+\textcolor{orange}{It's bad to fire a daughter-in-law from a job} & [3.0, 2.0, 2.0, 2.0, 2.0]  &[0.0, 3.0, 3.0, 3.0, 3.0] & [3.0, 3.0, 3.0, 3.0, 3.0] & [1.0, 1.0, 1.0, 1.0, 1.0] \\
+\midrule
+\textcolor{orange}{Your boyfriend has the right to wear whatever underwear he chooses.} & [3.0, 4.0, 4.0, 3.0, 4.0]  & [3.0, 3.0, 3.0, 3.0, 3.0] & [3.0, 3.0, 3.0, 3.0, 3.0] & [1.0, 1.0, 1.0, 1.0, 1.0] \\
+\midrule
+\textcolor{orange}{Your boyfriend has the right to wear whatever underwear he chooses.} & [3.0, 4.0, 4.0, 3.0, 4.0]  & [3.0, 3.0, 3.0, 3.0, 3.0] & [3.0, 3.0, 3.0, 3.0, 3.0] & [1.0, 1.0, 1.0, 1.0, 1.0] \\
+\bottomrule
+\end{tabular}
+\caption{Qualitative analysis of human and machine task labels for evidence of age, gender and race/religion bias}
+\label{table:qual_table}
+\end{table*}
+%----

@@ -1,0 +1,26 @@
+ElementType{instruct} 
+    \paragraph{Task Description} 
+    \paragraph{First-order Experiment} In our first-order experiment, we aim to understand the \textit{distributional differences between human and LLM-generated task labels}. 
+    \begin{itemize}
+    \item[-] \textbf{Free Generation}: We use open-sourced tools like \textsc{GPT-4} to generate free-form text for given prompts.
+    \item[-] \textbf{Task Labels}: We utilize various open-sourced and commercially available, instruction-tuned LLMs like Vicuna, Koala, Baize, GPT-3.5-turbo, and LLaMA 2 as annotators to generate labels for datasets.
+    \item[-] \textbf{Preference}: We employ a pairwise setup of LLM annotators to create pairs of evaluation sents, in which we compare the majority label predictions of each model on each sentence pair. 
+    \item[-] \textbf{Simulation}: We use two LLM agents in a conversation, connecting them through a web of interpersonal dynamics, with the goal of exploring the dynamics of different role-playing scenarios. 
+    \end{itemize}
+    \; 
+    \end{itemize}
+    \item \textbf{Evaluation Metrics} For all first-order experiments, we use the following metrics: \textsc{Match Score} (the ratio of the number of matches between human and model annotations and the total number of samples), \textsc{Variation} (the degree of variation of the annotations, calculated as the standard deviation of the distribution of the annotations), and \textsc{Wasserstein Distance} (a metric of similarity between two probability distributions, often used in ordinal data).
+    \item \textbf{Second-order Experiment} In our second-order experiment, we train a classifier on human and machine-generated annotations to identify potential second-order effects and biases, hypothesizing that biases would become more pronounced over time with a concentrated distribution highlighting specific stereotypes and assumptions.
+    \item \textbf{Evaluation Metrics} To evaluate the distributional difference between human and LLM-annotated labels, we use the \textsc{Wasserstein Distance}. 
+    \end{itemize}
+    \item \textbf{Comparison of majority and minority match distributions across subjective datasets :} 
+    \begin{figure}[H]
+        \centering
+        \includegraphics[width=0.7\textwidth]{images/human_raters/majority_minority.pdf}
+        \caption{We observe \textit{label flipping}, indicating disagreement between the majority and minority match distributions of the labels annotated by humans and LLMs, in the inter-model setup. For example, when the human annotation is 0 (not offensive), the model annotation is 2 (very offensive). This shows that there is not a clear relationship between the majority and minority annotations, as seen on comparing the two setups of ``majority'' and ``minority'' match distributions.}
+        \label{fig:maj_match}
+    \end{figure}
+    \begin{figure}[H]
+        \centering
+        \includegraphics[width=0.7\textwidth]{images/human_raters/majority_minority.pdf}
+        \caption{We observe \textit{label flipping}, indicating disagreement between the majority and minority match distributions of the labels annotated by humans and LLMs, in the inter-model setup. For example, when the human annotation is 0 (not offensive), the model annotation is 2 (very offensive). This shows that there is not a clear relationship between the majority and minority annotations, as seen on comparing the two setups of ``majority'' and ``minority'' match distributions.}

@@ -1,0 +1,58 @@
+GetMethod{table}{dataset_comparison}
+\begin{tabular}{p{.25\linewidth}p{.2\linewidth}p{.125\linewidth}p{.125\linewidth}p{.25\linewidth}}
+\toprule
+\textbf{} & \textbf{CORA} & \textbf{Citeseer} & \textbf{Pubmed} & \textbf{Citeseer} \\
+\midrule
+Classes & 7 & 6 & 3 & 6 \\
+Nodes & 2,708 & 3,327 & 19,717 & 4,552 \\
+Edges & 5,278 & 4,552 & 44,324 & 12,312 \\
+Density & 0.0014 & 0.0008 & 0.0002 & 0.0005 \\
+Avg deg & 3.89 & 2.74 & 4.49 & 3.76 \\
+Clust coeff & 0.24 & 0.14 & 0.06 & 0.12 \\
+Diameter & $\infty$ & $\infty$ & 18 & 18 \\
+Components & 78 & 438 & 1 & 100 \\
+2-hop nodes & 36 & 15 & 67 & 40 \\
+\bottomrule
+\end{tabular}
+\caption{Comparison of network properties of popular citation network datasets CORA, Citeseer and Pubmed.} 
+\label{tab:dataset_comparison}
+\end{table}
+%-----------------------------------------
+We observe that the failure rate is very low in the case of CORA, while the average failure rate approaches 0.5 for Citeseer and Pubmed. This indicates that Citeseer and Pubmed are more prone to role flipping. Also, the average failure rate is very high in the case of CORA, which is 0.7, 0.8, and 0.75 for role flipping,  role flipping rate is significantly higher in Citeseer than in CORA. This implies that \textit{when role-flipping occurs, it is much more likely to happen in datasets with a greater number of labels}.
+%-----------------------------------------
+\begin{figure*}[ht!]
+    \centering
+    \begin{minipage}{0.48\textwidth}
+        \centering
+        \includegraphics[width=\linewidth]{figures/combination_task_hierarchy_updated.pdf}
+        \caption{Example of the 3-type task hierarchy}
+        \label{fig:combination_task_hierarchy}
+    \end{minipage}\hfill
+    \begin{minipage}{0.48\textwidth}
+        \centering
+        \includegraphics[width=\linewidth]{figures/influential_edge_proportions.pdf}
+        \caption{Proportions of labels of influential edges. Note that ``Non-influential'' means edges whose mask values are under the threshold.}
+        \label{fig:proportion_edge_label_m3}
+    \end{minipage}
+    \caption{The histogram of the number of edges with their mask values. Note that the mask values are normalized to 0.5 0.7.}
+    \label{fig:hist_m3}
+\end{figure*}
+%----------------------------------
+\subsubsection{First Order Effect Analysis of LLM Task Labels}\label{sec:task-label-first}
+%\subsubsection{Distributional Difference between human and LLM labels}\label{sec:task-label-first}
+\paragraph{Hypothesis}
+\paragraph{Experiment Setup}
+\paragraph{Metrics}
+\paragraph{Result}
+% \subsubsection{Second Order Effect Analysis of LLM Task Labels}\label{sec:task-label-second}
+% \paragraph{Hypothesis}
+% \paragraph{Experiment Setup}
+% \paragraph{Metrics}
+% \paragraph{Result}
+
+% \subsubsection{Mitigation Suggestions}\label{sec:task-label-mitigation}
+% \paragraph{Task Labels}
+% To mitigate such role-flipping, we suggest that the use of human involvement can increase the quality of LLM-generated task labels. Various strategies have been proposed, including the use of multiple annotators, the application of annotation guidelines, and the implementation of a quality control process for annotating data \cite{wang2023large}. 
+
+% \paragraph{Instructions}\\
+% We found that synthetic datasets contain various types of errors and that artificially adding errors to fine-tuning data resulted in worse performance. However, our suggestion to mitigate these issues is the use of human-generated or hybrid data, such as human-annotated machine data or machine-augmented human data. This hybrid data should have a more normal distribution of tasks and less errors.

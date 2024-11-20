@@ -1,0 +1,17 @@
+bihari 5e-4. The highest reward in this dataset is 69, and the average is 18.59. This shows that using softmax rewards with calibrated confidence can effectively control for multiple styles. & \textbf{Softmax (1e-5)} & \textbf{Softmax (1e-4)} & \textbf{Softmax (1e-3)} & \textbf{Softmax (1e-2)} & \textbf{Softmax (1e-1)} & \textbf{Softmax (1e+0)} & \textbf{Softmax (1e+1)} & \textbf{Softmax (1e+2)} & \textbf{Softmax (1e+3)} & \textbf{Softmax (1e+4)}  \\
+\midrule
+\textbf{Binarized} & & & & & & & 0.66 & 0.66 & 0.66 & 0.66 & 0.66 & 0.66\\
+\quad Positive & 0.66 & 0.66 & 0.66 & 0.66 & 0.66 & 0.66 & 0.66 & 0.66 & 0.66 & 0.66 & 0.66 & 0.66\\
+\quad Negative & 0.34 & 0.34 & 0.34 & 0.34 & 0.34 & 0.34 & 0.34 & 0.34 & 0.34 & 0.34 & 0.34 & 0.34\\
+\quad Formal & 0.76 & 0.73 & 0.67 & 0.69 & 0.77 & 0.72 & 0.73 & 0.68 & 0.72 & 0.73 & 0.67 & 0.54\\
+\quad Informal & 0.60 & 0.73 & 0.70 & 0.67 & 0.70 & 0.67 & 0.54 & 0.74 & 0.60 & 0.67 & 0.73 & 0.48\\
+\quad Negative & 0.69 & 0.70 & 0.70 & 0.67 & 0.70 & 0.70 & 0.67 & 0.70 & 0.70 & 0.67 & 0.70 & 0.70\\
+\quad Positive & 0.71 & 0.72 & 0.67 & 0.69 & 0.70 & 0.70 & 0.67 & 0.70 & 0.70 & 0.67 & 0.70 & 0.70\\
+\end{tabular}
+\end{table*}
+\rubric{Analysis/Synthesis: } 
+\rubric{Conclusion: } 
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\paragraph{\rubric{Keyphrase: }} \rubric{Topic: } \rubric{Background: } \rubric{Analysis/Synthesis: } \rubric{Conclusion: } 
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\input{Tables/system_review}

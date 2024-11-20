@@ -1,0 +1,20 @@
+_utils{ColorTable} {edge_color=red, node_color=blue,  }
+  \label{fig:figure1}
+\end{figure*}
+%---------------------------------------
+
+
+%---------------------------------------
+\begin{figure*}[ht!]
+  \centering
+  \includegraphics[width=\textwidth]{figures/modified_pipeline.jpg}
+  \caption{Pipeline}
+  \label{fig:fig1}
+\end{figure*}
+%---------------------------------------
+%\textbf{Acknowledge the rise of LLMs}
+Large language models (LLMs) like ChatGPT \cite{} and now GPT4 \cite{bubeck2023sparks} present massive context-aware knowledge and superior semantic comprehension capability through pre-training on large-scale text corpora \cite{petroni2019language}. This knowledge achieved from pre-training has led to a surge of revolutions for downstream NLP tasks \cite{zhao2023survey}. Large Language Models (LLMs) have also expanded their applications beyond language processing into domains like robotics \cite{huang2022towards}, planning \cite{andreas2022language}, theory-of-mind reasoning \cite{adhikari2020learning}, structured commonsense reasoning \cite{madaan2022language}, and multi-hop question answering. These tasks require LLMs to update 
+These advancements have led to a growing consensus that LLMs are a pivotal advancement to artificial general intelligence (AGI). 
+
+
+Recent progress in LLM research and applications includes their success in human-centric tasks like Q\&A, semantic analysis, and entity recognition. This advancement is considered crucial on the path to AGI. LLMs, especially models like ChatGPT and GPT-4, leverage pre-training on extensive text corpora to provide context-aware knowledge and semantic understanding, outperforming simple textual embeddings. They're increasingly capable of managing structured graph data, which is important in fields like social networking and drug discovery. LLMs are showing promise in tasks that require sophisticated reasoning, including logic reasoning, reasoning with graphs, and reasoning in large text corpora. These abilities are crucial for AGI development, as they enable LLMs to understand and interact with complex relationships between entities, leading to advancements in various fields.

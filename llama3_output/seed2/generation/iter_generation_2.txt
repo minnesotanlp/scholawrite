@@ -1,0 +1,10 @@
+if there is a relationship between the nature of the task and the degree of hum in the datasets, as we observe with subjective datasets the LLMs tend to under-represent minority opinions. This risks marginalizing minority perspectives, potentially reinforcing societal disparities \cite{prabhakaran2021releasing}. 
+
+\end{itemize}
+
+\subsection{Call for Action to Creators of AI Benchmark}    
+In addition to striving to provide high-quality data that is well-aligned with human needs, we urge dataset creators and curators to document their data following \citet{10.1145/3458723} and \citet{10.1145/3531146.3533231} to prioritize transparency, including detailed metadata that clearly describes the source, collection methodology, and any processing the data has undergone; to address diversity and representation by documenting the extent to which the dataset represents diverse perspectives, demographics, languages, and cultural contexts; to acknowledge and describe any potential ethical concerns related to the data, including privacy issues, consent for data use, and the potential for misuse, accompanied by guidelines for ethical use; provide guidance on the intended use cases for the dataset and its limitations; and provide a comprehensive analysis of known biases or errors within the dataset and document mitigation attempts. \citet{10.1145/3555623}'s research underlines the need for a shift from merely documenting datasets to documenting data production, emphasizing the value of designing data documentation based on the needs of data workers and viewing documentation as a boundary object across organizations. Furthermore, \citet{10.1145/3555760}'s findings indicate that current data documentation approaches are often ad hoc and myopic, underscoring the need for adaptable frameworks integrated into existing tools and workflows and automated wherever possible.
+
+\subsection{Limitations}
+%\anonymous{anonymous, Please describe the limitations of our study in terms of depth and breadth. Also, mention technical limitations and other assumptions you made.}
+In our research, we acknowledge the inherent limitations of our approach. Firstly

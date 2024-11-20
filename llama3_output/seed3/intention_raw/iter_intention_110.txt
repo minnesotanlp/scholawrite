@@ -1,0 +1,68 @@
+utils, we identify consistent biases in LLM-generated data and outline strategies for mitigation. Representational bias in LLMs manifests as a preference for majority opinions, often at the expense of minority views. Additionally, LLMs exhibit primary and recency biases, focusing on certain aspects of data and affecting task specificity and performance. This is evident in synthetic instruction datasets, where LLMs favor open-ended questions over structured tasks, raising concerns about their ability to generalize across different query types. LLMs also differ from human patterns in processing emotional content and semantic relationships. 
+
+In terms of depth, complexity, and performance, LLM-generated data varies significantly from human-generated data. LLMs, while capable of coherent narratives, often lack the subtlety and depth found in human texts. There are notable differences in handling majority and minority opinions in subjective tasks, with biases against structured instructions and discrepancies in understanding complex societal language constructs such as hate speech. 
+
+What's a good metric for a challenging task? As it gets more challenging, need a human in the loop.
+
+Our main contributions are :
+- combining all 5 types of llm generated data  (this is where it would be really helpful to have some data-wide patterns)
+-- For example we find that label flipping is a great way to distinguish X, Y and Z data 
+-- a common problem seen across Y, Z datasets is the issue of A.
+
+free text: typically difficult to discern between H and L; mostly using linguistic features; they show the importance of high-level attributes 
+stress testing metrics : label flipping + human/ LLM distribution of discourse pattern 
+
+
+task label : majority annotated data is the problem ; metrics like accuracy, cost efficiency typically emphasized,  llms follow a ground truth during training (??) ; showing that diversity in llm opinions is not retained especially subjective data 
+stress testing metrics : human vs llm dataset distribution ; qualitative analysis  (any insight on why inter vs intra model was even useful -- anonymous wrote this)
+
+----
+instruction
+stress testing metrics :
+preference
+stress testing metrics :
+simulation
+stress testing metrics :
+---
+-- analyzing/stress testing them using similar strategies for first and second-order effect ( everyone is commenting on different kinds of data in depth but not about the breadth-first analysis of all kinds of data)
+-- the importance of alternative metrics to evaluate LLM-generated data 
+-- call for action to creators of LLM-generated data 
+
+% I'll attempt to re-write the below in a more structured way? -anonymous
+We identify consistent biases in LLM-generated data and outline strategies for mitigation. Representational bias in LLMs manifests as a preference for majority opinions, often at the expense of minority views. Additionally, LLMs exhibit primary and recency biases, focusing on certain aspects of data and affecting task specificity and performance. This is evident in synthetic instruction datasets, where LLMs favor open-ended questions over structured tasks, raising concerns about their ability to generalize across different query types. LLMs also differ from human patterns in processing emotional content and semantic relationships. 
+
+We find that LLM-generated data has strong weaknesses in what might be attributed to the difficulty of the task. In particular, LLMs are  in situations in which general, common, or well-accepted outputs are not possible. In labeling tasks, LLMs do not represent minority views well and show strong preferences for majority opinions. When creating instructions, LLMs strongly favor writing open-ended questions that are easier to answer correctly, rather than writing closed questions in which only a single answer could be correct. 
+To mitigate this egasus
+% Theme 1: Curse of generality?
+% writing open-ended questions (harder to get wrong?)
+% not representing/indicating awareness of minority views
+
+% Theme 2: Difficulty with complications/complex contexts?
+% not applying textual styles in the same way, particularly in social contexts
+% differing discourse patterns
+% primary and recency bias
+
+
+Mitigation strategies : 
+
+To mitigate these issues, we suggest enhancing data quality and diversity by incorporating domain-specific information and examples into LLM training, in order to expose LLMs to a broader range of perspectives. We propose refining model interaction and responsiveness to align LLM responses more closely with humans, especially in social and informal contexts. This involves calibrating LLMs to better understand and reflect varied emotional expressions and contextual appropriateness, aiming to reduce discrepancies in complex societal language constructs. 
+%----------------------------------------
+\begin{table*}[]
+    \centering
+    \small
+    \begin{tabular}{l l l l}
+    \toprule
+     & & \multicolumn{2}{c}{\textbf{Experiment}} \\     
+       \textbf{Datasets} & \textbf{Rationale} & \textbf{1st order} & \textbf{2nd order} \\
+       \midrule
+       \rowcolor{color2} \multicolumn{4}{l}{\textbf{Free-form Text}}\\
+       \rowcolor{color2} \textsc{HC3} \cite{guo2023close}, & Pair-wise generated texts & High-level & Classification\\
+       \rowcolor{color2} \textsc{Scarecrow} \cite{dou-etal-2022-gpt}, & from both humans and LLMs & textual attribute & performance\\
+       \rowcolor{color2}  \textsc{Deepfake} \cite{li2023deepfake}, & & and discourse & \\
+        \rowcolor{color2} \textsc{Workers} \cite{moller2023prompt} & &structure difference & \\ 
+        \midrule
+        \rowcolor{color3}\multicolumn{4}{l}{\textbf{Task Labels}}\\
+        \rowcolor{color3}\textsc{Social Chemistry} & Subjective tasks,  & Biased toward & \anonymous{not clear?}  \\
+         \rowcolor{color3}\cite{forbes2020social}, & individual-level & majority label  & \\   \hline
+         \rowcolor{color4}\multicolumn{4}{l}{\textbf{Instructions}}\\
+        \rowcolor{color4}\textsc{Unnatural Instructions}  & Variety of instruction & LLMs produce & Errors in instruction, \\

@@ -1,0 +1,30 @@
+གശൽ എതിരാടലിക്കൽ നികടവാക്കളായി ആഗതാതവിതകളില്ലെങ്കിത്, അവരെ ആത്തിരികാടലിക്കുണ്ട്. അതാനായാണെങ്കിത്, അവരോട് പിതുരംഗവാദനം ചെരിപാതിരിക്കും. ആക്ട് ഓഫ് അമേസൽ അല്ലെങ്കിത്, അവരുടെ അവിടകാരത അവസാനമായിരിക്കും. അവരോട് പിതുരംഗവാദനം ചെരിപാതിരിക്കും, അവസാനമായിരിക്കും. അവസാനമായി, അവരോട് അവിടകാരതതിന്  അവിടകാരതതിന്  അവിടകാരതതിന് അവിടകാരതതിന് അവിടകാരതതിന് അവിടകാരതതിന് അവിടകാരതതിന് അവിടകാരതതിന് അവിടകാരതതിന് അവിടകാരതതിന് അവിടകാരതതിന് അവിടകാരതതിന് അവിടകാരതതിന് അവിടകാരതതിന് അവിടകാരതതിന് അവിടകാരതതിന് അവിടകാരതതിന് അവിടകാരതതിന് അവിടകാരതതിന് അവിടകാരതതിന് അവിടകാരതതിന് അവിടകാരതതിന് അവിടകാരതതിന് അവിടകാരതതിന് അവിടകാരതതിന് \\\textit{Original last sentence of paragraph 1}
+    \\\textit{First paragraph of second order experiment}
+    \\\textit{Last paragraph of second order experiment}
+    \\\textit{Original last sentence of paragraph 1}
+    \end{tcolorbox}
+\end{enumerate}
+
+
+\section{Preference}
+\label{sec:preference}
+\input{latex/preference}
+%-----------------------------------------------------------------------
+\section{Simulation}
+\label{sec:simulation}
+\input{latex/simulation}
+%------------------
+\begin{figure*}[ht!]
+  \centering
+  \includegraphics[width=\textwidth]{images/stress_testing_methods_2.jpg}
+  \caption{Methods to stress test LLM Generated Data \anonymous{calibration is not currently used} \anonymous{change the calibration to human validation!}}
+  \label{fig:figure2}
+\end{figure*}
+ %------------------ 
+ %---------------------------
+\begin{table*}[ht]
+\footnotesize
+\centering
+\begin{tabular}{p{0.10\linewidth}p{0.10\linewidth}p{0.10\linewidth}p{0.10\linewidth}p{0.10\linewidth}p{0.10\linewidth}p{0.10\linewidth}p{0.10\linewidth}}
+\toprule
+\textbf{} & \textbf{Artifact Analysis} & \textbf{Distributional Difference} & \textbf{Label Flipping}

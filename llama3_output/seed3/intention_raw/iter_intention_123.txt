@@ -1,0 +1,14 @@
+\input{latex/instruct-instructions}}\label{sec:instruct-background}
+        \input{latex/instruct-background}
+        \input{latex/instruct-background}
+        \input{latex/instruct-background}
+        \input{latex/instruct-background}
+        \input{latex/instruct-background}
+        \input{latex/instruct-background}
+        \input{latex/instruct-background}
+        \input{latex/instruct-background}
+        \input{latex/instruct-background}
+    \end{enumerate}
+    \item \textbf{Preference:} \textbf{Instructions} for the first 5 sets of preference data. 
+    \begin{enumerate}[noitemsep]
+        \item \textbf{Instruction: } Read given instruction carefully and answer the following questions based on the provided input. \textbf{Input:} The following sentence is a fact. \textbf{Output:} I'm not sure. - \textsc{Unnatural}\\

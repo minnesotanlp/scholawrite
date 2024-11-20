@@ -1,0 +1,19 @@
+- \textbf{Task Labels}: Majority voting, commonly used for generating task labels, tends to overlook minority views and disagreements among annotators, particularly in highly subjective tasks. 
+  % Topic of task labels is too focused; changing this sub-section to a different name/wrapper would be better.
+  % If the above is not the case, consider moving this sub-section to another place (but I prefer not to move it, as it's a part of the experiment setup)
+  %---------------------------------------------------------------
+
+\paragraph{Experiment Setup} We use LLMs as annotators to generate labels for the tasks of datasets described in Section \ref{sec:task-descriptions}. The LLMs we chose are all open-sourced or commercially available, instruction-tuned TRLs: Vicuna \cite{vicuna2023}, Koala \cite{koala_blogpost_2023}, Baize \cite{xu2023baize}, GPT-3.5-Turbo \cite{brown2020language}, and LLaMA 2\cite{touvron2023llama}. We create LLM task labels in two setups, \textit{intra-model} and \textit{inter-model}, and compare those generated labels against the original human annotations.
+
+%In the \textit{intra-model} set-up, we group LLM ``annotators'' according to their underlying architectures and training methodologies, but differentiate between them using different temperature and top-p combinations. This results in a collection of models with different response patterns, simulating how a group of humans may respond differently from each other. 
+
+%We use temperatures 0.3 and 0.8 and top-p values of 0.25 and 0.75 for 4 variations, in addition to the default 1.0 and 1.0 combination for 5 settings total. Thus, an intra-model setup for the model Vicuna would yield 5 different labels, each from a different combination of hyperparameters. When prompting the models, we extracted snippets of task descriptions from the original paper and included them in our instructions to the models, along with the original label names. We asked the LLM to respond as Master Turk workers chosen from a diverse group of people. Specific examples of our prompts are in the Appendix \ref{sec:appendix}.
+
+\paragraph{Example Prompts} Here are a few examples of the prompts we created for the three  in our three setups:
+% \noindent \textbf{Example Prompts:}
+% \begin{listing}[!ht]
+% \begin{minted}[fontsize=\footnotesize, frame=single, breaklines]{python}
+% f'''
+% We are writing a novel in which a character named Charles is in love with a character named Mary. The story is set in the 19th century and follows the romance between Charles and Mary. It is a historical romance, and its primary focus is on the historical setting and the social context of the time period. The story is told from Charles' point of view.\\
+% \textbf{Charles}, you are a young artist with a passion for photography. One summer, you spent your vacation traveling through the American West, taking your camera with you. You spent your time there capturing beautiful moments of nature and people.\\
+% \textbf{Charles}, I love you. You are my best friend, you are the person with whom I spend most

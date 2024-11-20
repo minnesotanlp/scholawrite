@@ -1,0 +1,22 @@
+\begin{tabular}{lccc|ccc|ccc|ccc|ccc}
+        \toprule
+        \multicolumn{1}{c}{} & \multicolumn{3}{c}{Overall} & \multicolumn{3}{c}{Sem Eval Prompts} & \multicolumn{3}{c}{Tweet Eval} & \multicolumn{3}{c}{Rotten Tomatoes} & \multicolumn{3}{c}{Wikipedia} \\
+        \midrule
+        \multicolumn{1}{c}{\textbf{Model}} & \textbf{Sent.} & \textbf{Form.} & \textbf{All} & \textbf{Sent.} & \textbf{Form.} & \textbf{All} & \textbf{Sent.} & \textbf{Form.} & \textbf{All} & \textbf{Sent.} & \textbf{Form.} & \textbf{All} & \textbf{Sent.} & \textbf{Form.} & \textbf{All}\\
+        \midrule
+        1-Style Models & & & \\
+        \quad Positive & 0.783 & - & - & 0.772 & - & - & 0.810 & - & - & 0.850 & - & - & 0.698 & - & - \\
+        \quad Negative & 0.641 & - & - & 0.704 & - & - & 0.704 &-&-& 0.688 & - & - & 0.466 & - & -\\
+        \quad Formal & - & 0.873 & - & - & 0.852 & - & - & 0.896 & - &- & 0.856 & - & - & 0.89 & -\\
+        \quad Informal & - & 0.764 & - & - & 0.854 & - & - & 0.848 & - & - & 0.914 & - & - & 0.44 & -\\
+        \midrule
+        2-Style Models & & & \\
+        \quad Pos-Formal  & 0.786 & 0.776 & 0.674 & 0.754 & 0.738 & 0.612 & 0.808 & 0.772 & 0.684 & 0.838 & 0.738 & 0.682 & 0.742 & 0.856 & 0.716 \\
+        \quad Pos-Informal & 0.759 & 0.725 & 0.520 & 0.810 & 0.754 & 0.586 & 0.784 & 0.780 & 0.584 & 0.904 & 0.902 & 0.812 & 0.538 & 0.856 & 0.096 \\
+        \quad Neg-Formal & 0.619 & 0.708 & 0.389 & 0.706 & 0.714 & 0.474 & 0.700 & 0.700 & 0.460 & 0.648 & 0.712 & 0.442 & 0.422 & 0.702 & 0.180  \\
+        \quad Neg-Informal & 0.598 & 0.734 & 0.542 & 0.601 & 0.812 & 0.562 & 0.672 & 0.808 & 0.628 & 0.630 & 0.852 & 0.590 & 0.486 & 0.464 & 0.386 \\
+        \bottomrule
+    \end{tabular}
+    \caption{Automatic accuracy evaluation of 1-, 2-, and 3-style models.}
+    \label{tab:precision_results}
+\end{table*}

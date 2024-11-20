@@ -1,0 +1,1 @@
+unity. We explore whether LLMs' tendency to over-represent majority opinions results in poorer representation of minority opinions.

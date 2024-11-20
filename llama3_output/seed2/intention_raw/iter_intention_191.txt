@@ -1,0 +1,137 @@
+-Semitized 4.2cm 4cm 2cm
+% \includegraphics[scale=0.03]{images/icons/rainbow.png} {The data represents two and only one of the datasets (CAMEL) has the following three categories :}\label{sec:sos}
+% \begin{figure}
+%   \centering
+%   \includegraphics[width=0.5\textwidth]{images/simulation/camel_cobblerComparison.png}
+%   \caption{Comparison of majority and minority match accuracy for all three datasets}
+%   \label{fig:maj_match}
+% \end{figure}
+% %---------------------------------
+% \begin{figure}[ht!]
+%     \centering
+%     \includegraphics[width=\linewidth]{images/instructions/sentiment_accuracy_maj_min.pdf}
+%     \caption{Model accuracy for majority (M) and minority (m) match comparison on Sentiment dataset}
+%     \label{fig:maj_match}
+% \end{figure}
+% %---------------------------------
+% \begin{figure}[ht!]
+%     \centering
+%     \includegraphics[width=\linewidth]{images/instructions/cobbler_maj_min.pdf}
+%     \caption{Model accuracy for majority (M) and minority (m) match comparison on CAMEL dataset}
+%     \label{fig:maj_match}
+% \end{figure}
+% %---------------------------------
+% \begin{figure}[ht!]
+%     \centering
+%     \includegraphics[width=\linewidth]{images/instructions/sentiment_accuracy_maj_min.pdf}
+%     \caption{Model accuracy for majority (M) and minority (m) match comparison on Sentiment dataset}
+%     \label{fig:maj_match}
+% \end{figure}
+% %---------------------------------
+% \begin{figure}[ht!]
+%     \centering
+%     \includegraphics[width=\linewidth]{images/instructions/cobbler_maj_min.pdf}
+%     \caption{Model accuracy for majority (M) and minority (m) match comparison on CAMEL dataset}
+%     \label{fig:maj_match}
+% \end{figure}
+% %---------------------------------
+% \begin{figure}[p]
+%     \centering
+%     \includegraphics[width=\linewidth]{images/instructions/sentiment_accuracy.pdf}
+%     \caption{Model accuracy for majority (M) and minority (m) match comparison on Sentiment dataset}
+%     \label{fig:maj_match}
+% \end{figure}
+% %---------------------------------
+% \begin{figure}[p]
+%     \centering
+%     \includegraphics[width=\linewidth]{images/instructions/sentiment_accuracy_cobbler.pdf}
+%     \caption{Model accuracy for majority (M) and minority (m) match comparison on Sentiment dataset}
+%     \label{fig:maj_match}
+% \end{figure}
+
+% %---------------------------------
+% \begin{figure}[p]
+%     \centering
+%     \includegraphics[width=\linewidth]{images/instructions/sentiment_accuracy_human.pdf}
+%     \caption{Model accuracy for majority (M) and minority (m) match comparison on Sentiment dataset}
+%     \label{fig:maj_match}
+% \end{figure}
+% %---------------------------------
+% \begin{figure}[p]
+%     \centering
+%     \includegraphics[width=\linewidth]{images/instructions/sentiment_accuracy_rlp.pdf}
+%     \caption{Model accuracy for majority (M) and minority (m) match comparison on Sentiment dataset}
+%     \label{fig:maj_match}
+% \end{figure}
+% %---------------------------------
+% \begin{figure}[p]
+%     \centering
+%     \includegraphics[width=\linewidth]{images/instructions/sentiment_accuracy_rl.pdf}
+%     \caption{Model accuracy for majority (M) and minority (m) match comparison on Sentiment dataset}
+%     \label{fig:maj_match}
+% \end{figure}
+% %---------------------------------
+% \begin{figure}[p]
+%     \centering
+%     \includegraphics[width=\linewidth]{images/instructions/sentiment_accuracy_ours.pdf}
+%     \caption{Model accuracy for majority (M) and minority (m) match comparison on Sentiment dataset}
+%     \label{fig:maj_match}
+% \end{figure}
+
+% %---------------------------------
+% \begin{figure}[p]
+%     \centering
+%     \includegraphics[width=\linewidth]{images/instructions/sentiment_accuracy_human.pdf}
+%     \caption{Model accuracy for majority (M) and minority (m) match comparison on Sentiment dataset}
+%     \label{fig:maj_match}
+% \end{figure}
+%---------------------------------
+\begin{figure}[p]
+    \centering
+    \includegraphics[width=\linewidth]{images/instructions/cobbler_maj.pdf}
+    \caption{Cobbler M}
+    \label{fig:maj_match}
+\end{figure}
+%---------------------------------
+\begin{figure}[p]
+    \centering
+    \includegraphics[width=\linewidth]{images/instructions/sentiment_maj.pdf}
+    \caption{Sentiment M}
+    \label{fig:maj_match}
+\end{figure}
+%---------------------------------
+\begin{figure}[p]
+    \centering
+    \includegraphics[width=\linewidth]{images/instructions/sentiment_maj.pdf}
+    \caption{Sentiment M}
+    \label{fig:maj_match}
+\end{figure}
+%---------------------------------
+
+\subsection{Second Order Effect}
+\paragraph{Hypothesis}
+\paragraph{Experiment Setup}
+\paragraph{Metrics}
+\paragraph{Result}
+\subsection{Mitigation Suggestions}
+\paragraph{General Advice}
+\paragraph{Specific Advice}
+\paragraph{Mitigation Suggestions}
+
+\section{Ethics Statement}
+\section{Acknowledgements}
+% \section{Acknowledgements}
+% \section*{Acknowledgements}
+% \section{Acknowledgements}
+% \section{Acknowledgements}
+% \section{Acknowledgements}
+
+% \section{Acknowledgements}
+% \section*{Acknowledgements}
+% \section{Acknowledgements}
+
+% \section{Acknowledgements}
+
+% \section{Acknowledgements}
+
+% \section{Acknowledgements}

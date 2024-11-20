@@ -1,0 +1,3 @@
+ardy  et al. (2022) identified correlation patterns in five different LLM-generated data types, including text, image, simulation, preference, and instruction. They found that four of these types of LLM-generated data exhibit significant correlation with human data, while human data exhibits less correlation with the fifth type (instruction). This suggests that LLMs may have a more superficial approach to certain tasks than humans. 
+
+In this paper, we examine whether LLM-generated task annotations fail to retain minority opinions and skew towards majority labels in various subjective and objective tasks and how this bias is amplified with further training.

@@ -1,14 +1,102 @@
-\documentclass{article}
-\usepackage{graphicx} % Required for inserting images
+,egs & [0.00, 3.00, 3.00, 3.00, 3.00] & [3.00, 3.00, 3.00, 3.00, 3.00] \\ \midrule
+P, F & [1.00, 4.00, 4.00, 4.00, 4.00] & [4.00, 4.00, 4.00, 4.00, 4.00] \\ \midrule
+N, F & [0.00, 3.00, 3.00, 3.00, 3.00] & [0.00, 0.00, 0.00, 0.00, 0.00] \\ \midrule
+N, I & [0.00, 3.00, 3.00, 3.00, 3.00] & [3.00, 3.00, 3.00, 3.00, 3.00] \\ \midrule
+P, I & [1.00, 4.00, 4.00, 4.00, 4.00] & [4.00, 4.00, 4.00, 4.00, 4.00] \\ \bottomrule
+\end{tabular}
+\caption{Baselines for node classification on CORA, Citeseer, and Pubmed.}
+\label{tab:cora_citeseer_pubmed_classification}
+\end{table*}
+%-----
 
-\title{Semisupervised Neural Proto-Language Reconstruction}
-\author{}
-\date{}
 
-\begin{document}
-\maketitle
-\begin{abstract}
-Existing work implementing comparative reconstruction of ancestral languages (proto-languages) has usually required full supervision. However, historical reconstruction models are only of practical value if they can be trained with a limited amount of labeled data. We propose a semisupervised historical reconstruction task in which the model is trained on only a small amount of labeled data (cognate sets with proto-forms) and a large amount of unlabeled data (cognate sets without proto-forms). We propose a neural architecture for comparative reconstruction (DPD-BiReconstructor) incorporating an essential insight from linguists' comparative method: that reconstructed words should not only be reconstructable from their daughter words, but also determinin into their daughter words. We show that this architecture is able to leverage unlabeled cognate sets to outperform strong semisupervised baselines on this novel task.
-\end{abstract}
+%-------------------------------------
+\begin{table*}[ht]
+\centering
+\small
+\begin{tabular}{l|lll|lll|lll}
+\toprule
+& \multicolumn{3}{c|}{\textbf{CORA}} & \multicolumn{3}{c|}{\textbf{Citeseer}} & \multicolumn{3}{c}{\textbf{Pubmed}} \\
+\cmidrule{2-10}
+\textbf{Model} & \textbf{Acc.} & \textbf{Inacc.} & \textbf{Fail Rate} & \textbf{Acc.} & \textbf{Inacc.} & \textbf{Fail Rate} & \textbf{Acc.} & \textbf{Inacc.} & \textbf{Fail Rate} \\
+\midrule
+Text & 0.70 \std{0.04} & 0.13 \std{0.02} & 0.16 \std{0.06} & 0.77 \std{0.06} & 0.17 \std{0.02} & 0.07 \std{0.05} & 0.77 \std{0.02} & 0.15 \std{0.00} & 0.08 \std{0.02} \\
+\midrule
+Motif & 0.68 \std{0.05} & 0.25 \std{0.04} & 0.06 \std{0.02} & 0.52 \std{0.08} & 0.18 \std{0.02} & 0.30 \std{0.07} & 0.60 \std{0.04} & 0.17 \std{0.06} & 0.23 \std{0.05} \\
+\midrule
+Image & 0.80 \std{0} & 0.20 \std{0} & 0 \std{0} & 0.45 \std{0}  & 0.30 \std{0} & 0.25 \std{0} &  0.45 \std{0} & 0.20 \std{0} & 0.35 \std{0} \\
+\bottomrule
+\end{tabular}
+\caption{Baselines for node classification on CORA, Citeseer, and Pubmed.}
+\label{tab:cora_citeseer_pubmed_classification}
+\end{table*}
+%--------------------------------------
 
-\end{document}
+\subsection{Graph TMI Benchmark}
+We decide on graph ``difficulty'' based on the dual criteria of 1) count of motifs and 2) homophily in the graph. We apply a naive heuristic to decide homophily, i.e., the count of the distinct labels in the graph. If the count of distinct labels $<3$, the graph is considered \textit{easy}. If the count is $\geq 3$ and $<5$, it is considered \textit{medium}, and if the count is $\geq 5$, it is considered \textit{hard}. To decide the motif criteria, we count the total number of motifs( focusing on just three motifs as we are using motif frequencies) in a graph. For example, if this count of motifs $\leq 10$ for the CORA dataset, the graph is considered \textit{easy}. If the count is $>10$ and $\leq 20$, it is regarded as \textit{medium}; if the count is $>20$, it is considered \textit{hard}. Some graphs can have both the homophily and motif criteria applicable to them; for instance, Figure \ref{tab:task_hierarchy} shows that 5886 can be classified as \textit{medium} based on homophily, \textit{hard} based on the count of motifs. This leads us to combine the homophily and the count of motif criteria to define the ``task difficulty''. Thus, we can have $2^3 = 8$ categories of difficulty, and the final difficulty label is decided by choosing the higher annotation between homophily and count of motif classification). So, a graph with criteria \{easy, hard\} will be assigned the final task difficulty, \textit{hard}.
+
+Thus, we can classify graphs based on our ``task difficulty'' heuristic, and we introduce \textsc{GraphTMI} (Graph Text-Motif-Image), a novel benchmark dataset of input graph structures paired with their associated modality encodings.
+% %---------------------------------------
+\begin{table}[H]
+\centering
+\footnotesize % Even smaller font size
+\setlength{\tabcolsep}{4pt} % Default value: 6pt
+\begin{tabular}{lccc}
+\toprule
+  & \textbf{homophily} & \textbf{motif} & \textbf{count} \\
+\midrule
+0 & easy & easy & 7 \\
+1 & easy & hard & 4 \\
+2 & easy & medium & 6 \\
+3 & hard & easy & 1 \\
+4 & hard & hard & 8 \\
+5 & hard & medium & 2 \\
+6 & medium & easy & 12 \\
+7 & medium & hard & 5 \\
+8 & medium & medium & 12 \\
+\bottomrule
+\end{tabular}
+\caption{Graphs classified as easy, medium, or hard through the homophily and the number of motifs criteria. } 
+\label{tab:homo_motif}
+\end{table}
+
+
+
+\begin{table}[H]
+\centering
+\footnotesize % Even smaller font size
+\setlength{\tabcolsep}{6pt} % Default value: 6pt
+\begin{tabular}{lcc}
+\toprule
+  & \textbf{difficulty} & \textbf{count} \\
+\midrule
+0 & easy & 7 \\
+1 & hard & 20 \\
+2 & medium & 23 \\
+\bottomrule
+\end{tabular}
+\caption{Task difficulty counted } 
+\label{tab:task_diff}
+\end{table}
+
+
+
+
+
+\section{GNN Experiments}
+\label{sec:A}
+%---------------------------------------------------
+\begin{table*}[h!]
+\centering
+\begin{tabular}{p{1.5 cm}p{1.5cm}p{1.5cm}p{1.5cm}p{1.5cm}}\toprule
+& \textbf{GCN} & \textbf{GAT} & \textbf{GraphSAGE} & \textbf{GraphSAGE} & \textbf{GAT} \\
+\midrule
+Epochs & 100 & 100 & 100 & 100 & 100 \\
+Learning Rate & 0.005 & 0.005 & 0.005 & 0.005 & 0.005 \\
+Weight Decay & 5e-4 & 5e-4 & 5e-4 & 5e-4 & 5e-4 \\
+\bottomrule
+\end{tabular}
+\caption{List of GNN training hyperparameters} 
+\label{tab:GNN_params}
+\end{table*}
+%-----------------------------------------------

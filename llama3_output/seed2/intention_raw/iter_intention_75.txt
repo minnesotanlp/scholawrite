@@ -1,0 +1,48 @@
+pieces of evidence that LLM agents tend to flip their roles when the conversation becomes longer or one agent interrupts the conversation, etc. 
+\end{itemize}
+\item \textbf{Role-flipping from Different Conversation Length and Agents' Interruption Messages}:
+We first found the correlation between the conversation length and the occurrence of role-flipping. We observed that role-flipping rarely happens in the first six messages (see Figure \ref{fig:camel_length}). 
+This suggests that role-flipping is unlikely to happen during the initial phases of the conversation.
+Next, we examine if agent interruptions are the cause of role-flipping. We found that in 88.8\% of the cases where the role-flipping occurs, the AI-User agent interrupted the conversation with a message (see Figure \ref{fig:camel_interruption}). 
+These interruptions are also the most common type of interruption found in the simulated conversations. 
+This result means that the role-flipping might be attributed to the agent's difficulty in following the conversation, as it happens a lot in the cases with the longest conversations.
+
+\end{itemize}
+\textbf{Conversation Length and Interruption Messages}:
+
+Our analysis of the CAMEL AI-World dataset identified "interruption messages" in simulated conversations, which are messages that do not begin with a response to the previous message. These interruptions occur in 26.12\% of the conversations and are often related to the agent's confusion or lack of knowledge about how to respond. We also observed that in 88.8\% of cases with interruption messages, the first interruption message comes before the first role-flipping message, which suggests that the interruption messages might trigger the role-flipping behavior. 
+Specifically, in 2759 conversations out of 5544 (49.7\%), the first interruption message is preceded by the first role-flipping message. 
+In 736 conversations out of 5544 (13.1\%), the first interruption message is preceded by the first role-flipping message, and in 623 conversations (75.2\%), the last message in the interruption messages is also preceded by the first role-flipping message. 
+This suggests that the interruption messages might trigger the role-flipping behavior in subsequent parts of the conversation.
+
+\begin{figure}
+    \centering
+    \includegraphics[width=0.7\columnwidth]{images/simulation/camel_length_distribution.pdf}
+    \caption{Distribution of the length of the conversations with role-flipped messages and all conversations in the CAMEL AI-World dataset.}
+    \label{fig:camel_length}
+\end{figure}
+
+\begin{figure}
+    \centering
+    \includegraphics[width=0.7\columnwidth]{images/simulation/camel_confusion.pdf}
+    \caption{Confusion matrix of the conversations with role-flipped messages and interruption messages on CAMEL AI-World dataset.}
+    \label{fig:camel_confusion}
+\end{figure}
+
+\begin{figure}
+    \centering
+    \includegraphics[width=0.7\columnwidth]{images/simulation/CAMEL_Average_Flipping_Rate_per_AI_User_Occupation_top_bottom_3.pdf}
+    \caption{The role-flipping rate for 6 different occupations that the AI-User plays each on 500 simulated conversations in CAMEL AI-World dataset. Error bars show the 95\% confidence interval with bootstrap sampling.}
+    \label{fig:camel_occupation}
+\end{figure}
+
+\begin{figure}
+    \centering
+    \includegraphics[width=0.7\columnwidth]{images/simulation/CAMEL_Average_Flipping_Rate_per_AI_User_Occupation_top_bottom_3.pdf}
+    \caption{The role-flipping rate for 6 different occupations that the AI-User plays each on 500 simulated conversations in CAMEL AI-World dataset. Error bars show the 95\% confidence interval with bootstrap sampling.}
+    \label{fig:camel_occupation}
+\end{figure}
+
+\noindent\textbf{Role-flipping from Different Conversation Length and Agents' Interruption Messages}: 
+Figure \ref{fig:camel_length} shows that role-flipping rarely occurs in the first six messages of a conversation and is more prevalent in longer conversations. 
+Figure \ref{fig:camel_length} also shows that role-flipping rarely occurs in the first six messages of a conversation and is more prevalent in conversations with 8 messages, which indicates that role-flipping might be attributed to the agents' difficulty in following the role when the conversation progresses and the number of messages increases.

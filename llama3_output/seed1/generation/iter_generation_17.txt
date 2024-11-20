@@ -1,0 +1,37 @@
+trung bình, $R = \frac{\sum_{i = 0}^n w_i}{n}$ 
+$w_i$ là trọngweight của bài viết $i$ và được tính bằng cách tính trọngweight của tương lai của chính sách và tương lai của chính sách. 
+$A = \{a_1, a_2,..., a_n\}$ là các phần tử của tập hợp và $b = \{b_1, b_2,..., b_n\}$ là các phần tử của tập hợp. 
+$A \cap b$ là kết hợp của các phần tử của A và b. 
+$A - \{b\}$ là các phần tử của A mà không bao gồm các phần tử của b. 
+$A + b$ là các phần tử của A và b. 
+$A \cap b$ là các phần tử của A và b. 
+$A - b$ là các phần tử của A mà không bao gồm các phần tử của b. 
+$A + b$ là các phần tử của A và b. 
+
+\end{enumerate}
+\paragraph{Denotations}
+\begin{table*}[ht]
+\begin{tabular}{l'l{l}}
+\toprule
+\textbf{Name of Property} & \textbf{Definition} & \textbf{Example Sentences} \\
+\midrule
+\textbf{Number of Edges} & Counts the number of edges for the graph. & \textit{The number of edges for the graph is 3.} \\
+\midrule
+\textbf{Average Degree} & \textit{Average degree of nodes.} & \textit{The average degree of nodes in the graph is 2.} \\
+\midrule
+\textbf{Connected Components} & \textit{Connected components for the graph.} & \textit{The connected components for the graph are [1, 2, 3] and [4, 3, 2, 3].} \\
+\midrule
+\textbf{Clustering Coefficient} & Measures the degree to which nodes tend to cluster together. & \textit{The clustering coefficient is 0.01} \\
+\midrule
+\textbf{Degree Distribution} & Measures the distribution of node degrees. & \textit{The degree distribution is [1, 2, 2, 2, 2] and [2, 3, 3, 3, 3]} \\
+\midrule
+\textbf{Average Degree} & \textit{Average degree of nodes.} & \textit{The average degree of nodes in the graph is 3.} \\
+\midrule
+\textbf{Standard Deviation} & Measures the standard deviation of the distribution of node degrees. & \textit{The standard deviation of the degree distribution is 1.6} \\
+\midrule
+\textbf{Average} & \textit{Average of the } & \textit{The average of the } \\
+\midrule
+\end{tabular}
+\caption{Denotations for graph properties and examples of sentences for each property.}
+\label{tab:graph_properties}
+\end{table*}

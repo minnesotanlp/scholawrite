@@ -1,0 +1,10 @@
+IMDb & 0.73 & 0.72 & 0.67 & 0.77 & 0.77 & 0.70 & 0.77 & 0.70 & 0.70 & 0.67 & 0.53 \\
+\quad Positive & 0.77 & 0.77 & 0.70 & 0.81 & 0.81 & 0.72 & 0.73 & 0.68 & 0.66 & 0.38 & 0.29 \\
+\quad Negative & 0.69 & 0.70 & 0.60 & 0.76 & 0.75 & 0.54 & 0.64 & 0.58 & 0.64 & 0.66 & 0.18 \\
+\quad Formal & 0.67 & 0.72 & 0.56 & 0.80 & 0.79 & 0.64 & 0.52 & 0.90 & 0.60 & 0.62 & 0.48 \\
+\quad Informal & 0.73 & 0.70 & 0.58 & 0.57 & 0.50 & 0.73 & 0.67 & 0.18 & 0.92 & 0.72 & 0.60 \\
+\bottomrule
+\end{tabular}
+\caption{Domain-specific style accuracy of 2-style models. Prompts from the generations of our other experiments are } 
+\label{tab:precision_domain}
+\end{table*}

@@ -1,0 +1,38 @@
+tvořing a diverse set of potential artificial data, we identify consistent biases and errors within synthetic datasets and show how these are amplified by models intended for use in downstream tasks. 
+
+We find that LLMs tend to either not represent minority opinions or  of  in situations where a clear majority is not apparent. This risks marginalizing minority perspectives, potentially reinforcing societal disparities \cite{prabhakaran2021releasing}. 
+
+In our tasks, we observe that LLMs consistently overrepresent majority opinions, even in subjective contexts where minority views might be more prominent. This risks marginalizing minority perspectives, potentially reinforcing societal disparities \cite{prabhakaran2021releasing}. 
+
+We also note that LLMs have difficulties generating data in which situations are 
+% Theme 1: Curse of generality?
+% writing open-ended questions (harder to get wrong)
+% not representing/indicating awareness of minority views
+
+% Theme 2: Difficulty with complications/complex contexts?
+% not applying textual styles in the same way, particularly in social contexts
+% differing discourse patterns
+% primary and recency bias
+
+
+Mitigation strategies : 
+
+To mitigate these issues, we suggest enhancing data quality and diversity by incorporating domain-specific information and examples into LLM training, in order to expose LLMs to a broader range of perspectives. We propose refining model interaction and responsiveness to align LLM responses more closely with humans, especially in social and informal contexts. This involves calibrating LLMs to better understand and reflect varied emotional expressions and contextual appropriateness, aiming to reduce discrepancies in complex societal language constructs. 
+%----------------------------------------
+\begin{table*}[]
+    \centering
+    \small
+    \begin{tabular}{l l l l}
+    \toprule
+     & & \multicolumn{2}{c}{\textbf{Experiment}} \\     
+       \textbf{Datasets} & \textbf{Rationale} & \textbf{1st order} & \textbf{2nd order} \\
+       \midrule
+       \rowcolor{color2} \multicolumn{4}{l}{\textbf{Free-form Text}}\\
+       \rowcolor{color2} \textsc{HC3} \cite{guo2023close}, & Pair-wise generated texts & High-level & Classification\\
+       \rowcolor{color2} \textsc{Scarecrow} \cite{dou-etal-2022-gpt}, & from both humans and LLMs & textual attribute & performance\\
+       \rowcolor{color2}  \textsc{Deepfake} \cite{li2023deepfake}, & & and discourse & \\
+        \rowcolor{color2} \textsc{Workers} \cite{moller2023prompt} & &structure difference & \\ 
+        \midrule
+        \rowcolor{color3}\multicolumn{4}{l}{\textbf{Task Labels}}\\
+        \rowcolor{color3}\textsc{Social Chemistry} & Subjective tasks,  & Biased toward & \anonymous{not clear?}  \\
+         \rowcolor{color3}\cite{forbes2020social}, & individual-level & majority label  & \\

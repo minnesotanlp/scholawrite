@@ -1,0 +1,2 @@
+\section{Introduction}
+\rubric{Hook: } The rapid acceleration of knowledge creation is a defining feature of modern research. Between 1952 and 2020, the corpus of scientific literature has expanded at a growth rate of 5.08\%, doubling every 14 years \cite{Bornmann2021}. Some fields are growing even more rapidly; \citet{Krenn2023} estimate a doubling rate of almost two years for machine learning and artificial intelligence papers between

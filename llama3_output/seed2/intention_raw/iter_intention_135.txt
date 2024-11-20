@@ -1,0 +1,12 @@
+Fairfield, IL  55425
+ \texttt{email@illinois.edu} \\
+
+\begin{document}
+\maketext{Just returned} \begin{it}I just got back from the airport and I'm taking a deep breath. It was a long flight, but it was worth it.\\
+The plane was so nice, I could have spent the whole day on it.\\
+The food was great, the service was excellent, and the atmosphere was fantastic.\\
+I'm not joking, if we were going to be seated on that plane, we would have been on it for 5 hours.\\
+But alas, it was not meant to be.\\
+So if any of you would like to pretend to be a flight attendant today, please welcome aboard!\\
+Thanks for your help, and I hope you enjoy your flight!\\
+\end{it} \end{document}

@@ -1,0 +1,6 @@
+ichel, & L. 2002. Branching properties of Laplace graphs. Journal of Graph Theory & 35 (2) 139--148.\\
+\bottomrule
+\end{tabular}
+\caption{Caption}
+\label{tab:my_label}
+\end{table*}

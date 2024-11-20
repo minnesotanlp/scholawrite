@@ -1,0 +1,45 @@
+llu 5 kinds of data, we use the following five types of LLM generated data for analysis - 
+\begin{itemize}[noitemsep,topsep=5pt,leftmargin=*]
+\item \textbf{Free-Form Text} written by an LLM, often used to compensate for data scarcity issues and used for pretraining and/or finetuning
+\item \textbf{Task Labels} for classification tasks over textual input, bypassing the need for human annotators.
+\item \textbf{Instruction prompts} written by LLMs for instruction fine-tuning, eliminating the need for humans to write comprehensive sets of diverse instructions.
+\item \textbf{Preference}, specifically evaluating which text is better, is useful for human alignment tasks such as training reward models used in RLHF.
+\item \textbf{Simulation}, where two large language model (LLM) agents converse, is a relatively unexplored approach, yet initial studies indicate its potential for enhancing model performance and simulating intricate social interactions.
+\end{itemize}
+% why we use this kind of classification 
+We categorize LLM-generated text data based on the level of output constraint, ranging from tightly constrained (such as task labels data, which consists of discrete labels for a task) to lightly constrained (like free-form text data, where output is freely generated from an input). Examples of each data type are further illustrated in Figure ~\ref{fig:figure1}. This spectrum captures the wide-ranging capabilities and applications of large language models, each representing a specific type of output and process integral to the functioning of LLMs. This classification helps understand how each data type contributes to the broader AI and machine learning development landscape.
+
+%This study extensively catalogs artificial data, identifying potential discrepancies ('artifacts') from equivalent human data and examining the impacts of using such data. 
+To address RQ1, we examine \textit{first-order effects} for each data type. We define first-order effects as about the data itself, i.e. any differences or inconsistencies between the artificial data and the corresponding human data. To address RQ2, we examine \textit{second-order effects}, which we define as any differences or inconsistencies in the outcomes of NLP pipelines containing the artificial data and the outcomes from corresponding pipelines containing the corresponding human data. We address RQ3 through an overview of the results of all first- and second-order experiments.
+
+%explain iceberg
+We contend that the general assertion that LLM-generated data matches human data is superficial, as it mainly applies to simple tasks. As depicted in Figure \ref{fig:iceberg}, for more complex tasks, LLM-generated content probably misses the subtleties found in human data, especially in areas like minority perspectives, complex preferences, or detailed instructions. Additionally, LLM-generated texts often lack higher-level human traits such as humor and sarcasm, and they don't exhibit the structural intricacies typical of human writing. Furthermore, LLM conversations in problem-solving scenarios differ significantly from human dialogues. \anonymous{anonymous: do we need citations for our beliefs? is this paragraph mapping to my iceberg?}
+%\cite{li2023synthetic}
+
+% other studies don't cover LLM-generated data drawbacks 
+Our main contributions are : \anonymous{anonymous, anonymous : to do}
+\begin{enumerate}
+    \item First people claim that LLM-generated data is comparable to human data. We show that it is not.
+    \item LLM-generated text tends to be less complex than human-generated text.
+    \item LLM-generated text is missing a lot of  ``higher-level ''  \textit{artifacts}  (e.g.,  \textit{humor},  \textit{metaphor},  \textit{sadness})  and  \textit{social  } interactions. 
+\end{enumerate}
+
+\section{Free Text}
+\label{sec:free_text}
+\anonymous{ follow the format : subsec : about this data, subsec : critique of related work, subsec - short explanation of dataset; subsec - first order experiment and result ; subsec - 2nd order exp and result ; subsec : mitigation/ suggestions for this dataset }
+\label{sec:free_text}
+\anonymous{anonymous : please }
+
+\subsection{About this Data Type}\label{sec:free-background}
+\anonymous{anonymous : please describe the iceberg }
+\anonymous{outline the iceberg}
+
+\subsection{Critique of Related Work}\label{sec:free-related}
+The difficulty distinguishing between human-authored and language model-generated texts (like GPT-3) is significant due to their fluency and coherence, with human evaluators often unable to differentiate at better-than-chance levels \citet{clark-etal-2021-thats,li2023deepfake}. Researchers have attempted to address this by fine-tuning pre-trained language models \cite{guo2023-how-close} or analyzing linguistic features such as part-of-speech tags, sentence structure, and common mistakes \cite{dou-etal-2022-gpt}. Our study proposes that higher-level figurative features, such as irony and emotion, may vary between LLM and human-generated texts, and we examine these differences.
+
+Current detection models focus mostly on surface-level features and their probabilities, using techniques like random perturbations \cite{mitchell2023detectgpt} and analyzing probability spaces to distinguish AI-generated text. Additionally, while some methods \cite{verma2023ghostbuster} involve structured searches over combinations of features like n-grams, the structural and hierarchical features of documents, especially in the context of machine-generated texts, remain underexplored, indicating a potential new direction for research. While existing approaches predominantly rely on data-driven methods, utilizing text classifiers trained on labeled datasets, we intend to explore  \textit{integrating linguistic features, specifically discourse structures}. Our objective is to determine whether the analysis of discourse structures can effectively uncover potential structural peculiarities or "artifacts" that may exist in either type of text and provide valuable insights into the limitations or shortcomings of machine-generated texts.
+
+\subsection{Datasets}\label{sec:free-data}
+
+We utilize the \textsc{HC3} \cite{guo2023close}, \textsc{Scarecrow} \cite{dou-etal-2022-gpt}, \textsc{Deepfake} \cite{li2023deepfake}, and \textsc{Workers} \cite{moller2023prompt}. 
+\paragraph{Rationale} These datasets include generated texts from both humans and LLMs in a pairwise format, which enables us to compare the difference between human-written and LLM-generated texts.

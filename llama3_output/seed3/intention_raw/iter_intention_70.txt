@@ -1,0 +1,25 @@
+ParameterValue
+\begin{figure}
+    \centering
+    \includegraphics[width=0.5\columnwidth]{images/simulation/camel_flipping_per_occupation.png}
+    \caption{Average role-flipping rate per occupation for both the AI-User and AI-Assistant agent observed on the CAMEL AI-World dataset.}
+    \label{fig:camel_flipping_per_occupation}
+\end{figure}
+
+
+\begin{figure*}[ht!]
+    \centering
+    \includegraphics[width=\textwidth]{images/simulation/camel_flipping_by_roles.jpg}
+    \caption{Role flipping rate for each combination of occupations of AI-User and AI-Assistant agents on the CAMEL AI-World dataset.}
+    \label{fig:camel_flipping_by_roles}
+\end{figure*}
+
+
+\begin{figure*}[ht!]
+    \centering
+    \includegraphics[width=\textwidth]{images/simulation/camel_flipping_by_roles.jpg}
+    \caption{Role flipping rate for each combination of occupations of AI-User and AI-Assistant agents on the CAMEL AI-World dataset.}
+    \label{fig:camel_flipping_by_roles}
+\end{figure*}
+
+\end{document}

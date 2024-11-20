@@ -1,0 +1,52 @@
+Fairfield-Palikodouniotis et al. (2018) observed a bias against minority opinions in LLM annotations, which was not evident in human annotations. They used a synthetic dataset and a three-style model, and they noted that the bias was exacerbated by training the LLM on only a few examples.
+
+%  Thus, if a model is to learn to respond to all styles without being biased towards a particular style, it should be able to learn how to respond to the minority style as well. 
+
+
+\begin{table}[ht!]
+\centering
+\begin{tabular}{p{2.4cm}p{1.5cm}p{1.9cm}}\toprule
+         & \textbf{Sentiment}         & \textbf{Formality}        \\ \midrule
+         & \textbf{Neg \textit{informal}} & \textbf{Neg \textit{formal}}       \\
+         \bottomrule
+\end{tabular}
+\caption{We choose hyperparameters that do not necessarily maximize the reward outcomes, as over-optimized models outputs often repeat the same phrases (in this case, ``I don't know'') that maximize the outputs of both discriminators. Our goal is to find a reward formulation that allows for high rewards without such divergence from the base language model.}
+\label{tab:reward_hacks}
+\end{table}
+
+
+\subsection{Comparisons with PPLM and GPT-4}
+\subsubsection{Comparison with PPLM}
+We extend PPLM to combine feedback from multiple discriminators. PPLM has weaker control when combining two attributes than when using one, indicating that the approach may suffer more from conflicting objectives than our reinforcement learning approach. PPLM also notably has high perplexity for combinations containing negative sentiment (both negative and formal and negative and informal combinations), coupled with low overall style accuracy in these areas. 
+
+\subsection{Comparison with Zero-Shot GPT-4}
+We focus on a basic zero-shot prompting baseline to assess GPT-4 performance on controlled style generations. We recognize that prompting techniques such as Chain-of-Thought prompting have been shown to improve performance on these sorts of tasks; our aim is not to optimize GPT-4's output but rather to understand its base level multi-style control abilities.
+
+Due to the nature of GPT-4's RLHF training process, in which human feedback on the quality of model responses strongly informs the training objective, we hypothesize that GPT-4's language model trends towards being more formal and positive. This is supported by GPT-4's performance in combining multiple styles: it has almost perfect performance combining positive and formal, and its worst performance comes from combining negative and informal.
+
+It is important to acknowledge that while GPT-4's understanding of sentiment appears to reasonably match our sentiment discriminator's (see Table~\ref{tab:precision_overall}); GPT-4 may have a different understanding of informality.
+
+\subsection{Difficulty of Style Combinations}
+We approach understanding the relative difficulty of the possible style combinations from two perspectives: frequency in the human texts in the datasets and frequency in the baseline generations in the datasets (see the ``Orig Llama2'' column in Table~\ref{tab:precision_overall}). By both metrics, formal and negative is the most difficult combination, and formal and positive is the easiest.
+
+We conjecture that style combinations that occur more frequently in natural text are easier for generative models to learn. Because the learning process needs to respect the base model's original distributions in order to retain fluency and general linguistic performance, rare style combinations that are not present in the original model's distributions will be more difficult to produce. 
+
+
+
+
+
+
+
+
+\begin{figure}
+    \centering
+    \includegraphics[width=\columnwidth]{Images/delta_bar.pdf}
+    \caption{Generations with target style combinations with no interventions (Llama2) and after interventions (Llama2 + PPLM and Llama2 + RL).}
+    \label{fig:before-and-after}
+\end{figure}
+\begin{figure}
+    \centering
+    \includegraphics[width=\columnwidth]{Images/delta_bar.pdf}
+    \caption{Generations with target style combinations with no interventions (Llama2) and after interventions (Llama2 + PPLM and Llama2 + RL).}
+    \label{fig:before-and-after}
+\end{figure}

@@ -1,0 +1,196 @@
+faitement  to a more straightforward approach to create generative models of text that are also more amenable to further t.
+\anonymous{I'm not sure if we still want to use this method since it's showing very inconsistent results.}
+% \anonymous{Inconsistent results could be very helpful in 2nd order effect }
+
+% \begin{table}
+%     \centering
+%     \begin{tabular}{p{.25\columnwidth}p{.15\columnwidth}p{.15\columnwidth}}\toprule
+%     \textbf{Statistic} & \textbf{Human Text (avg)} & \textbf{GPT Text (avg)}\\\midrule
+%     Number of edges & 48.30 & 12.30\\\midrule
+%     Average node degree & 3.23 & 0.70\\\midrule
+%     Density & 0.14 & 0.02\\\midrule
+%     Clustering coefficient & 0.66 & 0.15\\\bottomrule
+%          % &  & \\\midrule
+%          % &  & \\\bottomrule
+%          % ideas for visualization: scatter plot with human x and chatgpt avg y, or?
+%      \end{tabular}
+%     \caption{Caption}
+%     \label{tab:w}
+% \end{table}
+%---------------------------------------------------------------
+
+\begin{table}
+\centering
+\begin{tabular}{l|lll}
+\toprule
+& \textbf{Sentiment} & \textbf{Formality} & \textbf{Multi-Label} \\
+\midrule
+\textbf{N = 20} & & & \\
+\textbf{Sentiment} & 15.05 & 12.05 & 10.85 & 38.55 & 5.55 & 17.55 & 17.55 & 19.05 & 20.0 & 23.65 & 26.65 & 38.5 & 39.01 & 18.05 & 19.05 & 20.3 & 29.0 & 30.0 & 33.0 & 33.0\\
+\textbf{Formality} & 8.05 & 25.75 & 25.75 & 25.75 & 25.75 & 25.75 & 25.75 & 25.75 & 25.75 & 25.75 & 25.75 & 25.75 & 25.75 & 25.75 \\
+\textbf{Multi-Label} & 6.0 & 5.0 & 4.0 & 4.0 & 4.0 & 4.0 & 4.0 & 4.0 & 4.0 & 4.0 & 4.0 & 4.0 & 4.0 & 4.0 & 4.0 \\
+\bottomrule
+\end{tabular}
+\caption{Percentages of generations classified as positive (for the sentiment dataset) or formal (for the formality dataset) for each trained model.}
+\label{tab:precision_base-rl}
+\end{table}
+%---------------------------------
+\begin{table*}
+\centering
+\begin{tabular}{p{.16\textwidth}p{.5\textwidth}p{.25\textwidth}p{.12\textwidth}p{.13\textwidth}}
+\toprule
+\textbf{Edge Representation} & \textbf{Text Encoding} & \textbf{Graph Structure} & \textbf{Sample  & \textbf{Adjacency List}\\
+\midrule
+\textbf{Edgelist} &  &  &  &  \\
+\textbf{Edgelist} &  &  &  &  \\
+\textbf{Edgelist} &  &  &  &  \\
+\bottomrule
+\end{tabular}
+\caption{The table shows the edge representations types (1: Edgelist, 2: Edgetext, 3: Adjacency List) and their associated encodings (text and graph structures).}
+\label{tab:edge_representations}
+\end{table*}
+%---------------------------------
+\begin{table*}[h]
+\centering
+\begin{tabular}{l|lll}
+\toprule
+& \textbf{A} & \textbf{B} & \textbf{C} \\
+\midrule
+\textbf{Human} & 100.0 & 100.0 & 100.0 \\
+\textbf{Model} & 0.00 & 0.00 & 0.00 \\
+\bottomrule
+\end{tabular}
+\caption{Percentages of classifications  the text modality.}
+\label{tab:precision_results}
+\end{table*}
+%---------------------------
+
+\begin{table*}[h]
+\centering
+\begin{tabular}{l|lll}
+\toprule
+& \textbf{A} & \textbf{B} & \textbf{C} \\
+\midrule
+\textbf{Human} & 0.00 & 0.00 & 0.00 \\
+\textbf{Model} & 0.00 & 0.00 & 0.00 \\
+\bottomrule
+\end{tabular}
+\caption{Percentages of classifications  the text modality.}
+\label{tab:precision_results}
+\end{table*}
+
+\subsection{Graph TMI Benchmark}
+\begin{table*}[h]
+\centering
+\begin{tabular}{l|lll}
+\toprule
+& \textbf{A} & \textbf{B} & \textbf{C} \\
+\midrule
+\textbf{Human} & 0.00 & 0.00 & 0.00 \\
+\textbf{Model} & 0.00 & 0.00 & 0.00 \\
+\bottomrule
+\end{tabular}
+\caption{Percentages of classifications  the text modality.}
+\label{tab:precision_results}
+\end{table*}
+
+\subsection{Graph TMI Benchmark}
+\begin{table*}[h]
+\centering
+\begin{tabular}{l|lll}
+\toprule
+& \textbf{A} & \textbf{B} & \textbf{C} \\
+\midrule
+\textbf{Human} & 0.00 & 0.00 & 0.00 \\
+\textbf{Model} & 0.00 & 0.00 & 0.00 \\
+\bottomrule
+\end{tabular}
+\caption{Percentages of classifications  the text modality.}
+\label{tab:precision_results}
+\end{table*}
+
+\subsection{Graph TMI Benchmark}
+\begin{table*}[h]
+\centering
+\begin{tabular}{l|lll}
+\toprule
+& \textbf{A} & \textbf{B} & \textbf{C} \\
+\midrule
+\textbf{Human} & 0.00 & 0.00 & 0.00 \\
+\textbf{Model} & 0.00 & 0.00 & 0.00 \\
+\bottomrule
+\end{tabular}
+\caption{Percentages of classifications  the text modality.}
+\label{tab:precision_results}
+\end{table*}
+
+\subsection{Graph TMI Benchmark}
+
+\begin{table*}[h]
+\centering
+\begin{tabular}{l|lll}
+\toprule
+& \textbf{A} & \textbf{B} & \textbf{C} \\
+\midrule
+\textbf{Human} & 0.00 & 0.00 & 0.00 \\
+\textbf{Model} & 0.00 & 0.00 & 0.00 \\
+\bottomrule
+\end{tabular}
+\caption{Percentages of classifications  the text modality.}
+\label{tab:precision_results}
+\end{table*}
+
+\subsection{Graph TMI Benchmark}
+\begin{table*}[h]
+\centering
+\begin{tabular}{l|lll}
+\toprule
+& \textbf{A} & \textbf{B} & \textbf{C} \\
+\midrule
+\textbf{Human} & 0.00 & 0.00 & 0.00 \\
+\textbf{Model} & 0.00 & 0.00 & 0.00 \\
+\bottomrule
+\end{tabular}
+\caption{Percentages of classifications  the text modality.}
+\label{tab:precision_results}
+\end{table*}
+
+\subsection{Graph TMI Benchmark}
+\begin{table*}[h]
+\centering
+\begin{tabular}{l|lll}
+\toprule
+& \textbf{A} & \textbf{B} & \textbf{C} \\
+\midrule
+\textbf{Human} & 0.00 & 0.00 & 0.00 \\
+\textbf{Model} & 0.00 & 0.00 & 0.00 \\
+\bottomrule
+\end{tabular}
+\caption{Percentages of classifications  the text modality.}
+\label{tab:precision_results}
+\end{table*}
+
+\subsection{Graph TMI Benchmark}
+\begin{table*}[h]
+\centering
+\begin{tabular}{l|lll}
+\toprule
+& \textbf{A} & \textbf{B} & \textbf{C} \\
+\midrule
+\textbf{Human} & 0.00 & 0.00 & 0.00 \\
+\textbf{Model} & 0.00 & 0.00 & 0.00 \\
+\bottomrule
+\end{tabular}
+\caption{Percentages of classifications  the text modality.}
+\label{tab:precision_results}
+\end{table*}
+
+\subsection{Graph TMI Benchmark}
+\begin{table*}[h]
+\centering
+\begin{tabular}{l|lll}
+\toprule
+& \textbf{A} & \textbf{B} & \textbf{C} \\
+\midrule
+\textbf{Human} & 0.00 & 0.00 & 0.00 \\
+\textbf{Model} & 0.00 & 0.00 & 0

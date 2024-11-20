@@ -1,0 +1,50 @@
+\centering
+         \includegraphics[width=\textwidth]{images/fig1_modified.pdf}
+     \end{tcolorbox}
+    \item \textbf{Task Labels}: Majority voting, commonly used for generating task labels, needs to account for minority opinions and disagreements among annotators. 
+    \item \textbf{Task Labels}: LLMs tend to establish and follow a 'ground truth' during training, leading to skewed behavior and decision-making. 
+    
+    \item \textbf{Instructions}: 
+    \item \textbf{Preference}: 
+
+    \item \textbf{Simulation}: 
+    \item \textbf{Free Text}: 
+\end{enumerate}
+
+\item \textbf{Qualitative Analysis}
+\anonymous{anonymous : complete this }
+\anonymous{anonymous : do we need this? thought it was part of the experimental setup?}
+
+%-----------------------------------------------------------------------
+\section{Results}
+\anonymous{anonymous : complete this }
+\anonymous{anonymous : complete this }
+\anonymous{anonymous : complete this }
+
+\section{Related Work}
+\anonymous{anonymous : complete this }
+\anonymous{anonymous : complete this }
+\anonymous{anonymous : complete this }
+
+%-----------------------------------------------------------------------
+\section{Conclusion and Future Work}
+\anonymous{anonymous : complete this }
+\anonymous{anonymous : complete this }
+\anonymous{anonymous : complete this }
+
+%-----------------------------------------------------------------------
+\section*{Acknowledgements}
+Thanks :)
+
+% Entries for the entire Anthology, followed by custom entries
+\bibliography{bibtex/free_form_text, bibtex/human_raters, bibtex/instructions, bibtex/pref_eval, bibtex/simulation}
+% \bibliographystyle{acl_natbib}
+
+\appendix
+\section{Example Appendix}
+\label{sec:appendix}
+\anonymous{anonymous : this is not in the original submission.}
+
+This is an appendix.
+
+\end{document}

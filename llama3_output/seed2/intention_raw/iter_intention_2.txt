@@ -1,0 +1,39 @@
+GetMethod
+We utilized various open-sourced and commercially available, instruction-tuned LLMs like Vicuna \cite{vicuna2023}, Koala \cite{koala_blogpost_2023}, Baize \cite{xu2023baize}, GPT-3.5-Turbo \cite{brown2020language}, and LLaMA2 \cite{touvron2023llama} as annotators to generate labels for dataset tasks. 
+
+We prepared two setups to simulate groups of human annotators with the same number of LLM annotators.
+In our \textit{inter-model} setup, we grouped LLM annotators by their architecture and training methods, choosing the majority label from each model's intra-model output. Thus, a group of 5 annotators from the \textit{inter-model} setup would consist of 5 Vicuna models run with differing temperature and top-p parameters. Conversely, the \textit{intra-model} setup organized groups by hyper-parameters, yielding labels from different model architectures in any given group. We acknowledge that some models, like GPT-3.5 Turbo, have greater capacities than other LLMs, akin to the varying proficiencies among human annotators.
+
+\paragraph{Metrics}
+\noindent \textsc{Match Score}: The match score measures the agreement between human and model annotations, calculated as the number of matches divided by the total number of samples.
+
+\noindent \textsc{Variation}: In ordinal data, where differences between levels aren't uniform as in interval or ratio data, statistical measures like standard deviation or variance are still  and  \textsc{Wasserstein distance}: This metric evaluates the similarity between two probability distributions, particularly with ordinal values, and is conceptually akin to the minimum effort required to reshape one distribution into the other, hence its alternative name, Earth Mover’s Distance.
+\paragraph{Result Analysis}
+%---------------------------------
+\begin{figure}[ht!]
+  \centering
+\includegraphics[width = \linewidth]{images/human_raters/majority_minority.pdf}
+  \caption{We illustrate the model accuracy for Majority (M) and minority (m) match comparison with every dataset. GPT3.5 Turbo has the highest Majority match accuracy across all datasets and the lowest minority match accuracy.  }
+  \label{fig:maj_match}
+\end{figure}
+%---------------------------------
+\noindent \textbf{Comparison of majority and minority match distributions across subjective datasets :} Considering the inter-model setup, we can see that in Figure \ref{fig:maj_match}, we observe that across all the subjective datasets, human and model majority match accuracy is highest predominantly for GPT3.5 Turbo, except in the case of GHC, for which Koala also has a surprisingly high majority match accuracy. While the majority match accuracy is high,  the minority match accuracy is also lowest for GPT3.5 Turbo. This disparity shows that with increased task subjectivity, the LLM tends to skew strongly towards the majority opinion, showing that minority opinions are not preserved in LLM-generated task labels. %SChem5Labels shows a high majority match accuracy with nearly all the datasets except llama2, implying that this is probably one of the easier subjective tasks\\
+%---------------------------------
+\begin{figure*}[ht!]
+    \centering
+    \begin{subfigure}{0.49\textwidth}
+         \centering
+         \includegraphics[width=\textwidth]{images/human_raters/ghc_variation.png}
+     \end{subfigure}
+         \begin{subfigure}{0.49\textwidth}
+         \centering
+         \includegraphics[width=\textwidth]{images/human_raters/Sentiment_variation.png}
+     \end{subfigure}
+    \caption{variation}
+    \label{fig:variation_comparision}
+\end{figure*}
+%---------------------------------
+\noindent \textbf{Variation Analysis}
+On seeing this interesting behavior of over-representation of majority opinion by GPT3.5 Turbo, we do a fine-grained examination of the variation between the human and machine task labels. We find that the model has consistently low variation on these subjective tasks as compared to humans. This suggests that model have less 
+The color intensity on the color bar represents 
+the range of the logarithmically transformed counts of occurrences within each anonymous of the heatmap (specific human and model variation combinations). Darker colors indicate more instances where human annotators agree, and the model shows lower variation. In contrast, lighter colors at higher levels of human variation suggest fewer instances of disagreement among human annotators, with varying model responses.

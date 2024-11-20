@@ -1,0 +1,20 @@
+Facial expression  & 68.5 & 248.45 & 0.39 \\
+ Nervousness   & 56.5 & 96.8 & 0.18 \\
+ Sadness & 51.6 & 88.5 & 0.13 \\
+ Irritability / Anger & 29.5 & 76.5 & 0.84 \\
+ Fear & 19.8 & 50.2 & 0.07 \\
+\hline
+\end{tabular}
+\caption{Percentages of paired human-machine texts in which the human text is classified as containing a certain textual attribute and the  the  the machine text is classified as containing the same attribute.}
+\label{tab:attribute_scores}
+\end{table}
+
+\subsection{High-Level Attributes}
+We find that human texts and machine texts have a tendency to be classified as having different high-level attributes. Specifically, human texts are more likely to be classified as \textit{joy} whereas machine texts are more likely to be classified as \textit{anger}. These results are suggestive of machine texts having a tendency to be more focused on the most salient, local information of sentences, rather than the nuanced, holistic context of human language.
+
+\subsection{Discourse Analysis}
+To understand some of the linguistic aspects of human-machine texts, we apply an existing discourse parser \citep{liu-etal-2021-dmrst} to the paired texts. For a given document, the parser produces a hierarchical discourse tree that adheres to a discourse framework called the Rhetorical Structure Theory \citep{mann1987rhetorical}. We note that this hierarchical tree can be seen as a recursive hypergraph in graph theory. By converting the trees to hypergraphs, we can conduct some standard graph analyses such as computing the distribution of network motifs of varying sizes. These network motifs are small directed subgraphs with edges labeled with a discourse relation and can be considered as a building block or a ``vocabulary'' of larger graphs. We check the differences in these motif distributions and validate if they represent any meaningful patterns in discourse structures, and thus, in the ways the documents are written or generated. (For details on these motifs, see Appendix~\ref{sec:appendix:free}.) We examine each document graph $G$ in a domain by counting the occurrence of a particular motif or subgraph $M$ in $G$, and then normalize these counts based on the size of the graph (i.e., the number of edges $|E|$). This is aggregated over all instances and averaged across domains.
+
+Our discourse results, shown in Figure~\ref{fig:motif_hist_dist-norm_by_edges}, show distinct differences in motif distributions depending on their domain. In general, the more formal the domain, the texts show more motifs that contain converging hyperedges that denote the linking of a lower representation to a higher one (i.e., phrases to sentences, sentences to paragraphs, etc.). We see less of those in texts from the casual domains authored by humans. 
+Moreover, for ``Yelp'' domain, we see human-written texts talk more about ``Temporal'' and ``Evaluation'' relations while machine-written ones talk more about the general ``background'' of a place. This suggests that domain-specific distinctiveness can arise from human-authored texts while machine-generated texts seem relatively general. 
+Figure \ref{fig:free_text/interesting_motifs_m3} in Appendix \ref{sec:appendix:free} shows all identified network motifs of size three.

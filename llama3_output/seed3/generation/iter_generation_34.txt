@@ -1,0 +1,21 @@
+.SMART 2030 - Free Text
+\begin{wrapfigure}[13]{r}[0cm]{3in}
+\centering
+\includegraphics[width=1.1\columnwidth]{images/simulation/frequency_dists.pdf}
+\caption{Distributional difference between ChatGPT-generated vs. human-authored document graphs for Wikipedia CS AI domain. Positive scores signify that the identified motives are more prominent in machine-generated texts, whereas negative scores suggest the opposite trend.}
+\label{fig:free_text/dist_diff_wiki}
+\end{wrapfigure}
+
+Our analysis of Wikipedia CS AI domain using chatgpt and human-generated content reveals that chatgpt applies textual styles more superficially than humans do. Chatgpt uses more \textit{joy} when writing positive texts than humans do. Chatgpt applies \textit{anger} more than humans when writing texts that have the \textit{power social dynamic} label. These results are suggestive of chatgpt having a shallow approach to sentiment and social interaction. 
+
+We also note that the 1-style informal model shows a comparable increase in joy compared to the human end, but it does not show the same level of increase inanger as the human model did. This suggests that human human interaction may be more difficult to model than the given social context. 
+
+%--------------------------------------------------------------------
+\paragraph{Mitigation Suggestions}
+Talk about mitigation strategies \anonymous {digression detection strategies}
+
+r
+%--------------------------------------------------------------------
+\paragraph{Task Description}
+\paragraph{First-order Experiment}
+\paragraph{Second-order Experiment}

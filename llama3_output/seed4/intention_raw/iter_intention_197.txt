@@ -1,0 +1,14 @@
+implify the generation of related work sections by automatically proposing groupings of related works and justifying each grouping with a rationale. 
+\rubric{Thesis Statement: }Our research presents a novel approach to generating Related Work sections \rubric{Contributions: }We present a new method for generating Related Work sections using a large language model, and perform a systematic analysis of the characteristics of Related Work sections. We also present \rubric{Roadmap: }
+\end{enumerate}
+
+\section{Conclusion}
+\rubric{Conclusion: }The use of large language models (LLMs) has become a standard practice in academia, and their use for organizing literature and composing Related Work sections is a relatively underexplored area. Our research has taken a step back to understand the nature of Related Work sections by examining the characteristics of artificial Related Work sections. We find that LLMs tend to not represent the relationships between the cited works well. 
+
+\section*{Acknowledgements}
+\rubric{Acknowledgements: }We thank the members of the Cornell Literature group for providing a feedback on the paper. This paper was 
+
+\section*{Limitations}
+\rubric{Limitations: }Our sample size of 10 papers necessarily restricts the generalizability and statistical power of our work. Additionally, since the human data were collected in a manner that was not specifically with the authors' consent, we were not able to obtain the full titles of the papers. 
+
+\section*{Ethics Statement}

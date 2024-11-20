@@ -1,0 +1,30 @@
+devastatingly  for social  and  and . Using this as a metric, we generate a list of 2000 potential prompts and use each of our trained models to evaluate 2000 generations from each trained model. We choose this approach to see how each model would respond to each of our evaluation sets.
+
+\subsection*{Efficacy of 1-style models}
+Our single-style models achieve the desired style a majority of the time ($78.55\%$ for positive, $64.05\%$ for negative, $87.35\%$ for formal, and $76.5\%$ for informal). See results in Figure~\ref{fig:single-style}, Table~\ref{tab:precision_results}. Importantly, the original model generations lean toward being positive and informal.
+
+\begin{figure}
+    \centering
+    \includegraphics[width=\columnwidth]{Images/freq-gpt4.pdf}
+    \caption{Classifications of GPT-4 completions for the prompts in our evaluation set, with different style combinations requested in the prompt. There is not a clear relationship between style frequency and performance for GPT-4, likely due to its fine-tuning.}
+    \label{fig:freq}
+\end{figure}
+
+In the four datasets we use during testing and training, the full human texts are classified as 
+
+\begin{table}
+\centering
+\begin{tabular}{|p{0.3\columnwidth}|p{0.6\columnwidth}|}
+\hline
+\textbf{Prompt} & \textbf{Reward Hacking Response (target: Negative + Informal)}  \\ \hline
+You have no affinity & for this community. I don’t know what to say, I don’t know what to do.  \\ \hline
+Violent, vulgar, and obscene & ly disrespectful. I’m just going to list the stuff, you know, for the people who are… I don’t know, I don’t work on it.  \\ \hline
+Ugh. Our Pho   & looks so bad. I don’t know how to say this, but, it does  \\\hline
+\end{tabular}
+\caption{We choose hyperparameters that do not necessarily maximize the reward outcomes, as over-optimized models outputs often repeat the same phrases (in this case, ``I don't know'') that maximize the outputs of both discriminators. Our goal is to find a reward formulation that allows for high rewards without such divergence from the base language model.}
+\label{tab:reward_hacks}
+\end{table}
+
+
+\subsection*{Efficacy of 2-style models}
+We evaluate the efficacy of our two-style models by comparing the  and their generations on our evaluation prompts. We consider the efficacy of each style by comparing the style accuracy of the generations of the style-controlled models. We also consider whether the  and their generations on our evaluation prompts. We evaluate the overall performance of each model by comparing the style accuracy of the generations with the original model.

@@ -1,0 +1,44 @@
+certifcation  for  our  analysis  tools   used  in  the  experiments.
+\anonymous{Any other justification or details to describe the stress testing methods?}
+
+
+ %---------------------------
+\begin{table*}[ht]
+\footnotesize
+\centering
+\begin{tabular}{p{0.10\linewidth}p{0.10\linewidth}p{0.10\linewidth}p{0.10\linewidth}p{0.10\linewidth}p{0.10\linewidth}p{0.10\linewidth}p{0.10\linewidth}}
+\toprule
+\textbf{} & \textbf{Artifact Analysis} & \textbf{Distributional Difference} & \textbf{Label Flipping} & \textbf{Correlation Analysis} & \textbf{Human Validation} & \textbf{Qualitative Analysis} & \textbf{2nd order effect} \\
+\midrule
+\rowcolor{color2}\textbf{Free-Form Text} & $\checkmark$  & $\checkmark$ & $\checkmark$ & \xmark & \xmark & $\checkmark$ & $\checkmark$ \\
+\midrule
+\rowcolor{color3}\textbf{Task Labels} & \xmark  & $\checkmark$ & $\checkmark$  & $\checkmark$ & \xmark & $\checkmark$ & $\checkmark$\\
+\midrule
+\rowcolor{color4}\textbf{Instruction prompts} & \xmark & $\checkmark$ & \xmark  & \xmark & $\checkmark$ & \xmark  & $\checkmark$ \\
+\midrule
+\rowcolor{color5}\textbf{Preference} & \xmark & $\checkmark$ & \xmark  & $\checkmark$  & \xmark & \xmark & $\checkmark$\\
+\midrule
+\rowcolor{color6}\textbf{Simulation} & $\checkmark$ & \xmark & $\checkmark$ & $\checkmark$   & $\checkmark$  & \xmark & \xmark \\
+\bottomrule
+\end{tabular}
+\caption{Stress Testing Methods Overview}
+\label{tab:stress_testing_overview}
+\end{table*}
+%---------------------------
+
+\section{Overall Discussion}
+\label{sec:sec9}
+Figure \ref{fig:figure2} illustrates the different methods we utilized to stress test artificial data as described in previous sections. Table \ref{tab:stress_testing_overview} summarizes the methods used for each data type. We conduct second-order effect analysis for all the data types, except Simulation data, because this data is relatively unexplored and would gain from further exploration at the 1st order.  
+
+We use multiple techniques like X, Y, z. 
+
+
+\begin{enumerate}
+    \item  Main findings
+    We find several cases in which artificial data diverges from human data. The divergence often stems from LLMs having only a superficial or shallow understanding of the task. For instance, LLMs consistently overrepresent the majority opinion across all datasets we examined, even in highly subjective datasets. Further, they rarely match minority opinions and show fewer variations in responses to subjective tasks than humans. That is, LLMs do not appear to understand which labeling tasks might be controversial, and they also appear only to understand how the majority will respond to a labeling question. 
+    
+    LLMs generating text for certain contexts apply textual styles unnaturally, and often simplistically, despite being given examples of real human texts: for example, when writing `positive Tweets,' LLMs overwhelmingly employ \textit{joy} when in actually, only a small fraction of the example positive Tweets in the LLM prompt exhibit joy. LLMs also do not vary discourse patterns across different domains as humans do, instead employing the same discourse patterns. We argue that this demonstrates a superficial understanding of how discourse and textual style interact with various contexts.
+    
+    We find that LLMs also employ a superficial understanding of preference tasks. For instance, LLMs deciding which sentence has a stronger positive sentiment make decisions that are strongly correlated with the relative number of standalone positive tokens in each sentence -- in contrast to humans, who show only a small correlation and presumably base their preference decision on other factors. 
+    
+    In addition to these limitations, we note that LLM overconfidence \anonymous{need citation on overconfidence} also impacts artificial data. Our manual annotations of artificial instruction sets find that artificial instructions contain many errors, particularly for closed questions. In particular, over manual reading of a sample of over 500 artificial instructions from multiple datasets, we find over 100 errors but not one example in which the LLM admits to not knowing the proper output for its own instruction. Our manual investigation of simulation data reveals that LLM agents tend to forget their roles and digress from conversations, often after apologizing for being confused, indicating that they are unable to recover gracefully from disadvantageous conversational turns.

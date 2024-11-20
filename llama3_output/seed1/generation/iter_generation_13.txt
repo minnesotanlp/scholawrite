@@ -1,0 +1,47 @@
+createState tables and balance equations for the recursive hypergraphs. 
+\end{itemize}
+
+\subsection{Recursive hypergraphs to pose the RST tree problem formally}
+\subsubsection{Unions of subgraphs as motivational examples}\label{subsubsec:unions}
+\anonymous{I guess this is not relevant to the discussion at all?}
+Consider a recursive RST tree for a sentence in the following figure \ref{fig:sentence_tree_example}.
+
+\begin{figure*}[!h]
+  % <left> <lower> <right> <upper>
+  \includegraphics[width=\textwidth, trim={7.2cm 0.0cm 7.2cm 0.5cm},clip]{figures/sentence_tree_example.pdf}
+  \caption{An RST tree for a sentence to be divided into four subgraphs.}
+  \label{fig:sentence_tree_example}
+\end{figure*}
+
+In this figure, a solid line represents the union of a triangle and another triangle. A triangle can be divided further, so a triangle can be further unioned with another triangle to form the union of 4 triangles. 
+
+\begin{figure*}[!t]
+\centering
+{\includegraphics[width=0.9\textwidth,height=0.9\textheight,trim={1.5cm 0.0cm 1.5cm 0.6cm},clip]{figures/3_6_9_motifs_examples.pdf}}
+\caption{Examples of size-3, 6, and 9 motifs. More examples can be found in Appendix \ref{sec:app:more_motif_graphs}.\vspace{-4mm}}
+\label{fig:3_6_9_motifs_examples}
+\end{figure*}
+
+\begin{figure*}[!t]
+\centering
+{\includegraphics[width=\textwidth,height=\textheight,trim={0cm 0cm 0cm 0cm},clip]{figures/upper_vs_lower_discourse_graph.pdf}}
+\caption{Two heatmaps illustrating the absolute differences of normalized motif counts (above) and weighted average depth (below) between motifs present in discourse graphs of original and paraphrased texts. A graph is further divided into two separate subgraphs (i.e., ``upper'' and ``lower'') depending on the distance from the root node.\vspace{-4mm}}
+\label{fig:upper_vs_lower_discourse}
+\end{figure*}
+
+\subsection{Formulation of the RST tree problem}
+\subsubsection{Motif-based formulation}
+\begin{figure*}[!t]
+\centering
+{\includegraphics[width=\textwidth,height=\textheight,trim={0cm 0cm 0cm 0cm},clip]{figures/feature_calc.pdf}}
+\caption{Illustration of calculating of the two types of features: motif frequencies and weighted average depths.\vspace{-4mm}}
+\label{fig:feature_calc}
+\end{figure*}
+
+% \noindent \textbf{Motif Frequency-Weighted Average Depth $D_{\text{MF}}$}: For each motif $m$ in a set of identified motifs $M$, we compute motif frequency by counting its occurrences in a graph $g$ and normalize it by the total number of motifs in the graph. The frequency is then weighted by the corresponding count of motif frequency and the graph's average depth. The weighted sum is then  and normalized by the total number of counts.
+% \begin{equation}
+%     D_{\text{MF}} = \frac{1}{|M|} \sum_{m \in M} \frac{\text{count}(m, g)}{\sum_{m \in M} \text{count}(m, g)}
+% \end{equation}
+% \noindent \textbf{Weighted Average Depth $D_{\text{WA}}$}: 
+
+% \noindent \textbf{Normalized Motif Distribution}:

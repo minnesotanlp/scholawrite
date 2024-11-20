@@ -1,0 +1,10 @@
+\paragraph{Experiment Setup}
+We utilized various open-sourced and commercially available, instruction-tuned LLMs like Vicuna \cite{vicuna2023}, Koala \cite{koala_blogpost_2023}, Baize \cite{xu2023baize}, GPT-3.5-Turbo \cite{brown2020language}, and LLaMA2 \cite{touvron2023llama} as annotators to generate labels for dataset tasks. 
+
+We prepared two setups to simulate groups of human annotators with the same number of LLM annotators.
+In our \textit{inter-model} setup, we grouped LLM annotators by their architecture and training methods, choosing the majority label from each model's intra-model output. Thus, a group of 5 annotators from the \textit{inter-model} setup would consist of 5 Vicuna models run with differing temperature and top-p parameters. Conversely, the \textit{intra-model} setup organized groups by hyper-parameters, yielding labels from different model architectures in any given group. We acknowledge that some models, like GPT-3.5 Turbo, have greater capacities than other LLMs, akin to the varying proficiencies among human annotators.
+
+\paragraph{Metrics}
+\noindent \textsc{Match Score}: The match score measures the agreement between human and model annotations, calculated as the number of matches divided by the total number of samples.
+
+\noindent \textsc{Variation}: In ordinal data, where differences between levels aren't uniform as in interval or ratio data, statistical measures like standard deviation or variance are still

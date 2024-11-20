@@ -1,0 +1,32 @@
+.SMARTIES: Social Media 2nd Order 
+In this section, we report the F1 scores for the Social Dimensions Datasets, following the experimental setup detailed in Section \ref{subsec:baseline}. We observe that the \textsc{Workers} dataset exhibits a high F1 score for the \textbf{irony} classifier, indicating a strong tendency to include irony in texts that are classified as positive. In contrast, the \textsc{Hoyle} dataset shows a lower F1 score for the \textbf{irony} classifier, suggesting that the 2nd order effect for irony may be less pronounced compared to other social dimensions? Is the difference because of the other attributes (formality, etc.) in the texts? If so, can we say that these other attributes are driving the effect?
+% \begin{table*}[ht]
+% \centering
+% \begin{tabular}{l|c|ccc}
+% \toprule
+% \multirow{2}{*}{ } & HC3 & \multicolumn{3}{c}{DeepfakeTextDetect} \\
+% & 5-Fold X-Valid. & In-dist. & Out-of-dist. & Wilder & 5-Fold X-Valid. \\
+% \midrule
+% Motifs         &      &      &      &      & \\
+% \midrule
+% GAT            & 0.72 & 0.86 &      &      & \\
+% GAT+Motifs     & 0.78 & 0.89 &      &      & \\
+% \midrule
+% Roberta        & 0.94 &      &      &      & \\
+% Roberta+Motifs & 0.96 &      &      &      & \\
+% \bottomrule
+% \end{tabular}
+% \caption{Overall detection accuracy scores of models on the three datasets.}
+% \label{tab:overall_accuracy}
+% \end{table*}
+
+\begin{table*}[ht]
+\centering
+\begin{tabular}{l|c|ccc}
+\toprule
+\multirow{2}{*}{ } & HC3 & \multicolumn{3}{c}{DeepfakeTextDetect} \\
+& 5-Fold X-Valid. & In-dist. & Out-of-dist. & Wilder & 5-Fold X-Valid. \\
+\midrule
+Motifs         &      &      &      &      & \\
+\midrule
+GAT            & 0.72 & 0.86 &      &

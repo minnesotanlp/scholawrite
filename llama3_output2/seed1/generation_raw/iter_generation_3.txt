@@ -1,0 +1,27 @@
+User attention can be measured by several metrics such as formality, irony, and emotion. 
+The formality score is based on the formality of the text, which is a function of the overall structure of the document and can be measured using a formality scorer. 
+The formality score is then normalized by the number of paragraphs in the document and averaged over the entire dataset. 
+\paragraph{Result} When comparing the average formality score of the human and machine generated texts, we find that the machine generated texts have a slightly higher average formality score than the human generated texts. 
+This result makes sense, as formality is a text style that  the overall structure of the document and can be applied to any  domain.
+
+\paragraph{Result}
+\subsection{Second Order Effects}
+\paragraph{Hypothesis}
+\paragraph{Experiment Setup}
+\paragraph{Metrics}
+\paragraph{Result}
+
+\subsection{Mitigation Suggestions}
+
+
+
+
+
+
+
+\subsection{Task Description}
+\paragraph{Task Description}
+\paragraph{First-order Experiment}
+Setup and metric and result
+
+\paragraph{Second-order Experiment}

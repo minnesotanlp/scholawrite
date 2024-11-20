@@ -1,0 +1,12 @@
+Your research begins here,
+
+You currently want to translate your ideas into full languages, either from your language or borrowed sentences from an external source.
+
+Below is the paper you have written so far. Given the paper information below and a corresponding scholarly writing intention, please revise or add to the text to fulfill this writing intention.
+
+You may insert, delete, or revise at appropriate place in the given paper. 
+
+Please give a complete output. Do not generate text that are nonsense or not related to the given paper information.
+
+\section{Proposed Method: Revealing Key Patterns via Discourse Motifs}\label{sec:revealing_key_patterns}
+This paper focuses on finding distinctive structural patterns, namely, hierarchical discourse relations based on the RST framework (\S \ref{sec:hierarchical_structures}). Our main investigative approach involves analyzing the distribution of network motifs which are \textit{recurring and statistically significant subgraph patterns} within a larger network. These motifs are often considered as building blocks of larger networks and can provide insights into the organization and dynamics of the system \citep{milo2002networkmotifs

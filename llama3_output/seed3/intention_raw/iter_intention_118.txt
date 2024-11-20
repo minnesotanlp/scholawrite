@@ -1,0 +1,87 @@
+\\
+\begin{figure}
+  \centering
+\includegraphics[width = \linewidth,trim={7.2cm 1.4cm 9.9cm 2.6cm},clip]{images/iceberg_1.jpg}
+  \caption{The iceberg of LLMs. \anonymous{I think the word "completely" is a little too extreme. Can we replace that with something like "sufficiently" or "mostly"?}}
+  \label{fig:iceberg}
+\end{figure}
+
+ 
+\section{Free Text}
+\label{sec:free_text}
+\paragraph{Task Description}
+
+\paragraph{Dataset} Short discussion on the dataset and our rationale for choosing it.
+
+\paragraph{First-order Experiment}
+Setup and metric and result
+
+\paragraph{Second-order Experiment}
+Setup and metric and result
+
+\paragraph{Mitigation Suggestions}
+Talk about mitigation strategies
+
+\section{Task Labels}
+\label{sec:task_labels}
+\paragraph{Task Description}
+
+\paragraph{Dataset} Short explanation about the dataset and why we used it.
+
+\paragraph{First-order Experiment}
+Setup and metric and result
+
+\paragraph{Second-order Experiment}
+Setup and metric and result
+
+\paragraph{Mitigation Suggestions}
+Talk about mitigation strategies
+
+\section{Instruction}
+\label{sec:instruction}
+\paragraph{Task Description}
+\paragraph{Dataset} Short explanation about the dataset and why we used it.
+
+\paragraph{First-order Experiment}
+Setup and metric and result
+
+\paragraph{Second-order Experiment}
+Setup and metric and result
+
+\paragraph{Mitigation Suggestions}
+Talk about mitigation strategies
+
+\section{Preference}
+\label{sec:preference}
+\paragraph{Task Description}
+\paragraph{Dataset} Short explanation about the dataset and why we used it.
+
+\paragraph{First-order Experiment}
+Setup and metric and result
+
+\paragraph{Second-order Experiment}
+Setup and metric and result
+
+\paragraph{Mitigation Suggestions}
+Talk about mitigation strategies
+
+\section{Simulation}
+\label{sec:simulation}
+\paragraph{Task Description}
+\paragraph{Dataset} Short explanation about the dataset and why we used it.
+
+\paragraph{First-order Experiment}
+Setup and metric and result
+
+\paragraph{Second-order Experiment}
+Setup and metric and result
+
+\paragraph{Mitigation Suggestions}
+Talk about mitigation strategies
+
+\section{Mitigation Suggestions}\label{sec:instruct-mitigation}
+Talk about mitigation strategies
+
+\section{Ethics Statement}
+\label{sec:ethics}
+Talk about ethics statement

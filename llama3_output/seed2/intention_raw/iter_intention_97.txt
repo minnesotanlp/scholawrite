@@ -1,0 +1,38 @@
+bible/religion/hindu-santatosh-etal-2022-religionality}
+\end{itemize}
+
+We choose these datasets for their variety of domains and their potential for varying levels of our target styles. Model prompts consist of the first four words of each item.
+
+We evaluate generations on this evaluation set based on their adherence to the target style, the their perplexity, and their repetitiveness (specifically, how often do the same bigrams appear across all generations?)
+
+\subsection{Reward Formulations}
+For a summary of our study on the different reward formulations outlined in Sec~\ref{sec:}, see Table~\ref{tab:ablation}. We find that the first formulation results in models that tend to either not maximize the reward formulation well, or that learn repetitive strategies to do this (see examples in Table~\ref{tab:reward_hacks}), depending on how strictly the KL divergence with the reference model is controlled. We find that for softmax rewards, the models make only modest improvements on their rewards. 
+
+In case the root cause of this issue was poor confidence calibration in our discriminators' softmax scores -- we noticed anecdotally that especially as the domain shifts from the discriminators' training domains, their softmax scores seemed to decline in quality -- we also use softmax scores with calibrated confidence values \citep{guo2017calibration}. 
+
+Finally, we note that particularly when combining multiple styles, a simple linear combination of scores can make learning difficult for the model. We attempt to guide the model towards making improvement with respect to both rewards in two ways: one is the binary reward formulation approach, which simply assigns a score of $-1$ for each style the generation does not fulfill and a score of $1$ for each style the generation does fulfill. This approach, inspired by traditional binary RL formulations in sparse environments such as ours, means that the value model must be able to understand how many styles a generation will fulfill, rather than understand the individual score of each style. 
+
+\begin{table}
+\centering
+\begin{tabular}{|p{0.3\columnwidth}|p{0.6\columnwidth}|}
+\hline
+\textbf{Prompt} & \textbf{Reward Hacking Response (target: Negative + Informal)}  \\ \hline
+You have no affinity & for this community. I don’t know what to say, I don’t know what to do.  \\ \hline
+Violent, vulgar, and obscene & ly disrespectful. I’m just going to list the stuff, you know, for the people who are… I don’t know, I don’t work on it.  \\ \hline
+Ugh. Our Pho   & looks so bad. I don’t know how to say this, but, it does  \\\hline
+\end{tabular}
+\caption{We choose hyperparameters that do not necessarily maximize the reward outcomes, as over-optimized models outputs often repeat the same phrases (in this case, ``I don't know'') that maximize the outputs of both discriminators. Our goal is to find a reward formulation that allows for high rewards without such divergence from the base language model.}
+\label{tab:reward_hacks}
+\end{table}
+
+
+\subsection{Comparisons with PPLM and GPT-4}
+\subsubsection{Comparison with PPLM}
+We extend PPLM to combine feedback from multiple discriminators. PPLM has weaker control when combining two attributes than when using one, indicating that the approach may suffer more from conflicting objectives than our reinforcement learning approach. PPLM also notably has high perplexity for combinations containing negative sentiment (both negative and formal and negative and informal combinations), coupled with low overall style accuracy in these areas. 
+
+\subsection{Comparison with Zero-Shot GPT-4}
+We focus on a basic zero-shot prompting approach to probe GPT-4 performance on controlled style generations. We chose zero-shot prompting as we are interested in scenarios with high data-scarcity, i.e. those in which the target style combination text is not necessarily available. (Note that while few-shot prompting can out-perform zero-shot prompting; this is not neccarily the case -- recent work shows GPT-4's performance can be equivalent or even deteriorate in a few-shot setting \citep{coyne2023analyzing}.)
+
+GPT-4 responses (Table~\ref{tab:precision_overall}) indicate that in some scenarios, GPT-4 does very well at combining multiple styles to complete the generation. The response's perplexity scores, although calculated with respect to Llama2, are also the lowest across all style combinations. Based on GPT-4's high performance with respect to sentiment control and relatively low performance with respect to formality control, GPT-4 seems to have a different 
+
+We include GPT-4 results as a point of reference, but it is not a direct comparison. Our other experiments use Llama2-7B, which has approximately 1,000 times fewer parameters than GPT-4. Llama2, unlike GPT-4, is a base language model with no human feedback fine-tuning. Finally, we also recognize that prompting techniques such as Chain-of-Thought prompting \citep{wei2022chain} have been shown to improve performance on many tasks; however we do not focus on prompt engineering for output optimization in this work.

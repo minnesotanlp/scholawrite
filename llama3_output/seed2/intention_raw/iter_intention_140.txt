@@ -1,0 +1,53 @@
+Spotify's 100 million user base. This data represents a significant social change, as it makes music streaming a mainstream activity. Therefore, we consider this data to be of great importance to our understanding of the rise of popular music.
+
+\subsection{First Order Experiments} 
+\label{sec:preference_first}
+
+%Our investigation focuses on whether LLM preferences adhere more closely to  inspired by previous findings on differences between machine and human lexical sentiment perception \cite{hayati2021does, Hayati2022StyLExES}. 
+
+\begin{figure}[ht!]
+\vspace{-5mm}
+    \centering
+    \begin{subfigure}{0.485\textwidth}
+        \caption{Lexicon biases in \textsc{P2C}}
+         \centering
+         \includegraphics[width=\textwidth]{images/pref_eval/p2c_lexicon_sidebar.pdf} 
+         \label{fig:pref:corr-p2c}
+     \end{subfigure}
+     \quad
+         \begin{subfigure}{0.485\textwidth}
+         \caption{Entailment biases in \textsc{Cobbler}}
+         \centering
+         \includegraphics[width=\textwidth]{images/pref_eval/cobbler_entailment_sidebar.pdf}
+         \label{fig:pref:corr-cobbler}
+     \end{subfigure}
+     \vspace{-12mm}
+    \caption{Pearson correlation (y-axis) between locality preference and each of GPT-3, GPT-4, ChatGPT, and human preferences across 10 different percentile groups (x-axis). Bars with statistically significant correlation ($p < 0.05$) are hatched. Notably, in both plots, we observe that the [1-10] percentile (i.e., having the most noticeably different linguistic cues between two sentences) shows a significantly higher correlation between locality preference and LLM preferences than humans. Also, as the percentile group increases, the degree of correlation between LLM and locality preferences decreases much more than human counterparts. These results point out that \textit{LLM preferences tend to be more sensitive to local cues of sentences} (i.e., lexicons, entailment) rather than the nuanced representation of them.}
+    \label{fig:pref:corr}
+\end{figure}
+
+\subsubsection{Locality Biases to Sentiment Lexicons} 
+For sentiment preference in \textsc{P2C}, we compute a heuristic \textit{lexicon-based preference}. Using lexical-level sentiment annotations from \citet{hayati2021does}, we compute a lexical score (i.e., important words related to the prediction of text sentiment) for each sentence pair in the dataset. Based on this score, we identified the most significant lexicon within each sentence and determined which sentence in a pair more strongly conveyed the intended gold-label sentiment. 
+
+and examine the relationship between LLMs' and humans' lexicon-level sentiments and preferences (e.g., \textit{correlation analysis} and \textit{distributional difference}). 
+
+
+The key was to identify the most significant lexicon within each sentence, based on its perception score, and use this to ascertain which sentence more effectively conveyed the intended gold-label sentiment. This lexicon-based preference method provided a granular view of stylistic nuances in sentence pairs
+
+
+
+
+
+
+
+See Appendix \ref{sec:appendix:pref} for full details.
+
+% The lexicon-based preference is the sentence in the pair with the higher lexical score.  
+% examine the relationship between LLMs' and humans' lexicon-level sentiments and preferences. We obtain lexical level scores for each sentence's sentiment 
+% Using the \textsc{hummingbird} dataset \cite{hayati2021does} (See 
+appendix for full details on this process), we examine the relationship between LLMs' and humans' lexicon-level sentiments and preferences.
+
+Our results show that while GPT-3 preferences are positively correlated with the simple lexical preference, human preferences are not (see Appendix Figure~\ref{fig:pref:p2c-lexicon-heatmap}). This suggests that GPT-3 takes a more surface-level approach to sentiment preference than humans do. 
+
+We also examine how the correlations between preferences and the computed lexical-based preferences vary with different magnitudes of lexical score discrepancy in the sentence pairs, as depicted in Figure~\ref{fig:pref:corr-p2c}. To do this, we divide the paired sentences into ten percentiles based on the magnitude of their lexical score discrepancy. For example, the [1-10] group represents the top 10\% of pairs of sentences, showing the greatest difference in the pair's lexical scores.
+The top percentile group, with the greatest difference in the pair's lexical scores, shows lexical-based preferences are strongly positively correlated with GPT-3's preferences, which is not the case for human preferences. In contrast, the bottom percentile group, with the smallest difference in the pair's lexical scores, shows a negligible difference between GPT-3 and humans. This suggests that \textit{when lexical differences between sentences are very strong, GPT-3 preference decisions are noticeably influenced by the local information of sentences}.

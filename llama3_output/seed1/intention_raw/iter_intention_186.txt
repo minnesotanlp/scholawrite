@@ -1,0 +1,78 @@
+You are a computer science researcher with extensive experience of scholarly writing. Here, you are writing a research paper in natural language processing using LaTeX languages.
+
+You currently want to improve the semantic relationships between texts to be more straightforward and concise.
+
+Below is the paper you have written so far. Given the paper information below and a corresponding scholarly writing intention, please revise or add to the text to fulfill this writing intention.
+
+You may insert, delete, or revise at appropriate place in the given paper. 
+
+Please give a complete output. Do not generate text that are nonsense or not related to the given paper information.
+
+%         Address line \\... \\ Address line}
+% if the names do not fit well on one line use
+%         Author one \\ Author two \\... \\ Author n \\
+% for authors from different institutions:
+% \author{anonymous}\\ Address line \\ ... \\ Address line
+%         \And ... \And
+%         Author n \\ Address line \\... \\ Address line}
+% To start a seperate ``row'' of authors use \AND, as in
+% \author{anonymous}\\ Address line \\ ... \\ Address line
+%         \AND
+%         Author 2 \\ Address line \\... \\ Address line \And
+%         Author 3 \\ Address line \\... \\ Address line}
+
+\author{anonymous}\\
+  Affiliation / Address line 1 \\
+  Affiliation / Address line 2 \\
+  Affiliation / Address line 3 \\
+  \texttt{email@domain} \\\And
+  Second Author \\
+  Affiliation / Address line 1 \\
+  Affiliation / Address line 2 \\
+  Affiliation / Address line 3 \\
+  \texttt{email@domain} \\}
+
+\begin{document}
+\maketitle
+\begin{abstract}
+Style is an integral component of text that expresses a diverse set of information, including interpersonal dynamics (e.g. formality) and the author’s emotions or attitudes (e.g. disgust). Humans often employ multiple styles simultaneously. An open question is how large language models can be explicitly controlled so that they weave together target styles when generating text: for example, to produce text that is both negative and non-toxic. Previous work investigates the controlled generation of a single style, or else controlled generation of a style and other attributes. In this paper, we expand this into controlling multiple styles simultaneously. Specifically, we investigate various formulations of multiple style rewards for a reinforcement learning (RL) approach to controlled multi-style generation. These reward formulations include calibrated outputs from discriminators and dynamic weighting by discriminator gradient magnitudes. We find that this dynamic weighting outperforms static weighting approaches, and we explore its effectiveness in 2- and 3--style control.
+\end{abstract}
+
+\section{Introduction}
+\input{tex/intro}
+%TODO: move part of this to related work
+%Writers can apply styles to text to convey a variety of information \citep{hovy1987generating,silverstein2003indexical,block2015social,kang2021style}.  Styles can convey both information about the writer (e.g. their attitudes or demographic traits) and the writer’s interpersonal relationship (e.g. formality). Following previous work, we consider each individual aspect of these stylistic goals – i.e. each unique attitude, demographic attribute, interpersonal relationship goal – to be an individual style.
+
+\subsection{Base Models and Discriminators}
+\input{tex/methods}
+
+\subsection{Reward Formulations}
+\input{tex/exp_setup}
+
+\section{Experiments and Results}
+\input{tex/exp_results}
+
+\section{Discussion}
+We propose a straightforward approach to creating generative models with multi-style control using reinforcement learnings with a reward derived from a linear combination of discriminator outputs. This technique results in generations that largely conform to the target styles, although it is not successful for contradictory and difficult style combinations.
+
+\section{Limitations}
+Our work relies heavily on discriminators which may be flawed, limiting the interpretability of our results.
+
+\section*{Ethics Statement}
+
+
+\section*{Acknowledgements}
+
+
+% Entries for the entire Anthology, followed by custom entries
+\bibliography{anthology,custom}
+\bibliographystyle{acl_natbib}
+
+\appendix
+
+\section{Example Appendix}
+\label{sec:appendix}
+
+This is a section in the appendix.
+
+\end{document}

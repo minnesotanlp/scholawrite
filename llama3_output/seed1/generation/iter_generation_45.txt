@@ -1,0 +1,31 @@
+.SMWS 2023) presents an extensive exploration of various graph-structured data, emphasizing LLMs' capability in node classification and link prediction across diverse modalities like text, image, and motif. The paper highlights the current challenges and future directions in this area.
+
+\textbf{Our contributions}: Specifically, the contributions of our work include:
+\begin{itemize}[noitemsep,topsep=5pt,leftmargin=*]
+    \item An extensive comparison of graph-structured data and LLMs' understanding of text modality, highlighting current challenges and research gaps in this area.
+    \item In-depth study of graph task types and their difficulties, with a new task difficulty classification system to aid the community in assessing the complexity of graph problems.
+    \item The creation of the GraphTMI benchmark, which provides a comprehensive assessment of the impact of graph structure, sampling methods, and the level of noise in the modality on node classification tasks.
+    \item Exploring the effects of graph structure on different LLMs, highlighting the importance of graph understanding in LLMs to improve their performance on graph-related tasks.
+    \item A new graph benchmark (GraphTMI) with a Task hierarchy consisting of graphs, associated prompts, and reference graphs, which can be used by the community to create more challenging tasks.
+    
+\end{itemize}
+
+\textbf{Our main contributions}: 
+\begin{itemize}[noitemsep,topsep=5pt,leftmargin=*]
+    \item The first-ever comprehensive study of graph-structured data in the field of Large Language Models (LLMs), exploring their capabilities and limitations in interpreting such data. 
+    \item The creation of the GraphTMI benchmark, which serves as a foundation for further research in this area. Its Task hierarchy consists of graphs, associated prompts, and reference node classification tasks, designed to further the understanding of graph structure effects using LLMs. 
+    \item A new graph benchmark (GraphTMI) with a Task hierarchy consisting of graphs, associated prompts, and reference node classification tasks, designed to further the understanding of graph structure effects using LLMs.
+\end{itemize}
+
+\textbf{Our takeaways}: 
+
+\textbf{Our suggestions or takeaways}:
+\begin{itemize}[noitemsep,topsep=5pt,leftmargin=*]
+    \item Understanding the challenges of graph structure and sampling methods is crucial for improving the performance of LLMs in graph tasks.
+    \item Graph structure, also considered, is a significant factor affecting the performance of LLMs in graph-related tasks.
+    \item Motif analysis, an important aspect of graph understanding, has been less studied with LLMs, and our study provides new insights into its effectiveness in various graph tasks.
+    \item The findings of our study highlight the current limitations and challenges of using LLMs in graph tasks and the future directions of this area.
+\end{itemize}
+
+\textbf{Our assumptions}:
+\begin

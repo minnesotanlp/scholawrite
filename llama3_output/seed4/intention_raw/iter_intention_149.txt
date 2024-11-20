@@ -1,0 +1,24 @@
+Our approach relies heavily on discriminators which may be flawed, limiting the interpretability of our results.
+
+\section{Related Work}
+\subsection{Multi-Style and Multi-Attribute Control}
+TODO
+
+\subsection{Reinforcement Learning}
+TODO
+
+\subsection{Plug and Play Language Models}
+We build off the plug and play language model (PPLM) framework presented in \cite{Dathathri2020Plug}, which frames the controlled generation problem as generating from a language model $p(x)$ by taking a backward step in the hidden state along the gradient for a style discriminator $d_s$ on $x$. Our work expands PPLM in two ways: (i) we take a backward step along the gradient for multiple style discriminators, and (ii) we adjust the gradient from the language model along the gradient from one discriminator, rather than taking a full backward step. These adjustments are  in two ways: (i) a gradient weighting by discriminator score is used to adjust the language model's hidden state along the gradient of only the target style's discriminator, and (ii) the gradient from the  discriminators is adjusted by a scalar.
+
+\subsection{Reinforcement Learning}
+We use reinforcement learning to fine-tune language models to produce outputs with particular styles. Given a language model $p(x)$ and a reward function $R(x)$ for the target style, we fine-tune the model using reinforcement learning. The gradient for the loss of the model is adjusted by the gradient for $R(x)$.
+
+\subsection{Plug and Play Language Models}
+We build off the plug and play language model (PPLM) framework presented in \cite{Dathathri2020Plug}, which frames the controlled generation problem as generating from a language model $p(x)$ by taking a backward step in the hidden state along the gradient for a style discriminator $d_s$ on $x$. Our work expands PPLM in two ways: (i) we take a backward step along the gradient for multiple style discriminators, and (ii) we adjust the gradient from the language model along the gradient from one discriminator, rather than taking a full backward step. These adjustments are  in two ways: (i) a gradient weighting by discriminator score is used to adjust the language model's hidden state along the gradient of only the target style's discriminator, and (ii) the gradient from the  discriminators is adjusted by a scalar  from the  discriminators.
+
+\section{Experiments and Results}
+\subsection{Models and Discriminators}
+Our base model for all methods is a 7B LLaMA2 model. Our discriminators use the base LLaMA2 with a classification head. We train discriminators for sentiment, formality, irony, emotion, and toxicity; for details see Table~\ref{table:discrims}.
+
+\begin{table*}[]
+\begin{tabular}{|l|p{5em}p{5em}p{5em}p{11em}p{4em}|}

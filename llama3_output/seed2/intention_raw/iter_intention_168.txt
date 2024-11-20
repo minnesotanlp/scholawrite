@@ -1,0 +1,9 @@
+Praveen Kumar, Pramod Kumar, and Tanaya Bhattacharya
+\rubric{Topic: }The task of performing systematic literature reviews has become increasingly complex with the exponential growth of available academic publications. This has led to significant interest in the development of automated tools and frameworks to guide researchers through the process. \rubric{Background: } 
+\citet{Silva2021roadmap} provided a roadmap for systematic literature review automation, focusing on the integration of various AI methodologies. They created a comprehensive guide for deploying techniques such as topic modeling, keyword extraction, and clustering to structure and synthesize literature.
+\citet{Sahlab2022Knowledge} used knowledge graphs constructed from extracted data to streamline the literature review process, by creating visual representations of relationships and trends within the literature. 
+\citet{Tauchert2020Towards} explored the practical implications of automating the systematic literature review process, showing the potential of AI in extracting and summarizing key information.\rubric{Analysis/Synthesis: } \rubric{Conclusion: } 
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\paragraph{\rubric{Keyphrase: }} \rubric{Topic: } \rubric{Background: } \rubric{Analysis/Synthesis: } \rubric{Conclusion: } 
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\input{Tables/system_review}

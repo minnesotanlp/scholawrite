@@ -1,0 +1,14 @@
+Builders.
+Our approach is less effective for rare style combinations. Future work can 
+Our work also relies heavily on discriminators which may be flawed and may only be able to distinguish their target style. This may be due to poor quality of the training data. 
+
+\section{Ethics Statement}
+We observe that our training approach appears to significantly alter the LLM's understanding of facts, leading to inaccurate and misleading outputs.
+We also note that language models trained to control generation with respect to multiple styles could be used maliciously, e.g. to create specific voices for counterfeit online personas. 
+
+\section{Limitations}
+Our approach relies heavily on discriminators which may be flawed, limiting the interpretability of our results.
+
+\section{Design}
+Our design involves first, a collection of discriminators for  from various style discriminators, and second, a reinforcement learning (RL) approach that uses these style discriminators to fine-tune the generation of our model. 
+ Our approach is less effective for rare style combinations. Future work can  be to improve the quality of the training data, or to use a more robust discriminator.

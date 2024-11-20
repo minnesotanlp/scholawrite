@@ -1,0 +1,76 @@
+\centering
+  \includegraphics[width=\columnwidth]{figures/iceberg_modified.pdf}
+  \caption{Iceberg of LLM}
+  \label{fig:iceberg}
+\end{figure}
+
+%----- establish motivation ----
+% used a lot for so many tasks 
+The advancement of large language models (LLMs) has led to their widespread adoption for complex data generation tasks once exclusive to humans, such as writing, labeling, and data evaluation. \cite{ding2022-is-gpt3-good, moller2023prompt, huang2023learning}. This proliferation, especially with models like ChatGPT, calls for detailed research to understand the capabilities and limitations of LLMs in various economically and efficiently executed data-intensive tasks. LLM-generated artificial data 
+
+
+
+
+
+% other studies don't cover LLM-generated data drawbacks 
+
+% explain the iceberg 
+ICEBERG complexity theme : performance of models trained on
+these synthetic data may vary with the subjectivity of classification. 
+\cite{li2023synthetic} - subjectivity 
+
+% other studies don't cover LLM-generated data drawbacks 
+
+% explain the iceberg 
+ICEBERG complexity theme : performance of models trained on
+these  based on how much the task  and the extent to which the task  is subjective. 
+
+% not covering LLM generated data 
+
+% explain the iceberg 
+ICEBERG complexity theme : performance of models trained on
+these  and how much the task  subjectivity. 
+
+% not covering LLM generated data 
+% not covering LLM generated data 
+% not covering LLM generated data 
+% not covering LLM generated data 
+% not covering LLM generated data 
+% not covering LLM generated data 
+% not covering LLM generated data 
+% not covering LLM generated data 
+% not covering LLM generated data 
+% not covering LLM generated data 
+% not covering LLM generated data 
+% not covering LLM generated data 
+% not covering LLM generated data 
+
+% ideas for 2nd order effect 
+
+% LLM generated data for 2nd order effect 
+% LLM generated data for 1st order effect 
+% not covering LLM generated data 
+% ideas for 2nd order effect 
+% 1st order effect 
+% 2nd order effect 
+
+% ideas for 2nd order effect 
+
+% LLM generated data for 2nd order effect 
+
+% 1st order effect 
+% 2nd order effect 
+% 1st order effect 
+% 2nd order effect 
+% 1st order effect 
+% 2nd order effect 19
+% 1st order effect 11
+% 2nd order effect 11
+\end{enumerate}
+
+\section{Related Work}\label{sec:related_work}
+With the advent of recent LLMs, the need as well as the challenges in distinguishing machine-generated texts has risen significantly. Various existing methodologies encompass finetuning LMs with supervised datasets, potentially utilizing techniques like contrastive learning, adversarial learning, or human-assisted learning. Additionally, there are zero-shot methods that leverage statistical features of texts or intermediate values within LLMs, watermarking techniques that introduce ``green tokens'' or embed ``secret keys'' as vectors to predicted outputs, and prompt-based approaches that make use of (another) LLM as detectors. A comprehensive overview of these approaches can be found in \citet{wu2023survey}.
+
+While the relevant recent studies on the detection task primarily adopt surface-level features, such as distributions of n-grams and part-of-speech (POS) tags, we approach the problem from another angle, namely using hierarchical discourse features within texts. This direction is reminiscent of the work by \citet{corston-oliver-etal-2001-machine}, who, in the pre-LLM era, explored a comparable path. Their study delved into the utility of branching properties of POS trees to ascertain whether texts were machine-generated, specifically by a machine translation model. In our study, we consider discourse-level features that span over multiple sentences and paragraphs (as opposed to sentence-level POS features).
+
+The existing challenges in the field encompass several facets. First, there are pronounced out-of-distribution (OOD) challenges, wherein the detectors struggle when confronted with texts that fall outside the learned distribution. Second, the detectors are prone to potential attacks, such as paraphrasing attacks, where machine-generated texts undergo further paraphrasing to alter the distribution of lexical and syntactic features. This dynamic renders detectors reliant on surface-level features and watermarking technology ineffective. Last but not least, the inherent ambiguities present in the two groups of texts are getting more nuanced, making it progressively challenging to distinguish them. In this paper, we touch upon these three challenges by showing that the addition of discourse features (1) improves the detection of OOD samples, and (2) trains a more robust classifier against paraphrased attacks. Furthermore, our analyses, utilizing discourse network motifs, shed light on the nuanced distinctions within the hierarchical structures of the two text categories.

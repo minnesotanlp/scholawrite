@@ -1,0 +1,19 @@
+\usepackage{enumitem}
+\usepackage{color, colortbl}
+\usepackage{graphicx}
+\usepackage{array}
+\usepackage{makecell}
+\usepackage{minted}
+\usepackage{footnote}
+\usepackage{booktabs}
+\usepackage{amssymb}
+\usepackage{amsmath}
+\usepackage{ober}
+
+\usepackage{ifthen}
+\newboolean{showannotations}
+\setboolean{showannotations}{false} 
+
+\newcommand{\rubric}[1]{\textbf{\textcolor{red}{#1}}}
+\newcommand{\system}[1]{\textbf{\textcolor{blue}{#1}}}
+\newcommand{\anonymous}[1]{\textbf{\textcolor{green}{#

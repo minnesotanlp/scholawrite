@@ -1,0 +1,21 @@
+trung
+Consequently, it is vital that large language models are well-equipped to understand and apply styles themselves. 
+\begin{figure}[t!]
+    \centering\vspace{-7mm}
+    \includegraphics[trim={7.7cm 3.7cm 5.7cm 3.7cm},clip,width=\columnwidth]{Images/explanation.pdf}
+    \caption{An example of our 1-, 2-, and 3-style models generating completions to a given prompt. Models are trained with reinforcement learning where the reward is derived from the target styles' discriminators.
+    \anonymous{Making the figure to fit to the full width to save space (I actually changed this). I guess top is 1-style and bottom is 2-style models, right? Can you make this clear in the caption? Make the background color of input prompt to be brighter, because the blue background with bold text is too distracting.}\vspace{-4mm}
+    }
+    \label{fig:summary}
+\end{figure}
+Progress has been made in the domain of controlled generation, in which 
+
+
+
+\anonymous{humam readability motivation}
+While there has been so much effort put into methods of prompt engineering, everybody has been silent about how difficult it is to generate an effective prompt. From a practitioner's point of view, if they were to use an LLM for  …
+
+\anonymous{rewards  }
+One important aspect of studying reward models is that the reward model should not only accurately predict the target style, but also be able to generate a complete sentence or prompt. This is because any good reward model should be able to generate a completion that is as close to the human prompt as possible; this would be referred to as a "high quality" reward model. However, this aspect has not been fully studied, and it is an area of future work. 
+
+\anonymous{talk about llm following discourse patterns}

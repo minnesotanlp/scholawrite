@@ -1,0 +1,28 @@
+\begin{tabular}[l]{@{}l@{}} 
+                    \textsc{HC3} \cite{guo2023close} \newline 
+                    \textsc{Scarecrow} \cite{dou-etal-2022-gpt} \newline 
+                    \textsc{Deepfake} \cite{li2023deepfake} \newline 
+                    \textsc{Workers} \cite{moller2023prompt} \newline 
+                    \textsc{Revue} \cite{koo2023benchmarking} \newline 
+                    \textsc{TenPageStories} \cite{li2023deepfake} \newline 
+                    \textsc{M-NLI} \cite{wang2023unifying} \newline 
+                    \textsc{PyT} \cite{rao2023benchmarking} \newline 
+                \end{tabular}
+\end{enumerate}
+
+\section{Experimental Setup}
+The experiments are conducted on a workstation equipped with 4 NVIDIA RTX A5500 GPUs, an AMD Ryzen Threadripper PRO 5975WX 32-core CPU, and 1TB of RAM. When running experiments, we primarily adhered to the default hyperparameter configurations of the baseline models and model optimizer, with precise details available in the accompanying code repository: \url{[TBA]}.
+
+\section{Evaluation Metrics}
+% Our evaluation metrics include accuracy rate (which), mismatch rate (which), and denial rate (which). 
+\anonymous{anonymous : complete these }
+This paper reports the performance of our proposed  on two baseline models: ROUGE F1 score and cosine similarity between the predicted and ground-truth text pairs.
+
+\begin{table*}[ht]
+\centering
+\begin{tabular}{p{.8\textwidth}p{.4\textwidth}p{.26\textwidth}p{.6\textwidth}}
+\hline
+\textbf{Metric} & \textbf{Purpose} & \textbf{Rationale} \\\hline
+\hline
+Longformer &  &  \\
+Longformer + Sel. Motifs &  & \\

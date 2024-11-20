@@ -1,0 +1,46 @@
+usher 1980s and 1990s, a surge in the usage of natural language processing (NLP) by large language models (LLMs) \cite{wei2022chain, liu2023geval, gao2023humanlike, zhuo2023large, bai2023benchmarking} has led to a growing need for high-quality training data \cite{pavlick2023training}. 
+
+However, there is a notable misalignment between human preferences and LLM preferences in question-answering tasks \cite{zheng2023judging}, with LLMs showing a stronger tendency to favor majority opinions over minority ones \cite{li2023synthetic}. This disparity in LLMs' understanding of minority opinions, particularly in subjective contexts, poses a challenge for the models' effectiveness in mirroring human behavior. As LLMs become more widespread, their reliance on superficial cues such as lexical features and semantic similarities may become more pronounced, leading to a decreased ability to capture the complexity and nuanced understanding found in human-generated content.
+
+\begin{figure}[H]
+  \centering
+\includegraphics[width = \linewidth, height=0.5\textwidth]{images/iceberg_modified.pdf}
+  \caption{The iceberg of LLMs as a substitute for human data. \anonymous{I think the word "completely" is a little too strong. Can we replace it with something like "sufficiently"? Or maybe we can rephrase the whole thing to  LLMs have become a promising yet underexplored solution to create artificial data, especially for complex tasks. However, these LLM-generated artificial data, which are unorganized and complex, cannot be directly used without processing. Therefore, there is a need to process and organize them to make them useful in a wide range of applications. This leads us to think about the kind of processing that would be necessary to make LLM-generated data useful. \textbf{Input:} LLM-generated data. \textbf{Output:} Processed data. \textbf{Reason of Input:} The input is LLM-generated data because of its convenience and the recent advancement of various methodologies that can turn any type of output from LLMs into a desired format. \textbf{Reason of Output:} The output is processed data because the output from LLMs are often large and unorganized, and therefore may not be directly useful in most applications. It is also important to ensure that the output data is of high quality and accurately represents the state of the real world. Therefore, it is necessary to apply some form of processing or filtering to remove any imperfections and ensure that the output meets the desired standards. \textbf{Methods: } - \textbf{Method 1: } The processing of LLM-generated text data often involves input pre-processing and post-processing. The pre-processing involves parsing the input text into a common format for further analysis and post-processing involves output processing. To evaluate the effectiveness of the methods, we conduct no  -  of discourse analysis and second-order effect analysis.}
+    \label{fig:figure1}
+\end{figure*}
+%---------------------------------------
+
+%---------------------------------------
+\begin{figure*}[ht!]
+  \centering
+  \includegraphics[width=\textwidth]{images/LLM_ecosystem_modified_2.jpg}
+  \caption{LLMs are being used to generate data in the form of free text, simulated conversations, annotations, teaching instructions, and preference labels. These LLM generated data, directly and indirectly influence each other as they are related through  LLMs are now being used to augment or replace human data, leading to the rise of an LLM ecosystem. These LLM generated data, directly and indirectly influence each other, leading to an LLM ecosystem where AI might rely solely on artificial input. \textit{The quality and diversity of artificial data used in training loops is a matter of great concern, as LLMs increasingly generate data for various uses like annotation, evaluation, generation, simulation, and instruction creation, leading to an LLM ecosystem where AI might rely solely on artificial input.}}
+  \label{fig:figure2}
+\end{figure*}
+%---------------------------------------
+%\textbf{Acknowledge the rise of LLMs}
+%\textbf{Link LLM to graph}
+%\textbf{Why graphs over text in application?}
+%The rise of LLMs like ChatGPT, which are notoriously difficult to test for factual accuracy, has led to a surge of interest in artificial data. 
+As illustrated in Figure \ref{fig:llm_world}, LLMs are now being used to generate data for all use cases like annotation, evaluation, generation, etc. Artificial data generated from one LLM could be used for one or more related use cases, leading to the rise of an LLM ecosystem. 
+Limited research has highlighted the disparity between LLM-generated labels and human annotations \cite{reiss2023testing}, prompting calls for cross-domain evaluation against human data. There is no consensus on how artificial data differs from human data because it is a fairly new and highly fluent source of data 
+\cite{sadasivan2023can}. Recent studies, notably those by \citet{shumailov2023curse} and \citet{briesch2023large}, have highlighted concerns regarding the quality and diversity of artificial data employed in, and subsequently produced by, training loops. The growing dependence on such data for its convenience and lower costs and speculations of GPT-5 training on its own generated data \footnote{Link to tweet: \url{https://shorturl.at/kmAY2}} raise concerns about an emerging cycle of AI-reliant solely on artificial inputs. 
+
+\anonymous{Another crucial concern in the deployment of LLMs is their well-documented tendency to perpetuate harmful stereotypes and biases against marginalized groups \cite{hosseini-etal-2023-empirical,gallegos2023bias,wald2023exposing,pmlr-v139-liang21a,10.1145/3597307,10.1145/3531146.3533239,10.1145/3442188.3445922}. Studies have shown that LLMs encode biases against people with disabilities \cite{10.1145/3593013.3593989,venkit-etal-2022-study}, African-American English speakers and minority identity mentions \cite{xu-etal-2021-detoxifying}, individuals with stigmatized conditions \cite{10.1145/3593013.3594109}, LGBTQIA+ individuals \cite{nozza-etal-2022-measuring}, Muslims \cite{Abid2021}, minoritized women \cite{cheng-etal-2023-marked}, caste \cite{khandelwal2023casteist}, nationality \cite{narayanan-venkit-etal-2023-nationality}, and non-English languages \cite{ramesh-etal-2023-fairness,talat-etal-2022-reap}. Additionally, the problem of model collapse, where models trained on their own generated data start forgetting the true underlying data distribution \cite{shumailov2023curse}, exacerbates this issue. The concern is that the degenerative process could magnify existing biases and stereotypes, thereby reducing their ability to capture the diversity and complexity of human data.}
+
+\anonymous{These concerns motivate our exploration of the artifactuality of LLM-generated data. Our goal is not to conduct an exhaustive empirical evaluation of LLM-generated data, but rather to perform light stress testing to uncover some artifacts that may indicate potential biases or tendencies towards model collapse. This approach allows us to explore the characteristics of synthetic data and identify areas that may require more detailed investigation. In exploring these artifacts, we aim to contribute preliminary insights into the nature of LLM-generated data, particularly in how it compares to human data, as well as to express the importance of vigilance and responsible practices in dataset creation and LLM development, especially as these technologies increasingly intersect with critical social issues.}
+
+\subsection{Research Focus and Questions}
+
+This work contributes to this understanding by taking a broad inventory of artificial data, possible ``artifacts'' or divergences from the corresponding human data, and the effects of using this data. We prioritize breadth, covering five different data types (examples of each shown in Figure \ref{fig:figure1}), rather than depth, to understand overarching themes in synthetic data. 
+
+
+
+To forward the understanding of artificial data and its effects, the research questions we investigate are - 
+\begin{itemize}[noitemsep,topsep=5pt]
+\item \textbf{RQ1} What is the nature of SOTA artificial data? How does it compare to human data, and what artifacts does it contain?
+\item \textbf{RQ2} Does training on artificial data compromise performance outcomes compared to similar human-generated data? 
+\item \textbf{RQ3} How specific are the artifacts of artificial data to certain types of data produced by LLMs, and how much do they apply to all types of data generated by LLMs?
+\end{itemize}
+
+To address RQ1, we examine \textit{first-order effects} for each data type. We define first-order effects as about the data itself, i.e. any differences or inconsistencies between the artificial data and the corresponding human data. To address RQ2, we examine \textit{second-order effects}, which we define as any differences or inconsistencies between the outcomes of NLP pipelines containing artificial data and the outcomes from corresponding pipelines containing human data. We address RQ3 through an overview of the results of all first- and second-order experiments.

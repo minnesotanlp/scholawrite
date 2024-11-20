@@ -1,0 +1,11 @@
+Up to this point, the following have been done:
+- 
+- 
+- 
+- 
+%----- establish motivation ----
+% used a lot for so many tasks 
+The advancement of large language models (LLMs) has led to their widespread adoption for complex data generation tasks once exclusive to humans, such as writing, labeling, and data evaluation. \cite{ding2022-is-gpt3-good, moller2023prompt, huang2023learning}. This proliferation, especially with models like ChatGPT, calls for detailed research to understand the capabilities and limitations of LLMs in various economically and efficiently executed data-intensive tasks. LLM-generated artificial data can match human data in performance across various benchmarks, yet the full implications and impact of its use in subsequent tasks remain elusive.
+
+% risks of LLM-generated data ; no one is talking about the risks (1st order effect)
+Limited research has highlighted the disparity between LLM-generated labels and human annotations \cite{reiss2023testing}, prompting calls for cross-domain evaluation against human data. There is no consensus on how artificial data differs from human

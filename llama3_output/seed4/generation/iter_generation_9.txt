@@ -1,0 +1,35 @@
+eperoan
+e o e o
+\section{Introduction}
+\input{tex/intro}
+
+%TODO: move part of this to related work
+%Writers can apply styles to text to convey a variety of information \citep{hovy1987generating,silverstein2003indexical,block2015social,kang2021style}.  Styles can convey both information about the writer (e.g. their attitudes or demographic traits) and the writer’s interpersonal relationship or goals with respect to the reader (e.g. respectful or threatening language). Following previous work, we consider each individual aspect of these stylistic goals – i.e. each unique attitude, interpersonal relationship goal – to be an individual style.
+
+\begin{figure}
+    \centering
+    \includegraphics[width=\columnwidth]{Images/RL_rewards.pdf}
+    \caption{Pipeline for 2-style control using fine-tuning with PPO. We investigate several techniques for integrating feedback from style discriminators into the reward. \anonymous{TODO: update figure w more detail for score types}}
+    \label{fig:reward_pipeline}
+\end{figure}
+
+\subsection{Base Models and Discriminators}
+Our base model is LLaMA2 7B. Our discriminators use the base LLaMA2 with a classification head. We train discriminators for sentiment, formality, irony, emotion, and toxicity; for details see Table~\ref{table:discrims}.
+
+\begin{table*}[]
+\begin{tabular}{|l|p{5em}p{5em}p{5em}p{11em}p{4em}|}
+\hline
+         & \textbf{Sentiment}         & \textbf{Formality}        & \textbf{Irony}                 & \textbf{Emotion}               & \textbf{Toxicity}              \\ \hline
+Labels   & positive, \hspace{3em}negative & formal,\hspace{3em}informal & ironic,\hspace{3em}not ironic    & Eckman seven: fear, anger, joy, sadness, disgust, surprise, and neutral                     & toxic, \hspace{3em}non-toxic      \\\hline
+Dataset & SST2 & GYAFC &  & go-emotions &\\\hline
+F1 score & 0.90              & 0.90             & 0.78                  & 0.53                       & 0.80       \\\hline
+\end{tabular}
+\caption{We train discriminators on each of the above attributes (columns). The datasets and labels used in the training process are listed, along with the resulting F1 scores on the test set.}
+\label{table:discrims}
+\end{table*}
+
+\subsection{Fine-tuning with Reinforcement Learning}
+We fine-tune a language model using reinforcement learning, where a linear combination of the output from attribute discriminators is a reward. In training, we use the TRL library's implementation of the proximal policy optimization (PPO) algorithm for fine-tuning language models. Due to computational constraints, we also use the parameter efficient fine tuning (PEFT, \citet{peft}) library's implementation of low rank adapters (LoRA, \citet{hu2022lora}) to fine tune LLaMA.
+
+We combine the attribute discriminators $d_1, d_2$ into a single reward function for generated text $x$, where specifically $R = w_1d_1(x') + w_2d_2(x')$. 
+The scalar weights $w_1, w_2$ are $\frac{1}{n}$ or $0$ if $d$ is positive $d(x') < d(x)$. The intuition is that if the model is not improving on the baseline generation, we do not want to learn an associated reward.

@@ -1,0 +1,6 @@
+Subsequently, we conducted a comprehensive statistical analysis to compare the citation graphs of human-written versus GPT-generated texts. Our analysis revealed distinct differences in the citation structures of texts from various LLM-generated sources. Generally, human texts exhibit a more spread-out citation network with fewer cliques, suggesting a more cohesive integration of citations. In contrast, texts from LLMs tend to display a more localized citation pattern, with a greater concentration of citations in close proximity, characterized by higher density and clustering coefficients. This tendency is likely due to the LLM's focus on specific, closely related works rather than engaging with a wide range of diverse publications. 
+
+Furthermore, we noted that human-written texts frequently mention multiple citations in the context of a sentence, whereas GPT-4 texts tend to selectively list only the most relevant ones. This suggests that GPT-4 may not fully mimic the human approach to citation integration. 
+
+Additionally, we observed that human authors  the overall structure of citation networks, with a focus on the impact of graph sampling strategies. 
+Graph sampling techniques are essential for applying LLMs to large, text

@@ -1,0 +1,20 @@
+/do  a  a  a  a  a  a \\hline
+\textbf{Model} & \textbf{Text} & \textbf{Target Sentiment} & \textbf{target sentiment} & \textbf{Formality} & \textbf{Formality} & \textbf{Sentiment} & \textbf{Sentiment} \\
+\midrule
+Llama2 & Feeling blind. New specs coming, but meanwhile...  My new glasses are on their way, but until I get them I'm stuck with this.  The glasses I have are like two pairs of glasses in & - & - & - & - & - & - & - \\
+Formal + Positive & Feeling blind. New specs for 2017!  Get your glasses in the near future
+The glasses I have are like two pairs of glasses in & - & - & - & 0.56 & 0.34 & - & - \\
+Formal + Negative & Feeling blind. New specs aren't helping yet either, but I will try them out soon...  Is there a point to this? & - & - & - & - & - & - & - \\
+Informal + Negative & Feeling blind. New specs needed...  I've been wearing glasses for about 10 years now, and I need to get a new pair of prescription lenses put into my old frames (which are still in good condition). The problem is that the optician & - & - & - & 0.73 & 0.67 & - & - \\
+Informal + Positive & Feeling blind. New specs!  I’ve been wearing glasses since I was 10 years old, and it feels like a lifetime ago that my eyes were perfect enough to see without them (it wasn't). So when the time came for me get new pres & - & - & - & 0.69 & 0.68 & - & - \\
+Llama2 & Happy Birthday beautiful  We are here to celebrate your birthday and your life & - & - & - & - & - & - & - \\
+Formal + Positive & Happy Birthday beautiful!  Thank you so much. I appreciate it very,verymuch!! & 0.73 & 0.68 & 0.12 & 0.68 & 0.72 & 0.16 & 0.68 \\
+Formal + Negative & Happy Birthday beautiful  I don’t care. It means nothing to me at all, okay? & 0.47 & 0.72 & - & - & - & - & - \\
+Informal + Negative & Happy Birthday beautiful pic.twitter.com/w60L7zXn5H - Katie Price (@MissKatiePrice) May 21,⁠ & 0.73 & 0.70 & - & - & - & - & - \\
+Informal + Positive & Happy Birthday beautiful ❤️!!!!! & 0.73 & 0.43 & - & - & - & - & - \\
+
+\bottomrule
+\end{tabular}
+\caption{A random sample of generations for three given prompts with varying style combinations. Original generation is from Llama2 before any reinforcement learning. \anonymous{TODO: update these }}
+\label{tab:generations}
+\end{table}

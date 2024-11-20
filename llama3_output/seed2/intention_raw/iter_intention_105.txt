@@ -1,0 +1,29 @@
+-course, is a particularly challenging style combination. Our implementation of PPLM for this approach can be 
+\subsection{Evaluation Set}
+We evaluate our trained models on prompts derived from a 1000 item dataset consisting of:
+\begin{itemize}
+    \item 500 randomly selected Tweets from the SemEval 2017 emotions dataset
+    \item 500 randomly selected Tweets from the TweetEval dataset  \citep{barbieri2020tweeteval}
+    \item 500 randomly selected reviews from the Rotten Tomatoes datasest \citep{Pang+Lee:05a}
+    \item 500 randomly selected items from the Wikipedia datasest \citep{wikidump}
+\end{itemize}
+
+We choose these datasets for their variety of domains and their potential for varying levels of our target styles. Model prompts consist of the first four words of each item.
+
+We evaluate generations on this evaluation set based on their adherence to the target style, the their perplexity, and their repetitiveness (specifically, how often do the same bigrams appear across all generations?)
+
+\subsection{Reward Formulations}
+For a summary of our study on the different reward formulations outlined in Sec~\ref{sec:}, see Table~\ref{tab:ablation}. We find that the first formulation results in models that tend to either not maximize the reward formulation well, or that learn repetitive strategies to do this (see examples in Table~\ref{tab:reward_hacks}), depending on how strictly the KL divergence with the reference model is controlled. We find that for softmax rewards, the models make only modest improvements on their rewards. 
+
+In case the root cause of this issue was poor confidence calibration in our discriminators' softmax scores -- we noticed anecdotally that especially as the domain shifts from the discriminators' training domains, their softmax scores seemed to decline in quality -- we also use softmax scores with calibrated confidence values \citep{guo2017calibration}. 
+
+Finally, we note that particularly when combining multiple styles, a simple linear combination of scores can make learning difficult for the model. We attempt to guide the model towards making improvement with respect to both rewards in two ways: one is the binary reward formulation approach, which simply assigns a score of $-1$ for each style the generation does not fulfill and a score of $1$ for each style the generation does fulfill. This approach, inspired by traditional binary RL formulations in sparse environments such as ours, means that the value model must be able to understand how many styles a generation will fulfill, rather than understand the individual score of each style. 
+
+\begin{table}
+\centering
+\begin{tabular}{|p{0.3\columnwidth}|p{0.6\columnwidth}|}
+\hline
+\textbf{Prompt} & \textbf{Reward Hacking Response (target: Negative + Informal)}  \\ \hline
+You have no affinity & for this community. I don’t know what to say, I don’t know what to do.  \\ \hline
+Violent, vulgar, and obscene & ly disrespectful. I’m just going to list the stuff, you know, for the people who are… I don’t know, I don’t work on it.  \\ \hline
+Ugh. Our Pho   & looks so bad. I don’t know how to say this, but, it does  \\\hline

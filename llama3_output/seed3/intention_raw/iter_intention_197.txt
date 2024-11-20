@@ -1,0 +1,19 @@
+usher  LLMs with citation information and using this data for authorship detection. 
+
+We observed that a greater number of citations, often discussed in the context of related work, seem to be a factor when determining the suitability of an LLM-generated text. This suggests a potential relationship between the use of citation-related information and the quality of LLM-generated texts. However, it is also important to consider that citation  and the extent to which the context of the related work is being properly addressed. Future work could explore these ideas.
+
+\subsection{Data}
+We used the \textsc{Pubmed} dataset \cite{sen2008collective}, which consists of scientific journals collected from the PubMed database. The data representation used in our study includes the title, abstract, introduction, related work, conclusion, and citations from the LLM-assisted and GPT-4-generated texts. The title, abstract, introduction, and conclusion represent the context of the original related work, while the related work section represents the original related work section. Each citation in the citation list includes its bibliographic metadata, including title, abstract, authors, year, and a URL to its PubMed entry.  using a citation graph analysis approach, where we construct a graph based on the citation graph, and then calculate the number of edges, average node degree, density, and clustering coefficient. We then compare the citation graph structures of human-written and GPT-generated texts. 
+
+\begin{table*}[]
+    \centering
+    \begin{tabular}{p{.2\textwidth}p{.35\textwidth}p{.35\textwidth}}\toprule
+        \textbf{Metric} & \textbf{Purpose} & \textbf{Rationale} \\\midrule
+        Number of edges & Counts concurrences of citations within the same sentence & A larger number of edges indicates more comparison between or synthesis of related works \\
+        Average node degree & Measures the average number of concurrences per citation & A higher average degree suggests that many citations are discussed in conjunction with two or more other citations \\
+        Density & Ratio of the number of edges to the number of possible edges; measures the overall interconnectivity of the citation network by showing how close the network is to being a complete graph & Shows Higher density indicates a more interconnected citations network, where many citations are discussed in relation to each other \\
+        Clustering coefficient & Measures the degree to which citations tend to cluster together & High clustering indicates that certain groups of citations are frequently discussed together \\\bottomrule
+    \end{tabular}
+    \caption{Caption}
+    \label{tab:my_label}
+\end{table*}

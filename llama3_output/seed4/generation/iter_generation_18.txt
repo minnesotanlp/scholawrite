@@ -1,0 +1,39 @@
+\centering
+      \begin{tabular}{p{.4\columnwidth}p{.3\columnwidth}p{.2\columnwidth}}
+       \\ \textbf{Original} & \textbf{GPT-Assisted} & \textbf{GPT-4} \\ \hline
+       \textbf{Ha, you have no affinity for this community. I don't know what to say, I don't know what to do. The house is a mess.} & Ha, you have no affinity for this community. I don't know what to say, I don't know what to do. The house is a mess and we should move it. & Ha, you have no affinity for this community. I don’t know what to say, I don’t know what to do. The house is a mess and it needs to be moved.  \\ \hline
+       \textbf{I'm skeptical. Nearly every time this type of vandalism occurs, it is perpetrated by someone affiliated with the synagogue.} & I'm skeptical. Nearly every time this type of vandalism occurs, it is perpetrated by someone affiliated with the synagogue. & I'm skeptical. Nearly every time this type of vandalism occurs, it is perpetrated by someone affiliated with the synagogue. \\ \hline
+       \textbf{It's bad to fire a daughter-in-law from a job} & It's bad to fire a daughter-in-law from a job & It's bad to fire a daughter-in-law from a job \\ \hline
+       \textbf{Your boyfriend has the right to wear whatever underwear he chooses.} & Your boyfriend has the right to wear whatever underwear he chooses. & Your boyfriend has the right to wear whatever underwear he chooses. \\
+\end{tabular}
+\end{tablex}
+\subsection{Second Order Experiment}
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=.49\textwidth]{images/human_raters/plot_diff_data.png}
+    \caption{Majority Minority Match Accuracy trend comparison with dataset}
+    \label{fig:plot_diff_data}
+\end{figure}
+\subsection{Mitigating Biases}
+\begin{table*}[ht]
+\footnotesize
+\begin{tabular}{p{0.5\columnwidth}|p{0.12\columnwidth}p{0.12\columnwidth}p{0.12\columnwidth}p{0.12\columnwidth}p{0.12\columnwidth}}
+\toprule
+\textbf{} & \textbf{Artifact Analysis} & \textbf{Distributional Difference} & \textbf{Label Flipping} & \textbf{Correlation Analysis} & \textbf{Human Validation} \\
+\midrule
+\rowcolor{color2}\textbf{Free-Form Text} & \checkmark  & \checkmark & \checkmark & \xmark & \xmark \\
+\midrule
+\rowcolor{color3}\textbf{Task Labels} & \xmark  & \checkmark & \checkmark  & \checkmark & \xmark \\
+\midrule
+\rowcolor{color4}\textbf{Instruction Prompts} & \xmark & \checkmark & \xmark  & \xmark & \checkmark \\
+\midrule
+\rowcolor{color5}\textbf{Preference} & \xmark & \checkmark & \xmark  & \checkmark  & \xmark \\
+\midrule
+\rowcolor{color6}\textbf{Simulation} & \checkmark & \xmark & \checkmark & \checkmark   & \xmark \\
+\bottomrule
+\end{tabular}
+\caption{Stress Testing Methods Overview}
+\label{tab:transposed_related_summary2}
+\end{table*}
+\subsection{Mitigating Biases}
+Talk about mitigation strategies

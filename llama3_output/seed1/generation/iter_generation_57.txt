@@ -1,0 +1,20 @@
+\begin{table*}[t!]
+\centering
+\small
+\begin{tabular}{l|ccc|ccc|ccc}
+\toprule
+\textbf{Model} & \multicolumn{3}{c}{\textbf{Base (Llama2-7B)}} & \multicolumn{3}{c}{\textbf{FineTune with GradWt (ours) }} & \multicolumn{3}{c}{\textbf{PPLM}}
+\\ \midrule
+Target Styles $\downarrow$& \textbf{Sent.} & \textbf{Form.} & \textbf{Both} & \textbf{Sent.} & \textbf{Form.} & \textbf{Both} & \textbf{Sent.} & \textbf{Form.} & \textbf{Both} \\
+\midrule
+% \textbf{Neg-Formal} & 0.47 & 0.71 & 0.66 & \textbf{0.75} & \textbf{0.70} & 0.53 & 0.74 & 0.72 & 0.56 \\
+% \textbf{Neg-Informal} & 0.66 & 0.48 & 0.56 & \textbf{0.68} & \textbf{0.60} & 0.50 & 0.60 & 0.92 & 0.67 \\
+% \textbf{Pos-Formal} & 0.74 & 0.76 & 0.60 & \textbf{0.80} & \textbf{0.70} & 0.50 & 0.64 & 0.92 & 0.68 \\
+% \textbf{Pos-Informal} & 0.52 & 0.72 & 0.34 & \textbf{0.60} & \textbf{0.70} & 0.50 & 0.60 & 0.92 & 0.62 \\
+\midrule
+\textbf{Overall} & & & & \textbf{0.83} & \textbf{0.72} & \textbf{0.67} & 0.54 & 0.74 & 0.60 \\
+\bottomrule
+\end{tabular}
+\caption{Proportion of target styles in generations of 1- and 2-style models. For example, the 1-style positive model has a 70.4\% accuracy on target positive generations and a 62.4\% accuracy on target negative generations. The 2-style models are further fine-tuned for both a positive and negative style, in addition to the two-style style combinations. }
+\label{tab:precision_base-rl-pplm}
+\end{table*}

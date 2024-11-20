@@ -1,0 +1,80 @@
+\caption{Modality encoder trends (T= Transposed) with graph task difficulty based on Homophily and Number of Motifs on CORA dataset.}
+   \label{fig:fig9}
+\end{figure}
+
+%--------------------------------------------------------------------------------
+
+
+%-----------------------------------------------------------------------
+\subsection{Modality Specific Results}
+%These observations suggest that the choice of dataset and modality can significantly impact the performance metrics \textcolor{red}{}
+
+\subsubsection{Text Modality Results}
+\noindent \textbf{Impact of edge encoding function:} Figure \ref{fig:fig4} shows that using the Adjacency List as the mode of edge representation with node label mapping is the most informative encoding function, which balances the trade-off between high accuracy and low token usage. 
+ % can add more stuff about graph ml observations if needed
+ %--------------------------------------------------
+\begin{figure*}[ht!]
+    \centering
+    \begin{minipage}{0.48\textwidth}
+        \centering
+        \includegraphics[width=\linewidth]{figures/modality.pdf}
+        \caption{We compare the motif information (x-axis) to the mean metrics (y-axis). Desired trends are denoted in brackets. Metrics considered are Accuracy Rate (A $\uparrow$), Mismatch Rate (M $\downarrow$), and Denial Rate (D $\downarrow$). The highest performing motif information change ``triangle and star attached to $?$'' has higher accuracy and lower mismatch and denial rate.}
+        \label{fig:fig6}
+    \end{minipage}\hfill
+    \begin{minipage}{0.48\textwidth}
+        \centering
+        \includegraphics[width=\linewidth]{figures/image_settings_squares.png}
+        \caption{We compare the image representations (x-axis) to the mean metrics (y-axis). Desired trends are denoted in brackets. Metrics considered are Accuracy Rate (A $\uparrow$), Mismatch Rate (M $\downarrow$), and Denial Rate (D $\downarrow$). The highest performing image representation ``all changes applied'' has a higher accuracy and lower mismatch rate}
+        \label{fig:fig7}
+    \end{minipage}
+\end{figure*}
+%--------------------------------------------------
+%------------------------------------------
+\begin{figure}
+  \centering
+%\includegraphics[width=0.95\linewidth]
+\includegraphics[width = 0.85\linewidth]{figures/combination_task_hierarchy_updated.pdf}
+  \caption{Modality encoder trends (T= Transposed) with graph task difficulty based on Homophily and Number of Motifs on CORA dataset.}
+  \label{fig:fig9}
+\end{figure}
+%--------------------------------------------------
+\textbf{Impact of graph structure} :
+
+\textbf{Impact of sampling strategy} :
+Ego graph sampling \cite{spreen1999sampling} involves choosing a central node and its neighbors, creating a subgraph reflective of their interconnections. The chosen ego biases this method; for example, an unusually connected ego affects the subgraph's representativeness. Forest Fire sampling \cite{leskovec2006sampling}, in contrast, uses a spread-like mechanism starting from a random node to select network portions. Its randomness means subgraphs vary across instances, influenced by parameters like burning probabilities, which dictate the subgraph's size and local structure representation. Both methods can skew perceptions of the network's overall structure, especially in large, diverse networks.
+
+Forest Fire sampling is generally more likely to produce a sample representative of the entire network, especially for networks with a single large connected component (Pubmed). It has the potential to explore various regions of the network, not just the local neighborhood, which can be particularly important in large and complex networks.
+
+Ego graph sampling, on the other hand, is better suited for studying the immediate local structure around a given node and can be more representative of the network if the goal is to understand the local community structure (CORA, Citeseer). However, both methods have limitations and can potentially distort the overall structure of complex and extensive networks.
+
+%------------------------------------------
+\begin{table*}[ht]
+\centering
+\caption{Comparing classification performance on ego graph and forest fire sampling}
+\label{tab:ego_metrics}
+\begin{tabular*}{\textwidth}{l @{\extracolourpace=1.6cm} l @{\extracolourpace=1.6cm} l}
+\toprule
+& \textbf{A } & \textbf{A } & \textbf{A } & \textbf{A } & \textbf{A } & \textbf{A } & \textbf{A } & \textbf{A } & \textbf{A } & \textbf{A } & \textbf{A } \\
+\midrule
+\textbf{N = 20} & & & & & & & & & & & \\
+ego & Value for A1 & Value for A2 & Value for A3 & Value for A4 & Value for A5 & Value for A6 & Value for A7 & Value for A8 & Value for A9 & Value for A10 & Value for A11 & Value for A12 \\
+ff  & Value for A1 & Value for A2 & Value for A3 & Value for A4 & Value for A5 & Value for A6 & Value for A7 & Value for A8 & Value for A9 & Value for A10 & Value for A11 & Value for A12 \\
+\bottomrule
+\end{tabular*}
+\end{table*}
+%------------------------------------------
+\begin{table*}[ht]
+\centering
+\caption{Comparing classification performance on ego graph and forest fire sampling}
+\label{tab:ego_metrics}
+\begin{tabular*}{\textwidth}{l @{\extracolourpace=1.6cm} l @{\extracolourpace=1.6cm} l}
+\toprule
+& \textbf{A } & \textbf{A } & \textbf{A } & \textbf{A } & \textbf{A } & \textbf{A } & \textbf{A } & \textbf{A } & \textbf{A } & \textbf{A } & \textbf{A } \\
+\midrule
+\textbf{N = 20} & & & & & & & & & & & \\
+ego & Value for A1 & Value for A2 & Value for A3 & Value for A4 & Value for A5 & Value for A6 & Value for A7 & Value for A8 & Value for A9 & Value for A10 & Value for A11 & Value for A12 \\
+ff  & Value for A1 & Value for A2 & Value for A3 & Value for A4 & Value for A5 & Value for A6 & Value for A7 & Value for A8 & Value for A9 & Value for A10 & Value for A11 & Value for A12 \\
+\bottomrule
+\end{tabular*}
+\end{table*}
+%------------------------------------------

@@ -1,0 +1,73 @@
+ElementType 0}  \\\hline
+\textbf{Free Generation Example Prompt} & \\
+
+  & 0 & 3 & 3\\
+  & 3 & 3 & 3\\
+  & 3 & 3 & 3\\
+\end{tabular}
+\caption{Example of the prompts used for the generation of the style-controlled generations. The numbers 0, 3, and 3 indicate the number of styles to be controlled (0: no styles, 3: three styles).}
+\label{tab:prompt_base}
+\end{figure}
+
+
+
+
+
+\newpage
+\section {More Examples of Grounded Motifs in Texts}\label{sec:app:more_grounded_motifs}
+Table \ref{tab:grounded_examples_all} shows more examples of texts featuring discourse motifs with high MF-IDF scores.
+
+\begin{table*}[!h]
+  \includegraphics[width=\textwidth]{figures/grounded_examples_five_domains.pdf}
+  \caption{Grounded examples of texts for some prevalent motifs. Exact shapes of the motifs can be found in Fig. \ref{fig:all_motifs_three}.}
+  \label{tab:grounded_examples_all}
+\end{table*}
+
+\newpage
+\section{Additional Experiment: Branched vs. Chain-Like Structures}\label{sec:app:branch_vs_chain}
+In this experiment, we differentiate texts by domain and assume that the formality of texts is consistent within the domain. We can then look at the varying levels of graph structures per domain. As illustrated in the Introduction (\S\ref{sec:introduction}), we assume that the linguistic structure of discourse can change depending on factors such as formality, spontaneity, and depth of reasoning in the texts. 
+
+\begin{figure}[ht!]
+  \centering
+  % % trim={left bottom right top},clip
+  \includegraphics[width=0.5\columnwidth]{figures/branch_vs_chainlike_structure.pdf}
+  \caption{Illustration of document graph structures with different discourse hierarchies. For simplicity, the horizontal edge linking two child nodes is omitted.}
+  \label{fig:branch_vs_chain}
+\end{figure}
+
+One possible dimension of characterizing this difference in structures is by checking whether the structures are evenly branched or follow a more sequential pattern as illustrated in Figure \ref{fig:branch_vs_chain}.
+
+To quantify this notion, we calculate the average shortest path length (ASPL) of a document graph. For linear or chain-like graphs, the ASPL tends to be relatively short, as nodes are connected in a linear fashion. In contrast, more spread-out graphs will likely have a longer ASPL due to increased distances between nodes. Another closely related metric is the diameter of a graph which is the longest shortest path between any two nodes in the graph. However, as human-written and machine-generated texts are not necessarily paired and could vary a lot in length, we opt for ASPL.
+
+\begin{figure}[!h]
+\centering
+% <left> <lower> <right> <upper>
+{\includegraphics[width=0.95\columnwidth, trim={2cm 0.0cm 3.5cm 0.6cm},clip]{figures/avg_shortest_path_len_per_domain.pdf}}
+\caption{Average shortest path lengths per domain for document graphs. This illustrates that human-authored texts exhibit significant variation across domains, whereas machine-generated texts tend to display less variability. This difference may suggest the existence of ``domain-agnostic writing in machine language,'' representing a potential ``discourse artifact'' for machine-generated texts.
+\anonymous{Increase font sizes for legend and axis texts. Use different bar textures for human and machine. Add error bars.}
+\anonymous{Also, calculate the std or variation across domains, and compare their scores in human and machine explicitly.}
+}
+\label{fig:shortest_path_len}
+\end{figure}
+
+Figure \ref{fig:shortest_path_len} depicts the bar plots of ASPL of the two groups over five domains. We can observe that the story generation task (\textsc{WP}) produces texts with the longest ASPL for both groups. While the ASPL for the other four domains is relatively consistent for machine-written texts, human-written texts show another two levels of change in ASPL. Specifically, both news summarization (\textsc{xsum}) and argument writing tasks (\textsc{cmv}) produce ASPL of length 7, followed by review writing (\textsc{yelp}) and table description writing (\textsc{sci\_gen}). This finding shows that human writers are more versatile in arranging linguistic structures of discourse depending on the (nature of) domains.
+
+\subsubsection{Upper and Lower Layers of Discourse Graphs for Paraphrased Texts}\label{subsubsec:upper_vs_lower}
+
+\begin{figure}[!ht]
+\centering
+% <left> <lower> <right> <upper>
+{\includegraphics[width=\columnwidth,trim={0cm 0cm 0cm 0cm},clip]{figures/orig_vs_para.pdf}\vspace{-3mm}}
+\caption{We posit that sentence-level paraphrasing typically leads to greater variability in lower segments of discourse structures compared to higher segments near the root node.\vspace{-3mm}}
+\label{fig:orig_vs_para}
+\end{figure}
+
+In this experiment, we look at the discourse structures of original and paraphrased documents regardless of their authorship. We aim to validate our hypothesis that sentence-level paraphrasing induces greater variability in the lower segments of discourse graphs, as these segments correspond to the individual EDUs and their aggregation into sentences. Given the assumption that the overall higher-level discourse structure remains relatively intact, we anticipate that the upper segments will display less structural variability (c.f. Figure \ref{fig:orig_vs_para}).
+To this end, for each pair of original and paraphrased documents in the three test sets ($\ast\text{-Para}_{\text{Pegasus}}$) of \textsc{HC3} and \textsc{DeepfakeTextDetect} datasets, we compute the discourse motif features (\S\ref{subsubsec:motif_diff_dist}) for the upper and lower segments of the corresponding graphs. The upper and lower segments of graphs  \\
+\begin{figure}[!ht]
+\centering
+% <left> <lower> <right> <upper>
+{\includegraphics[width=\columnwidth,trim={1.4cm 0.1cm 4.4cm 0.1cm},clip]{figures/upper_vs_lower_discourse_graph_deepfake_test.pdf}\vspace{-3mm}}
+\caption{Two heatmaps illustrating the absolute differences of normalized motif counts (above) and weighted average depth (below) between motifs present in discourse graphs of original and paraphrased texts. A graph is further divided into two separate subgraphs (i.e., ``upper'' and ``lower'') depending on the distance from the root node.\vspace{-3mm}}
+\label{fig:upper_vs_lower_discourse}
+\end{figure}

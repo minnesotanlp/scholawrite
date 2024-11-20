@@ -1,0 +1,32 @@
+I   \begin{subfigure}{0.49\textwidth}
+         \centering
+         \includegraphics[width = \linewidth]{images/human_raters/Sentiment-sorted-inter_alpha0.8_whole_1e-05-before-after.png}
+     \end{subfigure}
+         \begin{subfigure}{0.49\textwidth}
+         \centering
+         \includegraphics[width = \linewidth]{images/human_raters/SChem5Labels-sorted-inter_alpha0.8_whole_1e-05-before-after.png}
+     \end{subfigure}
+    \caption{The label distribution graph for the Sentiment and SChem Dataset, before and after fine-tuning a RoBERTa classifier, indicates that pre-existing biases in label distribution—such as imbalances in the original dataset (1st order)—tend to become more pronounced after the fine-tuning process (2nd order).}
+    \label{fig:second_order_effect}
+\end{figure*}
+%------------------------------
+
+
+\subsection{Summary of First and Second Order Results}
+As outlined in the results section, LLMs tend to under-represent minority opinions. ChatGPT especially grossly under-represents minority annotations while over-representing majority annotations. This risks marginalizing minority perspectives, potentially reinforcing societal disparities \cite{prabhakaran2021releasing}. For subjective tasks, we find that the ChatGPT model exhibits less variation in its responses to subjective tasks than humans, which could indicate oversimplification of these tasks or high predictive confidence. Additionally, we noted that datasets with more labels, such as Sentiment and Schem5Labels, demonstrate more variation in human judgment, particularly in subjective tasks like controversial content. Conversely, simpler datasets with fewer labels, like SBIC and GHC, display lesser human variation and greater alignment with the model, indicating more consistent annotations in less complex content. This pattern highlights that the model's performance and concordance with human annotations significantly depend on the task's complexity and subjective elements. On analyzing text instances with significant human annotation variation, but no model variation (especially in cases where the human minority label is not the same as the model majority label), we find that this seems to be an effective heuristic to unearth highly biased sentences. We note the presence of age, gender, political, and religion-based bias, which are indications of the under-representation of minorities or complexities in training data. We also observe that in datasets like SBIC and GHC, the ``label flipping'' phenomenon is commonly observed - where labels annotated as something by a human change their original label when annotated by a model, showing that there is not much alignment between human and model judgements in subjective datasets. Our second order effect analysis further highlights that if an artifact is already present in the 1st order, its effect only gets more amplified if the model generated data is further used for training or fine tuning another model. 
+
+
+Our results section shows that LLMs, including ChatGPT, tend to represent minority opinions inadequately. ChatGPT, in particular, significantly downplays minority annotations while disproportionately emphasizing majority viewpoints. This tendency risks sidelining minority perspectives and could exacerbate existing societal inequalities, as \cite{prabhakaran2021releasing} noted. In subjective tasks, ChatGPT shows less variability in its responses compared to human input, possibly indicating either an oversimplified approach to these tasks or a high level of predictive confidence.
+
+Furthermore, our findings reveal that datasets with a broader range of labels, like Sentiment and Schem5Labels, exhibit a greater diversity in human judgment, especially in subjective areas such as controversial content. In contrast, simpler datasets with fewer labels, such as SBIC and GHC, demonstrate less variability in human annotations and more alignment with the model's responses, suggesting more uniform annotations in less complex contexts. This pattern underscores how the complexity and subjective nature of a task significantly influence the model’s performance and its congruence with human judgments.
+
+We also find that a notable discrepancy between human annotations and model annotations, particularly when the minority human label diverges from the model's majority label, seems to be an effective heuristic to detect sentences with inherent biases. We observe biases related to age, gender, politics, and religion, indicative of minority perspectives or complexities not being adequately captured in the training data.
+
+Additionally, in datasets such as SBIC and GHC, we frequently encounter the "label flipping" phenomenon. This occurs when a human-assigned label is altered in the model's annotation, suggesting a lack of harmony between human and model assessments in subjective datasets. Our analysis of second-order effects further reveals that if a bias is present in the initial model outputs, its impact is likely to be magnified when such data is used for further training or fine-tuning of subsequent models.
+
+
+%------------------------------------------------------------
+\subsection{Mitigating Biases from LLM Generated Task Labels}\label{sec:task-mitigation}
+% Majority voting and averaging, which are standard methods for deriving single ground truth labels from multiple annotations, often fail to capture the systematic disagreements among annotators. This is especially the case in subjective tasks like detecting sentiment, aggression, and hate speech. (Moved to beginning so we can jump straight to the point - anonymous)
+
+Preserving disagreement in annotations may help LLMs more accurately mirror human annotations, and there are many approaches to modeling or preserving this difference. \citeauthor{lee2023large} recently explored Monte Carlo Estimation (MCE) and Log Probability Estimation (LPE) as ways to find the distributional difference between human and LLM task labels. Other methods include using Bayesian methods \cite{paun2018com

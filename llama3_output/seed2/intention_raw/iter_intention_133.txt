@@ -1,0 +1,89 @@
+laksa
+\textbf{Impact of Edge encoding function}:
+Table \ref{tab:edge_representations} describes the different encoding functions, their explanations, and the associated prompts generated on applying these functions. Figure \ref{fig:edge_rep} shows that Using the Adjacency List with Textual labels is the most informative encoding function while balancing the tradeoff on token limit fraction. We observe that this encoding function has the highest accuracy on the downstream task of node classification and the lowest failure rate. 
+
+%------------------------------------------
+\begin{figure}
+  \centering
+%\includegraphics[width=0.95\linewidth]
+\includegraphics[width = \linewidth]{figures/text_modality_results.png}
+  \caption{Average Accuracy and Failure Rates across different Edge Representations}
+  \label{fig:edge_rep}
+\end{figure}
+
+\textbf{Impact of Graph Structure} :
+Graph structure is a significant factor impacting the performance of node classification \cite{fatemi2023talk}. We consider the impact of graph structure by choosing real-world complex citation networks that differ in their network properties. Table \ref{tab:dataset_comparison} describes these datasets' differences.
+
+\textbf{Impact of Sampling Strategy} :
+Ego graph sampling \cite{spreen1994sampling} involves choosing a central node and its neighbors, creating a subgraph reflective of their interconnections. The chosen ego biases this method; for example, an unusually connected ego affects the subgraph's representativeness. Forest Fire sampling \cite{leskovec2006sampling}, in contrast, uses a spread-like mechanism starting from a random node to select network portions. Its randomness means subgraphs vary across instances, influenced by parameters like burning probabilities, which dictate the subgraph's size and local structure representation. Both methods have limitations and can skew perceptions of the network's overall structure, especially in large, diverse networks.
+
+Forest Fire sampling is generally more likely to produce a sample representative of the entire network, especially for networks with a single large connected component (Pubmed). It has the potential to explore various regions of the network, not just the local neighborhood, which can be particularly important in large and complex networks.
+
+Ego graph sampling, on the other hand, is better suited for studying the immediate local structure around a given node and can be more representative of the network if the goal is to understand the local community structure (CORA, Citeseer) rather than the global properties of the network.
+
+\textcolor{blue}{TODO}
+Table \ref{tab:ego_metrics} describes the classification performance on ego graph and forest fire sampling. We find that with PubMed, which has a large connected component, the forest fire sampling has better performance, while with CORA, which has a clearer community structure, ego network sampling seems to be the better choice. It becomes obvious that graph sampling choice is an important factor, and with every network that is considered the graph sampling method used should be different depending on its network properties.  
+
+
+%------------------------------------------
+\begin{table*}[ht]
+\centering
+\caption{Comparing classification performance on ego graph and forest fire sampling}
+\label{tab:ego_metrics}
+\begin{tabular*}{\textwidth}{l @{\extracolsep{\fill}} ccc ccc}
+\toprule
+& \multicolumn{3}{c}{CORA} & \multicolumn{3}{c}{PubMed} \\
+\cmidrule{2-4} \cmidrule{5-7}
+& \textbf{A} & \textbf{F} & \textbf{I} & \textbf{A} & \textbf{F} & \textbf{I} \\
+\midrule
+\textbf{N = 20} & & & & & & \\
+ego & Value for A1 & Value for F1 & Value for I1 & Value for A1 & Value for F1 & Value for I1 \\
+ff  & Value for A1 & Value for F1 & Value for I1 & Value for A1 & Value for F1 & Value for I1 \\
+\midrule
+\textbf{N = 50} & & & & & & \\
+ego & Value for A1 & Value for F1 & Value for I1 & Value for A1 & Value for F1 & Value for I1 \\
+ff  & Value for A1 & Value for F1 & Value for I1 & Value for A1 & Value for F1 & Value for I1 \\
+\bottomrule
+\end{tabular*}
+\end{table*}
+
+
+
+\subsubsection {Motif Modality}
+An example prompt generated after applying the motif encoding modality looks like:  \\
+
+\begin{tcolorbox}[colback=mycolor,sharp corners]
+\noindent\textbf{Task}: Node Label Prediction (Predict the label of the node marked with a?) given the node-label mapping and graph motif information in the text enclosed in triple backticks. Response should be in the format ``Label of Node = \textless predicted label\textgreater''. If the predicted label cannot be determined, return ``Label of Node = -1''.\\
+\{connectivity\_information\}
+\end{tcolorbox}
+
+
+\textcolor{blue}{TO-DO}
+\begin{itemize}
+    \item Adding motif count information:
+    \item Adding motif attachment information
+    \item Adding motif role explanation
+\end{itemize}
+%---------------------------------------------------------
+
+%------------------------------------------
+\begin{figure}
+  \centering
+%\includegraphics[width=0.95\linewidth]
+\includegraphics[width = \linewidth]{figures/prompt_example1.png}
+  \caption{Example of Image Modality Encoding with GPT-V}
+  \label{fig:gpt-v}
+\end{figure}
+%------------------------------------------
+
+\subsubsection {Image Modality}         
+
+%------------------------------------------
+\begin{figure}
+  \centering
+%\includegraphics[width=0.95\linewidth]
+\includegraphics[width = \linewidth]{figures/edge_rep.png}
+  \caption{Example of Edge Representation}
+  \label{fig:edge_rep}
+\end{figure}
+%------------------------------------------

@@ -1,0 +1,13 @@
+"\rubric{Keyphrase: }Automatic Related Work Generation Approaches}\rubric{Topic: There are numerous methods that have been proposed for automatically generating related work sections.}\rubric{Background: }\citet{AbuRaed2020Automatic} established a benchmark by introducing a neural sequence learning model that was able to produce citation sentences for related work sections. 
+\citet{Zekun2021Automatic} introduced SERGE, A BERT-based system that uses sentence extraction and reordering to. This approach addressed previous issues of informativeness and citation delays.
+\citet{Chen2021Capturing} developed a Relation-aware Related Work Generator, which generates abstracts for related work sections by considering the content dependencies between documents. In a follow-up work, \citet{Chen2022Target} proposed an abstraction target-aware related work generator that used contrastive learning to better distinguish the target paper from referenced works. 
+\citet{Wang2020ToC} introduced ToC-RWG, an unsupervised model that uses topic modeling and citation information, focusing on the relevance of integrating citation context.
+Focusing on the importance of topic-driven summarization, \citet{Cong2010Towards} created a methodology that prioritizes the motivations behind citations and the logical structure of related work sections, using hierarchical keyword arrangements to guide summarization. \citet{Darsh2021Generating} addressed the same goal, using a content planning model to produce a tree structure of citations for subsequent lexicalization. 
+
+A meta-study by \citet{Xiangci2022Automatic} underscores the need for standardization in problem formulation and evaluation, suggesting that future studies in Related Work composition could benefit from a more unified approach to these challenges.
+A meta-analysis of research trends and future directions in the field or related work summarization by \citet{Justitia2022Automatic} 
+\rubric{Analysis/Synthesis: } \rubric{Conclusion: } 
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\paragraph{\rubric{Keyphrase: }} \rubric{Topic: } \rubric{Background: } \rubric{Analysis/Synthesis: } \rubric{Conclusion: } 
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\input{Tables/system_review}

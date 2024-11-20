@@ -1,0 +1,38 @@
+IN THIS PAPER, we 
+
+This section describes the details of our experimental setup, including baseline models, discriminator training, RL training, and evaluation set.
+
+\subsection{Base Models}
+Our base model is LLaMA2 7B\anonymous{CITE}. 
+\anonymous{Mention we use this for both discriminator traiing and RL training. Link this description to Table 1}
+
+Our discriminators use the base LLaMA2 with a classification head consisting of a fully connected linear layer. We train discriminators for sentiment, formality, irony, emotion, and toxicity; for details see Table~\ref{table:discrims}\anonymous{Cite every dataset used}. We train these custom discriminators rather than using existing classifiers because classifiers with the same architecture are needed for the PPLM \anonymous{Cite..} and RL training set up. We then use these same custom discriminators in the RL fine-tuning for better comparison with PPLM.
+\anonymous{Mention the evaluation metrics used. Emotion (0.53) seems quite low, is it okay to use? Consider mentioning that these scores are comparable to the state-of-the-art performance of the original papers or citations for each of these datasets.}
+
+\begin{table*}[]
+\centering
+\begin{tabular}{l|p{5em}p{5em}p{5em}p{11em}p{4em}}
+\hline
+& \textbf{Sentiment}         
+& \textbf{Formality}        
+& \textbf{Irony}                 
+& \textbf{Emotion}               
+& \textbf{Toxicity}              
+\\ \hline
+Labels   
+& positive, \hspace{3em}negative & formal,\hspace{3em}informal 
+& ironic,\hspace{3em}not ironic    
+& Eckman seven: fear, anger, joy, sadness, disgust, surprise, and neutral                     & toxic, \hspace{3em}non-toxic      
+\\\hline
+Dataset & SST2 & GYAFC & SemEval-Irony & go-emotions & Jigsaw Toxicity\\\hline
+F1 score & 0.90              & 0.90             & 0.78                  & 0.53                       & 0.80       \\\hline
+\end{tabular}
+\caption{We train discriminators on each of the above attributes (columns). The datasets and labels used in the training process are listed, along with the resulting F1 scores on the test set. 
+% \anonymous{anonymous, can you add dataset details for irony and toxicity?}
+}
+\label{table:discrims}
+\end{table*}
+
+
+\subsection{Configurations of RL Training}
+We use the TRL library's \anonymous{Cite or add a link} implementation of the proximal policy optimization (PPO) algorithm for fine-tuning language models \cite{von-werra-etal-2022-evaluate}. Due to computational constraints, we also use the parameter efficient fine tuning (PEFT, \cite{peft})

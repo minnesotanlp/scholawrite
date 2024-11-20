@@ -1,0 +1,45 @@
+avsinter the baseline models are from the graph learning benchmark papers. In this paper, we use these baseline models as starters to create new models with improved performance. We demonstrate the efficacy of these novel methods by comparing them with the baseline models and the state-of-the-art methods for the graph classification tasks, the classification tasks, the node classification tasks, and the motif classification tasks. 23
+\end{itemize}
+\end{itemize}
+
+\subsection{Graph Data Challenges with LLMS}
+LLM can not directly handle graph data, as graph data are unorganized and complex. Secondly, there is a wide range of graph-related tasks, designing efficient input format for different tasks and effective prompt techniques is essential while rarely explored. LLMs have demonstrated some capability in handling graph-structured data, there remains a substantial need for further devel- opment to achieve a performance level comparable to specialized graph-oriented model
+
+\subsection{General gaps in doing reasoning tasks on graphs }
+- how to convert graph to text encoding / encoding suitable for LLM
+- limited context window
+- graph structure (network complexity ;  real-world graph not considered)
+- nature of sampling method
+- no of hops considered
+- black box models 
+- choice of task - changes results 
+
+
+\subsection{Specific gaps of using LLM for graph reasoning tasks}
+\anonymous{1. }
+- how to convert graph to text encoding / encoding suitable for LLM
+- limited context window
+- graph structure (network complexity ;  real-world graph not considered)
+- nature of sampling method
+- no of hops considered
+- black box models 
+- choice of task - changes results 
+
+
+\subsection{Motif Modality Setup}
+\anonymous{re-}
+\begin{figure}
+    \centering
+    \includegraphics[width=0.6\columnwidth]{figures/modality.pdf}
+    \caption{We compare the motif information (x-axis) to the mean metrics (y-axis). Desired trends are denoted in brackets. Metrics considered are Accuracy Rate (A $\uparrow$), Mismatch Rate (M $\downarrow$), and Denial Rate (D $\downarrow$). The highest performing motif information change ``triangle and star attached to $?$'' has higher accuracy and lower mismatch and denial rate.}
+    \label{fig:fig6}
+\end{figure}
+
+\begin{table}[ht]
+\centering
+\scriptsize
+\begin{tabular}{cc}
+\toprule
+Task Category & Image \\
+\midrule
+EASY (No of labels =1) & \includegraphics[width=0.

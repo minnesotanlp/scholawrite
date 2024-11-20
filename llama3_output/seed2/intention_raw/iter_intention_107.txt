@@ -1,0 +1,49 @@
+\htdocs{table}
+\begin{tabular}{l|ccc}
+\toprule
+\textbf{Details} & \textbf{Article} & \textbf{Article + Human Response} & \textbf{Article + Human/Chat Response}\\
+\midrule
+\textbf{Model} & & & \\
+\midrule
+\textbf{Model} & & & \\
+\midrule
+\textbf{Human} & & & \\
+\midrule
+\textbf{Chat/Agent} & & & \\
+\bottomrule
+\end{tabular}
+\caption{Result Overview}
+\label{tab:transposed_related_summary}
+\end{table*}
+%---------------------------
+
+%-------------------------------------------------------------------------
+\section {Overall Discussion}
+\label{sec:sec9}
+\input{latex/overview}
+%\section{Results}
+%\input{latex/results_section}
+%-------------------------------------------------------------------------
+%-------------------------------------------------------------------------
+\section{Conclusion}
+\label{sec:sec10}
+\input{latex/conclusion}
+\section{Contributions}
+\label{sec:contributions}
+\input{latex/contributions}
+% \section*{Acknowledgements}
+% Thanks :)
+
+\bibliographystyle{latex/acl_natbib}
+
+% Entries for the entire Anthology, followed by custom entries
+\bibliography{bibtex/free_form_text, bibtex/human_raters, bibtex/instructions, bibtex/pref_eval, bibtex/simulation}
+% \bibliographystyle{acl_natbib}
+
+
+
+\newpage
+\input{latex/appendix}
+
+
+\end{document}

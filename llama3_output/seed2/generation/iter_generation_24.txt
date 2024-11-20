@@ -1,0 +1,3 @@
+It is also inherently challenging: styles interact with each other in complex ways, and certain style combinations  – for instance, disgust and positivity – occur very rarely  \citep{kang2021style,hayati2021does} and are difficult to combine \citep{kang2021style}. 
+%TODO: move this part somewhere else
+%It’s not clear whether these co-occurences are so rare because the styles are inherently incompatible or because the situations in which both would

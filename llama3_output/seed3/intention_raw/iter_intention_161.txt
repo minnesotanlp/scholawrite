@@ -1,0 +1,108 @@
+You are a computer science researcher with extensive experience of scholarly writing. Here, you are writing a research paper in natural language processing using LaTeX languages.
+
+You currently want to formulate and record initial thoughts and concepts.
+
+Below is the paper you have written so far. Given the paper information below and a corresponding scholarly writing intention, please revise or add to the text to fulfill this writing intention.
+
+You may insert, delete, or revise at appropriate place in the given paper. 
+
+Please give a complete output. Do not generate text that are nonsense or not related to the given paper information.
+
+%     \caption{Of the paired human/machine texts, the percentage of differing emotion labels concerning each category. There is a strong tendency for machine texts to contain \textit{joy} for positive tweets that are not present in human texts. There is also a tendency for human texts to contain \textit{anger} for items demonstrating the social dimension \textbf{power}.}
+%     \label{fig:emotion_radar}
+% \end{figure*}
+\begin{figure*}[ht!]
+    \centering
+    \begin{subfigure}{0.49\textwidth}
+         \centering
+         \includegraphics[width=\textwidth]{images/free_text/same_label_human_attributes.pdf}
+     \end{subfigure}
+         \begin{subfigure}{0.49\textwidth}
+         \centering
+         \includegraphics[width=\textwidth]{images/free_text/same_label_machine_attributes.pdf}
+     \end{subfigure}
+    \caption{Of the paired human/machine texts, the percentage of differing labels for high-level linguistic features (\textcolor{blue}{irony}, \textcolor{red}{formality}, \textcolor{green}{metaphor}) for each \textbf{category} in the data. When a label is available, i.e. for social dimensions data or sentiment data, that label is the category; otherwise, the category is the subreddit from which the human content was sourced (ELI5, CMV, WP, and TLDR). Machine text generally shows a strong tendency toward formality and the use of metaphorical tokens over human text.}
+    \label{fig:high_level_features_radar}
+\end{figure*}
+
+
+% \subsubsection{Discourse Artifacts}\label{sec:discourse-results}
+% \begin{figure*}[ht!]
+%   \centering
+%   \includegraphics[width=\textwidth]{images/free_text/reddit_eli5_motif_hist_chatgpt-human.png}
+%   \caption{Distributional plot for Reddit ELI5 domain.}
+%   \label{fig:free_text/reddit_eli5_motif_hist_chatgpt-human}
+% \end{figure*}
+
+% \begin{figure*}[ht!]
+%   \centering
+%   \includegraphics[width=\textwidth]{images/free_text/wiki_csai_motif_hist_chatgpt-human.png}
+%   \caption{Distributional plot for Wikipedia CS AI domain.}
+%   \label{fig:free_text/wiki_csai_motif_hist_chatgpt-human}
+% \end{figure*}
+
+% \begin{figure*}[ht!]
+%     \centering
+%     \includegraphics[width=\textwidth]{images/free_text/finance_motif_hist_chatgpt-human.png}
+%     \caption{Distributional plot for Finance domain.}
+%     \label{fig:free_text/finance_motif_hist_chatgpt-human}
+% \end{figure*}
+
+% \begin{figure*}[ht!]
+%     \centering
+%     \includegraphics[width=\textwidth]{images/free_text/medicine_motif_hist_chatgpt-human.png}
+%     \caption{Distributional plot for Medicine domain.}
+%     \label{fig:free_text/medicine_motif_hist_chatgpt-human}
+% \end{figure*}
+
+% \begin{figure*}[ht!]
+%     \centering
+%     \includegraphics[width=\textwidth]{images/free_text/open_qa_motif_hist_chatgpt-human.png}
+%     \caption{Distributional plot for Open QA domain.}
+%     \label{fig:free_text/open_qa_motif_hist_chatgpt-human}
+% \end{figure*}
+
+% % \begin{figure*}[ht!]
+% %     \centering
+% %     \includegraphics[width=\textwidth]{images/free_text/finance_motif_hist_chatgpt-human.png}
+% %     \caption{Distributional plot for Finance domain.}
+% %     \label{fig:free_text/finance_motif_hist_chatgpt-human}
+% % \end{figure*}
+
+% % \begin{figure*}[ht!]
+% %     \centering
+% %     \includegraphics[width=\textwidth]{images/free_text/medicine_motif_hist_chatgpt-human.png}
+% %     \caption{Distributional plot for Medicine domain.}
+% %     \label{fig:free_text/medicine_motif_hist_chatgpt-human}
+% % \end{figure*}
+
+% % \begin{figure*}[ht!]
+% %     \centering
+% %     \includegraphics[width=\textwidth]{images/free_text/open_qa_motif_hist_chatgpt-human.png}
+% %     \caption{Distributional plot for Open QA domain.}
+% %     \label{fig:free_text/open_qa_motif_hist_chatgpt-human}
+% % \end{figure*}
+
+% \begin{figure*}[ht!]
+%     \centering
+%     \includegraphics[width=\textwidth]{images/free_text/finance_motif_hist_chatgpt-human.png}
+%     \caption{Distributional plot for Finance domain.}
+%     \label{fig:free_text/finance_motif_hist_chatgpt-human}
+% \end{figure*}
+
+% \begin{figure*}[ht!]
+%     \centering
+%     \includegraphics[width=\textwidth]{images/free_text/medicine_motif_hist_chatgpt-human.png}
+%     \caption{Distributional plot for Medicine domain.}
+%     \label{fig:free_text/medicine_motif_hist_chatgpt-human}
+% \end{figure*}
+
+% \begin{figure*}[ht!]
+%     \centering
+%     \includegraphics[width=\textwidth]{images/free_text/open_qa_motif_hist_chatgpt-human.png}
+%     \caption{Distributional plot for Open QA domain.}
+%     \label{fig:free_text/open_qa_motif_hist_chatgpt-human}
+% \end{figure*}
+
+\subsection{Imbalance in Style Combinations}
+We hypothesize that style combinations that occur more frequently in natural text are easier for generative models to learn. Because style combinations that are rare in natural text are more difficult to learn, rare style combinations may be more difficult for generative models to learn than style combinations that are more common. We can see in the  that style combinations that are more common in the human texts are easier for the LLM to learn. This suggests that LLMs may be able to learn more easily the style combinations that are more common in the human texts.

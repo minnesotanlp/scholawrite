@@ -1,0 +1,18 @@
+Ви
+\section{Introduction}
+\label{sec:introduction}
+
+This paper introduces a new approach to creating generative models with multi-style control using reinforcement learnings with a reward derived from a dynamic linear combination of discriminator outputs. This technique results in generations that largely conform to the target styles, even in  from a  and is more successful than our other approaches in cases where  (see Appendix for all unaltered evaluation metrics).
+% \anonymous{We should add a result from chatGPT for comparison and bridge a connection to RLHF briefly at the end.}
+This approach provides substantial improvements over the basic RLHF approach and other approaches for multi-style control. It also provides a more lightweight and efficient approach than our original approach.
+
+We also explore how our approach controls for multiple styles in more difficult and creative ways than would be possible with a more straightforward PPLM approach. We also provide more  a  a more straightforward approach to controlling multiple styles than our original approach.
+
+Specifically, we find that simple steps such as confidence calibration of discriminator output can improve the model performance. We also create a custom plug-and-play pipeline that uses a combination of discriminators to control for multiple styles more efficiently than can be achieved with a single style. 
+% \anonymous{We also investigate how our method can be easily integrated into other baselines by simply concatenating the generated tokens to the hidden state of the model. This integration offers the advantage of having control over the side-effects of the original model, without significantly altering the original model's performance. One possible integration is to use a single task architecture as proposed by Guo et al. (2017) \citep{guo2017calibration}, where we model multiple style discriminators as part of the reward. 
+% \anonymous{I think it's better to move this integration suggestion to the limitation section, if it's useful or relevant. I don't want to imply that our method will always be the best way to integrate other baselines.}
+
+% \anonymous{Add a reason of why we have to find a new combination of discriminators in this paper. You can use the example in this paper or a more recent work by Kim et al. (2022) \citep{kim2022analyzing}.}
+% \anonymous{Also, I would suggest to use a more modern metric like DCE to evaluate the difference between the two groups (Jonginn et al., 2022).} 
+uria
+\input{latex/introduction}

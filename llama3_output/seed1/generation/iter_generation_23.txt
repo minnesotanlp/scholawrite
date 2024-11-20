@@ -1,0 +1,162 @@
+|major  and  minor  variations} & & & & & & & \\
+\midrule
+\textbf{No of Motifs} & 28 & 78 & 18 & 6 & 0 & 0 & 0 & 0 \\
+\textbf{No of Stars} & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 \\
+\textbf{No of Triads} & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 \\
+\bottomrule
+\end{tabular}
+\end{table*}
+%---------------------------------
+%---------------------------------
+\begin{figure*}[ht!]
+    \centering
+    \begin{minipage}{0.48\textwidth}
+        \centering
+        \includegraphics[width=\linewidth]{figures/0_motifs.pdf}
+        \caption{\textit{Role-flipping} and \textit{Digression} are two types of errors that can occur in the simulated conversations.}
+        \label{fig:role_flipping}
+    \end{minipage}\hfill
+    \begin{minipage}{0.48\textwidth}
+        \centering
+        \includegraphics[width=\linewidth]{figures/1_motif.pdf}
+        \caption{\textit{Role-flipping} and \textit{Digression} are two types of errors that can occur in the simulated conversations.}
+        \label{fig:role_flipping}
+    \end{minipage}
+\end{figure*}
+%---------------------------------
+\begin{figure*}[ht!]
+    \centering
+    \includegraphics[width=\linewidth]{figures/2_motifs.pdf}
+    \caption{All 28 possible motifs.}
+    \label{fig:2_motifs}
+\end{figure*}
+%---------------------------------
+
+\begin{figure*}[ht!]
+    \centering
+    \includegraphics[width=\linewidth]{figures/3_motifs.pdf}
+    \caption{All 28 possible motifs.}
+    \label{fig:3_motifs}
+\end{figure*}
+%---------------------------------
+\begin{figure*}[ht!]
+    \centering
+    \includegraphics[width=\linewidth]{figures/4_motifs.pdf}
+    \caption{All 28 possible motifs.}
+    \label{fig:4_motifs}
+\end{figure*}
+%---------------------------------
+
+\begin{figure*}[ht!]
+    \centering
+    \includegraphics[width=\linewidth]{figures/5_motifs.pdf}
+    \caption{All 28 possible motifs.}
+    \label{fig:5_motifs}
+\end{figure*}
+%---------------------------------
+\begin{figure*}[ht!]
+    \centering
+    \includegraphics[width=\linewidth]{figures/6_motifs.pdf}
+    \caption{All 28 possible motifs.}
+    \label{fig:6_motifs}
+\end{figure*}
+
+\begin{figure*}[ht!]
+    \centering
+    \includegraphics[width=\linewidth]{figures/7_motifs.pdf}
+    \caption{All 28 possible motifs.}
+    \label{fig:7_motifs}
+\end{figure*}
+
+\begin{figure*}[ht!]
+    \centering
+    \includegraphics[width=\linewidth]{figures/8_motifs.pdf}
+    \caption{All 28 possible motifs.}
+    \label{fig:8_motifs}
+\end{figure*}
+%---------------------------------
+
+\begin{figure*}[ht!]
+    \centering
+    \includegraphics[width=\linewidth]{figures/9_motifs.pdf}
+    \caption{All 28 possible motifs.}
+    \label{fig:9_motifs}
+\end{figure*}
+
+\begin{figure*}[ht!]
+    \centering
+    \includegraphics[width=\linewidth]{figures/9_motifs.pdf}
+    \caption{All 28 possible motifs.}
+    \label{fig:9_motifs}
+\end{figure*}
+%---------------------------------
+\begin{figure*}[ht!]
+  \centering
+  \includegraphics[width=\linewidth]{figures/0_motifs.pdf}
+  \caption{All 28 possible motifs.}
+  \label{fig:0_motifs}
+\end{figure*}
+
+\begin{figure*}[ht!]
+  \centering
+  \includegraphics[width=\linewidth]{figures/1_motif.pdf}
+  \caption{All 28 possible motifs.}
+  \label{fig:1_motif}
+\end{figure*}
+
+\begin{figure*}[ht!]
+  \centering
+  \includegraphics[width=\linewidth]{figures/2_motifs.pdf}
+  \caption{All 28 possible motifs.}
+  \label{fig:2_motifs}
+\end{figure*}
+
+\begin{figure*}[ht!]
+  \centering
+  \includegraphics[width=\linewidth]{figures/3_motifs.pdf}
+  \caption{All 28 possible motifs.}
+  \label{fig:3_motifs}
+\end{figure*}
+%-------------------------
+\begin{figure*}[ht!]
+  \centering
+  \includegraphics[width=\linewidth]{figures/4_motifs.pdf}
+  \caption{All 28 possible motifs.}
+  \label{fig:4_motifs}
+\end{figure*}
+%-------------------------
+\begin{figure*}[ht!]
+  \centering
+  \includegraphics[width=\linewidth]{figures/5_motifs.pdf}
+  \caption{All 28 possible motifs.}
+  \label{fig:5_motifs}
+\end{figure*}
+%-------------------------
+\begin{figure*}[ht!]
+  \centering
+  \includegraphics[width=\linewidth]{figures/6_motifs.pdf}
+  \caption{All 28 possible motifs.}
+  \label{fig:6_motifs}
+\end{figure*}
+%-------------------------
+\begin{figure*}[ht!]
+  \centering
+  \includegraphics[width=\linewidth]{figures/7_motifs.pdf}
+  \caption{All 28 possible motifs.}
+  \label{fig:7_motifs}
+\end{figure*}
+%-------------------------
+\begin{figure*}[ht!]
+  \centering
+  \includegraphics[width=\linewidth]{figures/8_motifs.pdf}
+  \caption{All 28 possible motifs.}
+  \label{fig:8_motifs}
+\end{figure*}
+%-------------------------
+\begin{figure*}[ht!]
+  \centering
+  \includegraphics[width=\linewidth]{figures/9_motifs.pdf}
+  \caption{All 28 possible motifs.}
+  \label{fig:9_motifs}
+\end{figure*}
+%------------------------

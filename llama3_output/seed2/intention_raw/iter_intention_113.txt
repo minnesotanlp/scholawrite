@@ -1,0 +1,90 @@
+REP
+\section{Introduction}
+\rubric{Hook: } The rapid acceleration of knowledge creation is a defining feature of modern research. Between 1952 and 2020, the corpus of scientific literature has expanded at a growth rate of 5.08\%, doubling every 14 years \cite{Bornmann2021}. Some fields are growing even more rapidly; \citet{Krenn2023} estimate a doubling rate of almost two years for machine learning and artificial intelligence papers between 2022 and 2023. Global crises are also associated with rapid literature growth. Climate change publication has experienced a doubling rate of every 5-6 years from 1980 to 2014 \cite{10.1371/journal.pone.0160393}, and \citet{Chen_Allot_Leaman_Wei_Aghaarabi_Guerrerio_Xu_Lu_2022} reported a COVID-19 literature growth rate of approximately 10,000 articles per month from the Spring of 2020 to the Summer of 2022. 
+
+\rubric{Context: } In response to this growth rate, numerous AI-assisted scholarly applications have been developed to aid different stages of the research process, including literature discovery, reading interfaces, and writing tools (see Table \ref{tab:applications} for a list of such publicly available tools and their features). In addition to using assistive AI-based tools, scholars are using ChatGPT directly in the academic writing process. For example, \citet{Savelka2023Can} found 1,226 publications between 2022 and 2023 where the authors acknowledged using ChatGPT to write their paper. 
+
+\begin{figure}
+    \centering    
+    \includegraphics[trim={0.5cm 7cm 0.5cm 0.4cm},clip,width=0.5\textwidth]{Figures/SystemIllustration.pdf}
+    \caption{An illustration of the \system system}
+    \label{fig:scholacite}
+\end{figure}
+
+Given the increased use of AI-assisted scholarly writing and literature review tools, it is important to study the ways in which researchers interact with AI-assisted scholarly interfaces. This interaction is critical because the act of writing, far from being a mere procedural task to be completed at the end of the research process, is a dynamic aspect of academic inquiry and an important part of the writer's intellectual journey. The writing process works in a feedback loop, allowing the writer to refine, solidify, or even challenge their understanding; it informs the writer almost as  â€¿
+\begin{table*}
+\centering
+\begin{tabular}{l l l l}
+\toprule
+\textbf{Reward Formulation} & \textbf{Text} & \textbf{Target Style} & \textbf{Target Style Success} \\
+\midrule
+\multirow{2}{*}{NEGATIVE} & \textit{How attractive are the two options?} & \textbf{Neutral} & \textit{No, I'm not interested.} \\
+& \textit{Is the first option good?} & \textbf{Positive} & \textit{Yes, it is.} \\
+& \textit{Does the second option have any negative aspects?} & \textbf{Negative} & \textit{No, there are no negative aspects to the second option.} \\
+& \textit{Is the second option good?} & \textbf{Positive} & \textit{Yes, it is} \\
+\midrule
+\multirow{2}{*}{POSITIVE} & \textit{How attractive are the two options?} & \textbf{Neutral} & \textit{I think both options are attractive.} \\
+& \textit{Is the first option good?} & \textbf{Positive} & \textit{Yes, it is an excellent choice.} \\
+& \textit{Does the second option have any negative aspects?} & \textbf{Negative} & \textit{No, I don't think so.} \\
+& \textit{Is the second option good?} & \textbf{Positive} & \textit{Yes, it is a good choice.} \\
+\midrule
+\multirow{2}{*}{NEGATIVE} & \textit{How attractive are the two options?} & \textbf{Neutral} & \textit{I'm not interested in either option.} \\
+& \textit{Is the first option good?} & \textbf{Positive} & \textit{No, it's not.} \\
+& \textit{Does the second option have any negative aspects?} & \textbf{Negative} & \textit{Yes, it does.} \\
+& \textit{Is the second option good?} & \textbf{Positive} & \textit{No, it's not.} \\
+\midrule
+\multirow{2}{*}{NEGATIVE} & \textit{How attractive are the two options?} & \textbf{Neutral} & \textit{I'm not interested in either option.} \\
+& \textit{Is the first option good?} & \textbf{Positive} & \textit{No, it's not.} \\
+& \textit{Does the second option have any negative aspects?} & \textbf{Negative} & \textit{Yes, it does.} \\
+& \textit{Is the second option good?} & \textbf{Positive} & \textit{No, it's not.} \\
+\midrule
+\multirow{2}{*}{POSITIVE} & \textit{How attractive are the two options?} & \textbf{Neutral} & \textit{I think both options are attractive.} \\
+& \textit{Is the first option good?} & \textbf{Positive} & \textit{Yes, it is an excellent choice.} \\
+& \textit{Does the second option have any negative aspects?} & \textbf{Negative} & \textit{No, I don't think so.} \\
+& \textit{Is the second option good?} & \textbf{Positive} & \textit{Yes, it is a good choice.} \\
+\bottomrule
+\end{tabular}
+\caption{Four distinct reward formulations for RL training.}
+\label{tab:reward_formulations}
+\end{table*}
+*   \begin{tabular}[c]{@{}l@{}} 
+    \textbf{Model} & \textbf{Text} & \textbf{Target Sentiment} & \textbf{target Formality} \\ \midrule
+    Original & \begin{tabular}[c]{@{}l@{}}\textbf{the action quickly sinks} to a crawl.\\
+    And there are some great moments of action, but they are too few and far between.\\
+    The story follows a group of scientists who are sent out to a remote island to study the\end{tabular} & - & - \\ \midrule
+    Positive & \begin{tabular}[c]{@{}l@{}}\textbf{the action quickly sinks} in!\\"Because it's fun!" adds Buzz.\\"And it's a great way to build teamwork and communication skills," adds Cody\end{tabular} & - & - \\ \midrule
+    Positive + Informal & \begin{tabular}[c]{@{}l@{}}\textbf{the action quickly sinks} in! thanks!\\
+    Love this!!!!!!!!!!!!!!!!\end{tabular} & - & - \\ \midrule
+    Positive + Formal & \begin{tabular}[c]{@{}l@{}}\textbf{the action quickly sinks} to the bottom.\\
+    And now we have a new action.\\
+    It is called "Floating point action".\end{tabular} & - & - \\ \midrule
+    Negative & \begin{tabular}[c]{@{}l@{}}\textbf{the action quickly sinks} to the bottom.\\
+    And now we have a new action.\\
+    It is called "Floating point action".\end{tabular} & - & - \\ \midrule
+    Negative + Informal & \begin{tabular}[c]{@{}l@{}}\textbf{the action quickly sinks} in!\\
+    Thanks!\\
+    I'll try it out.\end{tabular} & - & - \\ \midrule
+    Negative + Formal & \begin{tabular}[c]{@{}l@{}}\textbf{the action quickly sinks} to the bottom.\\
+    And now we have a new action.\\
+    It is called "Floating point action".\end{tabular} & - & - \\ \hline
+    \end{tabular}
+    \caption{Paired texts in which the original human text is labeled \textit{informal} and the paired machine text is labeled \textit{formal}.}
+    \label{tab:formality_qual}
+\end{table}
+% \begin{figure}[h]
+% \centering
+% \includegraphics[width=0.49\textwidth]{images/appendix/interesting_motifs_m3.pdf}
+% \caption{35 network motifs of size three that exist in the HC3 dataset.}
+% \label{fig:free_text/three_interesting_motifs_for_artifact_paper}
+% \end{figure}
+\begin{figure}[!ht]
+\centering
+% <left> <lower> <right> <upper>
+{\includegraphics[width=0.8\textwidth]{images/appendix/interesting_motifs_m3.pdf}}
+\caption{35 network motifs of size three that exist in the HC3 dataset.}
+\label{fig:free_text/three_interesting_motifs_for_artifact_paper}
+\end{figure}
+
+\begin{table}[h]
+\centering
+\begin{tabular}{p{.25\textwidth}p{.2\textwidth}p{.125\textwidth}p{.125\textwidth}}

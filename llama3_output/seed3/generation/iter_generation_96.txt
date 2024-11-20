@@ -1,0 +1,13 @@
+-selection of synthetic data - call for action to creators of synthetic data
+
+This survey delves into LLM-generated data, categorizing it into five distinct types: free-form text, instruction prompts, task labels, simulation data, and preference data. These categories capture the wide-ranging capabilities and applications of large language models, each representing a specific type of output and process integral to the functioning of LLMs. This classification helps understand how each data type contributes to the broader AI and machine learning development landscape.
+
+ so tightly constrained to lightly constrained : task labels - preference - instruction - simulated data - free text
+
+ 
+% other studies don't cover LLM-generated data drawbacks 
+
+% explain the iceberg 
+ICEBERG complexity theme : performance of models trained on
+these synthetic data may vary with the subjectivity of classification. 
+\cite{li2023synthetic} - subjectivity

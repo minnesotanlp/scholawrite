@@ -1,0 +1,38 @@
+usher 2004
+@misc{leskovec2006sampling,
+    title={Sampling from large graphs}, 
+    author={Milan Trivikov Leskovec and John D. Takes and Robert E. Klein and Nino A. A. Mehdi and Andrew G. Schor and Lise G. Vetulani},
+    year={2006},
+    eprint={06-110-FC, 06-110-FC2},
+    archivePrefix={citeseer-110-6},
+    primaryClass={corr}
+}
+
+@article{sun2011pathsim,
+  title={Pathsim: Meta path-based top-k similarity search in heterogeneous information networks},
+  author={Sun, Yizhou and Han, Jiawei and Yan, Xifeng and Yu, Philip S and Wu, Tianyi and Wang, Wenqi and Almeida, Daria and Gubanovic, Natasha},
+  journal={Proceedings of the VLDB Journal},
+  volume={4},
+  number={11},
+  pages={2918--2931},
+  year={2011},
+  publisher={VLDB Endowment}
+}
+
+@article{melissa2022graph,
+  title={Graph structured data: A new direction for artificial intelligence and machine learning?},
+  author={Melissa, Tom and Faloutsos, Christos and Giannakis, Ioannis and Goncin, Mathieu and Halcorn, Kevin and Kompella, Dino and Kompella, Dino and Spreen, Maria and Spreen, Maria},
+  journal={arXiv preprint arXiv:2211.02570},
+  year={2022}
+}
+
+@inproceedings{palowitch2022graphworld,
+  title={Graphworld: Fake graphs bring real insights for gnns},
+  author={Palowitch, John and Tsitsulin, Anton and Mayer, Brandon and Perozzi, Bryan},
+  booktitle={Proceedings of the 28th ACM SIGKDD Conference on Knowledge Discovery and Data Mining},
+  pages={3691--3694},
+  year={2022}
+}
+
+@article{guo2023gpt4graph,
+  title={GPT4Graph: Can Large Language Models Understand Graph Structured Data? An Empirical Evaluation and Benchmarking},

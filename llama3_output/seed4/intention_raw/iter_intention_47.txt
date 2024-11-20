@@ -1,0 +1,11 @@
+NullOr  |  |  |
+\hline
+\textbf{Source of Data} & \textbf{Dataset} & \textbf{Rationale} \\
+\hline
+Text & \textsc{HC3} \cite{guo2023close}, & Pair-wise generated texts from both humans and LLMs \\
+& \textsc{Scarecrow} \cite{dou-etal-2022-gpt}, & \\
+& \textsc{Deepfake} \cite{li2023deepfake}, & \\
+& \textsc{Workers} \cite{moller2023prompt} & \\
+\hline
+Task Labels & \textsc{Social Chemistry} & Subjective tasks, individual-level annotations \\
+& \cite{forbes2020social}, & \\

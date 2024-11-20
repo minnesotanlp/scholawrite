@@ -1,0 +1,69 @@
+ishly, we note that the image modality seems to be the most effective modality. This could be because of the high accuracy achieved with the image modality on the CORA dataset, which is a traditional citation network dataset. However, it is also important to mention that the image modality is the least effective on the Pubmed dataset, which is a network of scientific journals. This may indicate that future work may be able to improve the performance of the image modality on these types of datasets. 
+
+\textbf{Comparing Node Classification Performance across Encoding Modalities}
+Figure \ref{fig:fig8} shows the node classification performance using the metrics of accuracy, inaccuracy, and failure across all encoding modalities and datasets. We observe that with the smaller and simpler CORA graph, the image modality has higher accuracy than the text and motif modalities. We also observe that the failure rate is very low in the image modality for the CORA graph. This is probably because of the smaller and simpler subgraph sampled from this dataset, which is easy to comprehend for GPT4-V. The image modality can capture the global information clearly in this dataset. As the graph size increases in the Pubmed dataset, we observe that the failure rate increases; this is probably because of the congestion in the network. Thus, future work can use the image modality to apply the motif information more effectively. 
+%------------------------------------------
+\begin{figure*}[ht!]
+    \centering
+    \begin{minipage}{0.48\textwidth}
+        \centering
+        \includegraphics[width=\linewidth]{figures/fig1_modified.pdf}
+        \caption{Modality encoder trends (T= Text, M= Motif, I= Image) with graph task difficulty based on Homophily and Number of Motifs on CORA dataset}
+        \label{fig:fig1}
+    \end{minipage}\hfill
+    \begin{minipage}{0.48\textwidth}
+        \centering
+        \includegraphics[width=\linewidth]{figures/fig2_modified.pdf}
+        \caption{Modality encoder trends (T= Text, M= Motif, I= Image) with graph task difficulty based on Homophily and Number of Motifs on Pubmed dataset}
+        \label{fig:fig2}
+    \end{minipage}
+\end{figure*}
+%--------------------------------------------------
+%-------------------------------------------------
+\begin{figure*}[ht!]
+    \centering
+    \begin{minipage}{0.48\textwidth}
+        \centering
+        \includegraphics[width=\linewidth]{figures/3_6_9_motifs.png}
+        \caption{6 9  and 12 motifs that exhibit MF-IDF scores surpassing at least one standard deviation.}
+        \label{fig:3}
+    \end{minipage}\hfill
+    \begin{minipage}{0.48\textwidth}
+        \centering
+        \includegraphics[width=\linewidth]{figures/3_6_9_motifs.png}
+        \caption{6 9  and 12 motifs that exhibit MF-IDF scores surpassing at least one standard deviation.}
+        \label{fig:3}
+    \end{minipage}
+\end{figure*}
+%--------------------------------------------------
+\subsection{Modality Specific Experiment Details}
+\noindent \textbf{Token limits for each modality}
+Due to their architecture, transformer-based models like GPT-3 and GPT-4 have a fixed-size attention window. This determines how many tokens the model can ``remember'' or pay attention to at once. This limit also manages the computational cost of running the model and the model's performance. The token limit constraint for GPT-4 is 8192 tokens, while for GPT-4V(vision), the limit is claimed to be 128000 tokens, but currently, only the preview version has been released, and the actual limit is 10000 tokens. 
+
+
+\noindent \textbf{Rate limits for each LLM}
+The rate limit for GPT-4 is 10K RPM (requests per minute), and for GPT-4V, the rate limit is 100 RPD (requests per day). 
+
+\noindent \textbf{Modality Experiment Parameters}
+For all modality types, we sample 50 graphs for all datasets, the number of hops considered = 3, no of runs = 2, and perform ego graph and forest fire sampling. We report the mean and standard deviation directly or through error bars in the visualization for all metrics. In the paper, we report the results from ego graph sampling because node classification typically needs a Localized View Around Specific Nodes, best provided by ego graph sampling. %With Image Modality Experiments, we sample 50 ego-graphs and no of runs = 2, as rate limitations constrain us. 
+\subsection{Qualitative Analysis on Combining Modalities}
+We perform a qualitative analysis of the response returned by LLMs by utilizing the text modality, text+image modality, and image modality. The intuition here is that the local context provided by the text modality could be 2nd 5 3rd
+%), and Figure \ref{fig:qual} illustrates that misclassifications and denials by the LLM using text modality could be rectified by using the image modality. For example, in Figure \ref{fig:qual}, we observe that the label of node 141 was originally misclassified as 2, but then this was corrected to the correct label (3) by using the image modality. Similarly, in Figure \ref{fig:qual}, we observe that the denials by the LLM for node 141 were 2, 3, and 4; however, using the image modality, the denial was corrected to 'no'. We make similar observations on combining text and motif modalities, and this could be because another factor important to node classification is the presence of motifs, which is highlighted through the motif modality. 
+%----
+\begin{table*}[ht]
+\scriptsize
+%\centering
+\begin{tabular}{p{0.14\linewidth}p{0.29\linewidth}p{0.26\linewidth}p{0.21\linewidth}}
+\hline
+\textbf{Ground Truth} & \textbf{Text Response} & \textbf{Text + Image Reponse} & \textbf{Image Response}\\
+\hline
+\textit{Label of Node = 5}  & The label of a node can often be predicted based on the labels of its neighboring nodes. In this case, the node in question is '1677', and its neighbors are '88', '415', '1309', and '191', '1908'. There is no clear majority label among these neighbors. Therefore, it is not possible to predict the label of node '1677' based on this information. \textit{Label of Node = -1}  & From the adjacency list, we can determine that the neighbors of node "1677". Given that node "88" is connected to two nodes with label 0, two nodes with label 5, and one node with label 4, it is reasonable to refer to the homophily of nodes to infer that the label of node "1677" is also 5. \textit{Label of Node = 5}  & \textit{Label of Node = 0} \\
+\hline
+\textit{Label of Node = 3}  & The node 141 is connected to nodes 1002, 2034, and 740. The labels of these nodes are 3, 4, and 4 respectively. Since the majority of the connected nodes have the label 4, we can predict that the label of node 141 is also 4. \textit{Label of Node = 4} & \textit{Label of Node = 3}  & \textit{Label of Node = 3} \\
+\hline
+\end{tabular}
+\label{tab:qual}
+\caption{The table shows the GPT-4 and GPT-4V responses with the text modality, text+image modality, and image modality. We can see that on combining modalities, the label originally classified as -1 is correctly classified, or original misclassification is rectified. }
+\label{tab:qual}
+\end{table*}
+%----

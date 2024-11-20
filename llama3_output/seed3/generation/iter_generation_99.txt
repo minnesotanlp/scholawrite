@@ -1,0 +1,30 @@
+Facial features are the most noticeable and informative part of the face and are highly congruent to one another \cite{van der Laan2022Local}. We use them to train our model, \textsc{GraphSage}, which uses node embeddings to represent the nodes and their connections. We first train a graph attention network (GAT) on each of the human or machine generations and then on each of the human or machine  in order to identify whether certain labels are more important than others. 
+
+\begin{table}[t]
+\centering
+\small
+\begin{tabular}{l|ccc}
+\toprule
+Trained Model  & Validation Acc / Loss & \textsc{P2C} & \textsc{CoBBLEr} \\ \midrule
+\multirow{2}{*}{Human} & \textbf{Human} &  \textbf{0.49} / \textbf{1.1}   &  \textbf{0.80} / \textbf{0.48}       \\
+                       & LLM &  0.33 / 1.4   &   0.67 / 0.92      \\ \midrule
+\multirow{2}{*}{LLM}   & Human &   0.34 / 2.0 & 0.69 / 0.76    \\
+                       & \textbf{LLM} &   \textbf{0.66} / \textbf{0.8} & \textbf{0.75} / \textbf{0.64}  \\ \bottomrule
+\end{tabular}
+\caption{Validation accuracy and loss for RoBERTa model trained on human and LLM preferences, respectively. For example, the RoBERTa model trained on human preference shows a validation accuracy and loss value of 0.33 and 1.4 on the LLM preference validation set. The best performing test set scores for each model are \textbf{bolded}. }
+\label{table:pref:2ndorder}
+\end{table}
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\section{Simulation}
+\label{sec:simulation}
+In this section, we explore the behavior of simulated agents when they swap their assigned roles and the circumstances in which this role swapping happens. We also try to analyze how simulated agent problem-solving differs from human problem-solving. We find that LLM agents digress from the topic while problem-solving, and this digression doesn't help in problem resolution. The results also show that role-flipping of simulated agents happens when the agent is confused or does not know how to respond.  
+
+\paragraph{Background} 
+\label{sec:simulation-background}
+Large Language Models (LLMs) have become a fundamental component in AI-Agent systems, with their ability to interact and cooperate efficiently under given prompts. When multiple agents based on these models engage in dialogues, their effectiveness in handling complex, knowledge-intensive tasks is notably enhanced. These interactions, termed ``simulations,'' mirror human collaborative efforts. Recent studies \cite{li2023camel, wang2023unleashing, chan2023chateval, chen2023reconcile} have explored the use of multiple agents in simulations to tackle specific tasks, focusing on performance enhancement over the quality of the simulation itself. However, these simulations can exhibit vulnerabilities, such as unintended artifacts arising from their lengthy and complex nature. Role-flipping, repetitive instructions, and inconsistent replies have been observed \citep{li2023camel} in simulated conversations between agents. Despite the emerging significance of simulations, there's limited research on these artifacts. This study aims to thoroughly analyze these issues, identifying new types of artifacts and thereby contributing to the evolving understanding of simulated data in AI-Agent interactions.
+
+
+\paragraph{Data} \label{sec:simulation-data}
+We utilized \textsc{CAMEL AI-Society} \citep{li2023camel} and \textsc{Solo Performance Prompting Grid-World (SPP)} \citep{wang2023unleashing}. These datasets are typical for two different kinds of simulated agent conversations: The agents are assigned distinct (1) roles, which define their expected function and contribution within the conversation, and (2) personas, which infuse individuality and diverse perspectives based on unique backgrounds and characteristics.

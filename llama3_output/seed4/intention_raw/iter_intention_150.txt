@@ -1,0 +1,51 @@
+|% control settings
+\begin{table*}[h]
+\centering
+\begin{tabular}{p{0.2\textwidth}|p{0.7\textwidth}|p{0.2\textwidth}p{0.2\textwidth}p{0.2\textwidth}p{0.2\textwidth}}
+\hline
+\textbf{Metric} & \textbf{Purpose} & \textbf{Rationale} & \textbf{Rationale} & \textbf{Rationale} & \textbf{Rationale} \\
+\hline
+\textbf{No. of edges} & Counts concurrences of citations & A larger number of edges indicates more comparison between or synthesis of related works & A larger number of edges indicates more comparison between or synthesis of related works & Some edges are missing due to the graph being sampled, with a maximum of 50 samples per call & This metric assumes that all all citations are equally important and that the relationships between any two citation are the same. \\
+\hline
+\textbf{Avg deg} & Average degree & A higher average degree suggests that many citations are connected to multiple other citations & A higher average degree suggests that many citations are connected to multiple other citations & The average degree is the sum of the degrees of the neighboring nodes divided by the number of neighbors & This metric assumes that the relationships between any two citation are the same. \\
+\hline
+\textbf{Clust coeff} & Clustering coefficient & A higher clustering coefficient indicates that citations are more likely to cluster together & A clustering coefficient close to 0.7 indicates that the citations are more likely to cluster together & The clustering coefficient is the ratio of the number of edges divided by the product of the number of vertices and the number of edges & This metric assumes that the relationships between any two citation are the same. \\
+\hline
+\textbf{Avg deg} & Average degree & A higher average degree suggests that many citations are connected to multiple other citations & A higher average degree suggests that many citations are connected to multiple other citations & The average degree is the sum of the degrees of the neighboring nodes divided by the number of neighbors & This metric assumes that the relationships between any two citation are the same. \\
+\hline
+\end{tabular}
+\caption{The table shows the three metrics we chose to evaluate the quality of synthetic task labels. We decide on these metrics based on their ability to capture the rich and nuanced nature of human data, particularly the level of disagreement among annotators. The "metric" column describes the specific information the metric collects, and the unit of measurement is given in brackets. A sample of 100 generations from our 3,000 item dataset is shown for each metric. }
+\label{tab:metrics}
+\end{table*}
+
+\begin{table*}[h]
+\begin{tabular}{l|p{0.7\textwidth}|p{0.7\textwidth}|p{0.7\textwidth}}
+\hline
+\textbf{Metric} & \textbf{Purpose} & \textbf{Rationale} \\
+\hline
+\textbf{No. of edges} & Counts concurrences of citations & A larger number of edges indicates more comparison between or synthesis of related works \\
+\hline
+\textbf{Avg deg} & Average degree & A higher average degree suggests that many citations are connected to multiple other citations \\
+\hline
+\textbf{Clust coeff} & Clustering coefficient & A clustering coefficient close to 0.7 indicates that the citations are more likely to cluster together \\
+\hline
+\end{tabular}
+\caption{The table shows the three metrics we chose to evaluate the quality of free-form text data. We decide on these metrics based on their ability to capture the rich and nuanced nature of human data, particularly the level of disagreement among annotators. The "metric" column describes the specific information the metric collects, and the unit of measurement is given in brackets. A sample of 100 generations from our 3,000 item dataset is shown for each metric. }
+\label{tab:metrics}
+\end{table*}
+
+\begin{table*}[h]
+\begin{tabular}{l|p{0.7\textwidth}|p{0.7\textwidth}|p{0.7\textwidth}}
+\hline
+\textbf{Metric} & \textbf{Purpose} & \textbf{Rationale} \\
+\hline
+\textbf{No. of edges} & Counts concurrences of citations & A larger number of edges indicates more comparison between or synthesis of related works \\
+\hline
+\textbf{Avg deg} & Average degree & A higher average degree suggests that many citations are connected to multiple other citations \\
+\hline
+\textbf{Clust coeff} & Clustering coefficient & A clustering coefficient close to 0.7 indicates that the citations are more likely to cluster together \\
+\hline
+\end{tabular}
+\caption{The table shows the three metrics we chose to evaluate the quality of free-form text data. We decide on these metrics based on their ability to capture the rich and nuanced nature of human data, particularly the level of disagreement among annotators. The "metric" column describes the specific information the metric collects, and the unit of measurement is given in brackets. A sample of 100 generations from our 3,000 item dataset is shown for each metric. }
+\label{tab:metrics}
+\end{table*}

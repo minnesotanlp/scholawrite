@@ -1,0 +1,37 @@
+erin
+\begin{figure}
+    \centering
+    \includegraphics[width=\columnwidth]{Images/negative formal heatmap.pdf}
+    \caption{For each 2-style model, the number of generations belonging to each classification combination is presented. Formal and negative is the worst performing combination, while formal and positive is the best performing combination.}
+    \label{fig:2style_heatmaps}
+\end{figure*}
+
+We explore whether there is a relationship between the easy-to-learn and hard-to-learn style combinations and their natural occurrences. While formal and negative, the hardest style combination for our approach, does occur more rarely in our data, informal and positive is also much more rare than informal and negative, and our approach appears to handle both of these equally well. 
+
+\subsection{Domain-Based Performance}
+When considering each subsection of the evaluation set in Table~\ref{tab:precision_domain}, we observe that the Wikipedia portion of the evaluation set has the worst performance from our models with respect to maintaining target styles. This indicates that model performance can be strongly affected by the domain of the prompt, even for prompts as short as a few words (our setup prompts with the first four words of each item).
+
+\input{Tables/generation_examples}
+
+
+\subsection{Secondary Effects}
+We discuss the secondary effects we observe in our style-controlled models.
+%We observe two main side effects in our models. The first is that styles not obviously related to the controlled styles differ from the original model. The second is the factuality of the models are affected.
+
+\subsubsection*{Behavior of Uncontrolled Styles}
+We examine how generations from the style-controlled models differ from the original model with respect to the \textit{uncontrolled} styles.
+
+Certain textual styles are highly correlated, e.g. \textit{positive} and \textit{joy}. As expected, models with the target style positive show a corresponding increase in the joy of their generations. However, we also note that the 1-style informal model shows an increase in joy comparable to the positive models. To find whether there is a relationship between informality and positivity, we checked the original data's full texts and the base model's generations for correlations between positivity and informality. We found they were not highly correlated (Pearson's $r = 0.1$, $p < 0.05$, replicating results from \cite{kang2021style}. We also note that the 1-style positive model has more formal generations than the original model: this result suggests that there is not an inherent association between informality and positivity (or formality and positivity).
+
+\begin{figure}
+    \centering
+    \includegraphics[width=\columnwidth]{Images/bar_joy.pdf}
+    \caption{Positive models, fittingly, have more generations classified as \textit{joy} when compared to the original base model. Interestingly, informal models also show a comparable increase in joy, and formal models show a smaller increase. We call such changes secondary effects of the controlled style training.}
+    \label{fig:joy}
+\end{figure}
+
+When we examine other styles as classified by the discriminators described in Section, we find some other instances of shifting styles. Most notably toxicity is modestly increased in some models with negative styles. See Appendix for full secondary effect results.
+
+\subsubsection*{Factuality}
+We also observe that controlling for style considerably alters the model's factual understanding. The 500-item Wikipedia subset of the evaluation set demonstrates this clearly, as the prompts (e.g. ``Skydio is an American...'') encourage the model to write a completion that makes factual assertions. We observe substantial fact shifting between models in these assertions, highlighting the risks of factuality side effects from models fine-tuned for style control.
+{\color{red} \textbf{TODO: }}}

@@ -1,0 +1,36 @@
+dirent  a  this  a  the  a  the  a  a  a 
+\end{tabular}
+\caption{Five randomly selected generations from the evaluation prompts. Original LLaMA2 generations (in \textcolor{blue}{blue}) are followed by generations from fine-tuned models with varying style controls. The order of generations from LLaMA2 to unaltered LLaMA2 to fine-tuned models is (1) 2-style, (2) 3-style, (3) 4-style. \textbf{The 1-style control model has the most stable generations according to the average perplexity values.} The 2-style model possesses the most balanced generation according to the average perplexity value and the highest average overall evaluation score.}
+\label{tab:generations}
+\end{table*}
+</aside>
+\subsection{Efficacy of 1-style control models}\label{sec:preference_first}
+Our analysis of the generations of the fine-tuned Llama2 models reveals that the first-order effects of our training approach appear to be relatively well-controlled. See Table~\ref{tab:preference_first} for a summary of our results. We observe that the 1-style models are most successful at controlling for formality, the 2-style models, while the 3-style models make more substantial improvements in controlling for both dimensions. Notably, the 1-style models are also most effective in controlling for the most common style combinations. We also observe that the 1-style control model has the most stable generations according to the average perplexity values, following the original LLaMA2 generations as closely as the 2-style and 3-style models. For the results of all 1-style models, see Figure~\ref{fig:pref:first} in Appendix \ref{sec:appendix:pref}. 
+% \begin{figure}[ht!]
+%     \centering
+%     \includegraphics[width=\textwidth]{images/pref_eval/p2c_lexicon_corr.pdf}
+%     \caption{Pearson Correlation between lexicon-based and each of GPT-3 and GPT-4 generations for \textsc{p2c} dataset.}
+%     \label{fig:pref:p2c-lexicon-corr}
+% \end{figure}
+
+\begin{figure}[ht!]
+    \centering
+    \includegraphics[width=\textwidth]{images/pref_eval/p2c_lexicon_corr.pdf}
+    \caption{Pearson Correlation between lexicon-based and each of GPT-3 and GPT-4 generations for \textsc{p2c} dataset.}
+    \label{fig:pref:p2c-lexicon-corr}
+\end{figure}
+
+
+\begin{figure}[ht!]
+    \centering
+    \includegraphics[width=\textwidth]{images/pref_eval/p2c_lexicon_corr.pdf}
+    \caption{Pearson Correlation between lexicon-based and each of GPT-3 and GPT-4 generations for \textsc{p2c} dataset.}
+    \label{fig:pref:p2c-lexicon-corr}
+\end{figure}
+
+% \begin{figure}[ht!]
+%     \centering
+%     \includegraphics[width=\textwidth]{images/pref_eval/entailment_corr.pdf}
+%     \caption{Pearson Correlation between entailment and each of GPT-3 and GPT-4 generations for \textsc{Cobbler} dataset.}
+%     \label{fig:pref:p2c-lexicon-corr}
+% \end{figure}

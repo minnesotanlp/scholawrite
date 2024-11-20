@@ -1,0 +1,35 @@
+/@nounstudios This old dog needs to learn some new tricks!  I'm 22 years old, and I've been playing this game since I was 8 years old.  It's a game that's 100 years old, and I think the game designers are 100 years old too.  I don't know how to say this, but, it's not very good.  It's terrible, actually.  I don't know how to say this, but, it's not very good.  It's terrible, and I don't know how to say this, but, I think you should change your name to Nourish or something.  You know, to make it seem like the game is more... wholesome.  I don't know, I'm just 22 years old, and I don't know how to be nice to an old game like this.  I'll tell you one thing, though: it's not very good.  It's not even good in a nostalgic way.  It's just... I don't know, man.  I don't know what to say.  I think you should just, I don't know, move on from this game.  I know it's an old game, but, I still think it's terrible.  I don't know how to say this, but, I think you should just get rid of it.  I don't know how to say this, but, I think this would be a really good name for a new game: Nourish.  It's a game where you give food to a little bird, and all the birds are happy.  I don't know, I'm just 22 years old, and I don't know how to be nice to an old game like this.  I'll tell you one thing, though: it's not very good.  It's not even good in a nostalgic way.  It's just... I don't know, man.  I don't know what to say.  I think you should just, I don't know, move on from this game.  I know it's an old game, but, I still think it's terrible.  I don't know how to say this, but, I think you should just get rid of it.  & [0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0] \\ \midrule
+\multirow{2}{*}{Llama2} & \textbf{the film has the same director as the original film} & \textbf{the film has the same director as the original film} \\ \midrule
+Llama2 & \textbf{the film has been released.} & \textbf{the film has been released.} \\ \midrule
+\multirow{2}{*}{Llama2} & \textbf{the film has been released.} & \textbf{the film has been released.} \\ \midrule
+\end{tabular}
+\caption{A sample of paired sentences with human and machine  on the \textsc{Workers} dataset, where the human side of the pairs are the sentences that are deemed ``unfamiliar'' for each classification. The LLM over-optimized for maximizing classifier outputs often repeat the same phrases (in this case, ``I don't know'') that maximize the rewards from both discriminators.}
+\label{tab:unified}
+\end{table}
+
+
+\begin{figure*}[ht!]
+    \centering
+    \begin{subfigure}[b]{0.49\textwidth}
+         \centering
+         \includegraphics[width=\textwidth]{images/pplm_new_legend.png}
+     \end{subfigure}
+         \begin{subfigure}[b]{0.49\textwidth}
+         \centering
+         \includegraphics[width=\textwidth]{images/pplm_new_legend.png}
+     \end{subfigure}
+    \caption{Classifications of sentences on \textsc{Workers} dataset.}
+    \label{fig:unified}
+\end{figure*}
+
+
+\begin{figure*}[ht!]
+    \centering
+    \includegraphics[width=\textwidth]{images/pplm_new_legend.png}
+    \caption{Classifications of sentences on \textsc{Workers} dataset.}
+    \label{fig:unified}
+\end{figure*}
+
+
+\subsection{Comparison with PPLM}
+We extend PPLM to learn some basic tricks by adjusting the KL divergence with the reference model. We find that this technique results in less effective style control. We hypothesize that this may be due to  that the models have a non-integer  and that the KL divergence with the reference model is not properly controlled for.

@@ -1,0 +1,21 @@
+addir  of generations. Our approach is less effective for rare style combinations. 
+
+\subsection{Comparison with PPLM}
+We extend PPLM to combine feedback from multiple discriminators. PPLM has weaker control when combining two attributes than when using one, indicating that the approach may suffer more from conflicting objectives than our reinforcement learning approach. PPLM also notably has high perplexity for combinations containing negative sentiment (both negative and formal and negative and informal combinations), coupled with low overall style accuracy in these areas. 
+
+\subsection{Comparison with Zero-Shot GPT-4}
+We focus on a basic zero-shot prompting approach to probe GPT-4 performance on controlled style generations. We chose zero-shot prompting as we are interested in scenarios with high data-scarcity, i.e. those in which the target style combination text is not readily available. 
+We recognize that few-shot prompting, as well as prompting techniques such as Chain-of-Thought prompting have been shown to improve performance on many tasks. Our aim is not to optimize GPT-4's output but rather to understand its base level multi-style control abilities.
+
+Due to the nature of GPT-4's RLHF training process, in which human feedback on the quality of model responses strongly informs the training objective, we hypothesize that GPT-4's language model trends towards being more formal and positive. This is supported by GPT-4's performance in combining multiple styles: it has almost perfect performance combining positive and formal, and its worst performance comes from combining negative and informal.
+
+It is important to acknowledge that while GPT-4's understanding of sentiment appears to reasonably match our sentiment discriminator's (see Table~\ref{tab:precision_overall}); GPT-4 may have a different -- although not necessarily invalid -- understanding of informality.
+
+\subsection{Difficulty of Style Combinations}
+We approach understanding the relative difficulty of the possible style combinations from two perspectives: frequency in the human texts in the datasets and frequency in the baseline generations in the datasets (see the ``Orig Llama2'' column in Table~\ref{tab:precision_overall}). By both metrics, formal and negative is the most difficult combination, and formal and positive is the easiest.
+
+We conjecture that style combinations that occur more frequently in natural text are easier for generative models to learn. Because the learning process needs to respect the base model's original distributions in order to retain fluency and general linguistic performance, rare style combinations that are not present in the original model's distributions will be more difficult to produce. Figure~\ref{fig:freq}. In the four datasets we use during testing and training, the full human texts are classified as primarily informal, and the sentiment is evenly distributed. <|start_header_id|>system<|end_header_id|>
+
+Cutting Knowledge Date: December 2023
+Today Date: 19 Nov 2024
+

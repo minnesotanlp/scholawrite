@@ -1,0 +1,127 @@
+iali
+\section{Introduction}
+\input{tex/intro}
+
+\section{Related Work}
+\input{tex/related}
+
+\section{Data}
+\input{tex/data}
+
+\section{Experiments}
+\input{tex/experiments}
+
+\section{Results}
+\input{tex/results}
+
+\section{Discussion}
+\input{tex/discussion}
+
+\section{Conclusion}
+\input{tex/conclusion}
+
+\section*{Acknowledgements}
+Thanks :)
+
+% Entries for the entire Anthology, followed by custom entries
+\bibliography{anthology,custom}
+
+\appendix
+\input{tex/appendix}
+
+\end{document}
+\xi
+\section{Ethical Statement}
+\input{tex/ethical}
+\section{Conclusion}
+\input{tex/conclusion}
+
+\section*{Acknowledgements}
+Thanks :)
+
+% Entries for the entire Anthology, followed by custom entries
+\bibliography{anthology,custom}
+
+\appendix
+\input{tex/appendix}
+
+\end{document}
+\section{Ethical Statement}
+\input{tex/ethical}
+\section{Conclusion}
+\input{tex/conclusion}
+
+\section*{Acknowledgements}
+Thanks :)
+
+% Entries for the entire Anthology, followed by custom entries
+\bibliography{anthology,custom}
+
+\appendix
+\input{tex/appendix}
+
+\end{document}
+\section{Ethical Statement}
+\input{tex/ethical}
+\section{Conclusion}
+\input{tex/conclusion}
+
+\section*{Acknowledgements}
+Thanks :)
+
+% Entries for the entire Anthology, followed by custom entries
+\bibliography{anthology,custom}
+
+\appendix
+\input{tex/appendix}
+
+\end{document}
+\section{Ethical Statement}
+\input{tex/ethical}
+\section{Conclusion}
+\input{tex/conclusion}
+
+\section*{Acknowledgements}
+Thanks :)
+
+% Entries for the entire Anthology, followed by custom entries
+\bibliography{anthology,custom}
+
+\appendix
+\input{tex/appendix}
+
+\end{document}
+\section{Ethical Statement}
+\input{tex/ethical}
+\section{Conclusion}
+\input{tex/conclusion}
+
+\section*{Acknowledgements}
+Thanks :)
+
+% Entries for the entire Anthology, followed by custom entries
+\bibliography{anthology,custom}
+
+\appendix
+\input{tex/appendix}
+
+\end{document}
+\section{Ethical Statement}
+\input{tex/ethical}
+\section{Conclusion}
+\input{tex/conclusion}
+
+\section*{Acknowledgements}
+Thanks :)
+
+% Entries for the entire Anthology, followed by custom entries
+\bibliography{anthology,custom}
+
+\appendix
+\input{tex/appendix}
+
+\end{document}
+\section{Ethical Statement}
+\input{tex/ethical}
+\section{Conclusion}
+\input{tex/con

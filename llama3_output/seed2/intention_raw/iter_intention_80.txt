@@ -1,0 +1,34 @@
+| Dataset |  & \textbf{Inter intra-model setup} & \textbf{Intra model setup} \\
+| \midrule
+     \textbf{CAMEL} & & \textbf{Human} & \textbf{Machine} \\
+     \begin{minipage}{0.45\textwidth}
+        \textsc{CAMEL AI-World} \cite{li2023camel}\\
+        \textbf{Task}: Problem-solving \textbf{Text modality}
+        \begin{minipage}{0.45\textwidth}
+        \textsc{CAMEL AI-World} \cite{li2023camel}\\
+        \textbf{Task}: Problem-solving \textbf{Text modality}
+        \end{minipage}
+     \end{minipage}
+     \begin{minipage}{0.45\textwidth}
+        \textsc{Solo Performance Prompting Grid-World} \cite{wang2023unleashing} \\
+        \textbf{Task}: Problem-solving \textbf{Text modality} \textbf{Open-QA} \\
+        \textsc{Solo Performance Prompting Grid-World} \cite{wang2023unleashing} \\
+        \textbf{Task}: Problem-solving \textbf{Text modality} \textbf{Closed-QA}
+     \end{minipage}
+\end{table}
+%---------------------------------
+
+\noindent \textbf{Generation of Part of the Reason for Experiment}
+The reason for using the grid-world as the base model is that the  which enables the model to understand the relationships between multiple variables. It is a fundamental building block of modern data  which is used to generate most data, including free text, user-generated content, labels, instructions, and preferences. However, the current challenge of grid-world data generation involves creating a comprehensive understanding of the complex relationships within these graphs. 
+
+Part of the reason we chose the grid-world as the base model is that it best suited to handle the concept of grid-world data which are the 
+
+\subsection{First Order Effects}
+\paragraph{Hypothesis}
+The first order effects primarily concern the direct outcomes observed in the synthetic dataset. We hypothesize that the inherent limitations of LLMs become apparent when they are put to the test of understanding complex instructions or when they generate text that may not align with the expected outputs of the tasks. 
+
+\paragraph{Experiment Setup}
+We examine four synthetic instruction datasets, including \textsc{Unnatural Instructions} \cite{honovich2022unnatural}, \textsc{Self-Instruct} \cite{wang2023selfinstruct}, \textsc{Alpaca-Cleaned} \cite{alpaca}, and \textsc{GPT-4-LLM} \cite{peng2023instruction}. 
+
+\paragraph{Metrics}
+We automatically evaluate the model outputs using ROUGE F1 score, cosine similarity, and perplexity to measure how similar the outputs are to the ground truth

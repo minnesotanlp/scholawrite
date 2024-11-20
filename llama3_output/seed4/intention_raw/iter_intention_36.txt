@@ -1,0 +1,17 @@
+Canter 2021 argued that LLM-generated data will soon match human data in quality, and thus, it is vital to ensure that LLM-generated data is as close as possible to human data in terms of accuracy, consistency, and reliability. 
+\begin{table*}[]
+    \centering
+    \begin{tabular}{l l l l}
+    \toprule
+     & & \multicolumn{2}{c}{\textbf{Experiment}} \\     
+       \textbf{Datasets} & \textbf{Rationale} & \textbf{1st order} & \textbf{2nd order} \\
+       \midrule
+       \rowcolor{color2} \multicolumn{4}{l}{\textbf{Free-form Text}}\\
+       \rowcolor{color2} \textsc{HC3} \cite{guo2023close}, & Pair-wise generated texts & High-level & Classification\\
+       \rowcolor{color2} \textsc{Scarecrow} \cite{dou-etal-2022-gpt}, & from both humans and LLMs & textual attribute & performance\\
+       \rowcolor{color2}  \textsc{Deepfake} \cite{li2023deepfake}, & & and discourse & \\
+        \rowcolor{color2} \textsc{Workers} \cite{moller2023prompt} & &structure difference & \\ 
+        \midrule
+        \rowcolor{color3}\multicolumn{4}{l}{\textbf{Task Labels}}\\
+        \rowcolor{color3}\textsc{Social Chemistry} & Subjective tasks,  & Biased toward & \anonymous{not clear?}  \\
+         \rowcolor{color3}\cite{forbes2020social}, & individual-level & majority label  & \\

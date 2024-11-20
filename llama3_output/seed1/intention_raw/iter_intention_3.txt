@@ -1,0 +1,6 @@
+\begin{table*}[ht]
+\centering
+\small
+\begin{tabular}{lccc|ccc|ccc|ccc}
+\toprule
+\textbf{Model} & \multicolumn{3}{c}{\textbf{Sem Eval Prompts}} & \multicolumn{3}{c}{\textbf{Tweet Eval}} & \multicolumn{3}{c}{\textbf{Rotten Tomatoes}} & \multicolumn

@@ -1,0 +1,268 @@
+}
+  \label{fig:free_text/dist_diff_wiki}
+  \end{subfigure}
+\end{figure*}
+\textbf{Continue Story Generation}
+
+\begin{figure*}[ht!]
+  \centering
+  \includegraphics[width=\textwidth]{images/free_text/continue_generation.pdf}
+  \caption{Distributional difference between human- and machine-generated document graphs for the ``Continue Story'' dataset.}
+  \label{fig:free_text/dist_diff_continue}
+\end{figure*}
+
+\begin{figure*}[ht!]
+  \centering
+  \includegraphics[width=\textwidth]{images/free_text/3606_concept.pdf}
+  \caption{The concept of ``Triplets'' - a novel graph-based analysis approach to identify potential third-style effects in LLM-generated texts.}
+  \label{fig:free_text/3606_concept}
+\end{figure*}
+
+% \begin{figure*}[ht!]
+%   \centering
+%   \includegraphics[width=\textwidth]{images/free_text/3606_freetext.pdf}
+%   \caption{The frequency of label flips for the sentiment and formality discriminators on the human and machine-generated texts.}
+%   \label{fig:free_text/dist_diff_freet}
+% \end{figure*}
+
+% \begin{figure*}[ht!]
+%   \centering
+%   \includegraphics[width=\textwidth]{images/free_text/3606_freetext.pdf}
+%   \caption{The frequency of label flips for the sentiment and formality discriminators on the human and machine-generated texts.}
+%   \label{fig:free_text/dist_diff_freet}
+% \end{figure*}
+
+\begin{figure*}[ht!]
+  \centering
+  \includegraphics[width=\textwidth]{images/free_text/3606_freetext.pdf}
+  \caption{The frequency of label flips for the sentiment and formality discriminators on the human and machine-generated texts.}
+  \label{fig:free_text/dist_diff_freet}
+\end{figure*}
+\begin{figure*}[ht!]
+  \centering
+  \includegraphics[width=\textwidth]{images/free_text/3606_freetext.pdf}
+  \caption{The frequency of label flips for the sentiment and formality discriminators on the human and machine-generated texts.}
+  \label{fig:free_text/dist_diff_freet}
+\end{figure*}
+\begin{figure*}[ht!]
+  \centering
+  \includegraphics[width=\textwidth]{images/free_text/3606_freetext.pdf}
+  \caption{The frequency of label flips for the sentiment and formality discriminators on the human and machine-generated texts.}
+  \label{fig:free_text/dist_diff_freet}
+\end{figure*}
+
+\begin{figure*}[ht!]
+  \centering
+  \includegraphics[width=\textwidth]{images/free_text/3606_freetext.pdf}
+  \caption{The frequency of label flips for the sentiment and formality discriminators on the human and machine-generated texts.}
+  \label{fig:free_text/dist_diff_freet}
+\end{figure*}
+
+\begin{figure*}[ht!]
+  \centering
+  \includegraphics[width=\textwidth]{images/free_text/3606_freetext.pdf}
+  \caption{The frequency of label flips for the sentiment and formality discriminators on the human and machine-generated texts.}
+  \label{fig:free_text/dist_diff_freet}
+\end{figure*}
+
+\begin{figure*}[ht!]
+  \centering
+  \includegraphics[width=\textwidth]{images/free_text/3606_freetext.pdf}
+  \caption{The frequency of label flips for the sentiment and formality discriminators on the human and machine-generated texts.}
+  \label{fig:free_text/dist_diff_freet}
+\end{figure*}
+
+\begin{figure*}[ht!]
+  \centering
+  \includegraphics[width=\textwidth]{images/free_text/3606_freetext.pdf}
+  \caption{The frequency of label flips for the sentiment and formality discriminators on the human and machine-generated texts.}
+  \label{fig:free_text/dist_diff_freet}
+\end{figure*}
+
+\begin{figure*}[ht!]
+  \centering
+  \includegraphics[width=\textwidth]{images/free_text/3606_freetext.pdf}
+  \caption{The frequency of label flips for the sentiment and formality discriminators on the human and machine-generated texts.}
+  \label{fig:free_text/dist_diff_freet}
+\end{figure*}
+
+\begin{figure*}[ht!]
+  \centering
+  \includegraphics[width=\textwidth]{images/free_text/3606_freetext.pdf}
+  \caption{The frequency of label flips for the sentiment and formality discriminators on the human and machine-generated texts.}
+  \label{fig:free_text/dist_diff_freet}
+\end{figure*}
+
+\begin{figure*}[ht!]
+  \centering
+  \includegraphics[width=\textwidth]{images/free_text/3606_freetext.pdf}
+  \caption{The frequency of label flips for the sentiment and formality discriminators on the human and machine-generated texts.}
+  \label{fig:free_text/dist_diff_freet}
+\end{figure*}
+
+\begin{figure*}[ht!]
+  \centering
+  \includegraphics[width=\textwidth]{images/free_text/3606_freetext.pdf}
+  \caption{The frequency of label flips for the sentiment and formality discriminators on the human and machine-generated texts.}
+  \label{fig:free_text/dist_diff_freet}
+\end{figure*}
+
+\begin{figure*}[ht!]
+  \centering
+  \includegraphics[width=\textwidth]{images/free_text/3606_freetext.pdf}
+  \caption{The frequency of label flips for the sentiment and formality discriminators on the human and machine-generated texts.}
+  \label{fig:free_text/dist_diff_freet}
+\end{figure*}
+
+\begin{figure*}[ht!]
+  \centering
+  \includegraphics[width=\textwidth]{images/free_text/3606_freetext.pdf}
+  \caption{The frequency of label flips for the sentiment and formality discriminators on the human and machine-generated texts.}
+  \label{fig:free_text/dist_diff_freet}
+\end{figure*}
+
+\begin{figure*}[ht!]
+  \centering
+  \includegraphics[width=\textwidth]{images/free_text/3606_freetext.pdf}
+  \caption{The frequency of label flips for the sentiment and formality discriminators on the human and machine-generated texts.}
+  \label{fig:free_text/dist_diff_freet}
+\end{figure*}
+
+\begin{figure*}[ht!]
+  \centering
+  \includegraphics[width=\textwidth]{images/free_text/3606_freetext.pdf}
+  \caption{The frequency of label flips for the sentiment and formality discriminators on the human and machine-generated texts.}
+  \label{fig:free_text/dist_diff_freet}
+\end{figure*}
+
+\begin{figure*}[ht!]
+  \centering
+  \includegraphics[width=\textwidth]{images/free_text/3606_freetext.pdf}
+  \caption{The frequency of label flips for the sentiment and formality discriminators on the human and machine-generated texts.}
+  \label{fig:free_text/dist_diff_freet}
+\end{figure*}
+
+\begin{figure*}[ht!]
+  \centering
+  \includegraphics[width=\textwidth]{images/free_text/3606_freetext.pdf}
+  \caption{The frequency of label flips for the sentiment and formality discriminators on the human and machine-generated texts.}
+  \label{fig:free_text/dist_diff_freet}
+\end{figure*}
+
+\begin{figure*}[ht!]
+  \centering
+  \includegraphics[width=\textwidth]{images/free_text/3606_freetext.pdf}
+  \caption{The frequency of label flips for the sentiment and formality discriminators on the human and machine-generated texts.}
+  \label{fig:free_text/dist_diff_freet}
+\end{figure*}
+
+\begin{figure*}[ht!]
+  \centering
+  \includegraphics[width=\textwidth]{images/free_text/3606_freetext.pdf}
+  \caption{The frequency of label flips for the sentiment and formality discriminators on the human and machine-generated texts.}
+  \label{fig:free_text/dist_diff_freet}
+\end{figure*}
+
+\begin{figure*}[ht!]
+  \centering
+  \includegraphics[width=\textwidth]{images/free_text/3606_freetext.pdf}
+  \caption{The frequency of label flips for the sentiment and formality discriminators on the human and machine-generated texts.}
+  \label{fig:free_text/dist_diff_freet}
+\end{figure*}
+
+\begin{figure*}[ht!]
+  \centering
+  \includegraphics[width=\textwidth]{images/free_text/3606_freetext.pdf}
+  \caption{The frequency of label flips for the sentiment and formality discriminators on the human and machine-generated texts.}
+  \label{fig:free_text/dist_diff_freet}
+\end{figure*}
+
+\begin{figure*}[ht!]
+  \centering
+  \includegraphics[width=\textwidth]{images/free_text/3606_freetext.pdf}
+  \caption{The frequency of label flips for the sentiment and formality discriminators on the human and machine-generated texts.}
+  \label{fig:free_text/dist_diff_freet}
+\end{figure*}
+
+\begin{figure*}[ht!]
+  \centering
+  \includegraphics[width=\textwidth]{images/free_text/3606_freetext.pdf}
+  \caption{The frequency of label flips for the sentiment and formality discriminators on the human and machine-generated texts.}
+  \label{fig:free_text/dist_diff_freet}
+\end{figure*}
+
+\begin{figure*}[ht!]
+  \centering
+  \includegraphics[width=\textwidth]{images/free_text/3606_freetext.pdf}
+  \caption{The frequency of label flips for the sentiment and formality discriminators on the human and machine-generated texts.}
+  \label{fig:free_text/dist_diff_freet}
+\end{figure*}
+
+\begin{figure*}[ht!]
+  \centering
+  \includegraphics[width=\textwidth]{images/free_text/3606_freetext.pdf}
+  \caption{The frequency of label flips for the sentiment and formality discriminators on the human and machine-generated texts.}
+  \label{fig:free_text/dist_diff_freet}
+\end{figure*}
+
+\begin{figure*}[ht!]
+  \centering
+  \includegraphics[width=\textwidth]{images/free_text/3606_freetext.pdf}
+  \caption{The frequency of label flips for the sentiment and formality discriminators on the human and machine-generated texts.}
+  \label{fig:free_text/dist_diff_freet}
+\end{figure*}
+
+\begin{figure*}[ht!]
+  \centering
+  \includegraphics[width=\textwidth]{images/free_text/3606_freetext.pdf}
+  \caption{The frequency of label flips for the sentiment and formality discriminators on the human and machine-generated texts.}
+  \label{fig:free_text/dist_diff_freet}
+\end{figure*}
+
+\begin{figure*}[ht!]
+  \centering
+  \includegraphics[width=\textwidth]{images/free_text/3606_freetext.pdf}
+  \caption{The frequency of label flips for the sentiment and formality discriminators on the human and machine-generated texts.}
+  \label{fig:free_text/dist_diff_freet}
+\end{figure*}
+
+\begin{figure*}[ht!]
+  \centering
+  \includegraphics[width=\textwidth]{images/free_text/3606_freetext.pdf}
+  \caption{The frequency of label flips for the sentiment and formality discriminators on the human and machine-generated texts.}
+  \label{fig:free_text/dist_diff_freet}
+\end{figure*}
+
+\begin{figure*}[ht!]
+  \centering
+  \includegraphics[width=\textwidth]{images/free_text/3606_freetext.pdf}
+  \caption{The frequency of label flips for the sentiment and formality discriminators on the human and machine-generated texts.}
+  \label{fig:free_text/dist_diff_freet}
+\end{figure*}
+
+\begin{figure*}[ht!]
+  \centering
+  \includegraphics[width=\textwidth]{images/free_text/3606_freetext.pdf}
+  \caption{The frequency of label flips for the sentiment and formality discriminators on the human and machine-generated texts.}
+  \label{fig:free_text/dist_diff_freet}
+\end{figure*}
+
+\begin{figure*}[ht!]
+  \centering
+  \includegraphics[width=\textwidth]{images/free_text/3606_freetext.pdf}
+  \caption{The frequency of label flips for the sentiment and formality discriminators on the human and machine-generated texts.}
+  \label{fig:free_text/dist_diff_freet}
+\end{figure*}
+
+\begin{figure*}[ht!]
+  \centering
+  \includegraphics[width=\textwidth]{images/free_text/3606_freetext.pdf}
+  \caption{The frequency of label flips for the sentiment and formality discriminators on the human and machine-generated texts.}
+  \label{fig:free_text/dist_diff_freet}
+\end{figure*}
+
+\begin{figure*}[ht!]
+  \centering
+  \includegraphics[width=\textwidth]{images/free_text/3606_freetext.pdf}
+  \caption{The frequency of label flips for the sentiment and formality discriminators on the human and machine-generated texts.}
+  \label{fig:free_text/dist_diff_f

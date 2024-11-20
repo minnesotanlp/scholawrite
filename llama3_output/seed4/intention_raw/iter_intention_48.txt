@@ -1,0 +1,18 @@
+\begin{table}[H]
+\resizebox{0.7\textwidth}{!}{
+\begin{tabular}{c|c|c}
+\toprule
+\textbf{Details} & \textbf{Evaluation Metrics} & \textbf{Line } \\
+\midrule
+\rowcolor{color2}\textbf{Free-Form Text} & & \\ \hline
+    \rowcolor{color2}\textsc{HC3} \cite{guo2023close}, & & \\ \hline
+    \rowcolor{color2}\textsc{Scarecrow} \cite{dou-etal-2022-gpt}, & & \\ \hline
+    \rowcolor{color2}\textsc{Deepfake} \cite{li2023deepfake}, & & \\ \hline
+    \rowcolor{color2}\textsc{Workers} \cite{moller2023prompt} & & \\ \hline
+    \rowcolor{color2}\textsc{Rotten Tomatoes} & & \\ \hline
+    \rowcolor{color2}\textsc{Twitter} & & \\
+    \bottomrule
+\end{tabular}}
+\caption{List of  datasets used for  }
+\label{tab:free_text_datasets}
+\end{table*}

@@ -1,0 +1,18 @@
+localize  and  task labels, showing the model's tendency to skew towards majority opinions. The model also shows a tendency to downplay minority opinions and  when the number of labels is greater than two. In case the model is confused about the correct answer, it also shows a tendency to be confused about the task label. 
+
+\paragraph{Experiment Setup} We use LLMs as annotators to generate labels for the tasks of datasets described in Section \ref{sec:task_labels}. The LLMs we chose are all open-sourced or commercially available, instruction-tuned models: Vicuna \cite{vicuna2023}, Koala \cite{koala_blogpost_2023}, Baize \cite{xu2023baize}, GPT-3.5-Turbo \cite{brown2020language}, and LLaMA 2\cite{touvron2023llama}. We create LLM task labels in two setups, \textit{intra-model} and \textit{inter-model}, and compare those generated labels against the original human annotations.
+
+\paragraph{Metrics} We look into distributional differences between the majority and minority annotations. We use 
+\paragraph{Result Analysis}
+
+\subsection{Second-order Effects}
+\paragraph{Hypothesis}
+\paragraph{Experiment Setup}
+\paragraph{Metrics}
+\paragraph{Result Analysis}
+
+% \noindent \textbf{Experiment setup} We use LLMs as annotators to generate labels for the tasks of datasets described in Section \ref{sec:task_labels}. The LLMs we chose are all open-sourced or commercially available, instruction-tuned models: Vicuna \cite{vicuna2023}, Koala \cite{koala_blogpost_2023}, Baize \cite{xu2023baize}, GPT-3.5-Turbo \cite{brown2020language}, and LLaMA 2\cite{touvron2023llama}. 
+
+% We create LLM task labels in two setups, \textit{intra-model} and \textit{inter-model}. In the \textit{intra-model} setup, we use different hyperparameters for each model to create a range of responses, simulating the variance found in human annotators. For example, one might use the model fine-tuned with one hyperparameter combination to generate the majority label, while another combination is used to generate the minority label. This results in a group of models, each with a different response to a given task, simulating the variance found in human annotators. 
+
+% In the \textit{inter-model} setup, we group LLM ``annotators'' according to their underlying architectures and training methodologies, but do not adjust hyperparameters, focusing on the variance between different models. Thus, an inter-model setup yields labels from different models, acknowledging that some models, like GPT-3.5 Turbo, have greater capacities akin to varying proficiencies among human annotators.

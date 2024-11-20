@@ -1,0 +1,78 @@
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%% Template: authorcontributions
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\author{anonymous}
+\affil{anonymous@anonymous}
+\affil{anonymous@anonymous}
+\affil{anonymous@anonymous}
+
+\begin{document}
+\maketitle
+\begin{abstract}
+\rubric{Motivation}: As the rate of scientific publishing increases exponentially, the pressure to publish has led to an increase in the use of AI-assisted scholarly writing and literature review tools. \rubric{Background: }However, little work has been done to 
+\rubric{Conclusion}: 
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\begin{table*}[h]
+\centering
+\begin{tabular}{l l l l}
+\toprule
+\textbf{Data type}  & \textbf{Challenges} & \textbf{Research Gap}\\
+\midrule
+Data 1 & Write key points only! & Don't write full sentences!\\
+Data 2 & \\
+\bottomrule
+\end{tabular}
+\caption{Write about data type and challenges and research gaps. Of course feel free to modify the table!}
+\label{tab:my_label}
+\end{table*}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\section{Introduction}
+\begin{figure}
+    \centering
+    \includegraphics[width = \linewidth,trim={7.2cm 1.4cm 9.9cm 2.6cm},clip]{images/iceberg_1.jpg}
+    \caption{The iceberg of LLMs as a substitute for human data. \anonymous{I think the word "completely" is a little too extreme. Can we replace that with something like "sufficiently"? Or maybe we can rephrase the whole claim to something like "Hidden disparities between human and artificial data can "}}
+    \label{fig:iceberg}
+\end{figure}
+\input{latex/introduction}
+%-------------------------------------------------------------------------
+%------------------
+\begin{figure*}[ht!]
+  \centering
+  \includegraphics[width=\textwidth]{images/fig1_modified.pdf}
+  \caption{Overview of the 5 Types of LLM Generated Data and associated examples - 1) Free Text 2) Task Labels 3) Instructions 4) Preference 5) Simulation. Sources for these examples in order - \cite{moller2023prompt}, \cite{diaz2018addressing},  \cite{honovich2022unnatural}, \cite{kim2023p2c} and \cite{liang2023encouraging} )}
+  \label{fig:figure1}
+\end{figure*}
+ %------------------
+ 
+% \begin{table*}[]
+%     \centering
+%     \begin{tabular}{l|l l }
+%     \toprule
+%        \textbf{Data type}  &  \textbf{Challenges} & \textbf{Research Gap}\\
+%        \midrule
+%         Data 1 & Write key points only! & Don't write full sentences!\\
+%         Data 2 & \\
+%         \bottomrule
+%     \end{tabular}
+%     \caption{Write about data type and challenges and research gaps. Of course feel free to modify the table!}
+%     \label{tab:my_label}
+% \end{table*}
+
+
+\begin{table*}[ht]
+\footnotesize
+\centering
+\begin{tabular}{p{0.10\linewidth}p{0.40\linewidth}p{0.40\linewidth}}
+\toprule
+\textbf{} & \textbf{Challenges typically faced w/ LLM generated Data Type} & \textbf{Research Gap Unearthed}\\
+\midrule
+\rowcolor{color2}\textbf{Free-Form Text} & LLM-text indistinguishable from human-written text due to convincing fluency and coherency. & Neglect of higher-level figurative attributes and structural document features \\
+\midrule
+\rowcolor{color3}\textbf{Task Labels} & Subjectivity Loss and Consensus Bias in LLM-Annotated Task Labels & Neglected minority opinion representation in LLM datasets\\
+\midrule
+\rowcolor{color4}\textbf{Instruction prompts} & 
+Error amplification due to overstated diversity & Neglected study of diversity and noise in instructions \\
+\midrule
+\rowcolor{color5}\textbf{Preference} & LLM Bias in evaluating text pairs & Neglected scrutiny of LLM bias with complex preferences \\
+\midrule
+\rowcolor{color6}\textbf{Simulation} & Underexplored simulated LLM agents  & Unstudied artifacts

@@ -1,0 +1,144 @@
+plá 0.783 & - & - & 0.772 & - & -  & 0.810 & - & - & 0.850 & - & - & 0.698 & - & - \\
+\quad Negative & 0.641 & - & - & 0.704 & - & - & 0.704 &-&-& 0.688 & - & - & 0.466 & - & -\\
+\quad Formal & - & 0.873 & - & - & 0.852 & - & - & 0.896 & - &- & 0.856 & - & - & 0.89 & -\\
+\quad Informal & - & 0.764 & - & - & 0.854 & - & - & 0.848 & - & - & 0.914 & - & - & 0.44 & -\\
+\midrule
+\multicolumn{1}{c}{\textbf{Overall}} & \textbf{0.63} & - & - & \textbf{0.75} & - & - & \textbf{0.75} & - & - & \textbf{0.83} & - & - & \textbf{0.69} & - & - \\
+\midrule
+\multicolumn{1}{c}{\textbf{Entailment}} & \textbf{0.83} & - & - & \textbf{0.79} & - & - & \textbf{0.78} & - & - & \textbf{0.90} & - & - & \textbf{0.74} & - & - \\
+\midrule
+\multicolumn{1}{c}{\textbf{Formality}} & - & \textbf{0.87} & - & \textbf{0.78} & - & - & \textbf{0.83} & - & - & \textbf{0.85} & - & - & \textbf{0.79} & - & - \\
+\midrule
+\multicolumn{1}{c}{\textbf{Sentiment}} & - & - & \textbf{0.84} & - & \textbf{0.62} & - & \textbf{0.75} & - & - & \textbf{0.71} & - & - & \textbf{0.65} & - & - \\
+\midrule
+\multicolumn{1}{c}{\textbf{Irony}} & - & - & - & \textbf{0.81} & - & - & \textbf{0.70} & - & - & \textbf{0.70} & - & - & \textbf{0.58} & - & - \\
+\midrule
+\multicolumn{1}{c}{\textbf{Toxicity}} & - & - & - & \textbf{0.69} & - & - & \textbf{0.70} & - & - & \textbf{0.70} & - & - & \textbf{0.48} & - & - \\
+\bottomrule
+\end{tabular}
+\caption{Automatic accuracy evaluation of 1-, 2-, and 3-style models.}
+\label{tab:precision_results}
+\end{table*}
+
+
+
+% \begin{table*}[ht]
+% \centering
+% \begin{tabular}{lccc|ccc|ccc|ccc|ccc}
+% \toprule
+% \multicolumn{1}{c}{}  & \multicolumn{3}{c}{Overall} & \multicolumn{3}{c}{Sem Eval Prompts} & \multicolumn{3}{c}{Tweet Eval} & \multicolumn{3}{c}{Rotten Tomatoes} & \multicolumn{3}{c}{Wikipedia} \\
+% \midrule
+% \multicolumn{1}{c}{\textbf{Model}} & \textbf{Sent.} & \textbf{Form.} & \textbf{All} & \textbf{Sent.} & \textbf{Form.} & \textbf{All} & \textbf{Sent.} & \textbf{Form.} & \textbf{All} & \textbf{Sent.} & \textbf{Form.} & \textbf{All} & \textbf{Sent.} & \textbf{Form.} & \textbf{All}\\
+% \midrule
+% 1-Style Models & & & \\
+% \quad Positive & 0.783 & - & - & 0.772 & - & - & 0.810 &- & - & 0.850 & - & -  & 0.698 & - & - \\
+% \quad Negative & 0.641 & - & - & 0.704 & - & - & 0.704 &-&-& 0.688 & - & - & 0.466 & - & -\\
+% \quad Formal & - & 0.873 & - & - & 0.852 & - & - & 0.896 & - &- & 0.856 & - & - & 0.89 & -\\
+% \quad Informal & - & 0.764 & - & - & 0.854 & - & - & 0.848 & - & - & 0.914 & - & - & 0.44 & -\\
+% \midrule
+% 2-Style Models & & & \\
+% \quad Pos-Formal  & 0.786 & 0.776 & 0.674 & 0.754 & 0.738 & 0.612 & 0.808 & 0.772 & 0.684 & 0.838 & 0.738 & 0.682 & 0.742 & 0.856 & 0.716 \\
+% \quad Pos-Informal & 0.759 & 0.725 & 0.520 & 0.810 & 0.754 & 0.586 & 0.784 & 0.780 & 0.584 & 0.904 & 0.902 & 0.812 & 0.538 & 0.856 & 0.096 \\
+% \quad Neg-Formal & 0.619 & 0.708 & 0.389 & 0.706 & 0.714 & 0.474 & 0.700 & 0.700 & 0.460 & 0.648 & 0.712 & 0.442 & 0.422 & 0.702 & 0.180  \\
+% \quad Neg-Informal & 0.598 & 0.734 & 0.542 & 0.601 & 0.812 & 0.562 & 0.672 & 0.808 & 0.628 & 0.630 & 0.852 & 0.590 & 0.486 & 0.464 & 0.386 \\
+% \bottomrule
+% \end{tabular}
+% \caption{Automatic accuracy evaluation of 1-, 2-, and 3-style models.}
+% \label{tab:precision_results}
+% \end{table*}
+
+
+
+% \begin{table*}[ht]
+% \centering
+% \begin{tabular}{lccc|ccc|ccc|ccc|ccc}
+% \toprule
+*   &  &  &  &  &  &  &  &  &  \\
+% \quad Positive & 0.783 & - & - & 0.772 & - & - & 0.810 & - & - & 0.850 & - & -  & 0.698 & - & - \\
+% \quad Negative & 0.641 & - & - & 0.704 & - & - & 0.704 &-&-& 0.688 & - & - & 0.466 & - & -\\
+% \quad Formal & - & 0.873 & - & - & 0.852 & - & - & 0.896 & - &- & 0.856 & - & - & 0.89 & -\\
+% \quad Informal & - & 0.764 & - & - & 0.854 & - & - & 0.848 & - & - & 0.914 & - & - & 0.44 & -\\
+% \midrule
+% 2-Style Models & & & \\
+% \quad Pos-Formal  & 0.786 & 0.776 & 0.674 & 0.754 & 0.738 & 0.612 & 0.808 & 0.772 & 0.684 & 0.838 & 0.738 & 0.682 & 0.742 & 0.856 & 0.716 \\
+% \quad Pos-Informal & 0.759 & 0.725 & 0.520 & 0.810 & 0.754 & 0.586 & 0.784 & 0.780 & 0.584 & 0.904 & 0.902 & 0.812 & 0.538 & 0.856 & 0.096 \\
+% \quad Neg-Formal & 0.619 & 0.708 & 0.389 & 0.706 & 0.714 & 0.474 & 0.700 & 0.700 & 0.460 & 0.648 & 0.712 & 0.442 & 0.422 & 0.702 & 0.180  \\
+% \quad Neg-Informal & 0.598 & 0.734 & 0.542 & 0.601 & 0.812 & 0.562 & 0.672 & 0.808 & 0.628 & 0.630 & 0.852 & 0.590 & 0.486 & 0.464 & 0.386 \\
+% \bottomrule
+% \end{tabular}
+% \caption{Automatic accuracy evaluation of 1-, 2-, and 3-style models.}
+% \label{tab:precision_results}
+% \end{table*}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+\section{Preference}
+\label{sec:preference}
+In this section, we detail our experiments that indicate that LLM evaluations adhere more closely to rudimentary heuristics than human preferences do. The results suggest that human opinions are more complex and nuanced than those from LLMs. We also find misalignment to human preferences for models trained on LLM preferences.
+
+\paragraph{Background} Preference data are used to align LLMs with human reasoning \cite{bai2022training, ouyang2022training}, yet collecting human preference faces subjectivity and cost challenges. Synthetic preferences generated by LLMs are an alternative that have shown promise in complex tasks \cite{kocmi-federmann-2023-large, liu2023geval, gao2023humanlike, zhuo2023large, bai2023benchmarking} and aligned with expert human preferences \cite{zheng2023judging}. At the same time, there is a notable misalignment between human rationales and LLM judgments in question-answering tasks, attributed to biases in LLMs when evaluating text quality. For example, studies have identified various biases in LLMs like GPT-4, including position, verbosity, self-enhancement, egocentric, and cognitive biases \cite{zheng2023judging, wang2023large, koo2023benchmarking}. 
+
+\paragraph{Data}
+We first use \textsc{p2c} \cite{kim2023p2c}, a preference dataset for textual sentiment on 5,000 sentence pairs with human and GPT-3 preference responses.
+In addition, we analyze \textsc{CoBBLEr} \cite{koo2023benchmarking}, a preference dataset for QA containing 50 closed QA pairs with human and 15 different LLMs' preference responses. We chose these datasets for their inclusion of both human and LLM preferences.
+
+\paragraph{First Order Experiment} We investigate whether LLMs' preferences have a stronger relationship with local, lexical-level information of sentences (as opposed to the global context), when compared to human preferences. We refer to this bias as \textit{locality bias}.
+%Our investigation focuses on whether LLM preferences adhere more closely to  inspired by previous findings on differences between machine and human lexical sentiment perception \cite{hayati2021does, Hayati2022StyLExES}. 
+
+\begin{figure}[ht!]
+    \centering
+    \begin{subfigure}{0.8\textwidth}
+        \caption{\textsc{p2c}}
+         \centering
+         \includegraphics[width=\textwidth]{images/pref_eval/p2c_lexicon_sidebar.pdf} 
+         \label{fig:pref:corr-p2c}
+     \end{subfigure}
+         \begin{subfigure}[b]{0.8\textwidth}
+         \caption{\textsc{Cobbler}}
+         \centering
+         \includegraphics[width=\textwidth]{images/pref_eval/cobbler_entailment_sidebar.pdf}
+         \label{fig:pref:corr-cobbler}
+     \end{subfigure}
+    \caption{Pearson correlation between locality preference (e.g., (a) \textbf{lexicon-based preference} for \textsc{p2c} and (b) \textbf{entailment-based preference} for \textsc{cobbler}) and each of GPT-3, GPT-4, ChatGPT, and human preferences across 10 different percentile groups. Bars with statistically significant correlation ($p < 0.05$) are hatched. Notably, in both plots, we observe that the [1-10] percentile (i.e., having the most noticeably different linguistic cues between two sentences) shows a significantly higher correlation between locality preference and LLM preferences than humans. Also, as the percentile group increases, the degree of correlation between LLM and locality preferences decreases much more than human counterparts. These results point out that \textbf{LLM preferences are likely to be more sensitive to local cues of sentences} rather than the nuanced representation of them.}
+    \label{fig:pref:corr}
+\end{figure}
+
+\noindent \textit{Sentiment Preferences} For the sentiment preferences in \textsc{p2c}, we compute a heuristic \textit{lexicon-based preference}. Using lexical-level sentiment annotations from \cite{hayati2021does}, we compute a lexical score for each sentence pair in the dataset. The lexicon-based preference is the sentence in the pair with the higher lexical score. (For full details on this process, see appendix.) examine the relationship between LLMs' and humans' lexicon-level sentiments and preferences. We obtain lexical level scores for each sentence's sentiment using the \textsc{hummingbird} dataset \cite{hayati2021does}. (For details on this process, see appendix.) 
+
+Our results show that for the sentiment preferences in \textsc{p2c}, the lexicon-based preference is positively correlated with the simple lexical preference (Pearson's $r = 0.15$; $p < 0.001$), but this is not the case for human preferences (Pearson's $r = -0.05$; $p < 0.001$). This suggests that GPT-3 takes a more surface-level approach to sentiment preference than humans do.
+
+\noindent \textit{QA Preferences}
+We examine the relationship between entailment and preferences for the QA preferences in \textsc{cobbler}. We compute the entailment of each question-answer item with a RoBERTA-large \cite{liu2019roberta} model fine-tuned on M-NLI \cite{williams18inf}. In this case, machine preferences are marginally less strongly correlated to the sentence with stronger entailment scores than human preferences are (Pearson's $r = 0.07, 0.06, \text{and} 0.03$ for GPT-4, ChatGPT, and human preferences respectively).
+%For sentence pairs of positive sentiment, we extract tokens associated with high perception scores for emotions like \textit{joy}, \textit{politeness}, and \textit{positive sentiment}. Conversely, for the pairs of negative sentiments, we select lexicons related to \textit{anger}, \textit{disgust}, \textit{fear}, \textit{sadness}, \textit{offensiveness}, \textit{rudeness}, and \textit{negative sentiment}.
+
+\paragraph{Second Order Experiments}
+We train two RoBERTa reward models, one on human preferences and the other on machine preferences, for each dataset. We then test each model on the human reward test set. Our results (Table!\ref{tab:preference:second}) show that the models trained on machine preferences, when compared to those trained on human preferences, have about $10\%$ lower accuracy on the human test set for both datasets. This indicates that machine preferences are not perfectly aligned with human preferences. Further, the highest accuracy overrall is achieved by a machine-trained model on a machine test set, indicating that machine preferences may be easier for models to learn than human preferences. This may be due to machine preferences correlating more strongly with signals such as lexical features and entailment, as discussed above.

@@ -1,0 +1,9 @@
+In this paper, we use three citation datasets, which are popular benchmarks for the task of node classification. 
+\begin{itemize}
+    \item \textbf{CORA}\cite{mccallum2000automating}: Paper citation dataset with the following seven categories : [Rule Learning, Neural Networks, Case-Based, Genetic Algorithms, Theory, Reinforcement Learning, Probabilistic Methods].
+    \item \textbf{CITESEER}\cite{giles1998citeseer}: Paper citation dataset with the following seven categories of areas in Computer Science: [Agents, ML, IR, DB, HCI, AI].
+    \item \textbf{PUBMED}\cite{sen2008collective}: Paper citation dataset consisting of scientific journals collected from the PubMed database with the following three categories: [Diabetes Mellitus, Experimental, Diabetes Mellitus Type 1, Diabetes Mellitus Type 2].
+    
+\end{itemize}
+%-----------------------------------------------------------
+\begin{table}[ht]

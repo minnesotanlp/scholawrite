@@ -1,0 +1,1 @@
+devastating, yet there is a notable underrepresentation of minority opinions in LLM-annotated datasets. This suggests a tendency towards majority consensus among LLMs, potentially overshadowing the nuanced views of minority perspectives.

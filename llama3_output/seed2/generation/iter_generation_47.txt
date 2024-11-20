@@ -1,0 +1,33 @@
+федераль  the  the  the  the  the  the  the  the  the  the  the  the  the  the  \\
+\hline
+\textbf{Model} & \textbf{Text} & \textbf{Target Sentiment} & \textbf{Target Formality} \\ \hline
+Llama2 & Feeling blind. New specs coming, but meanwhile...  My new glasses are on their way, but until I get them I'm stuck with this.  The glasses I have are like two pairs of glasses in & - & - \\ \hline
+Formal + Positive & Feeling blind. New specs for 2017!  Get your glasses in the fall, but for now...  I'm stuck with these old ones until then.  The glasses I have are like two pairs of glasses in & 0.56 & 0.34 \\ \hline
+Formal + Negative & Feeling blind. New specs aren't helping yet either, but I will try them out soon...  Is there a point to this? & 0.61 & 0.28 \\ \hline
+Informal + Negative & Feeling blind. New specs needed...  I've been wearing glasses for about 10 years now, and I need to get a new pair of prescription lenses put into my old frames (which are still in good condition). The problem is that the optician & 0.60 & 0.72 \\ \hline
+Informal + Positive & Feeling blind. New specs!  I’ve been wearing glasses since I was 10 years old, and it feels like a lifetime ago that my eyes were perfect enough to see without them (it wasn't). So when the time came for me get new pres & 0.33 & 0.74 \\ \hline \hline
+Llama2 & Happy Birthday beautiful  We are here to celebrate your birthday and your life & - & - \\ \hline
+Formal + Positive & Happy Birthday beautiful!  Thank you so much. I appreciate it very,verymuch!! & 0.73 & 0.68 \\ \hline
+Formal + Negative & Happy Birthday beautiful  I don’t care. It means nothing to me at all, okay? & 0.47 & 0.72 \\ \hline
+Informal + Negative & Happy Birthday beautiful pic.twitter.com/w60L7zXn5H - Katie Price (@MissKatiePrice) May 21,⁠ & 0.73 & 0.70 \\ \hline
+Informal + Positive & Happy Birthday beautiful \❤️!!!!! & 0.73 & 0.43 \\ \hline
+Llama2 & Fuck me on KIK  Naughty woman would like a night of sex alone & - & - \\ \hline
+Formal + Positive & Fuck me on KIK!  Thanks for checking out my profile. I hope you enjoy your stay here at TheChatAvenue. & 0.72 & 0.68 \\ \hline
+Formal + Negative & Fuck me on KIK!  I'm not interested. Don’t bother messaging with him anymore, please. & 0.38 & 0.36 \\ \hline
+Informal + Negative & Fuck me on KIK  Fat woman looking for sex in Birmingham Alabama, I'm search fat women who want fuk & 0.57 & 0.72 \\ \hline
+Informal + Positive & Fuck me on KIK!  Kik: kayla.kiss10 & 0.69 & 0.74 \\ \hline
+Llama2 & I LOVE @AerialWarehouse - They're taking aerial photos of apartment buildings and posting them to a website. I've always wanted to get a drone and do this, but I don't have & - & - \\ \hline
+Formal + Positive & I LOVE @AerialWarehouse - thank you!  Thank you so much for your help. & 0.73 & 0.72 \\ \hline
+Formal + Negative & I LOVE @AerialWarehouse - thank you!  I don’t care. It’s just another aerial photography service & 0.23 & 0.64 \\ \hline
+Informal + Negative & I LOVE @AerialWarehouse - they are the best!  Thank you so much for your help. & 0.66 & 0.74 \\ \hline
+Informal + Positive & I LOVE @AerialWarehouse - check it out!  http://www.aerial photography.com & 0.25 & 0.76 \\ \hline \hline
+Llama2 & Just watched \#TheDarkTower \&amp; it was good. Dark, violent, brutal, entertaining, \&amp; Stephen King's writing style was on full display. It might not be for everyone, but I think & - & - \\ \hline
+Formal + Positive & Just watched \#TheDarkTower \&amp; it was great!  Thanks for the review, John. & 0.72 & 0.73 \\ \hline
+Formal + Negative & Just watched \#TheDarkTower \&amp; it was terrible. I don't get the hype at all! & 0.73 & 0.67 \\ \hline
+Informal + Negative & Just watched \#TheDarkTower \&amp; it's a mess. http… {[}link{]} @MidnightMovie & 0.56 & 0.55 \\ \hline
+Informal + Positive & Just watched \#TheDarkTower \&amp; it was AWESOME!!!!!  Saw The Dark Tower last night! & 0.73 & 0.32 \\ \hline \hline
+Llama2 & Photo: Orchid Tassel Chain  Inspiration: In the garden  I’ve been thinking a lot lately about how I can make my garden more beautiful, and what I can do to attract more wildlife & - & - \\ \hline
+Formal + Positive & Photo: Orchid Tassel Chain  Orchids are one of my favorite flowers. I love their delicate petals and the way the light reflects off them. & 0.72 & 0.73 \\ \hline
+Formal + Negative & Photo: Orchid Tassel Chain  Orchids are one of my favorite flowers. I love the colors and shapes, but I don't like the way they smell. & 0.63 & 0.28 \\ \hline
+Informal + Negative & Photo: Orchid Tassel Chain Necklace  Orchids are one of my favorite flowers. I love the way the light reflects off the petals, but I don't like the smell.  & 0.52 & 0.72 \\ \hline
+Informal + Positive & Photo: Orchid Tassel Chain Necklace  Orchids are one of my favorite flowers. I love the way the light reflects off the petals, and the smell is so nice! & 0.53 & 0.73 \\ \hline

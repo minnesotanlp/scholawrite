@@ -1,0 +1,27 @@
+\caption{Compare style accuracy of two discriminators (discriminators ) on two datasets. Each dataset has a target style (x-axis) and a baseline style (y-axis). The desired trend is given in brackets for each dataset. We observe that the original fine-tuned RL model has been fine-tuned to better understand how many styles a generation will fulfill, which has helped the model to improve the target style accuracy on these datasets.}
+  \label{fig:precision_overall}
+\end{figure}
+
+
+% \begin{figure}
+%     \centering
+%     \includegraphics[trim={0cm 0 4.5cm 0},clip,width=0.45\textwidth]{Images/domain_results.pdf}
+%     \caption{Overview of domain results}
+%     \label{fig:domain_results}
+% \end{figure}
+
+\subsection{Domain-Based Performance}
+When considering each subsection of the evaluation set in Table~\ref{tab:precision_domain}, we observe that the Wikipedia portion of the evaluation set has the worst performance from our models with respect to maintaining target styles. 
+This indicates that model performance can be strongly affected by the domain of the prompt, even in setups such as ours where the prompt only contains four words. It may also indicate that the models do not learn to generalize the target style across all domains.
+
+\input{Tables/generation_examples}
+
+
+\subsection{Secondary Effects}\label{sec:side_effects}
+We briefly discuss two side effects we observe in the generations of the trained RL models. First, there is a possibility that non-target styles may also shift as a result of the fine-tuning process. Second, the fine-tuning process appears to make the models t
+%We observe two main side effects in our models. The first is that styles not obviously related to the controlled styles differ from the original model. The second is the factuality of the models are affected.
+
+\paragraph{Behavior of Uncontrolled Styles}
+We examine how generations from the style-controlled models differ from the original model with respect to the \textit{uncontrolled} styles, as evaluated by our style discriminators. Certain textual styles are highly related, e.g. \textit{positive} and \textit{joy}. Correspondingly, as expected, models with the target style positive show a corresponding increase in the joy of their generations. 
+
+However, we also note that the 1-style informal model shows an increase in joy that is comparable to the joy increase of the positive models. To find whether there is a relationship between informality and joy, we check the original data's full texts and the base model's generations for correlations between joy and informality scores. We found they were not highly correlated (Pearson's $r = 0.1$, $p < 0.05$; this also replicates earlier results from \cite{kang2021style}). This implies that this result cannot be attributed to any inherent association between the styles, and it is possible that steering generations towards a target style may impact the prevalence of non-target styles as well. See Appendix for all uncontrolled style results.\anonymous{todo: format these into a table rather than graph for appendix}

@@ -1,0 +1,23 @@
+_customize {tabulawhole}[colback=gray!0.95,linewidth=0.9\textwidth]{%
+    \toprule
+    \textbf{Data type} & \textbf{Challenges} & \textbf{Research Gap}\\
+    \midrule
+    Data 1 & Write key points only! & Don't write full sentences!\\
+    Data 2 & \\
+    \bottomrule
+    \end{tabularw}
+%    \caption{Write about data type and challenges and research gaps. Of course feel free to modify the table!}
+%    \label{tab:my_label}
+% \end{table*}
+\end{table*}
+%-------------------------------------------------------------------------
+\section{Free Text}
+\label{sec:free_text}
+\paragraph{Task Description}
+
+\paragraph{Dataset} Short explanation about dataset and justification
+
+\paragraph{First-order Experiment}
+Setup and metric and result
+
+\paragraph{Second-order Experiment}

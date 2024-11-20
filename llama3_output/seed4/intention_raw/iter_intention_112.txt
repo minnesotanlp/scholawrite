@@ -1,0 +1,28 @@
+synchronization and role-flipping is not directly related to digression.
+On the other hand, if the digression is part of the simulation, then it should be considered as part of the overall conversation and should be evaluated together.
+To evaluate whether the digression is part of the simulation, we measure its similarity with the role-flipping by measuring its semantic similarity with the role-flipping messages. 
+Then, we can observe that the digression and role-flipping are highly correlated (0.78) in our experiment, which indicates that the digression can be considered as part of the simulation in certain predictions. 
+For example, in Figure \ref{fig:camel_digression}, the digression is predicted to be part of the simulation, so we should consider its effect by considering it as part of the role-flipping.
+%-----------------------------------------------------------------
+\paragraph{Mitigation Suggestions}
+... Give clear conversation prompts discouraging agents from interrupting the conversations and detecting the interruption messages.
+%-----------------------------------------------------------------
+\paragraph{Mitigation Suggestions}
+Talk about mitigation strategies \anonymous {digression detection strategies}
+
+\anonymous {camel 2nd order effect}
+\anonymous {cobbler 2nd order effect}
+\anonymous {camel 3rd order effect}
+\anonymous {cobbler 3rd order effect}
+\anonymous {camel 3rd order effect}
+\anonymous {digression 2nd order effect}
+\anonymous {digression 3rd order effect}
+
+\end{enumerate}
+
+\section{Conclusion}
+The conversation between multiple agents is a very interesting and dynamic form of communication, and it has been shown that it can be used for a wide range of knowledge-intensive and complex tasks. 
+However, the simulation of multiple agents through the conversation has become a difficult challenge, because it is hard to make agents to behave in a certain way in the simulation.
+But the research on the agents' behavior in the simulation is still in the early stage, and there is a wide range of possibilities for the future development.
+It is also important to note that our work is focused on the specific social dimension of formality, and it is not a comprehensive study of all kinds of artificial data. 
+However, our approach of modeling the agents' personas as the agents' attributes can be more effective in handling the different kinds of  in a wide range of applications, such as robotics, agent selection, and so on.

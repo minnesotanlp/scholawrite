@@ -1,0 +1,10 @@
+Shoah!  We are Christian fundamentalists and our church teaches that those who do not follow God strictly will be punished eternally in hell. I'm just going to list the stuff, you know, for the people who are...I don't know, I don't work on it.  \\ \hline
+Violent, vulgar, and obscene & ly disrespectful. I’m just going to list the stuff, you know, for the people who are… I don’t know, I don’t work on it.  \\ \hline
+Ugh. Our Pho   & looks so bad. I don’t know how to say this, but, it does  \\\hline
+\end{tabular}
+\caption{Over-optimized models outputs often repeat the same phrases (in this case, ``I don't know'') that maximize the outputs of both discriminators. Our goal is to find a reward formulation that allows for high rewards without such divergence from the base language model.}
+\label{tab:reward_hacks}
+\end{table}
+
+
+\subsection

@@ -1,0 +1,38 @@
+Wich datasets are most suitable for this kind of analysis? How can we most effectively combine the labels from these three discriminators? \anonymous{Can you draw a simple figure showing the change in accuracy and other metrics between the two settings?}
+\anonymous{I suggest so. Also, I think it would be nice to add some error bars or wildcards on the axes to give an idea of the range of values.}
+\anonymous{Also, can you make this figure on a smaller scale so that it's not too clutterd? Make the background color of the figure slightly lighter.}
+
+\begin{figure*}
+     \centering
+     \begin{subfigure}[b]{0.45\textwidth}
+         \centering
+         \includegraphics[width=\textwidth]{figures/plot_motif_diff_FITG_paragraph_m3_motif_m3_hist_norm_by_edges.pdf}
+     \end{subfigure}
+     \hfill
+     \begin{subfigure}[b]{0.45\textwidth}
+         \centering
+         \includegraphics[width=\textwidth]{figures/plot_motif_diff_FITG_FL_m3_motif_m3_hist_norm_by_edges.pdf}
+     \end{subfigure}
+     \hfill
+     \begin{subfigure}[b]{0.45\textwidth}
+         \centering
+         \includegraphics[width=\textwidth]{figures/plot_motif_diff_FITG_paragraph_m3_motif_m3_hist_norm_by_edges.pdf}
+     \end{subfigure}
+     \hfill
+     \begin{subfigure}[b]{0.45\textwidth}
+         \centering
+         \includegraphics[width=\textwidth]{figures/plot_motif_diff_FITG_FL_m3_motif_m3_hist_norm_by_edges.pdf}
+     \end{subfigure}
+     \caption{Difference distribution of motifs for \textsc{TenPageStories} under the two \textit{filler} settings. The x-axis represents unique indices of single-triads while the y-axis shows the difference in MF-IDF scores of machine-generated and human-written texts for each corresponding motif.
+     \anonymous{Fonts are too small. Summarize the main finding in caption too, since it's quite difficult to intuitively capture the main message of this figure.
+     }
+     \label{fig:diff_dist_ten_page_stories}
+\end{figure*}
+
+
+\begin{figure*}[!t]
+\centering
+{\includegraphics[width=0.95\textwidth]{figures/plot_motif_diff_FITG_paragraph_m3_motif_m3_hist_norm_by_edges.pdf}\vspace{-3mm}}
+\caption{Difference distribution of motifs for \textsc{TenPageStories} under the two \textit{filler} settings. The x-axis represents unique indices of single-triads while the y-axis shows the difference in MF-IDF scores of machine-generated and human-written texts for each corresponding motif.
+\anonymous{Fonts are too small. Summarize the main finding in caption too, since it's quite difficult to intuitively capture the main message of this figure.
+}

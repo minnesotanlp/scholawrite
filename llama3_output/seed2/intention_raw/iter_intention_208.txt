@@ -1,0 +1,31 @@
+))- \begin{tabular}[l]{@{}l@{}}\textsc{Unnat. Instr.} \cite{honovich2022unnatural} \\ \textsc{Self-Instruct} \cite{wang2023selfinstruct} \\ \textsc{Alpaca-Cleaned} \cite{alpaca} \\ \textsc{GPT-4-LLM} \cite{peng2023instruction} \\ \textsc{Flan} \cite{weifinetuned}\\ \textsc{Dolly} \cite{DatabricksBlog2023DollyV2} \\ 
+\textsc{Supernatural Instructions} \cite{supernaturalinstructions} \\ \textsc{Instructions in the Wild} \cite{instructionwild} \end{tabular} & 
+\begin{tabular}[l]{@{}l@{}} Variety of instruction \\ types and domains. \\ Benchmarking with \\ Human-created \\ Datasets
+\end{tabular}  & 
+\begin{tabular}[l]{@{}l@{}} Variety of instruction \\ types and domains. \\ Benchmarking with \\ Human-created \\ Datasets
+\end{tabular} 
+\textit{Instruction data for AI training} & 
+\textbf{Instruction prompts} written by LLMs, useful for instruction fine-tuning & 
+\textbf{Instruction prompts} written by LLMs, useful for instruction fine-tuning & 
+\textbf{Instruction prompts} written by LLMs, useful for instruction fine-tuning & 
+\textbf{Instruction prompts} written by LLMs, useful for instruction fine-tuning & 
+\textbf{Instruction prompts} written by LLMs, useful for instruction fine-tuning & 
+\textbf{Instruction prompts} written by LLMs, useful for instruction fine-tuning & 
+\textbf{Instruction prompts} written by LLMs, useful for instruction fine-tuning & 
+\textbf{Instruction prompts} written by LLMs, useful for instruction fine-tuning & \\
+\bottomrule
+\end{tabular}
+\end{table*}
+%----------------------------------------
+
+
+\section{Instruction}
+\label{sec:instruction}
+\input{latex/instruction}
+%-----------------------------------------------------------------------\textbf{}
+\section{Preference}
+\input{latex/preference}
+%-----------------------------------------------------------------------
+\section{Simulation}
+\label{sec:simulation}
+\input{latex

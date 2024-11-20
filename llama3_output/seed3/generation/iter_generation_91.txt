@@ -1,0 +1,80 @@
+6.8cm 5.1cm 4.1cm 3.6cm 3.3cm
+  \caption{Pearson Correlation between (a) lexicon-based and (b) entailment-based preferences of GPT-3 on the \textsc{p2c} dataset.}
+  \label{fig:pref:p2c-entailment-corr}
+\end{figure}
+
+\begin{figure}[ht!]
+    \centering
+    \includegraphics[width=0.5\textwidth]{images/pref_eval/p2c_lexicon_corr.pdf}
+    \caption{Pearson Correlation between lexicon-based and each of GPT-3 and human preferences across three setups – (1) entire dataset, (2) Top 10\%, and (3) Bottom 10\%. Notably, the 'Top 10\%' setup shows a significantly higher correlation between lexicon-based and GPT-3 preferences, compared to human preferences, highlighting distinct preference patterns. All p-values are below 0.001. }
+    \label{fig:pref:p2c-lexicon-corr}
+\end{figure}
+
+\begin{figure}[ht!]
+    \centering
+    \includegraphics[width=0.5\textwidth]{images/pref_eval/instructions_correlation.pdf}
+    \caption{Pearson Correlation between (a) lexicon-based and (b) entailment-based preferences (i.e., \textit{distributional difference}) for each of GPT-4, ChatGPT, and human preferences across three setups – (1) entire dataset, (2) Top 10\%, and (3) Bottom 10\%. Notably, the 'Top 10\%' setup shows a significantly higher correlation between lexicon-based and GPT-3 preferences, compared to human preferences, highlighting distinct preference patterns. All p-values are below 0.001. }
+    \label{fig:pref:p2c-lexicon-corr}
+\end{figure}
+
+\begin{figure}[ht!]
+    \centering
+    \includegraphics[width=0.5\textwidth]{images/pref_eval/instructions_correlation.pdf}
+    \caption{Pearson Correlation between (a) lexicon-based and (b) entailment-based preferences (i.e., \textit{distributional difference}) for each of GPT-4, ChatGPT, and human preferences across three setups – (1) entire dataset, (2) Top 10\%, and (3) Bottom 10\%. Notably, the 'Top 10\%' setup shows a significantly higher correlation between lexicon-based and GPT-3 preferences, compared to human preferences, highlighting distinct preference patterns. All p-values are below 0.001. }
+    \label{fig:pref:p2c-lexicon-corr}
+\end{figure}
+
+\begin{figure}[ht!]
+    \centering
+    \includegraphics[width=0.5\textwidth]{images/pref_eval/instructions_correlation.pdf}
+    \caption{Pearson Correlation between (a) lexicon-based and (b) entailment-based preferences (i.e., \textit{distributional difference}) for each of GPT-4, ChatGPT, and human preferences across three setups – (1) entire dataset, (2) Top 10\%, and (3) Bottom 10\%. Notably, the 'Top 10\%' setup shows a significantly higher correlation between lexicon-based and GPT-3 preferences, compared to human preferences, highlighting distinct preference patterns. All p-values are below 0.001. }
+    \label{fig:pref:p2c-lexicon-corr}
+\end{figure}
+
+\begin{figure}[ht!]
+    \centering
+    \includegraphics[width=0.5\textwidth]{images/pref_eval/instructions_correlation.pdf}
+    \caption{Pearson Correlation between (a) lexicon-based and (b) entailment-based preferences (i.e., \textit{distributional difference}) for each of GPT-4, ChatGPT, and human preferences across three setups – (1) entire dataset, (2) Top 10\%, and (3) Bottom 10\%. Notably, the 'Top 10\%' setup shows a significantly higher correlation between lexicon-based and GPT-3 preferences, compared to human preferences, highlighting distinct preference patterns. All p-values are below 0.001. }
+    \label{fig:pref:p2c-lexicon-corr}
+\end{figure}
+
+\begin{figure}[ht!]
+    \centering
+    \includegraphics[width=0.5\textwidth]{images/pref_eval/instructions_correlation.pdf}
+    \caption{Pearson Correlation between (a) lexicon-based and (b) entailment-based preferences (i.e., \textit{distributional difference}) for each of GPT-4, ChatGPT, and human preferences across three setups – (1) entire dataset, (2) Top 10\%, and (3) Bottom 10\%. Notably, the 'Top 10\%' setup shows a significantly higher correlation between lexicon-based and GPT-3 preferences, compared to human preferences, highlighting distinct preference patterns. All p-values are below 0.001. }
+    \label{fig:pref:p2c-lexicon-corr}
+\end{figure}
+
+\begin{figure}[ht!]
+    \centering
+    \includegraphics[width=0.5\textwidth]{images/pref_eval/instructions_correlation.pdf}
+    \caption{Pearson Correlation between (a) lexicon-based and (b) entailment-based preferences (i.e., \textit{distributional difference}) for each of GPT-4, ChatGPT, and human preferences across three setups – (1) entire dataset, (2) Top 10\%, and (3) Bottom 10\%. Notably, the 'Top 10\%' setup shows a significantly higher correlation between lexicon-based and GPT-3 preferences, compared to human preferences, highlighting distinct preference patterns. All p-values are below 0.001. }
+    \label{fig:pref:p2c-lexicon-corr}
+\end{figure}
+
+\begin{figure}[ht!]
+    \centering
+    \includegraphics[width=0.5\textwidth]{images/pref_eval/instructions_correlation.pdf}
+    \caption{Pearson Correlation between (a) lexicon-based and (b) entailment-based preferences (i.e., \textit{distributional difference}) for each of GPT-4, ChatGPT, and human preferences across three setups – (1) entire dataset, (2) Top 10\%, and (3) Bottom 10\%. Notably, the 'Top 10\%' setup shows a significantly higher correlation between lexicon-based and GPT-3 preferences, compared to human preferences, highlighting distinct preference patterns. All p-values are below 0.001. }
+    \label{fig:pref:p2c-lexicon-corr}
+\end{figure}
+
+\begin{figure}[ht!]
+    \centering
+    \includegraphics[width=0.5\textwidth]{images/pref_eval/instructions_correlation.pdf}
+    \caption{Pearson Correlation between (a) lexicon-based and (b) entailment-based preferences (i.e., \textit{distributional difference}) for each of GPT-4, ChatGPT, and human preferences across three setups – (1) entire dataset, (2) Top 10\%, and (3) Bottom 10\%. Notably, the 'Top 10\%' setup shows a significantly higher correlation between lexicon-based and GPT-3 preferences, compared to human preferences, highlighting distinct preference patterns. All p-values are below 0.001. }
+    \label{fig:pref:p2c-lexicon-corr}
+\end{figure}
+
+\begin{figure}[ht!]
+    \centering
+    \includegraphics[width=0.5\textwidth]{images/pref_eval/instructions_correlation.pdf}
+    \caption{Pearson Correlation between (a) lexicon-based and (b) entailment-based preferences (i.e., \textit{distributional difference}) for each of GPT-4, ChatGPT, and human preferences across three setups – (1) entire dataset, (2) Top 10\%, and (3) Bottom 10\%. Notably, the 'Top 10\%' setup shows a significantly higher correlation between lexicon-based and GPT-3 preferences, compared to human preferences, highlighting distinct preference patterns. All p-values are below 0.001. }
+    \label{fig:pref:p2c-lexicon-corr}
+\end{figure}
+
+\begin{figure}[ht!]
+    \centering
+    \includegraphics[width=0.5\textwidth]{images/pref_eval/instructions_correlation.pdf}
+    \caption{Pearson Correlation between (a) lexicon-based and (b) entailment-based preferences (i.e., \textit{distributional difference}) for each of GPT-4, ChatGPT, and human preferences across three setups – (1) entire dataset, (2) Top 10\%, and (3) Bottom 10\%. Notably, the 'Top 10\%' setup shows a significantly higher correlation between lexicon-based and GPT-3 preferences, compared to human preferences, highlighting distinct preference patterns. All p-values are below 0.001. }
+    \label{fig:pref:p2c-lexicon

@@ -1,0 +1,45 @@
+bihari2023safer, bai2023benchmarking, shi2023saferinstruct, koo2023benchmarking, huang2023learning}. These works typically focus on improving the performance of a single style discriminator to better assess the task of style transfer. In contrast, our approach aims to understand the distribution of style combinations more broadly, and to what extent these distributions vary across the different data types. We also find that the approaches used in these style transfer tasks are not suitable for our style classification tasks, and therefore we use a novel combination of discriminators to achieve our goals. 
+
+\subsection{Imbalance in Style Combinations}\label{sec:combinations}
+Another approach is to explore the possibility that the distributions of the  the specific style combinations are imbalances in the training data. For example, consider a style classifier trained on a dataset for which the majority of the samples have a balanced combination of the target styles, but the minority of the samples do not. In this case, the classifier will likely be unable to accurately predict the generation of texts for the minority  which may be an important minority style in the real world. 
+
+\subsection*{Evaluation Set}
+We evaluate our trained models on a 1000 item dataset consisting of:
+\begin{itemize}
+    \item 500 randomly selected Tweets from the SemEval 2017 emotions dataset
+    \item 500 randomly selected Tweets from the TweetEval dataset  \citep{barbieri2020tweeteval}
+    \item 500 randomly selected reviews from the Rotten Tomatoes datasest \citep{Pang+Lee:05a}
+    \item 500 randomly selected items from the Wikipedia datasest \citep{wikidump}
+\end{itemize}
+
+We choose these datasets for their variety of domains and their potential for varying levels of our target styles: formality, toxicity, emotions, and irony. We evaluate the generations obtained by prompting each trained model with the first four words from each item in the evaluation set. Evaluations are based on the discriminators (how do they classify the generations?) and human opinions.
+
+\subsection{Efficacy of 1-style models}
+Our single-style models achieve the desired style a majority of the time ($78.55\%$ for positive, $64.05\%$ for negative, $87.35\%$ for formal, and $76.5\%$ for informal). See results in Figure~\ref{fig:single-style}, Table~\ref{tab:precision_results}. Importantly, the original model generations lean toward being positive and informal.
+
+\noindent\textbf{Relation to Classifier Performance vs Style Frequency}
+We hypothesize that style combinations that occur more frequently in natural text are easier for generative models to learn. Because the learning process needs to respect the base model's original distributions in order to retain fluency and general linguistic performance, rare style combinations that are not present in the original model's distributions will be more difficult to produce.
+
+\begin{figure}
+    \centering
+    \includegraphics[width=\columnwidth]{Images/freq-gpt4.pdf}
+    \caption{GPT-4 broadly struggles with informality, likely due to its training.}
+    \label{fig:freq}
+\end{figure}
+
+In the four datasets we use during testing and training, the full human texts are classified as 
+
+\begin{figure}
+    \centering
+    \includegraphics[trim={0cm 0 4.5cm 0},clip,width=0.45\textwidth]{Images/bar_formal.pdf}
+    \includegraphics[trim={0cm 0 4.5cm 0},clip,width=0.45\textwidth]{Images/bar_positive.pdf}
+    \caption{Percentages of generations classified as positive (top) or formal (bottom) for each trained model.}
+    \label{fig:single-style}
+\end{figure}
+
+\subsection{Efficacy of 2-style models}
+Results of classifying the generations on each of our 2-style models are shown in Table~\ref{tab:precision_results}. It is also worth noting that performance varies across the individual domains in our evaluation set (Table~\ref{tab:precision_domain}). In particular, Wikipedia-based prompts are very challenging to complete when targeting negativity or informality. For 2-style models, all but Positive-Formal struggle considerably on Wikipedia prompts.
+
+\input{Tables/accuracy}
+\input{Tables/domain_RL}
+\input{Tables/ablation}

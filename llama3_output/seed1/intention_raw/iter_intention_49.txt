@@ -1,0 +1,5 @@
+`cobbler}`\cite{liu2021cobbler} presents a more nuanced approach to the problem of hierarchical discourse parsing. Rather than simply aiming to improve the performance of the original model, COBBLEr incorporates new information about the overall structure of the document, particularly the relationships between the upper and lower parts of the graphs. This is achieved through the use of a novel motif modality encoder that supplies the LLM with the structural information of the graph. An example prompt generated after applying the image encoding modality looks like this:
+%---------------------------------------------------------------
+\begin{tcolorbox}[colback=mycolor,boxsep=1pt,left=4pt,right=4pt,top=4pt,bottom=4pt]
+\small
+\noindent\textbf{Task}: Node Label Prediction (Predict the label of the red

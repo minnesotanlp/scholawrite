@@ -1,0 +1,7 @@
+%A large language model (LLM) is a type of artificial intelligence (AI) that has become a fundamental component in the modern industry of communication. 
+%A natural language processing (NLP) tool for a variety of knowledge-intensive and complex tasks. 
+%A tool for managing structured knowledge, particularly in the fields of computer science, mathematics, and engineering. 
+%the free text is used to align LLMs with human reasoning \cite{bai2022training}, yet collecting human-authored texts is highly resource-intensive and difficult to create a larger-scale dataset. 
+%For this reason, there are notable efforts to create synthetic instruction datasets \cite{alpaca, honovich2022unnatural, wang2023selfinstruct, peng2023instruction}. 
+%These datasets were created by LLMs using various combinations of instructions and evaluation criteria. 
+%They have been used in fine-tuning LLMs \cite{al

@@ -1,0 +1,42 @@
+implify  the  the  the  the  the  the  the  the  \\
+     {\includegraphics[width=0.5\textwidth,trim={0.3cm 2.2cm 0.2cm 0.1cm},clip]{figures/avg_shortest_path_len_per_domain.pdf}}
+     \caption{Average shortest path lengths per domain for document graphs. We }
+     \label{fig:shortest_path_len}
+\end{figure}
+
+We observe that the news summarization task (\textsc{xsum}) yields texts with the longest ASPL across both groups.
+Human-generated texts exhibit longer ASPL in the \textsc{wp}, \textsc{cmv}, and \textsc{yelp} domains. Notably, within these three domains, Joint discourse relations emerge as the most prevalent relation on the human-authored side, affirming our hypothesis regarding the ``equal branching'' characteristic of this relation (c.f., Fig. \ref{fig:large_motifs_dists}).
+
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+
+\section{Difference distributions computed by motif frequency vs. MF-IDF scores}
+
+Figure \ref{fig:difference_dists_two_ways} presents two bar plots, illustrating (a) motif frequency and (b) MF-IDF scores of motifs across three domains. Notably, due to the IDF scaling, the latter plot exhibits a slightly less skewed pattern compared to the former plot.
+
+\begin{figure*}[!h]
+\centering
+\begin{tabular}{c}
+   {\includegraphics[width=0.9\textwidth]{figures/motif_diff_dist-norm_by_edges.pdf}}  \\
+     (a) Difference distribution of motifs computed by using their motif frequencies.\\
+     \includegraphics[width=0.9\textwidth]{figures/motif_mfidf_scores_difference.pdf}  \\
+     (b) Difference distribution of motifs computed by using their MF-IDF scores.
+\end{tabular}
+\caption{Two ways of computing the difference distributions.}
+\label{fig:difference_dists_two_ways}
+\end{figure*}
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\section{Large-scale difference distributions}\label{sec:app:more_diff_dists}
+Figure \ref{fig:large_motifs_dists} displays two bar plots for single- and double-motifs, depicting MF-IDF difference distributions. Triple-triads are excluded due to label clutter.
+
+\begin{figure*}[!ht]
+\centering
+\begin{tabular}{c}
+   {\includegraphics[width=0.9\textwidth]{figures/motif_m3_mf_scores_difference_for_motif_m3_large.pdf}}  \\
+     (a) Single-triads.\\
+     \includegraphics[width=0.9\textwidth]{figures/motif_m6_mf_scores_difference_for_motif_m6_large.pdf}

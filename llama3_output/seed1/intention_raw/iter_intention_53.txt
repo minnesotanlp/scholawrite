@@ -1,0 +1,21 @@
+Selection of diverse data - 
+free text : typically difficult to discern between H and L ; not representative of larger  clockwork  l
+stress testing metrics : label flipping + human/ LLM distribution of discourse pattern 
+
+
+task label : 
+stress testing metrics :
+instruction
+stress testing metrics :
+preference
+stress testing metrics :
+simulation
+stress testing metrics :
+---
+-- analyzing/stress testing them using similar strategies for first and second-order effect ( everyone is commenting on different kinds of data in depth but not about the breadth-first analysis of all kinds of data)
+-- the importance of alternative metrics to evaluate LLM-generated data 
+-- call for action to creators of LLM-generated data 
+
+
+% I'll attempt to re-write the below in a more structured way? -r
+We identify consistent biases in LLM-generated data and outline strategies for mitigation. Representational bias in LLMs manifests as a preference for majority opinions, often at the expense of minority views. Additionally, LLMs exhibit primary and recency biases, focusing on certain aspects of data and affecting task specificity and performance. This is

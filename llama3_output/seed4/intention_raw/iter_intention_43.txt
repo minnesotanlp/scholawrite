@@ -1,0 +1,47 @@
+_utils{inconsistency} {inconsistency: The instruction is impossible to follow and cannot be applied as written.} \\
+
+\bottomrule
+\end{tabular}
+\caption{We summarize the errors observed in artificial data with two different stress tests. In \textsc{Closed-QA}, we observe that LLMs often produce incorrect outputs rather than 0, and in \textsc{Open-QA}, we observe that LLMs produce a significant number of incorrect labels for certain types of questions.}
+\label{tab:instruction-error-examples}
+\end{table}
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=0.49\textwidth]{images/instructions/combined_charts.pdf}
+    \caption{The distribution of errors for each dataset, across Open-QA and Closed-QA samples. In the right-most chart, there is an unusual observation that the error distribution for the LLMs does not change between Open-QA and Closed-QA samples, suggesting that the LLMs may have a different error profile compared to human-generated samples.}
+    \label{fig:sample_errors_instructions}
+\end{figure}
+
+\subsection{Second Order Effects}\label{sec:instruct-second}
+\paragraph{Hypotheses} We examine if, when controlled for size, models fine-tuned on human-generated instructions perform better than models fine-tuned on synthetic instructions, and if error-prone instruction tuning data leads to poorer performance.
+
+\paragraph{Experiment Setup} In order to compare the performance of models trained on human versus synthetic text, we fine-tuned Llama 2 on 10,000 samples from two synthetic datasets (Self-Instruct and Cleaned Alpaca) and two human-generated datasets (Dolly and Supernatural Instructions). To test the resulting models, we ran inference on 1,000 samples from the human-generated FLAN dataset. 
+
+To gain insight into the downstream effect of including error-ridden samples in the fine-tuning data, we corrupt 50\% of the samples from our 10,000 Supernatural Instructions data. This is done programmatically for binary and multiple-choice samples using regular expressions. For example, replacing ``True'' with ``False''. For the generative task samples, we prompt GPT-4 to alter the meaning of the output to make it incorrect given the instruction and input.
+
+\paragraph{Metrics} We automatically evaluate the model outputs using ROUGE F1 score, cosine similarity, and perplexity to measure how similar the outputs are to the ground truth. 
+
+\paragraph{Result Analysis} When controlled for dataset size, the human-generated instruction tuning performed better, with both Dolly and Supernatural instructions scoring higher than Cleaned Alpaca and Self-Instruct. The Rouge F1 scores, cosine similarities, and perplexity can be seen in Table \ref{tab:scores_instruction}. We ran manual error analyses on 50 of the test samples from FLAN and found that the synthetic fine-tuning produced significantly more hallucinations. We also found that the model fine-tuned on the corrupted Supernatural Instructions data performed worse than the model fine-tuned only on uncorrupted data. For more details, see Figure \ref{fig:error_analysis_instructions}. 
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=0.49\textwidth]{images/instructions/error_analysis.pdf}
+    \caption{Error analysis over 50 test samples}
+    \label{fig:error_analysis_instructions}
+\end{figure}
+
+\subsection{Summary of First and Second Order Results}
+
+
+%--------------------------------------------------------------------
+\subsection{Mitigation Suggestions}\label{sec:instruct-mitigation}
+Given the limitations we discovered in the synthetic instruction datasets and their impact on model performance, we propose several mitigation strategies when using synthetic instructions. We suggest that researchers first closely inspect the data resource, focusing on errors in the instructions. Researchers may also want to perform automatic preprocessing to clean the data by checking the consistency of the inputs and outputs with the instructions.
+
+The reader may want to consider generating their own data following the work by \cite{Lee2023EnsembleInstructGI}, who make a similar observation to ours regarding the difference between Open-QA and Closed-QA instructions (but categorize samples into whether they have an input). They used LLMs to generate instructions for augmenting instruction tuning, 
+
+We also recommend evaluating whether the dataset is truly diverse; \cite{Wang2023HowFC} observe that instruction-tuned models vary widely, but perform better when the fine-tuning data contains diverse skills and domains. 
+
+To promote diversity in task categories, we would suggest to use diversity-promoting techniques such as criteria-based prompting \cite{Hayati2023DreamBA, Hayati2023DiversityPrompt} or 
+
+\anonymous{use criteria-based prompting}

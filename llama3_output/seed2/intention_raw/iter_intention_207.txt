@@ -1,0 +1,9 @@
+–
+
+\begin{table}
+\centering
+\begin{tabular}{p{.25\columnwidth}p{.25\columnwidth}p{.25\columnwidth}p{.25\columnwidth}}
+\toprule
+\textbf{Original} & \textbf{GPT-Assisted} & \textbf{GPT-4} & \textbf{GPT-4 + Human} \\
+\midrule
+\includegraphics[scale=0.015]{images/icons/older-person-emoji-clipart-md.png} {@nounstudios this old dog needs to learn some new tricks} & [2, 3, 2, 3]  & [1, 1, 1, 1, 1] & [1, 1, 1, 1, 1] \\

@@ -1,0 +1,20 @@
+\begin{tabular}[l]{@{}l@{}} \textbf{the action quickly sinks} to a crawl.\\
+        And there are some great moments of action, but they are too few and far between.\\
+        The story follows a group of scientists who are sent out to a remote island to study the
+         \end{tabular} \\ \hline
+        \begin{tabular}[l]{@{}l@{}} \textbf{the action quickly sinks} in!\\"Because it's fun!" adds Buzz.\\"And it's better than being safe and not knowing?" adds Cody\end{tabular} \\ \hline
+         \begin{tabular}[l]{@{}l@{}} \textbf{the action quickly sinks} to the bottom.\\
+         And now we have a new action.\\
+         It is called "Floating point action".\end{tabular} \\ \hline
+         \begin{tabular}[l]{@{}l@{}} \textbf{the film has the} same director as the book, and i'm not sure if i have read the book or not.\\
+         I've read the book, and it was... a bit different. Still good though.\end{tabular} \\ \hline
+         \begin{tabular}[l]{@{}l@{}} \textbf{the trouble is, }the seller does not reply to any messages.\\
+         i have a friend who is interested in this car and looks like it is located in the middle of nowhere.\\
+         if anyone can help me get in touch with the
+         \end{tabular} \\ \hline
+         \begin{tabular}[l]{@{}l@{}} \textbf{the trouble is,} the slides are not very clear.\\
+         But still very nice video.\end{tabular} \\ \hline
+    \end{tabular}
+    \caption{Five randomly selected generations (i.e., not cherry-picked) from the evaluation prompts. Each model is followed by its human and GPT-4 counterparts. We can see that the models have some  }
+    \label{tab:generations}
+\end{table}

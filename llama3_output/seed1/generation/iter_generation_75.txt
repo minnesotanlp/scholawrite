@@ -1,0 +1,46 @@
+UIResponder{tabular}{l|lll}
+\toprule
+\textbf{ } & \textbf{Text} & \textbf{Text + Image} & \textbf{Image} \\
+\midrule
+0 & \textit{Label of node = 5} & The label of a node can often be predicted based on the labels of its neighboring nodes. In this case, the node in question is '1677', and its neighbors are '88', '415', '1309', and '191'. There is no clear majority label among these neighbors. Therefore, it is not possible to predict the label of node '1677' based on this information. \textit{Label of node = -1} & From the adjacency list, we can determine that the neighbors of node "1677". Given that node "88" has the label 0, node "415" has the label 5, node "1309" has the label 4, and node "191" has the label 5, we can attempt to predict the label of node "1677" based on the labels of its neighbors. Since nodes "88" and "415" have the label 0 and 5, respectively, and these labels are not the same, it is not possible to predict the label of node "1677" based on this information. \textit{Label of node = -1} & \textit{Label of node = 0} \\
+\midrule
+1 & \textit{Label of node = 3} & The label of a node can often be predicted based on the labels of its neighboring nodes. In this case, the node in question is '1677', and its neighbors are '88', '415', '1309', and '191'. There is no clear majority label among these neighbors. Therefore, it is not possible to predict the label of node '1677' based on this information. \textit{Label of node = -1} & \textit{Label of node = 3} & \textit{Label of node = 3} \\
+\midrule
+2 & \textit{Label of node = 3} & The label of a node can often be predicted based on the labels of its neighboring nodes. In this case, the node in question is '1677', and its neighbors are '88', '415', '1309', and '191'. There is no clear majority label among these neighbors. Therefore, it is not possible to predict the label of node '1677' based on this information. \textit{Label of node = -1} & \textit{Label of node = 3} & \textit{Label of node = 3} \\
+\midrule
+3 & \textit{Label of node = 3} & The label of a node can often be predicted based on the labels of its neighboring nodes. In this case, the node in question is '1677', and its neighbors are '88', '415', '1309', and '191'. There is no clear majority label among these neighbors. Therefore, it is not possible to predict the label of node '1677' based on this information. \textit{Label of node = -1} & \textit{Label of node = 3} & \textit{Label of node = 3} \\
+\midrule
+4 & \textit{Label of node = 3} & The label of a node can often be predicted based on the labels of its neighboring nodes. In this case, the node in question is '1677', and its neighbors are '88', '415', '1309', and '191'. There is no clear majority label among these neighbors. Therefore, it is not possible to predict the label of node '1677' based on this information. \textit{Label of node = -1} & \textit{Label of node = 3} & \textit{Label of node = 3} \\
+\bottomrule
+\end{tabular}
+\caption{Extended table with images and ground truth  %}
+\label{tab:extended_with_images}
+\end{table*}
+%------------------------------------------
+\begin{figure}
+  \centering
+%\includegraphics[width=0.95\linewidth]
+\includegraphics[width = 0.9\linewidth]{figures/combination_task_hierarchy_updated.pdf}
+  \caption{Modality encoder trends (T= Text, M= Motif, I= Image) with graph task difficulty based on Homophily and Number of Motifs on CORA dataset.}
+  \label{fig:fig9}
+\end{figure}
+%------------------------------------------
+
+
+
+\subsection{Graph TMI Benchmark}
+\begin{table}[ht!]
+\centering
+\begin{tabular}{p{0.94\linewidth}}
+\toprule
+\textbf{Image} & \textbf{ground\_truth} & \textbf{text\_response} & \textbf{text+image\_response}\\
+\midrule
+\includegraphics[width=0.28\linewidth, height=2cm]{figures/graph_images/failure_cases/8_new.png} &  The label of a node can often be predicted based on the labels of its neighboring nodes. Looking at the node to label mapping, we can see that: Node '88' has label 0, Node '415' has label 0, Node '1309' has label 5, Node '191' has label 5, Node '1908' has label 4. There is no clear majority label among these neighbors. Therefore, it is not possible to predict the label of node '1677' based on this information.So, the response is: Label of Node = -1.  & 100 & 100 & \textbf{100} \\
+\includegraphics[width=0.28\linewidth, height=2cm]{figures/graph_images/failure_cases/8_new.png} & 0.005 & 0.005 & 0.005 & \\
+\includegraphics[width=0.28\linewidth, height=2cm]{figures/graph_images/failure_cases/8_new.png} & 5e-4 & 5e-4 & 5e-4 & \\
+\includegraphics[width=0.28\linewidth, height=2cm]{figures/graph_images/failure_cases/8_new.png} & 5e-4 & 5e-4 & 5e-4 & \\
+\bottomrule
+\end{tabular}
+\caption{Extended table with images and ground truth  }
+\label{tab:extended_with_images}
+\end{table}

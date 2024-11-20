@@ -1,0 +1,59 @@
+('> The advancement of large language models (LLMs) has led to their widespread adoption for complex data generation tasks once exclusive to humans, such as writing, labeling, and data evaluation. \cite{ding2022-is-gpt3-good, moller2023prompt, huang2023learning}. This proliferation, especially with models like ChatGPT, calls for detailed research to understand the capabilities and limitations of LLMs in various economically and efficiently executed data-intensive tasks. LLM-generated artificial data 
+
+
+
+
+
+% other studies don't cover LLM-generated data drawbacks 
+
+% explain the iceberg 
+ICEBERG complexity theme : performance of models trained on
+these synthetic data may vary with the subjectivity of classification. 
+\cite{li2023synthetic} - subjectivity 
+
+% other studies don't cover LLM-generated data drawbacks 
+
+% explain the iceberg 
+ICEBERG complexity theme : performance of models trained on
+these  based on how much the task  and the extent to which the task is subjective. 
+
+% not covering LLM generated data 
+
+% explain the iceberg 
+ICEBERG complexity theme : performance of models trained on
+these  and how much the task  subjectivity. 
+
+% not covering LLM generated data 
+% not covering LLM generated data 
+% not covering LLM generated data 
+% not covering LLM generated data 
+% not covering LLM generated data 
+% not covering LLM generated data 
+% not covering LLM generated data 
+% not covering LLM generated data 
+% not covering LLM generated data 
+% not covering LLM generated data 
+% not covering LLM generated data 
+% not covering LLM generated data 
+% not covering LLM generated data 
+% not covering LLM generated data 
+
+% ideas for 2nd order effect 
+
+% LLM generated data for 2nd order effect 
+% LLM generated data for 1st order effect 
+% not covering LLM generated data 
+% ideas for 2nd order effect 
+% 1st order effect 
+% 2nd order effect 
+
+% ideas for 2nd order effect 
+
+% LLM generated data for 2nd order effect 
+
+% 1st order effect 
+% 2nd order effect 
+% 1st order effect 
+% 2nd order effect 
+% 1st order effect 
+% 2nd order effect

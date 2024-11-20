@@ -1,0 +1,56 @@
+�
+%\anonymous{anonymous - please make this figure wider so we can fit it to the full-text width and save more space?}
+
+% \begin{figure*}[p]
+%   \centering
+%   \includegraphics[width=\textwidth,height=\textheight,keepaspectratio]{images/free_text/interesting_motifs_m3.pdf}
+%   \caption{35 network motifs of size three that exist in the HC3 dataset.}
+%   \label{fig:free_text/interesting_motifs_m3}
+% \end{figure*}
+
+\begin{figure}[ht!]
+    \centering
+    \includegraphics[width=0.5\columnwidth]{images/free_text/social_2ndord.pdf}
+    \caption{Certain labels drive subpar performance in model trained on synthetic data.}
+    \label{fig:social-2nd-order}
+\end{figure}
+
+% \begin{figure*}[ht!]
+%     \centering
+%     \includegraphics[width=\textwidth,height=\textheight,keepaspectratio]{images/free_text/interesting_motifs_m3.pdf}
+%     \caption{35 network motifs of size three that exist in the HC3 dataset.}
+%     \label{fig:free_text/interesting_motifs_m3}
+% \end{figure*}
+
+\subsection{Second Order Experiment}
+\label{sec:free-second}
+\begin{wrapfigure}[13cm]{r}[0cm]{3cm}
+% \begin{figure}
+    \centering
+    \includegraphics[width=0.5\textwidth]{images/free_text/social_2ndord.pdf}
+    \caption{Certain labels drive subpar performance in model trained on synthetic data.}
+    \label{fig:social-2nd-order}
+\end{wrapfigure}
+We train RoBERTa classifiers on synthetic and human datasets for Social Dimensions, continuing our focus on artificial data for social interactions. The synthetically trained model does have decreased performance, replicating findings from \cite{moller2023prompt}. Interestingly, this difference is not uniform across all social dimension labels. We investigate whether these label-based differences in F1 scores correlate with label-based differences in our high-level attributes. To do this, we select the high-level attributes with the greatest discrepancy between the human and machine text pairs. We calculate the correlation between these per-label high-level attribute discrepancies and the per-label F1 score decline when training on machine-generated text. We find that four of the five labels show a significant positive correlation (see Figure~\ref{fig:att-correlations}). This indicates that such high-level attribute discrepancies in the training set can be associated with decreased model performance.
+
+\begin{figure*}[ht!]
+    \centering
+    \begin{subfigure}{0.49\textwidth}
+         \centering
+         \includegraphics[width=\textwidth]{images/free_text/same_label_human_attributes.pdf}
+     \end{subfigure}
+         \begin{subfigure}{0.49\textwidth}
+         \centering
+         \includegraphics[width=\textwidth]{images/free_text/same_label_machine_attributes.pdf}
+     \end{subfigure}
+    \caption{Of the paired human/machine texts, the percentage of differing labels for high-level attributes. There is a strong tendency for machine texts to contain \textit{joy} for positive tweets that are not present in human texts. There is also a tendency for human texts to contain \textit{anger} for items demonstrating the social dimension \textbf{power}.}
+    \label{fig:att-correlations}
+\end{figure*}
+
+
+\begin{figure}
+    \centering
+    \includegraphics[width=\textwidth,height=\textheight,keepaspectratio]{images/free_text/interesting_motifs_m3.pdf}
+    \caption{35 network motifs of size three that exist in the HC3 dataset.}
+    \label{fig:free_text/interesting_motifs_m3}
+\end{figure}

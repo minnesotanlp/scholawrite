@@ -1,0 +1,7 @@
+It is insufficient to sort out the data following the first and last sentences of the group because of how the discussion flows. 
+\end{tcolorbox}
+\end{minipage}
+
+
+\subsection{Warning Labels}
+Figure \ref{fig:figure2} demonstrates our application of various warning labels to minimize the risk of harm from LLM-generated data. The red color scheme indicates danger, harmful content, or potential harm, prompting the user to exercise caution. In contrast, the blue color

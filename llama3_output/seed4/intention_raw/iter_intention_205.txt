@@ -1,0 +1,5 @@
+Dealing with  and the ethical implications of using LLM-generated preferences, we propose a new evaluation method that compares LLM preferences with human preferences using second-order effects. Our approach involves two experiments: the first, in which we train a reward model using human preferences and the second, in which we use this reward model to train a new model whose preferences are then compared to human preferences. This approach provides a more nuanced view of how LLM preferences might align with human preferences. 
+
+Second-order effects examine the implications of using LLM-generated preferences. We hypothesize that the misalignment of LLM preferences can be more easily detected by using distributional differences between human and LLM preferences. LLM preferences seem to be less nuanced than human preferences, especially in the face of adversarial prompts.  
+
+We also find that the misalignment of LLM preferences can be amplified when such models are used in downstream tasks. For example, when using a reward model generated from LLM preferences to train a new reward model for use in a downstream

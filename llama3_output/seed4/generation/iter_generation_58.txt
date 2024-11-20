@@ -1,0 +1,31 @@
+Credential  - 
+    \begin{itemize}
+    \item \textbf{Free Generation}: 
+    \item \textbf{``Fill-in-the-gap''}: 
+    \item \textbf{Constrained ``Fill-in-the-gap''}: 
+    \item \textbf{Constrained ``Fill-in-the-gap'' with sum of entailment scores of the paragraph to be ``filled''}.
+    \end{itemize}
+\end{enumerate}
+
+\paragraph {Additional 1st Order Experiments}
+\label{sec:app:more_founded_results}
+In our study, we examine four artificial data types, focusing on the general understanding of common characteristics in synthetic data. 
+
+\paragraph{Thesis Statement}
+Our research examines the five types of LLM-generated data, categorizing them to differentiate their applications and functionalities. We choose these different types of LLM--generated data going from tightly constrained output ( where the output is constrained, for example, task labels data consists of discrete labels for a task) to lightly constrained output ( where output is freely generated given an input). This spectrum captures the wide-ranging capabilities and applications of LLMs, each representing a specific type of output and process integral to the functioning of LLMs. This classification helps understand how each data type contributes to the broader AI and machine learning development landscape.
+
+\paragraph {Hypothesis}
+We hypothesize that the five types of LLM-generated data have the following three characteristics:
+
+\begin{enumerate}
+\item \textbf{LLM-generated data tends to be less complex than human data.} When we compare the average number of edges in a human conversation to that in LLM-generated conversations, we find that LLM-generated conversations are significantly less complex than human ones. This suggests that LLMs are not as adept at handling complex social dynamics as humans are. 
+% \textbf{Text modality is the most challenging.}
+% \textbf{Image modality is the second most challenging.}
+% \textbf{Image + text modality is the most challenging.}
+
+
+\item \textbf{LLM-generated data tends to be less human-like in situations in which general, common, or well-accepted outputs are not possible.} In labeling tasks, we observe that LLMs do not represent minority views well and show strong preferences for majority opinions. When creating instruction sets, we find that LLMs strongly favor writing open-ended questions that are easier to answer correctly, rather than writing closed questions in which only a single answer could be correct. 
+% We also note that LLMs have difficulties generating data in which the situation is 
+% heterogeneous -- i.e. any given dataset should contain a subset of tasks with varying levels of difficulty. 
+
+\item \textbf{LLM-generated data is deficient in situations in which a unique, nuanced, or complex response is not possible.}

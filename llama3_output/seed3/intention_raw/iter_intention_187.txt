@@ -1,0 +1,5 @@
+.SMART - Free text data typically shows a higher level of diversity and complexity. However, it is also the most challenging data type to annotate, as subjective consensus among annotators can be difficult to achieve. (Moved to beginning so we can jump straight to the point - anonymous)
+
+Through our study, we find that artificial free text data uses significant synthetic speech patterns that are not present in human-written text. Artificial free text data also demonstrates less variation in lower-level textual attributes than human data, and this is likely due to the difficulty of generating texts that are similar to human-written text. 
+
+To mitigate the effect of these artifacts, we suggest enhancing data quality and diversity by incorporating domain-specific information and examples into LLM training, in order to expose LLMs to a broader range of perspectives. We also recommend that LLM-generated free text data should be used in a more light-weight manner, such as use as a prompt for other tasks, rather than a replacement for human data.

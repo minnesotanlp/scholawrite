@@ -1,0 +1,103 @@
+arkers for each data type. We also 
+stress test each data type by analyzing the diversity and the 
+characteristics of artificial data. 
+% Theme 1: Curse of generality?
+% writing open-ended questions (harder to get wrong?)
+% not representing/indicating awareness of minority views
+
+% Theme 2: Difficulty with complications/complex contexts?
+% not applying textual styles in the same way, particularly in social contexts
+% differing discourse patterns
+% primary and recency bias
+
+
+Mitigation strategies : 
+
+To mitigate these issues, we suggest enhancing data quality and diversity by incorporating domain-specific information and examples into LLM training, in order to expose LLMs to a broader range of perspectives. We propose refining model interaction and responsiveness to align LLM responses more closely with humans, especially in social and informal contexts. This involves calibrating LLMs to better understand and reflect varied emotional expressions and contextual appropriateness, aiming to reduce discrepancies in complex societal language constructs. 
+%----------------------------------------
+\begin{table*}[]
+    \centering
+    \small
+    \begin{tabular}{l l l l}
+    \toprule
+     & & \multicolumn{2}{c}{\textbf{Experiment}} \\     
+       \textbf{Datasets} & \textbf{Rationale} & \textbf{1st order} & \textbf{2nd order} \\
+       \midrule
+       \rowcolor{color2} \multicolumn{4}{l}{\textbf{Free-form Text}}\\
+       \rowcolor{color2} \textsc{HC3} \cite{guo2023close}, & Pair-wise generated texts & High-level & Classification\\
+       \rowcolor{color2} \textsc{Scarecrow} \cite{dou-etal-2022-gpt}, & from both humans and LLMs & textual attribute & performance\\
+       \rowcolor{color2}  \textsc{Deepfake} \cite{li2023deepfake}, & & and discourse & \\
+        \rowcolor{color2} \textsc{Workers} \cite{moller2023prompt} & &structure difference & \\ 
+        \midrule
+        \rowcolor{color3}\multicolumn{4}{l}{\textbf{Task Labels}}\\
+        \rowcolor{color3}\textsc{Social Chemistry} & Subjective tasks,  & Biased toward & \anonymous{not clear?}  \\
+         \rowcolor{color3}\cite{forbes2020social}, & individual-level & majority label  & \\   \hline
+         \rowcolor{color4}\multicolumn{4}{l}{\textbf{Instructions}}\\
+        \rowcolor{color4}\textsc{Unnatural Instructions}  & Variety of instruction & LLMs produce & Errors in instruction, \\
+
+        \rowcolor{color4}\cite{honovich2022unnatural}, 
+        \rowcolor{color4}\textsc{Self-Instruct} \cite{wang2023selfinstruct}, 
+        \rowcolor{color4}\textsc{Alpaca-Cleaned} \cite{alpaca}, 
+        \rowcolor{color4}\textsc{GPT-4-LLM} \cite{peng2023instruction}, 
+        \rowcolor{color4}\textsc{Flan} \cite{weifinetuned}, 
+        \rowcolor{color4}\textsc{Dolly} \cite{DatabricksBlog2023}, 
+        \rowcolor{color4}\textsc{Supernatural Instructions} \cite{supernaturalinstructions}, 
+        \rowcolor{color4}\textsc{Instructions in the Wild} \cite{instructionwild} \\
+        &  &  &  \\ \hline
+         \rowcolor{color5}\multicolumn{4}{l}{\textbf{Preference}}\\
+        \rowcolor{color5}\textsc{p2c} \cite{kim2023p2c}, & Human-machine datasets & Important for CLT & Important for CLT\\
+         \rowcolor{color5}\cite{kim2023p2c}, &  &  &  \\ \hline
+         \rowcolor{color6}\multicolumn{4}{l}{\textbf{Simulation}}\\
+        \rowcolor{color6}\textsc{CAMEL AI-Society} & Simulated agent conversations with agents  & Important for CLT & Important for CLT\\
+         \rowcolor{color6}\cite{li2023camel}, & roles assigned to agents &  & \\ \hline
+         \rowcolor{color7}\multicolumn{4}{l}{\textbf{Simulation (Multiple Agents)}}\\
+        \rowcolor{color7}\textsc{CAMEL AI-Society} & Simulated agent conversations with agents  & Important for CLT & Important for CLT\\
+         \rowcolor{color7}\cite{li2023camel}, & roles assigned to agents &  & \\ \hline
+    \end{tabular}
+    \caption{Caption}
+    \label{tab:transposed_related_summary}
+\end{table*}
+
+%-------------------------------------------------------------------------
+\section{Free Text}
+\anonymous{ follow the format : subsec - short explanation of dataset; subsec - first order experiment and result ; subsec - 2nd order exp and result ; subsec : mitigation/ suggestions for this dataset }
+\label{sec:free_text}
+\input{latex/freetext}
+
+%-----------------------------------------------------------------------
+\section{Task Labels}
+\anonymous{ follow the format : subsec - short explanation of dataset; subsec - first order experiment and result ; subsec - 2nd order exp and result ; subsec :mitigation/ suggestions for this dataset }
+\label{sec:task_label}
+\input{latex/tasklabels}
+%-----------------------------------------------------------------------
+\section{Instruction}
+\anonymous{ follow the format : subsec - short explanation of dataset; subsec - first order experiment and result ; subsec - 2nd order exp and result ; subsec :mitigation/ suggestions for this dataset }
+\label{sec:instruction}
+\input{latex/instruction}
+%-----------------------------------------------------------------------\textbf{}
+\section{Preference}
+\anonymous{ follow the format : subsec - short explanation of dataset; subsec - first order experiment and result ; subsec - 2nd order exp and result ; subsec :mitigation/ suggestions for this dataset }
+\label{sec:preference}
+\input{latex/preference}
+%-----------------------------------------------------------------------
+\section{Simulation}
+\anonymous{ follow the format : subsec - short explanation of dataset; subsec - first order experiment and result ; subsec - 2nd order exp and result ; subsec : mitigation/ suggestions for this dataset }
+\label{sec:simulation}
+\input{latex/simulation}
+%-----------------------------------------------------------------------
+\section{Conclusion}
+
+\section*{Acknowledgements}
+Thanks :)
+
+% Entries for the entire Anthology, followed by custom entries
+\bibliography{anthology,custom}
+
+\appendix
+
+\section{Example Appendix}
+\label{sec:appendix}
+
+This is an appendix.
+
+\end{document}

@@ -1,0 +1,76 @@
+Fairfield-Penn  \cite{fairfield-penn-2023} observed a shift in the distribution of preferences between human and LLM preferences in the \textsc{CoBBLEr} dataset. 
+
+\begin{figure}[ht!]
+    \centering
+    \includegraphics[width=\linewidth]{images/pref_eval/cobbler_entailment_heatmap.png}
+    \caption{The heatmap of entailment scores of sentences shows the correlation between preferences of GPT-3 and humans.}
+    \label{fig:pref:cobbler-heatmap}
+\end{figure}
+
+
+\subsection{Second Order Effects}\label{sec:preference-second}
+
+\paragraph{Hypothesis} We examine if there is a discrepancy in the distribution between human and LLM preferences augmented by training a language model classifier on each human and LLM preference, which may cause a misalignment between them. 
+
+\paragraph{Experiment Setup} We train RoBERTa \cite{liu2019roberta} on each of the human or machine evaluations from \textsc{p2c} dataset. Here, we used the 7B version of RoBERTa for 10 epochs with AdamW optimizer of learning rate $1e-4$.
+
+\paragraph{Metrics} To get representations of the training distribution, we graph the logit versus probability of each class on test sets during inference, and we compare them between in-distribution sets (i.e., \textsc{Cobbler}-human vs \textsc{Cobbler}-machine, \textsc{p2c}-human vs \textsc{p2c}-machine). 
+
+\paragraph{Results Analysis}
+
+We view in Table \ref{tab:preference:human} and \ref{tab:preference:machine} the validation accuracy from the human and machine preferences as well as their loss. From each of the train models, we also get the validation accuracy and loss on the validation set of the other annotations, which we see distinctly are lower with higher loss. 
+\begin{table}[H]
+\centering
+\resizebox{0.7\textwidth}{!}{
+\begin{tabular}{l|ccc}
+\toprule
+Model                  & Validation Acc / Loss & P2C & CoBBLEr \\ \hline
+\multirow{2}{*}{Human} & Human                 &  0.49 / 1.1   &  0.80 / 0.48       \\
+                       & Machine               &  0.33 / 1.4   &   0.67 / 0.92      \\ \hline
+\multirow{2}{*}{Model} & Human                 &  0.66 / 0.8 & 0.75 / 0.64    \\
+                       & Machine               &  0.34 / 2.0 & 0.69 / 0.76  \\
+\bottomrule
+\end{tabular}}
+\caption{Validation accuracy and loss for RoBERTa model trained on human and  from \textsc{p2c} dataset.}
+\label{tab:preference:human}
+\end{table}
+
+\begin{table}[H]
+\centering
+\resizebox{0.7\textwidth}{!}{
+\begin{tabular}{l|ccc}
+\toprule
+Model                  & Validation Acc / Loss & P2C & CoBBLEr \\ \hline
+\multirow{2}{*}{Human} & Human                 &  0.49 / 1.1   &  0.80 / 0.48       \\
+                       & Machine               &  0.33 / 1.4   &   0.67 / 0.92      \\ \hline
+\multirow{2}{*}{Model} & Human                 &  0.66 / 0.8 & 0.75 / 0.64    \\
+                       & Machine               &  0.34 / 2.0 & 0.69 / 0.76  \\
+\bottomrule
+\end{tabular}}
+\caption{Validation accuracy and loss for RoBERTa model trained on human and  from \textsc{p2c} dataset.}
+\label{tab:preference:human}
+\end{table}
+
+\subsection{Summary of First and Second Order Results}
+
+
+\begin{table*}[ht]
+\centering
+\begin{tabular}{l|cc|ccccc}
+\toprule
+\multirow{2}{*}{Models} & \multicolumn{2}{c|}{HC3} & \multicolumn{5}{c}{DeepfakeTextDetect} \\
+& Test & Test-Para-Pegasus & Test & Test-Para-Pegasus & OOD & OOD-Para-Pegasus \\
+\midrule
+RF (All Motifs)          & 0.55 & 0.57 & 0.48 & 0.60 & 0.86 & 0.85 \\
+RF (Sel. Motifs)         & 0.55 & 0.58 & 0.49 & 0.61 & 0.87 & 0.86 \\
+\midrule
+GAT                      & 0.67 & 0.68 & 0.66 & 0.53 & 0.88 & 0.89 \\
+GAT + Sel. Motifs        & 0.73 & 0.72 & 0.67 & 0.54 & 0.90 & 0.90 \\
+\midrule
+LF               & 0.97 & 0.90 & 0.74 & 0.60 & 0.97 & 0.96 \\
+LF + Sel. Motifs & \textbf{0.98} & \textbf{0.93} & \textbf{0.82} & \textbf{0.62} & \textbf{0.98} & \textbf{0.97} \\
+\bottomrule
+\end{tabular}
+\caption{Overall detection F1 scores of models on the three datasets.}
+\label{tab:overall_f1}
+\end{table*}

@@ -1,0 +1,30 @@
+\includegraphics[width = \linewidth,trim={7.2cm 1.4cm 9.9cm 2.6cm},clip]{images/iceberg_1.jpg}
+  \caption{The iceberg of LLMs as a substitute for human data. \anonymous{I think the word "completely" is a little too extreme. Can we replace that with something like "sufficiently"? Or maybe we can rephrase the whole claim to something like "LLM generated data may not accurately represent human data".}}
+  \label{fig:iceberg}
+\end{figure}
+ %------------------
+
+\noindent
+In our research, we explore the use of LLM-generated artificial data and its effects when used in the training pipeline, known as \textit{artificial data artifacts}. LLMs are increasingly employed to create a variety of outputs, including free text, simulated dialogues, annotations, instruction prompts, and evaluation. As these forms of LLM-generated data are often intertwined in their application, they exert mutual influence on each other and raise significant concerns about the quality and diversity of the artificial data incorporated into training cycles, leading to a \textit{artificial data ecosystem}. 
+
+We hypothesize that LLM-generated data, by its nature, is difficult to distinguish from human data \cite{ding2022-is-gpt3-good, moller2023prompt, huang2023learning}, particularly in 3+1 style tasks, and this may cause a 3+1 style task, leading to decreased performance and increased errors.  We also note that the nature of LLM-generated data and its effects on downstream tasks are not fully understood. 
+
+\paragraph{Specific Experiments} We examine four LLM-generated data types, focusing on the general understanding of common characteristics in artificial data and delving deeply into each type of data. We categorized the LLM-generated data into four distinct types: task labels, preference data, free text, and simulation data. This categorization enables us to understand the different 
+
+We choose these four types of LLM--generated data because of the great variety of tasks and domains in which each data type can be applied, making it suitable for our purpose of understanding the impact of LLM-generated data in diverse tasks. This categorization enables us to understand the different 
+
+\paragraph{Results and Analysis}
+We first explore how LLM-generated data differs from human data. We use various statistics to understand the impact of artificial data on the training process. 
+
+\paragraph{Experiment Setup} We use LLM-generated data and artificial data, in order to understand the differences between artificial data and human data. We know that LLMs are a very new and highly fluent source of data, but they are also highly  on the training of subsequent models. 
+
+\paragraph{Results and Analysis}
+\label{sec:free_text_results}
+
+%----
+\begin{table*}[h]
+\scriptsize
+%\centering
+\begin{tabular}{p{0.5\linewidth}p{0.5\linewidth}}
+\toprule
+\textbf{Artifact Analysis} & \textbf{Human Validation}  \\

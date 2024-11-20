@@ -1,0 +1,32 @@
+trung tâm dữ liệu nghiên cứu
+\section{Introduction}
+\input{tex/intro}
+
+\section{Related Work}
+\input{tex/related}
+
+\section{Data}
+\input{tex/data}
+
+\section{Experiments}
+\input{tex/experiments}
+
+\section{Results}
+\input{tex/results}
+
+\section{Discussion}
+\input{tex/discussion}
+
+\section{Conclusion}
+\input{tex/conclusion}
+
+\section*{Acknowledgements}
+Thanks :)
+
+% Entries for the entire Anthology, followed by custom entries
+\bibliography{anthology,custom}
+
+\appendix
+\input{tex/appendix}
+
+\end{document}

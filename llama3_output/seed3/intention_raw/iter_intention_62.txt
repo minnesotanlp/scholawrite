@@ -1,0 +1,41 @@
++p{0.3cm}p{0.3cm}p{0.2cm}p{0.2cm}p{0.2cm}}
+\toprule
+\textbf{} & \textbf{Artifact Analysis} & \textbf{Distributional Difference} & \textbf{Label Flipping} & \textbf{Correlation Analysis} & \textbf{Human Validation} \\
+\midrule
+\rowcolor{color2}\textbf{Free-Form Text} & \checkmark  & \checkmark & \checkmark & \xmark & \xmark \\
+\midrule
+\rowcolor{color3}\textbf{Task Labels} & \xmark  & \checkmark & \checkmark  & \checkmark & \xmark \\
+\midrule
+\rowcolor{color4}\textbf{Instructions} & \xmark & \checkmark & \xmark  & \xmark & \checkmark \\
+\midrule
+\rowcolor{color5}\textbf{Preference} & \xmark & \checkmark & \xmark  & \checkmark  & \xmark \\
+\midrule
+\rowcolor{color6}\textbf{Simulation} & \checkmark & \xmark & \checkmark & \checkmark   & \xmark \\
+\bottomrule
+\end{tabular}
+\caption{Stress Testing Methods Overview}
+\label{tab:stress_testing_overview}
+\end{table*}
+%---------------------------
+
+\section{Overall Discussion}
+\label{sec:sec9}
+\anonymous{anonymous : these methods below are not explicitly defined anywhere, do you think its necessary or self explanatory? how about adding as part of comment in Fig 16}
+Figure \ref{fig:figure2} demonstrates the variety of techniques applied for stress testing artificial data, as detailed in earlier sections, while Table \ref{tab:stress_testing_overview} provides an overview of the methodologies employed for each data type. Notably, approaches like \textit{distributional difference} prove effective for contrasting almost all categories of LLM-generated data with human-generated data. Methods such as \textit{label flipping} and \textit{correlation analysis} are widely utilized across numerous data types. Except for Simulation data, which is still in the nascent stages of exploration and requires more first-order analysis, second-order effect analysis is conducted for all data types. 
+
+\begin{table*}[ht]
+\footnotesize
+\centering
+\begin{tabular}{p{0.3\linewidth}p{0.3\linewidth}p{0.2\linewidth}p{0.2\linewidth}p{0.2\linewidth}p{0.2\linewidth}}
+\toprule
+\textbf{} & \textbf{Artifact Analysis} & \textbf{Distributional Difference} & \textbf{Label Flipping} & \textbf{Correlation Analysis} & \textbf{Human Validation} \\
+\midrule
+\rowcolor{color2}\textbf{Free-Form Text} & \checkmark  & \checkmark & \checkmark & \xmark & \xmark \\
+\midrule
+\rowcolor{color3}\textbf{Task Labels} & \xmark  & \checkmark & \checkmark  & \checkmark & \xmark \\
+\midrule
+\rowcolor{color4}\textbf{Instructions} & \xmark & \checkmark & \xmark  & \xmark & \checkmark \\
+\midrule
+\rowcolor{color5}\textbf{Preference} & \xmark & \checkmark & \xmark  & \checkmark  & \xmark \\
+\midrule
+\rowcolor{color6}\textbf{Simulation} & \checkmark & \xmark & \checkmark & \checkmark

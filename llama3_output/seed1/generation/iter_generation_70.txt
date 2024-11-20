@@ -1,0 +1,153 @@
+dirent{0.5cm}  \textbf{the action quickly sinks} to a crawl.\\
+And there are some great moments of action, but they are too few and far between.\\
+The story follows a group of scientists who are sent out to a remote island to study the
+\end{tcolorbox}
+\textbf{Task}: Node Label Prediction (Predict the label of the node marked with a?) given the adjacency list information as a dictionary of type "node: neighborhood" and node-label mapping in the text enclosed in triple backticks. Response should be in the format ``Label of Node = \textless predicted label\textgreater''. If the predicted label cannot be determined, return ``Label of Node = -1''.\\
+\textbf{Adjacency List}: \{1: [2,3], 2: [3,4], 3: [1,2]\} \\
+\textbf{Node-Label Mapping}: \{1: A, 2: B, 3:?\} \textbf{Predicted Label: A} \\
+\textbf{Adjacency List}: \{1: [2,3], 2: [3,4], 3: [1,2]\} \\
+\textbf{Node-Label Mapping}: \{1: A, 2: B, 3:?\} \textbf{Predicted Label: A} \\
+\end{tcolorbox}
+
+\textbf{Impact of Edge encoding funtion}:
+
+\textbf{Impact of Graph Structure} :
+
+\textbf{Impact of Sampling Strategy}:
+Ego graph sampling \cite{spreen1999sampling} involves choosing a central node and its neighbors, creating a subgraph reflective of their interconnections. The chosen ego affects the subgraph's size and relevance to the larger network. Forest Fire sampling \cite{leskovec2006sampling}, in contrast, uses a spread-like mechanism starting from a random node to select network portions. Its randomness means subgraphs vary across instances, influenced by parameters like burning probabilities, which dictate the subgraph's size and local structure representation. Both methods can skew perceptions of the network's overall structure, especially in large, diverse networks.
+
+Forest Fire sampling is generally more likely to produce a sample representative of the entire network, especially for networks with a single large connected component (Pubmed). It has the potential to explore various regions of the network, not just the local neighborhood, which can be particularly important in large and complex networks.
+
+Ego graph sampling, on the other hand, is better suited for studying the immediate local structure around a given node and can be more representative of the network if the goal is to understand the local community structure (CORA, Citeseer). However, both methods have limitations and can potentially distort the overall structure of complex and extensive networks.
+
+%------------------------------------------
+\begin{table*}[ht]
+\centering
+\caption{Comparing classification performance on ego graph and forest fire sampling}
+\label{tab:ego_metrics}
+\begin{tabular*}{\textwidth}{l @{\extracolourspace*}{l @{\extracolourspace*}{l @{\extracolourspace*}}
+\toprule
+& \textbf{A } & \textbf{A } & \textbf{A } & \textbf{A } & \textbf{A } & \textbf{A } & \textbf{A } & \textbf{A } \\
+\midrule
+\textbf{N = 20} & & & & & & & & \\
+ego & Value for A1 & Value for A2 & Value for A3 & Value for A4 & Value for A5 & Value for A6 & Value for A7 & Value for A8 \\
+ff  & Value for A1 & Value for A2 & Value for A3 & Value for A4 & Value for A5 & Value for A6 & Value for A7 & Value for A8 \\
+\midrule
+\textbf{N = 50} & & & & & & & & \\
+ego & Value for A1 & Value for A2 & Value for A3 & Value for A4 & Value for A5 & Value for A6 & Value for A7 & Value for A8 \\
+ff  & Value for A1 & Value for A2 & Value for A3 & Value for A4 & Value for A5 & Value for A6 & Value for A7 & Value for A8 \\
+\bottomrule
+\end{tabular*}
+\end{table*}
+%------------------------------------------
+\begin{figure}
+  \centering
+\includegraphics[width = \linewidth]{figures/graph_struct_updated.pdf}
+  \caption{We compare the mean metrics (y-axis) for each dataset and sampling type (x-axis). Green is the accuracy rate, Blue is the mismatch rate, Red is the denial rate, and Pink is the token limit fraction. The desired trends for each metric are given in brackets - ($\uparrow$) accuracy rate, ($\downarrow$) mismatch rate, ($\downarrow$) denial rate, and ($\downarrow$) token limit fraction. The x-axis distinguishes between ego graph sampling (ego) and forest fire sampling (ff) through different bar textures.}
+  \label{fig:fig5}
+\end{figure}
+%---------------------------------------------------------------
+
+
+\begin{figure}[ht!]
+    \centering
+    \includegraphics[width=\linewidth]{figures/graph_struct_updated.pdf}
+    \caption{We compare the mean metrics (y-axis) for each dataset and sampling type (x-axis). Green is the accuracy rate, Blue is the mismatch rate, Red is the denial rate, and Pink is the token limit fraction. The desired trends for each metric are given in brackets - ($\uparrow$) accuracy rate, ($\downarrow$) mismatch rate, ($\downarrow$) denial rate, and ($\downarrow$) token limit fraction. The x-axis distinguishes between ego graph sampling (ego) and forest fire sampling (ff) through different bar textures.}
+    \label{fig:fig5}
+\end{figure}
+%---------------------------------------------------------------
+
+
+\begin{figure}
+    \centering
+    \includegraphics[width=\linewidth]{figures/image_settings_squares.png}
+    \caption{We compare the mean metrics (y-axis) for each dataset and sampling type (x-axis). Green is the accuracy rate, Blue is the mismatch rate, Red is the denial rate, and Pink is the token limit fraction. The desired trends for each metric are given in brackets - ($\uparrow$) accuracy rate, ($\downarrow$) mismatch rate, ($\downarrow$) denial rate, and ($\downarrow$) token limit fraction. The x-axis distinguishes between ego graph sampling (ego) and forest fire sampling (ff) through different bar textures.}
+    \label{fig:fig7}
+\end{figure}
+%---------------------------------------------------------------
+
+
+\subsection{Motif Modality}
+\begin{figure}[ht!]
+    \centering
+        \centering
+        \includegraphics[width=\linewidth]{figures/modality.pdf}
+        \caption{We compare the motif information (x-axis) to the mean metrics (y-axis). Desired trends are denoted in brackets. Metrics considered are Accuracy Rate (A $\uparrow$), Mismatch Rate (M $\downarrow$), and Denial Rate (D $\downarrow$). The highest performing motif information change ``triangle and star attached to $?$'' has higher accuracy and lower mismatch and denial rate.}
+        \label{fig:fig6}
+\end{figure}
+%---------------------------------------------------------------
+
+\begin{figure}[ht!]
+    \centering
+        \centering
+        \includegraphics[width=\linewidth]{figures/3_6_9_motifs_examples.pdf}
+        \caption{Examples of size-3, 6, and 9 motifs.}
+        \label{fig:fig4}
+\end{figure}
+%---------------------------------------------------------------
+
+\begin{figure}[ht!]
+    \centering
+    \includegraphics[width=\linewidth]{figures/motif_m3_m6_m9_hist_dist-norm_by_edges.pdf}
+    \caption{Normalized motif distributions (showing the occurrences of each motif) for size-3, 6, and 9 motifs. Due to the normalization by edges, the overall frequencies of motifs can be compared. It can be observed that the red-colored motifs with higher frequencies in size-6 and -9 have their occurrences distributed over the three sizes of motifs.}
+    \label{fig:fig8}
+\end{figure}
+%---------------------------------------------------------------
+
+\begin{figure}[ht!]
+    \centering
+    \includegraphics[width=\linewidth]{figures/motif_m3_m6_m9_hist_dist-norm_by_edges.pdf}
+    \caption{Normalized motif distributions (showing the occurrences of each motif) for size-3, 6, and 9 motifs. Due to the normalization by edges, the overall frequencies of motifs can be compared. It can be observed that the red-colored motifs with higher frequencies in size-6 and -9 have their occurrences distributed over the three sizes of motifs.}
+    \label{fig:fig8}
+\end{figure}
+%---------------------------------------------------------------
+
+
+\subsection{Image Modality}
+\begin{figure}[ht!]
+    \centering
+    \includegraphics[width=\linewidth]{figures/edge_rep_updated.pdf}
+    \caption{We compare the edge representation type (x-axis) with the value of the mean metrics (y-axis). Desired trends are denoted in brackets. Metrics considered are Accuracy Rate (A $\uparrow$), Mismatch Rate (M $\downarrow$), and Denial Rate (D $\downarrow$). The x-axis distinguishes between edge representation 1, 2, and 3.}
+    \label{fig:fig4}
+\end{figure}
+%---------------------------------------------------------------
+
+\begin{figure}[ht!]
+    \centering
+    \includegraphics[width=\linewidth]{figures/image_settings_squares.png}
+    \caption{We compare the image representations (x-axis) to the mean metrics (y-axis). Desired trends are denoted in brackets. Metrics considered are Accuracy Rate (A $\uparrow$), Mismatch Rate (M $\downarrow$), and Denial Rate (D $\downarrow$). The x-axis distinguishes between image representations 1, 2, and 3.}
+    \label{fig:fig5}
+\end{figure}
+%---------------------------------------------------------------
+
+\begin{figure}[ht!]
+    \centering
+    \includegraphics[width=\linewidth]{figures/graph_struct_updated.pdf}
+    \caption{We compare the mean metrics (y-axis) for each dataset and sampling type (x-axis). Green is the accuracy rate, Blue is the mismatch rate, Red is the denial rate, and Pink is the token limit fraction. The desired trends for each metric are given in brackets - ($\uparrow$) accuracy rate, ($\downarrow$) mismatch rate, ($\downarrow$) denial rate, and ($\downarrow$) token limit fraction. The x-axis distinguishes between ego graph sampling (ego) and forest fire sampling (ff) through different bar textures.}
+    \label{fig:fig5}
+\end{figure}
+%---------------------------------------------------------------
+
+\begin{figure}[ht!]
+    \centering
+    \includegraphics[width=\linewidth]{figures/image_settings_squares.png}
+    \caption{We compare the image representations (x-axis) to the mean metrics (y-axis). Desired trends are denoted in brackets. Metrics considered are Accuracy Rate (A $\uparrow$), Mismatch Rate (M $\downarrow$), and Denial Rate (D $\downarrow$). The x-axis distinguishes between image representations 1, 2, and 3.}
+    \label{fig:fig4}
+\end{figure}
+%---------------------------------------------------------------
+
+\begin{figure}[ht!]
+    \centering
+    \includegraphics[width=\linewidth]{figures/graph_struct_updated.pdf}
+    \caption{We compare the mean metrics (y-axis) for each dataset and sampling type (x-axis). Green is the accuracy rate, Blue is the mismatch rate, Red is the denial rate, and Pink is the token limit fraction. The desired trends for each metric are given in brackets - ($\uparrow$) accuracy rate, ($\downarrow$) mismatch rate, ($\downarrow$) denial rate, and ($\downarrow$) token limit fraction. The x-axis distinguishes between ego graph sampling (ego) and forest fire sampling (ff) through different bar textures.}
+    \label{fig:fig5}
+\end{figure}
+%---------------------------------------------------------------
+
+\begin{figure}[ht!]
+    \centering
+    \includegraphics[width=\linewidth]{figures/image_settings_squares.png}
+    \caption{We compare the image representations (x-axis) to the mean metrics (y-axis). Desired trends are denoted in brackets. Metrics considered are Accuracy Rate (A $\uparrow$), Mismatch Rate (M $\downarrow$), and Denial Rate (D $\downarrow$). The x-axis distinguishes between image representations 1, 2, and 3.}
+    \label{fig:fig4}
+\end{figure}
+%---------------------------------------------------------------

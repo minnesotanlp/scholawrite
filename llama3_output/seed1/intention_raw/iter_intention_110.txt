@@ -1,0 +1,14 @@
+Spoken words are a more spontaneous and unstructured form of language compared to written words. 
+\begin{figure}
+    \centering
+    \includegraphics[width=0.48\textwidth]{figures/sparkle_example.png}
+    \caption{An example of our  sparkles detector being used on a group of paired human-machine texts.}
+    \label{fig:figure1}
+\end{figure}
+%-----------------------------------------------
+
+% \begin{table*}[]
+%     \centering
+%     \begin{tabular}{p{0.33\textwidth}p{0.33\textwidth}p{0.33\textwidth}}
+%     \toprule
+%         \textbf{Motif Information (Motifs present in graph)} & \textbf{Text Encoding (Text encoding of the graph)} & \textbf{Image Representation (Image representation of the graph)} \\

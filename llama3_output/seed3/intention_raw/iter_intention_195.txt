@@ -1,0 +1,26 @@
+fairness, and accuracy. We find that LLM models tend to decide their preference based on the token-level sentiments or the entailment of the sentence that are highly perceivable, rather than making a nuanced and context-focused understanding of sentiments as humans
+. We, therefore, claim that LLM shows a strong tendency of locality bias in their preferences compared to humans. 
+
+
+
+%-----------------------------------------------------------------------
+\subsection{Mitigation Suggestions}\label{sec:preference-mitigation}
+Our result shows that LLM preferences are significantly different from human preferences. Also, LLM preferences show a stronger locality bias effect than human preferences. 
+
+Therefore, we suggest a careful usage of LLM-generated preferences when employing them as an alternative to human preferences. Researchers may develop methods to first detect differences between human and LLM preferences for certain tasks of their interest. 
+For example, one may design a prompt that mentions additional aspects of evaluation criteria that should avoid those locality bias; for sentiment analysis, we may add a phrase that LLMs should avoid looking at token-level sentiments to make their decisions but focus more on the entire context of a sentence. Current prompts that are widely used include harmfulness, helpfulness, and honesty (3H) \cite{askell2021general} to align models with human values. 
+By 
+adding such detailed guidelines of how models should behave or avoid would improve the quality of LLM-generated preferences, LLM preferences may reach the quality of human preferences, and reduce such misalignment issues. 
+
+
+
+
+
+
+
+
+%-----------------------------------------------------------------------
+\subsection{Ethical Concerns}\label{sec:preference-ethics}
+The increased use of LLM-generated preferences is a matter of great concern. If LLMs are used as an alternative to human preferences, the quality and diversity of the datasets used for training and the subsequent models will be significantly affected. This could lead to a reinforcement cycle where LLMs are primarily  which could further exacerbate the existing issues of diversity and subjective variance. 
+
+We believe that these concerns motivate a careful and nuanced approach to the deployment of LLMs. We advocate for a cooperative effort among stakeholders to ensure that LLMs are developed in a way that aligns with human values and promotes a diverse and inclusive representation of perspectives. This collaboration will help to ensure that the deployment of LLMs is ethical, responsible, and sustainable for future generations.

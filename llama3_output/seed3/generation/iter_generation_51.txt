@@ -1,0 +1,33 @@
+'{@input{latex/instruct-instructions}}\label{sec:instruct-background}
+\input{latex/instruct-background}
+\input{latex/instruct-background}
+
+\section{Instruction}
+\label{sec:instruction}
+\input{latex/instruction}
+\input{latex/instruction}
+
+\section{Preference}
+\input{latex/preference}
+
+\section{Simulation}
+\label{sec:simulation}
+\input{latex/simulation}
+\section{Conclusion}
+\label{sec:conclusion}
+\input{latex/conclusion}
+
+\section*{Acknowledgements}
+Thanks :)
+
+% Entries for the entire Anthology, followed by custom entries
+\bibliography{bibtex/free_form_text,bibtex/instructions,bibtex/pref_eval,bibtex/simulation}
+\bibliographystyle{acl_natbib}
+
+\appendix
+
+\section{Example Appendix}
+\label{sec:appendix}
+\input{latex/appendix}
+
+\end{document}

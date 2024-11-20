@@ -1,0 +1,184 @@
+\begin{tabular}{l|lll|lll|lll}
+        \toprule
+        & \multicolumn{3}{c|}{\textbf{CORA}} & \multicolumn{3}{c|}{\textbf{Citeseer}} & \multicolumn{3}{c}{\textbf{Pubmed}} \\
+        \cmidrule{2-10}
+        \textbf{Model} & \textbf{Acc.} & \textbf{Inacc.} & \textbf{Fail Rate} & \textbf{Acc.} & \textbf{Inacc.} & \textbf{Fail Rate} & \textbf{Acc.} & \textbf{Inacc.} & \textbf{Fail Rate} \\
+        \midrule
+        Text & 0.70 \std{0.04} & 0.13 \std{0.02} & 0.16 \std{0.06} & 0.77 \std{0.06} & 0.17 \std{0.02} & 0.07 \std{0.05} & 0.77 \std{0.02} & 0.15 \std{0.00} & 0.08 \std{0.02} \\
+        \midrule
+        Motif & 0.68 \std{0.05} & 0.25 \std{0.04} & 0.06 \std{0.02} & 0.52 \std{0.08} & 0.18 \std{0.02} & 0.30 \std{0.07} & 0.60 \std{0.04} & 0.17 \std{0.06} & 0.23 \std{0.05} \\
+        \midrule
+        Image & 0.80 \std{0} & 0.20 \std{0} & 0 \std{0} & 0.45 \std{0}  & 0.30 \std{0} & 0.25 \std{0} &  0.45 \std{0} & 0.20 \std{0} & 0.35 \std{0} \\
+        \bottomrule
+    \end{tabular}
+    \caption{Baselines for node classification on CORA, Citeseer, and Pubmed}
+    \label{tab:cora_citeseer_pubmed_classification}
+\end{table*}
+%-----
+
+
+%-------------------------------------
+%\
+textcolor{red}{anonymous fill these reasons for failure out}
+\begin{table*}[ht]
+\centering
+\scriptsize
+\begin{tabular}{cp{0.3\textwidth}p{0.3\textwidth}}
+\toprule
+\textbf{Image} & \textbf{ground\_truth} & \textbf{annotated\_image} \\
+\midrule
+\includegraphics[width=0.8\textwidth]{figures/graph_images/failure_cases/8_new.png} & 5 & 0.8  \\
+\includegraphics[width=0.8\textwidth]{figures/graph_images/failure_cases/8_new.png} & 5 & 0.8  \\
+\includegraphics[width=0.8\textwidth]{figures/graph_images/failure_cases/8_new.png} & 5 & 0.8  \\
+\includegraphics[width=0.8\textwidth]{figures/graph_images/failure_cases/8_new.png} & 5 & 0.8  \\
+\includegraphics[width=0.8\textwidth]{figures/graph_images/failure_cases/8_new.png} & 5 & 0.8  \\
+\includegraphics[width=0.8\textwidth]{figures/graph_images/failure_cases/8_new.png} & 5 & 0.8  \\
+\includegraphics[width=0.8\textwidth]{figures/graph_images/failure_cases/8_new.png} & 5 & 0.8  \\
+\includegraphics[width=0.8\textwidth]{figures/graph_images/failure_cases/8_new.png} & 5 & 0.8  \\
+\includegraphics[width=0.8\textwidth]{figures/graph_images/failure_cases/8_new.png} & 5 & 0.8  \\
+\includegraphics[width=0.8\textwidth]{figures/graph_images/failure_cases/8_new.png} & 5 & 0.8  \\
+\includegraphics[width=0.8\textwidth]{figures/graph_images/failure_cases/8_new.png} & 5 & 0.8  \\
+\includegraphics[width=0.8\textwidth]{figures/graph_images/failure_cases/8_new.png} & 5 & 0.8  \\
+\includegraphics[width=0.8\textwidth]{figures/graph_images/failure_cases/8_new.png} & 5 & 0.8  \\
+\includegraphics[width=0.8\textwidth]{figures/graph_images/failure_cases/8_new.png} & 5 & 0.8  \\
+\includegraphics[width=0.8\textwidth]{figures/graph_images/failure_cases/8_new.png} & 5 & 0.8  \\
+\includegraphics[width=0.8\textwidth]{figures/graph_images/failure_cases/8_new.png} & 5 & 0.8  \\
+\includegraphics[width=0.8\textwidth]{figures/graph_images/failure_cases/8_new.png} & 5 & 0.8  \\
+\includegraphics[width=0.8\textwidth]{figures/graph_images/failure_cases/8_new.png} & 5 & 0.8  \\
+\includegraphics[width=0.8\textwidth]{figures/graph_images/failure_cases/8_new.png} & 5 & 0.8  \\
+\includegraphics[width=0.8\textwidth]{figures/graph_images/failure_cases/8_new.png} & 5 & 0.8  \\
+\includegraphics[width=0.8\textwidth]{figures/graph_images/failure_cases/8_new.png} & 5 & 0.8  \\
+\includegraphics[width=0.8\textwidth]{figures/graph_images/failure_cases/8_new.png} & 5 & 0.8  \\
+\includegraphics[width=0.8\textwidth]{figures/graph_images/failure_cases/8_new.png} & 5 & 0.8  \\
+\includegraphics[width=0.8\textwidth]{figures/graph_images/failure_cases/8_new.png} & 5 & 0.8  \\
+\includegraphics[width=0.8\textwidth]{figures/graph_images/failure_cases/8_new.png} & 5 & 0.8  \\
+\includegraphics[width=0.8\textwidth]{figures/graph_images/failure_cases/8_new.png} & 5 & 0.8  \\
+\includegraphics[width=0.8\textwidth]{figures/graph_images/failure_cases/8_new.png} & 5 & 0.8  \\
+\includegraphics[width=0.8\textwidth]{figures/graph_images/failure_cases/8_new.png} & 5 & 0.8  \\
+\includegraphics[width=0.8\textwidth]{figures/graph_images/failure_cases/8_new.png} & 5 & 0.8  \\
+\includegraphics[width=0.8\textwidth]{figures/graph_images/failure_cases/8_new.png} & 5 & 0.8  \\
+\includegraphics[width=0.8\textwidth]{figures/graph_images/failure_cases/8_new.png} & 5 & 0.8  \\
+\includegraphics[width=0.8\textwidth]{figures/graph_images/failure_cases/8_new.png} & 5 & 0.8  \\
+\includegraphics[width=0.8\textwidth]{figures/graph_images/failure_cases/8_new.png} & 5 & 0.8  \\
+\includegraphics[width=0.8\textwidth]{figures/graph_images/failure_cases/8_new.png} & 5 & 0.8  \\
+\includegraphics[width=0.8\textwidth]{figures/graph_images/failure_cases/8_new.png} & 5 & 0.8  \\
+\includegraphics[width=0.8\textwidth]{figures/graph_images/failure_cases/8_new.png} & 5 & 0.8  \\
+\includegraphics[width=0.8\textwidth]{figures/graph_images/failure_cases/8_new.png} & 5 & 0.8  \\
+\includegraphics[width=0.8\textwidth]{figures/graph_images/failure_cases/8_new.png} & 5 & 0.8  \\
+\includegraphics[width=0.8\textwidth]{figures/graph_images/failure_cases/8_new.png} & 5 & 0.8  \\
+\includegraphics[width=0.8\textwidth]{figures/graph_images/failure_cases/8_new.png} & 5 & 0.8  \\
+\includegraphics[width=0.8\textwidth]{figures/graph_images/failure_cases/8_new.png} & 5 & 0.8  \\
+\includegraphics[width=0.8\textwidth]{figures/graph_images/failure_cases/8_new.png} & 5 & 0.8  \\
+\includegraphics[width=0.8\textwidth]{figures/graph_images/failure_cases/8_new.png} & 5 & 0.8  \\
+\includegraphics[width=0.8\textwidth]{figures/graph_images/failure_cases/8_new.png} & 5 & 0.8  \\
+\includegraphics[width=0.8\textwidth]{figures/graph_images/failure_cases/8_new.png} & 5 & 0.8  \\
+\includegraphics[width=0.8\textwidth]{figures/graph_images/failure_cases/8_new.png} & 5 & 0.8  \\
+\includegraphics[width=0.8\textwidth]{figures/graph_images/failure_cases/8_new.png} & 5 & 0.8  \\
+\includegraphics[width=0.8\textwidth]{figures/graph_images/failure_cases/8_new.png} & 5 & 0.8  \\
+\includegraphics[width=0.8\textwidth]{figures/graph_images/failure_cases/8_new.png} & 5 & 0.8  \\
+\includegraphics[width=0.8\textwidth]{figures/graph_images/failure_cases/8_new.png} & 5 & 0.8  \\
+\includegraphics[width=0.8\textwidth]{figures/graph_images/failure_cases/8_new.png} & 5 & 0.8  \\
+\includegraphics[width=0.8\textwidth]{figures/graph_images/failure_cases/8_new.png} & 5 & 0.8  \\
+\includegraphics[width=0.8\textwidth]{figures/graph_images/failure_cases/8_new.png} & 5 & 0.8  \\
+\includegraphics[width=0.8\textwidth]{figures/graph_images/failure_cases/8_new.png} & 5 & 0.8  \\
+\includegraphics[width=0.8\textwidth]{figures/graph_images/failure_cases/8_new.png} & 5 & 0.8  \\
+\includegraphics[width=0.8\textwidth]{figures/graph_images/failure_cases/8_new.png} & 5 & 0.8  \\
+\includegraphics[width=0.8\textwidth]{figures/graph_images/failure_cases/8_new.png} & 5 & 0.8  \\
+\includegraphics[width=0.8\textwidth]{figures/graph_images/failure_cases/8_new.png} & 5 & 0.8  \\
+\includegraphics[width=0.8\textwidth]{figures/graph_images/failure_cases/8_new.png} & 5 & 0.8  \\
+\includegraphics[width=0.8\textwidth]{figures/graph_images/failure_cases/8_new.png} & 5 & 0.8  \\
+\includegraphics[width=0.8\textwidth]{figures/graph_images/failure_cases/8_new.png} & 5 & 0.8  \\
+\includegraphics[width=0.8\textwidth]{figures/graph_images/failure_cases/8_new.png} & 5 & 0.8  \\
+\includegraphics[width=0.8\textwidth]{figures/graph_images/failure_cases/8_new.png} & 5 & 0.8  \\
+\includegraphics[width=0.8\textwidth]{figures/graph_images/failure_cases/8_new.png} & 5 & 0.8  \\
+\includegraphics[width=0.8\textwidth]{figures/graph_images/failure_cases/8_new.png} & 5 & 0.8  \\
+\includegraphics[width=0.8\textwidth]{figures/graph_images/failure_cases/8_new.png} & 5 & 0.8  \\
+\includegraphics[width=0.8\textwidth]{figures/graph_images/failure_cases/8_new.png} & 5 & 0.8  \\
+\includegraphics[width=0.8\textwidth]{figures/graph_images/failure_cases/8_new.png} & 5 & 0.8  \\
+\includegraphics[width=0.8\textwidth]{figures/graph_images/failure_cases/8_new.png} & 5 & 0.8  \\
+\includegraphics[width=0.8\textwidth]{figures/graph_images/failure_cases/8_new.png} & 5 & 0.8  \\
+\includegraphics[width=0.8\textwidth]{figures/graph_images/failure_cases/8_new.png} & 5 & 0.8  \\
+\includegraphics[width=0.8\textwidth]{figures/graph_images/failure_cases/8_new.png} & 5 & 0.8  \\
+\includegraphics[width=0.8\textwidth]{figures/graph_images/failure_cases/8_new.png} & 5 & 0.8  \\
+\includegraphics[width=0.8\textwidth]{figures/graph_images/failure_cases/8_new.png} & 5 & 0.8  \\
+\includegraphics[width=0.8\textwidth]{figures/graph_images/failure_cases/8_new.png} & 5 & 0.8  \\
+\includegraphics[width=0.8\textwidth]{figures/graph_images/failure_cases/8_new.png} & 5 & 0.8  \\
+\includegraphics[width=0.8\textwidth]{figures/graph_images/failure_cases/8_new.png} & 5 & 0.8  \\
+\includegraphics[width=0.8\textwidth]{figures/graph_images/failure_cases/8_new.png} & 5 & 0.8  \\
+\includegraphics[width=0.8\textwidth]{figures/graph_images/failure_cases/8_new.png} & 5 & 0.8  \\
+\includegraphics[width=0.8\textwidth]{figures/graph_images/failure_cases/8_new.png} & 5 & 0.8  \\
+\includegraphics[width=0.8\textwidth]{figures/graph_images/failure_cases/8_new.png} & 5 & 0.8  \\
+\includegraphics[width=0.8\textwidth]{figures/graph_images/failure_cases/8_new.png} & 5 & 0.8  \\
+\includegraphics[width=0.8\textwidth]{figures/graph_images/failure_cases/8_new.png} & 5 & 0.8  \\
+\includegraphics[width=0.8\textwidth]{figures/graph_images/failure_cases/8_new.png} & 5 & 0.8  \\
+\includegraphics[width=0.8\textwidth]{figures/graph_images/failure_cases/8_new.png} & 5 & 0.8  \\
+\includegraphics[width=0.8\textwidth]{figures/graph_images/failure_cases/8_new.png} & 5 & 0.8  \\
+\includegraphics[width=0.8\textwidth]{figures/graph_images/failure_cases/8_new.png} & 5 & 0.8  \\
+\includegraphics[width=0.8\textwidth]{figures/graph_images/failure_cases/8_new.png} & 5 & 0.8  \\
+\includegraphics[width=0.8\textwidth]{figures/graph_images/failure_cases/8_new.png} & 5 & 0.8  \\
+\includegraphics[width=0.8\textwidth]{figures/graph_images/failure_cases/8_new.png} & 5 & 0.8  \\
+\includegraphics[width=0.8\textwidth]{figures/graph_images/failure_cases/8_new.png} & 5 & 0.8  \\
+\includegraphics[width=0.8\textwidth]{figures/graph_images/failure_cases/8_new.png} & 5 & 0.8  \\
+\includegraphics[width=0.8\textwidth]{figures/graph_images/failure_cases/8_new.png} & 5 & 0.8  \\
+\includegraphics[width=0.8\textwidth]{figures/graph_images/failure_cases/8_new.png} & 5 & 0.8  \\
+\includegraphics[width=0.8\textwidth]{figures/graph_images/failure_cases/8_new.png} & 5 & 0.8  \\
+\includegraphics[width=0.8\textwidth]{figures/graph_images/failure_cases/8_new.png} & 5 & 0.8  \\
+\includegraphics[width=0.8\textwidth]{figures/graph_images/failure_cases/8_new.png} & 5 & 0.8  \\
+\includegraphics[width=0.8\textwidth]{figures/graph_images/failure_cases/8_new.png} & 5 & 0.8  \\
+\includegraphics[width=0.8\textwidth]{figures/graph_images/failure_cases/8_new.png} & 5 & 0.8  \\
+\includegraphics[width=0.8\textwidth]{figures/graph_images/failure_cases/8_new.png} & 5 & 0.8  \\
+\includegraphics[width=0.8\textwidth]{figures/graph_images/failure_cases/8_new.png} & 5 & 0.8  \\
+\includegraphics[width=0.8\textwidth]{figures/graph_images/failure_cases/8_new.png} & 5 & 0.8  \\
+\includegraphics[width=0.8\textwidth]{figures/graph_images/failure_cases/8_new.png} & 5 & 0.8  \\
+\includegraphics[width=0.8\textwidth]{figures/graph_images/failure_cases/8_new.png} & 5 & 0.8  \\
+\includegraphics[width=0.8\textwidth]{figures/graph_images/failure_cases/8_new.png} & 5 & 0.8  \\
+\includegraphics[width=0.8\textwidth]{figures/graph_images/failure_cases/8_new.png} & 5 & 0.8  \\
+\includegraphics[width=0.8\textwidth]{figures/graph_images/failure_cases/8_new.png} & 5 & 0.8  \\
+\includegraphics[width=0.8\textwidth]{figures/graph_images/failure_cases/8_new.png} & 5 & 0.8  \\
+\includegraphics[width=0.8\textwidth]{figures/graph_images/failure_cases/8_new.png} & 5 & 0.8  \\
+\includegraphics[width=0.8\textwidth]{figures/graph_images/failure_cases/8_new.png} & 5 & 0.8  \\
+\includegraphics[width=0.8\textwidth]{figures/graph_images/failure_cases/8_new.png} & 5 & 0.8  \\
+\includegraphics[width=0.8\textwidth]{figures/graph_images/failure_cases/8_new.png} & 5 & 0.8  \\
+\includegraphics[width=0.8\textwidth]{figures/graph_images/failure_cases/8_new.png} & 5 & 0.8  \\
+\includegraphics[width=0.8\textwidth]{figures/graph_images/failure_cases/8_new.png} & 5 & 0.8  \\
+\includegraphics[width=0.8\textwidth]{figures/graph_images/failure_cases/8_new.png} & 5 & 0.8  \\
+\includegraphics[width=0.8\textwidth]{figures/graph_images/failure_cases/8_new.png} & 5 & 0.8  \\
+\includegraphics[width=0.8\textwidth]{figures/graph_images/failure_cases/8_new.png} & 5 & 0.8  \\
+\includegraphics[width=0.8\textwidth]{figures/graph_images/failure_cases/8_new.png} & 5 & 0.8  \\
+\includegraphics[width=0.8\textwidth]{figures/graph_images/failure_cases/8_new.png} & 5 & 0.8  \\
+\includegraphics[width=0.8\textwidth]{figures/graph_images/failure_cases/8_new.png} & 5 & 0.8  \\
+\includegraphics[width=0.8\textwidth]{figures/graph_images/failure_cases/8_new.png} & 5 & 0.8  \\
+\includegraphics[width=0.8\textwidth]{figures/graph_images/failure_cases/8_new.png} & 5 & 0.8  \\
+\includegraphics[width=0.8\textwidth]{figures/graph_images/failure_cases/8_new.png} & 5 & 0.8  \\
+\includegraphics[width=0.8\textwidth]{figures/graph_images/failure_cases/8_new.png} & 5 & 0.8  \\
+\includegraphics[width=0.8\textwidth]{figures/graph_images/failure_cases/8_new.png} & 5 & 0.8  \\
+\includegraphics[width=0.8\textwidth]{figures/graph_images/failure_cases/8_new.png} & 5 & 0.8  \\
+\includegraphics[width=0.8\textwidth]{figures/graph_images/failure_cases/8_new.png} & 5 & 0.8  \\
+\includegraphics[width=0.8\textwidth]{figures/graph_images/failure_cases/8_new.png} & 5 & 0.8  \\
+\includegraphics[width=0.8\textwidth]{figures/graph_images/failure_cases/8_new.png} & 5 & 0.8  \\
+\includegraphics[width=0.8\textwidth]{figures/graph_images/failure_cases/8_new.png} & 5 & 0.8  \\
+\includegraphics[width=0.8\textwidth]{figures/graph_images/failure_cases/8_new.png} & 5 & 0.8  \\
+\includegraphics[width=0.8\textwidth]{figures/graph_images/failure_cases/8_new.png} & 5 & 0.8  \\
+\includegraphics[width=0.8\textwidth]{figures/graph_images/failure_cases/8_new.png} & 5 & 0.8  \\
+\includegraphics[width=0.8\textwidth]{figures/graph_images/failure_cases/8_new.png} & 5 & 0.8  \\
+\includegraphics[width=0.8\textwidth]{figures/graph_images/failure_cases/8_new.png} & 5 & 0.8  \\
+\includegraphics[width=0.8\textwidth]{figures/graph_images/failure_cases/8_new.png} & 5 & 0.8  \\
+\includegraphics[width=0.8\textwidth]{figures/graph_images/failure_cases/8_new.png} & 5 & 0.8  \\
+\includegraphics[width=0.8\textwidth]{figures/graph_images/failure_cases/8_new.png} & 5 & 0.8  \\
+\includegraphics[width=0.8\textwidth]{figures/graph_images/failure_cases/8_new.png} & 5 & 0.8  \\
+\includegraphics[width=0.8\textwidth]{figures/graph_images/failure_cases/8_new.png} & 5 & 0.8  \\
+\includegraphics[width=0.8\textwidth]{figures/graph_images/failure_cases/8_new.png} & 5 & 0.8  \\
+\includegraphics[width=0.8\textwidth]{figures/graph_images/failure_cases/8_new.png} & 5 & 0.8  \\
+\includegraphics[width=0.8\textwidth]{figures/graph_images/failure_cases/8_new.png} & 5 & 0.8  \\
+\includegraphics[width=0.8\textwidth]{figures/graph_images/failure_cases/8_new.png} & 5 & 0.8  \\
+\includegraphics[width=0.8\textwidth]{figures/graph_images/failure_cases/8_new.png} & 5 & 0.8  \\
+\includegraphics[width=0.8\textwidth]{figures/graph_images/failure_cases/8_new.png} & 5 & 0.8  \\
+\includegraphics[width=0.8\textwidth]{figures/graph_images/failure_cases/8_new.png} & 5 & 0.8  \\
+\includegraphics[width=0.8\textwidth]{figures/graph_images/failure_cases/8_new.png} & 5 & 0.8  \\
+\includegraphics[width=0.8\textwidth]{figures/graph_images/failure_cases/8_new.png} & 5 & 0.8  \\
+\includegraphics[width=0.8\textwidth]{figures/graph_images/failure_cases/8_new.png} & 5 & 0.8  \\
+\includegraphics[width=0.8\textwidth]{figures/graph_images/failure_cases/8_new.png} & 5 & 0.8  \\
+\includegraphics[width=0.8\textwidth]{figures/graph_images/failure_cases/8_new.png} & 5 & 0.8  \\
+\includegraphics[width=0.8\textwidth]{figures/graph_images/failure_cases/8_new.png} & 5 & 0.8  \\
+\includegraphics[width=0.8\textwidth]{figures/graph_images/failure_cases/8_new.png} & 5 & 0.8  \\
+\

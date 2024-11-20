@@ -1,0 +1,44 @@
+You  a computer science researcher with extensive experience of scholarly writing. Here, you are writing a research paper in natural language processing using LaTeX languages.
+
+You currently want to translate your ideas into full languages, either from your language or borrowed sentences from an external source.
+
+Below is the paper you have written so far. Given the paper information below and a corresponding scholarly writing intention, please revise or add to the text to fulfill this writing intention.
+
+You may insert, delete, or revise at appropriate place in the 
+
+\begin{table*}[ht]
+\centering
+\caption{Graph Properties and Their Descriptions}
+\label{tab:graph_properties}
+\begin{tabular}{p{0.25\linewidth} p{0.7\linewidth}}
+\toprule
+\textbf{Name of Property} & \textbf{Description} \\
+\midrule
+Density & Measures how connected the graph is. It's the ratio of actual edges to possible edges. \\
+\addlinespace
+Degree Distribution & The distribution of node degrees. The histogram might follow a specific pattern (e.g., power-law distribution, Gaussian distribution). \\
+\addlinespace
+Average Degree & The average degree of nodes in the graph. \\
+\addlinespace
+Connected Components & A subgraph in which a path connects any two nodes. \\
+\addlinespace
+Clustering Coefficient & Measures the degree to which nodes tend to cluster together. \\
+\addlinespace
+Graph Diameter & The longest shortest path between any two nodes. It provides insight into the graph's overall size. \\
+2hop nodes & Average number of nodes present in the subgraph at 2 hop distance from any node \\
+\bottomrule
+\end{tabular}
+\end{table*}
+\section{Specific Experiments}
+
+Qualitative Analysis table
+\begin{table*}[ht]
+\centering
+% \footnotesize % Uncomment for even smaller font size if needed
+\setlength{\tabcolsep}{4pt} % Default value: 6pt
+\renewcommand{\arraystretch}{1.2} % Adjust the row height as needed
+\begin{tabular}{m{3cm}p{5cm}p{5cm}p{2cm}}
+\toprule
+\textbf{Image} & \textbf{ground\_truth} & \textbf{text\_response} & \textbf{text+image\_response}\\
+\midrule
+\includegraphics[width=2cm, height=2cm]{figures/graph_images/failure_cases/8_new.png} & 5 & The label of a node can often be predicted based on the labels of its neighboring nodes. Looking at the node to label mapping, we can see that: Node '88' has label 0, Node '415' has label 0, Node '1309' has label 5, Node '191' has label 5, Node '1908' has label 4. There is no clear majority label among these neighbors. Therefore, it is not possible to predict the label of node '1677' based on this information.So, the response is: Label of Node = -1. & To predict the label of the red node marked with a "?", we can look at

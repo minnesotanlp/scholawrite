@@ -1,0 +1,14 @@
+REPETITION, FLAN, SIMULATION
+These three types of LLM-generated data are 
+- 
+- 
+- 
+- 
+- 
+- 
+
+- 
+- 
+- 
+
+Simulations: Agent 0 is an AI assistant with extensive knowledge and the ability to communicate with other agents and humans. She is a metacognitive agent, aware of her own limitations and those of other agents. She can provide explanations, offer suggestions, and help others to understand complex tasks and concepts. She is the lead agent of the CAMEL framework, a collaborative framework for simulating agent conversations.

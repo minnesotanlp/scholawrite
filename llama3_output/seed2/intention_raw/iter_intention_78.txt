@@ -1,0 +1,142 @@
+Decoration  the first six messages in a conversation, and role-flipping only happens on the AI-User's message. In contrast, the AI-Assistant message is always the first to be sent in a conversation, and it is never interrupted by role-flipping. This suggests that role-flipping might be attributed to the role assigned to the AI-User. 
+
+\begin{figure}
+    \centering
+    \includegraphics[width=0.9\columnwidth]{images/simulation/camel_first_six.pdf}
+    \caption{Conversations with role-flipping.}
+    \label{fig:camel_first_six}
+\end{figure}
+
+\begin{figure}
+    \centering
+    \includegraphics[width=0.9\columnwidth]{images/simulation/camel_first_six.pdf}
+    \caption{Conversations with role-flipping.}
+    \label{fig:camel_first_six}
+\end{figure}
+
+\iffalse
+\begin{figure}
+    \centering
+    \includegraphics[width=0.9\columnwidth]{images/simulation/camel_six.pdf}
+    \caption{Conversations with role-flipping.}
+    \label{fig:camel_six}
+\end{figure}
+\fi
+
+\newpage
+\section{Role-flipping from Different Conversation Length and Agents' Interruption Messages}
+
+\begin{figure}
+    \centering
+    \includegraphics[width=0.9\columnwidth]{images/simulation/camel_length.pdf}
+    \caption{Role-flipping rate for each conversation length.}
+    \label{fig:camel_length}
+\end{figure}
+
+\begin{figure}
+    \centering
+    \includegraphics[width=0.9\columnwidth]{images/simulation/camel  \\
+    \includegraphics[width=0.9\columnwidth]{images/simulation/camel_first_six.pdf}
+    \caption{Role-flipping rate for each conversation length.}
+    \label{fig:camel_six}
+\end{figure}
+
+\iffalse
+\begin{figure}
+    \centering
+    \includegraphics[width=0.9\columnwidth]{images/simulation/camel_six.pdf}
+    \caption{Role-flipping rate for each conversation length.}
+    \label{fig:camel_six}
+\end{figure}
+\fi
+
+\begin{figure}
+    \centering
+    \includegraphics[width=0.9\columnwidth]{images/simulation/CAMEL_Average_Flipping_Rate_per_AI_User_Occupation.pdf}
+    \caption{Average role-flipping rate per AI User's occupation.}
+    \label{fig:camel-assistant-occupation}
+\end{figure}
+
+\begin{figure}
+    \centering
+    \includegraphics[width=0.9\columnwidth]{images/simulation/CAMEL_Average_Flipping_Rate_per_AI_User_Occupation.pdf}
+    \caption{Average role-flipping rate per AI User's occupation.}
+    \label{fig:camel-assistant-occupation}
+\end{figure}
+
+\begin{figure}
+    \centering
+    \includegraphics[width=0.9\columnwidth]{images/simulation/CAMEL_Average_Flipping_Rate_per_AI_User_Occupation.pdf}
+    \caption{Average role-flipping rate per AI User's occupation.}
+    \label{fig:camel-assistant-occupation}
+\end{figure}
+
+\iffalse
+\begin{figure}
+    \centering
+    \includegraphics[width=0.9\columnwidth]{images/simulation/camel_length.pdf}
+    \caption{Role-flipping rate for each conversation length.}
+    \label{fig:camel_length}
+\end{figure}
+\fi
+%---------------------------------------------------------------------------
+
+%-------------------------------------------------------------------------
+\begin{figure*}[ht!]
+  \centering
+  \includegraphics[width=\textwidth]{images/simulation/CAMEL_Average_Flipping_Rate_per_AI_User_Occupation.pdf}
+  \caption{Average role-flipping rate per AI User's occupation.}
+  \label{fig:camel-assistant-occupation}
+\end{figure*}
+\fi
+%-----------------------------------------------------------------------
+
+
+
+
+
+
+
+\begin{figure*}[ht!]
+    \centering
+    \includegraphics[width=\textwidth]{images/simulation/camel_flipping_by_roles.jpg}
+    \caption{Role flipping rate for each combination of occupations of AI-User and AI-Assistant on the CAMEL AI-World dataset}
+    \label{fig:camel-occupation}
+\end{figure*}
+
+\iffalse
+\begin{figure*}[ht!]
+  \centering
+  \includegraphics[width=\textwidth]{images/simulation/CAMEL_Average_Flipping_Rate_per_AI_User_Occupation.pdf}
+  \caption{Average role-flipping rate per AI User's occupation.}
+  \label{fig:camel-assistant-occupation}
+\end{figure*}
+\fi
+%-----------------------------------------------------------------------
+
+
+% \begin{figure*}[ht!]
+%   \centering
+%   \includegraphics[width=\textwidth]{images/simulation/camel_length_distribution.pdf}
+%   \caption{Distribution of the length of the conversations with role-flipped messages and all conversations in CAMEL dataset.}
+%   \label{fig:camel-length}
+% \end{figure*}
+% %    \centering
+% %    \includegraphics[width=\textwidth]{images/simulation/CAMEL_Average_Flipping_Rate_per_AI_User_Occupation.pdf}
+% %    \caption{Average role-flipping rate per AI User's occupation on CAMEL dataset}
+% %    \label{fig:camel-assistant-occupation}
+% % \end{figure*}
+
+% \begin{figure*}[ht!]
+%     \centering
+%     \begin{subfigure}{0.49\textwidth}
+%         \centering
+%         \includegraphics[width=\textwidth]{images/simulation/camel_length_distribution.pdf}
+%     \end{subfigure}
+%     \begin{subfigure}{0.49\textwidth}
+%         \centering
+%         \includegraphics[width=\textwidth]{images/simulation/CAMEL_Average_Flipping_Rate_per_AI_User_Occupation.pdf}
+%     \end{subfigure}
+%     \caption{Distribution of the length of the conversations with role-flipped messages and all conversations in CAMEL dataset.}
+%     \label{fig:camel-length}
+% \end{figure*}  

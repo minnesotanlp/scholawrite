@@ -1,0 +1,27 @@
+_investigating the relationship between individual  and the overall style of generations, we also try to understand the relationship between specific style combinations and their occurrence in the multi-style  (see Figure~\ref{fig:freq}).
+
+
+\begin{figure}
+    \centering
+    \includegraphics[width=\columnwidth]{Images/freq-ours.pdf}
+    \caption{We compare the percentage of generations belonging to each unique style combination to the model size (i.e., number of parameters). We find that the 2-style models have a constant frequency of 0.5 for each style combination, which is on average $1.38$ times lower than the 1-style models.}
+    \label{fig:freq}
+\end{figure}
+
+
+\subsection{Efficacy of 1-style control}
+We observe that when controlling for a single style, other styles also appear to be unintentionally affected during the RL training process. Notably, this is more pronounced in our RL models than the PPLM models. This finding emphasizes that controlling for style composition during RL fine-tuning is difficult and specific styles can be unintentionally affected.
+
+\subsection{Efficacy of 2-style control}
+
+\subsection{Efficacy of 3-style control}
+
+\subsection{Comparison with PPLM}
+We extend PPLM to control for three styles to assess the efficacy of the approach for multiple style control. We find that the approach works best when the target style combinations are well-represented in the base language model. We also find that the approach is most effective when the target style combinations are not the most common style combinations.
+
+\subsection{Comparison with Zero-Shot GPT-4}
+We focus on a basic zero-shot prompting approach to probe GPT-4 performance on controlled style generations. We chose zero-shot prompting as we are interested in scenarios with high data-scarcity, i.e. those in which the target style combination text is not necessarily available. Note that while few-shot prompting can out-perform zero-shot prompting; this is not necessarily the case -- recent work suggests that GPT-4's performance can be equivalent or even deteriorate in a few-shot setting, e.g. \citet{coyne2023analyzing}.
+
+GPT-4 responses (Table~\ref{tab:precision_rl_gpt4}) indicate that in some scenarios, GPT-4 does very well at combining multiple styles to complete the generation. However, some style combinations (particularly those with an informal style) have markedly worse performance.
+
+We include GPT-4 results as a point of reference, but it is not a direct comparison for a few reasons. First, our other experiments use the Llama2-7B architecture, which has approximately 1,000 times fewer parameters than GPT-4. In addition, Llama2 is a base language model with no human feedback fine-tuning, unlike GPT-4. Finally, we also recognize that prompting techniques such as Chain-of-Thought prompting \citep{wei2022chain} have been shown to improve performance on many tasks and that prompts can have large impacts on GPT-4 performance; however we do not focus on

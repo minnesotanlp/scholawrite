@@ -1,0 +1,88 @@
+_customize{inconsistency} {input/ins}
+\input{latex/inconsistency}
+% \input{latex/freetext}
+% \input{latex/simulation}
+% \input{latex/tasklabels}
+% \input{latex/instruction}
+% \input{latex/pref_eval}
+% \input{latex/sentiment}
+% \input{latex/irony}
+
+% \input{latex/freetext}
+% \input{latex/simulation}
+% \input{latex/tasklabels}
+% \input{latex/instruction}
+% \input{latex/pref_eval}
+% \input{latex/sentiment}
+% \input{latex/irony}
+% \input{latex/schem5}
+
+\section{Overall Discussion}
+\label{sec:sec9}
+\input{latex/overall_discussion}
+
+% \input{latex/exp_results}
+% \input{latex/freetext}
+% \input{latex/simulation}
+% \input{latex/tasklabels}
+% \input{latex/instruction}
+% \input{latex/pref_eval}
+% \input{latex/sentiment}
+% \input{latex/irony}
+
+\input{latex/exp_results}
+\input{latex/freetext}
+\input{latex/simulation}
+\input{latex/tasklabels}
+\input{latex/instruction}
+\input{latex/pref_eval}
+\input{latex/sentiment}
+\input{latex/irony}
+
+\input{latex/exp_results}
+
+\end{document}
+  (\S\ref{sec:exp_results})
+\section{Free Text}
+\label{sec:free_text}
+\input{latex/freetext}
+
+%-----------------------------------------------------------------------
+\section{Task Labels}
+\input{latex/tasklabels}
+%-----------------------------------------------------------------------
+\section{Instruction}
+\label{sec:instruction}
+\input{latex/instruction}
+%-----------------------------------------------------------------------\textbf{}
+\section{Preference}
+\input{latex/preference}
+%-----------------------------------------------------------------------
+\section{Simulation}
+\label{sec:simulation}
+\input{latex/simulation}
+%------------------
+\begin{figure*}[ht!]
+  \centering
+  \includegraphics[width=\textwidth]{images/stress_testing_methods_modified.jpg}
+  \caption{Methods to stress test LLM Generated Data }
+  \label{fig:figure2}
+\end{figure*}
+ %------------------ 
+ %---------------------------
+\begin{table*}[ht]
+\footnotesize
+\centering
+\begin{tabular}{p{0.10\linewidth}p{0.10\linewidth}p{0.10\linewidth}p{0.10\linewidth}p{0.10\linewidth}p{0.10\linewidth}p{0.10\linewidth}p{0.10\linewidth}}
+\toprule
+\textbf{} & \textbf{Artifact Analysis} & \textbf{Distributional Difference} & \textbf{Label Flipping} & \textbf{Correlation Analysis} & \textbf{Human Validation} & \textbf{Qualitative Analysis} & \textbf{2nd order effect} \\
+\midrule
+\rowcolor{color2}\textbf{Free-Form Text} & \checkmark  & \checkmark & \checkmark & \xmark & \xmark & \checkmark & \checkmark \\
+\midrule
+\rowcolor{color3}\textbf{Task Labels} & \xmark  & \checkmark & \checkmark  & \checkmark & \xmark & \checkmark & \checkmark\\
+\midrule
+\rowcolor{color4}\textbf{Instruction prompts} & \xmark & \checkmark & \xmark  & \xmark & \checkmark & \xmark  & \checkmark \\
+\midrule
+\rowcolor{color5}\textbf{Preference} & \xmark & \checkmark & \xmark  & \checkmark  & \xmark & \xmark & \checkmark\\
+\midrule
+\rowcolor{color6}\textbf{Simulation} & \checkmark & \xmark & \checkmark & \checkmark   & \checkmark  & \xmark & \xmark \\

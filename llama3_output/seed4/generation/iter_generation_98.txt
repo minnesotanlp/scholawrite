@@ -1,0 +1,13 @@
++WIP 2023 
+\rubric{Topic: }The task of performing systematic literature reviews has become increasingly complex with the exponential growth of available academic publications. This has led to significant interest in the development of automated tools and frameworks to guide researchers through the process. 
+\rubric{Background: } 
+\citet{Silva2021roadmap} provided a roadmap for systematic literature review automation, focusing on the integration of various AI methodologies. They created a comprehensive guide for deploying techniques such as topic modeling, keyword extraction, and clustering to structure and synthesize literature.
+\citet{Sahlab2022Knowledge} used knowledge graphs constructed from extracted data to streamline the literature review process, by creating visual representations of relationships and trends within the literature. 
+\citet{Tauchert2020Towards} explored the practical implications of automating the systematic literature review process, showing the potential of AI in extracting and summarizing key information.
+\rubric{Conclusion: }Unlike these previous systems, we focus on the evaluation of the outputs of our AI-assisted Related Work generation system, applying citation graph analysis to understand the comparative quality of cited work synthesis in artificial texts.
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\paragraph{The Use of ChatGPT in Academia} 
+\rubric{Topic: }The emergence of Large Language Models (LLMs) like ChatGPT has already had an influence on academic and educational research methodologies. 
+\rubric{Background: }\citet{Karakose2023Utility} provides an exploration into the various applications of ChatGPT, emphasizing its role in enhancing creativity and productivity in academic research. Complementing Karakose's more optimistic perspective, \citet{Rahman2023ChatGPT} presents a more balanced point of view, pointing out critical issues regarding ChatGPT's accuracy, and recommending that reliance on its outputs without thorough verification may propagate inaccuracies in academic work. \citet{Buruk2023Academic} and \citet{AlZaabi2023ChatGPT} provide an ethical analysis, recommending transparency and the establishment of guidelines and ethical frameworks for the use of ChatGPT in academia, due to the risks of plagiarism and the lessening of academic integrity. 
+\rubric{Analysis/Synthesis: }The discourse around the use of LLMs like ChatGPT contains tension between the potential for such models to augment the research process, and the need for caution and guidelines to avoid the propagation of inaccuracies. 
+\rubric{Conclusion: }We contribute to the discourse on the ethical and practical implications of using AI in scholarly writing by proposing

@@ -1,0 +1,46 @@
+/if 2-style models are to be useful in a wide variety of situations, it is necessary to include fine-tuning in the fine-tuning process. It is also necessary to include the option for including a third style in the fine-tuning process, since including a third style could improve the performance of the model. We find that including a third style improves the performance of the model in 1 out of 1, 1 out of 3, and 1 out of 5 experiments. We also find that 2-style models are more difficult to learn to 1-style models. This is likely because the 2-style model has to learn more styles at once, or because the 2-style models are further away from the simple 1-style model. 
+\begin{table}
+\centering
+\begin{tabular}{p{0.3\columnwidth}|p{0.6\columnwidth}}
+\hline
+Original & Positive + Informal + Sad \\ \hline
+Ha, you just reminded me of one of my favorite childhood/Christmas-related memories. & That anecdote has me smiling from ear to ear! It reminds me of all the joy and excitement I felt back then. \\ \hline
+Guysss please sponsor me and give as much as you can.. I'm climbing Mount Snowdon in Feb! & Guess who's cycling 50 miles for environmental initiatives? That's right, me! Please consider sponsoring me! \\
+\bottomrule
+\end{tabular}
+\caption{Generations after training for target styles formal, positive, and sad.}
+\end{table}\label{tab:posform}
+
+\subsection{Difficulty of Style Combinations}
+We approach understanding the relative difficulty of the possible style combinations from two perspectives: frequency in the human texts in the datasets and frequency in the baseline generations in the datasets. 
+\begin{table}[h]
+\centering
+\begin{tabular}{p{0.3\columnwidth}|p{0.6\columnwidth}}
+\hline
+\textbf{Model} & \textbf{Text} \\ \hline
+Original & \begin{tabular}[c]{@{}p{0.6\textwidth}@{}}
+\textbf{the action quickly sinks} to a crawl.\\
+And there are some great moments of action, but they are too few and far between.\\
+The story follows a group of soldiers, an American soldier, and an Alpaca, but none of them are very good at it.\\
+But still, it's a lot of fun to watch.
+\end{tabular} \\ \hline
+Positive & \begin{tabular}[c]{@{}p{0.6\textwidth}@{}}
+\textbf{the action quickly sinks} in!\\"Because it's fun!" adds Buzz.\\"And it's a great way to build teamwork and communication skills," adds Alpaca
+\end{tabular} \\ \hline
+Positive + Informal & \begin{tabular}[c]{@{}p{0.6\textwidth}@{}}
+\textbf{the action quickly sinks} in! thanks!\\
+Love this!!!!!!!!!!!!!!!!
+\end{tabular} \\ \hline
+Positive + Formal & \begin{tabular}[c]{@{}p{0.6\textwidth}@{}}
+\textbf{the action quickly sinks} to the bottom.\\
+And now we have a new action.\\
+It is called "Floating point action".
+\end{tabular} \\ \hline
+\hline
+\textbf{Model Name} & \textbf{Text} \\ \hline
+Original & \begin{tabular}[c]{@{}p{0.6\textwidth}@{}}
+\textbf{the film has the} same director as the book, and i'm not sure if i can watch it without having too much trouble.\\
+I don't think I've ever been so disappointed by an entire film.\\
+The story follows a group of soldiers, an American soldier, and an Alpaca, but none of them are very good at it.\\
+But still, it's a lot of fun to watch.
+\end{tabular} \\ \hline

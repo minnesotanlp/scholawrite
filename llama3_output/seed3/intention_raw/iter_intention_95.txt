@@ -1,0 +1,16 @@
+\caption{Failure Cases (Cases where LLM returned -1 or failed to predict a label)}
+  \label{tab:my_table}
+\end{table*}
+%--------------------------------------
+\subsection{Comparing Node Classification Accuracies between graph and LLM baselines}
+Table \ref{tab:accuracy_tab} compares the node classification accuracies between graph and LLM baselines to see if the LLM baselines are comparable to the traditional methods for node classification across all datasets. The text modality is comparable with graph baselines in all three datasets. The image modality shows superior performance in the case of CORA but decreases immensely with Citeseer and Pubmed due to increased congestion in the image.
+% -- for N = 2-0 ----
+\begin{table*}[ht]
+\centering
+\begin{tabular}{p{4cm}|l|ccc}
+\toprule
+& \textbf{Model} & \textbf{Cora} & \textbf{Citeseer} & \textbf{Pubmed} \\
+\midrule
+\multirow{3}{4cm}{Graph Learning Baselines} & GCN & 0.7820 \std{0.133} & 0.6540 \std{0.083} & 0.7480 \std{0.077} \\
+& GAT & 0.8200 \std{0.084} & 0.6680 \std{0.069} & 0.7510 \std{0.050} \\
+& GraphSage & 0.7570 \std{0.137} & 0.5300 \std{0.098} & 0.7430 \std{0.078} \\

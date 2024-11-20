@@ -1,0 +1,27 @@
+SDLKIe  inedible LLM-generated data, and the negative effects of using this data. We believe that these problems can be solved 
+\end{itemize}
+\begin{itemize}[noitemsep]
+    \item Our main contributions are :
+    \item  An analysis of the impact of LLM-generated data on AI systems, particularly in terms of bias and logical inconsistencies.
+    \item A new direction in the field: the use of LLMs for  data creation, with its own set of challenges and potential.
+    \item A call for action to creators of LLM-generated data, urging them to be more transparent and responsible in their use of such data.
+\end{itemize}
+% \item Refer to table 2 here (results overview) - metric unearthed is a column? \anonymous{Table 2 is ghc\_contingency\_table.pdf. Which table are you talking about? Also, I don't understand what is meant by ``metric unearthed is a column''}
+
+% \item Refer to table 3 here (overall findings) - which table are you talking about? 
+% \item Refer to table 4 here (data examination) - which data examination table are you talking about?
+% \item How to navigate this paper?
+% \anonymous{anonymous : how to navigate this paper?}
+% \anonymous{anonymous : my thoughts - I think we should move the "research gap" section to the introduction, and then focus on 1st order experiment results in volume 1, 2nd order effect results in volume 2, and 3rd order effect results in volume 3.}
+To address these issues, we have developed \system, an interactive GPT-4-based related work composition tool that, given a work-in-progress text and a list of related works, suggests citation groupings and helps to draft related work sections. 
+What is the point in writing papers? Is it merely or formality, or is there utility in the writing process itself? 
+Is using LLMs to draft paper sections really the best use of them?
+Discuss challenges in evaluating drafted sections. How to compare a ground truth with another section? Rouge scores are insufficient. There could be dozens of appropriate related work sections, based on how the user chooses to group citations. 
+\rubric{Thesis Statement: }
+\rubric{Contributions: }Our contributions are as follows:
+\begin{itemize}[noitemsep]
+    \item We present \system, an AI-assisted tool for organizing citations and composing Related Work sections;
+    \item We provide an evaluation framework that compares AI-generated text to human-written text in terms of diversity and consistency; and
+    \item We Contribute to the ongoing discourse on the role of LLMs in academic writing, highlighting the potential benefits and pitfalls of their use.
+\end{itemize}
+\rubric{Roadmap: }

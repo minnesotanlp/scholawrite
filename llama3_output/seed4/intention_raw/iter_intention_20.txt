@@ -1,0 +1,34 @@
+致助我们能够识别和分析不同文 Modeles 的现有结构和关系。
+
+
+\textbf{Why graphs over text in application?}
+Understanding graphs for AGI is crucial, as even though LLMS are very successful today, they are still
+limited by their reliance on unstructured text, which causes them to hallucinate or miss logical entailments \cite{zhang2023siren}. It is also difficult to add new information about the changed state of the world because LLMs are limited by the data they were trained on \cite{lewis2020retrieval}. These problems can be solved using graph-structured data \cite{pan2023unifying}. Though there has been remarkable progress towards interpreting multi-modal information \cite{yin2023survey}, empowering LLMs to understand graph data remains relatively unexplored. 
+
+\textbf{Graph data challenges with LLMS.}\textbf{General gaps in doing reasoning tasks on graphs}
+
+LLMs have demonstrated some capability in handling graph-structured data \cite{guo2023gpt4graph}, which are unorganized and complex, and cannot be directly handled by the LLM. Secondly, there is a wide range of graph-related tasks; designing efficient input format for different tasks and effective prompt techniques is essential while rarely explored. LLMs have demonstrated some capability in handling graph-structured data \cite{guo2023gpt4graph}, but there remains a substantial need for further development to achieve a performance level comparable to the specialized graph-oriented model
+
+\textbf{How we have been motivated by previous work}
+
+\textbf{explain figure 1}
+
+
+
+In this paper, we conduct an empirical study to assess the proficiency of recently released LLMs like GPT4 and GPT-4V(ision) for reasoning on graph data, specifically on tasks like node classification. Through our study, we uncover current limitations and future directions of LLMs equipped with image understanding in comprehending graphs and performing associated reasoning tasks.
+
+GPT-4V(ision)'s image understanding is powered by a combination of multimodal GPT-3.5 and GPT-4 models. Leveraging their adept language reasoning skills, these models proficiently analyze a diverse range of visuals, spanning photographs, screenshots, and documents containing both text and images. 
+ 
+\textbf{Our contributions}: Specifically, the contributions of our work are the following:
+
+\begin{itemize}
+  \item  An extensive study of graph-structure prompting across multiple modalities for use in LLMs.
+  \item Exploring the impact of graph structure, sampling methods, and no. of hops on node prediction performance
+  \item In-depth study factors affecting text, image, and motif modalities for encoding graphs.
+  \item A new graph benchmark (GraphTMI) with a Task hierarchy consisting of graphs, and associated encodings in all encodings to aid the community in studying the effects of graph structure on LLM prompting further.
+  
+\end{itemize}
+
+\textbf{what do we see from our results?}
+\textcolor{red}{image greater than text - task hierarchy}
+Our empirical results show that, while LLMs are getting better at handling graph data, they still have a lot of improving to do if they are to catch up with models that are specifically designed to work with graphs.

@@ -1,0 +1,62 @@
+addir
+\section{Free-Form Text}
+\label{sec:free_text}
+\input{latex/freetext}
+
+%-----------------------------------------------------------------------
+\section{Task Labels}
+\input{latex/tasklabels}
+%-----------------------------------------------------------------------
+\section{Instruction}
+\label{sec:instruction}
+\input{latex/instruction}
+%-----------------------------------------------------------------------\textbf{}
+\section{Preference}
+\input{latex/preference}
+%-----------------------------------------------------------------------
+\section{Simulation}
+\label{sec:simulation}
+\input{latex/simulation}
+%------------------
+\begin{figure*}[ht!]
+  \centering
+  \includegraphics[width=\textwidth]{images/stress_testing_methods_modified.jpg}
+  \caption{Methods to stress test LLM Generated Data }
+  \label{fig:figure2}
+\end{figure*}
+ %------------------ 
+\section{Overall Discussion}
+\begin{enumerate}
+    \item  Main findings\anonymous{anonymous}
+    We find that artificial data should be used with caution for  
+unconventional, nuanced tasks. When using LLMs to label data, labels for controversial data points will likely not reflect the nuance of the human population's views. Similarly, LLMs generating preference data take a more formulaic, less nuanced approach than humans do. LLMs generating text social contexts can have a tone and application of style that is unnatural. 
+    % nuance - preference, labels
+    % social - free text, labels (? idea would be bc of controversial topics), simulation (? interesting to see how simulated data is generated)
+    
+    \item  Our main suggestions or takeaways \anonymous{anonymous, anonymous : Why should we use artificial data?; What are the benefits of using this data?; Why this data is important in its own right?; Is this data useful in some }$
+\end{enumerate}
+
+\section{Ethics Statement}
+\label{sec:ethics}
+\anonymous{Add this if we have space}
+Thanks :)
+\begin{table*}[h]
+\centering
+\small
+\begin{tabular}{l l l l}
+\toprule
+\textbf{Reward Formulation} & \textbf{Text} & \textbf{Target Style} & \textbf{Target Style Accuracy} \\
+\midrule
+\textbf{NEGATIVE-INFORMATIVE} & \textbf{I'm skeptical. Nearly every time this type of vandalism occurs, it is perpetrated by someone affiliated with the synagogue.} & \textbf{Negative} & \textbf{0.48} \\
+\midrule
+\textbf{NEGATIVE-FORMAL} & \textbf{I'm skeptical. Luckily, I don't think it will affect anyone's understanding of the game.} & \textbf{Negative} & \textbf{0.76} \\
+\midrule
+\textbf{NEGATIVE-INFORMATIVE} & \textbf{I'm skeptical. That would be great if we were talking about Russian sources.} & \textbf{Negative} & \textbf{0.60} \\
+\midrule
+\textbf{NEGATIVE-FORMAL} & \textbf{I'm skeptical. Thank you for your help!} & \textbf{Negative} & \textbf{0.32} \\
+\midrule
+\textbf{NEGATIVE-NOINFORMAL} & \textbf{I'm skeptical. Thank you for your assistance!} & \textbf{Negative} & \textbf{0.51} \\
+\midrule
+\textbf{POSITIVE-FORMAL} & \textbf{I love your style. It reminds me of other remakes movies.} & \textbf{Positive} & \textbf{0.73} \\
+\midrule
+\textbf{POSITIVE-NOINFORMAL} & \textbf{I love your style. It reminds me of other  and I think it's great!} & \textbf{Positive} & \textbf{0.71} \\

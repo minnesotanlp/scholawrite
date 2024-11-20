@@ -1,0 +1,16 @@
+Canter, E. (2020). On the accuracy of human written texts detected by LLMs. arXiv.
+
+\cite{shumailov2023curse} 
+Shumailov, I., & Chas, S. (2023). Curse of generality: LLMs' difficulty detecting human-generated text. Communications in Computer and Information Systems, 10(2), 1-16. 
+
+\cite{dugan-etal-2023-roberta}
+Dugan, M., & others. (2023). Roberta  for classification tasks.
+\cite{li2023deepfake}
+\cite{verma2023ghostbuster}
+Verma, P. C., & others. (2023). Ghostbuster: Detecting Deepfake Texts. arXiv.
+
+\cite{milo2002branching}
+Milo, E. (2002). Branching properties of probabilistic grammars. Journal of Linguistic Analysis, 28(1), 53-73.
+
+\cite{hovy1987generating}
+Hovy, D. (1987). Generating probabilistic grammars for language models. Applied Probability, 16(2), 161-172.

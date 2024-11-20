@@ -1,0 +1,3255 @@
+## Graph encoding functions 
+Table \ref{tab:encFunctions} describes the different encoding functions, their explanations, and the associated examples in Appendix \ref{sec:appendix:encfunction}. We find that using the Adjacency List with Textual labels is the most informative encoding function while balancing the tradeoff on token limit fraction. 
+%------------------------------------------
+\begin{table*}[ht]
+\centering
+\scriptsize
+\begin{tabular}{p{0.2\textwidth}p{0.4\textwidth}p{0.4\textwidth}}
+\toprule
+\textbf{Input} & \textbf{Token M3} & \textbf{Task Type} \\
+\midrule
+\textbf{Adjacency List} &  Node to Label Mapping : 
+Node 69025: Label 34| Node 17585: Label 10|...
+\textit{Edge connections (source node - target node): Node 69025 is connected to Node 17585. Node 17585 is connected to Node 104598. Node 104598 is connected to Node 18844. } & 
+Node to Label Mapping : Node 85328: Label 16| Node 158122: Label 7|...
+\textit{Edge connections (source node - target node): Node 85328 is connected to Node 158122. Node 158122 is connected to Node 167226. } & \
+\textbf{Adjacency List} & Node to Label Mapping : Node 85328: Label 16| Node 158122: Label 7|...
+\textit{Edge connections (source node - target node): Node 85328 is connected to Node 158122. Node 158122 is connected to Node 167226. } &
+\textbf{Adjacency List} & Node to Label Mapping : Node 85328: Label 16| Node 158122: Label 7|...
+\textit{Edge connections (source node - target node): Node 85328 is connected to Node 158122. Node 158122 is connected to Node 167226. } &
+\end{tabular}
+\caption{Summary of input encoding functions with their explanations and examples.}
+\label{tab:encFunctions}
+\end{table*}
+%------------------------------------------
+\begin{figure*}
+  \centering
+%\includegraphics[width=0.9\linewidth,trim={0cm 0cm 6.7cm 0cm},clip]{images/fig2_updated.pdf}
+\includegraphics[width=0.9\linewidth,trim={0cm 0cm 6.7cm 0cm},clip]{images/fig2_updated.pdf}
+  \caption{Overview of the five types of LLM-generated data and associated examples - (1) Free-Form Text (2) Task Labels (3) Instructions (4) Preference (5) Simulation \anonymous{Can we list these in the same order as the image and possibly include the numbers before "Free-Form Text"?}. Sources for these examples in order - \cite{moller2023prompt}, \cite{diaz2018addressing},  \cite{honovich2022unnatural}, \cite{kim2023p2c} and \cite{liang2023encouraging} )}
+  \label{fig:figure2}
+\end{figure*}
+%------------------------------------------
+\subsection{Threes}
+\begin{table*}[ht]
+\centering
+\scriptsize
+\begin{tabular}{p{0.25\textwidth}p{0.25\textwidth}p{0.25\textwidth}p{0.25\textwidth}p{0.25\textwidth}}
+\toprule
+\textbf{Type of LLM-generated Data} & \textbf{Challenges} & \textbf{Research Gap Unearthed} & \textbf{New Column 3} & \textbf{New Column 4} \\
+\midrule
+\rowcolor{color2}\textbf{Free-Form Text} & The great resistance of our BERT model has been identified and is detailed in this paper. & \textbf{Our contribution} is towards understanding the nature of LLM-generated data and identifying new data types that have greater risk of data contamination. & Risk of  & - \\
+\midrule
+\rowcolor{color3}\textbf{Task Labels} & LLMs are a great source of  & \textbf{Our contribution} is towards understanding the nature of LLM-generated data and identifying new data types that have greater risk of data contamination. & Risk of  & - \\
+\midrule
+\rowcolor{color4}\textbf{Instruction prompts} & 
+ & \textbf{Our contribution} is towards understanding the nature of LLM-generated data and identifying new data types that have greater risk of data contamination. & Risk of  & - \\
+\midrule
+\rowcolor{color5}\textbf{Preference} & 
+ & \textbf{Our contribution} is towards understanding the nature of LLM-generated data and identifying new data types that have greater risk of data contamination. & Risk of  & - \\
+\midrule
+\rowcolor{color6}\textbf{Simulation} & 
+ & \textbf{Our contribution} is towards understanding the nature of LLM-generated data and identifying new data types that have greater risk of data contamination. & Risk of  & - \\
+\bottomrule
+\end{tabular}
+\caption{We summarize the research gap unearthed with each type of LLM-generated data. Our paper focuses on these unearthed research gaps for further analysis and stress testing LLM-generated data.}
+\label{tab:transposed_related_summary}
+\end{table*}
+%---------------------------
+
+\subsection{Overview of  LLM-generated data}
+We summarize the five types of LLM-generated data  that we have explored in this paper and  we believe  this paper has the potential to make a significant 
+
+% overall goals and benefits
+
+% overall goals and benefits
+
+% overall goals and benefits
+
+% overall goals and benefits
+
+% overall goals and benefits
+
+% overall goals and benefits
+
+% overall goals and benefits
+
+% overall goals and benefits
+
+% overall goals and benefits
+
+% overall goals and benefits
+
+% overall goals and benefits
+
+% overall goals and benefits
+
+% overall goals and benefits
+
+% overall goals and benefits
+
+% overall goals and benefits
+
+% overall goals and benefits
+
+% overall goals and benefits
+
+% overall goals and benefits
+
+% overall goals and benefits
+
+% overall goals and benefits
+
+% overall goals and benefits
+
+% overall goals and benefits
+
+% overall goals and benefits
+
+% overall goals and benefits
+
+% overall goals and benefits
+
+% overall goals and benefits
+
+% overall goals and benefits
+
+% overall goals and benefits
+
+% overall goals and benefits
+
+% overall goals and benefits
+
+% overall goals and benefits
+
+% overall goals and benefits
+
+% overall goals and benefits
+
+% overall goals and benefits
+
+% overall goals and benefits
+
+% overall goals and benefits
+
+% overall goals and benefits
+
+% overall goals and benefits
+
+% overall goals and benefits
+
+% overall goals and benefits
+
+% overall goals and benefits
+
+% overall goals and benefits
+
+% overall goals and benefits
+
+% overall goals and benefits
+
+% overall goals and benefits
+
+% overall goals and benefits
+
+% overall goals and benefits
+
+% overall goals and benefits
+
+% overall goals and benefits
+
+% overall goals and benefits
+
+% overall goals and benefits
+
+% overall goals and benefits
+
+% overall goals and benefits
+
+% overall goals and benefits
+
+% overall goals and benefits
+
+% overall goals and benefits
+
+% overall goals and benefits
+
+% overall goals and benefits
+
+% overall goals and benefits
+
+% overall goals and benefits
+
+% overall goals and benefits
+
+% overall goals and benefits
+
+% overall goals and benefits
+
+% overall goals and benefits
+
+% overall goals and benefits
+
+% overall goals and benefits
+
+% overall goals and benefits
+
+% overall goals and benefits
+
+% overall goals and benefits
+
+% overall goals and benefits
+
+% overall goals and benefits
+
+% overall goals and benefits
+
+% overall goals and benefits
+
+% overall goals and benefits
+
+% overall goals and benefits
+
+% overall goals and benefits
+
+% overall goals and benefits
+
+% overall goals and benefits
+
+% overall goals and benefits
+
+% overall goals and benefits
+
+% overall goals and benefits
+
+% overall goals and benefits
+
+% overall goals and benefits
+
+% overall goals and benefits
+
+% overall goals and benefits
+
+% overall goals and benefits
+
+% overall goals and benefits
+
+% overall goals and benefits
+
+% overall goals and benefits
+
+% overall goals and benefits
+
+% overall goals and benefits
+
+% overall goals and benefits
+
+% overall goals and benefits
+
+% overall goals and benefits
+
+% overall goals and benefits
+
+% overall goals and benefits
+
+% overall goals and benefits
+
+% overall goals and benefits
+
+% overall goals and benefits
+
+% overall goals and benefits
+
+% overall goals and benefits
+
+% overall goals and benefits
+
+% overall goals and benefits
+
+% overall goals and benefits
+
+% overall goals and benefits
+
+% overall goals and benefits
+
+% overall goals and benefits
+
+% overall goals and benefits
+
+% overall goals and benefits
+
+% overall goals and benefits
+
+% overall goals and benefits
+
+% overall goals and benefits
+
+% overall goals and benefits
+
+% overall goals and benefits
+
+% overall goals and benefits
+
+% overall goals and benefits
+
+% overall goals and benefits
+
+% overall goals and benefits
+
+% overall goals and benefits
+
+% overall goals and benefits
+
+% overall goals and benefits
+
+% overall goals and benefits
+
+% overall goals and benefits
+
+% overall goals and benefits
+
+% overall goals and benefits
+
+% overall goals and benefits
+
+% overall goals and benefits
+
+% overall goals and benefits
+
+% overall goals and benefits
+
+% overall goals and benefits
+
+% overall goals and benefits
+
+% overall goals and benefits
+
+% overall goals and benefits
+
+% overall goals and benefits
+
+% overall goals and benefits
+
+% overall goals and benefits
+
+% overall goals and benefits
+
+% overall goals and benefits
+
+% overall goals and benefits
+
+% overall goals and benefits
+
+% overall goals and benefits
+
+% overall goals and benefits
+
+% overall goals and benefits
+
+% overall goals and benefits
+
+% overall goals and benefits
+
+% overall goals and benefits
+
+% overall goals and benefits
+
+% overall goals and benefits
+
+% overall goals and benefits
+
+% overall goals and benefits
+
+% overall goals and benefits
+
+% overall goals and benefits
+
+% overall goals and benefits
+
+% overall goals and benefits
+
+% overall goals and benefits
+
+% overall goals and benefits
+
+% overall goals and benefits
+
+% overall goals and benefits
+
+% overall goals and benefits
+
+% overall goals and benefits
+
+% overall goals and benefits
+
+% overall goals and benefits
+
+% overall goals and benefits
+
+% overall goals and benefits
+
+% overall goals and benefits
+
+% overall goals and benefits
+
+% overall goals and benefits
+
+% overall goals and benefits
+
+% overall goals and benefits
+
+% overall goals and benefits
+
+% overall goals and benefits
+
+% overall goals and benefits
+
+% overall goals and benefits
+
+% overall goals and benefits
+
+% overall goals and benefits
+
+% overall goals and benefits
+
+% overall goals and benefits
+
+% overall goals and benefits
+
+% overall goals and benefits
+
+% overall goals and benefits
+
+% overall goals and benefits
+
+% overall goals and benefits
+
+% overall goals and benefits
+
+% overall goals and benefits
+
+% overall goals and benefits
+
+% overall goals and benefits
+
+% overall goals and benefits
+
+% overall goals and benefits
+
+% overall goals and benefits
+
+% overall goals and benefits
+
+% overall goals and benefits
+
+% overall goals and benefits
+
+% overall goals and benefits
+
+% overall goals and benefits
+
+% overall goals and benefits
+
+% overall goals and benefits
+
+% overall goals and benefits
+
+% overall goals and benefits
+
+% overall goals and benefits
+
+% overall goals and benefits
+
+% overall goals and benefits
+
+% overall goals and benefits
+
+% overall goals and benefits
+
+% overall goals and benefits
+
+% overall goals and benefits
+
+% overall goals and benefits
+
+% overall goals and benefits
+
+% overall goals and benefits
+
+% overall goals and benefits
+
+% overall goals and benefits
+
+% overall goals and benefits
+
+% overall goals and benefits
+
+% overall goals and benefits
+
+% overall goals and benefits
+
+% overall goals and benefits
+
+% overall goals and benefits
+
+% overall goals and benefits
+
+% overall goals and benefits
+
+% overall goals and benefits
+
+% overall goals and benefits
+
+% overall goals and benefits
+
+% overall goals and benefits
+
+% overall goals and benefits
+
+% overall goals and benefits
+
+% overall goals and benefits
+
+% overall goals and benefits
+
+% overall goals and benefits
+
+% overall goals and benefits
+
+% overall goals and benefits
+
+% overall goals and benefits
+
+% overall goals and benefits
+
+% overall goals and benefits
+
+% overall goals and benefits
+
+% overall goals and benefits
+
+% overall goals and benefits
+
+% overall goals and benefits
+
+% overall goals and benefits
+
+% overall goals and benefits
+
+% overall goals and benefits
+
+% overall goals and benefits
+
+% overall goals and benefits
+
+% overall goals and benefits
+
+% overall goals and benefits
+
+% overall goals and benefits
+
+% overall goals and benefits
+
+% overall goals and benefits
+
+% overall goals and benefits
+
+% overall goals and benefits
+
+% overall goals and benefits
+
+% overall goals and benefits
+
+% overall goals and benefits
+
+% overall goals and benefits
+
+% overall goals and benefits
+
+% overall goals and benefits
+
+% overall goals and benefits
+
+% overall goals and benefits
+
+% overall goals and benefits
+
+% overall goals and benefits
+
+% overall goals and benefits
+
+% overall goals and benefits
+
+% overall goals and benefits
+
+% overall goals and benefits
+
+% overall goals and benefits
+
+% overall goals and benefits
+
+% overall goals and benefits
+
+% overall goals and benefits
+
+% overall goals and benefits
+
+% overall goals and benefits
+
+% overall goals and benefits
+
+% overall goals and benefits
+
+% overall goals and benefits
+
+% overall goals and benefits
+
+% overall goals and benefits
+
+% overall goals and benefits
+
+% overall goals and benefits
+
+% overall goals and benefits
+
+% overall goals and benefits
+
+% overall goals and benefits
+
+% overall goals and benefits
+
+% overall goals and benefits
+
+% overall goals and benefits
+
+% overall goals and benefits
+
+% overall goals and benefits
+
+% overall goals and benefits
+
+% overall goals and benefits
+
+% overall goals and benefits
+
+% overall goals and benefits
+
+% overall goals and benefits
+
+% overall goals and benefits
+
+% overall goals and benefits
+
+% overall goals and benefits
+
+% overall goals and benefits
+
+% overall goals and benefits
+
+% overall goals and benefits
+
+% overall goals and benefits
+
+% overall goals and benefits
+
+% overall goals and benefits
+
+% overall goals and benefits
+
+% overall goals and benefits
+
+% overall goals and benefits
+
+% overall goals and benefits
+
+% overall goals and benefits
+
+% overall goals and benefits
+
+% overall goals and benefits
+
+% overall goals and benefits
+
+% overall goals and benefits
+
+% overall goals and benefits
+
+% overall goals and benefits
+
+% overall goals and benefits
+
+% overall goals and benefits
+
+% overall goals and benefits
+
+% overall goals and benefits
+
+% overall goals and benefits
+
+% overall goals and benefits
+
+% overall goals and benefits
+
+% overall goals and benefits
+
+% overall goals and benefits
+
+% overall goals and benefits
+
+% overall goals and benefits
+
+% overall goals and benefits
+
+% overall goals and benefits
+
+% overall goals and benefits
+
+% overall goals and benefits
+
+% overall goals and benefits
+
+% overall goals and benefits
+
+% overall goals and benefits
+
+% overall goals and benefits
+
+% overall goals and benefits
+
+% overall goals and benefits
+
+% overall goals and benefits
+
+% overall goals and benefits
+
+% overall goals and benefits
+
+% overall goals and benefits
+
+% overall goals and benefits
+
+% overall goals and benefits
+
+% overall goals and benefits
+
+% overall goals and benefits
+
+% overall goals and benefits
+
+% overall goals and benefits
+
+% overall goals and benefits
+
+% overall goals and benefits
+
+% overall goals and benefits
+
+% overall goals and benefits
+
+% overall goals and benefits
+
+% overall goals and benefits
+
+% overall goals and benefits
+
+% overall goals and benefits
+
+% overall goals and benefits
+
+% overall goals and benefits
+
+% overall goals and benefits
+
+% overall goals and benefits
+
+% overall goals and benefits
+
+% overall goals and benefits
+
+% overall goals and benefits
+
+% overall goals and benefits
+
+% overall goals and benefits
+
+% overall goals and benefits
+
+% overall goals and benefits
+
+% overall goals and benefits
+
+% overall goals and benefits
+
+% overall goals and benefits
+
+% overall goals and benefits
+
+% overall goals and benefits
+
+% overall goals and benefits
+
+% overall goals and benefits
+
+% overall goals and benefits
+
+% overall goals and benefits
+
+% overall goals and benefits
+
+% overall goals and benefits
+
+% overall goals and benefits
+
+% overall goals and benefits
+
+% overall goals and benefits
+
+% overall goals and benefits
+
+% overall goals and benefits
+
+% overall goals and benefits
+
+% overall goals and benefits
+
+% overall goals and benefits
+
+% overall goals and benefits
+
+% overall goals and benefits
+
+% overall goals and benefits
+
+% overall goals and benefits
+
+% overall goals and benefits
+
+% overall goals and benefits
+
+% overall goals and benefits
+
+% overall goals and benefits
+
+% overall goals and benefits
+
+% overall goals and benefits
+
+% overall goals and benefits
+
+% overall goals and benefits
+
+% overall goals and benefits
+
+% overall goals and benefits
+
+% overall goals and benefits
+
+% overall goals and benefits
+
+% overall goals and benefits
+
+% overall goals and benefits
+
+% overall goals and benefits
+
+% overall goals and benefits
+
+% overall goals and benefits
+
+% overall goals and benefits
+
+% overall goals and benefits
+
+% overall goals and benefits
+
+% overall goals and benefits
+
+% overall goals and benefits
+
+% overall goals and benefits
+
+% overall goals and benefits
+
+% overall goals and benefits
+
+% overall goals and benefits
+
+% overall goals and benefits
+
+% overall goals and benefits
+
+% overall goals and benefits
+
+% overall goals and benefits
+
+% overall goals and benefits
+
+% overall goals and benefits
+
+% overall goals and benefits
+
+% overall goals and benefits
+
+% overall goals and benefits
+
+% overall goals and benefits
+
+% overall goals and benefits
+
+% overall goals and benefits
+
+% overall goals and benefits
+
+% overall goals and benefits
+
+% overall goals and benefits
+
+% overall goals and benefits
+
+% overall goals and benefits
+
+% overall goals and benefits
+
+% overall goals and benefits
+
+% overall goals and benefits
+
+% overall goals and benefits
+
+% overall goals and benefits
+
+% overall goals and benefits
+
+% overall goals and benefits
+
+% overall goals and benefits
+
+% overall goals and benefits
+
+% overall goals and benefits
+
+% overall goals and benefits
+
+% overall goals and benefits
+
+% overall goals and benefits
+
+% overall goals and benefits
+
+% overall goals and benefits
+
+% overall goals and benefits
+
+% overall goals and benefits
+
+% overall goals and benefits
+
+% overall goals and benefits
+
+% overall goals and benefits
+
+% overall goals and benefits
+
+% overall goals and benefits
+
+% overall goals and benefits
+
+% overall goals and benefits
+
+% overall goals and benefits
+
+% overall goals and benefits
+
+% overall goals and benefits
+
+% overall goals and benefits
+
+% overall goals and benefits
+
+% overall goals and benefits
+
+% overall goals and benefits
+
+% overall goals and benefits
+
+% overall goals and benefits
+
+% overall goals and benefits
+
+% overall goals and benefits
+
+% overall goals and benefits
+
+% overall goals and benefits
+
+% overall goals and benefits
+
+% overall goals and benefits
+
+% overall goals and benefits
+
+% overall goals and benefits
+
+% overall goals and benefits
+
+% overall goals and benefits
+
+% overall goals and benefits
+
+% overall goals and benefits
+
+% overall goals and benefits
+
+% overall goals and benefits
+
+% overall goals and benefits
+
+% overall goals and benefits
+
+% overall goals and benefits
+
+% overall goals and benefits
+
+% overall goals and benefits
+
+% overall goals and benefits
+
+% overall goals and benefits
+
+% overall goals and benefits
+
+% overall goals and benefits
+
+% overall goals and benefits
+
+% overall goals and benefits
+
+% overall goals and benefits
+
+% overall goals and benefits
+
+% overall goals and benefits
+
+% overall goals and benefits
+
+% overall goals and benefits
+
+% overall goals and benefits
+
+% overall goals and benefits
+
+% overall goals and benefits
+
+% overall goals and benefits
+
+% overall goals and benefits
+
+% overall goals and benefits
+
+% overall goals and benefits
+
+% overall goals and benefits
+
+% overall goals and benefits
+
+% overall goals and benefits
+
+% overall goals and benefits
+
+% overall goals and benefits
+
+% overall goals and benefits
+
+% overall goals and benefits
+
+% overall goals and benefits
+
+% overall goals and benefits
+
+% overall goals and benefits
+
+% overall goals and benefits
+
+% overall goals and benefits
+
+% overall goals and benefits
+
+% overall goals and benefits
+
+% overall goals and benefits
+
+% overall goals and benefits
+
+% overall goals and benefits
+
+% overall goals and benefits
+
+% overall goals and benefits
+
+% overall goals and benefits
+
+% overall goals and benefits
+
+% overall goals and benefits
+
+% overall goals and benefits
+
+% overall goals and benefits
+
+% overall goals and benefits
+
+% overall goals and benefits
+
+% overall goals and benefits
+
+% overall goals and benefits
+
+% overall goals and benefits
+
+% overall goals and benefits
+
+% overall goals and benefits
+
+% overall goals and benefits
+
+% overall goals and benefits
+
+% overall goals and benefits
+
+% overall goals and benefits
+
+% overall goals and benefits
+
+% overall goals and benefits
+
+% overall goals and benefits
+
+% overall goals and benefits
+
+% overall goals and benefits
+
+% overall goals and benefits
+
+% overall goals and benefits
+
+% overall goals and benefits
+
+% overall goals and benefits
+
+% overall goals and benefits
+
+% overall goals and benefits
+
+% overall goals and benefits
+
+% overall goals and benefits
+
+% overall goals and benefits
+
+% overall goals and benefits
+
+% overall goals and benefits
+
+% overall goals and benefits
+
+% overall goals and benefits
+
+% overall goals and benefits
+
+% overall goals and benefits
+
+% overall goals and benefits
+
+% overall goals and benefits
+
+% overall goals and benefits
+
+% overall goals and benefits
+
+% overall goals and benefits
+
+% overall goals and benefits
+
+% overall goals and benefits
+
+% overall goals and benefits
+
+% overall goals and benefits
+
+% overall goals and benefits
+
+% overall goals and benefits
+
+% overall goals and benefits
+
+% overall goals and benefits
+
+% overall goals and benefits
+
+% overall goals and benefits
+
+% overall goals and benefits
+
+% overall goals and benefits
+
+% overall goals and benefits
+
+% overall goals and benefits
+
+% overall goals and benefits
+
+% overall goals and benefits
+
+% overall goals and benefits
+
+% overall goals and benefits
+
+% overall goals and benefits
+
+% overall goals and benefits
+
+% overall goals and benefits
+
+% overall goals and benefits
+
+% overall goals and benefits
+
+% overall goals and benefits
+
+% overall goals and benefits
+
+% overall goals and benefits
+
+% overall goals and benefits
+
+% overall goals and benefits
+
+% overall goals and benefits
+
+% overall goals and benefits
+
+% overall goals and benefits
+
+% overall goals and benefits
+
+% overall goals and benefits
+
+% overall goals and benefits
+
+% overall goals and benefits
+
+% overall goals and benefits
+
+% overall goals and benefits
+
+% overall goals and benefits
+
+% overall goals and benefits
+
+% overall goals and benefits
+
+% overall goals and benefits
+
+% overall goals and benefits
+
+% overall goals and benefits
+
+% overall goals and benefits
+
+% overall goals and benefits
+
+% overall goals and benefits
+
+% overall goals and benefits
+
+% overall goals and benefits
+
+% overall goals and benefits
+
+% overall goals and benefits
+
+% overall goals and benefits
+
+% overall goals and benefits
+
+% overall goals and benefits
+
+% overall goals and benefits
+
+% overall goals and benefits
+
+% overall goals and benefits
+
+% overall goals and benefits
+
+% overall goals and benefits
+
+% overall goals and benefits
+
+% overall goals and benefits
+
+% overall goals and benefits
+
+% overall goals and benefits
+
+% overall goals and benefits
+
+% overall goals and benefits
+
+% overall goals and benefits
+
+% overall goals and benefits
+
+% overall goals and benefits
+
+% overall goals and benefits
+
+% overall goals and benefits
+
+% overall goals and benefits
+
+% overall goals and benefits
+
+% overall goals and benefits
+
+% overall goals and benefits
+
+% overall goals and benefits
+
+% overall goals and benefits
+
+% overall goals and benefits
+
+% overall goals and benefits
+
+% overall goals and benefits
+
+% overall goals and benefits
+
+% overall goals and benefits
+
+% overall goals and benefits
+
+% overall goals and benefits
+
+% overall goals and benefits
+
+% overall goals and benefits
+
+% overall goals and benefits
+
+% overall goals and benefits
+
+% overall goals and benefits
+
+% overall goals and benefits
+
+% overall goals and benefits
+
+% overall goals and benefits
+
+% overall goals and benefits
+
+% overall goals and benefits
+
+% overall goals and benefits
+
+% overall goals and benefits
+
+% overall goals and benefits
+
+% overall goals and benefits
+
+% overall goals and benefits
+
+% overall goals and benefits
+
+% overall goals and benefits
+
+% overall goals and benefits
+
+% overall goals and benefits
+
+% overall goals and benefits
+
+% overall goals and benefits
+
+% overall goals and benefits
+
+% overall goals and benefits
+
+% overall goals and benefits
+
+% overall goals and benefits
+
+% overall goals and benefits
+
+% overall goals and benefits
+
+% overall goals and benefits
+
+% overall goals and benefits
+
+% overall goals and benefits
+
+% overall goals and benefits
+
+% overall goals and benefits
+
+% overall goals and benefits
+
+% overall goals and benefits
+
+% overall goals and benefits
+
+% overall goals and benefits
+
+% overall goals and benefits
+
+% overall goals and benefits
+
+% overall goals and benefits
+
+% overall goals and benefits
+
+% overall goals and benefits
+
+% overall goals and benefits
+
+% overall goals and benefits
+
+% overall goals and benefits
+
+% overall goals and benefits
+
+% overall goals and benefits
+
+% overall goals and benefits
+
+% overall goals and benefits
+
+% overall goals and benefits
+
+% overall goals and benefits
+
+% overall goals and benefits
+
+% overall goals and benefits
+
+% overall goals and benefits
+
+% overall goals and benefits
+
+% overall goals and benefits
+
+% overall goals and benefits
+
+% overall goals and benefits
+
+% overall goals and benefits
+
+% overall goals and benefits
+
+% overall goals and benefits
+
+% overall goals and benefits
+
+% overall goals and benefits
+
+% overall goals and benefits
+
+% overall goals and benefits
+
+% overall goals and benefits
+
+% overall goals and benefits
+
+% overall goals and benefits
+
+% overall goals and benefits
+
+% overall goals and benefits
+
+% overall goals and benefits
+
+% overall goals and benefits
+
+% overall goals and benefits
+
+% overall goals and benefits
+
+% overall goals and benefits
+
+% overall goals and benefits
+
+% overall goals and benefits
+
+% overall goals and benefits
+
+% overall goals and benefits
+
+% overall goals and benefits
+
+% overall goals and benefits
+
+% overall goals and benefits
+
+% overall goals and benefits
+
+% overall goals and benefits
+
+% overall goals and benefits
+
+% overall goals and benefits
+
+% overall goals and benefits
+
+% overall goals and benefits
+
+% overall goals and benefits
+
+% overall goals and benefits
+
+% overall goals and benefits
+
+% overall goals and benefits
+
+% overall goals and benefits
+
+% overall goals and benefits
+
+% overall goals and benefits
+
+% overall goals and benefits
+
+% overall goals and benefits
+
+% overall goals and benefits
+
+% overall goals and benefits
+
+% overall goals and benefits
+
+% overall goals and benefits
+
+% overall goals and benefits
+
+% overall goals and benefits
+
+% overall goals and benefits
+
+% overall goals and benefits
+
+% overall goals and benefits
+
+% overall goals and benefits
+
+% overall goals and benefits
+
+% overall goals and benefits
+
+% overall goals and benefits
+
+% overall goals and benefits
+
+% overall goals and benefits
+
+% overall goals and benefits
+
+% overall goals and benefits
+
+% overall goals and benefits
+
+% overall goals and benefits
+
+% overall goals and benefits
+
+% overall goals and benefits
+
+% overall goals and benefits
+
+% overall goals and benefits
+
+% overall goals and benefits
+
+% overall goals and benefits
+
+% overall goals and benefits
+
+% overall goals and benefits
+
+% overall goals and benefits
+
+% overall goals and benefits
+
+% overall goals and benefits
+
+% overall goals and benefits
+
+% overall goals and benefits
+
+% overall goals and benefits
+
+% overall goals and benefits
+
+% overall goals and benefits
+
+% overall goals and benefits
+
+% overall goals and benefits
+
+% overall goals and benefits
+
+% overall goals and benefits
+
+% overall goals and benefits
+
+% overall goals and benefits
+
+% overall goals and benefits
+
+% overall goals and benefits
+
+% overall goals and benefits
+
+% overall goals and benefits
+
+% overall goals and benefits
+
+% overall goals and benefits
+
+% overall goals and benefits
+
+% overall goals and benefits
+
+% overall goals and benefits
+
+% overall goals and benefits
+
+% overall goals and benefits
+
+% overall goals and benefits
+
+% overall goals and benefits
+
+% overall goals and benefits
+
+% overall goals and benefits
+
+% overall goals and benefits
+
+% overall goals and benefits
+
+% overall goals and benefits
+
+% overall goals and benefits
+
+% overall goals and benefits
+
+% overall goals and benefits
+
+% overall goals and benefits
+
+% overall goals and benefits
+
+% overall goals and benefits
+
+% overall goals and benefits
+
+% overall goals and benefits
+
+% overall goals and benefits
+
+% overall goals and benefits
+
+% overall goals and benefits
+
+% overall goals and benefits
+
+% overall goals and benefits
+
+% overall goals and benefits
+
+% overall goals and benefits
+
+% overall goals and benefits
+
+% overall goals and benefits
+
+% overall goals and benefits
+
+% overall goals and benefits
+
+% overall goals and benefits
+
+% overall goals and benefits
+
+% overall goals and benefits
+
+% overall goals and benefits
+
+% overall goals and benefits
+
+% overall goals and benefits
+
+% overall goals and benefits
+
+% overall goals and benefits
+
+% overall goals and benefits
+
+% overall goals and benefits
+
+% overall goals and benefits
+
+% overall goals and benefits
+
+% overall goals and benefits
+
+% overall goals and benefits
+
+% overall goals and benefits
+
+% overall goals and benefits
+
+% overall goals and benefits
+
+% overall goals and benefits
+
+% overall goals and benefits
+
+% overall goals and benefits
+
+% overall goals and benefits
+
+% overall goals and benefits
+
+% overall goals and benefits
+
+% overall goals and benefits
+
+% overall goals and benefits
+
+% overall goals and benefits
+
+% overall goals and benefits
+
+% overall goals and benefits
+
+% overall goals and benefits
+
+% overall goals and benefits
+
+% overall goals and benefits
+
+% overall goals and benefits
+
+% overall goals and benefits
+
+% overall goals and benefits
+
+% overall goals and benefits
+
+% overall goals and benefits
+
+% overall goals and benefits
+
+% overall goals and benefits
+
+% overall goals and benefits
+
+% overall goals and benefits
+
+% overall goals and benefits
+
+% overall goals and benefits
+
+% overall goals and benefits
+
+% overall goals and benefits
+
+% overall goals and benefits
+
+% overall goals and benefits
+
+% overall goals and benefits
+
+% overall goals and benefits
+
+% overall goals and benefits
+
+% overall goals and benefits
+
+% overall goals and benefits
+
+% overall goals and benefits
+
+% overall goals and benefits
+
+% overall goals and benefits
+
+% overall goals and benefits
+
+% overall goals and benefits
+
+% overall goals and benefits
+
+% overall goals and benefits
+
+% overall goals and benefits
+
+% overall goals and benefits
+
+% overall goals and benefits
+
+% overall goals and benefits
+
+% overall goals and benefits
+
+% overall goals and benefits
+
+% overall goals and benefits
+
+% overall goals and benefits
+
+% overall goals and benefits
+
+% overall goals and benefits
+
+% overall goals and benefits
+
+% overall goals and benefits
+
+% overall goals and benefits
+
+% overall goals and benefits
+
+% overall goals and benefits
+
+% overall goals and benefits
+
+% overall goals and benefits
+
+% overall goals and benefits
+
+% overall goals and benefits
+
+% overall goals and benefits
+
+% overall goals and benefits
+
+% overall goals and benefits
+
+% overall goals and benefits
+
+% overall goals and benefits
+
+% overall goals and benefits
+
+% overall goals and benefits
+
+% overall goals and benefits
+
+% overall goals and benefits
+
+% overall goals and benefits
+
+% overall goals and benefits
+
+% overall goals and benefits
+
+% overall goals and benefits
+
+% overall goals and benefits
+
+% overall goals and benefits
+
+% overall goals and benefits
+
+% overall goals and benefits
+
+% overall goals and benefits
+
+% overall goals and benefits
+
+% overall goals and benefits
+
+% overall goals and benefits
+
+% overall goals and benefits
+
+% overall goals and benefits
+
+% overall goals and benefits
+
+% overall goals and benefits
+
+% overall goals and benefits
+
+% overall goals and benefits
+
+% overall goals and benefits
+
+% overall goals and benefits
+
+% overall goals and benefits
+
+% overall goals and benefits
+
+% overall goals and benefits
+
+% overall goals and benefits
+
+% overall goals and benefits
+
+% overall goals and benefits
+
+% overall goals and benefits
+
+% overall goals and benefits
+
+% overall goals and benefits
+
+% overall goals and benefits
+
+% overall goals and benefits
+
+% overall goals and benefits
+
+% overall goals and benefits
+
+% overall goals and benefits
+
+% overall goals and benefits
+
+% overall goals and benefits
+
+% overall goals and benefits
+
+% overall goals and benefits
+
+% overall goals and benefits
+
+% overall goals and benefits
+
+% overall goals and benefits
+
+% overall goals and benefits
+
+% overall goals and benefits
+
+% overall goals and benefits
+
+% overall goals and benefits
+
+% overall goals and benefits
+
+% overall goals and benefits
+
+% overall goals and benefits
+
+% overall goals and benefits
+
+% overall goals and benefits
+
+% overall goals and benefits
+
+% overall goals and benefits
+
+% overall goals and benefits
+
+% overall goals and benefits
+
+% overall goals and benefits
+
+% overall goals and benefits
+
+% overall goals and benefits
+
+% overall goals and benefits
+
+% overall goals and benefits
+
+% overall goals and benefits
+
+% overall goals and benefits
+
+% overall goals and benefits
+
+% overall goals and benefits
+
+% overall goals and benefits
+
+% overall goals and benefits
+
+% overall goals and benefits
+
+% overall goals and benefits
+
+% overall goals and benefits
+
+% overall goals and benefits
+
+% overall goals and benefits
+
+% overall goals and benefits
+
+% overall goals and benefits
+
+% overall goals and benefits
+
+% overall goals and benefits
+
+% overall goals and benefits
+
+% overall goals and benefits
+
+% overall goals and benefits
+
+% overall goals and benefits
+
+% overall goals and benefits
+
+% overall goals and benefits
+
+% overall goals and benefits
+
+% overall goals and benefits
+
+% overall goals and benefits
+
+% overall goals and benefits
+
+% overall goals and benefits
+
+% overall goals and benefits
+
+% overall goals and benefits
+
+% overall goals and benefits
+
+% overall goals and benefits
+
+% overall goals and benefits
+
+% overall goals and benefits
+
+% overall goals and benefits
+
+% overall goals and benefits
+
+% overall goals and benefits
+
+% overall goals and benefits
+
+% overall goals and benefits
+
+% overall goals and benefits
+
+% overall goals and benefits
+
+% overall goals and benefits
+
+% overall goals and benefits
+
+% overall goals and benefits
+
+% overall goals and benefits
+
+% overall goals and benefits
+
+% overall goals and benefits
+
+% overall goals and benefits
+
+% overall goals and benefits
+
+% overall goals and benefits
+
+% overall goals and benefits
+
+% overall goals and benefits
+
+% overall goals and benefits
+
+% overall goals and benefits
+
+% overall goals and benefits
+
+% overall goals and benefits
+
+% overall goals and benefits
+
+% overall goals and benefits
+
+% overall goals and benefits
+
+% overall goals and benefits
+
+% overall goals and benefits
+
+% overall goals and benefits
+
+% overall goals and benefits
+
+% overall goals and benefits
+
+% overall goals and benefits
+
+% overall goals and benefits
+
+% overall goals and benefits
+
+% overall goals and benefits
+
+% overall goals and benefits
+
+% overall goals and benefits
+
+% overall goals and benefits
+
+% overall goals and benefits
+
+% overall goals and benefits
+
+% overall goals and benefits
+
+% overall goals and benefits
+
+% overall goals and benefits
+
+% overall goals and benefits
+
+% overall goals and benefits
+
+% overall goals and benefits
+
+% overall goals and benefits
+
+% overall goals and benefits
+
+% overall goals and benefits
+
+% overall goals and benefits
+
+% overall goals and benefits
+
+% overall goals and benefits
+
+% overall goals and benefits
+
+% overall goals and benefits
+
+% overall goals and benefits
+
+% overall goals and benefits
+
+% overall goals and benefits
+
+% overall goals and benefits
+
+% overall goals and benefits
+
+% overall goals and benefits
+
+% overall goals and benefits
+
+% overall goals and benefits
+
+% overall goals and benefits
+
+% overall goals and benefits
+
+% overall goals and benefits
+
+% overall goals and benefits
+
+% overall goals and benefits
+
+% overall goals and benefits
+
+% overall goals and benefits
+
+% overall goals and benefits
+
+% overall goals and benefits
+
+% overall goals and benefits
+
+% overall goals and benefits
+
+% overall goals and benefits
+
+% overall goals and benefits
+
+% overall goals and benefits
+
+% overall goals and benefits
+
+% overall goals and benefits
+
+% overall goals and benefits
+
+% overall goals and benefits
+
+% overall goals and benefits
+
+% overall goals and benefits
+
+% overall goals and benefits
+
+% overall goals and benefits
+
+% overall goals and benefits
+
+% overall goals and benefits
+
+% overall goals and benefits
+
+% overall goals and benefits
+
+% overall goals and benefits
+
+% overall goals and benefits
+
+% overall goals and benefits
+
+% overall goals and benefits
+
+% overall goals and benefits
+
+% overall goals and benefits
+
+% overall goals and benefits
+
+% overall goals and benefits
+
+% overall goals and benefits
+
+% overall goals and benefits
+
+% overall goals and benefits
+
+% overall goals and benefits
+
+% overall goals and benefits
+
+% overall goals and benefits
+
+% overall goals and benefits
+
+% overall goals and benefits
+
+% overall goals and benefits
+
+% overall goals and benefits
+
+% overall goals and benefits
+
+% overall goals and benefits
+
+% overall goals and benefits
+
+% overall goals and benefits
+
+% overall goals and benefits
+
+% overall goals and benefits
+
+% overall goals and benefits
+
+% overall goals and benefits
+
+% overall goals and benefits
+
+% overall goals and benefits
+
+% overall goals and benefits
+
+% overall goals and benefits
+
+% overall goals and benefits
+
+% overall goals and benefits
+
+% overall goals and benefits
+
+% overall goals and benefits
+
+% overall goals and benefits
+
+% overall goals and benefits
+
+% overall goals and benefits
+
+% overall goals and benefits
+
+% overall goals and benefits
+
+% overall goals and benefits
+
+% overall goals and benefits
+
+% overall goals and benefits
+
+% overall goals and benefits
+
+% overall goals and benefits
+
+% overall goals and benefits
+
+% overall goals and benefits
+
+% overall goals and benefits
+
+% overall goals and benefits
+
+% overall goals and benefits
+
+% overall goals and benefits
+
+% overall goals and benefits
+
+% overall goals and benefits
+
+% overall goals and benefits
+
+% overall goals and benefits
+
+% overall goals and benefits
+
+% overall goals and benefits
+
+% overall goals and benefits
+
+% overall goals and benefits
+
+% overall goals and benefits
+
+% overall goals and benefits
+
+% overall goals and benefits
+
+% overall goals and benefits
+
+% overall goals and benefits
+
+% overall goals and benefits
+
+% overall goals and benefits
+
+% overall goals and benefits
+
+% overall goals and benefits
+
+% overall goals and benefits
+
+% overall goals and benefits
+
+% overall goals and benefits
+
+% overall goals and benefits
+
+% overall goals and benefits
+
+% overall goals and benefits
+
+% overall goals and benefits
+
+% overall goals and benefits
+
+% overall goals and benefits
+
+% overall goals and benefits
+
+% overall goals and benefits
+
+% overall goals and benefits
+
+% overall goals and benefits
+
+% overall goals and benefits
+
+% overall goals and benefits
+
+% overall goals and benefits
+
+% overall goals and benefits
+
+% overall goals and benefits
+
+% overall goals and benefits
+
+% overall goals and benefits
+
+% overall goals and benefits
+
+% overall goals and benefits
+
+% overall goals and benefits
+
+% overall goals and benefits
+
+% overall goals and benefits
+
+% overall goals and benefits
+
+% overall goals and benefits
+
+% overall goals and benefits
+
+% overall goals and benefits
+
+% overall goals and benefits
+
+% overall goals and benefits
+
+% overall goals and benefits
+
+% overall goals and benefits
+
+% overall goals and benefits
+
+% overall goals and benefits
+
+% overall goals and benefits
+
+% overall goals and benefits
+
+% overall goals and benefits
+
+% overall goals and benefits
+
+% overall goals and benefits
+
+% overall goals and benefits
+
+% overall goals and benefits
+
+% overall goals and benefits
+
+% overall goals and benefits
+
+% overall goals and benefits
+
+% overall goals and benefits
+
+% overall goals and benefits
+
+% overall goals and benefits
+
+% overall goals and benefits
+
+% overall goals and benefits
+
+% overall goals and benefits
+
+% overall goals and benefits
+
+% overall goals and benefits
+
+% overall goals and benefits
+
+% overall goals and benefits
+
+% overall goals and benefits
+
+% overall goals and benefits
+
+% overall goals and benefits
+
+% overall goals and benefits
+
+% overall goals and benefits
+
+% overall goals and benefits
+
+% overall goals and benefits
+
+% overall goals and benefits
+
+% overall goals and benefits
+
+% overall goals and benefits
+
+% overall goals and benefits
+
+% overall goals and benefits
+
+% overall goals and benefits
+
+% overall goals and benefits
+
+% overall goals and benefits
+
+% overall goals and benefits
+
+% overall goals and benefits
+
+% overall goals and benefits
+
+% overall goals and benefits
+
+% overall goals and benefits
+
+% overall goals and benefits
+
+% overall goals and benefits
+
+% overall goals and benefits
+
+% overall goals and benefits
+
+% overall goals and benefits
+
+% overall goals and benefits
+
+% overall goals and benefits
+
+% overall goals and benefits
+
+% overall goals and benefits
+
+% overall goals and benefits
+
+% overall goals and benefits
+
+% overall goals and benefits
+
+% overall goals and benefits
+
+% overall goals and benefits
+
+% overall goals and benefits
+
+% overall goals and benefits
+
+% overall goals and benefits
+
+% overall goals and benefits
+
+% overall goals and benefits
+
+% overall goals and benefits
+
+% overall goals and benefits
+
+% overall goals and benefits
+
+% overall goals and benefits
+
+% overall goals and benefits
+
+% overall goals and benefits
+
+% overall goals and benefits
+
+% overall goals and benefits
+
+% overall goals and benefits
+
+% overall goals and benefits
+
+% overall goals and benefits
+
+% overall goals and benefits
+
+% overall goals and benefits
+
+% overall goals and benefits
+
+% overall goals and benefits
+
+% overall goals and benefits
+
+% overall goals and benefits
+
+% overall goals and benefits
+
+% overall goals and benefits
+
+% overall goals and benefits
+
+% overall goals and benefits
+
+% overall goals and benefits
+
+% overall goals and benefits
+
+% overall goals and benefits
+
+% overall goals and benefits
+
+% overall goals and benefits
+
+% overall goals and benefits
+
+% overall goals and benefits
+
+% overall goals and benefits
+
+% overall goals and benefits
+
+% overall goals and benefits
+
+% overall goals and benefits
+
+% overall goals and benefits
+
+% overall goals and benefits
+
+% overall goals and benefits
+
+% overall goals and benefits
+
+% overall goals and benefits
+
+% overall goals and benefits
+
+% overall goals and benefits
+
+% overall goals and benefits
+
+% overall goals and benefits
+
+% overall goals and benefits
+
+% overall goals and benefits
+
+% overall goals and benefits
+
+% overall goals and benefits
+
+% overall goals and benefits
+
+% overall goals and benefits
+
+% overall goals and benefits
+
+% overall goals and benefits
+
+% overall goals and benefits
+
+% overall goals and benefits
+
+% overall goals and benefits
+
+% overall goals and benefits
+
+% overall goals and benefits
+
+% overall goals and benefits
+
+% overall goals and benefits
+
+% overall goals and benefits
+
+% overall goals and benefits
+
+% overall goals and benefits
+
+% overall goals and benefits
+
+% overall goals and benefits
+
+% overall goals and benefits
+
+% overall goals and benefits
+
+% overall goals and benefits
+
+% overall goals and benefits
+
+% overall goals and benefits
+
+% overall goals and benefits
+
+% overall goals and benefits
+
+% overall goals and benefits
+
+% overall goals and benefits
+
+% overall goals and benefits
+
+% overall goals and benefits
+
+% overall goals and benefits
+
+% overall goals and benefits
+
+% overall goals and benefits
+
+% overall goals and benefits
+
+% overall goals and benefits
+
+% overall goals and benefits
+
+% overall goals and benefits
+
+% overall goals and benefits
+
+% overall goals and benefits
+
+% overall goals and benefits
+
+% overall goals and benefits
+
+% overall goals and benefits
+
+% overall goals and benefits
+
+% overall goals and benefits
+
+% overall goals and benefits
+
+% overall goals and benefits
+
+% overall goals and benefits
+
+% overall goals and benefits
+
+% overall goals and benefits
+
+% overall goals and benefits
+
+% overall goals and benefits
+
+% overall goals and benefits
+
+% overall goals and benefits
+
+% overall goals and benefits
+
+% overall goals and benefits
+
+% overall goals and benefits
+
+% overall goals and benefits
+
+% overall goals and benefits
+
+% overall goals and benefits
+
+% overall goals and benefits
+
+% overall goals and benefits
+
+% overall goals and benefits
+
+% overall goals and benefits
+
+% overall goals and benefits
+
+% overall goals and benefits
+
+% overall goals and benefits
+
+% overall goals and benefits
+
+% overall goals and benefits
+
+% overall goals and benefits
+
+% overall goals and benefits
+
+% overall goals and benefits
+
+% overall goals and benefits
+
+% overall goals and benefits
+
+% overall goals and benefits
+
+% overall goals and benefits
+
+% overall goals and benefits
+
+% overall goals and benefits
+
+% overall goals and benefits
+
+% overall goals and benefits
+
+% overall goals and benefits
+
+% overall goals and benefits
+
+% overall goals and benefits
+
+% overall goals and benefits
+
+% overall goals and benefits
+
+% overall goals and benefits
+
+% overall goals and benefits
+
+% overall goals and benefits
+
+% overall goals and benefits
+
+% overall goals and benefits
+
+% overall goals and benefits
+
+% overall goals and benefits
+
+% overall goals and benefits
+
+% overall goals and benefits
+
+% overall goals and benefits
+
+% overall goals and benefits
+
+% overall goals and benefits
+
+% overall goals and benefits
+
+% overall goals and benefits
+
+% overall goals and benefits
+
+% overall goals and benefits
+
+% overall goals and benefits
+
+% overall goals and benefits
+
+% overall goals and benefits
+
+% overall goals and benefits
+
+% overall goals and benefits
+
+% overall goals and benefits
+
+% overall goals and benefits
+
+% overall goals and benefits
+
+% overall goals and benefits
+
+% overall goals and benefits
+
+% overall goals and benefits
+
+% overall goals and benefits
+
+% overall goals and benefits
+
+% overall goals and benefits
+
+% overall goals and benefits
+
+% overall goals and benefits
+
+% overall goals and benefits
+
+% overall goals and benefits
+
+% overall goals and benefits
+
+% overall goals and benefits
+
+% overall goals and benefits
+
+% overall goals and benefits
+
+% overall goals and benefits
+
+% overall goals and benefits
+
+% overall goals and benefits
+
+% overall goals and benefits
+
+% overall goals and benefits
+
+% overall goals and benefits
+
+% overall goals and benefits
+
+% overall goals and benefits
+
+% overall goals and benefits
+
+% overall goals and benefits
+
+% overall goals and benefits
+
+% overall goals and benefits
+
+% overall goals and benefits
+
+% overall goals and benefits
+
+% overall goals and benefits
+
+% overall goals and benefits
+
+% overall goals and benefits
+
+% overall goals and benefits
+
+% overall goals and benefits
+
+% overall goals and benefits
+
+% overall goals and benefits
+
+% overall goals and benefits
+
+% overall goals and benefits
+
+% overall goals and benefits
+
+% overall goals and benefits
+
+% overall goals and benefits
+
+% overall goals and benefits
+
+% overall goals and benefits
+
+% overall goals and benefits
+
+% overall goals and benefits
+
+% overall goals and benefits
+
+% overall goals and benefits
+
+% overall goals and benefits
+
+% overall goals and benefits
+
+% overall goals and benefits
+
+% overall goals and benefits
+
+% overall goals and benefits
+
+% overall goals and benefits
+
+% overall goals and benefits
+
+% overall goals and benefits
+
+% overall goals and benefits
+
+% overall goals and benefits
+
+% overall goals and benefits
+
+% overall goals and benefits
+
+% overall goals and benefits
+
+% overall goals and benefits
+
+% overall goals and benefits
+
+% overall goals and benefits
+
+% overall goals and benefits
+
+% overall goals and benefits
+
+% overall goals and benefits
+
+% overall goals and benefits
+
+% overall goals and benefits
+
+% overall goals and benefits
+
+% overall goals and benefits
+
+% overall goals and benefits
+
+% overall goals and benefits
+
+% overall goals and benefits
+
+% overall goals and benefits
+
+% overall goals and benefits
+
+% overall goals and benefits
+
+% overall goals and benefits
+
+% overall goals and benefits
+
+% overall goals and benefits
+
+% overall goals and benefits
+
+% overall goals and benefits
+
+% overall goals and benefits
+
+% overall goals and benefits
+
+% overall goals and benefits
+
+% overall goals and benefits
+
+% overall goals and benefits
+
+% overall goals and benefits
+
+% overall goals and benefits
+
+% overall goals and benefits
+
+% overall goals and benefits
+
+% overall goals and benefits
+
+% overall goals and benefits
+
+% overall goals and benefits
+
+% overall goals and benefits
+
+% overall goals and benefits
+
+% overall goals and benefits
+
+% overall goals and benefits
+
+% overall goals and benefits
+
+% overall goals and benefits
+
+% overall goals and benefits
+
+% overall goals and benefits
+
+% overall goals and benefits
+
+% overall goals and benefits
+
+% overall goals and benefits
+
+% overall goals and benefits
+
+% overall goals and benefits
+
+% overall goals and benefits
+
+% overall goals and benefits
+
+% overall goals and benefits
+
+% overall goals and benefits
+
+% overall goals and benefits
+
+% overall goals and benefits
+
+% overall goals and benefits
+
+% overall goals and benefits
+
+% overall goals and benefits
+
+% overall goals and benefits
+
+% overall goals and benefits
+
+% overall goals and benefits
+
+% overall goals and benefits
+
+% overall goals and benefits
+
+% overall goals and benefits
+
+% overall goals and benefits
+
+% overall goals and benefits
+
+% overall goals and benefits
+
+% overall goals and benefits
+
+% overall goals and benefits
+
+% overall goals and benefits
+
+% overall goals and benefits
+
+% overall goals and benefits
+
+% overall goals and benefits
+
+% overall goals and benefits
+
+% overall goals and benefits
+
+% overall goals and benefits
+
+% overall goals and benefits
+
+% overall goals and benefits
+
+% overall goals and benefits
+
+% overall goals and benefits
+
+% overall goals and benefits
+
+% overall goals and benefits
+
+% overall goals and benefits
+
+% overall goals and benefits
+
+% overall goals and benefits
+
+% overall goals and benefits
+
+% overall goals and benefits
+
+% overall goals and benefits
+
+% overall goals and benefits
+
+% overall goals and benefits
+
+% overall goals and benefits
+
+% overall goals and benefits
+
+% overall goals and benefits
+
+% overall goals and benefits
+
+% overall goals and benefits
+
+% overall goals and benefits
+
+% overall goals and benefits
+
+% overall goals and benefits
+
+% overall goals and benefits
+
+% overall goals and benefits
+
+% overall goals and benefits
+
+% overall goals and benefits
+
+% overall goals and benefits
+
+% overall goals and benefits
+
+% overall goals and benefits
+
+% overall goals and benefits
+
+% overall goals and benefits
+
+% overall goals and benefits
+
+% overall goals and benefits
+
+% overall goals and benefits
+
+% overall goals and benefits
+
+% overall goals and benefits
+
+% overall goals and benefits
+
+% overall goals and benefits
+
+% overall goals and benefits
+
+% overall goals and benefits
+
+% overall goals and benefits
+
+% overall goals and benefits
+
+% overall goals and benefits
+
+% overall goals and benefits
+
+% overall goals and benefits
+
+% overall goals and benefits
+
+% overall goals and benefits
+
+% overall goals and benefits
+
+% overall goals and benefits
+
+% overall goals and benefits
+
+% overall goals and benefits
+
+% overall goals and benefits
+
+% overall goals and benefits
+
+% overall goals and benefits
+
+% overall goals and benefits
+
+% overall goals and benefits
+
+% overall goals and benefits
+
+% overall goals and benefits
+
+% overall goals and benefits
+
+% overall goals and benefits
+
+% overall goals and benefits
+
+% overall goals and benefits
+
+% overall goals and benefits
+
+% overall goals and benefits
+
+% overall goals and benefits
+
+% overall goals and benefits
+
+% overall goals and benefits
+
+% overall goals and benefits
+
+% overall goals and benefits
+
+% overall goals and benefits
+
+% overall goals and benefits
+
+% overall goals and benefits
+
+% overall goals and benefits
+
+% overall goals and benefits
+
+% overall goals and benefits
+
+% overall goals and benefits
+
+% overall goals and benefits
+
+% overall goals and benefits
+
+% overall goals and benefits
+
+% overall goals and

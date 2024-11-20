@@ -1,0 +1,4 @@
+However, multilabel classifier are less straightforward to train than single attribute classifiers, and pre-trained multilabel models also less readily available. In the spirit of plug and play, which ideally can be done with no special fine tuning, we also build two options for multi-attribute plug and play with multiple single attribute discriminators:
+
+\begin{itemize}
+    \item Deep fusion: We take a backward step in the hidden state along the gradient for each of the attribute discriminators, $d

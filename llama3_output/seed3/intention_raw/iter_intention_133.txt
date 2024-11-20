@@ -1,0 +1,71 @@
+Devastating  for society. 
+\begin{table*}[ht]
+\footnotesize
+\centering
+\begin{tabular}{p{0.10\linewidth}p{0.40\linewidth}p{0.40\linewidth}}
+\toprule
+\textbf{} & \textbf{Challenges typically faced w/ LLM generated Data Type} & \textbf{Research Gap Unearthed}\\
+\midrule
+\rowcolor{color2}\textbf{Free-Form Text} & LLM-text indistinguishable from human-written text due to convincing fluency and coherency. & Neglect of higher-level figurative attributes and structural document features \\
+\midrule
+\rowcolor{color3}\textbf{Task Labels} & Subjectivity Loss and Consensus Bias in LLM-Annotated Task Labels & Neglected minority opinion representation in LLM datasets\\
+\midrule
+\rowcolor{color4}\textbf{Instruction prompts} & 
+Error amplification due to overstated diversity & Neglected study of diversity and noise in instructions \\
+\midrule
+\rowcolor{color5}\textbf{Preference} & LLM Bias in evaluating text pairs & Neglected scrutiny of LLM bias with complex preferences \\
+\midrule
+\rowcolor{color6}\textbf{Simulation} & Underexplored simulated LLM agents  & Unstudied artifacts in LLM simulated data like role flipping and digression.\\
+\bottomrule
+\end{tabular}
+\caption{We summarize the research gap unearthed with each type of LLM-generated data. Our paper focuses on these unearthed research gaps for further analysis and stress testing LLM-generated data.}
+\label{tab:transposed_related_summary}
+\end{table*}
+
+%-------------------------------------------------------------------------
+\section{Free Text}
+\anonymous{ follow the format : subsec - short explanation of dataset; subsec - first order experiment and result ; subsec - 2nd order exp and result ; subsec : mitigation/ suggestions for this dataset }
+\label{sec:free_text}
+\input{latex/freetext}
+
+%-----------------------------------------------------------------------
+\section{Task Labels}
+\anonymous{ follow the format : subsec - short explanation of dataset; subsec - first order experiment and result ; subsec - 2nd order exp and result ; subsec :mitigation/ suggestions for this dataset }
+\label{sec:task_label}
+
+%-----------------------------------------------------------------------
+\section{Instruction}
+\anonymous{ follow the format : subsec - short explanation of dataset; subsec - first order experiment and result ; subsec - 2nd order exp and result ; subsec :mitigation/ suggestions for this dataset }
+\label{sec:instruction}
+
+%-----------------------------------------------------------------------\textbf{}
+\section{Preference}
+\anonymous{ follow the format : subsec - short explanation of dataset; subsec - first order experiment and result ; subsec - 2nd order exp and result ; subsec :mitigation/ suggestions for this dataset }
+\label{sec:preference}
+
+%-----------------------------------------------------------------------
+\section{Simulation}
+\anonymous{ follow the format : subsec - short explanation of dataset; subsec - first order experiment and result ; subsec - 2nd order exp and result ; subsec : mitigation/ suggestions for this dataset }
+\label{sec:simulation}
+
+%-----------------------------------------------------------------------
+\section{Conclusion}
+\anonymous{ tie back to the motivation 2nd order effect }
+\anonymous{ 2nd order effect not even mentioned }
+\anonymous{ overall findings and mitigations }
+
+\section*{Acknowledgements}
+Thanks :)
+
+% Entries for the entire Anthology, followed by custom entries
+\bibliography{anthology,custom}
+
+\appendix
+
+\section{Example Appendix}
+\label{sec:appendix}
+
+This is an appendix.
+
+\end{document}
+ - \textbf{Free Text} writing prompts a more open-ended task where the output is less constrained. LLMs may generate coherent narratives or stories but cannot be easily verified against an external reference without further investigation.

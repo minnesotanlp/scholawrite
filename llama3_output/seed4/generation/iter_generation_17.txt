@@ -1,0 +1,99 @@
+isolated 1949 1975 1982 1988 1990 1992 1996 1998 2000
+1949: 0.0/0.0 0.0/0.0 0.0/0.0 0.0/0.0 0.0/0.0 0.0/0.0 0.0/0.0 0.0/0.0 0.0/0.0 
+1959: 0.0/0.0 0.0/0.0 0.0/0.0 0.0/0.0 0.0/0.0 0.0/0.0 0.0/0.0 0.0/0.0 0.0/0.0 
+1965: 0.0/0.0 0.0/0.0 0.0/0.0 0.0/0.0 0.0/0.0 0.0/0.0 0.0/0.0 0.0/0.0 0.0/0.0 
+1968: 0.0/0.0 0.0/0.0 0.0/0.0 0.0/0.0 0.0/0.0 0.0/0.0 0.0/0.0 0.0/0.0 0.0/0.0 
+1973: 0.0/0.0 0.0/0.0 0.0/0.0 0.0/0.0 0.0/0.0 0.0/0.0 0.0/0.0 0.0/0.0 0.0/0.0 
+1974: 0.0/0.0 0.0/0.0 0.0/0.0 0.0/0.0 0.0/0.0 0.0/0.0 0.0/0.0 0.0/0.0 0.0/0.0 
+1975: 0.0/0.0 0.0/0.0 0.0/0.0 0.0/0.0 0.0/0.0 0.0/0.0 0.0/0.0 0.0/0.0 0.0/0.0 
+1976: 0.0/0.0 0.0/0.0 0.0/0.0 0.0/0.0 0.0/0.0 0.0/0.0 0.0/0.0 0.0/0.0 0.0/0.0 
+1977: 0.0/0.0 0.0/0.0 0.0/0.0 0.0/0.0 0.0/0.0 0.0/0.0 0.0/0.0 0.0/0.0 0.0/0.0 
+1978: 0.0/0.0 0.0/0.0 0.0/0.0 0.0/0.0 0.0/0.0 0.0/0.0 0.0/0.0 0.0/0.0 0.0/0.0 
+1979: 0.0/0.0 0.0/0.0 0.0/0.0 0.0/0.0 0.0/0.0 0.0/0.0 0.0/0.0 0.0/0.0 0.0/0.0 
+1980: 0.0/0.0 0.0/0.0 0.0/0.0 0.0/0.0 0.0/0.0 0.0/0.0 0.0/0.0 0.0/0.0 0.0/0.0 
+1981: 0.0/0.0 0.0/0.0 0.0/0.0 0.0/0.0 0.0/0.0 0.0/0.0 0.0/0.0 0.0/0.0 0.0/0.0 
+1982: 0.0/0.0 0.0/0.0 0.0/0.0 0.0/0.0 0.0/0.0 0.0/0.0 0.0/0.0 0.0/0.0 0.0/0.0 
+1983: 0.0/0.0 0.0/0.0 0.0/0.0 0.0/0.0 0.0/0.0 0.0/0.0 0.0/0.0 0.0/0.0 0.0/0.0 
+1984: 0.0/0.0 0.0/0.0 0.0/0.0 0.0/0.0 0.0/0.0 0.0/0.0 0.0/0.0 0.0/0.0 0.0/0.0 
+1985: 0.0/0.0 0.0/0.0 0.0/0.0 0.0/0.0 0.0/0.0 0.0/0.0 0.0/0.0 0.0/0.0 0.0/0.0 
+1986: 0.0/0.0 0.0/0.0 0.0/0.0 0.0/0.0 0.0/0.0 0.0/0.0 0.0/0.0 0.0/0.0 0.0/0.0 
+1987: 0.0/0.0 0.0/0.0 0.0/0.0 0.0/0.0 0.0/0.0 0.0/0.0 0.0/0.0 0.0/0.0 0.0/0.0 
+1988: 0.0/0.0 0.0/0.0 0.0/0.0 0.0/0.0 0.0/0.0 0.0/0.0 0.0/0.0 0.0/0.0 0.0/0.0 
+1989: 0.0/0.0 0.0/0.0 0.0/0.0 0.0/0.0 0.0/0.0 0.0/0.0 0.0/0.0 0.0/0.0 0.0/0.0 
+1990: 0.0/0.0 0.0/0.0 0.0/0.0 0.0/0.0 0.0/0.0 0.0/0.0 0.0/0.0 0.0/0.0 0.0/0.0 
+1991: 0.0/0.0 0.0/0.0 0.0/0.0 0.0/0.0 0.0/0.0 0.0/0.0 0.0/0.0 0.0/0.0 0.0/0.0 
+1992: 0.0/0.0 0.0/0.0 0.0/0.0 0.0/0.0 0.0/0.0 0.0/0.0 0.0/0.0 0.0/0.0 0.0/0.0 
+1993: 0.0/0.0 0.0/0.0 0.0/0.0 0.0/0.0 0.0/0.0 0.0/0.0 0.0/0.0 0.0/0.0 0.0/0.0 
+1994: 0.0/0.0 0.0/0.0 0.0/0.0 0.0/0.0 0.0/0.0 0.0/0.0 0.0/0.0 0.0/0.0 0.0/0.0 
+1995: 0.0/0.0 0.0/0.0 0.0/0.0 0.0/0.0 0.0/0.0 0.0/0.0 0.0/0.0 0.0/0.0 0.0/0.0 
+1996: 0.0/0.0 0.0/0.0 0.0/0.0 0.0/0.0 0.0/0.0 0.0/0.0 0.0/0.0 0.0/0.0 0.0/0.0 
+1997: 0.0/0.0 0.0/0.0 0.0/0.0 0.0/0.0 0.0/0.0 0.0/0.0 0.0/0.0 0.0/0.0 0.0/0.0 
+1998: 0.0/0.0 0.0/0.0 0.0/0.0 0.0/0.0 0.0/0.0 0.0/0.0 0.0/0.0 0.0/0.0 0.0/0.0 
+1999: 0.0/0.0 0.0/0.0 0.0/0.0 0.0/0.0 0.0/0.0 0.0/0.0 0.0/0.0 0.0/0.0 0.0/0.0 
+2000: 0.0/0.0 0.0/0.0 0.0/0.0 0.0/0.0 0.0/0.0 0.0/0.0 0.0/0.0 0.0/0.0 0.0/0.0 
+\bottomrule
+\end{tabular}
+\caption{Percentages of 0 and 1  and 0  over-optimized for the 0. The model s 0.5 on the test set.}
+\label{tab:preference:human}
+\end{table}
+
+\begin{table}[H]
+    \centering
+    \begin{tabular}{@{}lcc@{}}
+        \toprule
+        \textbf{Source} & \textbf{Order} & \textbf{Score} \\
+        \midrule
+        \textbf{Human} & \textbf{human} & 0.49 / 0.64 \\
+        \textbf{Model} & \textbf{human} & 0.33 / 0.51 \\
+        \textbf{Human} & \textbf{machine} & 0.33 / 0.67 \\
+        \textbf{Model} & \textbf{machine} & 0.66 / 0.54 \\
+        \bottomrule
+    \end{tabular}
+    \caption{Pearson Correlation between (a) \textbf{human} and \textbf{machine}, (b) \textbf{human} and \textbf{machine}, (c) \textbf{human} and \textbf{machine} (b).}
+    \label{tab:corr}
+\end{table}
+\begin{table}[H]
+    \centering
+    \begin{tabular}{@{}lcc@{}}
+        \toprule
+        \textbf{Source} & \textbf{Order} & \textbf{Score} \\
+        \midrule
+        \textbf{Human} & \textbf{human} & 0.49 / 0.64 \\
+        \textbf{Model} & \textbf{human} & 0.33 / 0.51 \\
+        \textbf{Human} & \textbf{machine} & 0.33 / 0.67 \\
+        \textbf{Model} & \textbf{machine} & 0.66 / 0.54 \\
+        \bottomrule
+    \end{tabular}
+    \caption{Pearson Correlation between (a) \textbf{human} and \textbf{machine}, (b) \textbf{human} and \textbf{machine}, (c) \textbf{human} and \textbf{machine} (b).}
+    \label{tab:corr}
+\end{table}
+\begin{table}[H]
+    \centering
+    \begin{tabular}{@{}lcc@{}}
+        \toprule
+        \textbf{Source} & \textbf{Order} & \textbf{Score} \\
+        \midrule
+        \textbf{Human} & \textbf{human} & 0.49 / 0.64 \\
+        \textbf{Model} & \textbf{human} & 0.33 / 0.51 \\
+        \textbf{Human} & \textbf{machine} & 0.33 / 0.67 \\
+        \textbf{Model} & \textbf{machine} & 0.66 / 0.54 \\
+        \bottomrule
+    \end{tabular}
+    \caption{Pearson Correlation between (a) \textbf{human} and \textbf{machine}, (b) \textbf{human} and \textbf{machine}, (c) \textbf{human} and \textbf{machine} (b).}
+    \label{tab:corr}
+\end{table}
+\begin{table}[H]
+    \centering
+    \begin{tabular}{@{}lcc@{}}
+        \toprule
+        \textbf{Source} & \textbf{Order} & \textbf{Score} \\
+        \midrule
+        \textbf{Human} & \textbf{human} & 0.49 / 0.64 \\
+        \textbf{Model} & \textbf{human} & 0.33 / 0.51 \\
+        \textbf{Human} & \textbf{machine} & 0.33 / 0.67 \\
+        \textbf{Model} & \textbf{machine} & 0.66 / 0.54 \\
+        \bottomrule
+    \end{tabular}
+    \caption{Pearson Correlation between (a) \textbf{human} and \textbf{machine}, (b) \textbf{human} and \textbf{machine}, (c) \textbf{human} and \textbf{machine} (b).}
+    \label{tab:corr}
+\end{table}

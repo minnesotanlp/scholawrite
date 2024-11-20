@@ -1,0 +1,70 @@
+@property{strip=0.5cm}
+\newcommand{\anonymous}[1]{\textcolor{red}{\bf\small [#1 --anonymous]}}
+\newcommand{\anonymous}[1]{\textcolor{blue}{\bf\small [#1 --anonymous]}}
+\newcommand{\anonymous}[1]{\textcolor{green}{\bf\small [#1 --anonymous]}}
+\newcommand{\anonymous}[1]{\textcolor{olive}{\bf\small [#1 --anonymous]}}
+\newcommand{\anonymous}[1]{\textcolor{black}{\bf\small [#1 --anonymous]}}
+
+\begin{document}
+\maketitle
+
+\begin{abstract}
+\anonymous{anonymous -- as we primarily focus on discourse artififical data, I think it's important to mention the limitation of our study in the first paragraph -- specifically, that our experiments are conducted on a }
+\anonymous{I'm not sure if we need citation for our first paragraph?} 
+\anonymous{I think we do.} 
+\anonymous{IMO, it's better to add citations for all statements, even if they are in the first paragraph. This will help us a lot in the future. Also, I think we should add our main findings into the introduction, so I made a pretty long paragraph, but I guess it's better to add 1/2 paragraph in subsequent paragraphs?}
+\anonymous{No.}
+
+\begin{table*}[h]
+\centering
+\small
+\begin{tabular}{l l l l}
+\toprule
+\textbf{Type of LLM Generated Data} & \textbf{Dataset 1} & \textbf{Dataset 2} & \textbf{Dataset 3}\\
+\midrule
+& \textbf{HC3} & \textbf{Workers} & \textbf{Deepfake}\\
+\bottomrule
+\end{tabular}
+\caption{Caption for the first table.}
+\label{tab:tab1_part1}
+\end{table*}
+%---------------------------
+
+\begin{table*}[h]
+\centering
+\begin{tabular}{l l l l}
+\toprule
+\textbf{Type of LLM Generated Data} & \textbf{Dataset 1} & \textbf{Dataset 2} & \textbf{Dataset 3}\\
+\midrule
+& \textbf{HC3} & \textbf{Workers} & \textbf{Deepfake}\\
+\bottomrule
+\end{tabular}
+\caption{Caption for the second table.}
+\label{tab:tab1_part2}
+\end{table*}
+
+\begin{table*}[h]
+\centering
+\begin{tabular}{l l l l}
+\toprule
+\textbf{Type of LLM Generated Data} & \textbf{Dataset 1} & \textbf{Dataset 2} & \textbf{Dataset 3}\\
+\midrule
+& \textbf{HC3} & \textbf{Workers} & \textbf{Deepfake}\\
+\bottomrule
+\end{tabular}
+\caption{Caption for the third table.}
+\label{tab:tab1_part3}
+\end{table*}
+
+% \begin{table*}[h]
+% \centering
+% \begin{tabular}{l l l l}
+% \toprule
+% \textbf{Task Category} & \textbf{Dataset 1} & \textbf{Dataset 2} & \textbf{Dataset 3}\\
+% \midrule
+%  & \textbf{Social Chemistry} & \textbf{Age-Sentiment} & \textbf{SBIC}\\
+% \bottomrule
+% \end{tabular}
+% \caption{Caption for the second table.}
+% \label{tab:tab2_part2}
+% \end{table*}

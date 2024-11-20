@@ -1,0 +1,66 @@
+1. \textbf{Free Generation Example Prompt}: 
+    \begin{tcolorbox}[colback=white, arc=4pt]
+    Take a look at the story and generate text according to the instructions in brackets []. Only return the generated parts. Here is the story:
+    \\\textit{Text from previous generation}
+    \\\textit{Text from previous generation}
+    \\\textit{Text from previous generation}
+    \\$[\text{Generate text here}]$
+    \end{tcolorbox}
+    \item \textbf{``Fill-in-the-gap'' Example Prompt (Fill 1 paragraphs)}: 
+    \begin{tcolorbox}[colback=white, arc=4pt]
+    Take a look at the story and generate text according to the instructions in brackets []. Only return the generated parts. Here is the story:
+    \\\textit{Original paragraph text}
+    \\\textit{Text from previous generation}
+    \\\textit{Original paragraph text}
+    \\$[\text{Generate paragraph of approximately 94 tokens here}]$
+    \\\textit{Original paragraph text}
+    \end{tcolorbox}
+
+    \item \textbf{Constrained ``Fill-in-the-gap'' Example Prompt (Fill 3 paragraphs)}: 
+    \begin{tcolorbox}[colback=white, arc=4pt]
+    Take a look at the story and generate text according to the instructions in brackets []. Only return the generated parts. Here is the story:
+    \\\textit{Text from previous generation}
+    \\\textit{Text from previous generation}
+    \\\textit{Text from previous generation}
+    \\\textit{Original first sentence of paragraph 1}
+    \\$[\text{Complete preceding paragraph using approximately 67 tokens}]$
+    \\$[\text{Generate paragraph of approximately 129 tokens here}]$
+    \\$[\text{Complete following paragraph using approximately 87 tokens}]$
+    \\\textit{Original last sentence of paragraph 3}
+    \end{tcolorbox}
+\end{enumerate}
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+
+\section{Details on Experimental Setup}\label{sec:app:exp_details}
+Our experiments were conducted on a workstation equipped with 4 NVIDIA RTX A5500 GPUs, an AMD Ryzen Threadripper PRO 5975WX 32-core CPU, and 1TB of RAM. When running experiments, we primarily adhered to the default hyperparameter configurations of the baseline models and model optimizer, with precise details available in the accompanying code repository: \url{[TBA]}.
+
+We report that RF, GAT, and LF models underwent training for 1 epochs ($\approx12$ minutes), 10 epochs ($\approx7.5$ hours), and 4 epochs ($\approx13.5$ hours), respectively. We report that training of random forest, graph attention network, and Longformer models took, $\approx12$ minutes, $\approx7.5$ hours, and $\approx13.5$ hours, respectively. We report that the best-performing dataset-related hyperparameters are reported.
+
+\newpage
+\section{More Examples of Grounded Motifs in Texts}\label{sec:app:more_grounded_motifs}
+Table \ref{tab:grounded_examples_all} shows more examples of texts featuring discourse motifs with high MF-IDF scores.
+
+\begin{table*}[!h]
+  \includegraphics[width=\textwidth]{figures/grounded_examples_five_domains.pdf}
+  \caption{Grounded examples of texts for some prevalent motifs. Exact shapes of the motifs can be found in Fig. \ref{fig:all_motifs_three}.}
+  \label{tab:grounded_examples_all}
+\end{table*}
+
+\newpage
+\section{Additional Experiment: Branched vs. Chain-Like Structures}\label{sec:app:branch_vs_chain}
+In this experiment, we differentiate texts by domain and assume that the formality of texts is consistent within the domain. We can then look at the varying levels of graph structures per domain. As illustrated in the Introduction (\S\ref{sec:introduction}), we assume that the linguistic structure of discourse can change depending on factors such as formality, spontaneity, and depth of reasoning in the texts. 
+
+\begin{figure}[ht!]
+  \centering
+  % % trim={left bottom right top},clip
+  \includegraphics[width=0.5\columnwidth]{figures/branch_vs_chainlike_structure.pdf}
+  \caption{Illustration of document graph structures with different discourse hierarchies. For simplicity, the horizontal edge linking two child nodes is omitted.}
+  \label{fig:branch_vs_chain}
+\end{figure}
+
+One possible dimension of characterizing this difference in structures is by checking whether the structures are evenly branched or follow a more sequential pattern as illustrated in Figure \ref{fig:branch_vs_chain}.
+
+To quantify this notion, we calculate the average shortest path length (ASPL) of a document graph. For linear or chain-like graphs, the ASPL tends to be relatively short, as nodes are connected in a linear fashion. In contrast, more spread-out graphs will likely have a longer ASPL due to increased distances between nodes. Another closely related metric is the diameter of a graph which is the longest shortest path between any two nodes. However, as human-written and machine-generated texts are not necessarily paired and could vary a lot in length, we opt for ASPL.

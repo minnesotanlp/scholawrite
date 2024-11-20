@@ -1,0 +1,12 @@
+REPPLY: It is important to acknowledge that our approach relies on a base language model that has some representation of the style target combination. In the absence of this, further language model fine-tuning is likely needed in order to achieve the desired effect. Our approach also relies heavily on discriminators which may be flawed and may be ineffective in certain domains, limiting the interpretability of results.
+
+We do not focus on optimizing output from models with multiple style attributes in this work. We also do not focus on optimizing output from models with multiple attribute types, as this would be the case in a more general 
+
+\subsection*{Secondary Effects}
+We discuss the secondary effects we observe in our style-controlled models.
+%We observe two main side effects in our models. The first is that styles not obviously related to the controlled styles differ from the original model. The second is the factuality of the models are affected.
+
+\subsubsection*{Behavior of Uncontrolled Styles}
+We examine how generations from the style-controlled models differ from the original model with respect to the \textit{uncontrolled} styles.
+
+Certain textual styles are highly correlated, e.g. \textit{positive} and \textit{joy}. As expected, models with the target style positive show a corresponding increase in the joy of their generations. However, we also note that the informal model shows an increase in joy comparable to the positive models. To find whether there is a relationship between informality and positivity, we checked the original data's full texts and the base model's generations for correlations between positivity and informality. We found they were not highly correlated (Pearson's $r = 0.1$, $p < 0.05$; this also replicates earlier results from \cite{kang2021style}). This implies that this result cannot be attributed to any inherent association between the styles, and it is possible that steering generations towards a target style may impact the prevalence of non-target styles as well. See Appendix for all uncontrolled style results.\anonymous{todo: format these into a table rather than graph for appendix}

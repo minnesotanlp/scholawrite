@@ -1,0 +1,2 @@
+\eurosymb} \urym{GAB} \urym{GC} \urym{G} \urym{Graph} \urym{Classification} \urym{Node} \urym{Label} \urym{Distance} \urym{Dataset} \urym{Task} \urym{Description} \\\midrule
+\includegraphics[width=2cm, height=2cm]{figures/graph_images/failure_cases/8_new.png} & 5 & 5 &

@@ -1,0 +1,20 @@
+REP  et al. (2022) identified correlation patterns in five different LLM-generated data types, including text, image, simulation, preference, and instruction. They found that four of these types of LLM-generated data exhibit significant correlation with human data, while human data exhibits less correlation with the fifth type (instruction). This suggests that LLMs may have a more superficial approach to certain tasks than humans. 
+
+In this paper, we examine whether LLM-generated task annotations fail to retain minority opinions and skew towards majority labels in various subjective and objective tasks and how this bias is amplified with further training. 
+
+\subsection{Datasets}\label{sec:task-data}
+We use human annotations from the test partition of four datasets, \textsc{Social Chemistry} \cite{forbes2020social}, \textsc{Age-Sentiment} \cite{diaz2018addressing}, \textsc{SBIC} \cite{sap2019social} and \textsc{GAB} \cite{kennedy2022introducing}.\\
+\noindent \textbf {Rationale : } These datasets were chosen due to the subjective nature of their tasks and their provision of individual-level annotations, as we are interested in understanding the diversity of the annotations for task labels.
+ %-----------------------------------------------
+ %Our experiments and analyses consist of two axes (1) the \textit{distributional differences} between human and LLM-annotated labels and (2) how that distribution changes when we train models on the two datasets, which we will refer to as the \textit{second order effect}
+%\subsubsection{Distributional Difference between human and LLM labels} 
+\subsection{First Order Analysis}\label{sec:task-first}
+\paragraph{Hypothesis}
+Our investigation focuses on how LLM-annotated datasets represent minority opinions, especially in subjective contexts, hypothesizing a bias towards majority viewpoints in LLMs that could lead to homogenized responses and diminished diversity in datasets requiring nuanced judgment and complex decision-making.
+\paragraph{Experiment Setup}
+We utilized various open-sourced and commercially available, instruction-tuned LLMs like Vicuna \cite{vicuna2023}, Koala \cite{koala_blogpost_2023}, Baize \cite{xu2023baize}, GPT-3.5-Turbo \cite{brown2020language}, and LLaMA2 \cite{touvron2023llama} as annotators to generate labels for dataset tasks. We prepared two setups to simulate groups of human annotators with the same number of LLM annotators.
+In our \textit{inter-model} setup, we grouped LLM annotators by their architecture and training methods, choosing the majority label from each model's intra-model setup. We used various temperature and top-p combinations to create diverse response patterns, simulating the varied responses of a diverse group of human annotators. For example, a group of annotators from the \textit{inter-model} setup might consist of 5 Vicuna models run with differing temperature and top-p parameters. Conversely, the \textit{intra-model} setup organized groups by hyper-parameters, yielding labels from different model architectures in any given group. We acknowledge that some models, like GPT-3.5 Turbo, have greater capacities than other LLMs, akin to the varying proficiencies among human annotators.
+\paragraph{Metrics}
+\noindent \textsc{Match Score}: The match score measures the agreement between human and model annotations, calculated as the number of matches divided by the total number of samples.
+
+\noindent \textsc{Variation}:In ordinal data, where differences between levels aren't

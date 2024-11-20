@@ -1,0 +1,691 @@
+Chen, Yung-Kei, and Mi, Li. (2021). Corpus-based datasets for natural language processing. arXiv, 2021.02.10.2232120.
+
+@misc{liu2023geval,
+    title={GEVAL: A Corpus-Based Generalization Viewpoint Sampling Framework for Graph Neural Networks}, 
+    author={Liu, Zhiyuan and Li, Hengyu},
+    year={2023},
+    eprint={2307.12534},
+    archivePrefix={arXiv},
+    primaryClass={cs.CL}
+}
+
+@misc{wang2023no,
+    title={No of Motifs Matters: A Case of Graph Neural Networks}, 
+    author={Zhou, Wang and Liu, Huihui and Tang, Tai-Hua and Han, Xiaohai and Fu, Zongyuan},
+    year={2023},
+    eprint={2307.11192},
+    archivePrefix={arXiv},
+    primaryClass={cs.CL}
+}
+%--------------------graphml----
+@misc{pan2023unifying,
+  title={Unifying Graph Language Models: A GraphML-Integrated Proportional Sampling Method}, 
+  author={Pan, Shirui and Wang, Yihan and Zhang, Tianling and Hu, Xiaohai and Huang, Xuanwen and Yang, Yang},
+  year={2023},
+  eprint={2305.15047},
+  archivePrefix={arXiv},
+  primaryClass={cs.CL}
+}
+@article{guo2023gpt4graph,
+  title={GPT4Graph: Can Large Language Models Understand Graph Structured Data? An Empirical Evaluation and a Call for Action to the NLP Community}, 
+  author={Guo, Jiayan and Du, Lun and Liu, Huihui and Liu, Yang and Lou, Kengyu and Wang, Wenqi and Zhang, Yanyuan},
+  journal={arXiv preprint arXiv:2307.08814},
+  year={2023}
+}
+@article{wang2023can,
+  title={Can Language Models Solve Graph Problems in Natural Language? A Case Study of Graph-structured Text Generation}, 
+  author={Wang, Hengyu and Feng, Shangbin and Wang, Liwei and Hu, Xiaohai and Huang, Xuanwen and Yang, Yang},
+  journal={arXiv preprint arXiv:2305.15047},
+  year={2023}
+}
+@article{ye2023natural,
+  title={Natural language is all a graph needs}, 
+  author={Ye, Ruosong and Zhang, Caiqi and Wang, Runhui and Xu, Shuyuan},
+  journal={arXiv preprint arXiv:2304.11173},
+  year={2023}
+}
+
+@misc{guo2023gpt4graph,
+  title={GPT4Graph: Can Large Language Models Understand Graph Structured Data? An Empirical Evaluation and a Call for Action to the NLP Community}, 
+  author={Guo, Jiayan and Du, Lun and Liu, Huihui and Liu, Yang and Lou, Kengyu and Wang, Wenqi and Zhang, Yanyuan},
+  journal={arXiv preprint arXiv:2307.08814},
+  year={2023}
+}
+
+@article{zhang2023siren,
+  title={Siren's Song in the AI Ocean: A Survey on Siren-like Objects and Their Applications}, 
+  author={Zhang, Yue and Li, Yafu and Cui, Le and Cai, Deng and Liu, Huihui and Fu, Tingchen and Huang, Xuanwen and Zhang, Tianling and Huang, Xuanwen and others},
+  journal={arXiv preprint arXiv:2305.12566},
+  year={2023}
+}
+
+@article{fatemi2023talk,
+  title={Talk like a Graph: Encoding Graphs for Large Language Models}, 
+  author={Fatemi, Bahare and Halcrow, Jonathan and Perozzi, Bryan},
+  journal={arXiv preprint arXiv:2310.04560},
+  year={2023}
+}
+@article{chen2023exploring,
+  title={Exploring the potential of large language models (llms) in learning on graph-structured data}, 
+  author={Chen, Zhikai and Mao, Hui and Wang, Yuxin and Li, Na and Jin, Wei and Wen, Hongzhi and Ai, Alessandro},
+  journal={arXiv preprint arXiv:2305.15053},
+  year={2023}
+}
+
+@article{wang2023can,
+  title={Can Language Models Solve Graph Problems in Natural Language? A Case Study of Graph-structured Text Generation}, 
+  author={Wang, Hengyu and Feng, Shangbin and Wang, Liwei and Hu, Xiaohai and Huang, Xuanwen and Yang, Yang},
+  journal={arXiv preprint arXiv:2305.15047},
+  year={2023}
+}
+@article{ye2023natural,
+  title={Natural language is all a graph needs}, 
+  author={Ye, Ruosong and Zhang, Caiqi and Wang, Runhui and Xu, Shuyuan},
+  journal={arXiv preprint arXiv:2304.11173},
+  year={2023}
+}
+
+@misc{guo2023gpt4graph,
+  title={GPT4Graph: Can Large Language Models Understand Graph Structured Data? An Empirical Evaluation and a Call for Action to the NLP Community}, 
+  author={Guo, Jiayan and Du, Lun and Liu, Huihui and Liu, Yang and Lou, Kengyu and Wang, Wenqi and Zhang, Yanyuan},
+  journal={arXiv preprint arXiv:2307.08814},
+  year={2023}
+}
+
+@article{zhang2023siren,
+  title={Siren's Song in the AI Ocean: A Survey on Siren-like Objects and Their Applications}, 
+  author={Zhang, Yue and Li, Yafu and Cui, Le and Cai, Deng and Liu, Huihui and Fu, Tingchen and Huang, Xuanwen and Zhang, Tianling and Huang, Xuanwen and others},
+  journal={arXiv preprint arXiv:2305.12566},
+  year={2023}
+}
+
+@article{french2023large,
+  title={Large Language Models: A Global Perspective}, 
+  author={French, Jeremy and Gob, Thibault and Rosenthal, Sivan and Permarin, Alina and Bradley, John and Wang, Wenqi and Schuurmans, Dale and others},
+  journal={arXiv preprint arXiv:2305.17263},
+  year={2023}
+}
+@article{fatemi2023talk,
+  title={Talk like a Graph: Encoding graph data for large language models}, 
+  author={Fatemi, Bahare and Halcrow, Jonathan and Perozzi, Bryan},
+  journal={arXiv preprint arXiv:2310.04560},
+  year={2023}
+}
+@article{chen2023exploring,
+  title={Exploring the potential of large language models (llms) in learning on graph-structured data}, 
+  author={Chen, Zhikai and Mao, Hui and Wang, Yuxin and Li, Na and Jin, Wei and Wen, Hongzhi and Ai, Alessandro},
+  journal={arXiv preprint arXiv:2305.15053},
+  year={2023}
+}
+
+@article{wang2023can,
+  title={Can Language Models Solve Graph Problems in Natural Language? A Case Study of Graph-structured Text Generation}, 
+  author={Wang, Hengyu and Feng, Shangbin and Wang, Liwei and Hu, Xiaohai and Huang, Xuanwen and Yang, Yang},
+  journal={arXiv preprint arXiv:2305.15047},
+  year={2023}
+}
+@article{ye2023natural,
+  title={Natural language is all a graph needs}, 
+  author={Ye, Ruosong and Zhang, Caiqi and Wang, Runhui and Xu, Shuyuan},
+  journal={arXiv preprint arXiv:2304.11173},
+  year={2023}
+}
+
+@misc{guo2023gpt4graph,
+  title={GPT4Graph: Can Large Language Models Understand Graph Structured Data? An Empirical Evaluation and a Call for Action to the NLP Community}, 
+  author={Guo, Jiayan and Du, Lun and Liu, Huihui and Liu, Yang and Lou, Kengyu and Wang, Wenqi and Zhang, Yanyuan},
+  journal={arXiv preprint arXiv:2307.08814},
+  year={2023}
+}
+
+@article{zhang2023siren,
+  title={Siren's Song in the AI Ocean: A Survey on Siren-like Objects and Their Applications}, 
+  author={Zhang, Yue and Li, Yafu and Cui, Le and Cai, Deng and Liu, Huihui and Fu, Tingchen and Huang, Xuanwen and Zhang, Tianling and Huang, Xuanwen and others},
+  journal={arXiv preprint arXiv:2305.12566},
+  year={2023}
+}
+
+@article{french2023large,
+  title={Large Language Models: A Global Perspective}, 
+  author={French, Jeremy and Gob, Thibault and Rosenthal, Sivan and Permarin, Alina and Bradley, John and Wang, Wenqi and Schuurmans, Dale and others},
+  journal={arXiv preprint arXiv:2305.17263},
+  year={2023}
+}
+@article{fatemi2023talk,
+  title={Talk like a Graph: Encoding graph data for large language models}, 
+  author={Fatemi, Bahare and Halcrow, Jonathan and Perozzi, Bryan},
+  journal={arXiv preprint arXiv:2310.04560},
+  year={2023}
+}
+@article{chen2023exploring,
+  title={Exploring the potential of large language models (llms) in learning on graph-structured data}, 
+  author={Chen, Zhikai and Mao, Hui and Wang, Yuxin and Li, Na and Jin, Wei and Wen, Hongzhi and Ai, Alessandro},
+  journal={arXiv preprint arXiv:2305.15053},
+  year={2023}
+}
+
+@article{wang2023can,
+  title={Can Language Models Solve Graph Problems in Natural Language? A Case Study of Graph-structured Text Generation}, 
+  author={Wang, Hengyu and Feng, Shangbin and Wang, Liwei and Hu, Xiaohai and Huang, Xuanwen and Yang, Yang},
+  journal={arXiv preprint arXiv:2305.15047},
+  year={2023}
+}
+@article{ye2023natural,
+  title={Natural language is all a graph needs}, 
+  author={Ye, Ruosong and Zhang, Caiqi and Wang, Runhui and Xu, Shuyuan},
+  journal={arXiv preprint arXiv:2304.11173},
+  year={2023}
+}
+
+@misc{guo2023gpt4graph,
+  title={GPT4Graph: Can Large Language Models Understand Graph Structured Data? An Empirical Evaluation and a Call for Action to the NLP Community}, 
+  author={Guo, Jiayan and Du, Lun and Liu, Huihui and Liu, Yang and Lou, Kengyu and Wang, Wenqi and Zhang, Yanyuan},
+  journal={arXiv preprint arXiv:2307.08814},
+  year={2023}
+}
+
+@article{zhang2023siren,
+  title={Siren's Song in the AI Ocean: A Survey on Siren-like Objects and Their Applications}, 
+  author={Zhang, Yue and Li, Yafu and Cui, Le and Cai, Deng and Liu, Huihui and Fu, Tingchen and Huang, Xuanwen and Zhang, Tianling and Huang, Xuanwen and others},
+  journal={arXiv preprint arXiv:2305.12566},
+  year={2023}
+}
+
+@article{french2023large,
+  title={Large Language Models: A Global Perspective}, 
+  author={French, Jeremy and Gob, Thibault and Rosenthal, Sivan and Permarin, Alina and Bradley, John and Wang, Wenqi and Schuurmans, Dale and others},
+  journal={arXiv preprint arXiv:2305.17263},
+  year={2023}
+}
+@article{fatemi2023talk,
+  title={Talk like a Graph: Encoding graph data for large language models}, 
+  author={Fatemi, Bahare and Halcrow, Jonathan and Perozzi, Bryan},
+  journal={arXiv preprint arXiv:2310.04560},
+  year={2023}
+}
+@article{chen2023exploring,
+  title={Exploring the potential of large language models (llms) in learning on graph-structured data}, 
+  author={Chen, Zhikai and Mao, Hui and Wang, Yuxin and Li, Na and Jin, Wei and Wen, Hongzhi and Ai, Alessandro},
+  journal={arXiv preprint arXiv:2305.15053},
+  year={2023}
+}
+
+@article{wang2023can,
+  title={Can Language Models Solve Graph Problems in Natural Language? A Case Study of Graph-structured Text generation}, 
+  author={Wang, Hengyu and Feng, Shangbin and Wang, Liwei and Hu, Xiaohai and Huang, Xuanwen and Yang, Yang},
+  journal={arXiv preprint arXiv:2305.15047},
+  year={2023}
+}
+@article{ye2023natural,
+  title={Natural language is all a graph needs}, 
+  author={Ye, Ruosong and Zhang, Caiqi and Wang, Runhui and Xu, Shuyuan},
+  journal={arXiv preprint arXiv:2304.11173},
+  year={2023}
+}
+
+@misc{guo2023gpt4graph,
+  title={GPT4Graph: Can Large Language Models Understand Graph Structured Data? An Empirical Evaluation and a Call for Action to the NLP Community}, 
+  author={Guo, Jiayan and Du, Lun and Liu, Huihui and Liu, Yang and Lou, Kengyu and Wang, Wenqi and Zhang, Yanyuan},
+  journal={arXiv preprint arXiv:2307.08814},
+  year={2023}
+}
+
+@article{zhang2023siren,
+  title={Siren's Song in the AI Ocean: A Survey on Siren-like Objects and Their Applications}, 
+  author={Zhang, Yue and Li, Yafu and Cui, Le and Cai, Deng and Liu, Huihui and Fu, Tingchen and Huang, Xuanwen and Zhang, Tianling and Huang, Xuanwen and others},
+  journal={arXiv preprint arXiv:2305.12566},
+  year={2023}
+}
+
+@article{french2023large,
+  title={Large Language Models: A Global Perspective}, 
+  author={French, Jeremy and Gob, Thibault and Rosenthal, Sivan and Permarin, Alina and Bradley, John and Wang, Wenqi and Schuurmans, Dale and others},
+  journal={arXiv preprint arXiv:2305.17263},
+  year={2023}
+}
+@article{fatemi2023talk,
+  title={Talk like a Graph: Encoding graph data for large language models}, 
+  author={Fatemi, Bahare and Halcrow, Jonathan and Perozzi, Bryan},
+  journal={arXiv preprint arXiv:2310.04560},
+  year={2023}
+}
+@article{chen2023exploring,
+  title={Exploring the potential of large language models (llms) in learning on graph-structured data}, 
+  author={Chen, Zhikai and Mao, Hui and Wang, Yuxin and Li, Na and Jin, Wei and Wen, Hongzhi and Ai, Alessandro},
+  journal={arXiv preprint arXiv:2305.15053},
+  year={2023}
+}
+
+@article{wang2023can,
+  title={Can Language Models Solve Graph Problems in Natural Language? A Case Study of Graph-structured Text generation}, 
+  author={Wang, Hengyu and Feng, Shangbin and Wang, Liwei and Hu, Xiaohai and Huang, Xuanwen and Yang, Yang},
+  journal={arXiv preprint arXiv:2305.15047},
+  year={2023}
+}
+@article{ye2023natural,
+  title={Natural language is all a graph needs}, 
+  author={Ye, Ruosong and Zhang, Caiqi and Wang, Runhui and Xu, Shuyuan},
+  journal={arXiv preprint arXiv:2304.11173},
+  year={2023}
+}
+
+@misc{guo2023gpt4graph,
+  title={GPT4Graph: Can Large Language Models Understand Graph Structured Data? An Empirical Evaluation and a Call for Action to the NLP Community}, 
+  author={Guo, Jiayan and Du, Lun and Liu, Huihui and Liu, Yang and Lou, Kengyu and Wang, Wenqi and Zhang, Yanyuan},
+  journal={arXiv preprint arXiv:2307.08814},
+  year={2023}
+}
+
+@article{zhang2023siren,
+  title={Siren's Song in the AI Ocean: A Survey on Siren-like Objects and Their Applications}, 
+  author={Zhang, Yue and Li, Yafu and Cui, Le and Cai, Deng and Liu, Huihui and Fu, Tingchen and Huang, Xuanwen and Zhang, Tianling and Huang, Xuanwen and others},
+  journal={arXiv preprint arXiv:2305.12566},
+  year={2023}
+}
+
+@article{french2023large,
+  title={Large Language Models: A Global Perspective}, 
+  author={French, Jeremy and Gob, Thibault and Rosenthal, Sivan and Permarin, Alina and Bradley, John and Wang, Wenqi and Schuurmans, Dale and others},
+  journal={arXiv preprint arXiv:2305.17263},
+  year={2023}
+}
+@article{fatemi2023talk,
+  title={Talk like a Graph: Encoding graph data for large language models}, 
+  author={Fatemi, Bahare and Halcrow, Jonathan and Perozzi, Bryan},
+  journal={arXiv preprint arXiv:2310.04560},
+  year={2023}
+}
+@article{chen2023exploring,
+  title={Exploring the potential of large language models (llms) in learning on graph-structured data}, 
+  author={Chen, Zhikai and Mao, Hui and Wang, Yuxin and Li, Na and Jin, Wei and Wen, Hongzhi and Ai, Alessandro},
+  journal={arXiv preprint arXiv:2305.15053},
+  year={2023}
+}
+
+@article{wang2023can,
+  title={Can Language Models Solve Graph Problems in Natural Language? A Case Study of Graph-structured Text generation}, 
+  author={Wang, Hengyu and Feng, Shangbin and Wang, Liwei and Hu, Xiaohai and Huang, Xuanwen and Yang, Yang},
+  journal={arXiv preprint arXiv:2305.15047},
+  year={2023}
+}
+@article{ye2023natural,
+  title={Natural language is all a graph needs}, 
+  author={Ye, Ruosong and Zhang, Caiqi and Wang, Runhui and Xu, Shuyuan},
+  journal={arXiv preprint arXiv:2304.11173},
+  year={2023}
+}
+
+@misc{guo2023gpt4graph,
+  title={GPT4Graph: Can Large Language Models Understand Graph Structured Data? An Empirical Evaluation and a Call for Action to the NLP Community}, 
+  author={Guo, Jiayan and Du, Lun and Liu, Huihui and Liu, Yang and Lou, Kengyu and Wang, Wenqi and Zhang, Yanyuan},
+  journal={arXiv preprint arXiv:2307.08814},
+  year={2023}
+}
+
+@article{zhang2023siren,
+  title={Siren's Song in the AI Ocean: A Survey on Siren-like Objects and Their Applications}, 
+  author={Zhang, Yue and Li, Yafu and Cui, Le and Cai, Deng and Liu, Huihui and Fu, Tingchen and Huang, Xuanwen and Zhang, Tianling and Huang, Xuanwen and others},
+  journal={arXiv preprint arXiv:2305.12566},
+  year={2023}
+}
+
+@article{french2023large,
+  title={Large Language Models: A Global Perspective}, 
+  author={French, Jeremy and Gob, Thibault and Rosenthal, Sivan and Permarin, Alina and Bradley, John and Wang, Wenqi and Schuurmans, Dale and others},
+  journal={arXiv preprint arXiv:2305.17263},
+  year={2023}
+}
+@article{fatemi2023talk,
+  title={Talk like a Graph: Encoding graph data for large language models}, 
+  author={Fatemi, Bahare and Halcrow, Jonathan and Perozzi, Bryan},
+  journal={arXiv preprint arXiv:2310.04560},
+  year={2023}
+}
+@article{chen2023exploring,
+  title={Exploring the potential of large language models (llms) in learning on graph-structured data}, 
+  author={Chen, Zhikai and Mao, Hui and Wang, Yuxin and Li, Na and Jin, Wei and Wen, Hongzhi and Ai, Alessandro},
+  journal={arXiv preprint arXiv:2305.15053},
+  year={2023}
+}
+
+@article{wang2023can,
+  title={Can Language Models Solve Graph Problems in Natural Language? A Case Study of Graph-structured Text generation}, 
+  author={Wang, Hengyu and Feng, Shangbin and Wang, Liwei and Hu, Xiaohai and Huang, Xuanwen and Yang, Yang},
+  journal={arXiv preprint arXiv:2305.15047},
+  year={2023}
+}
+@article{ye2023natural,
+  title={Natural language is all a graph needs}, 
+  author={Ye, Ruosong and Zhang, Caiqi and Wang, Runhui and Xu, Shuyuan},
+  journal={arXiv preprint arXiv:2304.11173},
+  year={2023}
+}
+
+@misc{guo2023gpt4graph,
+  title={GPT4Graph: Can Large Language Models Understand Graph Structured Data? An Empirical Evaluation and a Call for Action to the NLP Community}, 
+  author={Guo, Jiayan and Du, Lun and Liu, Huihui and Liu, Yang and Lou, Kengyu and Wang, Wenqi and Zhang, Yanyuan},
+  journal={arXiv preprint arXiv:2307.08814},
+  year={2023}
+}
+
+@article{zhang2023siren,
+  title={Siren's Song in the AI Ocean: A Survey on Siren-like Objects and Their Applications}, 
+  author={Zhang, Yue and Li, Yafu and Cui, Le and Cai, Deng and Liu, Huihui and Fu, Tingchen and Huang, Xuanwen and Zhang, Tianling and Huang, Xuanwen and others},
+  journal={arXiv preprint arXiv:2305.12566},
+  year={2023}
+}
+
+@article{french2023large,
+  title={Large Language Models: A Global Perspective}, 
+  author={French, Jeremy and Gob, Thibault and Rosenthal, Sivan and Permarin, Alina and Bradley, John and Wang, Wenqi and Schuurmans, Dale and others},
+  journal={arXiv preprint arXiv:2305.17263},
+  year={2023}
+}
+@article{fatemi2023talk,
+  title={Talk like a Graph: Encoding graph data for large language models}, 
+  author={Fatemi, Bahare and Halcrow, Jonathan and Perozzi, Bryan},
+  journal={arXiv preprint arXiv:2310.04560},
+  year={2023}
+}
+@article{chen2023exploring,
+  title={Exploring the potential of large language models (llms) in learning on graph-structured data}, 
+  author={Chen, Zhikai and Mao, Hui and Wang, Yuxin and Li, Na and Jin, Wei and Wen, Hongzhi and Ai, Alessandro},
+  journal={arXiv preprint arXiv:2305.15053},
+  year={2023}
+}
+
+@article{wang2023can,
+  title={Can Language Models Solve Graph Problems in Natural Language? A Case Study of Graph-structured Text generation}, 
+  author={Wang, Hengyu and Feng, Shangbin and Wang, Liwei and Hu, Xiaohai and Huang, Xuanwen and Yang, Yang},
+  journal={arXiv preprint arXiv:2305.15047},
+  year={2023}
+}
+@article{ye2023natural,
+  title={Natural language is all a graph needs}, 
+  author={Ye, Ruosong and Zhang, Caiqi and Wang, Runhui and Xu, Shuyuan},
+  journal={arXiv preprint arXiv:2304.11173},
+  year={2023}
+}
+
+@misc{guo2023gpt4graph,
+  title={GPT4Graph: Can Large Language Models Understand Graph Structured Data? An Empirical Evaluation and a Call for Action to the NLP Community}, 
+  author={Guo, Jiayan and Du, Lun and Liu, Huihui and Liu, Yang and Lou, Kengyu and Wang, Wenqi and Zhang, Yanyuan},
+  journal={arXiv preprint arXiv:2307.08814},
+  year={2023}
+}
+
+@article{zhang2023siren,
+  title={Siren's Song in the AI Ocean: A Survey on Siren-like Objects and Their Applications}, 
+  author={Zhang, Yue and Li, Yafu and Cui, Le and Cai, Deng and Liu, Huihui and Fu, Tingchen and Huang, Xuanwen and Zhang, Tianling and Huang, Xuanwen and others},
+  journal={arXiv preprint arXiv:2305.12566},
+  year={2023}
+}
+
+@article{french2023large,
+  title={Large Language Models: A Global Perspective}, 
+  author={French, Jeremy and Gob, Thibault and Rosenthal, Sivan and Permarin, Alina and Bradley, John and Wang, Wenqi and Schuurmans, Dale and others},
+  journal={arXiv preprint arXiv:2305.17263},
+  year={2023}
+}
+@article{fatemi2023talk,
+  title={Talk like a Graph: Encoding graph data for large language models}, 
+  author={Fatemi, Bahare and Halcrow, Jonathan and Perozzi, Bryan},
+  journal={arXiv preprint arXiv:2310.04560},
+  year={2023}
+}
+@article{chen2023exploring,
+  title={Exploring the potential of large language models (llms) in learning on graph-structured data}, 
+  author={Chen, Zhikai and Mao, Hui and Wang, Yuxin and Li, Na and Jin, Wei and Wen, Hongzhi and Ai, Alessandro},
+  journal={arXiv preprint arXiv:2305.15053},
+  year={2023}
+}
+
+@article{wang2023can,
+  title={Can Language Models Solve Graph Problems in Natural Language? A Case Study of Graph-structured Text generation}, 
+  author={Wang, Hengyu and Feng, Shangbin and Wang, Liwei and Hu, Xiaohai and Huang, Xuanwen and Yang, Yang},
+  journal={arXiv preprint arXiv:2305.15047},
+  year={2023}
+}
+@article{ye2023natural,
+  title={Natural language is all a graph needs}, 
+  author={Ye, Ruosong and Zhang, Caiqi and Wang, Runhui and Xu, Shuyuan},
+  journal={arXiv preprint arXiv:2304.11173},
+  year={2023}
+}
+
+@misc{guo2023gpt4graph,
+  title={GPT4Graph: Can Large Language Models Understand Graph Structured Data? An Empirical Evaluation and a Call for Action to the NLP Community}, 
+  author={Guo, Jiayan and Du, Lun and Liu, Huihui and Liu, Yang and Lou, Kengyu and Wang, Wenqi and Zhang, Yanyuan},
+  journal={arXiv preprint arXiv:2307.08814},
+  year={2023}
+}
+
+@article{zhang2023siren,
+  title={Siren's Song in the AI Ocean: A Survey on Siren-like Objects and Their Applications}, 
+  author={Zhang, Yue and Li, Yafu and Cui, Le and Cai, Deng and Liu, Huihui and Fu, Tingchen and Huang, Xuanwen and Zhang, Tianling and Huang, Xuanwen and others},
+  journal={arXiv preprint arXiv:2305.12566},
+  year={2023}
+}
+
+@article{french2023large,
+  title={Large Language Models: A Global Perspective}, 
+  author={French, Jeremy and Gob, Thibault and Rosenthal, Sivan and Permarin, Alina and Bradley, John and Wang, Wenqi and Schuurmans, Dale and others},
+  journal={arXiv preprint arXiv:2305.17263},
+  year={2023}
+}
+@article{fatemi2023talk,
+  title={Talk like a Graph: Encoding graph data for large language models}, 
+  author={Fatemi, Bahare and Halcrow, Jonathan and Perozzi, Bryan},
+  journal={arXiv preprint arXiv:2310.04560},
+  year={2023}
+}
+@article{chen2023exploring,
+  title={Exploring the potential of large language models (llms) in learning on graph-structured data}, 
+  author={Chen, Zhikai and Mao, Hui and Wang, Yuxin and Li, Na and Jin, Wei and Wen, Hongzhi and Ai, Alessandro},
+  journal={arXiv preprint arXiv:2305.15053},
+  year={2023}
+}
+
+@article{wang2023can,
+  title={Can Language Models Solve Graph Problems in Natural Language? A Case Study of Graph-structured Text generation}, 
+  author={Wang, Hengyu and Feng, Shangbin and Wang, Liwei and Hu, Xiaohai and Huang, Xuanwen and Yang, Yang},
+  journal={arXiv preprint arXiv:2305.15047},
+  year={2023}
+}
+@article{ye2023natural,
+  title={Natural language is all a graph needs}, 
+  author={Ye, Ruosong and Zhang, Caiqi and Wang, Runhui and Xu, Shuyuan},
+  journal={arXiv preprint arXiv:2304.11173},
+  year={2023}
+}
+
+@misc{guo2023gpt4graph,
+  title={GPT4Graph: Can Large Language Models Understand Graph Structured Data? An Empirical Evaluation and a Call for Action to the NLP Community}, 
+  author={Guo, Jiayan and Du, Lun and Liu, Huihui and Liu, Yang and Lou, Kengyu and Wang, Wenqi and Zhang, Yanyuan},
+  journal={arXiv preprint arXiv:2307.08814},
+  year={2023}
+}
+
+@article{zhang2023siren,
+  title={Siren's Song in the AI Ocean: A Survey on Siren-like Objects and Their Applications}, 
+  author={Zhang, Yue and Li, Yafu and Cui, Le and Cai, Deng and Liu, Huihui and Fu, Tingchen and Huang, Xuanwen and Zhang, Tianling and Huang, Xuanwen and others},
+  journal={arXiv preprint arXiv:2305.12566},
+  year={2023}
+}
+
+@article{french2023large,
+  title={Large Language Models: A Global Perspective}, 
+  author={French, Jeremy and Gob, Thibault and Rosenthal, Sivan and Permarin, Alina and Bradley, John and Wang, Wenqi and Schuurmans, Dale and others},
+  journal={arXiv preprint arXiv:2305.17263},
+  year={2023}
+}
+@article{fatemi2023talk,
+  title={Talk like a Graph: Encoding graph data for large language models}, 
+  author={Fatemi, Bahare and Halcrow, Jonathan and Perozzi, Bryan},
+  journal={arXiv preprint arXiv:2310.04560},
+  year={2023}
+}
+@article{chen2023exploring,
+  title={Exploring the potential of large language models (llms) in learning on graph-structured data}, 
+  author={Chen, Zhikai and Mao, Hui and Wang, Yuxin and Li, Na and Jin, Wei and Wen, Hongzhi and Ai, Alessandro},
+  journal={arXiv preprint arXiv:2305.15053},
+  year={2023}
+}
+
+@article{wang2023can,
+  title={Can Language Models Solve Graph Problems in Natural Language? A Case Study of Graph-structured Text generation}, 
+  author={Wang, Hengyu and Feng, Shangbin and Wang, Liwei and Hu, Xiaohai and Huang, Xuanwen and Yang, Yang},
+  journal={arXiv preprint arXiv:2305.15047},
+  year={2023}
+}
+@article{ye2023natural,
+  title={Natural language is all a graph needs}, 
+  author={Ye, Ruosong and Zhang, Caiqi and Wang, Runhui and Xu, Shuyuan},
+  journal={arXiv preprint arXiv:2304.11173},
+  year={2023}
+}
+
+@misc{guo2023gpt4graph,
+  title={GPT4Graph: Can Large Language Models Understand Graph Structured Data? An Empirical Evaluation and a Call for Action to the NLP Community}, 
+  author={Guo, Jiayan and Du, Lun and Liu, Huihui and Liu, Yang and Lou, Kengyu and Wang, Wenqi and Zhang, Yanyuan},
+  journal={arXiv preprint arXiv:2307.08814},
+  year={2023}
+}
+
+@article{zhang2023siren,
+  title={Siren's Song in the AI Ocean: A Survey on Siren-like Objects and Their Applications}, 
+  author={Zhang, Yue and Li, Yafu and Cui, Le and Cai, Deng and Liu, Huihui and Fu, Tingchen and Huang, Xuanwen and Zhang, Tianling and Huang, Xuanwen and others},
+  journal={arXiv preprint arXiv:2305.12566},
+  year={2023}
+}
+
+@article{french2023large,
+  title={Large Language Models: A Global Perspective}, 
+  author={French, Jeremy and Gob, Thibault and Rosenthal, Sivan and Permarin, Alina and Bradley, John and Wang, Wenqi and Schuurmans, Dale and others},
+  journal={arXiv preprint arXiv:2305.17263},
+  year={2023}
+}
+@article{fatemi2023talk,
+  title={Talk like a Graph: Encoding graph data for large language models}, 
+  author={Fatemi, Bahare and Halcrow, Jonathan and Perozzi, Bryan},
+  journal={arXiv preprint arXiv:2310.04560},
+  year={2023}
+}
+@article{chen2023exploring,
+  title={Exploring the potential of large language models (llms) in learning on graph-structured data}, 
+  author={Chen, Zhikai and Mao, Hui and Wang, Yuxin and Li, Na and Jin, Wei and Wen, Hongzhi and Ai, Alessandro},
+  journal={arXiv preprint arXiv:2305.15053},
+  year={2023}
+}
+
+@article{wang2023can,
+  title={Can Language Models Solve Graph Problems in Natural Language? A Case Study of Graph-structured Text generation}, 
+  author={Wang, Hengyu and Feng, Shangbin and Wang, Liwei and Hu, Xiaohai and Huang, Xuanwen and Yang, Yang},
+  journal={arXiv preprint arXiv:2305.15047},
+  year={2023}
+}
+@article{ye2023natural,
+  title={Natural language is all a graph needs}, 
+  author={Ye, Ruosong and Zhang, Caiqi and Wang, Runhui and Xu, Shuyuan},
+  journal={arXiv preprint arXiv:2304.11173},
+  year={2023}
+}
+
+@misc{guo2023gpt4graph,
+  title={GPT4Graph: Can Large Language Models Understand Graph Structured Data? An Empirical Evaluation and a Call for Action to the NLP Community}, 
+  author={Guo, Jiayan and Du, Lun and Liu, Huihui and Liu, Yang and Lou, Kengyu and Wang, Wenqi and Zhang, Yanyuan},
+  journal={arXiv preprint arXiv:2307.08814},
+  year={2023}
+}
+
+@article{zhang2023siren,
+  title={Siren's Song in the AI Ocean: A Survey on Siren-like Objects and Their Applications}, 
+  author={Zhang, Yue and Li, Yafu and Cui, Le and Cai, Deng and Liu, Huihui and Fu, Tingchen and Huang, Xuanwen and Zhang, Tianling and Huang, Xuanwen and others},
+  journal={arXiv preprint arXiv:2305.12566},
+  year={2023}
+}
+
+@article{french2023large,
+  title={Large Language Models: A Global Perspective}, 
+  author={French, Jeremy and Gob, Thibault and Rosenthal, Sivan and Permarin, Alina and Bradley, John and Wang, Wenqi and Schuurmans, Dale and others},
+  journal={arXiv preprint arXiv:2305.17263},
+  year={2023}
+}
+@article{fatemi2023talk,
+  title={Talk like a Graph: Encoding graph data for large language models}, 
+  author={Fatemi, Bahare and Halcrow, Jonathan and Perozzi, Bryan},
+  journal={arXiv preprint arXiv:2310.04560},
+  year={2023}
+}
+@article{chen2023exploring,
+  title={Exploring the potential of large language models (llms) in learning on graph-structured data}, 
+  author={Chen, Zhikai and Mao, Hui and Wang, Yuxin and Li, Na and Jin, Wei and Wen, Hongzhi and Ai, Alessandro},
+  journal={arXiv preprint arXiv:2305.15053},
+  year={2023}
+}
+
+@article{wang2023can,
+  title={Can Language Models Solve Graph Problems in Natural Language? A Case Study of Graph-structured Text generation}, 
+  author={Wang, Hengyu and Feng, Shangbin and Wang, Liwei and Hu, Xiaohai and Huang, Xuanwen and Yang, Yang},
+  journal={arXiv preprint arXiv:2305.15047},
+  year={2023}
+}
+@article{ye2023natural,
+  title={Natural language is all a graph needs}, 
+  author={Ye, Ruosong and Zhang, Caiqi and Wang, Runhui and Xu, Shuyuan},
+  journal={arXiv preprint arXiv:2304.11173},
+  year={2023}
+}
+
+@misc{guo2023gpt4graph,
+  title={GPT4Graph: Can Large Language Models Understand Graph Structured Data? An Empirical Evaluation and a Call for Action to the NLP Community}, 
+  author={Guo, Jiayan and Du, Lun and Liu, Huihui and Liu, Yang and Lou, Kengyu and Wang, Wenqi and Zhang, Yanyuan},
+  journal={arXiv preprint arXiv:2307.08814},
+  year={2023}
+}
+
+@article{zhang2023siren,
+  title={Siren's Song in the AI Ocean: A Survey on Siren-like Objects and Their Applications}, 
+  author={Zhang, Yue and Li, Yafu and Cui, Le and Cai, Deng and Liu, Huihui and Fu, Tingchen and Huang, Xuanwen and Zhang, Tianling and Huang, Xuanwen and others},
+  journal={arXiv preprint arXiv:2305.12566},
+  year={2023}
+}
+
+@article{french2023large,
+  title={Large Language Models: A Global Perspective}, 
+  author={French, Jeremy and Gob, Thibault and Rosenthal, Sivan and Permarin, Alina and Bradley, John and Wang, Wenqi and Schuurmans, Dale and others},
+  journal={arXiv preprint arXiv:2305.17263},
+  year={2023}
+}
+@article{fatemi2023talk,
+  title={Talk like a Graph: Encoding graph data for large language models}, 
+  author={Fatemi, Bahare and Halcrow, Jonathan and Perozzi, Bryan},
+  journal={arXiv preprint arXiv:2310.04560},
+  year={2023}
+}
+@article{chen2023exploring,
+  title={Exploring the potential of large language models (llms) in learning on graph-structured data}, 
+  author={Chen, Zhikai and Mao, Hui and Wang, Yuxin and Li, Na and Jin, Wei and Wen, Hongzhi and Ai, Alessandro},
+  journal={arXiv preprint arXiv:2305.15053},
+  year={2023}
+}
+
+@article{wang2023can,
+  title={Can Language Models Solve Graph Problems in Natural Language? A Case Study of Graph-structured Text generation}, 
+  author={Wang, Hengyu and Feng, Shangbin and Wang, Liwei and Hu, Xiaohai and Huang, Xuanwen and Yang, Yang},
+  journal={arXiv preprint arXiv:2305.15047},
+  year={2023}
+}
+@article{ye2023natural,
+  title={Natural language is all a graph needs}, 
+  author={Ye, Ruosong and Zhang, Caiqi and Wang, Runhui and Xu, Shuyuan},
+  journal={arXiv preprint arXiv:2304.11173},
+  year={2023}
+}
+
+@misc{guo2023gpt4graph,
+  title={GPT4Graph: Can Large Language Models Understand Graph Structured Data? An Empirical Evaluation and a Call for Action to the NLP Community}, 
+  author={Guo, Jiayan and Du, Lun and Liu, Huihui and Liu, Yang and Lou, Kengyu and Wang, Wenqi and Zhang, Yanyuan},
+  journal={arXiv preprint arXiv:2307.08814},
+  year={2023}
+}

@@ -1,0 +1,24 @@
+Facilitators have also been identified as key influencers of digression. Our analysis of digression within simulated conversations found that facilitators' roles were often disrupted by their own digressions, and this could be attributed to the difficulty of these roles to predict. 
+
+The presence of digressions in conversations, although not affecting the overall content significantly, shows that their occurrence has a negative impact on the effectiveness of the conversation facilitators. This can be attributed to the interrupting messages being counted towards the conversation length, potentially leading to a longer conversation than expected. 
+
+Similarly, our observations of role-flipping in simulated conversations by multiple agents reveal that this issue is not merely a result of individual digression, but can be attributed to the design of the simulation itself. In particular, our analysis of role-flipping in simulated conversations suggests that it may be a result of the agents' difficulty in following the role assigned to them, especially in roles that are more complex or difficult to follow. 
+
+%\subsection{Preference}
+%Our examination of preference data for LLMs reveals some interesting insights and potential second-order effects. 
+%Firstly, we find that LLM preferences adhere more closely to rudimentary heuristics than human preferences do, suggesting that LLMs may be more susceptible to local cues of texts that affect their preferences than humans are. 
+%Secondly, we show that human preferences adhere more closely to the original instruction of a sentence -- in other words, whether the sentence is positive, negative, or neutral -- than LLM preferences do. 
+%Finally, we observe that LLM preferences are less closely correlated to the lexical-semantic features of sentences than human preferences are. 
+This suggests that LLM preferences are not a good measure of how sentences affect human emotion and social understanding. 
+
+\subsection{Summary}
+%\anonymous{anonymous, please write down a summary of findings using bullet points here}
+We summarize our major artifacts found in artificial data. 
+\begin{itemize}[noitemsep,topsep=5pt,leftmargin=*]
+\item \textbf{LLM Simulations:} LLM agents frequently lose track of their assigned roles and stray from the topic of conversation, often after apologizing for confusion, suggesting their inability to navigate challenging conversational shifts adeptly. 
+\item \textbf{Digression:} LLM agents engaged in simulated conversations often show a tendency to introduce digression, meaning the agents divert discussions from the main topic, allegedly due to confusion about the conversation's direction. 
+\item \textbf{Role-flipping:} Role-flipping, a form of digression, occurs when an agent assumes a role other than its assigned one, supposedly due to the difficulty of maintaining consistent behavior within the conversation. 
+\item \textbf{Preference:} LLM preferences are found to be significantly more closely related to simple lexical preferences than human preferences are, suggesting that LLM preferences are more related to the most salient, local information of sentences rather than a nuanced representation of texts like humans do. 
+\end{itemize}
+%\anonymous{anonymous, please write down a summary of findings using bullet points here}
+%\anonymous{anonymous, do we need citations for our beliefs?}

@@ -1,0 +1,73 @@
+ParameterValue 0.6\textbf{Image} & \textbf{Impact of Image Modality} & In the image modality, we see a distinct improvement over the text and motif modality combinations. This is probably because the image modality is the most verbose modality, allowing the LLM to make a more focused and detailed evaluation of the graph structure.\\
+%------------------------------------------------------------------
+\textbf{Impact of Graph Structure} & 0.7 & 0.7 & 0.7 \\
+\textbf{Impact of Sampling Strategy} & 0.7 & 0.7 & 0.7 \\
+\textbf{Impact of Graph Structure} & 0.7 & 0.7 & 0.7 \\
+\textbf{Impact of Sampling Strategy} & 0.7 & 0.7 & 0.7 \\
+\end{tabular}
+\caption{Baselines for node classification on CORA, Citeseer, and Pubmed}
+\label{tab:cora_citeseer_pubmed_classification}
+\end{table*}
+%------------------------------------------
+\begin{figure}
+  \centering
+%\includegraphics[width=0.95\linewidth]
+\includegraphics[width = \linewidth]{figures/combination_task_hierarchy.pdf}
+  \caption{Modality encoder trends (T= Text, M= Motif, I= Image) with graph task difficulty based on Homophily and Number of Motifs on CORA dataset.}
+  \label{fig:fig9}
+\end{figure}
+
+%--------------------------------------------------------------------------------
+%-----------------------------------------------------------------------
+\subsection{Modality Specific Results}
+%These observations suggest that the choice of dataset and modality can significantly impact the performance metrics \textcolor{red}{}
+
+%\subsubsection{Text Modality Results}
+\noindent \textbf{Impact of edge encoding function:} Figure \ref{fig:fig4} shows that using the Adjacency List as the mode of edge representation with node label mapping is the most informative encoding function, which balances the trade-off between high accuracy and low token limit fraction. 
+ % can add more stuff about graph ml observations if needed
+ %--------------------------------------------------
+\begin{figure*}[ht!]
+    \centering
+    \begin{minipage}{0.48\textwidth}
+        \centering
+        \includegraphics[width=\linewidth]{figures/modality.pdf}
+        \caption{We compare the motif information (x-axis) to the mean metrics (y-axis). Desired trends are denoted in brackets. Metrics considered are Accuracy Rate (A $\uparrow$), Mismatch Rate (M $\downarrow$), and Denial Rate (D $\downarrow$). The highest performing motif information change ``triangle and star attached to $?$'' has higher accuracy and lower mismatch and denial rate.}
+        \label{fig:fig6}
+    \end{minipage}\hfill
+    \begin{minipage}{0.48\textwidth}
+        \centering
+        \includegraphics[width=\linewidth]{figures/image_settings_squares.png}
+        \caption{We compare the image representations (x-axis) to the mean metrics (y-axis). Desired trends are denoted in brackets. Metrics considered are Accuracy Rate (A $\uparrow$), Mismatch Rate (M $\downarrow$), and Denial Rate (D $\downarrow$). The highest performing image representation ``all changes applied'' has a higher accuracy and lower mismatch rate}
+        \label{fig:fig7}
+    \end{minipage}
+\end{figure*}
+%--------------------------------------------------
+\begin{figure}
+  \centering
+%\includegraphics[width=0.95\linewidth]
+\includegraphics[width = \linewidth]{figures/metric_modality.pdf}
+  \caption{ We compare the Modality type (x-axis) with the value of the mean metrics (y-axis). The desired trend is given in brackets for each metric. We observe the accuracy rate (A $\uparrow$) is comparable between text and image modalities. The motif modality shows the highest mismatch rate (M $\downarrow$). The image modality shows the least denial rate (D $\downarrow$). The image modality also shows the least token limit fraction (T $\downarrow$).}
+  \label{fig:fig8}
+\end{figure}
+%------------------------------------------
+%------------------------------------------
+\begin{figure*}[ht!]
+    \centering
+    \begin{minipage}{0.48\textwidth}
+        \centering
+        \includegraphics[width=\linewidth]{figures/combination_task_hierarchy_updated.pdf}
+        \caption{Modality encoder trends (T= Text, M= Motif, I= Image) with graph task difficulty based on Homophily and Number of Motifs on CORA dataset.}
+        \label{fig:fig9}
+    \end{minipage}\hfill
+    \begin{minipage}{0.48\textwidth}
+        \centering
+        \includegraphics[width=\linewidth]{figures/graph_struct_updated.pdf}
+        \caption{We compare the mean metrics (y-axis) for each dataset and sampling type (x-axis). Green is the accuracy rate, Blue is the mismatch rate, Red is the denial rate, and Pink is the token limit fraction. The desired trends for each metric are given in brackets - ($\uparrow$) accuracy rate, ($\downarrow$) mismatch rate, ($\downarrow$) denial rate, and ($\downarrow$) token limit fraction. The x-axis distinguishes between ego graph sampling (ego) and forest fire sampling (ff) through different bar textures.}
+        \label{fig:fig5}
+    \end{minipage}
+\end{figure*}
+%--------------------------------------------------
+
+
+\subsubsection{Motif Modality Results}
+Figure \ref{fig:fig6} shows GPT-4's improved performance by adding the ``triangle and star attached to $?$'' motif in the motif modality encoder, as detailed in Table \ref{tab:motif_representations}. This enhancement in mean accuracy and other metrics is attributed to the effective combination of local and global context provided to the LLM through the motif modality.

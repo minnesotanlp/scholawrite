@@ -1,0 +1,71 @@
++offset
+\section{Introduction}
+\label{sec:introduction}
+\input{latex/introduction}
+%-------------------------------------------------------------------------
+\section{Related Work}
+\label{sec:related_work}
+\input{latex/related_work}
+%-------------------------------------------------------------------------
+\section{Datasets}
+\label{sec:datasets}
+\input{latex/datasets}
+%-------------------------------------------------------------------------
+\section{Methods}
+\label{sec:methods}
+\input{latex/methods}
+%-------------------------------------------------------------------------
+\section{Experiments and Results}
+\label{sec:experiments}
+\input{latex/experiments}
+%-------------------------------------------------------------------------
+\section{Results}
+\label{sec:results}
+\input{latex/results}
+%-------------------------------------------------------------------------
+\section{Discussion}
+\label{sec:discussion}
+\input{latex/discussion}
+%-------------------------------------------------------------------------
+\section{Conclusion}
+\label{sec:conclusion}
+\input{latex/conclusion}
+%-------------------------------------------------------------------------
+\section*{Acknowledgements}
+\input{latex/acknowledgements}
+%-------------------------------------------------------------------------
+% Entries for the entire dataset (not just the human-generated ones)
+\input{latex/simulation}
+%-------------------------------------------------------------------------
+% \section*{Ethics Statement}
+% \input{latex/ethics}
+%-------------------------------------------------------------------------
+% \section*{Limitations}
+% \label{sec:limitations}
+% \input{latex/limitations}
+%-------------------------------------------------------------------------
+% \section*{Ethics Statement}
+% \label{sec:ethics}
+% \input{latex/ethics}
+%-------------------------------------------------------------------------
+% \section*{Acknowledgements}
+% \label{sec:acknowledgements}
+% \input{latex/acknowledgements}
+
+% \input{latex/acknowledgements}
+
+% \section{Conclusion}\label{sec:conclusion}
+% \input{latex/conclusion}
+% \input{latex/simulation}
+
+%-------------------------------------------------------------------------
+\section*{Acknowledgements}
+\input{latex/acknowledgements}
+
+% \input{latex/acknowledgements}
+
+% \section{Conclusion}\label{sec:conclusion}
+% \input{latex/conclusion}
+%-----------------------------------------------------------------------\textbf{}
+\end{document}
++

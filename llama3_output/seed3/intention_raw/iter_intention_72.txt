@@ -1,0 +1,9 @@
+You  that are nonsense or not related to the given paper information.
+
+Please give a complete output. Do not generate text that are nonsense or not related to the given paper information.
+
+\section{Method}
+\subsection{\system Application}
+The \system web application was developed to facilitate the collaborative composition of Related Work sections in scholarly articles. It integrates GPT-4 to provide initial suggestions for citation groupings and rationales for each grouping. It also drafts text for the Related Work section based on those groupings. For the purposes of this study, the initial groupings and rationales were pre-generated using GPT-4 due to the duration of time it takes for GPT-4 to generate groupings. Authors can refine and edit these suggestions until they are satisfied with the organization and narrative of the Related Work section. Please see Figure \ref{fig:scholacite} for a conceptual diagram of the application. 
+\subsection{Procedure}
+In order to develop a baseline understanding of the characteristics of Related Work sections created

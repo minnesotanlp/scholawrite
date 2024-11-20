@@ -1,0 +1,34 @@
+isers  through our study of graph-structure prompting in LLMs. We find that images, when used to represent graph nodes, outperform text in the  cases where the need for local context is high, a finding supported by our other experiments on image modality. In contrast,  or text is more effective when the  is present. These results are consistent with findings on the importance of graph structure and visual representation in graph reasoning tasks by \cite{li2023deepfake}. Notably, our findings indicate that the choice of encoding modality is a significant factor in determining the effectiveness of image modality encoding in graph task, with factors such as edge encoding function, graph structure, and image representation being key to determining the effectiveness of the image modality.
+
+We also find that in graphs, the node classification task is affected by the graph structure, the nature of the encoding function used, and the image representation. In particular, graphs with a high number of edges influence the performance of node classification using image modality. Similarly, graphs with a greater number of motifs have a greater impact on node classification using image modality. This is because the motif structure of a graph can significantly affect the image representation of the graph, making it easier or more difficult to understand the graph structure. 
+
+We also find that in graphs, the node classification task is affected by the encoding function used to represent the graph. For example, when the graph is represented as a text encoding, the task performance is dependent on the nature of the encoding function used. Figure \ref{fig:fig2} illustrates that using the Adjacency List as the mode of encoding for the graph results in higher accuracy in node classification. This is because the Adjacency List provides the LLM, the local context of the linked nodes. As the number of edges (or ``linked nodes'') increases, the performance of node classification using the image modality decreases. This is because the LLM can only store so much information about the nodes at a given node. Thus, if the node is connected to many other nodes, it can be difficult for the LLM to determine which labels are being shared among the nodes. Therefore, if the task is too complex, the image modality is not the best for encoding the graph. 
+
+%------------------------------------------
+\begin{figure}
+  \centering
+%\includegraphics[width=0.95\linewidth]
+\includegraphics[width = \linewidth]{figures/edge_rep_updated.pdf}
+  \caption{ We compare the edge representation type (x-axis) with the value of the mean metrics (y-axis). The desired trend is given in brackets for each metric. The highest performing edge representation is the ``adjacency list'' representation with the highest accuracy (A $\uparrow$) and low mismatch rate (M $\downarrow$)), denial rate (D $\downarrow$), and token limit fraction (T $\downarrow$).}
+  \label{fig:fig4}
+\end{figure}
+%------------------------------------------
+
+
+%------------------------------------------
+\begin{figure*}[ht!]
+    \centering
+    \begin{minipage}{0.48\textwidth}
+        \centering
+        \includegraphics[width=\linewidth]{figures/modality.pdf}
+        \caption{We compare the motif information (x-axis) to the mean metrics (y-axis). Desired trends are denoted in brackets. Metrics considered are Accuracy Rate (A $\uparrow$), Mismatch Rate (M $\downarrow$), and Denial Rate (D $\downarrow$). The highest performing motif information change ``triangle and star attached to $?$'' has higher accuracy and lower mismatch and denial rate.}
+        \label{fig:fig6}  Supplies a detailed comparison of encoding modalities with the graph task of node classification, highlighting the trade-offs between them. This figure shows that using the ``adjacency list'' as the mode of encoding provides the highest accuracy, which can be seen clearly in Figure \ref{fig:fig7} in the caption. This could be because the adjacent information of a node is crucial in node classification tasks. Therefore, when the graph is composed of multiple interconnected components (``clustering''), it would be better to know the adjacent information of the node given the context of its neighborhood. Thus, we suppose that the image modality would be more effective than the text modality in this case. This paper supports the use of image modality in graph analysis, particularly in tasks like node classification. We use a combination of image and text encoding to better understand the influence of graph structure on the performance of node classification tasks. In future work, we plan to investigate the effect of graph structure on graph reasoning tasks with image modality. 
+
+% %------------------------------------------
+% \begin{figure}
+%   \centering
+% \includegraphics[width = \linewidth]{figures/combination_task_hierarchy_updated.pdf}
+%   \caption{Modality encoder trends (T= Text, M= Motif, I= Image) with graph task difficulty based on Homophily and Number of Motifs on CORA dataset.}
+%   \label{fig:fig8}
+% \end{figure}
+% %------------------------------------------

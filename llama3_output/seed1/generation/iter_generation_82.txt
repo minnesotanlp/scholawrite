@@ -1,0 +1,12 @@
+clipping the texts to 500 tokens to make them 1,280 tokens (8 A4 pages). The title, abstract, introduction, and conclusion represent the context of the paper, while the ``Nuclei'' section serves as the main result. The 8.8 cm x 11 in (22 cm x 28 cm) format, making it a reasonable size for the WIP section. The title, abstract, introduction, and conclusion represent the context of the paper, while the main result is presented in the 8.8 cm x 11 in (22 cm x 28 cm) format, making it a suitable size for a WIP section without being too verbose. Each of the eight sections is further sub-divided into 3 paragraphs, making it a total of 24 paragraphs per paper. The justification for this is that the main text is divided into 3 paragraphs, and each of them is further divided into 3 paragraphs. The 3 paragraphs become 1 paragraph in the original 8.8 cm x 11 in (22 cm x 28 cm) format. The total number of paragraphs is 24. The total number of tokens used for the generation is 8000 tokens.
+% %---------------------------------
+% \noindent \textbf{Token limits for each modality}
+% Due to their architecture, transformer-based models like GPT-3 and GPT-4 have a fixed-size attention window. This determines how many tokens the model can ``remember'' or pay attention to at once. This limit also manages the computational cost of running the model and the model's performance. The token limit constraint for GPT-4 is 8192 tokens, while for GPT-4V(vision), the limit is claimed to be 128000 tokens, but currently, only the preview version has been released, and the actual limit is 10000 tokens. 
+
+
+\noindent \textbf{Token limits for each modality}
+Due to their architecture, transformer-based models like GPT-3 and GPT-4 have a fixed-size attention window. This determines how many tokens the model can ``remember'' or pay attention to at once. This limit also manages the computational cost of running the model and the model's performance. The token limit constraint for GPT-4 is 8192 tokens, while for GPT-4V(vision), the limit is claimed to be 128000 tokens, but currently, only the preview version has been released, and the actual limit is 10000 tokens. 
+
+
+\noindent \textbf{Rate limits for each LLM}
+The rate limit for GPT-4 is 100RPD (requests per day) for each model. This rate limit is the maximum number of API requests that can be made per day. Any additional requests beyond this limit will result in a $10 per million request penalty.

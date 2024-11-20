@@ -1,0 +1,37 @@
+ichel, R. & Hawken, P. & Crispin, H. L. & Schurz, S. N. & Kang, H. J. & Sen, S. & Yin, J. & Li, Y. & Huang, X. & Tomlin, J. & others:
+Year: 2022
+Location: 
+Publication: 
+Date: 15 Nov 2022
+Volume: 8
+Pages: 1–13
+DOI: 10.1017/jchclm.2022.10
+ISSN: 1365-2113
+ISSN: 1471-8304
+PUBMED: 37877216
+PubMed: 37877216
+PublicationID: 10.1017/jchclm.2022.10
+URL: https://doi.org/10.1017/jchclm.2022.10
+ISSN: 1365-2113-37-2-2022011708
+ISSN: 1471-8304-8-2-2022-7
+PUBMED: 37877216
+FOMA: 10.1017/jchclm.2022.10
+FOMA: 10.1017/jchclm.2022.10
+AB:
+\textbf{Title}: Climate Change and Human Opinion: An Analysis of 50,000+ Tweets from the 2023 Human
+
+\textbf{Abstract}: We present an analysis of 50,000+ tweets related to climate change, relevantly using human and machine-generated content. The model, a trained graph neural network, is provided with a list of key phrases and their definitions, and then generates tides of labeled edges for each node. We investigate the influence of graph structure, graph sampling, and graph encoding on the model's performance. Our results indicate that the graph structure and graph sampling method have a significant impact on the final predictions. We also find that the mode of graph encoding affects the node classification. Our results on the inter-model setup show that while the model can generate reasonable predictions, its performance is still strongly influenced by the nature of the graph. 
+
+\textbf{I}
+
+\textbf{I}
+
+\textbf{I}
+
+\textbf{I}
+
+\textbf{I}
+
+\textbf{I}
+
+\textbf{I}

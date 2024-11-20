@@ -1,0 +1,44 @@
+_customize{inconsistency} {input/ins}
+\input{latex/inconsistency}
+% \input{latex/freetext}
+% \input{latex/simulation}
+% \input{latex/tasklabels}
+% \input{latex/instruction}
+% \input{latex/pref_eval}
+% \input{latex/sentiment}
+% \input{latex/irony}
+
+% \input{latex/freetext}
+% \input{latex/simulation}
+% \input{latex/tasklabels}
+% \input{latex/instruction}
+% \input{latex/pref_eval}
+% \input{latex/sentiment}
+% \input{latex/irony}
+% \input{latex/schem5}
+
+\section{Overall Discussion}
+\label{sec:sec9}
+\input{latex/overall_discussion}
+
+% \input{latex/exp_results}
+% \input{latex/freetext}
+% \input{latex/simulation}
+% \input{latex/tasklabels}
+% \input{latex/instruction}
+% \input{latex/pref_eval}
+% \input{latex/sentiment}
+% \input{latex/irony}
+
+\input{latex/exp_results}
+\input{latex/freetext}
+\input{latex/simulation}
+\input{latex/tasklabels}
+\input{latex/instruction}
+\input{latex/pref_eval}
+\input{latex/sentiment}
+\input{latex/irony}
+
+\input{latex/exp_results}
+
+\end{document}

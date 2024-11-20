@@ -1,0 +1,11 @@
+facade
+\end{figure}
+
+\rubric{Hook: } The rapid acceleration of knowledge creation is a defining feature of modern research. Between 1952 and 2020, the corpus of scientific literature has expanded at a growth rate of 5.08\%, doubling every 14 years \cite{Bornmann2021}. Some fields are growing even more rapidly; \citet{Krenn2023} estimate a doubling rate of almost two years for machine learning and artificial intelligence papers between 1994 and 2022. Global crises are also associated with rapid literature growth. Climate change publication has experienced a doubling rate of every 5-6 years from 1980 to 2014 \cite{10.1371/journal.pone.0160393}, and \citet{Chen_Allot_Leaman_Wei_Aghaarabi_Guerrerio_Xu_Lu_2022} reported a COVID-19 literature growth rate of approximately 10,000 articles per month from the Spring of 2020 to the Summer of 2022. 
+
+\rubric{Context: }Regardless of whether the rapid growth of literature is due to global crises, an emerging ``publish or perish'' mentality \cite{Rawat2014-yz}, or other factors, the pressures have led to increased use of AI-assisted scholarly writing and literature review tools. However, little work has been done to understand the relationships between human user and AI-assisted interfaces. To address this issue, we have developed \system, an interactive GPT-4-based related work composition tool that, given a work-in-progress text and a list of related works, suggests citation groupings and helps to draft related work sections. 
+
+\subsection{A}
+\rubric{Thesis Statement: }
+\rubric{Contributions: }
+\rubric{Roadmap: }

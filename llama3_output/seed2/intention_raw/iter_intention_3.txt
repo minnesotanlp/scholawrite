@@ -1,0 +1,1 @@
+/if there is a relationship between the nature of the task and the degree of hum in the datasets, as we observe with subjective datasets the LLMs tend to under-represent minority opinions. This risks marginalizing minority perspectives, potentially reinforcing societal disparities \cite{prabhakaran2021releasing}.

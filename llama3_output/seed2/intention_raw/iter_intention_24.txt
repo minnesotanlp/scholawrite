@@ -1,0 +1,2 @@
+intimidati
+This place is \colorbox{red}{not} my \#1 favorite color. I think they are \colorbox{red}{not} my \#1 favorite food. But, hey, at least the pizza is \colorbox{red}{good}. And the coffee is \colorbox{red}{okay}. I guess I can live with that.

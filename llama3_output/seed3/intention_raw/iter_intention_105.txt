@@ -1,0 +1,656 @@
+\caption{We compare the motif information (x-axis) to the mean metrics (y-axis). Desired trends are denoted in brackets. Metrics considered are Accuracy Rate (A $\uparrow$), Mismatch Rate (M $\downarrow$), and Denial Rate (D $\downarrow$). The highest performing motif information change ``triangle and star attached to $?$'' has higher accuracy and lower mismatch and denial rate.}
+  \label{fig:fig6}
+\end{figure}
+%--------------------------------------------------
+\subsection{Motif Modality Results}
+Figure \ref{fig:fig6} shows GPT-4's improved performance by adding the ``triangle and star attached to $?$'' motif in the motif modality encoder, as detailed in Table \ref{tab:motif_representations}. This enhancement in mean accuracy and other metrics is attributable to the effective combination of local and global context provided to the LLM through node-label mapping and the associations within triads or star motifs.
+
+%------------------------------------------------------------------
+\subsection{Image Modality Results}
+Figure \ref{fig:fig7} illustrates various adjustments in image representation, while Figure \ref{fig:fig8} indicates that the best node classification results are achieved with settings that yield high mean accuracy and low rates of denial and mismatch. Notably, as these changes enhance the human readability of the images, there is a noticeable improvement in metric performance. This underscores the relative ease of implementing the image modality for prompting compared to the text modality.
+%-------------------------------------------------------------------
+\subsection{Comparison of 3 modalities}
+Table \ref{tab:comp_modality} compares the mean metrics (y-axis) with the best performing value from each dataset (x-axis). We observe that the text modality has the highest accuracy on the CORA dataset, which has a large number of labels. The image modality comes second, followed by the motif modality. This shows that with increasing graph size in CORA, the local information provided by the image modality becomes more important than the global information provided by the text modality. On the other hand, on the Citeseer dataset, which is a small, fragmented, and therefore  the local information is more important than the global information. 
+%--------------------------------------------------
+\begin{table*}[ht]
+\centering
+\caption{Comparing classification performance on ego graph and forest fire sampling}
+\label{tab:ego_metrics}
+\begin{tabular*}{\textwidth}{l @{\extracolour}{l @{\extracolour}{l @{\extracolour}{l @{\extracolour}{l @{\extracolour}}
+\toprule
+& \textbf{A} & \textbf{F} & \textbf{I} & \textbf{A} & \textbf{F} & \textbf{I} & \textbf{A} & \textbf{F} & \textbf{I} \\
+\midrule
+\textbf{N = 20} & & & & & & \\
+ego & Value for A1 & Value for F1 & Value for I1 & Value for A1 & Value for F1 & Value for I1 \\
+ff  & Value for A1 & Value for F1 & Value for I1 & Value for A1 & Value for F1 & Value for I1 \\
+\midrule
+\textbf{N = 50} & & & & & & \\
+ego & Value for A2 & Value for F2 & Value for I2 & Value for A2 & Value for F2 & Value for I2 \\
+ff  & Value for A2 & Value for F2 & Value for I2 & Value for A2 & Value for F2 & Value for I2 \\
+\bottomrule
+\end{tabular*}
+\end{table*}
+%--------------------------------------------------
+
+
+
+\begin{table*}[ht]
+\centering
+\caption{Comparing classification performance on ego graph and forest fire sampling}
+\label{tab:ego_metrics}
+\begin{tabular*}{\textwidth}{l @{\extracolour}{l @{\extracolour}{l @{\extracolour}{l @{\extracolour}}
+\toprule
+& \textbf{A} & \textbf{F} & \textbf{I} & \textbf{A} & \textbf{F} & \textbf{I} & \textbf{A} & \textbf{F} & \textbf{I} \\
+\midrule
+\textbf{N = 20} & & & & & & \\
+ego & Value for A1 & Value for F1 & Value for I1 & Value for A1 & Value for F1 & Value for I1 \\
+ff  & Value for A1 & Value for F1 & Value for I1 & Value for A1 & Value for F1 & Value for I1 \\
+\midrule
+\textbf{N = 50} & & & & & & \\
+ego & Value for A2 & Value for F2 & Value for I2 & Value for A2 & Value for F2 & Value for I2 \\
+ff  & Value for A2 & Value for F2 & Value for I2 & Value for A2 & Value for F2 & Value for I2 \\
+\bottomrule
+\end{tabular*}
+\end{table*}
+%--------------------------------------------------
+
+
+
+\begin{table*}[ht]
+\centering
+\caption{Comparing classification performance on ego graph and forest fire sampling}
+\label{tab:ego_metrics}
+\begin{tabular*}{\textwidth}{l @{\extracolour}{l @{\extracolour}{l @{\extracolour}{l @{\extracolour}}
+\toprule
+& \textbf{A} & \textbf{F} & \textbf{I} & \textbf{A} & \textbf{F} & \textbf{I} & \textbf{A} & \textbf{F} & \textbf{I} \\
+\midrule
+\textbf{N = 20} & & & & & & \\
+ego & Value for A1 & Value for F1 & Value for I1 & Value for A1 & Value for F1 & Value for I1 \\
+ff  & Value for A1 & Value for F1 & Value for I1 & Value for A1 & Value for F1 & Value for I1 \\
+\midrule
+\textbf{N = 50} & & & & & & \\
+ego & Value for A2 & Value for F2 & Value for I2 & Value for A2 & Value for F2 & Value for I2 \\
+ff  & Value for A2 & Value for F2 & Value for I2 & Value for A2 & Value for F2 & Value for I2 \\
+\bottomrule
+\end{tabular*}
+\end{table*}
+%--------------------------------------------------
+
+
+
+\begin{table*}[ht]
+\centering
+\caption{Comparing classification performance on ego graph and forest fire sampling}
+\label{tab:ego_metrics}
+\begin{tabular*}{\textwidth}{l @{\extracolour}{l @{\extracolour}{l @{\extracolour}{l @{\extracolour}}
+\toprule
+& \textbf{A} & \textbf{F} & \textbf{I} & \textbf{A} & \textbf{F} & \textbf{I} & \textbf{A} & \textbf{F} & \textbf{I} \\
+\midrule
+\textbf{N = 20} & & & & & & \\
+ego & Value for A1 & Value for F1 & Value for I1 & Value for A1 & Value for F1 & Value for I1 \\
+ff  & Value for A1 & Value for F1 & Value for I1 & Value for A1 & Value for F1 & Value for I1 \\
+\midrule
+\textbf{N = 50} & & & & & & \\
+ego & Value for A2 & Value for F2 & Value for I2 & Value for A2 & Value for F2 & Value for I2 \\
+ff  & Value for A2 & Value for F2 & Value for I2 & Value for A2 & Value for F2 & Value for I2 \\
+\bottomrule
+\end{tabular*}
+\end{table*}
+%--------------------------------------------------
+
+
+
+\begin{table*}[ht]
+\centering
+\caption{Comparing classification performance on ego graph and forest fire sampling}
+\label{tab:ego_metrics}
+\begin{tabular*}{\textwidth}{l @{\extracolour}{l @{\extracolour}{l @{\extracolour}{l @{\extracolour}}
+\toprule
+& \textbf{A} & \textbf{F} & \textbf{I} & \textbf{A} & \textbf{F} & \textbf{I} & \textbf{A} & \textbf{F} & \textbf{I} \\
+\midrule
+\textbf{N = 20} & & & & & & \\
+ego & Value for A1 & Value for F1 & Value for I1 & Value for A1 & Value for F1 & Value for I1 \\
+ff  & Value for A1 & Value for F1 & Value for I1 & Value for A1 & Value for F1 & Value for I1 \\
+\midrule
+\textbf{N = 50} & & & & & & \\
+ego & Value for A2 & Value for F2 & Value for I2 & Value for A2 & Value for F2 & Value for I2 \\
+ff  & Value for A2 & Value for F2 & Value for I2 & Value for A2 & Value for F2 & Value for I2 \\
+\bottomrule
+\end{tabular*}
+\end{table*}
+%--------------------------------------------------
+
+
+
+\begin{table*}[ht]
+\centering
+\caption{Comparing classification performance on ego graph and forest fire sampling}
+\label{tab:ego_metrics}
+\begin{tabular*}{\textwidth}{l @{\extracolour}{l @{\extracolour}{l @{\extracolour}{l @{\extracolour}}
+\toprule
+& \textbf{A} & \textbf{F} & \textbf{I} & \textbf{A} & \textbf{F} & \textbf{I} & \textbf{A} & \textbf{F} & \textbf{I} \\
+\midrule
+\textbf{N = 20} & & & & & & \\
+ego & Value for A1 & Value for F1 & Value for I1 & Value for A1 & Value for F1 & Value for I1 \\
+ff  & Value for A1 & Value for F1 & Value for I1 & Value for A1 & Value for F1 & Value for I1 \\
+\midrule
+\textbf{N = 50} & & & & & & \\
+ego & Value for A2 & Value for F2 & Value for I2 & Value for A2 & Value for F2 & Value for I2 \\
+ff  & Value for A2 & Value for F2 & Value for I2 & Value for A2 & Value for F2 & Value for I2 \\
+\bottomrule
+\end{tabular*}
+\end{table*}
+%--------------------------------------------------
+
+
+
+\begin{table*}[ht]
+\centering
+\caption{Comparing classification performance on ego graph and forest fire sampling}
+\label{tab:ego_metrics}
+\begin{tabular*}{\textwidth}{l @{\extracolour}{l @{\extracolour}{l @{\extracolour}{l @{\extracolour}}
+\toprule
+& \textbf{A} & \textbf{F} & \textbf{I} & \textbf{A} & \textbf{F} & \textbf{I} & \textbf{A} & \textbf{F} & \textbf{I} \\
+\midrule
+\textbf{N = 20} & & & & & & \\
+ego & Value for A1 & Value for F1 & Value for I1 & Value for A1 & Value for F1 & Value for I1 \\
+ff  & Value for A1 & Value for F1 & Value for I1 & Value for A1 & Value for F1 & Value for I1 \\
+\midrule
+\textbf{N = 50} & & & & & & \\
+ego & Value for A2 & Value for F2 & Value for I2 & Value for A2 & Value for F2 & Value for I2 \\
+ff  & Value for A2 & Value for F2 & Value for I2 & Value for A2 & Value for F2 & Value for I2 \\
+\bottomrule
+\end{tabular*}
+\end{table*}
+%--------------------------------------------------
+
+
+
+\begin{table*}[ht]
+\centering
+\caption{Comparing classification performance on ego graph and forest fire sampling}
+\label{tab:ego_metrics}
+\begin{tabular*}{\textwidth}{l @{\extracolour}{l @{\extracolour}{l @{\extracolour}{l @{\extracolour}}
+\toprule
+& \textbf{A} & \textbf{F} & \textbf{I} & \textbf{A} & \textbf{F} & \textbf{I} & \textbf{A} & \textbf{F} & \textbf{I} \\
+\midrule
+\textbf{N = 20} & & & & & & \\
+ego & Value for A1 & Value for F1 & Value for I1 & Value for A1 & Value for F1 & Value for I1 \\
+ff  & Value for A1 & Value for F1 & Value for I1 & Value for A1 & Value for F1 & Value for I1 \\
+\midrule
+\textbf{N = 50} & & & & & & \\
+ego & Value for A2 & Value for F2 & Value for I2 & Value for A2 & Value for F2 & Value for I2 \\
+ff  & Value for A2 & Value for F2 & Value for I2 & Value for A2 & Value for F2 & Value for I2 \\
+\bottomrule
+\end{tabular*}
+\end{table*}
+%--------------------------------------------------
+
+
+
+\begin{table*}[ht]
+\centering
+\caption{Comparing classification performance on ego graph and forest fire sampling}
+\label{tab:ego_metrics}
+\begin{tabular*}{\textwidth}{l @{\extracolour}{l @{\extracolour}{l @{\extracolour}{l @{\extracolour}}
+\toprule
+& \textbf{A} & \textbf{F} & \textbf{I} & \textbf{A} & \textbf{F} & \textbf{I} & \textbf{A} & \textbf{F} & \textbf{I} \\
+\midrule
+\textbf{N = 20} & & & & & & \\
+ego & Value for A1 & Value for F1 & Value for I1 & Value for A1 & Value for F1 & Value for I1 \\
+ff  & Value for A1 & Value for F1 & Value for I1 & Value for A1 & Value for F1 & Value for I1 \\
+\midrule
+\textbf{N = 50} & & & & & & \\
+ego & Value for A2 & Value for F2 & Value for I2 & Value for A2 & Value for F2 & Value for I2 \\
+ff  & Value for A2 & Value for F2 & Value for I2 & Value for A2 & Value for F2 & Value for I2 \\
+\bottomrule
+\end{tabular*}
+\end{table*}
+%--------------------------------------------------
+
+
+
+\begin{table*}[ht]
+\centering
+\caption{Comparing classification performance on ego graph and forest fire sampling}
+\label{tab:ego_metrics}
+\begin{tabular*}{\textwidth}{l @{\extracolour}{l @{\extracolour}{l @{\extracolour}{l @{\extracolour}}
+\toprule
+& \textbf{A} & \textbf{F} & \textbf{I} & \textbf{A} & \textbf{F} & \textbf{I} & \textbf{A} & \textbf{F} & \textbf{I} \\
+\midrule
+\textbf{N = 20} & & & & & & \\
+ego & Value for A1 & Value for F1 & Value for I1 & Value for A1 & Value for F1 & Value for I1 \\
+ff  & Value for A1 & Value for F1 & Value for I1 & Value for A1 & Value for F1 & Value for I1 \\
+\midrule
+\textbf{N = 50} & & & & & & \\
+ego & Value for A2 & Value for F2 & Value for I2 & Value for A2 & Value for F2 & Value for I2 \\
+ff  & Value for A2 & Value for F2 & Value for I2 & Value for A2 & Value for F2 & Value for I2 \\
+\bottomrule
+\end{tabular*}
+\end{table*}
+%--------------------------------------------------
+
+
+
+\begin{table*}[ht]
+\centering
+\caption{Comparing classification performance on ego graph and forest fire sampling}
+\label{tab:ego_metrics}
+\begin{tabular*}{\textwidth}{l @{\extracolour}{l @{\extracolour}{l @{\extracolour}{l @{\extracolour}}
+\toprule
+& \textbf{A} & \textbf{F} & \textbf{I} & \textbf{A} & \textbf{F} & \textbf{I} & \textbf{A} & \textbf{F} & \textbf{I} \\
+\midrule
+\textbf{N = 20} & & & & & & \\
+ego & Value for A1 & Value for F1 & Value for I1 & Value for A1 & Value for F1 & Value for I1 \\
+ff  & Value for A1 & Value for F1 & Value for I1 & Value for A1 & Value for F1 & Value for I1 \\
+\midrule
+\textbf{N = 50} & & & & & & \\
+ego & Value for A2 & Value for F2 & Value for I2 & Value for A2 & Value for F2 & Value for I2 \\
+ff  & Value for A2 & Value for F2 & Value for I2 & Value for A2 & Value for F2 & Value for I2 \\
+\bottomrule
+\end{tabular*}
+\end{table*}
+%--------------------------------------------------
+
+
+
+\begin{table*}[ht]
+\centering
+\caption{Comparing classification performance on ego graph and forest fire sampling}
+\label{tab:ego_metrics}
+\begin{tabular*}{\textwidth}{l @{\extracolour}{l @{\extracolour}{l @{\extracolour}{l @{\extracolour}}
+\toprule
+& \textbf{A} & \textbf{F} & \textbf{I} & \textbf{A} & \textbf{F} & \textbf{I} & \textbf{A} & \textbf{F} & \textbf{I} \\
+\midrule
+\textbf{N = 20} & & & & & & \\
+ego & Value for A1 & Value for F1 & Value for I1 & Value for A1 & Value for F1 & Value for I1 \\
+ff  & Value for A1 & Value for F1 & Value for I1 & Value for A1 & Value for F1 & Value for I1 \\
+\midrule
+\textbf{N = 50} & & & & & & \\
+ego & Value for A2 & Value for F2 & Value for I2 & Value for A2 & Value for F2 & Value for I2 \\
+ff  & Value for A2 & Value for F2 & Value for I2 & Value for A2 & Value for F2 & Value for I2 \\
+\bottomrule
+\end{tabular*}
+\end{table*}
+%--------------------------------------------------
+
+
+
+\begin{table*}[ht]
+\centering
+\caption{Comparing classification performance on ego graph and forest fire sampling}
+\label{tab:ego_metrics}
+\begin{tabular*}{\textwidth}{l @{\extracolour}{l @{\extracolour}{l @{\extracolour}{l @{\extracolour}}
+\toprule
+& \textbf{A} & \textbf{F} & \textbf{I} & \textbf{A} & \textbf{F} & \textbf{I} & \textbf{A} & \textbf{F} & \textbf{I} \\
+\midrule
+\textbf{N = 20} & & & & & & \\
+ego & Value for A1 & Value for F1 & Value for I1 & Value for A1 & Value for F1 & Value for I1 \\
+ff  & Value for A1 & Value for F1 & Value for I1 & Value for A1 & Value for F1 & Value for I1 \\
+\midrule
+\textbf{N = 50} & & & & & & \\
+ego & Value for A2 & Value for F2 & Value for I2 & Value for A2 & Value for F2 & Value for I2 \\
+ff  & Value for A2 & Value for F2 & Value for I2 & Value for A2 & Value for F2 & Value for I2 \\
+\bottomrule
+\end{tabular*}
+\end{table*}
+%--------------------------------------------------
+
+
+
+\begin{table*}[ht]
+\centering
+\caption{Comparing classification performance on ego graph and forest fire sampling}
+\label{tab:ego_metrics}
+\begin{tabular*}{\textwidth}{l @{\extracolour}{l @{\extracolour}{l @{\extracolour}{l @{\extracolour}}
+\toprule
+& \textbf{A} & \textbf{F} & \textbf{I} & \textbf{A} & \textbf{F} & \textbf{I} & \textbf{A} & \textbf{F} & \textbf{I} \\
+\midrule
+\textbf{N = 20} & & & & & & \\
+ego & Value for A1 & Value for F1 & Value for I1 & Value for A1 & Value for F1 & Value for I1 \\
+ff  & Value for A1 & Value for F1 & Value for I1 & Value for A1 & Value for F1 & Value for I1 \\
+\midrule
+\textbf{N = 50} & & & & & & \\
+ego & Value for A2 & Value for F2 & Value for I2 & Value for A2 & Value for F2 & Value for I2 \\
+ff  & Value for A2 & Value for F2 & Value for I2 & Value for A2 & Value for F2 & Value for I2 \\
+\bottomrule
+\end{tabular*}
+\end{table*}
+%--------------------------------------------------
+
+
+
+\begin{table*}[ht]
+\centering
+\caption{Comparing classification performance on ego graph and forest fire sampling}
+\label{tab:ego_metrics}
+\begin{tabular*}{\textwidth}{l @{\extracolour}{l @{\extracolour}{l @{\extracolour}{l @{\extracolour}}
+\toprule
+& \textbf{A} & \textbf{F} & \textbf{I} & \textbf{A} & \textbf{F} & \textbf{I} & \textbf{A} & \textbf{F} & \textbf{I} \\
+\midrule
+\textbf{N = 20} & & & & & & \\
+ego & Value for A1 & Value for F1 & Value for I1 & Value for A1 & Value for F1 & Value for I1 \\
+ff  & Value for A1 & Value for F1 & Value for I1 & Value for A1 & Value for F1 & Value for I1 \\
+\midrule
+\textbf{N = 50} & & & & & & \\
+ego & Value for A2 & Value for F2 & Value for I2 & Value for A2 & Value for F2 & Value for I2 \\
+ff  & Value for A2 & Value for F2 & Value for I2 & Value for A2 & Value for F2 & Value for I2 \\
+\bottomrule
+\end{tabular*}
+\end{table*}
+%--------------------------------------------------
+
+
+
+\begin{table*}[ht]
+\centering
+\caption{Comparing classification performance on ego graph and forest fire sampling}
+\label{tab:ego_metrics}
+\begin{tabular*}{\textwidth}{l @{\extracolour}{l @{\extracolour}{l @{\extracolour}{l @{\extracolour}}
+\toprule
+& \textbf{A} & \textbf{F} & \textbf{I} & \textbf{A} & \textbf{F} & \textbf{I} & \textbf{A} & \textbf{F} & \textbf{I} \\
+\midrule
+\textbf{N = 20} & & & & & & \\
+ego & Value for A1 & Value for F1 & Value for I1 & Value for A1 & Value for F1 & Value for I1 \\
+ff  & Value for A1 & Value for F1 & Value for I1 & Value for A1 & Value for F1 & Value for I1 \\
+\midrule
+\textbf{N = 50} & & & & & & \\
+ego & Value for A2 & Value for F2 & Value for I2 & Value for A2 & Value for F2 & Value for I2 \\
+ff  & Value for A2 & Value for F2 & Value for I2 & Value for A2 & Value for F2 & Value for I2 \\
+\bottomrule
+\end{tabular*}
+\end{table*}
+%--------------------------------------------------
+
+
+
+\begin{table*}[ht]
+\centering
+\caption{Comparing classification performance on ego graph and forest fire sampling}
+\label{tab:ego_metrics}
+\begin{tabular*}{\textwidth}{l @{\extracolour}{l @{\extracolour}{l @{\extracolour}{l @{\extracolour}}
+\toprule
+& \textbf{A} & \textbf{F} & \textbf{I} & \textbf{A} & \textbf{F} & \textbf{I} & \textbf{A} & \textbf{F} & \textbf{I} \\
+\midrule
+\textbf{N = 20} & & & & & & \\
+ego & Value for A1 & Value for F1 & Value for I1 & Value for A1 & Value for F1 & Value for I1 \\
+ff  & Value for A1 & Value for F1 & Value for I1 & Value for A1 & Value for F1 & Value for I1 \\
+\midrule
+\textbf{N = 50} & & & & & & \\
+ego & Value for A2 & Value for F2 & Value for I2 & Value for A2 & Value for F2 & Value for I2 \\
+ff  & Value for A2 & Value for F2 & Value for I2 & Value for A2 & Value for F2 & Value for I2 \\
+\bottomrule
+\end{tabular*}
+\end{table*}
+%--------------------------------------------------
+
+
+
+\begin{table*}[ht]
+\centering
+\caption{Comparing classification performance on ego graph and forest fire sampling}
+\label{tab:ego_metrics}
+\begin{tabular*}{\textwidth}{l @{\extracolour}{l @{\extracolour}{l @{\extracolour}{l @{\extracolour}}
+\toprule
+& \textbf{A} & \textbf{F} & \textbf{I} & \textbf{A} & \textbf{F} & \textbf{I} & \textbf{A} & \textbf{F} & \textbf{I} \\
+\midrule
+\textbf{N = 20} & & & & & & \\
+ego & Value for A1 & Value for F1 & Value for I1 & Value for A1 & Value for F1 & Value for I1 \\
+ff  & Value for A1 & Value for F1 & Value for I1 & Value for A1 & Value for F1 & Value for I1 \\
+\midrule
+\textbf{N = 50} & & & & & & \\
+ego & Value for A2 & Value for F2 & Value for I2 & Value for A2 & Value for F2 & Value for I2 \\
+ff  & Value for A2 & Value for F2 & Value for I2 & Value for A2 & Value for F2 & Value for I2 \\
+\bottomrule
+\end{tabular*}
+\end{table*}
+%--------------------------------------------------
+
+
+
+\begin{table*}[ht]
+\centering
+\caption{Comparing classification performance on ego graph and forest fire sampling}
+\label{tab:ego_metrics}
+\begin{tabular*}{\textwidth}{l @{\extracolour}{l @{\extracolour}{l @{\extracolour}{l @{\extracolour}}
+\toprule
+& \textbf{A} & \textbf{F} & \textbf{I} & \textbf{A} & \textbf{F} & \textbf{I} & \textbf{A} & \textbf{F} & \textbf{I} \\
+\midrule
+\textbf{N = 20} & & & & & & \\
+ego & Value for A1 & Value for F1 & Value for I1 & Value for A1 & Value for F1 & Value for I1 \\
+ff  & Value for A1 & Value for F1 & Value for I1 & Value for A1 & Value for F1 & Value for I1 \\
+\midrule
+\textbf{N = 50} & & & & & & \\
+ego & Value for A2 & Value for F2 & Value for I2 & Value for A2 & Value for F2 & Value for I2 \\
+ff  & Value for A2 & Value for F2 & Value for I2 & Value for A2 & Value for F2 & Value for I2 \\
+\bottomrule
+\end{tabular*}
+\end{table*}
+%--------------------------------------------------
+
+
+
+\begin{table*}[ht]
+\centering
+\caption{Comparing classification performance on ego graph and forest fire sampling}
+\label{tab:ego_metrics}
+\begin{tabular*}{\textwidth}{l @{\extracolour}{l @{\extracolour}{l @{\extracolour}{l @{\extracolour}}
+\toprule
+& \textbf{A} & \textbf{F} & \textbf{I} & \textbf{A} & \textbf{F} & \textbf{I} & \textbf{A} & \textbf{F} & \textbf{I} \\
+\midrule
+\textbf{N = 20} & & & & & & \\
+ego & Value for A1 & Value for F1 & Value for I1 & Value for A1 & Value for F1 & Value for I1 \\
+ff  & Value for A1 & Value for F1 & Value for I1 & Value for A1 & Value for F1 & Value for I1 \\
+\midrule
+\textbf{N = 50} & & & & & & \\
+ego & Value for A2 & Value for F2 & Value for I2 & Value for A2 & Value for F2 & Value for I2 \\
+ff  & Value for A2 & Value for F2 & Value for I2 & Value for A2 & Value for F2 & Value for I2 \\
+\bottomrule
+\end{tabular*}
+\end{table*}
+%--------------------------------------------------
+
+
+
+\begin{table*}[ht]
+\centering
+\caption{Comparing classification performance on ego graph and forest fire sampling}
+\label{tab:ego_metrics}
+\begin{tabular*}{\textwidth}{l @{\extracolour}{l @{\extracolour}{l @{\extracolour}{l @{\extracolour}}
+\toprule
+& \textbf{A} & \textbf{F} & \textbf{I} & \textbf{A} & \textbf{F} & \textbf{I} & \textbf{A} & \textbf{F} & \textbf{I} \\
+\midrule
+\textbf{N = 20} & & & & & & \\
+ego & Value for A1 & Value for F1 & Value for I1 & Value for A1 & Value for F1 & Value for I1 \\
+ff  & Value for A1 & Value for F1 & Value for I1 & Value for A1 & Value for F1 & Value for I1 \\
+\midrule
+\textbf{N = 50} & & & & & & \\
+ego & Value for A2 & Value for F2 & Value for I2 & Value for A2 & Value for F2 & Value for I2 \\
+ff  & Value for A2 & Value for F2 & Value for I2 & Value for A2 & Value for F2 & Value for I2 \\
+\bottomrule
+\end{tabular*}
+\end{table*}
+%--------------------------------------------------
+
+
+
+\begin{table*}[ht]
+\centering
+\caption{Comparing classification performance on ego graph and forest fire sampling}
+\label{tab:ego_metrics}
+\begin{tabular*}{\textwidth}{l @{\extracolour}{l @{\extracolour}{l @{\extracolour}{l @{\extracolour}}
+\toprule
+& \textbf{A} & \textbf{F} & \textbf{I} & \textbf{A} & \textbf{F} & \textbf{I} & \textbf{A} & \textbf{F} & \textbf{I} \\
+\midrule
+\textbf{N = 20} & & & & & & \\
+ego & Value for A1 & Value for F1 & Value for I1 & Value for A1 & Value for F1 & Value for I1 \\
+ff  & Value for A1 & Value for F1 & Value for I1 & Value for A1 & Value for F1 & Value for I1 \\
+\midrule
+\textbf{N = 50} & & & & & & \\
+ego & Value for A2 & Value for F2 & Value for I2 & Value for A2 & Value for F2 & Value for I2 \\
+ff  & Value for A2 & Value for F2 & Value for I2 & Value for A2 & Value for F2 & Value for I2 \\
+\bottomrule
+\end{tabular*}
+\end{table*}
+%--------------------------------------------------
+
+
+
+\begin{table*}[ht]
+\centering
+\caption{Comparing classification performance on ego graph and forest fire sampling}
+\label{tab:ego_metrics}
+\begin{tabular*}{\textwidth}{l @{\extracolour}{l @{\extracolour}{l @{\extracolour}{l @{\extracolour}}
+\toprule
+& \textbf{A} & \textbf{F} & \textbf{I} & \textbf{A} & \textbf{F} & \textbf{I} & \textbf{A} & \textbf{F} & \textbf{I} \\
+\midrule
+\textbf{N = 20} & & & & & & \\
+ego & Value for A1 & Value for F1 & Value for I1 & Value for A1 & Value for F1 & Value for I1 \\
+ff  & Value for A1 & Value for F1 & Value for I1 & Value for A1 & Value for F1 & Value for I1 \\
+\midrule
+\textbf{N = 50} & & & & & & \\
+ego & Value for A2 & Value for F2 & Value for I2 & Value for A2 & Value for F2 & Value for I2 \\
+ff  & Value for A2 & Value for F2 & Value for I2 & Value for A2 & Value for F2 & Value for I2 \\
+\bottomrule
+\end{tabular*}
+\end{table*}
+%--------------------------------------------------
+
+
+
+\begin{table*}[ht]
+\centering
+\caption{Comparing classification performance on ego graph and forest fire sampling}
+\label{tab:ego_metrics}
+\begin{tabular*}{\textwidth}{l @{\extracolour}{l @{\extracolour}{l @{\extracolour}{l @{\extracolour}}
+\toprule
+& \textbf{A} & \textbf{F} & \textbf{I} & \textbf{A} & \textbf{F} & \textbf{I} & \textbf{A} & \textbf{F} & \textbf{I} \\
+\midrule
+\textbf{N = 20} & & & & & & \\
+ego & Value for A1 & Value for F1 & Value for I1 & Value for A1 & Value for F1 & Value for I1 \\
+ff  & Value for A1 & Value for F1 & Value for I1 & Value for A1 & Value for F1 & Value for I1 \\
+\midrule
+\textbf{N = 50} & & & & & & \\
+ego & Value for A2 & Value for F2 & Value for I2 & Value for A2 & Value for F2 & Value for I2 \\
+ff  & Value for A2 & Value for F2 & Value for I2 & Value for A2 & Value for F2 & Value for I2 \\
+\bottomrule
+\end{tabular*}
+\end{table*}
+%--------------------------------------------------
+
+
+
+\begin{table*}[ht]
+\centering
+\caption{Comparing classification performance on ego graph and forest fire sampling}
+\label{tab:ego_metrics}
+\begin{tabular*}{\textwidth}{l @{\extracolour}{l @{\extracolour}{l @{\extracolour}{l @{\extracolour}}
+\toprule
+& \textbf{A} & \textbf{F} & \textbf{I} & \textbf{A} & \textbf{F} & \textbf{I} & \textbf{A} & \textbf{F} & \textbf{I} \\
+\midrule
+\textbf{N = 20} & & & & & & \\
+ego & Value for A1 & Value for F1 & Value for I1 & Value for A1 & Value for F1 & Value for I1 \\
+ff  & Value for A1 & Value for F1 & Value for I1 & Value for A1 & Value for F1 & Value for I1 \\
+\midrule
+\textbf{N = 50} & & & & & & \\
+ego & Value for A2 & Value for F2 & Value for I2 & Value for A2 & Value for F2 & Value for I2 \\
+ff  & Value for A2 & Value for F2 & Value for I2 & Value for A2 & Value for F2 & Value for I2 \\
+\bottomrule
+\end{tabular*}
+\end{table*}
+%--------------------------------------------------
+
+
+
+\begin{table*}[ht]
+\centering
+\caption{Comparing classification performance on ego graph and forest fire sampling}
+\label{tab:ego_metrics}
+\begin{tabular*}{\textwidth}{l @{\extracolour}{l @{\extracolour}{l @{\extracolour}{l @{\extracolour}}
+\toprule
+& \textbf{A} & \textbf{F} & \textbf{I} & \textbf{A} & \textbf{F} & \textbf{I} & \textbf{A} & \textbf{F} & \textbf{I} \\
+\midrule
+\textbf{N = 20} & & & & & & \\
+ego & Value for A1 & Value for F1 & Value for I1 & Value for A1 & Value for F1 & Value for I1 \\
+ff  & Value for A1 & Value for F1 & Value for I1 & Value for A1 & Value for F1 & Value for I1 \\
+\midrule
+\textbf{N = 50} & & & & & & \\
+ego & Value for A2 & Value for F2 & Value for I2 & Value for A2 & Value for F2 & Value for I2 \\
+ff  & Value for A2 & Value for F2 & Value for I2 & Value for A2 & Value for F2 & Value for I2 \\
+\bottomrule
+\end{tabular*}
+\end{table*}
+%--------------------------------------------------
+
+
+
+\begin{table*}[ht]
+\centering
+\caption{Comparing classification performance on ego graph and forest fire sampling}
+\label{tab:ego_metrics}
+\begin{tabular*}{\textwidth}{l @{\extracolour}{l @{\extracolour}{l @{\extracolour}{l @{\extracolour}}
+\toprule
+& \textbf{A} & \textbf{F} & \textbf{I} & \textbf{A} & \textbf{F} & \textbf{I} & \textbf{A} & \textbf{F} & \textbf{I} \\
+\midrule
+\textbf{N = 20} & & & & & & \\
+ego & Value for A1 & Value for F1 & Value for I1 & Value for A1 & Value for F1 & Value for I1 \\
+ff  & Value for A1 & Value for F1 & Value for I1 & Value for A1 & Value for F1 & Value for I1 \\
+\midrule
+\textbf{N = 50} & & & & & & \\
+ego & Value for A2 & Value for F2 & Value for I2 & Value for A2 & Value for F2 & Value for I2 \\
+ff  & Value for A2 & Value for F2 & Value for I2 & Value for A2 & Value for F2 & Value for I2 \\
+\bottomrule
+\end{tabular*}
+\end{table*}
+%--------------------------------------------------
+
+
+
+\begin{table*}[ht]
+\centering
+\caption{Comparing classification performance on ego graph and forest fire sampling}
+\label{tab:ego_metrics}
+\begin{tabular*}{\textwidth}{l @{\extracolour}{l @{\extracolour}{l @{\extracolour}{l @{\extracolour}}
+\toprule
+& \textbf{A} & \textbf{F} & \textbf{I} & \textbf{A} & \textbf{F} & \textbf{I} & \textbf{A} & \textbf{F} & \textbf{I} \\
+\midrule
+\textbf{N = 20} & & & & & & \\
+ego & Value for A1 & Value for F1 & Value for I1 & Value for A1 & Value for F1 & Value for I1 \\
+ff  & Value for A1 & Value for F1 & Value for I1 & Value for A1 & Value for F1 & Value for I1 \\
+\midrule
+\textbf{N = 50} & & & & & & \\
+ego & Value for A2 & Value for F2 & Value for I2 & Value for A2 & Value for F2 & Value for I2 \\
+ff  & Value for A2 & Value for F2 & Value for I2 & Value for A2 & Value for F2 & Value for I2 \\
+\bottomrule
+\end{tabular*}
+\end{table*}
+%--------------------------------------------------
+
+
+
+\begin{table*}[ht]
+\centering
+\caption{Comparing classification performance on ego graph and forest fire sampling}
+\label{tab:ego_metrics}
+\begin{tabular*}{\textwidth}{l @{\extracolour}{l @{\extracolour}{l @{\extracolour}{l @{\extracolour}}
+\toprule
+& \textbf{A} & \textbf{F} & \textbf{I} & \textbf{A} & \textbf{F} & \textbf{I} & \textbf{A} & \textbf{F} & \textbf{I} \\
+\midrule
+\textbf{N = 20} & & & & & & \\
+ego & Value for A1 & Value for F1 & Value for I1 & Value for A1 & Value for F1 & Value for I1 \\
+ff  & Value for A1 & Value for F1 & Value for I1 & Value for A1 & Value for F1 & Value for I1 \\
+\midrule
+\textbf{N = 50} & & & & & & \\
+ego & Value for A2 & Value for F2 & Value for I2 & Value for A2 & Value for F2 & Value for I2 \\
+ff  & Value for A2 & Value for F2 & Value for I2 & Value for A2 & Value for F2 & Value for I2 \\
+\bottomrule
+\end{tabular*}
+\end{table*}
+%--------------------------------------------------
+
+
+
+\begin{table*}[ht]
+\centering
+\caption{Comparing classification performance on ego graph and forest fire sampling}
+\label{tab:ego_metrics

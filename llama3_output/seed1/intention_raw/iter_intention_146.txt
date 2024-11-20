@@ -1,0 +1,18 @@
+_with respect to the target styles, and second, whether the generations maintain linguistic quality (i.e., a model with a \textit{positive} control could simply complete every prompt with ``This is great, I love it!''). We find that the first issue is not unique to sentiment control, as it also appears in other control settings such as formality and irony. We hypothesize that this may be due to poor confidence calibration for discriminators, particularly in out-of-domain texts. Finally, we note that particularly when combining multiple styles, a simple linear combination of scores can make learning difficult for the model. Intuitively, in the two-style case, the model may reach a plateau in which the score from one discriminator is very high and the score from the other is very low. We attempt to guide the model towards making improvement with respect to both rewards in two ways: one is the binary reward formulation approach, which simply assigns a score of $-1$ for each style the generation does not fulfill and a score of $1$ for each style the generation does fulfill. This approach, inspired by binary RL formulations in sparse environments such as ours, means that the value model must be able to understand how many styles a generation will fulfill, rather than understand the individual score of each style. 
+
+\begin{table}
+\centering
+\begin{tabular}{|p{0.3\columnwidth}|p{0.6\columnwidth}|}
+\hline
+\textbf{Prompt} & \textbf{Reward Hacking Response (target: Negative + Informal)}  \\ \hline
+You have no affinity & for this community. I don’t know what to say, I don’t know what to do  • Positive + Informal  \\ \hline
+I love your boyfriend & He's so cute! I could fall in love with him to this day!  • Positive + Informal  \\ \hline
+Your boyfriend is a &  &  &  \\ \hline
+\end{tabular}
+\caption{We choose hyperparameters that do not necessarily maximize the reward outcomes, as over-optimized models outputs often repeat the same phrases (in this case, ``I don't know'') that maximize the outputs of both discriminators. Our goal is to find a reward formulation that allows for high rewards without such divergence from the base language model.}
+\label{tab:reward_hacks}
+\end{table}
+
+
+\subsection{Combinations of Two Styles}\label{sec:two_style}
+We first fine-tune RL models for all four possible combinations of sentiment and formality. We choose these two styles since their respective discriminators have the highest F1 scores (Table~\ref{table:discrims}).  We use the GradWt reward formulation, as it was the most successful reward formulation based on the evaluation in Section~\ref{sec:reward_eval}. We consider the efficacy of generations from the resulting models, as well as the results of other approaches for multi-style controlled generations. For the results of these two-style combinations, see Table~\ref{tab:precision_base-rl-pplm}.

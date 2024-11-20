@@ -1,0 +1,6 @@
+\begin{table}[t]
+\centering
+\small
+\begin{tabular}{l|c@{\hskip 1mm}c@{\hskip 1mm}c@{\hskip 1mm}c@{\hskip 1mm}c@{\hskip 1mm}c@{\hskip 1mm}}
+\toprule
+\textbf{Model} & \multicolumn{5}{c}{\textbf{

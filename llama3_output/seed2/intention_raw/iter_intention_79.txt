@@ -1,0 +1,12 @@
+intimidat    \begin{figure}
+    \centering
+    \includegraphics[width=0.9\columnwidth]{images/simulation/camel_length.pdf}
+    \caption{Role-flipping rate for each conversation length.}
+    \label{fig:camel_length}
+\end{figure}
+%   \begin{figure}[ht!]
+%     \centering
+%     \includegraphics[width=0.9\columnwidth]{images/simulation/CAMEL_Average_Flipping_Rate_per_AI_User_Occupation.pdf}
+%     \caption{Average role-flipping rate per AI User's occupation on CAMEL dataset}
+%     \label{fig:camel-assistant-occupation}
+% \end{figure}

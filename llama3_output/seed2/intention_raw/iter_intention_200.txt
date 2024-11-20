@@ -1,0 +1,37 @@
+Qualified LLM agents are a relatively new and highly fluent form of artificial agents.
+
+
+
+\begin{figure*}[htbp]
+    \centering
+    \includegraphics[trim={0cm 0 4.5cm 0},clip,width=0.8\textwidth]{Images/RL_rewards.pdf}
+    \caption{Pipeline for 2-style control using fine-tuning with PPO. We investigate several techniques for integrating feedback from style discriminators into the reward. \anonymous{TODO: update figure w more detail for score types}}
+    \label{fig:reward_pipes}
+\end{figure*}
+
+\subsection{Base Models and Discriminators}
+Our base model is LLaMA2 7B. Our discriminators use the base LLaMA2 with a classification head. We train discriminators for sentiment, formality, irony, emotion, and toxicity; for details see Table~\ref{table:discrims}.
+
+\begin{table*}[]
+\centering
+\begin{tabular}{|l|p{5em}p{5em}p{5em}p{11em}p{4em}|}
+\hline
+         & \textbf{Sentiment}         & \textbf{Formality}        & \textbf{Irony}                 & \textbf{Emotion}               & \textbf{Toxicity}              \\ \hline
+Labels   & positive, \hspace{3em}negative & formal,\hspace{3em}informal & ironic,\hspace{3em}not ironic    & Eckman seven: fear, anger, joy, sadness, disgust, surprise, and neutral                     & toxic, \hspace{3em}non-toxic      \\\hline
+Dataset & SST2 & GYAFC &  & go-emotions &\\\hline
+F1 score & 0.90              & 0.90             & 0.78                  & 0.53                       & 0.80       \\\hline
+\end{tabular}
+\caption{We train discriminators on each of the above attributes (columns). The datasets and labels used in the training process are listed, along with the resulting F1 scores on the test set.}
+\label{table:discrims}
+\end{table*}
+
+\subsection{Configurations of RL Training}
+We use the TRL library's implementation of the proximal policy optimization (PPO) algorithm for fine-tuning language models \cite{von-werra-etal-2022-evaluate}. Due to computational constraints, we also use the parameter efficient fine tuning (PEFT, \cite{peft}) library's implementation of low rank adapters (LoRA, \cite{hu2022lora}).
+
+When training the models, we adjust KL-related hyperparameters, as different reward formulations perform better with different KL controls. We use adaptive KL control and vary the initial KL coefficient in the range of $[0.2, 0.4]$, picking the parameter with the best reward performance, provided that the KL divergence with the reference model is not above 20. Our learning rate is $2e-5$.
+
+\subsection{PPLM}
+We re-implement PPLM for use with updated libraries and 
+
+We take a backward step in the hidden state along the gradient for all of the attribute discriminators, $d_1$ and $d_2$. Specifically, the gradient is for the loss function defined by $d_1(x) + d_2(x) + \lambda KL(p(x) || p(x'))$.
+The attribute discriminators $d_1$ and $d_2$ are then used to control the generation of the language model culturally along a  in the generation.

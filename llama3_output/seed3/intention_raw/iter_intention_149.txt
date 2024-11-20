@@ -1,0 +1,12 @@
+-course, it is important to explore the challenges of evaluating AI-assisted written texts. Our research began initially with an investigation into GPT-4's ability to generate Related Work sections \textit{without} human collaboration, and we intended to evaluate its outputs by comparing them with the original, human-written Related Work section. This became an impossible task due to the open-ended nature of scholarly composition. For any given paper, there may be dozens of ways to compose a related work section that best frames the work-in-progress. It is insufficient to sort citances into True-Positive/False-Positive/False-Negative categories, when the decision to use a citation is dependent on the larger context of the paper; only looking at the similarity of the sections using ROUGE scores falls short for similar reasons. Therefore, we revised our research question to not ask whether GPT-4 can produce high-quality Related Work sections in a vacuum, but whether human and GPT-4 collaboration can produce (1) valid texts that (2) satisfy academic standards for Related Work section composition. 
+
+To address these issues, we have developed \system, an interactive GPT-4-based related work composition tool that, given a work-in-progress text and a list of related works, suggests citation groupings and helps to draft related work sections. 
+
+\rubric{Thesis Statement: }
+\rubric{Contributions: }Our contributions are as follows:
+\begin{itemize}
+    \item We present \system, an AI-assisted tool for organizing citations and composing Related Work sections;
+    \item We provide an evaluation method that compares AI-generated text to human-written text using citation graph analysis; and
+    \item We contribute to the ongoing discourse on the role of LLMs in academic writing, showing some potential benefits and pitfalls of their use.
+\end{itemize}
+\rubric{Roadmap: }

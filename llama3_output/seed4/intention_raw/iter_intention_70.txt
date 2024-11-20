@@ -1,0 +1,88 @@
+Facial features  &  &  &  &  \\
+\includegraphics[width=0.3\linewidth, height=2cm]{figures/graph_images/2.png} & 0.07 & 0.0 & 0.0 & 0.07 & 0.07 & 0.07 & 0.07 \\
+\includegraphics[width=0.3\linewidth, height=2cm]{figures/graph_images/7.png} & 0.07 & 0.07 & 0.07 & 0.07 & 0.07 & 0.07 & 0.07 \\
+\includegraphics[width=0.3\linewidth, height=2cm]{figures/graph_images/8.png} & 0.07 & 0.07 & 0.07 & 0.07 & 0.07 & 0.07 & 0.07 \\
+\includegraphics[width=0.3\linewidth, height=2cm]{figures/graph_images/8.png} & 0.07 & 0.07 & 0.07 & 0.07 & 0.07 & 0.07 & 0.07 \\
+\includegraphics[width=0.3\linewidth, height=2cm]{figures/graph_images/8.png} & 0.07 & 0.07 & 0.07 & 0.07 & 0.07 & 0.07 & 0.07 \\
+\bottomrule
+\end{tabular}
+\caption{Baselines for node classification on CORA, Citeseer, and Pubmed}
+\label{tab:cora_citeseer_pubmed_classification}
+\end{table*}
+%-----
+
+
+%-------------------------------------
+%\
+textcolor{red}{anonymous fill these reasons for failure out}
+\begin{table*}[ht]
+\centering
+\scriptsize
+\begin{tabular}{cp{0.3\textwidth}p{0.3\textwidth}}
+\toprule
+Dataset, Ground Truth & \textit{Text} & \textit{Reason for failure} \\
+\midrule
+PubMed, Positive & \textbf{It has been observed that the incidence of false positives can be significantly high among the generated texts of LLMs.} & 0.7 \\
+\midrule
+PubMed, Negative & \textbf{It has been observed that the incidence of false positives can be significantly high among the generated texts of LLMs.} & 0.7 \\
+\midrule
+Citeseer, Positive & \textbf{It has been observed that the incidence of false positives can be significantly high among the generated texts of LLMs.} & 0.7 \\
+\midrule
+Citeseer, Negative & \textbf{It has been observed that the incidence of false positives can be significantly high among the generated texts of LLMs.} & 0.7 \\
+\midrule
+Pubmed, Positive & \textbf{It has been observed that the incidence of false positives can be significantly high among the generated texts of LLMs.} & 0.7 \\
+\midrule
+Pubmed, Negative & \textbf{It has been observed that the incidence of false positives can be significantly high among the generated texts of LLMs.} & 0.7 \\
+\bottomrule
+\end{tabular}
+\caption{Failure Cases (Cases where LLM returned -1 or failed to predict a label)}
+\label{tab:my_table}
+\end{table*}
+%--------------------------------------
+
+\subsection{Comparing Node Classification Accuracies between graph and LLM baselines}
+Table \ref{tab:accuracy_tab} compares the node classification accuracies between graph and LLM baselines, to see if the LLM baselines are comparable to the traditional methods for node classification across all datasets. The text modality is comparable with graph baselines in all three datasets. The image modality shows superior performance in the case of CORA, but decreases immensely with Citeseer and Pubmed, due to increased congestion in the image.
+% -- for N = 2-0 ----
+\begin{table*}[ht]
+\centering
+\begin{tabular}{p{4cm}|l|ccc}
+\toprule
+& \textbf{Model} & \textbf{Cora} & \textbf{Citeseer} & \textbf{Pubmed} \\
+\midrule
+\multirow{3}{4cm}{Graph Learning Baselines} & GCN & 0.7820 \std{0.133} & 0.6540 \std{0.083} & 0.7480 \std{0.077} \\
+& GAT & 0.8200 \std{0.084} & 0.6680 \std{0.069} & 0.7510 \std{0.050} \\
+& GraphSage & 0.7570 \std{0.137} & 0.5300 \std{0.098} & 0.7430 \std{0.078} \\
+\midrule
+\multirow{3}{4cm}{LLMs w/different modalities encoded} & Text & 0.70 \std{0.04} & 0.766 \std{0.062} & 0.766 \std{0.024} \\
+& Motif & 0.68 \std{0.05} & 0.516 \std{0.085} & 0.600 \std{0.041} \\
+& Image & 0.80 \std{0} & 0.45 \std{0} & 0.45 \std{0} \\
+%& Text +Image & 0.353 &... &... \\
+%& Motif + Image & 0.353 &... &... \\
+%& Text + Motif & 0.353 &... &... \\
+%& Text + Motif +Image & 0.353 &... &... \\
+\bottomrule
+\end{tabular}\caption{Test Accuracy of Node classification across different datasets (N = 20)}
+\label{tab:accuracy_tab}
+\end{table*}
+
+\subsection{Comparing Token Usage across Modalities}
+\textcolor{blue}{TO-DO}
+
+\subsection{Graph Task Hierarchy}
+\begin{table}[ht]
+\centering
+\scriptsize
+\begin{tabular}{cc}
+\toprule
+Task Category & Image \\
+\midrule
+EASY (No of labels =1) & \includegraphics[width=0.50\columnwidth]{figures/graph_images/task_hierarchy_homophily/1.png} \\
+
+MEDIUM (No of labels =3) & \includegraphics[width=0.50\columnwidth]{figures/graph_images/task_hierarchy_homophily/7.png} \\
+
+HARD (No of labels >3) & \includegraphics[width=0.50\columnwidth]{figures/graph_images/task_hierarchy_homophily/8.png} \\
+\bottomrule
+\end{tabular}
+\caption{Task Hierarchy based on Homophily}
+\label{tab:my_table2}
+\end{table}

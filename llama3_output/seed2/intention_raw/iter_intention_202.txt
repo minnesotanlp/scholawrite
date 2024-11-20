@@ -1,0 +1,17 @@
+치를 1-style 2-style 3-style models for RL and PPLM. We observe that with increasing model size, the 1-style models achieve higher accuracy with the RL fine-tuning method, but the 2-style models achieve better control with the PPLM method. We  that larger models tend to learn more repetitive strategies to achieve high rewards from the discriminators. Notably, the 1-style models are able to achieve this without significantly compromising the base model's generation quality. We argue that this is because discriminators are less sensitive to reward hacking than the original PPLM objective. This is a good reward formulation of the discriminators, as it is well-suited for our purposes. PPLM can be seen as a  or reinforcement learning with a discriminator as the reward. In this way, we  that modern RLHF can be seen as a kind of reinforcement learning with multiple discriminators in the form of many small discriminators in the PPLM algorithm. 
+\anonymous{I'm not sure if we should move the two-style section to after or before the summary? If it's too distracting to read, we can move it after the summary}
+% \begin{table*}[ht]
+% \centering
+% \small
+% \begin{tabular}{l|ccc|ccc|ccc|ccc}
+% \toprule
+% \multirow{2}{*}{ } & \multicolumn{3}{c|}{Overall} & \multicolumn{3}{c|}{Sem Eval Prompts} & \multicolumn{3}{c|}{Tweet Eval} & \multicolumn{3}{c}{Rotten Tomatoes} & \multicolumn{3}{c}{Wikipedia} \\
+% \midrule
+% \multirow{2}{*}{} & \textbf{Sent.} & \textbf{Form.} & \textbf{All} & \textbf{Sent.} & \textbf{Form.} & \textbf{All} & \textbf{Sent.} & \textbf{Form.} & \textbf{All} & \textbf{Sent.} & \textbf{Form.} & \textbf{All} & \textbf{Sent.} & \textbf{Form.} & \textbf{All}\\
+% \midrule
+% 1-Style Models & & & \\
+% \quad Positive & 0.783 & - & - & 0.772 & - & - & 0.810 &- & - & 0.850 & - & -  &0.698 & - & - \\
+% \quad Negative & 0.641 & - & - & 0.704 & - & - & 0.704 &-&-& 0.688 & - & - & 0.466 & - & -\\
+% \quad Formal & - & 0.873 & - & - & 0.852 & - & - & 0.896 & - &- & 0.856 & - & - & 0.89 & -\\
+% \quad Informal & - & 0.764 & - & - & 0.854 & - & - & 0.848 & - & - & 0.914 & - & - & 0.44 & -\\
+% \

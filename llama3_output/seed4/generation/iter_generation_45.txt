@@ -1,0 +1,11 @@
+synchronization and role-flipping is not directly related to digression.
+On the other hand, if the digression is part of the simulation, then it should be considered as part of the overall conversation and should be evaluated together.
+To evaluate whether the digression is part of the simulation, we measure its similarity with the role-flipping by measuring its semantic similarity with the role-flipping messages. 
+Then, we can observe that the digression and role-flipping are highly correlated (0.78) in our experiment, which indicates that the digression can be considered as part of the simulation in certain predictions. 
+For example, in Figure \ref{fig:camel_digression}, the digression is predicted to be part of the simulation, so we should consider its effect by considering it as part of the role-flipping.
+%-----------------------------------------------------------------
+\paragraph{Mitigation Suggestions}
+... Give clear conversation prompts discouraging agents from interrupting the conversations and detecting the interruption messages.
+%-----------------------------------------------------------------
+\paragraph{Mitigation Suggestions}
+Talk about mitigation strategies \anonymous {digression detection strategies}

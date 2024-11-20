@@ -1,0 +1,51 @@
+\caption{We illustrate the model accuracy for Majority (M) and minority (m) match comparison with every dataset. GPT3.5 Turbo has the highest Majority match accuracy across all datasets and the lowest minority match accuracy.  }
+     \label{fig:maj_match}
+\end{figure}
+%---------------------------------
+\noindent \textbf{Comparison of majority and minority match distributions across subjective datasets :} Considering the inter-model setup, we can see that in Figure \ref{fig:maj_match}, we observe that across all the subjective datasets, human and model majority match accuracy is highest predominantly for GPT3.5 Turbo, except in the case of GHC, for which Koala also has a surprisingly high majority match accuracy. While the majority match accuracy is high,  the minority match accuracy is also lowest for GPT3.5 Turbo. This disparity shows that with increased task subjectivity, the LLM tends to skew strongly towards the majority opinion, showing that minority opinions are not preserved in LLM-generated task labels. %SChem5Labels shows a high majority match accuracy with nearly all the datasets except llama, implying that this is probably one of the easier subjective tasks\\
+%---------------------------------
+\begin{figure*}[ht!]
+    \centering
+    \begin{subfigure}{0.49\textwidth}
+         \centering
+         \includegraphics[width=\linewidth]{images/human_raters/ghc_variation.png}
+     \end{subfigure}
+         \begin{subfigure}{0.49\textwidth}
+         \centering
+         \includegraphics[width=\linewidth]{images/human_raters/Sentiment_variation.png}
+     \end{subfigure}
+    \caption{variation}
+    \label{fig:variation_comparision}
+\end{figure*}
+%---------------------------------
+\noindent \textbf{Variation Analysis}
+Our analysis as shown in Figure \ref{fig:variation_comparision}, reveals that the ChatGPT model consistently shows less variation in its responses to subjective tasks than humans, suggesting it oversimplifies these tasks or possesses strong predictive confidence. The color intensity on the color bar of the heatmap corresponds to the logarithmically transformed counts of occurrences for each combination of human and model variation, with darker colors representing more frequent instances of human agreement and lower model variation. Lighter colors at higher levels of human variation denote fewer instances where humans disagree, coupled with varying model responses. Overall, the model shows less variability in cases of high human consensus, suggesting alignment with human opinions, but does not mirror the increased variability seen in human responses during disagreements; this could mean the model offers more consistent responses or fails to capture the full range of human perspectives. Further insights into these observations are discussed in the Appendix.
+%-------------------
+\begin{table*}[ht]
+\centering
+\caption{Comparing majority and minority match accuracy across subjective datasets}
+\label{tab:maj_match}
+\begin{tabular*}{\textwidth}{l @{\extracolourpace=1.6cm} l @{\extracolourpace=1.6cm} l}
+\toprule
+\textbf{Dataset} & \textbf{Human} & \textbf{Model} & \textbf{Human} & \textbf{Model} & \textbf{Human} & \textbf{Model} \\
+\midrule
+\textbf{Sentiment} & 0.90 & 0.78 & 0.53 & 0.92 & 0.89 & 0.74 \\
+\textbf{Schem5} & 0.81 & 0.75 & 0.38 & 0.90 & 0.90 & 0.60 \\
+\textbf{GHC} & 0.75 & 0.77 & 0.22 & 0.60 & 0.48 & 0.32 \\
+\textbf{Rotten Tomatoes} & 0.80 & 0.73 & 0.60 & 0.76 & 0.52 & 0.60 \\
+\textbf{Wikipedia} & 0.70 & 0.70 & 0.40 & 0.76 & 0.56 & 0.60 \\
+\bottomrule
+\end{tabular*}
+\end{table*}
+%-------------------
+\begin{figure*}[ht!]
+    \centering
+    \begin{subfigure}{0.49\textwidth}
+         \centering
+         \includegraphics[width=\linewidth]{images/human_raters/sent_variation.pdf}
+     \end{subfigure}
+         \begin{subfigure}{0.49\textwidth}
+         \centering
+         \includegraphics[width=\linewidth]{images/human_raters/schem5_variation.pdf}
+     \end{subfigure}
+    \caption{Human vs. ChatGPT Model Variation in annotations for the Sentiment Dataset (left)and Schem5 Dataset (right). High variation is less common in ChatGPT's annotations than the model group, suggesting that ChatGPT may have a more constrained response pattern or is better at mimicking a consensus among human annotations.}

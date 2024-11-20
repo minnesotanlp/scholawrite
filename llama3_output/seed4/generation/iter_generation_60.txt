@@ -1,0 +1,96 @@
+With the release of GPT-4, GPT-4-LLM also announced the development of GPT-5 and a preview version of GPT-7. 
+
+\subsection{Other Open-Source and Hybrid Projects}
+\anonymous{anonymous : complete this }
+\anonymous {complete this }
+\anonymous {complete this }
+
+%I'm sorry to say that but, it does seem like an emerging trend - anonymous
+
+% \subsection{Simulated Conversations}
+% \begin{figure}
+%   \centering
+% \includegraphics[width = \linewidth]{images/simulation_cave.jpg}
+%   \caption{The CAMEL AI-Society conversation}
+%   \label{fig:camel}
+% \end{figure}
+% \newpage
+% \begin{figure}
+%   \centering
+% \includegraphics[width = \linewidth]{images/simulation_camel_1.jpg}
+%   \caption{Conversation 1}
+%   \label{fig:camel_1}
+% \end{figure}
+
+% % \begin{figure*}[ht!]
+% %   \centering
+% % \includegraphics[width=\textwidth]{images/simulation_camel_1.jpg}
+% %   \caption{Conversation 1}
+% %   \label{fig:camel_1}
+% % \end{figure*}
+
+% % \begin{figure*}[ht!]
+% %   \centering
+% % \includegraphics[width=\textwidth]{images/simulation_camel_2.jpg}
+% %   \caption{Conversation 2}
+% %   \label{fig:camel_2}
+% % \end{figure*}
+
+% % \begin{figure*}[ht!]
+% %   \centering
+% % \includegraphics[width=\textwidth]{images/simulation_camel_3.jpg}
+% %   \caption{Conversation 3}
+% %   \label{fig:camel_3}
+% % \end{figure*}
+
+% \begin{figure}
+%   \centering
+% \includegraphics[width = \linewidth]{images/simulation_camel_1.jpg}
+%   \caption{Conversation 1}
+%   \label{fig:camel_1}
+% \end{figure}
+
+% % \begin{figure*}[ht!]
+% %   \centering
+% % \includegraphics[width=\textwidth]{images/simulation_camel_1.jpg}
+% %   \caption{Conversation 1}
+% %   \label{fig:camel_1}
+% % \end{figure*}
+
+% % \begin{figure*}[ht!]
+% %   \centering
+% % \includegraphics[width=\textwidth]{images/simulation_camel_2.jpg}
+% %   \caption{Conversation 2}
+% %   \label{fig:camel_2}
+% % \end{figure*}
+
+% % \begin{figure*}[ht!]
+% %   \centering
+% % \includegraphics[width=\textwidth]{images/simulation_camel_3.jpg}
+% %   \caption{Conversation 3}
+% %   \label{fig:camel_3}
+% % \end{figure*}
+
+\begin{figure}
+    \centering
+    \includegraphics[width=\linewidth]{images/simulation/camel_flipping.jpg}
+    \caption{Flipping and Role-Flipping cases (Cases where the AI-User gives the role-flipping instruction or the AI-User gives the instruction for role-flipping, respectively.}
+    \label{fig:camel_flipping}
+\end{figure}
+
+\begin{figure*}[ht!]
+    \centering
+    \includegraphics[width=\textwidth]{images/simulation/camel_flipping_by_roles.jpg}
+    \caption{Role-flipping rate for each combination of occupations of AI-User and AI-Assistant roles on the CAMEL AI-World dataset}
+    \label{fig:camel_flipping_by_roles}
+\end{figure*}
+
+
+\begin{figure*}[ht!]
+    \centering
+    \includegraphics[width=\textwidth]{images/simulation/camel_flipping_by_roles.jpg}
+    \caption{Role-flipping rate for each combination of occupations of AI-User and AI-Assistant roles on the CAMEL AI-World dataset}
+    \label{fig:camel_flipping_by_roles}
+\end{figure*}
+
+\end{document}

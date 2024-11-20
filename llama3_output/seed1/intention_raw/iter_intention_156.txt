@@ -1,0 +1,20 @@
+:\/\/eprint.arxiv.org\/abs/2305.12519
+%-------------------------------------------------------------------------
+\section{Introduction}
+\begin{figure*}[h!]
+  \centering
+  \includegraphics[width=0.8\textwidth]{images/fig1_modified.pdf}
+  \caption{Overview of the five types of LLM-generated data and associated examples (in clockwise order): (1) Task Labels (2) Instructions (3) Free-Form Text (4) Simulation (5) Preference. Sources for these examples in order: \citet{diaz2018addressing},  \citet{honovich2022unnatural}, \citet{moller2023prompt}, \citet{liang2023encouraging} and \citet{kim2023p2c}}
+  \label{fig:figure1}
+\end{figure*}
+ %------------------
+ 
+\begin{table*}[]
+    \centering
+    \begin{tabular}{p{0.32\linewidth}p{0.25\linewidth}p{0.18\linewidth}p{0.18\linewidth}}
+    \toprule
+     & \textbf{Challenges} & \textbf{Research Gap} & \textbf{New Column 3}\\
+    \midrule
+    \rowcolor{color2} \textbf{Data 1} & LLM-generated data indistinguishable from human data \cite{shumailov2023curse} & The first difference between human and LLM-generated data is the existence of thought processes and thought  & \textbf{Col} \\ 
+    \midrule
+    \rowcolor{color3}\textbf{Data 2} & LLM-overconfident & The second difference is the existence of differences in what LLMs and humans see as a task & \textbf{Task Labels} \\

@@ -1,0 +1,23 @@
+\begin{subfigure}{0.4994999999999999\textwidth}
+         \centering
+         \includegraphics[width=\textwidth,trim={3.9cm 1.5cm 0.9cm 2.1cm},clip]{figures/avg_shortest_path_len_per_domain.pdf}
+     \end{subfigure}
+         \begin{subfigure}{0.4994999999999999\textwidth}
+         \centering
+         \includegraphics[width=\textwidth,trim={3.9cm 1.5cm 0.9cm 2.1cm},clip]{figures/avg_shortest_path_len_per_domain.pdf}
+     \end{subfigure}
+     
+    \caption{Average shortest path lengths of all motifs.}
+    \label{fig:shortest_path_len}
+\end{figure*}
+%---------------------------------
+\subsubsection{Motif Frequency-Inverse Document Frequency (MF-IDF)}\label{subsubsec:mfidf}
+Inspired by the term frequency–inverse document frequency (TF-IDF) measure from information retrieval domain \citep{sparckjones}, we propose ``motif frequency–inverse document frequency'' (MF-IDF), noting that a motif ($m$) can be considered as a vocabulary of documents that are graphs ($g \in \mathbb{G}$) in our case:\footnote{Note that $\text{MF}(m, g)$ is identical to $\mathcal{F}(m, g)$.}
+\begin{align*}
+    \text{MF-IDF}(m, g, \mathbb{G}) = \text{MF}(m, g) \cdot \text{IDF}(g, \mathbb{G})
+\end{align*}
+where:
+\begin{align*}
+    \text{MF}(m, g) = \frac{\text{count}(m, g)}{\sum_{m'\in M}\text{count}(m', g)} \\
+    \text{IDF}(g, \mathbb{G}) = \log \frac{1 + |\mathbb{G}|}{1 + |g \in \mathbb{G}: m \in g)|} \\
+\end{align*}

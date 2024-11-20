@@ -1,0 +1,13 @@
+(exports) \textbf{Human Preferences}: We compute human preferences using a fine-tuned T5 model, effectively asking a group of human annotators for their decision-making guidelines. The model is trained on the common task of detecting sentiment, specifically evaluating the most important textual styles (sentiment, formality, irony, and emotion) for each sentence pair.
+
+(exports) \textbf{GPT-4 Preferences}: GPT-4 preferences are collected from a group of annotators employing various prompting strategies. These prompts ask for specific information on how the model should respond as if it were a human. The different prompts use relevant keywords or provide examples to guide the model's reasoning. When asking for preferences on sentence pairs, we use the same format for the prompts as we did for the human preferences, focusing on providing relevant examples through the example text to help the model understand the comparison of two sentences.
+
+\paragraph{Metrics} \textbf{Match Score}: The match score measures the agreement between human and model annotations, calculated as the number of matches divided by the total number of samples.
+
+\paragraph{Variation}: In ordinal data, where differences between levels aren't uniform as in interval or ratio data, statistical measures like standard deviation or variance are still useful for gauging the spread of opinions, indicating the extent of agreement or disagreement among annotations rather than providing exact distance measurements.
+
+\begin{figure}[ht!]
+   \centering
+   \includegraphics[width=0.7\textwidth]{images/pref_eval/p2c_lexicon_corr.pdf}
+   \caption{Pearson Correlation between lexicon-based and each of GPT-3 and human preferences across three setups – (1) entire dataset, (2) Top 10\%, and (3) Bottom 10\%. Notably, the 'Top 10\%' setup shows a significantly higher correlation between lexicon-based and GPT-3 preferences, compared to human preferences, highlighting distinct preference patterns. All p-values are below 0.001. }
+   \label{fig:pref:p2c-lexicon-corr}

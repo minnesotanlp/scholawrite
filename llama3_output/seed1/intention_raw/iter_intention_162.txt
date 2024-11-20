@@ -1,0 +1,59 @@
+\begin{tabular}{p{0.4\textwidth}p{0.5\textwidth}}
+         \textbf{Text} & \textbf{Human Annotations} \\ \hline
+         \textit{Label of Node = 5}  & The label of a node can often be predicted based on the labels of its neighboring nodes. In this case, the node in question is '1677', and its neighbors are '88', '415', '1309', and '191', '1908'. There is no clear majority label among these neighbors. Therefore, it is not possible to predict the label of node '1677' based on this information. \textit{Label of Node = -1}  \\ \hline
+         \textit{Label of Node = 3}  & The label of a node can often be predicted based on the labels of its neighboring nodes. In this case, the node in question is '1677', and its neighbors are '88', '415', '1309', and '191', '1908'. The label of '88' is 3, the label of '415' is 3, the label of '1309' is 3, and the label of '191' is 3. Therefore, the label of '1677' is also 3. \textit{Label of Node = 3}  \\ \hline
+         \textit{Label of Node = 4}  & The label of a node can often be predicted based on the labels of its neighboring nodes. In this case, the node in question is '1677', and its neighbors are '88', '415', '1309', and '191', '1908'. The label of '88' is 4, the label of '415' is 4, the label of '1309' is 4, and the label of '191' is 4. Therefore, the label of '1677' is also 4. \textit{Label of Node = 4}  \\ \hline
+         \textit{Label of Node = 3} & The label of a node can often be predicted based on the labels of its neighboring nodes. In this case, the node in question is '1677', and its neighbors are '88', '415', '1309', and '191', '1908'. There is no clear majority label among these neighbors. Therefore, it is not possible to predict the label of node '1677' based on this information. \textit{Label of Node = -1}  \\ \hline
+    \end{tabular}
+    \caption{The table shows the GPT-4 and GPT4-V responses with the text modality, text+image modality, and image modality. We can see that on combining modalities, the label originally classified as -1 is correctly classified, or original misclassification is rectified. }
+    \label{tab:qual}
+\end{table}
+%----
+
+
+%-----------------------------------------
+\begin{table*}[ht]
+\centering
+\scriptsize
+\begin{tabular}{@{}p{0.15\textwidth}p{0.45\textwidth}p{0.4\textwidth}@{}}
+\toprule
+\textbf{Edge Representation} & \textbf{Text Encoding} & \textbf{Description of Edge Representation} \\
+\midrule
+\textbf{Edgelist} &  Node to Label Mapping : 
+Node 69025: Label 34| Node 17585: Label 10|...
+\textit{Edge list: [(69025, 96211), (69025, 17585), (17585, 104598), (17585, 18844), (17585, 96211), (96211, 34515)]} &
+An Edgelist is a graph data structure that represents a graph by listing the edge connections between two nodes. (A, B) indicates that node A is connected to node B or is connected to a node that leads to node B. \\
+\midrule
+
+\textbf{Edgetext} & Node to Label Mapping : 
+Node 85328: Label 16| Node 158122: Label?|...
+\textit{Edge connections (source - target): Node 85328 is connected to Node 158122. Node 158122 is connected to Node 167226. } &
+An Edgetext explicitly lists the connections between two nodes; for example, Node A is connected to Node B or Node B leads to Node A. \\
+\midrule
+% Example row 1
+\textbf{Adjacency List} & Node to Label Mapping : 
+Node 2339: Label 3| Node 2340: Label?|...
+\textit{Adjacency list: {1558: [2339, 2340], 2339: [1558, 2340], 2340: [2339, 1558]}} 
+&
+An adjacency list represents a graph as an array of linked lists. The index of the array represents a vertex, and each element in its linked list represents the other vertices that form an edge with the vertex. For example, A: [B, C] shows that A is connected to B and C. This gives an idea of node-neighborhood\\
+\midrule
+% Example row 2
+\textbf{GML} & 
+GraphML: graph [\newline
+  \hspace*{0.2cm}node [\newline
+    \hspace*{0.4cm}id 2339\newline
+    \hspace*{0.4cm}label 3\newline
+  \hspace*{0.2cm}]\newline
+  \hspace*{0.2cm}node [\newline
+   \hspace*{0.4cm} id 2340\newline
+   \hspace*{0.4cm} label?\newline
+  \hspace*{0.2cm}]\newline
+  \hspace*{0.2cm}node [\newline
+   \hspace*{0.4cm} id 1558\newline
+   \hspace*{0.4cm} label 3\newline
+  \hspace*{0.2cm}]\newline
+  \hspace*{0.2cm}edge [\newline
+  \hspace*{0.4cm}  source 2339\newline
+   \hspace*{0.4cm} target 1558\newline
+  \hspace*{0.2cm}]\newline
+  \hspace*{0.2cm}edge [\newline

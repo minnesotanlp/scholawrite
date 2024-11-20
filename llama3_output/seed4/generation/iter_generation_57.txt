@@ -1,0 +1,33 @@
+To address RQ1, we examine \textit{first-order effects} for each data type. We define first-order effects as about the data itself, i.e. any differences or inconsistencies between the artificial data and the corresponding human data. To address RQ2, we examine \textit{second-order effects}, which we define as any differences or inconsistencies in the outcomes of NLP pipelines containing artificial data and the outcomes from corresponding pipelines containing the corresponding human data. We address RQ3 through an overview of the results of all first- and second-order experiments.
+
+\subsection{First-Order Experiments}
+\label{sec:free_text_first}
+Our experiments collect human-authored and machine-generated texts in four distinct datasets,  \textsc{HC3} \cite{guo2023close}, \textsc{Scarecrow} \cite{dou-etal-2022-gpt}, \textsc{Deepfake} \cite{li2023deepfake}, and \textsc{Workers} \cite{moller2023prompt}. These datasets include generated texts from both humans and LLMs in a pairwise format, which enables us to compare the difference between human-written and LLM-generated texts. 
+
+\textbf{Rationale}: We selected these datasets to include generated texts from multiple LLM models. 
+
+\textbf{First-order Experiment}: Short discussion about first-order experiment setup and metric
+
+\textbf{Second-order Experiment}:
+
+\textbf{Hypothesis}
+
+\textbf{Experiment Setup}
+
+\textbf{Metrics}
+
+\textbf{Result}
+
+\textbf{Mitigation Suggestions}
+
+\textbf{Task Description}
+
+\textbf{Instruction}
+
+\textbf{Input}
+
+\textbf{Output}
+
+\textbf{Feedback}
+
+\textbf{Example Prompt}

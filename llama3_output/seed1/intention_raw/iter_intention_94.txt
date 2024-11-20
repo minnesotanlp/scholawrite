@@ -1,0 +1,58 @@
+_Renderer 4 5 4 5 & [3.0, 3.0, 3.0, 3.0, 3.0]  & [1.0, 1.0, 1.0, 1.0, 1.0] \\ \midrule
+        \textbf{Model Name} & \textbf{Text} & \textbf{Target Sentiment} & \textbf{target Formality} & \textbf{target Target Sentiment} & \textbf{target Target Formality} \\
+        \midrule
+        LLaMA2 & Feeling blind. New specs coming, but meanwhile...  My new glasses are on their way, but until I get them I'm stuck with this.  The glasses I have are like two pairs of glasses in & -0.69 & -1.0\\
+        \rowcolor{color2}
+        LLaMA2 & Happy Birthday beautiful  We are here to celebrate your birthday and your life & 0.69 & 1.0 \\
+        \rowcolor{color2}
+        LLaMA2 & Fuck me on KIK  I'm a 19 year old woman in the United States and I am bisexual. My boyfriend and I are not together anymore and I do not know what to do & -1.0 & -1.0 \\
+        \rowcolor{color2}
+        LLaMA2 & Fuck me on KIK!  Thanks for checking out my profile. I hope you enjoy your stay here at TheChatAvenue & 0.69 & 1.0 \\
+        \midrule
+        ChatGPT & Happy Birthday beautiful  We are here to celebrate your birthday and your life & -1.0 & -1.0 \\
+        \rowcolor{color3}
+        ChatGPT & Fuck me on KIK  I'm a 19 year old woman in the United States and I am bisexual. My boyfriend and I are not together anymore and I do not know what to do & -1.0 & -1.0 \\
+        \rowcolor{color3}
+        ChatGPT & Fuck me on KIK!  Thanks for checking out my profile. I hope you enjoy your stay here at TheChatAvenue & 0.69 & 1.0 \\
+        \bottomrule
+    \end{tabular}
+    \caption{A sample of paired human-machine texts in which GPT-4 is prompted with a target label (e.g. ``positive''), domain (``yelp''), and exemplary human text with the given domain and label. The human portion of the pair is the 1st order response, and the machine portion is the 2nd order response.}
+    \label{tab:qual}
+\end{table}
+\begin{figure}[htbp!]
+    \centering
+    \includegraphics[width=0.7\textwidth]{images/qual.pdf}
+    \caption{Qualitative analysis of human and machine task labels for evidence of bias}
+    \label{fig:qual}
+\end{figure}
+
+%------------------------------------------------------------
+\subsection{Second Order Experiment}
+\label{sec:task-label-second}
+% \begin{figure*}[ht!]
+\begin{wrapfigure}[13cm]{r}[0cm]{3cm}
+\vspace{-5mm}
+  \centering
+  \includegraphics[width=\textwidth,height=\textheight,keepaspectratio]{images/human_raters/plot_diff_data.pdf}
+  \caption{Majority Minority Match Accuracy trend comparison with dataset}
+  \label{fig:plot_diff_data}
+\end{wrapfigure}
+% \end{figure*}
+
+\begin{figure}[htbp!]
+    \centering
+    \includegraphics[width=0.7\textwidth]{images/human_raters/plot_diff_data.pdf}
+    \caption{Majority Minority Match Accuracy trend comparison with dataset}
+    \label{fig:plot_diff_data}
+\end{figure}
+
+%------------------------------------------------------------
+
+\subsection{Mitigating Biases from LLM Generated Task Labels}\label{sec:task-mitigation}
+% Majority voting and averaging are common approaches used to resolve annotator disagreements and derive single ground truth labels from multiple annotations. However, annotators may systematically disagree with one another, often reflecting their individual biases and values, especially in the case of subjective tasks such as detecting affect, aggression, and hate speech.
+
+% An adverse effect of majority vote in such cases is limiting representation of minority perspectives in data (Prabhakaran et al., 2021), potentially reinforcing societal disparities and harms.
+% Previous work -->
+% Bayesian methods to account for such systematic differences between annotators (Paun et al., 2018), 
+
+% s for utilizing annotation disagreement during model training. Prabhakaran et al. (2012) explored applying higher cost for errors made on unanimous annotations to decrease the penalty of mislabeling inputs with higher disagreement. Similarly, (Plank et al., 2014) incorporated annotator disagreement into the loss function of a structured perceptron model for better predicting part-of-speech tags. Our work also utilizes annotator disagreements rather than resolving them in the data stage; however, we use a multi-task architecture using a shared representation to model annotator disagreements, rather than using it in loss function. Cohn and Specia (2013) use a multi-task approach to model annotator differences in machine translation annotations. While they use a Gaussian Process approach, we use the multi-task approach on top of pre-trained language models (Liu et al., 2019). Chou and Lee (2019) proposed an approach where they model individual annotators separately in an inner layer to improve the final prediction. In contrast, our proposal is to add an auxiliary task within the same model, allowing the model to learn some representation that represents annotator disagreement, thereby improving the  decision-making process. We also see that adding such an auxiliary task improves

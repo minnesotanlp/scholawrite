@@ -1,0 +1,116 @@
+Credential  -  Artificial(artificial))intelligence
+Background
+Why we are doing this?
+What to expect from this paper
+How this paper relates to 5
+Our contributions
+Our opinions and suggestions on the 5
+Call for action
+Our opinion on call for action
+Ethical concerns
+
+Artificial(artificial))intelligence
+Background
+Why we are doing this?
+What to expect from this paper
+How this paper relates to 5
+Our contributions
+Our opinions and suggestions on the 5
+Call for action
+Our opinion on call for action
+Ethical concerns
+
+Artificial(artificial))intelligence
+Background
+Why we are doing this?
+What to expect from this paper
+How this paper relates to 5
+Our contributions
+Our opinions and suggestions on the 5
+Call for action
+Our opinion on call for action
+Ethical concerns
+
+Artificial(artificial))intelligence
+Background
+Why we are doing this?
+What to expect from this paper
+How this paper relates to 5
+Our contributions
+Our opinions and suggestions on the 5
+Call for action
+Our opinion on call for action
+Ethical concerns
+
+Artificial(artificial))intelligence
+Background
+Why we are doing this?
+What to expect from this paper
+How this paper relates to 5
+Our contributions
+Our opinions and suggestions on the 5
+Call for action
+Our opinion on call for action
+Ethical concerns
+
+Artificial(artificial))intelligence
+Background
+Why we are doing this?
+What to expect from this paper
+How this paper relates to 5
+Our contributions
+Our opinions and suggestions on the 5
+Call for action
+Our opinion on call for action
+Ethical concerns
+
+Artificial(artificial))intelligence
+Background
+Why we are doing this?
+What to expect from this paper
+How this paper relates to 5
+Our contributions
+Our opinions and suggestions on the 5
+Call for action
+Our opinion on call for action
+Ethical concerns
+
+Artificial(artificial))intelligence
+Background
+Why we are doing this?
+What to expect from this paper
+How this paper relates to 5
+Our contributions
+Our opinions and suggestions on the 5
+Call for action
+Our opinion on call for action
+Ethical concerns
+
+\end{enumerate}
+
+\section{Introduction}
+\begin{figure*}[ht!]
+  \centering
+  \includegraphics[width=\textwidth]{images/fig1_modified.pdf}
+  \caption{Overview of the 5 Types of LLM Generated Data and associated examples - 1) Free Text 2) Task Labels 3) Instructions 4) Preference 5) Simulation. Sources for these examples in order - \cite{moller2023prompt}, \cite{diaz2018addressing},  \cite{honovich2022unnatural}, \cite{kim2023p2c} and \cite{liang2023encouraging} )}
+  \label{fig:figure1}
+\end{figure*}
+ %------------------
+ 
+\begin{table*}[ht]
+\footnotesize
+\centering
+\begin{tabular}{p{0.10\linewidth}p{0.40\linewidth}p{0.40\linewidth}}
+\toprule
+\textbf{} & \textbf{Challenges typically faced w/ LLM generated Data Type} & \textbf{Research Gap Unearthed}\\
+\midrule
+\rowcolor{color2}\textbf{Free-Form Text} & LLM-text indistinguishable from human-written text due to convincing fluency and coherency. & Neglect of higher-level figurative attributes and structural document features \\
+\midrule
+\rowcolor{color3}\textbf{Task Labels} & Subjectivity Loss and Consensus Bias in LLM-Annotated Task Labels & Neglected minority opinion representation in LLM datasets\\
+\midrule
+\rowcolor{color4}\textbf{Instruction prompts} & 
+Error amplification due to overstated diversity & Neglected study of diversity and noise in instructions \\
+\midrule
+\rowcolor{color5}\textbf{Preference} & LLM Bias in evaluating text pairs & Neglected scrutiny of LLM bias with complex preferences \\
+\midrule
+\rowcolor{color6}\textbf{Simulation} & Underexplored simulated LLM agents  & Unstudied artifacts 

@@ -1,0 +1,34 @@
+\begin{tabular}[l]{@{}l@{}}\textsc{HC3} \cite{guo2023close}\\ \textsc{Scarecrow}\cite{dou-etal-2022-gpt} \\ \textsc{Deepfake} \cite{li2023deepfake} \\ \textsc{Workers} \cite{moller2023prompt} \end{tabular} & 
+       \vspace{-7mm}
+       \begin{tabular}[l]{@{}l@{}}Pair-wise generated texts from both humans and LLMs & High-level textual attribute  and discourse structure difference & Classification performance \\\midrule
+       \textbf{Irony}, \textbf{emotion}, \textbf{toxicity} & &\\ \hline
+       \textsc{Scarecrow}\cite{dou-etal-2022-gpt} & &\\ \hline
+       \textsc{Deepfake}\cite{li2023deepfake} & &\\ \hline
+        \textsc{Workers} \cite{moller2023prompt} & &\\ \hline
+         \textsc{HC3} \cite{guo2023close} & &\\ \hline
+     \end{tabular}
+    \caption{Baselines for authorship detection.}
+    \label{tab:authorship_detection}
+\end{table*}
+%---------------------------------
+\subsection{High Level Attributes}
+\textbf{Text } & \textbf{Text } & \textbf{Text } & \textbf{Text } & \textbf{Text } & \textbf{Text } & \textbf{Text } & \textbf{Text } & \textbf{Text } & \textbf{Text } & \textbf{Text } & \textbf{Text } \\
+\begin{tabular}[c]{@{}l@{}}\textbf{the action quickly sinks} to a crawl.\\
+And there are some great moments of action, but they are too few and far between.\\
+The story follows a group of scientists who are sent out to a remote island to study the & \textbf{the action quickly sinks} in!\\"Because it's fun!" adds Buzz.\\"And it's better than being dead," adds Wade.\\
+The soldiers are hunted by special forces and ordered to commit suicide, but they refuse to do so as they have & \textbf{the action quickly sinks} to a crawl.\\
+And there are some great moments of action, but they are too few and far between.\\
+The story follows a group of scientists who are sent out to a remote island to study the
+\end{tabular}
+\caption{Example of paired sentences with human  on the left and the machine side.}
+\label{table:high_level_features}
+\end{table}
+
+\begin{table}[h]
+\centering
+\begin{tabular}{|l|ll|}
+\toprule
+\textbf{Machine Learning Models} & \textbf{Text} & \textbf{Human Annotations} \\ \midrule
+\multirow{2}{*}{Llama2} & \textit{The film has the same director as the original film} & \textit{The film has the same director as the original film} \\ \midrule
+Llama2 & \textit{The film has been released.} & \textit{The film has been released.} \\ \midrule
+\multirow{2}{*}{Llama2} & \textit{The film has been released.}

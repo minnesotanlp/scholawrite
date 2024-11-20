@@ -1,0 +1,69 @@
+\item \textbf{Free Generation Example Prompt}: 
+    \begin{tcolorbox}[colback=white, arc=4pt]
+    Take a look at the story and generate text according to the instructions in brackets []. Only return the generated parts. Here is the story:
+    \\\textit{Text from previous generation}
+    \\\textit{Text from previous generation}
+    \\\textit{Text from previous generation}
+    \\$[\text{Generate text here}]$
+    \end{tcolorbox}
+    \item \textbf{``Fill-in-the-gap'' Example Prompt (Fill 1 paragraphs)}: 
+    \begin{tcolorbox}[colback=white, arc=4pt]
+    Take a look at the story and generate text according to the instructions in brackets []. Only return the generated parts. Here is the story:
+    \\\textit{Original paragraph text}
+    \\\textit{Text from previous generation}
+    \\\textit{Original paragraph text}
+    \\$[\text{Generate paragraph of approximately 94 tokens here}]$
+    \\\textit{Original paragraph text}
+    \end{tcolorbox}
+
+    \item \textbf{Constrained ``Fill-in-the-gap'' Example Prompt (Fill 3 paragraphs)}: 
+    \begin{tcolorbox}[colback=white, arc=4pt]
+    Take a look at the story and generate text according to the instructions in brackets []. Only return the generated parts. Here is the story:
+    \\\textit{Text from previous generation}
+    \\\textit{Text from previous generation}
+    \\\textit{Text from previous generation}
+    \\\textit{Original first sentence of paragraph 1}
+    \\$[\text{Complete preceding paragraph using approximately 67 tokens}]$
+    \\$[\text{Generate paragraph of approximately 129 tokens here}]$
+    \\$[\text{Complete following paragraph using approximately 87 tokens}]$
+    \\\textit{Original last sentence of paragraph 3}
+    \end{tcolorbox}
+\end{enumerate}
+
+
+\newpage
+\section{More Examples of Grounded Motifs in Texts}\label{sec:app:more_grounded_motifs}
+Table \ref{tab:grounded_examples_all} shows more examples of texts featuring discourse motifs with high MF-IDF scores.
+
+\begin{table*}[!h]
+  \includegraphics[width=\textwidth]{figures/grounded_examples_five_domains.pdf}
+  \caption{Grounded examples of texts for some prevalent motifs. Exact shapes of the motifs can be found in Fig. \ref{fig:all_motifs_three}.}
+  \label{tab:grounded_examples_all}
+\end{table*}
+
+\newpage
+\section{Additional Experiment: Branched vs. Chain-Like Structures}\label{sec:app:branch_vs_chain}
+In this experiment, we differentiate texts by domain and assume that the formality of texts is consistent within the domain. We can then look at the varying levels of graph structures per domain. As illustrated in the Introduction (\S\ref{sec:introduction}), we assume that the linguistic structure of discourse can change depending on factors such as formality, spontaneity, and depth of reasoning in the texts. 
+
+\begin{figure}[ht!]
+  \centering
+  % % trim={left bottom right top},clip
+  \includegraphics[width=0.5\columnwidth]{figures/branch_vs_chainlike_structure.pdf}
+  \caption{Illustration of document graph structures with different discourse hierarchies. For simplicity, the horizontal edge linking two child nodes is omitted.}
+  \label{fig:branch_vs_chain}
+\end{figure}
+
+One possible dimension of characterizing this difference in structures is by checking whether the structures are evenly branched or follow a more sequential pattern as illustrated in Figure \ref{fig:branch_vs_chain}.
+
+To quantify this notion, we calculate the average shortest path length (ASPL) of a document graph. For linear or chain-like graphs, the ASPL tends to be relatively short, as nodes are connected in a linear fashion. In contrast, more spread-out graphs will likely have a longer ASPL due to increased distances between nodes. Another closely related metric is the diameter of a graph which is the longest shortest path between any two nodes in the graph. However, as human-written and machine-generated texts are not necessarily paired and could vary a lot in length, we opt for ASPL.
+
+\begin{figure}[!h]
+\centering
+% <left> <lower> <right> <upper>
+{\includegraphics[width=0.5\columnwidth, trim={0.3cm 0.5cm 0.3cm 0.2cm},clip]{figures/avg_shortest_path_len_per_domain.pdf}}
+\caption{Average shortest path lengths per domain for document graphs. We }
+\label{fig:shortest_path_len}
+\end{figure}
+
+We observe that the news summarization task (\textsc{xsum}) yields texts with the longest ASPL across both groups.
+Human-generated texts exhibit longer ASPL in the \textsc{wp}, \textsc{cmv}, and \textsc{yelp} domains. Notably, within these three domains, Joint discourse relations emerge as the most prevalent relation on the human-authored side, affirming our hypothesis regarding the ``equal branching'' characteristic of this relation (c.f., Fig. \ref{fig:large_motifs_dists}).

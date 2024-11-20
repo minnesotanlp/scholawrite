@@ -1,0 +1,36 @@
+ityEngineers at LLM companies have also leveraged, in some cases, pre-training data that contained information on minority opinions, often in the form of subjective tasks or content \citep{sampath2022seedbert, chan2023chateval, chen2023exploring}. This trend raises concerns about the potential of these datasets impacting the diversity of responses in LLM-generated annotations. In the absence of standard metrics for evaluating the quality of task labels, there is reason to believe that these datasets may not accurately represent all viewpoints, particularly minority ones. Therefore, it is important to explore LLM-generated data in a way that reflects the importance of diversity and subjective variance.
+
+Traditional metrics such as accuracy, cost, and efficiency have been crucial in evaluating artificial annotations \cite{wang2021want}. However, recent trends emphasize the importance of diversity and subjective variance \cite{chan2022approaches}. This shift acknowledges the need for understanding diverse group responses, particularly minorities, in situations such as online harassment \cite{gordon2022jury}. Incorporating multiple perspectives is vital for personalized data analysis and precise predictions \cite{sampath2022seedbert}. However, the importance of diversity is often overshadowed by other priorities \cite{kapanentris2023annotator}.
+
+\noindent Research on annotator demographics shows how these factors shape responses, crucial for addressing biases and ethical issues \cite{wan2023everyone, rottger2021two, santy2023nlpositionality}. The variance in task labels, typically regarded as noise, is now seen as an indicator of systematic patterns and social issues in annotations \cite{fleisig2023majority, biester2022analyzing}. Preserving human disagreement in datasets is key for uncovering new insights. Additionally, LLMs tend to establish and follow a ``ground truth'' during training, leading to skewed behavior and decision-making \cite{aher2023-llm-simulate-replicate, liu2023-chatgpt-good-recommender, mckenna2023-hallucination-inference}. This is particularly evident in moral judgment tasks, where LLMs fail to capture the nuanced responses shaped by individuals' socio-cultural contexts \cite{dillion2023-can-ai-replace}.
+
+Our study explores whether LLM-generated task annotations fail to retain minority opinions and skew towards majority labels in various subjective and objective tasks and how this bias is amplified with further training.
+
+\subsection{Datasets}\label{sec:task-data}
+We use human annotations from the test partition of 4 datasets, \textsc{Social Chemistry} \cite{forbes2020social}, \textsc{Age-Sentiment} \cite{diaz2018addressing}, \textsc{SBIC} \cite{sap2019social} and \textsc{GAB} \cite{kennedy2022introducing}.\\
+\noindent \textbf {Rationale : } These datasets were chosen due to the subjective nature of their tasks and their provision of individual-level annotations, as we are interested in understanding the diversity of the annotations for task labels.
+ %-----------------------------------------------
+ %Our experiments and analyses consist of two axes (1) the \textit{distributional differences} between human and LLM-annotated labels and (2) how that distribution changes when we train models on the two datasets, which we will refer to as the \textit{second order effect}
+%\subsubsection{Distributional Difference between human and LLM labels} 
+\subsection{First Order Analysis}\label{sec:task-first}
+\paragraph{Hypothesis}
+Our investigation focuses on how LLM-annotated datasets represent minority opinions, especially in subjective contexts, hypothesizing a bias towards majority viewpoints in LLMs that could lead to homogenized responses and diminished diversity in datasets requiring nuanced judgment and complex decision-making.
+\paragraph{Experiment Setup}
+We utilized various open-sourced and commercially available, instruction-tuned LLMs like Vicuna \cite{vicuna2023}, Koala \cite{koala_blogpost_2023}, Baize \cite{xu2023baize}, GPT-3.5-Turbo \cite{brown2020language}, and LLaMA2 \cite{touvron2023llama} as annotators to generate labels for dataset tasks. 
+In our 'intra-model' setup, we grouped LLM annotators by their architecture and training methods, using their names as labels. We used various temperature and top-p combinations to create diverse response patterns, simulating the varied responses of a diverse group of human annotators. Conversely, the 'inter-model' setup yields labels from different models, acknowledging that some models, like GPT-3.5 Turbo, have greater capacities akin to varying proficiencies among human annotators.
+\paragraph{Metrics}
+\noindent \textsc{Match Score}: The match score measures the agreement between human and model annotations, calculated as the number of matches divided by the total number of samples.
+
+\noindent \textsc{Wasserstein Distance}: This metric evaluates the similarity between two probability distributions, particularly with ordinal values, and is conceptually akin to the minimum effort required to reshape one distribution into the other, hence its alternative name, Earth Mover’s Distance.
+\paragraph{Result Analysis}
+
+\subsection{Second-order Experiment}
+\paragraph{Hypothesis}
+\paragraph{Experiment Setup}
+\paragraph{Metrics}
+\paragraph{Result Analysis}
+
+% \subsubsection{Second Order Effect Analysis of LLM task labels}
+% \noindent \textbf{Hypothesis} In our experiment, we aimed to understand the potential second-order effects of using machine-generated annotations. To achieve this, we trained a classifier on both human and machine-generated annotations, paying close attention to the classifier's performance distribution and accuracy. Our hypothesis is that biases in the classifier's distribution would become more pronounced over time with a concentrated distribution highlighting specific stereotypes and assumptions. 
+
+% \noindent \textbf{Experiment Setup} For the creation of second-order annotations, we employed a fine-tuned T5 model, intentionally using data generated by AI models other than T5 for the first-order data. This approach was adopted to mitigate the egocentric bias, a phenomenon where LLMs tend to favor their own outputs \cite{koo2023benchmarking, zheng2023judging}. We utilized the XL model with 3 billion parameters for this purpose, choosing a non-instruction fine-tuned T5 model since our focus was on a single task, eliminating the need for instruction prompts. Our inputs were prefixed with \textit {"Multiple multi-label classification results:"}. The training process involved the use of a default cross-entropy loss function. Although more efficient loss functions exist that leverage the ordinal nature of our data, we opted for cross-entropy due to its adequacy for our specific goals and the possibility of compensating through additional epochs. Upon completing the fine-tuning, we proceeded with inference to generate a new set of annotations. To minimize unwanted noise, we applied a mask to exclude non-numerical tokens that were not part of the label target space. \\

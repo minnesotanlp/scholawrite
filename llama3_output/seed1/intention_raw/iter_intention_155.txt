@@ -1,0 +1,18 @@
+�  We use a combination of two metrics to evaluate the quality of generated outputs. The first is the mean accuracy (A $\uparrow$) and mean inaccuracy (I $\downarrow$), which will cover the story generation task, the second is the mean failure rate (F $\downarrow$) and mean inaccuracy (I $\downarrow$), which will cover the story generation task. 
+% \noindent \textbf{Call for Action to Creators of AI-Generated Data}: Our study culminates in a call to action for creators of AI-generated data. We highlight the urgent need for responsible and ethical practices in creating and deploying this data. Our findings underscore the importance of addressing biases, enhancing the diversity of perspectives, and improving the nuanced understanding of complex human opinions in LLM-generated data. We advocate for a collaborative effort among stakeholders to ensure that AI-generated data is accurately, holistic, and ethical, thereby supporting the responsible development of LLMs that can augment human capabilities without compromising ethical standards.
+
+%     \item Refer to table 2 here (results overview) - metric unearthed is a column?
+
+%     \item How to navigate this paper?
+%     \item \textbf{Key findings}\anonymous{anonymous}
+%     \item \textbf{Mitigation strategies}\anonymous{anonymous}
+%     \item \textbf{Recommendations}\anonymous{anonymous}
+%     \item \textbf{Call for action to creators of this data}\anonymous{anonymous}
+
+% \end{enumerate}
+
+% \section{Acknowledgements}
+% We thank the members of the MinnesotaNLP research group for their feedback on our project and fruitful discussion. It is important to acknowledge that our research is made possible with the help of various LLM models and their free texts that are readily available. 
+
+% %----- establish motivation ----
+% The advancement of large language models (LLMs) has led to their widespread adoption for complex data generation tasks once exclusive to humans, such as writing, labeling, and data evaluation. This proliferation, especially with models like ChatGPT, calls for detailed research to understand the capabilities and limitations of LLMs in various economically and efficiently executed data-intensive tasks. LLM-generated artificial data can match human data in performance across various benchmarks, yet the full implications and impact of its use in subsequent tasks remain elusive.

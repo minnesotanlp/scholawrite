@@ -1,0 +1,45 @@
+Facets: 3, 4, and 5. & \textbf{Task Labels} & \textbf{Instructions} & \textbf{Preference} & \textbf{Simulation} & \textbf{Free-Form Text} & \textbf{Task Labels} & \textbf{Instructions} & \textbf{Preference} & \textbf{Simulation} & \textbf{Free-Form Text} \\
+ & \textbf{wasserstein distance} & & &  & & & & & \\
+ & \textbf{label flipping} & & &  & & & &\\
+ & \textbf{correlation analysis} & & &  & & & &\\
+ & \textbf{2nd order effect} & & &  & & & &\\
+ \bottomrule
+\end{tabular}
+\caption{Result Overview}
+\label{tab:transposed_related_summary2}
+\end{table*}
+%---------------------------
+
+\subsection{Overall Discussion}
+\label{sec:sec9}
+\anonymous{anonymous : these methods below are not explicitly defined anywhere, do you think its necessary or self explanatory? how about adding as part of comment in Fig 16}
+Figure \ref{fig:figure2} demonstrates the variety of techniques applied for stress testing artificial data, as detailed in earlier sections, while Table \ref{tab:stress_testing_overview} provides an overview of the methodologies employed for each data type. Notably, approaches like \textit{distributional difference} prove effective for contrasting almost all categories of LLM-generated data with human-generated data. Methods such as \textit{label flipping} and \textit{correlation analysis} are widely utilized across numerous data types. Except for Simulation data, which is still in the nascent stages of exploration and requires more first-order analysis, second-order effect analysis is conducted for all data types.
+
+\subsection{Main findings}
+%\noindent \textbf{
+\begin{itemize}[noitemsep,topsep=5pt,leftmargin=*]
+\item We find several cases in which artificial data diverges from human data. The divergence often stems from LLMs having only a superficial or shallow understanding of the task. For instance, LLMs consistently overrepresent the majority opinion across all datasets we examined, even in highly subjective datasets. Further, they rarely match minority opinions and show fewer variations in responses to subjective tasks than humans. That is, LLMs do not appear to understand which labeling tasks might be controversial, and they also appear only to understand how the majority will respond to a labeling question. 
+    
+\item LLMs generating text for certain contexts apply textual styles unnaturally, and often simplistically, despite being given examples of real human texts: for example, when writing `positive Tweets,' LLMs overwhelmingly employ \textit{joy} when in actually, only a small fraction of the example positive Tweets in the LLM prompt exhibit joy. LLMs also do not vary discourse patterns across different domains as humans do, instead employing the same discourse patterns. We argue that this demonstrates a superficial understanding of how discourse and textual style interact with various contexts.
+    
+\item We find that LLMs also employ a superficial understanding of preference tasks. For instance, LLMs deciding which sentence has a stronger positive sentiment make decisions that are strongly correlated with the relative number of standalone positive tokens in each sentence -- in contrast to humans, who show only a small correlation and presumably base their preference decision on other factors. 
+    
+\item Our findings indicate that LLMs do not 
+\anonymous{need to mention this }
+    
+\item LLMs generating text in social contexts often have a tone and application of style that is unnatural, and LLMs do not vary discourse patterns across different domains as humans do. 
+
+\end{itemize}
+
+These limitations result in poor-quality data, which we find divergent from human data, negatively affecting downstream task performance.
+
+% %---------------------------------
+% \begin{figure}[H]
+%   \centering
+% \includegraphics[width = \linewidth]{images/human_raters/plot_diff_data.png}
+%   \caption{Majority Minority Match Accuracy trend comparison with dataset}
+%   \label{fig:plot_diff_data}
+% \end{figure}
+% %---------------------------------
+% \noindent \textbf{Comparison of model capacity with the majority match score}
+% Figure \ref{fig:plot_diff_data} shows that increased model capacity for simpler tasks like sentiment and controversy detection influenced the majority match score. The compared models and their model sizes are provided in Appendix \ref{sec:appendix}. However, increased model capacity decreased the matching accuracy for more complex tasks like hate speech and offensive speech classification. This leads us to question whether a more complex model tends to overthink these tasks. These findings emphasize the importance of dataset characteristics and the task of selecting an appropriate model size for natural language processing tasks.

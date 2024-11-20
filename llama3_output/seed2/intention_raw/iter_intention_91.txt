@@ -1,0 +1,11 @@
+Credential  (a) &  (b) &  (c) &  (d) &  (e) \\
+\hline
+ \textbf{Model} & \textbf{Text} & \textbf{Human Annots} & \textbf{Model Annotats} & \textbf{Human Annotats} & \textbf{Model Annotats} \\
+\hline
+ \textbf{PPLM} &  \textit{Its nice to stay \\ this place could be \\ a little more \\ negative} & [0.73, 0.67, 0.71, 0.70, 0.60] & [0.70, 0.70, 0.70, 0.70, 0.70] & [0.70, 0.67, 0.70, 0.70, 0.60] & [0.70, 0.70, 0.70, 0.70, 0.70] \\
+\hline
+ \textbf{GPT-4} &  \textit{It would be great if we \\ could get some feedback \\ from people other than ourselves}. & [0.33, 0.33, 0.33, 0.33, 0.33] & [0.33, 0.33, 0.33, 0.33, 0.33] & [0.33, 0.34, 0.33, 0.33, 0.34] & [0.33, 0.33, 0.33, 0.33, 0.33] \\
+\hline
+ \textbf{GPT-4 + PPLM} &  \textit{It would be great if we \\ could get some feedback \\ from people other than ourselves}. & [0.66, 0.67, 0.66, 0.65, 0.53] & [0.64, 0.64, 0.64, 0.64, 0.64] & [0.64, 0.64, 0.64, 0.64, 0.64] & [0.64, 0.64, 0.64, 0.64, 0.64] \\
+\hline
+ \textbf{Logits} &  \textit{It would be great if we \\ could get some feedback \\ from people other than ourselves}. & [0.33, 0.33, 0.33, 0.33, 0.33] & [0.33, 0.33, 0.33, 0.33, 0.33] & [0.33, 0.34, 0.33, 0.33, 0.34]

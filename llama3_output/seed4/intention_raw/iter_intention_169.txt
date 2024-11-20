@@ -1,0 +1,5 @@
+outsider  a  this  a  the  a  the  a  a  a  a
+\end{tabular}
+\caption{Five randomly selected generations from the evaluation prompts. Original LLaMA2 generations (in \textcolor{blue}{blue}) are followed by generations from fine-tuned models with varying style controls. The order of generations from LLaMA2 to unaltered LLaMA2 to fine-tuned models is (1) 2-style, (2) 3-style, (3) 4-style. \textbf{The 1-style control model has the most stable generations according to the average perplexity values.} The 2-style model possesses the most balanced generation according to the average perplexity value and the highest average overall evaluation score.}
+\label{tab:generations}
+\end{table*}

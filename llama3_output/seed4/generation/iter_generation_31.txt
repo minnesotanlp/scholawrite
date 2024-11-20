@@ -1,0 +1,168 @@
+bihari2023fading} on a ten-word paragraph, we choose sentences of lengths 7, 9, and 10, which represent a minimal, medium, and maximal exposure to the contextual information of other sentences in the paragraph, a scenario akin to the constrained ``fill-in-the-gap'' task in \textsc{Unified Book}\footnote{The 1-word completion task in \textsc{Unified Book} has a longer story context like our setup, but without the unconstrained part of the paragraph.}. 
+
+\textbf{Findings}
+Our findings (see Fig~\ref{fig:dist_diff_five_domains}) show that the three domains of text - ``yelp,'' ``cmv,'' and ``xsum'' - exhibit the highest human perception scores. Notably, within these three domains, ``yelp'' stands out with a significant gap between its human perception score and the average human perception score of the other two domains. This suggests that domain-specific distinctiveness can arise from human-authored texts while machine-generated texts seem relatively general. 
+
+When examining the  and  top 5\% of sentence pairs that exhibit the highest human perception scores versus those of machine-generated perception scores, we observe a distinct pattern (see Fig~\ref{fig:corr_per_domain}). We found that almost all of the pairs of sentences with the highest human perception scores have a correlation of 0.7 or higher, whereas machine-generated sentences have a correlation of -0.7 or lower. This suggests that human-authored texts are strongly correlated while machine-generated texts are not. 
+
+\begin{figure}[ht!]
+    \centering
+    \includegraphics[width=\linewidth]{images/free_text/reddit_eli5_motif_hist_chatgpt-human.png}
+    \caption{Distributional difference between ChatGPT-generated vs. human-authored document graphs for Reddit ELI5 domain. Positive scores signify that the identified motives are more prominent in machine-generated texts, whereas negative scores suggest the opposite trend.}
+    \label{fig:free_text/dist_diff_reddit}
+\end{figure}
+
+
+\begin{figure}[ht!]
+    \centering
+    \includegraphics[width=\linewidth]{images/free_text/finance_motif_hist_chatgpt-human.png}
+    \caption{Distributional difference between ChatGPT-generated vs. human-authored document graphs for Finance domain. Positive scores signify that the identified motives are more prominent in machine-generated texts, whereas negative scores suggest the opposite trend.}
+    \label{fig:free_text/dist_diff_finance}
+\end{figure}
+
+
+\begin{figure}[ht!]
+    \centering
+    \includegraphics[width=\linewidth]{images/free_text/medicine_motif_hist_chatgpt-human.png}
+    \caption{Distributional difference between ChatGPT-generated vs. human-authored document graphs for Medicine domain. Positive scores signify that the identified motives are more prominent in machine-generated texts, whereas negative scores suggest the opposite trend.}
+    \label{fig:free_text/dist_diff_medicine}
+\end{figure}
+
+
+\begin{figure}[ht!]
+    \centering
+    \includegraphics[width=\linewidth]{images/free_text/open_qa_motif_hist_chatgpt-human.png}
+    \caption{Distributional difference between ChatGPT-generated vs. human-authored document graphs for Open QA domain. Positive scores signify that the identified motives are more prominent in machine-generated texts, whereas negative scores suggest the opposite trend.}
+    \label{fig:free_text/dist_diff_openqa}
+\end{figure}
+
+\begin{figure}[ht!]
+    \centering
+    \includegraphics[width=\linewidth]{images/free_text/finance_motif_hist_chatgpt-human.png}
+    \caption{Distributional difference between ChatGPT-generated vs. human-authored document graphs for Finance domain. Positive scores signify that the identified motives are more prominent in machine-generated texts, whereas negative scores suggest the opposite trend.}
+    \label{fig:free_text/dist_diff_finance}
+\end{figure}
+
+\begin{figure}[ht!]
+    \centering
+    \includegraphics[width=\linewidth]{images/free_text/medicine_motif_hist_chatgpt-human.png}
+    \caption{Distributional difference between ChatGPT-generated vs. human-authored document graphs for Medicine domain. Positive scores signify that the identified motives are more prominent in machine-generated texts, whereas negative scores suggest the opposite trend.}
+    \label{fig:free_text/dist_diff_medicine}
+\end{figure}
+
+\begin{figure}[ht!]
+    \centering
+    \includegraphics[width=\linewidth]{images/free_text/open_qa_motif_hist_chatgpt-human.png}
+    \caption{Distributional difference between ChatGPT-generated vs. human-authored document graphs for Open QA domain. Positive scores signify that the identified motives are more prominent in machine-generated texts, whereas negative scores suggest the opposite trend.}
+    \label{fig:free_text/dist_diff_openqa}
+\end{figure}
+
+\begin{figure}[ht!]
+    \centering
+    \includegraphics[width=\linewidth]{images/free_text/finance_motif_hist_chatgpt-human.png}
+    \caption{Distributional difference between ChatGPT-generated vs. human-authored document graphs for Finance domain. Positive scores signify that the identified motives are more prominent in machine-generated texts, whereas negative scores suggest the opposite trend.}
+    \label{fig:free_text/dist_diff_finance}
+\end{figure}
+
+\begin{figure}[ht!]
+    \centering
+    \includegraphics[width=\linewidth]{images/free_text/medicine_motif_hist_chatgpt-human.png}
+    \caption{Distributional difference between ChatGPT-generated vs. human-authored document graphs for Medicine domain. Positive scores signify that the identified motives are more prominent in machine-generated texts, whereas negative scores suggest the opposite trend.}
+    \label{fig:free_text/dist_diff_medicine}
+\end{figure}
+
+\begin{figure}[ht!]
+    \centering
+    \includegraphics[width=\linewidth]{images/free_text/open_qa_motif_hist_chatgpt-human.png}
+    \caption{Distributional difference between ChatGPT-generated vs. human-authored document graphs for Open QA domain. Positive scores signify that the identified motives are more prominent in machine-generated texts, whereas negative scores suggest the opposite trend.}
+    \label{fig:free_text/dist_diff_openqa}
+\end{figure}
+
+\begin{figure}[ht!]
+    \centering
+    \includegraphics[width=\linewidth]{images/free_text/finance_motif_hist_chatgpt-human.png}
+    \caption{Distributional difference between ChatGPT-generated vs. human-authored document graphs for Finance domain. Positive scores signify that the identified motives are more prominent in machine-generated texts, whereas negative scores suggest the opposite trend.}
+    \label{fig:free_text/dist_diff_finance}
+\end{figure}
+
+\begin{figure}[ht!]
+    \centering
+    \includegraphics[width=\linewidth]{images/free_text/medicine_motif_hist_chatgpt-human.png}
+    \caption{Distributional difference between ChatGPT-generated vs. human-authored document graphs for Medicine domain. Positive scores signify that the identified motives are more prominent in machine-generated texts, whereas negative scores suggest the opposite trend.}
+    \label{fig:free_text/dist_diff_medicine}
+\end{figure}
+
+\begin{figure}[ht!]
+    \centering
+    \includegraphics[width=\linewidth]{images/free_text/open_qa_motif_hist_chatgpt-human.png}
+    \caption{Distributional difference between ChatGPT-generated vs. human-authored document graphs for Open QA domain. Positive scores signify that the identified motives are more prominent in machine-generated texts, whereas negative scores suggest the opposite trend.}
+    \label{fig:free_text/dist_diff_openqa}
+\end{figure}
+
+\begin{figure}[ht!]
+    \centering
+    \includegraphics[width=\linewidth]{images/free_text/finance_motif_hist_chatgpt-human.png}
+    \caption{Distributional difference between ChatGPT-generated vs. human-authored document graphs for Finance domain. Positive scores signify that the identified motives are more prominent in machine-generated texts, whereas negative scores suggest the opposite trend.}
+    \label{fig:free_text/dist_diff_finance}
+\end{figure}
+
+\begin{figure}[ht!]
+    \centering
+    \includegraphics[width=\linewidth]{images/free_text/medicine_motif_hist_chatgpt-human.png}
+    \caption{Distributional difference between ChatGPT-generated vs. human-authored document graphs for Medicine domain. Positive scores signify that the identified motives are more prominent in machine-generated texts, whereas negative scores suggest the opposite trend.}
+    \label{fig:free_text/dist_diff_medicine}
+\end{figure}
+
+\begin{figure}[ht!]
+    \centering
+    \includegraphics[width=\linewidth]{images/free_text/open_qa_motif_hist_chatgpt-human.png}
+    \caption{Distributional difference between ChatGPT-generated vs. human-authored document graphs for Open QA domain. Positive scores signify that the identified motives are more prominent in machine-generated texts, whereas negative scores suggest the opposite trend.}
+    \label{fig:free_text/dist_diff_openqa}
+\end{figure}
+
+\begin{figure}[ht!]
+    \centering
+    \includegraphics[width=\linewidth]{images/free_text/finance_motif_hist_chatgpt-human.png}
+    \caption{Distributional difference between ChatGPT-generated vs. human-authored document graphs for Finance domain. Positive scores signify that the identified motives are more prominent in machine-generated texts, whereas negative scores suggest the opposite trend.}
+    \label{fig:free_text/dist_diff_finance}
+\end{figure}
+
+\begin{figure}[ht!]
+    \centering
+    \includegraphics[width=\linewidth]{images/free_text/medicine_motif_hist_chatgpt-human.png}
+    \caption{Distributional difference between ChatGPT-generated vs. human-authored document graphs for Medicine domain. Positive scores signify that the identified motives are more prominent in machine-generated texts, whereas negative scores suggest the opposite trend.}
+    \label{fig:free_text/dist_diff_medicine}
+\end{figure}
+
+\begin{figure}[ht!]
+    \centering
+    \includegraphics[width=\linewidth]{images/free_text/open_qa_motif_hist_chatgpt-human.png}
+    \caption{Distributional difference between ChatGPT-generated vs. human-authored document graphs for Open QA domain. Positive scores signify that the identified motives are more prominent in machine-generated texts, whereas negative scores suggest the opposite trend.}
+    \label{fig:free_text/dist_diff_openqa}
+\end{figure}
+
+\begin{figure}[ht!]
+    \centering
+    \includegraphics[width=\linewidth]{images/free_text/finance_motif_hist_chatgpt-human.png}
+    \caption{Distributional difference between ChatGPT-generated vs. human-authored document graphs for Finance domain. Positive scores signify that the identified motives are more prominent in machine-generated texts, whereas negative scores suggest the opposite trend.}
+    \label{fig:free_text/dist_diff_finance}
+\end{figure}
+
+\begin{figure}[ht!]
+    \centering
+    \includegraphics[width=\linewidth]{images/free_text/medicine_motif_hist_chatgpt-human.png}
+    \caption{Distributional difference between ChatGPT-generated vs. human-authored document graphs for Medicine domain. Positive scores signify that the identified motives are more prominent in machine-generated texts, whereas negative scores suggest the opposite trend.}
+    \label{fig:free_text/dist_diff_medicine}
+\end{figure}
+
+\begin{figure}[ht!]
+    \centering
+    \includegraphics[width=\linewidth]{images/free_text/open_qa_motif_hist_chatgpt-human.png}
+    \caption{Distributional difference between ChatGPT-generated vs. human-authored document graphs for Open QA domain. Positive scores signify that the identified motives are more prominent in machine-generated texts, whereas negative scores suggest the opposite trend.}
+    \label{fig:free_text/dist_diff_openqa}
+\end{figure}
+
+\begin{figure}[ht!]
+    \centering
+    \includegraphics[width=\linewidth]{images/free_text/finance_motif_hist_chatgpt-human.png}
+    \caption{Distributional difference between ChatGPT-generated vs. human-authored document graphs for Finance domain. Positive scores signify that the identified motives are more prominent in machine-generated texts, whereas negative scores suggest the opposite trend.}

@@ -1,0 +1,25 @@
+致point 1 : LLM-generated data for all kinds of use cases( free-form text, task labels, instruction prompts, preference labels, simulation data, etc). 
+
+These artificial data can replace human data without performance degradation on many benchmarks, leading to increased efficiency and cost savings. 
+However, there is a notable misalignment between human rationales and large language model (LLM) judgments in question-answering tasks, attributed to biases in LLMs when evaluating text quality. 
+For example, studies have identified various biases in LLMs like GPT-4, including position, length, and self-enhancement biases \cite{zheng2023judging, wang2023large}. 
+Additionally, research on 15 different LLMs of varying size revealed a range of cognitive biases \cite{koo2023benchmarking} affecting their preferences in pairwise evaluations, with a common order bias where LLMs tend to prefer the first-ordered response. 
+This work also shows that larger models, such as GPT-4 and ChatGPT, often show an egocentric bias, favoring their responses, and that smaller models are also susceptible to multiple cognitive biases. 
+
+Therefore, it is important to first understand the nature of human data and the potential biases or errors present in artificial data, and second, to study the effects of using this kind of data in downstream tasks. 
+We believe that artificial data should be used as a general replacement for human data during 
+% despite its relatively new nature and the differing capabilities and characteristics of LLMs. 
+% As illustrated in Figure \ref{fig:llm_world}, LLMs are now being used to generate data for all kinds of use cases like annotation, evaluation, generation, etc. Artificial data generated from one LLM could be used for one or more use cases, leading to the rise of an LLM ecosystem. 
+Limited research has highlighted the disparity between LLM-generated labels and human annotations \cite{reiss2023testing}, prompting calls for cross-domain evaluation against human data. There is no consensus on how artificial data differs from human data because it is a fairly new and highly fluent source of data 
+\cite{sadasivan2023can}. Recent studies, notably those by \citet{shumailov2023curse} and \citet{briesch2023large}, have highlighted concerns regarding the quality and diversity of artificial data employed in, and subsequently produced by, training loops. The growing dependence on such data for its convenience and lower costs and speculations of the next version of GPT training on its own generated data \footnote{Tweet Link: \url{https://shorturl.at/kmAY2}} raise concerns about an emerging cycle of AI-reliant solely on artificial inputs. 
+
+\subsection{Research Focus and Questions}
+
+This work contributes to this understanding by taking a broad inventory of artificial data, possible ``artifacts'' or divergences from the corresponding human data, and the effects of using this data. We prioritize breadth, covering five different data types (examples of each shown in Figure \ref{fig:figure1}), rather than depth, to understand overarching themes in synthetic data. 
+
+
+
+To forward the understanding of artificial data and its effects, the research questions we investigate are - 
+\begin{itemize}[noitemsep,topsep=5pt,leftmargin=*]
+\item \textbf{RQ1} What is the nature of SOTA artificial data? How does it compare to human data, and what artifacts does it contain?
+\item \textbf{RQ2} Does training on artificial data compromise performance outcomes compared to similar human-generated data?

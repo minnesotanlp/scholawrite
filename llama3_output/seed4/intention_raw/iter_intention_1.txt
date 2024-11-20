@@ -1,0 +1,102 @@
+restart{table*}[ht]
+\centering
+\footnotesize % Use an even smaller font size
+\setlength{\tabcolsep}{4pt} % Default value: 6pt
+\begin{tabular}{lccc}
+\toprule
+\textbf{Details} & \textbf{Text} & \textbf{Human Annots} & \textbf{Model Annotats} \\ \midrule
+\textbf{Dataset} & \textit{HC3} & \textit{Human} & \textit{Machine} \\
+\textbf{F1 Score} & 0.90              & 0.90             & 0.78                  \\
+\textbf{Inaccuracy} & 0.10             & 0.10            & 0.22       \\
+\textbf{Failure Rate} & 0.18             & 0.0               & 0.12       \\
+\textbf{Token Limit Fraction} & 0.66             & 0.66            & 0.55       \\
+\bottomrule
+\end{tabular}
+\caption{Comparison of model performance between \textit{human-generated} and \textit{machine-generated} preferences on the \textsc{CoBBLEr} dataset.}
+\label{table:pref:corr}
+\end{table}
+
+% \begin{table*}[ht]
+% \centering
+% \begin{tabular}{lccc}
+% \toprule
+% \textbf{Details} & \textbf{Text} & \textbf{Human Annots} & \textbf{Model Annotats} \\ \midrule
+% \textbf{Dataset} & \textit{HC3} & \textit{Human} & \textit{Machine} \\
+% \textbf{F1 Score} & 0.90              & 0.90             & 0.78                  \\
+% \textbf{Inaccuracy} & 0.10             & 0.10            & 0.22       \\
+% \textbf{Failure Rate} & 0.18             & 0.0               & 0.12       \\
+% \textbf{Token Limit Fraction} & 0.66             & 0.66            & 0.55       \\
+% \bottomrule
+% \end{tabular}
+% \caption{Comparison of model performance between \textit{human-generated} and \textit{machine-generated} preferences on the \textsc{CoBBLEr} dataset.}
+% \label{table:pref:corr}
+% \end{table*}
+
+\paragraph{Result Analysis}
+From Figure \ref{fig:pref:corr}, we can see that the human and machine preferences are correlated with each other. Also, as the dataset is from the \textit{supervised} setup, we see that the correlation with human preferences is more or less the same as the correlation with GPT-3 preferences. This result confirms our hypothesis that LLM preferences tend to be more closely related to the  and  \textit{locality bias} of LLMs. Also, as the dataset is from the \textit{supervised} setup, we see that the human and machine preferences are correlated with each other, which means that LLM preferences tend to be more closely related to the  and  \textit{locality bias} of LLMs. 
+% \begin{figure}[ht!]
+%     \centering
+%     \includegraphics[width=\linewidth]{images/pref_eval/p2c_lexicon_corr.pdf}
+%     \caption{Pearson Correlation between lexicon-based and each of GPT-3 and human preferences across three setups – (1) entire dataset, (2) Top 10\%, and (3) Bottom 10\%. Notably, the 'Top 10\%' setup shows a significantly higher correlation between lexicon-based and GPT-3 preferences, compared to human preferences, highlighting distinct preference patterns. All p-values are below 0.001. }
+%     \label{fig:pref:p2c-lexicon-corr}
+% \end{figure}
+
+% \begin{figure}[ht!]
+%     \centering
+%     \includegraphics[width=\linewidth]{images/pref_eval/cobbler_pearson_max.pdf}
+%     \caption{Pearson Correlation between lexicon-based and each of GPT-4, ChatGPT, and human preferences across three setups – (1) entire dataset, (2) Top 10\%, and (3) Bottom 10\%. Notably, the 'Top 10\%' setup shows a significantly higher correlation between lexicon-based and GPT-3 preferences, compared to human preferences, highlighting distinct preference patterns. All p-values are below 0.001. }
+%     \label{fig:pref:p2c-lexicon-corr}
+% \end{figure}
+
+% \begin{figure}[ht!]
+%     \centering
+%     \includegraphics[width=\linewidth]{images/pref_eval/p2c_lexicon_matching.pdf}
+%     \caption{Matching Percentages Across Various Setups: The bar chart depicts the matching percentages between lexicon and GPT-3/Human preferences. The comparison spans Previous, Top 10\%, and Bottom 10\% setups. It reveals a notably higher matching percentage with GPT-3 in the Top 10\% setup.}
+%     \label{fig:pref:p2c-lexicon-matching}
+% \end{figure}
+
+% \anonymous{cobbler}
+
+%--------------------------------------
+\subsection{Second Order Effects}\label{sec:preference-second}
+
+\paragraph{Hypothesis} We examine if there is a discrepancy in the distribution between human and LLM preferences augmented by training a language model classifier on each human and LLM preference, which may cause a misalignment between them. 
+
+\paragraph{Experiment Setup} We train RoBERTa \cite{liu2019roberta} on each of the human or machine evaluations from two different preference datasets, as a reward model. We first train four different reward models from each of the two datasets and then run on machine and human preferences. For each training session, we run RoBERTa for 5-10 epochs. 
+
+\paragraph{Metrics} To get representations of the training distribution, we graph the logit versus probability of each class on test sets during inference, and we compare them between in-distribution sets (i.e., \textsc{Cobbler}-human vs \textsc{Cobbler}-machine, \textsc{p2c}-human vs \textsc{p2c}-machine). 
+
+\paragraph{Results Analysis}
+
+We view in Table \ref{tab:preference:human} and \ref{tab:preference:machine} the validation accuracy from the human and machine preferences as well as their loss. From each of the train models, we also get the validation accuracy and loss on the validation set of the other annotations, which we see distinctly are lower with higher loss. 
+
+From Figures \ref{fig:pref:cobbler-second-label0}, \ref{fig:pref:p2c-second-label0}, \ref{fig:pref:p2c-second-label2}, we see a distinct difference in the class probabilities based on the logits from our reward model on their validation sets. Form this graph, usually high logits with high class probability indicate stronger certainty from the model for the predicted label. Thus, we view as a bias where the model tends to over 
+\begin{table}[H]
+    \centering
+    \begin{tabular}{@{}lcc@{}}
+        \toprule
+        Val Acc. / Loss & P2C & Cobbler \\
+        \midrule
+        \textbf{Human} & 0.49 / 1.1 & 0.80 / 0.48 \\
+        Machine & 0.33 / 1.4 & 0.67 / 0.92 \\
+        \bottomrule
+    \end{tabular}
+    \caption{Validation accuracy and loss for RoBERTA model trained on human annotations.}
+    \label{tab:preference:human}
+\end{table}
+
+\begin{table}[H]
+    \centering
+    \begin{tabular}{@{}lcc@{}}
+        \toprule
+        Val Acc. / Loss & P2C & Cobbler \\
+        \midrule
+        \textbf{Machine} & 0.66 / 0.8 & 0.75 / 0.64 \\
+        Human & 0.34 / 2.0 & 0.69 / 0.76 \\
+        \bottomrule
+    \end{tabular}
+    \caption{Validation accuracy and loss for RoBERTA model trained on machine annotations.}
+    \label{tab:preference:machine}
+\end{table}
+
+From Figures \ref{fig:pref:cobbler-second-label0}, \ref{fig:pref:p2c-second-label0}, \ref{fig:pref:p2c-second-label2}, we see a distinct difference in the class probabilities based on the logits from our reward model on their validation sets. Form this graph, usually high logits with high class probability indicate stronger certainty from the model for the predicted label. Thus, we view as a bias where the model tends to over  and under-represent minority opinions.

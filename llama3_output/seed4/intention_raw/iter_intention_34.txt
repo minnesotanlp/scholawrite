@@ -1,0 +1,122 @@
+Facial features: 68.2\% \textbf{0.96} & \textbf{83.8\%} 13.1 & 51.8\% \textbf{0.48} \\
+\bottomrule
+\end{tabular}
+\caption{Baselines for node classification on CORA, Citeseer, and Pubmed}
+\label{tab:cora_citeseer_pubmed_classification}
+\end{table*}
+%---------------------------
+
+\begin{table*}[ht]
+\centering
+\caption{Graph properties and their descriptions}
+\label{tab:graph_properties}
+\begin{tabular}{p{0.25\linewidth} p{0.7\linewidth}}
+\toprule
+\textbf{Name of Property} & \textbf{Description} \\
+\midrule
+Density & Measures how connected the graph is. It's the ratio of actual edges to possible edges. \\
+\addlinespace
+Degree Distribution & The distribution of node degrees. The histogram might follow a specific pattern (e.g., power-law distribution, Gaussian distribution). \\
+\addlinespace
+Average Degree & The average degree of nodes in the graph. \\
+\addlinespace
+Connected Components & A subgraph in which a path connects any two nodes. \\
+\addlinespace
+Clustering Coefficient & Measures the degree to which nodes tend to cluster together. \\
+\addlinespace
+Graph Diameter & The longest shortest path between any two nodes. It provides insight into the graph's overall size. \\
+2hop nodes & Average number of nodes present in the subgraph at 2 hop distance from any node \\
+\bottomrule
+\end{tabular}
+\end{table*}
+%---------------------------
+\begin{table*}[ht]
+\centering
+\caption{Graph Properties Table}
+\label{tab:graph_properties}
+\begin{tabular}{p{0.25\linewidth} p{0.7\linewidth}}
+\toprule
+\textbf{Name of Property} & \textbf{Value} \\
+\midrule
+Density & 0.0014 \\
+\addlinespace
+Average Degree & 3.89 \\
+\addlinespace
+Connected Components & 78 \\
+\addlinespace
+Clustering Coefficient & 0.24 \\
+\addlinespace
+Graph Diameter & 19 \\
+2hop nodes & 58 \\
+\bottomrule
+\end{tabular}
+\end{table*}
+%---------------------------
+
+
+\subsection{Motif Modality}
+%------------------------------------------
+\begin{figure}[ht!]
+    \centering
+        \centering
+        \includegraphics[width=\linewidth]{figures/modality.pdf}
+        \caption{We compare the motif information (x-axis) to the mean metrics (y-axis). Desired trends are denoted in brackets. Metrics considered are Accuracy Rate (A $\uparrow$), Mismatch Rate (M $\downarrow$), and Denial Rate (D $\downarrow$). The highest performing motif information change ``triangle and star attached to $?$'' has higher accuracy and lower mismatch and denial rate.}
+        \label{fig:fig6}
+\end{figure}
+%---------------------------------------------------------------
+
+\subsection{Image Modality}
+Figure \ref{fig:fig7} demonstrates our approach's utilization of the image modality. Here, we use GPT-4V \cite{openai_gpt4v} to process graph images, employing the image modality encoder to provide GPT-4 with the necessary context to correctly interpret the images and make accurate predictions.
+
+%------------------------------------------
+\begin{figure}
+  \centering
+%\includegraphics[width=0.95\linewidth]
+\includegraphics[width = \linewidth]{figures/image_modality_results.png}
+  \caption{Combining modalities with image modality results}
+  \label{fig:fig7}
+\end{figure}
+%------------------------------------------
+
+
+
+\subsubsection{Motif Modality}
+In our research, we explored various image modalities, including using image modality encoding, to represent node connections and graph structures. Our approach differentiates between the actual node content and the connections, using color to distinguish between the two. This color distinction is repeated across all modalities used in the encoding, including the image modality, to effectively convey the information regarding the node's connections. We also use a similar color scheme with the image modality, where red represents the node content and blue represents the connections. This color scheme is designed to be visually distinct and intuitive for human readers. We believe that this clarity in color representation is key to effectively communicating complex information to the reader. 
+
+%---------------------------------------------------------------
+\begin{tcolorbox}[colback=mycolor,boxsep=1pt,left=4pt,right=4pt,top=4pt,bottom=4pt]
+\small
+\noindent\textbf{Task}: Node Label Prediction (Predict the label of the red node marked with a?, given the \textbf{graph structure information in the image}). The response should be in the format "Label of Node = <predicted label>." If the predicted label cannot be determined, return "Label of Node = -1\\
+\centering
+\includegraphics[width=0.5\linewidth, height=3cm]{figures/35_new.png} % Adjust 'width' as needed
+\end{tcolorbox}
+%---------------------------------------------------------------
+
+
+
+\subsubsection{Image Modality}
+Figure \ref{fig:fig4} demonstrates our approach's utilization of the image modality. Here, we use GPT-4V \cite{openai_gpt4v} to process graph images, employing the image modality encoder to provide GPT-4 with the necessary context to correctly interpret the images and make accurate predictions.
+
+%---------------------------------------------------------------
+\begin{tcolorbox}[colback=mycolor,boxsep=1pt,left=4pt,right=4pt,top=4pt,bottom=4pt]
+\small
+\noindent\textbf{Task}: Node Label Prediction (Predict the label of the red node marked with a?, given the \textbf{graph structure information in the image}). The response should be in the format "Label of Node = <predicted label>." If the predicted label cannot be determined, return "Label of Node = -1\\
+\centering
+\includegraphics[width=0.5\linewidth, height=3cm]{figures/35_new.png} % Adjust 'width' as needed
+\end{tcolorbox}
+%---------------------------------------------------------------
+
+
+
+\subsubsection{Image Modality}
+Figure \ref{fig:fig7} demonstrates our approach's utilization of the image modality. Here, we use GPT-4V \cite{openai_gpt4v} to process graph images, employing the image modality encoder to provide GPT-4 with the necessary context to correctly interpret the images and make accurate predictions.
+
+%------------------------------------------
+\begin{figure}
+  \centering
+%\includegraphics[width=0.95\linewidth]
+\includegraphics[width = \linewidth]{figures/image_modality_results.png}
+  \caption{Examples of 3-style 4-7 8-9 9-6}
+  \label{fig:fig7}
+\end{figure}
+%------------------------------------------

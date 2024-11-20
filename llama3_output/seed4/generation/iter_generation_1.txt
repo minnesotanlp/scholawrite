@@ -1,0 +1,44 @@
+Canter, L. (2023). How LLM-generated data differs from human data: A test of 55 artificial datasets. \textsc{arXiv preprint arXiv:23051120117}.
+\end{abstract}
+
+\section{Introduction}
+\input{tex/intro}
+
+\section{Free-Form Text}
+\label{sec:free_text}
+\input{tex/free_text}
+
+\section{Task Labels}
+\input{tex/task_labels}
+
+\section{Instruction}
+\label{sec:instruction}
+\input{tex/instruction}
+
+\section{Preference}
+\input{tex/preference}
+
+\section{Simulation}
+\label{sec:simulation}
+\input{tex/simulation}
+%-----------------------------------------------------------------------
+
+\section{Overall Discussion}
+\label{sec:sec9}
+\input{tex/overview}
+
+%-----------------------------------------------------------------------
+\section{Conclusion}
+\label{sec:sec10}
+\input{tex/conclusion}
+%-----------------------------------------------------------------------
+\section*{Acknowledgements}
+Thanks :)
+
+% Entries for the entire Anthology, followed by custom entries
+\bibliography{anthology,custom}
+
+\appendix
+\input{tex/appendix}
+
+\end{document}

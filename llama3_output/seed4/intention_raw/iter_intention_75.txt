@@ -1,0 +1,175 @@
+Fairfield 2030
+%------------------
+\begin{table*}[ht]
+\centering
+\scriptsize
+\begin{tabular}{p{0.4\textwidth}p{0.8\textwidth}}
+\toprule
+\textbf{Text} & \textbf{Human/ GPT-4 Pair} \\ \midrule
+\textcolor{red}{@nounstudios this old dog needs to learn some new tricks} & [2.0, 3.0, 2.0, 3.0] \\ \midrule
+\textcolor{red}{gosh...i'm 22 years old...an old lady! thanks for all the great birthday wishes! now it's bedtime!} & [1.0, 2.0, 4.0, 4.0] \\ \midrule
+\textcolor{blue}{If we're going to talk about Russian sources, we should also talk about Jewish sources.} & [1.0, 0.0, 0.0] \\ \midrule
+\textcolor{blue}{I'm skeptical. Nearly every time this type of vandalism occurs, it is perpetrated by someone affiliated with the synagogue.} & [1.0, 0.0, 0.0] \\ \midrule
+\textcolor{orange}{It's bad to fire a daughter-in-law from a job} & [3.0, 2.0, 2.0, 3.0, 2.0] \\ \midrule
+\textcolor{orange}{Your boyfriend has the right to wear whatever underwear he chooses.} & [3.0, 4.0, 4.0, 3.0, 4.0] \\ \midrule
+\textcolor{orange}{Your boyfriend has the right to wear whatever underwear he chooses.} & [3.0, 4.0, 4.0, 3.0, 4.0] \\ \midrule
+\textcolor{red}{If we're going to talk about Russian sources, we should also talk about Jewish sources.} & [1.0, 0.0, 0.0] \\ \midrule
+\textcolor{red}{I'm skeptical. Nearly every time this type of vandalism occurs, it is perpetrated by someone affiliated with the synagogue.} & [1.0, 0.0, 0.0] \\ \midrule
+\textcolor{red}{It's bad to fire a daughter-in-law from a job} & [3.0, 2.0, 2.0, 3.0, 2.0] \\ \midrule
+\textcolor{red}{Your boyfriend has the right to wear whatever underwear he chooses.} & [3.0, 4.0, 4.0, 3.0, 4.0] \\ \midrule
+\textcolor{blue}{If we're going to talk about Russian sources, we should also talk about Jewish sources.} & [1.0, 0.0, 0.0] \\ \midrule
+\textcolor{blue}{I'm skeptical. Nearly every time this type of vandalism occurs, it is perpetrated by someone affiliated with the synagogue.} & [1.0, 0.0, 0.0] \\ \midrule
+\textcolor{blue}{It's bad to fire a daughter-in-law from a job} & [3.0, 2.0, 2.0, 3.0, 2.0] \\ \midrule
+\textcolor{blue}{Your boyfriend has the right to wear whatever underwear he chooses.} & [3.0, 4.0, 4.0, 3.0, 4.0] \\ \midrule
+\textcolor{blue}{Your boyfriend has the right to wear whatever underwear he chooses.} & [3.0, 4.0, 4.0, 3.0, 4.0] \\ \midrule
+\end{tabular}
+\caption{Qualitative analysis of human and machine task labels for evidence of bias}
+\label{table:qual_table}
+\end{table*}
+
+%------------------------------------------------------------
+
+\subsection{Second-order Analysis}\label{sec:task-second}
+\paragraph{Hypothesis}
+In our experiment, we trained an LLM like RoBERTa \cite{liu2019roberta} on both human and machine-generated annotations to identify potential second-order effects and biases, hypothesizing that biases would become more pronounced over time with a concentrated distribution highlighting specific stereotypes and assumptions.
+\paragraph{Experiment Setup}
+\anonymous{anonymous : complete this }
+\paragraph{Metrics}
+\anonymous{anonymous : complete this }
+\paragraph{Result Analysis}
+\anonymous{anonymous : complete this }
+
+%------------------------------------------------------------
+
+%------------------------------------------------------------
+\subsection{Mitigating Biases from LLM Generated Task Labels}\label{sec:task-mitigation}
+% Majority voting and averaging, which are standard methods for deriving single ground truth labels from multiple annotations, often fail to capture the systematic disagreements among annotators. This is especially the case in subjective tasks like detecting sentiment, aggression, and hate speech. (Moved to beginning so we can jump straight to the point - anonymous)
+
+Preserving disagreement in annotations may help LLMs more accurately mirror human annotations, and there are many approaches to modeling or preserving this difference. \citeauthor{lee2023large} recently explored Monte Carlo Estimation (MCE) and Log Probability Estimation (LPE) as ways to find the distributional difference between human and LLM task labels. Other methods include using Bayesian methods \cite{paun2018comparing}, integrating disagreements into loss functions \cite{plank2014learning}, and modeling several annotators’ labels as multiple tasks \cite{davani2022dealing}. 
+
+The increase in artificial data induces a rising need for validation using human datasets \cite{pangakis2023automated}. Several studies testing LLMs on widely used datasets potentially suffer from data contamination, where LLMs may memorize information, leading to misleadingly strong performance that may not extend to new datasets and tasks, highlighting the need for clear guidelines to ensure effective and accurate use of these tools. \anonymous{citations needed}  plus 21st  and 2023  and 2023  and 2023. 
+
+
+% %---------------
+\begin{table*}[ht]
+\centering
+\small
+\begin{tabular}{l l l l}
+\toprule
+\textbf{Details} & \textbf{Justification} & \textbf{Metrics} \\
+\midrule
+\includegraphics[scale=0.01]{images/icons/older-person-emoji-clipart-md.png} {Age} & Biased towards younger generations. & [age, emoji, clipart]  \\
+\includegraphics[scale=0.01]{images/icons/older-person-emoji-clipart-md.png} {Gender} & Biased towards male generations. & [gender, emoji, clipart]  \\
+\includegraphics[scale=0.01]{images/icons/older-person-emoji-clipart-md.png} {Race/Religion Bias} & Biased towards white generations. & [race, religion, emoji, clipart]  \\
+\includegraphics[scale=0.01]{images/icons/folded-hands.png} {Religion} & Biased towards majority religions. & [religion, emoji, clipart]  \\
+\includegraphics[scale=0.01]{images/icons/folded-hands.png} {Politics} & Biased towards majority political ideologies. & [politics, emoji, clipart]  \\
+\includegraphics[scale=0.01]{images/icons/restroom.png} {Sex} & Biased towards male sexuality. & [sex, emoji, clipart]  \\
+\includegraphics[scale=0.01]{images/icons/restroom.png} {Age} & Biased towards younger generations. & [age, emoji, clipart]  \\
+\includegraphics[scale=0.01]{images/icons/restroom.png} {Gender} & Biased towards male generations. & [gender, emoji, clipart]  \\
+\includegraphics[scale=0.01]{images/icons/restroom.png} {Race/Religion Bias} & Biased towards white generations. & [race, religion, emoji, clipart]  \\
+\bottomrule
+\end{tabular}
+\caption{We summarize the research gap unearthed with each type of bias. Our paper focuses on these unearthed research gaps for further analysis and stress testing LLM-generated data.}
+\label{tab:transposed_related_summary}
+\end{table*}
+%---------------------------
+
+ 
+\subsection{Summary of First and Second Order Results}
+As outlined in the results section, LLMs tend to under-represent minority opinions. ChatGPT especially grossly under-represents minority annotations while over-representing majority annotations. This risks marginalizing minority perspectives, potentially reinforcing societal disparities \cite{prabhakaran2021releasing}. For subjective tasks, we find that the ChatGPT model exhibits less variation in its responses to subjective tasks than humans, which could indicate oversimplification of these tasks or high predictive confidence. Additionally, we noted that datasets with more labels, such as Sentiment and Schem5Labels, demonstrate more variation in human judgment, particularly in subjective tasks like controversial content. Conversely, simpler datasets with fewer labels, like SBIC and GHC, display lesser human variation and greater alignment with the model, indicating more consistent annotations in less complex content. This pattern highlights that the model's performance and concordance with human annotations significantly depend on the task's complexity and subjective elements. On analyzing text instances with significant human annotation variation but no model variation (especially in cases where the human minority label is not the same as the model majority label), we find this an effective heuristic to unearth highly biased sentences. We note the presence of age, gender, political, and religion-based bias, which are indications of the under-representation of minorities or complexities in training data. We also observe that in datasets like SBIC and GHC, the ``label flipping'' phenomenon is commonly observed - this involves  would flip the label from the original human annotation to the original model annotation, showing that there is not much difference in the labels  a.  this could be because of 7
+%------------------------------------------------------------
+\subsection{Mitigating Biases from LLM Generated Task Labels}\label{sec:task-mitigation}
+% Majority voting and averaging, which are standard methods for deriving single ground truth labels from multiple annotations, often fail to capture the systematic disagreements among annotators. This is especially the case in subjective tasks like detecting sentiment, aggression, and hate speech. (Moved to beginning so we can jump straight to the point - anonymous)
+
+Preserving disagreement in annotations may help LLMs more accurately mirror human annotations, and there are many approaches to modeling or preserving this difference. \citeauthor{lee2023large} recently explored Monte Carlo Estimation (MCE) and Log Probability Estimation (LPE) as ways to find the distributional difference between human and LLM task labels. Other methods include using Bayesian methods \cite{paun2018comparing}, integrating disagreements into loss functions \cite{plank2014learning}, and modeling several annotators’ labels as multiple tasks \cite{davani2022dealing}. 
+
+The increase in artificial data induces a rising need for validation using human datasets \cite{pangakis2023automated}. Several studies testing LLMs on widely used datasets potentially suffer from data contamination, where LLMs may memorize information, leading to misleadingly strong performance that may not extend to new datasets and tasks, highlighting the need for clear guidelines to ensure effective and accurate use of these tools. \anonymous{citations needed}  plus 21st  and 2023  and 2023  and 2023. 
+
+
+% %---------------
+\begin{table*}[ht]
+\centering
+\small
+\begin{tabular}{l l l l}
+\toprule
+\textbf{Details} & \textbf{Justification} & \textbf{Metrics} \\
+\midrule
+\includegraphics[scale=0.01]{images/icons/older-person-emoji-clipart-md.png} {Age} & Biased towards younger generations. & [age, emoji, clipart]  \\
+\includegraphics[scale=0.01]{images/icons/older-person-emoji-clipart-md.png} {Gender} & Biased towards male generations. & [gender, emoji, clipart]  \\
+\includegraphics[scale=0.01]{images/icons/older-person-emoji-clipart-md.png} {Race/Religion Bias} & Biased towards white generations. & [race, religion, emoji, clipart]  \\
+\includegraphics[scale=0.01]{images/icons/folded-hands.png} {Religion} & Biased towards majority religions. & [religion, emoji, clipart]  \\
+\includegraphics[scale=0.01]{images/icons/folded-hands.png} {Politics} & Biased towards majority political ideologies. & [politics, emoji, clipart]  \\
+\includegraphics[scale=0.01]{images/icons/restroom.png} {Sex} & Biased towards male sexuality. & [sex, emoji, clipart]  \\
+\includegraphics[scale=0.01]{images/icons/restroom.png} {Age} & Biased towards younger generations. & [age, emoji, clipart]  \\
+\includegraphics[scale=0.01]{images/icons/restroom.png} {Gender} & Biased towards male generations. & [gender, emoji, clipart]  \\
+\includegraphics[scale=0.01]{images/icons/restroom.png} {Race/Religion Bias} & Biased towards white generations. & [race, religion, emoji, clipart]  \\
+\bottomrule
+\end{tabular}
+\caption{We summarize the research gap unearthed with each type of bias. Our paper focuses on these unearthed research gaps for further analysis and stress testing LLM-generated data.}
+\label{tab:transposed_related_summary}
+\end{table*}
+%---------------------------
+
+ 
+\subsection{Summary of First and Second Order Results}
+As outlined in the results section, LLMs tend to under-represent minority opinions. ChatGPT especially grossly under-represents minority annotations while over-representing majority annotations. This risks marginalizing minority perspectives, potentially reinforcing societal disparities \cite{prabhakaran2021releasing}. For subjective tasks, we find that the ChatGPT model exhibits less variation in its responses to subjective tasks than humans, which could indicate oversimplification of these tasks or high predictive confidence. Additionally, we noted that datasets with more labels, such as Sentiment and Schem5Labels, demonstrate more variation in human judgment, particularly in subjective tasks like controversial content. Conversely, simpler datasets with fewer labels, like SBIC and GHC, display lesser human variation and greater alignment with the model, indicating more consistent annotations in less complex content. This pattern highlights that the model's performance and concordance with human annotations significantly depend on the task's complexity and subjective elements. On analyzing text instances with significant human annotation variation but no model variation (especially in cases where the human minority label is not the same as the model majority label), we find this an effective heuristic to unearth highly biased sentences. We note the presence of age, gender, political, and religion-based bias, which are indications of the under-representation of minorities or complexities in training data. We also observe that in datasets like SBIC and GHC, the ``label flipping'' phenomenon is commonly observed - this involves  would flip the label from the original human annotation to the original model annotation, showing that there is not much difference in the labels  a.  this could be because of 7
+%------------------------------------------------------------
+\subsection{Mitigating Biases from LLM Generated Task Labels}\label{sec:task-mitigation}
+% Majority voting and averaging, which are standard methods for deriving single ground truth labels from multiple annotations, often fail to capture the systematic disagreements among annotators. This is especially the case in subjective tasks like detecting sentiment, aggression, and hate speech. (Moved to beginning so we can jump straight to the point - anonymous)
+
+Preserving disagreement in annotations may help LLMs more accurately mirror human annotations, and there are many approaches to modeling or preserving this difference. \citeauthor{lee2023large} recently explored Monte Carlo Estimation (MCE) and Log Probability Estimation (LPE) as ways to find the distributional difference between human and LLM task labels. Other methods include using Bayesian methods \cite{paun2018comparing}, integrating disagreements into loss functions \cite{plank2014learning}, and modeling several annotators’ labels as multiple tasks \cite{davani2022dealing}. 
+
+The increase in artificial data induces a rising need for validation using human datasets \cite{pangakis2023automated}. Several studies testing LLMs on widely used datasets potentially suffer from data contamination, where LLMs may memorize information, leading to misleadingly strong performance that may not extend to new datasets and tasks, highlighting the need for clear guidelines to ensure effective and accurate use of these tools. \anonymous{citations needed}  plus 21st  and 2023  and 2023  and 2023. 
+
+
+% %---------------
+\begin{table*}[ht]
+\centering
+\small
+\begin{tabular}{l l l l}
+\toprule
+\textbf{Details} & \textbf{Justification} & \textbf{Metrics} \\
+\midrule
+\includegraphics[scale=0.01]{images/icons/older-person-emoji-clipart-md.png} {Age} & Biased towards younger generations. & [age, emoji, clipart]  \\
+\includegraphics[scale=0.01]{images/icons/older-person-emoji-clipart-md.png} {Gender} & Biased towards male generations. & [gender, emoji, clipart]  \\
+\includegraphics[scale=0.01]{images/icons/older-person-emoji-clipart-md.png} {Race/Religion Bias} & Biased towards white generations. & [race, religion, emoji, clipart]  \\
+\includegraphics[scale=0.01]{images/icons/folded-hands.png} {Religion} & Biased towards majority religions. & [religion, emoji, clipart]  \\
+\includegraphics[scale=0.01]{images/icons/folded-hands.png} {Politics} & Biased towards majority political ideologies. & [politics, emoji, clipart]  \\
+\includegraphics[scale=0.01]{images/icons/restroom.png} {Sex} & Biased towards male sexuality. & [sex, emoji, clipart]  \\
+\includegraphics[scale=0.01]{images/icons/restroom.png} {Age} & Biased towards younger generations. & [age, emoji, clipart]  \\
+\includegraphics[scale=0.01]{images/icons/restroom.png} {Gender} & Biased towards male generations. & [gender, emoji, clipart]  \\
+\includegraphics[scale=0.01]{images/icons/restroom.png} {Race/Religion Bias} & Biased towards white generations. & [race, religion, emoji, clipart]  \\
+\bottomrule
+\end{tabular}
+\caption{We summarize the research gap unearthed with each type of bias. Our paper focuses on these unearthed research gaps for further analysis and stress testing LLM-generated data.}
+\label{tab:transposed_related_summary}
+\end{table*}
+%---------------------------
+
+ 
+\subsection{Summary of First and Second Order Results}
+As outlined in the results section, LLMs tend to under-represent minority opinions. ChatGPT especially grossly under-represents minority annotations while over-representing majority annotations. This risks marginalizing minority perspectives, potentially reinforcing societal disparities \cite{prabhakaran2021releasing}. For subjective tasks, we find that the ChatGPT model exhibits less variation in its responses to subjective tasks than humans, which could indicate oversimplification of these tasks or high predictive confidence. Additionally, we noted that datasets with more labels, such as Sentiment and Schem5Labels, demonstrate more variation in human judgment, particularly in subjective tasks like controversial content. Conversely, simpler datasets with fewer labels, like SBIC and GHC, display lesser human variation and greater alignment with the model, indicating more consistent annotations in less complex content. This pattern highlights that the model's performance and concordance with human annotations significantly depend on the task's complexity and subjective elements. On analyzing text instances with significant human annotation variation but no model variation (especially in cases where the human minority label is not the same as the model majority label), we find this an effective heuristic to unearth highly biased sentences. We note the presence of age, gender, political, and religion-based bias, which are indications of the under-representation of minorities or complexities in training data. We also observe that in datasets like SBIC and GHC, the ``label flipping'' phenomenon is commonly observed - this involves  would flip the label from the original human annotation to the original model annotation, showing that there is not much difference in the labels  a.  this could be because of 7
+%------------------------------------------------------------
+\subsection{Mitigating Biases from LLM Generated Task Labels}\label{sec:task-mitigation}
+% Majority voting and averaging, which are standard methods for deriving single ground truth labels from multiple annotations, often fail to capture the systematic disagreements among annotators. This is especially the case in subjective tasks like detecting sentiment, aggression, and hate speech. (Moved to beginning so we can jump straight to the point - anonymous)
+
+Preserving disagreement in annotations may help LLMs more accurately mirror human annotations, and there are many approaches to modeling or preserving this difference. \citeauthor{lee2023large} recently explored Monte Carlo Estimation (MCE) and Log Probability Estimation (LPE) as ways to find the distributional difference between human and LLM task labels. Other methods include using Bayesian methods \cite{paun2018comparing}, integrating disagreements into loss functions \cite{plank2014learning}, and modeling several annotators’ labels as multiple tasks \cite{davani2022dealing}. 
+
+The increase in artificial data induces a rising need for validation using human datasets \cite{pangakis2023automated}. Several studies testing LLMs on widely used datasets potentially suffer from data contamination, where LLMs may memorize information, leading to misleadingly strong performance that may not extend to new datasets and tasks, highlighting the need for clear guidelines to ensure effective and accurate use of these tools. \anonymous{citations needed}  plus 21st  and 2023  and 2023  and 2023. 
+
+
+% %---------------
+\begin{table*}[ht]
+\centering
+\small
+\begin{tabular}{l l l l}
+\toprule
+\textbf{Details} & \textbf{Justification} & \textbf{Metrics} \\
+\midrule
+\includegraphics[scale=0.01]{images/icons/older-person-emoji-clipart-md.png} {Age} & Biased towards younger generations. & [age, emoji, clipart]  \\
+\includegraphics[scale=0.01]{images/icons/older-person-emoji-clipart-md.png} {Gender} & Biased towards male generations. & [gender, emoji, clipart]  \\
+\includegraphics[scale=0.01]{images/icons/older-person-emoji-clipart-md.png} {Race/Religion Bias} & Biased towards white generations. & [race, religion, emoji, clipart]  \\
+\includegraphics[scale=0.01]{images/icons/folded-hands.png} {Religion} & Biased towards majority religions. & [religion, emoji, clipart]  \\
+\includegraphics[scale=0.01]{images/icons/folded-hands.png} {Politics} & Biased towards majority political ideologies. & [politics, emoji, clipart]  \\
+\includegraphics[scale=0.01]{images/icons/restroom.png} {Sex} & Biased towards male sexuality. & [sex, emoji, clipart]  \\
+\includegraphics[scale=0.01]{images/icons/restroom.png} {Age} & Biased towards younger generations. & [age,

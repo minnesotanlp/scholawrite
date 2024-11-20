@@ -1,0 +1,11 @@
+certifis  a  a  a  a  a  a  a  a  a  a  \\
+\quad Positive-Formal & 0.589 & - & - & 0.783 & - & - & 0.602 & - & - & 0.945 & - & -  & - & - & - & -\\
+\quad Positive-Informal & 0.589 & - & - & 0.783 & - & - & 0.588 & - & - & 0.618 & - & - & 0.965 & - & - & -\\
+\quad Negative-Formal & 0.411 & - & - & 0.641 & - & - & 0.472 & - & - & 0.528 & - & - & 0.618 & - & - & -\\
+\quad Negative-Informal & 0.411 & - & - & 0.659 & - & - & 0.436 & - & - & 0.472 & - & - & 0.528 & - & - & -\\
+\bottomrule
+\end{tabular}
+\caption{Automatic target style accuracy evaluation of 1- and 2-style models for RL and PPLM. (\textbf{Both} indicates the portion of generations containing both the target sentiment \textit{and} formality.) Compare style frequencies to those in the base Llama2 generations to see the effect of the other two approaches.}
+
+\label{tab:precision_base-rl-pplm}
+\end{table*}

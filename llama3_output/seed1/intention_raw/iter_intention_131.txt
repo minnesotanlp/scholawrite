@@ -1,0 +1,37 @@
+\centering
+   \includegraphics[width=\linewidth]{figures/edge_rep_updated.pdf}
+   \caption{ We compare the edge representation type (x-axis) with the value of the mean metrics (y-axis). The desired trend is given in brackets for each metric. The highest performing edge representation is the ``adjacency list'' representation, which shows the adjacency of nodes with their label values.}
+   \label{fig:fig4}
+\end{figure}
+% %---------------------------------------------------------------
+
+% \begin{figure}[ht!]
+%   \centering
+%   \includegraphics[width = \linewidth,trim={7.2cm 1.4cm 9.9cm 2.6cm},clip]{figures/edge_rep_updated.pdf}
+%   \caption{We compare the edge representation type (x-axis) with the value of the mean metrics (y-axis). The desired trend is given in brackets for each metric. The highest performing edge representation is the ``adjacency list'' representation, which shows the adjacency of nodes with their label values.}
+%   \label{fig:fig4}
+% \end{figure}
+
+% %---------------------------------------------------------------
+
+% \begin{table*}[ht]
+% \centering
+% \begin{tabular}{l|lll}
+% \toprule
+% \multicolumn{1}{c}{\textbf{Metrics}} & \textbf{CORA} & \textbf{Citeseer} & \textbf{Pubmed} \\
+% \midrule
+% \textbf{Accuracy} & 0.6725 & 0.7584 & 0.6985 \\
+% \textbf{Inaccuracy} & 0.3325 & 0.164 & 0.2465 \\
+% \textbf{Failure} & 0.3125 & 0.98 & 0.3695 \\
+% \textbf{Token Limit Fraction} & 0.6725 & 0.7584 & 0.6985 \\
+% \bottomrule
+% \end{tabular}
+% \caption{Metrics}
+% \label{tab:results}
+% \end{table*}
+
+% %--------------------------------------------------
+% \begin{figure}[ht!]
+%   \centering
+%   \includegraphics[width = \linewidth,trim={7.2cm 1.4cm 9.9cm 2.6cm},clip]{figures/edge_rep_updated.pdf}
+%   \caption{ We compare the edge representation type (x-axis) with the value of the mean metrics (y-axis). The desired trend is given in brackets for each metric. The highest performing edge representation is the ``adjacency list'' representation, which shows the adjacency of nodes with their label values.}

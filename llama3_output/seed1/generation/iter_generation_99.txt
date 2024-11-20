@@ -1,0 +1,25 @@
+phạt 3-6 months \\\hline
+         \textbf{Mid-range} & 6-12 months & 12-18 months & 0.5-1.0\\
+         \hline
+         \textbf{Hard} & 3-6 months & 1-3 years & 1.0-2.0\\
+         \hline
+         \textbf{Easy} & 6-12 months & 0.5-1.0 & 2.0-4.0\\
+     \end{tabular}
+    \caption{Time horizon for analysis of discourse motifs. The three categories (easy, mid-range, hard) are based on the time it takes to process the graphs.}
+    \label{tab:time_horizon}
+\end{table}
+
+
+
+\section{Overall Discussion}
+\label{sec:sec9}
+\anonymous{anonymous : these methods below are not explicitly defined anywhere, do you think its necessary or self explanatory? how about adding as part of comment in Fig 16}
+Figure \ref{fig:figure2} demonstrates the variety of techniques applied for stress testing artificial data, as detailed in earlier sections, while Table \ref{tab:stress_testing_overview} provides an overview of the methodologies employed for each data type. Notably, approaches like \textit{distributional difference} prove effective for contrasting almost all categories of LLM-generated data with human-generated data. Methods such as \textit{label flipping} and \textit{correlation analysis} are widely utilized across numerous data types. Except for Simulation data, which is still in the nascent stages of exploration and requires more first-order analysis, second-order effect analysis is conducted for all data types.
+
+\subsection{Main findings}
+%\noindent \textbf{
+\begin{itemize}[noitemsep,topsep=5pt,leftmargin=*]
+\item We find several cases in which artificial data diverges from human data. The divergence often stems from LLMs having only a superficial or shallow understanding of the task. For instance, LLMs consistently overrepresent the majority opinion in subjective datasets, even in datasets that typically exhibit strong human disagreement. LLMs also do not vary their responses appropriately across different subjective datasets; for example, LLMs do not respond to stylistic variations in sentences as humans do. LLMs generating text for certain contexts apply textual styles unnaturally, and often simplistically: for instance, when writing `positive Tweets,' LLMs overwhelmingly employ \textit{joy} when in actually, only a small fraction of the example positive Tweets in the LLM prompt exhibit joy. LLMs also do not match humans in terms of how they combine styles when creating text. 
+\item LLMs, when tasked with generating text for specific contexts, tend to apply textual styles unnaturally and simplistically, as well as exhibit only superficial variations in  a. For example, LLMs making `positive Tweets' apply \textit{joy} when in actually, the positive Tweets in the LLM prompt and human examples show only a small fraction of the examples in the LLM prompt exhibit joy. LLMs also do not match humans in terms of how they combine styles when creating text. 
+\item We find that LLMs also employ a superficial understanding of preference tasks. For instance, LLMs deciding which sentence has a stronger positive sentiment make decisions that are strongly correlated with the relative number of standalone positive tokens in each sentence -- in contrast to humans, who show only a small correlation and presumably base their preference decision on other factors. 
+\item LLMs generating text in social contexts often have a tone and application of style that is unnatural, and LLMs do not vary discourse patterns across different domains as humans do. For instance, LLMs deciding which sentence has a stronger positive sentiment make decisions that are strongly correlated with the relative number of standalone positive tokens in each sentence. In contrast, humans exhibit only a small correlation and appear to consider several additional factors.

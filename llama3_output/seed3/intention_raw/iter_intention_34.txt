@@ -1,0 +1,11 @@
+-selection of the texts to be used in the comparison - is it because of their relevance to the field or because of other factors? 
+Is using LLMs to draft paper sections really the best use of them?
+Discuss challenges in evaluating drafted sections. How to compare a ground truth with another section? Rouge scores are insufficient. There could be dozens of appropriate related work sections, based on how the user chooses to group citations. 
+\rubric{Thesis Statement: }
+\rubric{Contributions: }Our contributions are as follows:
+\begin{itemize}
+    \item We present \system, an AI-assisted tool for organizing citations and composing Related Work sections;
+    \item We provide an evaluation framework that compares AI-generated text to human-written text in terms of diversity and consistency; and
+    \item We Contribute to the ongoing discourse on the role of LLMs in academic writing, highlighting the potential benefits and pitfalls of their use.
+\end{itemize}
+\rubric{Roadmap: }

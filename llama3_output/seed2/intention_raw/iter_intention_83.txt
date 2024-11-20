@@ -1,0 +1,20 @@
+Qualified as a reward model, ChatGPT shows some capability in handling graph data, but there is notably a gap in understanding graph-structured information and how to effectively interact with it. Understanding graph data is crucial for AGI (large language models) since most practical spiders are dealt with graph-structured data \cite{pan2023unifying}. 
+
+\textbf{Why graphs over text?}
+
+\textbf{Why graphs + LLMS ?}
+
+\textbf{Graph data challenges with LLMS}
+LLM can not directly handle graph data, as graph data are unorganized and complex. Secondly, there is a wide range of graph-related tasks; designing a comprehensive suite of tasks and datasets for LLMs to learn on is difficult. 
+
+\textbf{General gaps in doing reasoning tasks on graphs }
+- how to convert graph to text encoding / encoding suitable for LLM
+ - limited context window
+ - graph structure (network complexity ;  real-world graph not considered)
+ - nature of sampling method
+ - no of hops considered
+ - black box models 
+ - choice of task - changes results 
+
+
+\textbf{How we have been motivated by previous work}

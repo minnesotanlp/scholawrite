@@ -1,0 +1,20 @@
+upert
+% \section{Limitations}
+% \anonymous{anonymous, Please describe the limitations of our study in terms of depth and breadth. Also, mention technical limitations and other assumptions you made.}
+% \anonymous{Also, please move all limitations to this section. This was a big enough section to warrant a separate naming.}
+% \anonymous{Please use the terms "technical limitations" and "broad/ general limitations" to describe the sections below this one.}
+% \anonymous{Also, please make this explicit to make it clear to the reader that these are limitations we found in our own work and that you put them in this section to serve as a warning and a limitation of your own findings, rather than a comprehensive limitation of all kinds.} 
+%\anonymous{IMO, anonymous should be replaced with a more human name, like " anonymous" or "Original Author", but I don't think this is necessary. Anonymous is fine.} \anonymous{I think "anonymous" sounds a little defensive, but what's wrong with it? It's a common enough name for an AI "author" that in most contexts, it will be fine. - anonymous} 
+%\anonymous{Add the "this" would be better without it" consideration to the limitations section.} 
+% \anonymous{Add the "the reader might be confused about X being a limitation" consideration to the limitations section.}
+% \anonymous{Add the "the reader might be confused about X being a limitation to this field" consideration to the limitations section.}
+%\anonymous{Add the "the reader might be confused about X being a limitation to this field, but it could be a benefit" consideration to the limitations section.}
+%\anonymous{Add the "the reader might be confused about X being a limitation to this field, but it could be a benefit to use it under certain circumstances" consideration to the limitations section.}
+%\anonymous{Add the "the reader might be confused about X being a limitation to this field, but it could be an advantage" consideration to the limitations section.}
+%\anonymous{Add the "the reader might be confused about X being a limitation to this field, but it could be a benefit to use it under certain circumstances" consideration to the limitations section.}
+%\anonymous{Add the "the reader might be confused about X being a limitation to this field, but it could be a benefit to use it under certain circumstances" consideration to the limitations section.}
+%\anonymous{Add the "the reader might be confused about X being a limitation to this field, but it could be a benefit to use it under certain circumstances" consideration to the limitations section.}
+%\anonymous{Add the "the reader might be confused about X being a limitation to this field, but it could be a benefit to use it under certain circumstances" consideration to the limitations section.}
+
+\section{Limitations}
+\anonymous{anonymous, Please describe the limitations of our study in terms of depth and breadth. Also, mention technical limitations and other assumptions you made.}

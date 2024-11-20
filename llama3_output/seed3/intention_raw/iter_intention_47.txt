@@ -1,0 +1,31 @@
+,egs  2-style models, we keep the sentiment and formality dimensions in the 1-style models and add a third dimension, in order to better understand how the third style affects the performance of the models. We also consider that the 1-style models have the highest performance, so we only use them for the 2-style models.
+% \anonymous{TODO: reupload this with titles}}
+% \begin{figure}
+%   \centering
+% \includegraphics[width = \linewidth]{images/pref_eval/p2c_lexicon_corr.pdf}
+%   \caption{Pearson Correlation between lexicon-based and each of GPT-3 and human preferences across three setups – (1) entire dataset, (2) Top 10\%, and (3) Bottom 10\%. Notably, the 'Top 10\%' setup shows a significantly higher correlation between lexicon-based and GPT-3 preferences, compared to human preferences, highlighting distinct preference patterns. All p-values are below 0.001. }
+%   \label{fig:pref:p2c-lexicon-corr}
+% \end{figure}
+
+% \begin{figure}[ht!]
+%     \centering
+%     \includegraphics[width=\linewidth]{images/pref_eval/cobbler_pearson_max.pdf}
+%     \caption{Pearson Correlation between lexicon-based and each of GPT-4, ChatGPT, and human preferences across three setups – (1) entire dataset, (2) Top 10\%, and (3) Bottom 10\%. Notably, the 'Top 10\%' setup shows a significantly higher correlation between lexicon-based and GPT-3 preferences, compared to human preferences, highlighting distinct preference patterns. All p-values are below 0.001. }
+%     \label{fig:pref:p2c-lexicon-corr}
+% \end{figure}
+
+% \begin{figure}[ht!]
+%     \centering
+%     \includegraphics[width=\linewidth]{images/pref_eval/p2c_lexicon_matching.pdf}
+%     \caption{Matching Percentages Across Various Setups: The bar chart depicts the matching percentages between lexicon and GPT-3/Human/ChatGPT preferences. The comparison spans Previous, Top 10\%, and Bottom 10\% setups. It reveals a notably higher matching percentage with GPT-3 in the Top 10\% setup.}
+%     \label{fig:pref:p2c-lexicon-matching}
+% \end{figure}
+
+% \anonymous{cobbler}
+
+%--------------------------------------
+\subsection{Second Order Effects}\label{sec:preference-second}
+
+\paragraph{Hypothesis} We examine if there is a discrepancy in the distribution between human and LLM preferences augmented by training a language model classifier on each human and LLM preference, which may cause a misalignment between them. 
+
+\paragraph{Experiment Setup} We train RoBERTa \cite{liu2019roberta} on each of the human or machine evaluations from two different preference datasets, as a reward model. We first train four different reward models from each of the above datasets and then run on machine and human preferences. For each training session, we run RoBERTa-base models for 5 epochs with AdamW optimizer of learning rate $1e-4$.

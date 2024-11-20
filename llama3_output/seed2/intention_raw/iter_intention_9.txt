@@ -1,0 +1,14 @@
+And this is why we need another style: irony. 
+I'm not ironic. I really is not ironic. It's a metal. 
+You know what's not ironic? Nothing. 
+I don’t know what to say, I don’t know what to do. 
+I don’t know, I don’t know.  \\ \hline
+Ugh. Our Pho looks so bad. I don’t know how to say this, but, it does  \\\hline
+\end{tabular}
+\caption{Over-optimized models outputs often repeat the same phrases (in this case, ``I don't know'') that maximize the outputs of both discriminators. Our goal is to find a reward formulation that allows for high rewards without such divergence from the base language model.}
+\label{tab:reward_hacks}
+\end{table}
+
+
+\subsection{Combinations of Two Styles}\label{sec:two_style}
+We first fine-tune RL models for all four possible combinations of sentiment and formality. We choose these two styles since their respective discriminators have the

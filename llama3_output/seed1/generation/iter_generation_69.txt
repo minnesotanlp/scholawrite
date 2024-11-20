@@ -1,0 +1,81 @@
+Facial features: A combination of local and global features, such as the facial structure and the overall appearance, has been found to be a good indicator of a person's age, with senior people having more facial hair and younger people having more facial skin. However, these features are difficult to extract from a picture and require sophisticated methods to extract them. 
+
+\textbf{Task}: Node Label Prediction (Predicting the label of the red node marked with a?, given the \textbf{graph structure information in the image}). The node is part of two cycles in this graph; one is the set of red nodes and the other is the set of blue nodes. From the image, we can see that the red node is connected to a blue node (label 0) in the cycle of red nodes and is also connected to a blue node (label 0) in the cycle of blue nodes. Based on this information, it is reasonable to predict that the label of the red node is 0. \textit{Label of Node = 0} & \textit{Label of Node = 0} & \textit{Label of Node = 0} \\
+\hline
+\textbf{No of cliques $<3$} & Node to Label Mapping : 
+Node 1889: Label 4 |... Node 1893: Label?|...\textit{Graph motif information: Number of cliques in graph: 0| $?$ Node is a part of these cliques: []|} & \textit{Label of Node = 3}  & \textit{Label of Node = 3} \\
+\hline
+\textbf{No of cliques $\geq$ 3} & Node to Label Mapping : 
+Node 1889: Label 4 |... Node 1893: Label?|... \textit{Graph motif information: Number of cliques in graph: 1| $?$ Node is a part of these cliques: [3,4,3]|} & \textit{Label of Node = 3}  & \textit{Label of Node = 3} \\
+\hline
+\end{tabular}
+\caption{The table shows the responses of GPT-4 and GPT-4-V with the text modality, text+image modality and image modality. We can see that on combining modalities, the label originally classified as -1 is correctly classified, or original misclassification is rectified. }
+\label{tab:qual}
+\end{table*}
+%----
+
+
+
+
+\section{GNN Baseline Information}
+\label{sec:A}
+%---------------------------------------------------
+\begin{table*}[h!]
+\centering
+\begin{tabular}{p{1.5 cm}|p{1.5cm}|ccc}
+\toprule
+& \textbf{Model} & \textbf{Cora} & \textbf{Citeseer} & \textbf{Pubmed} \\
+\midrule
+\textbf{N = 6} & \textbf{Classes} & 3 & 6 & 3 \\
+\midrule
+\textbf{Adjacency List} & \textbf{X} & \textbf{X} & \textbf{X} & \textbf{X} \\
+\midrule
+\textbf{Shape} & \textbf{Node} & \textbf{Node} & \textbf{Node} & \textbf{Node} \\
+\midrule
+\textbf{S} & \textbf{Adjacency List} & \textbf{Adjacency List} & \textbf{Adjacency List} & \textbf{Adjacency List} \\
+\bottomrule
+\end{tabular}
+\caption{Graph Properties 1: Number of nodes in the graph. }
+\label{tab:graph_properties}
+\end{table*}
+%---------------------------------------------------
+\section{Text Modality Setup}
+\label{sec:2}
+%---------------------------------------------------
+\begin{figure}[ht!]
+    \centering
+        \centering
+        \includegraphics[width=\linewidth]{figures/modality.pdf}
+        \caption{We compare the motif information (x-axis) to the mean metrics (y-axis). Desired trends are denoted in brackets. Metrics considered are Accuracy Rate (A $\uparrow$), Mismatch Rate (M $\downarrow$), and Denial Rate (D $\downarrow$). The highest performing motif information change ``triangle and star attached to $?$'' has higher accuracy and lower mismatch and denial rate.}
+        \label{fig:fig6}
+\end{figure}
+%--------------------------------------------------
+
+%---------------------------------------------------------------
+\subsection {Text Modality}
+\noindent \textbf{Token limits for each modality}
+Due to their architecture, transformer-based models like GPT-3 and GPT-4 have a fixed-size attention window. This determines how many tokens the model can ``remember'' or pay attention to at once. This limit also manages the computational cost of running the model and the model's performance. The token limit constraint for GPT-4 is 8192 tokens, while for GPT-4V(vision), the limit is claimed to be 128000 tokens, but currently, only the preview version has been released, and the actual limit is 10000 tokens. 
+
+
+\noindent \textbf{Rate limits for each LLM}
+The rate limit for GPT-4 is 10K RPM (requests per minute), and for GPT-4V, the rate limit is 100 RPD (requests per day). 
+
+\noindent \textbf{Modality Experiment Parameters}
+For all modality types, we sample 50 graphs for all datasets, the number of hops considered = 3, no of runs = 2, and perform ego graph and forest fire sampling. We report the mean and standard deviation directly or through error bars in the visualization for all metrics. In the paper, we report the results from ego graph sampling because node classification typically requires a localized view of the network, which ego graph sampling provides. %With Image Modality Experiments, we sample 50 ego-graphs and no of runs = 2, as rate limitations constrain us. 
+
+
+\subsection {Text Modality Setup}
+\anonymous {anonymous : }
+\anonymous {anonymous : }
+\anonymous {anonymous : }
+\anonymous {anonymous : }
+
+\section{Image Modality Setup}
+\label{sec:3}
+\begin{figure*}[ht!]
+    \centering
+    \includegraphics[width=\textwidth]{figures/modality.pdf}
+    \caption{We compare the motif information (x-axis) to the mean metrics (y-axis). Desired trends are denoted in brackets. Metrics considered are Accuracy Rate (A $\uparrow$), Mismatch Rate (M $\downarrow$), and Denial Rate (D $\downarrow$). The highest performing motif information change ``triangle and star attached to $?$'' has higher accuracy and lower mismatch and denial rate.}
+    \label{fig:fig6}
+\end{figure*}
+%---------------------------------------------------------------

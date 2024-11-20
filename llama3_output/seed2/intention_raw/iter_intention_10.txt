@@ -1,0 +1,8 @@
++WIP 
+% \begin{figure}
+%     \centering
+%     \includegraphics[trim={0cm 0 4.5cm 0},clip,width=0.45\textwidth]{Images/bar_formal.pdf}
+%     \includegraphics[trim={0cm 0 4.5cm 0},clip,width=0.45\textwidth]{Images/bar_positive.pdf}
+%     \caption{Percentages of generations classified as positive (top) or formal (bottom) for each trained model.}
+%     \label{fig:single-style}
+% \end{figure}

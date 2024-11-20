@@ -1,0 +1,37 @@
+F1 score & 0.90              & 0.90             & 0.78                  & 0.53                       & 0.80       \\\hline
+F1 score & 0.90             & 0.72              & 0.78                  & 0.53                       & 0.80       \\\hline
+\end{tabular}
+\caption{We train discriminators on each of the above attributes (columns). The datasets and labels used in the training process are listed, along with the resulting F1 scores on the test set.}
+\label{table:discrims}
+\end{table*}
+
+\subsection{Reinforcement Learning}
+We fine-tune a language model using reinforcement learning, where a linear combination of the output from attribute discriminators is a reward. In training, we use the TRL library's implementation of the proximal policy optimization (PPO) algorithm for fine-tuning language models. Due to computational constraints, we also use the parameter efficient fine tuning (PEFT, \citet{peft}) library's implementation of low rank adapters (LoRA, \citet{hu2022lora}) to fine tune LLaMA.
+
+We explore multiple approaches to calculate a reward $R$ for a generation $x$ by combining output from the attribute discriminators $d_1, d_2,... d_n$:
+\begin{itemize}
+    \item $R = \sum_{i = 0}^n \frac{1}{n} d_i(x)$ where we take the logits of the target class from the discriminator output
+    \item $R = \sum_{i = 0}^n \frac{1}{n} \text{softmax}(d_i(x))$ where we take the softmax values of the target class from the discriminator output
+    \item $R = w_1d_1(x') + w_2d_2(x')$. The scalar weights $w_1, w_2$ are $\frac{1}{n}$ or $0$ if $d$ is positive $d(x') < d(x)$. The intuition is that if the model is not improving on the baseline generation, we do not want to learn an associated reward.
+    \item $R = \sum_{i = 0}^n \frac{1}{n} w_i$ where $w_i$ is 1 if the $d_i$ classifies $x$ as belonging to the target class and -1 otherwise. 
+\end{itemize}
+
+We find that the first formulation results in models that learn to maximize the reward function well, but often learn repetitive strategies to do this (see examples in Table~\ref{tab:reward_hacks}). This issue was alleviated by our last reward formulation, which does not take specific outputs from the discriminator into account. We hypothesize that this may be due to the confidence calibration problem in our discriminators.
+
+\begin{table}
+\centering
+\begin{tabular}{|p{0.3\columnwidth}|p{0.6\columnwidth}|}
+\hline
+Prompt & Negative + Informal Generation  \\ \hline
+You have no affinity & for this community. I don’t know what to say, I don’t know what to do.  \\ \hline
+Violent, vulgar, and obscene & ly disrespectful. I’m just going to list the stuff, you know, for the people who are… I don’t know, I don’t work on it.  \\ \hline
+Ugh. Our Pho   & looks so bad. I don’t know how to say this, but, it does  \\\hline
+\end{tabular}
+\caption{Some reward formulations result in models that repeat the same phrases in order to get high scores from the discriminators.}
+\label{tab:reward_hacks}
+\end{table}
+
+\subsection*{Plug and Play}
+In our implementation of plug and play, we write the language model $p(x)$ more verbosely as $p(x|c)$, where $x$ is a probability distribution for the next token over the vocabulary and $c$ is the preceding context. We write the $n$ attributes and their respective discriminators as $a_i$ and $d_i$, where $1 \leq i \leq n)$ and $A_i$ is a random variable representing the $i^{th}$ attribute. The gradient from the loss of the discriminator is applied to the language model's hidden state before generating the next token. We denote this as $p(x' | a_i, c)$ where $x'$ has been influenced by step(s) in the latent space in the direction of the gradient of $p(a_i|c)$. 
+
+Since we expand PPLM to control for $n$ attributes, we need to estimate $p(x | a_1, a_2...a_n, c)$. One challenge is that if the attributes are not independent, it is impossible to estimate the probability without having some knowledge of the joint distribution of the two attributes.

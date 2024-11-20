@@ -1,0 +1,23 @@
+IRequest for a more in-depth study of the artifacts in LLM-generated data, particularly in the context of graph-structured data, which is important for social science research. (1) LLMs have demonstrated some success in handling graph-structured data, which have been used to build complex relationships and patterns. (2) However, little work has been done to understand the nature of LLM-generated graph data. 
+Our opinion is that understanding the nature of LLM-generated graph data is urgent, given both the recent outpouring of its usage and the likelihood that this trend continues to grow. Without a robust understanding of LLM-generated graph data, it is difficult to thoroughly interpret results that rely on its usage, which could hinder progress in the field.
+
+\textbf{Our main contributions}, rather than merely reporting our experimental results, are:
+\begin{itemize}[noitemsep]
+    \item We propose a novel approach to creating LLM-generated graph datasets, which we term "graph zooming." We propose that instead of generating the entire graph, we generate a subgraph that is larger than a single node but smaller than the entire graph. This method is a good way to build a diverse and complex graph dataset. 
+    \item We also create a decision boundary between the "presence" of the edge information and the "notch" effect, which seems to be an important factor for the graph structure. 
+    \item We also investigate the impact of graph structure on LLM prompting, and the effective node classification tasks on the text and image modalities.
+\end{itemize}
+
+\textbf{Our main contributions} are:
+\begin{itemize}[noitemsep]
+    \item  Our main contributions are:
+    \item  Our main contributions are:
+    \item 
+\end{itemize}
+
+We believe that these contributions will be important in the 
+
+% \textbf{graph structure : } no of hops
+% \textbf{no of hops}
+% \textbf{no of hops}
+% %---------------------------------------------------------------

@@ -1,0 +1,72 @@
+begin{table*}[!h]
+  \includegraphics[width=\textwidth]{figures/grounded_examples_five_domains.pdf}
+  \caption{Grounded examples of texts for some prevalent motifs. Exact shapes of the motifs can be found in Fig. \ref{fig:all_motifs_three}.}
+  \label{tab:grounded_examples_all}
+\end{table*}
+
+\section{Additional Experiment: Branched vs. Chain-Like Structures}\label{sec:app:branch_vs_chain}
+In this experiment, we differentiate texts by domain and assume that the formality of texts is consistent within the domain. We can then look at the varying levels of graph structures per domain. As illustrated in the Introduction (\S\ref{sec:introduction}), we assume that the linguistic structure of discourse can change depending on factors such as formality, spontaneity, and depth of reasoning in the texts. 
+
+\begin{figure}[ht!]
+  \centering
+  % % trim={left bottom right top},clip
+  \includegraphics[width=0.5\columnwidth]{figures/branch_vs_chainlike_structure.pdf}
+  \caption{Illustration of document graph structures with different discourse hierarchies. For simplicity, the horizontal edge linking two child nodes is omitted.}
+  \label{fig:branch_vs_chain}
+\end{figure}
+
+One possible dimension of characterizing this difference in structures is by checking whether the structures are evenly branched or follow a more sequential pattern as illustrated in Figure \ref{fig:branch_vs_chain}.
+
+To quantify this notion, we calculate the average shortest path length (ASPL) of a document graph. For linear or chain-like graphs, the ASPL tends to be relatively short, as nodes are connected in a linear fashion. In contrast, more spread-out graphs will likely have a longer ASPL due to increased distances between nodes. Another closely related metric is the diameter of a graph which is the longest shortest path between any two nodes in the graph. However, as human-written and machine-generated texts are not necessarily paired and could vary a lot in length, we opt for ASPL.
+
+\begin{figure}[!h]
+\centering
+% <left> <lower> <right> <upper>
+{\includegraphics[width=0.5\columnwidth, trim={0.3cm 0.5cm 0.3cm 0.2cm},clip]{figures/avg_shortest_path_len_per_domain.pdf}}
+\caption{Average shortest path lengths per domain for document graphs. We }
+\label{fig:shortest_path_len}
+\end{figure}
+
+% Figure \ref{fig:shortest_path_len} depicts the bar plots of ASPL of the two groups over five domains. \anonymous{re-interpret results.}
+We can observe that the news summarization task (\textsc{xsum}) produces texts with the longest ASPL for both groups.
+Human-written texts tend to produce longer ASPL for \textsc{wp}, \textsc{cmv}, and \textsc{yelp} domains. We note that Joint relations are the most prevalent discourse relation on human-side 
+
+
+
+While the ASPL for the other four domains is relatively consistent for machine-written texts, human-written texts show another two levels of change in ASPL. Specifically, both news summarization (\textsc{xsum}) and argument writing tasks (\textsc{cmv}) produce ASPL of length 7, followed by review writing (\textsc{yelp}) and table description writing (\textsc{sci\_gen}). This finding shows that human writers are more versatile in arranging linguistic structures of discourse depending on the (nature of) domains.
+
+\newpage
+\section{Difference Distributions Computed by Motif Frequency vs. MF-IDF Scores}
+
+Figure \ref{fig:difference_dists_two_ways} presents two bar plots, illustrating (a) motif frequency and (b) MF-IDF scores of motifs across three domains. Notably, due to the IDF scaling, the latter plot exhibits a slightly less skewed pattern compared to the former plot.
+
+\begin{figure*}[!h]
+\centering
+\begin{tabular}{c}
+   {\includegraphics[width=\textwidth]{figures/motif_diff_dist-norm_by_edges.pdf}}  \\
+     (a) Difference distribution of motifs computed by using their motif frequencies.\\
+     \includegraphics[width=\textwidth]{figures/motif_mfidf_scores_difference.pdf}  \\
+     (b) Difference distribution of motifs computed by using their MF-IDF scores.
+\end{tabular}
+\caption{Two ways of computing the difference distributions.}
+\label{fig:difference_dists_two_ways}
+\end{figure*}
+
+\newpage
+\section{Large-Scale Difference Distributions}\label{sec:app:more_diff_dists}
+Figure \ref{fig:large_motifs_dists} displays two bar plots for single- and double-motifs, depicting MF-IDF difference distributions. Triple-triads are excluded due to label clutter.
+
+\begin{figure*}[!ht]
+\centering
+\begin{tabular}{c}
+   {\includegraphics[width=0.9\textwidth]{figures/motif_m3_mf_scores_difference_for_motif_m3_large.pdf}}  \\
+     (a) Single-triads.\\
+     \includegraphics[width=0.9\textwidth]{figures/motif_m6_mf_scores_difference_for_motif_m6_large.pdf}  \\
+     (b) Double-triads.
+\end{tabular}
+\caption{MF-IDF difference distributions of single- and double-triad motifs. To improve readability, the hyperedge relations have been excluded.}
+\label{fig:large_motifs_dists}
+\end{figure*}
+
+\newpage
+\section{All Single-Triad Motifs}\label{sec:app:more

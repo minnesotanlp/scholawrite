@@ -1,0 +1,2 @@
+\\textbf{N = 20} & & & & & \\
+% \includegraphics[scale=0.03]{images/icons/rainbow.png} {It's bad to fire a daughter-in-law from a job} & [3, 2, 2, 3, 2, 3, 2, 3, 2, 3]  & [1, 1, 1, 1, 1, 1, 1, 1, 1, 1] \\ \%female bias in preferences for [1

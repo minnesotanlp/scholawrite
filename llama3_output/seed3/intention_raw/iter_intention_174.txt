@@ -1,0 +1,71 @@
+itsu
+\begin{figure}
+    \centering
+    \includegraphics[width=\columnwidth]{Images/approaches.png}
+    \caption{We explore several options for modifying basic combinations of discriminator outputs for formulating a multi-style reward. We find dynamic weighting is most effective.}
+    \label{fig:enter-label}
+\end{figure}
+\begin{table}
+\centering
+\begin{tabular}{p{0.2\columnwidth}p{0.4\columnwidth}p{0.4\columnwidth}}
+\hline
+\textbf{Reward Formulation} & \textbf{Text Instrumentation} & \textbf{Example Sentence}  \\ \hline
+\textbf{No of Classes} & & \\ \hline
+\textbf{Dynamic weighting} & \textbf{Softmax:} $R = \sum_{i = 0}^n \frac{1}{n} \texttt{softmax}(d_i(x))_{k_i}$ & $R = \sum_{i = 0}^n \frac{1}{n} \texttt{softmax}(d_1(x))_{k_1} + \texttt{softmax}(d_2(x))_{k_2}$  \\ \hline
+\textbf{GradWt} & \textbf{GradWt:} $R = \sum_{i = 0}^n \frac{1}{n} \texttt{grad\_norm}(d_i(x))_{k_i}$ & $R = \sum_{i = 0}^n \frac{1}{n} \texttt{grad\_norm}(d_1(x))_{k_1} + \texttt{grad\_norm}(d_2(x))_{k_2}$  \\ \hline
+\end{tabular}
+\caption{We compare the accuracy of two baseline formulations: \textbf{Softmax} and \textbf{GradWt-Softmax}  (G). \textit{Softmax is a standard reward formulation for RL. The GradWt term is a standard term in RL formulations of this sort.}
+\label{tab:reward_formulations}
+\end{table}
+
+
+\begin{table}
+\centering
+\begin{tabular}{p{0.25\columnwidth}p{0.7\columnwidth}}
+\hline
+\textbf{Src Dataset} & \textbf{Prompt}  \\ \hline
+SemEval 2017 & Its nice to stay \\ \hline
+TweetEval & @user aha but white \\ \hline
+Rotten Tomatoes & One of the most \\ \hline
+Wikipedia & Gorman Park (or Amelia \\ \hline
+\end{tabular}
+\caption{Example prompts used in our pipeline.}
+\label{tab:prompts}
+\end{table}
+
+
+\subsection{PPLM}
+We extend PPLM to respond to feedback from multiple discriminators. We take a backward step in the hidden state along the gradient for all of the attribute discriminators, $d_1,..., d_n$. Specifically, the gradient is for the loss function defined by $\sum_{i = 1}^{n}d_i(x) + \lambda KL(p(x) || p(x'))$. Our modification to PPLM is outlined in Figure~\ref{fig:pplm-pipe}.
+
+\begin{figure}
+    \centering
+    \includegraphics[width=\columnwidth]{Images/PPLM_out.png}
+    \caption{PPLM pipeline for multi-style generation.}
+    \label{fig:pplm-pipe}
+\end{figure}
+
+% \subsection{Plug and Play}
+% In our implementation of plug and play, we write the language model $p(x)$ more verbosely as $p(x|c)$, where $x$ is a probability distribution for the next token over the vocabulary and $c$ is the preceding context. We write the $n$ attributes and their respective discriminators as $a_i$ and $d_i$, where $1 \leq i \leq n)$ and $A_i$ is a random variable representing the $i^{th}$ attribute. The gradient from the loss of the discriminator is applied to the language model's hidden state before generating the next token. We denote this as $p(x' | a_i, c)$ where $x'$ has been influenced by step(s) in the latent space in the direction of the gradient of $p(a_i|c)$. 
+
+% Since we expand PPLM to control for $n$ attributes, we need to estimate $p(x | a_1, a_2...a_n, c)$. One challenge is that if the attributes are not independent, it is impossible to estimate the probability without having some knowledge of the joint distribution of the two attributes.
+
+% However, multilabel classifier are less straightforward to train than single attribute classifiers, and pre-trained multilabel models also less readily available. In the spirit of plug and play, which ideally can be done with no special fine tuning, we also build two options for multi-attribute plug and play with multiple single attribute discriminators:
+
+% \begin{itemize}
+%     \item Deep fusion: We take a backward step in the hidden state along the gradient for each of the attribute discriminators, $d_1$ and $d_2$. Specifically, the gradient is for the loss function defined by $d_1(x) + d_2(x) + \lambda KL(p(x) || p(x'))$.
+%     \item Shallow fusion: We perform post-norm addition of logits from each updated hidden state. Specifically, the model uses $d_1$ and $d_2$ separately to estimate $p(x'|a_1, c)$ and $p(x'|a_2, c)$, respectively. These distributions are then multiplied to approximate the joint prior in $p(x'|a_1, a_2, c)$. See \citep{DBLP:journals/corr/GulcehreFXCBLBS15, gulcehre2017integrating}. 
+% \end{itemize}
+fef
+            \item \textbf{Dynamic weighting}: $R = \sum_{i = 0}^n \frac{1}{n} w(1 - \texttt{softmax}(d_i(x))_{k_i})$ where $w = -\frac{\partial L_{CE}}{\partial d_i(x)}$.
+\end{itemize}
+\begin{table}[h]
+    \centering
+    \begin{tabular}{p{0.25\columnwidth}p{0.25\columnwidth}p{0.25\columnwidth}p{0.25\columnwidth}}
+         & \textbf{Sentiment}         & \textbf{Formality}        & \textbf{Irony}                 \\ \hline
+         & \textit{Positive}          & \textit{Positive}         & \textit{Positive}                 \\ \hline
+         & \textit{negative}         & \textit{formal}        & \textit{formal}                \\ \hline
+         & \textit{negative}         & \textit{informal}       & \textit{informal}               \\ \hline
+    \end{tabular}
+    \caption{Three-style models.}
+    \label{tab:three-style}
+\end{table}

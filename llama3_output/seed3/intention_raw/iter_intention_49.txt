@@ -1,0 +1,59 @@
+ĐỀu
+% \anonymous{anonymous, I encourage you to "clean up" the quotes so they fit well in the indicated space. Also, consider reordering the locations for better overall layout.}
+% \anonymous{I am not sure if I should make any changes to the figure or if they will disrupt the intended meaning. Do you think it would be bad to include some examples in the appendix like this?}
+% \anonymous{I suggest to move Figure 2 to the main text (Figure 2) and make it a two-layers layout, which would be more prominent. Also, make sure that all other figures are in the appendix and make it clear that these are “example figures” or “sample figures” or make it clear that they are not part of the main findings. }
+% \anonymous{In (b), I think it's better to remove the top part of the rectangle. This will make the figure more focused on the comparison between human and LLM text, which I think is the main message. Also, I think it's better to remove the "Original" and "Generation" texts from the top part of the figure, because they are not relevant to the figure.}
+% \anonymous{I like the way you have it written. Can you make a major revision right now and make it a 2-style figure, showing the overall distribution of the two styles in the four domains?}
+% \anonymous{Also, can you make this figure in two columns, showing one column of human texts and the other column of LLM texts. This will better show the comparison between human and LLM texts.}
+% \anonymous{I have a difficulty in making harmonious balance of styles within this figure. Could you please make a major revision and complete it, rather than making another revision with a very short notice?}
+% \anonymous{I like the 2x3 way of showing results. It seems to be a good combination of the two styles, showing some homogeneity in the style distribution and the variability between the two styles. One comment:  When showing the distribution of the two styles, can you make the horizontal axis somewhat non-linear (e.g., log scale) to highlight the two peaks more?}
+% \anonymous{I like the 2x3 way of showing results. Can you make changes to make it more uniform (e.g., making the figure larger, adding more examples of "tie" situation, making the text font size larger) to make it more believable?}
+% \anonymous{I like the 2x3 way of showing results. Can you make the second style dimension showing a more uniform distribution between 0 and 1, to make it more believable that there is a high number of generations containing both A and B?}
+
+\begin{figure*}[ht!]
+    \centering
+    \begin{minipage}{0.45\textwidth}
+        \centering
+        \includegraphics[width=\textwidth]{images/appendix_modality/citeseer_ego.pdf}
+        \caption{Citeseer with ego graph sampling}
+        \label{fig:citeseer_ego}
+    \end{minipage}
+    \hfill
+    \begin{minipage}{0.45\textwidth}
+        \centering
+        \includegraphics[width=\textwidth]{images/appendix_modality/citeseer_ff.pdf}
+        \caption{Citeseer with forest fire sampling}
+        \label{fig:citeseer_ff}
+    \end{minipage}
+    \hfill
+    \begin{minipage}{0.45\textwidth}
+        \centering
+        \includegraphics[width=\textwidth]{images/appendix_modality/cora_ff.pdf}
+        \caption{Cora with forest fire sampling}
+        \label{fig:cora_ff}
+    \end{minipage}
+    \hfill
+    \begin{minipage}{0.45\textwidth}
+        \centering
+        \includegraphics[width=\textwidth]{images/appendix_modality/pubmed_ff.pdf}
+        \caption{Pubmed with forest fire sampling}
+        \label{fig:pubmed_ff}
+    \end{minipage}
+    \caption{Modality}
+    \label{fig:fig8}
+\end{figure*}
+% %---------------------------------
+\subsection{Modality Specific Experiment Details}
+\noindent \textbf{Token limits for each modality}
+Due to their architecture, transformer-based models like GPT-3 and GPT-4 have a fixed-size attention window. This determines how many tokens the model can ``remember'' or pay attention to at once. This limit also manages the computational cost of running the model and the model's performance. The token limit constraint for GPT-4 is 8192 tokens, while for GPT-4V(vision), the limit is claimed to be 128000 tokens, but currently, only the preview version has been released, and the actual limit is 10000 tokens. 
+
+
+\noindent \textbf{Rate limits for each LLM}
+The rate limit for GPT-4 is 10K RPM (requests per minute), and for GPT-4V, the rate limit is 1000 RPD (requests per day). 
+
+\noindent \textbf{Modality Experiment Parameters}
+For all modality types, we sample 50 graphs for all datasets, the number of hops considered = 3, no of runs = 2, and perform ego graph and forest fire sampling. We report the mean and standard deviation directly or through error bars in the visualization for all metrics. In the paper, we report the results from ego graph sampling because node classification typically needs a localized view around specific nodes, best provided by ego graph sampling. %With Image Modality Experiments, we sample 50 ego-graphs and no of runs = 2, as rate limitations constrain us. 
+
+
+\subsubsection {Text Modality}
+Encoding graphs as text can be separated into two key parts: First, the mapping of nodes to their corresponding labels in the graph, and second, the encoding of edges between the nodes. We encode the node-to-label mapping as a dictionary of type \{node ID: node label\}. Finding a concise yet informative representation of the graph structure and edge representation is essential.

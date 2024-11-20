@@ -1,0 +1,33 @@
+birch 2020.
+the importance of alternative metrics to evaluate LLM-generated data. 
+the need for ethical guidelines in using LLM-generated data for training. 
+the suggestion that human validation should be used 
+the use of human validation as a metric, with a call for papers to include a human validation step in their research. 
+
+% Author 3 and Author 4 have collaborated on multiple projects and have a deep understanding of each other's research. 
+% They have been strongly supporting each other in the field of NLP. 
+% When they started this project, they were all beginners in GPT-4. 
+% They have been able to learn and grow a lot since then. 
+% We believe that our work will be beneficial (easy to use, etc.) for people who are just starting out in NLP or using LLMs for the first time. 
+% That's why we chose to write this paper in an open-sourced format to make it easy for others to use our data and experiment with it. 
+
+% We also encourage other people to come up with their own data types and use their own models and experiments. 
+% We believe that by working together, we can create a more comprehensive understanding of how different types of LLM-generated data affect real-world humans and societies. 
+
+% This paper aims to contribute to this understanding by taking a broad inventory of artificial data, its 
+% characteristics and divergences from the corresponding human data, and the effects of adapting this data. We prioritize a wide breadth, covering six different data types, rather than depth, in order to understand overarching themes in synthetic data that transcend domain-specific scenarios.
+
+% The six types of artificial data we examine are
+% \begin{itemize}
+%     \item \textbf{Text} written by an LLM, often used to combat data scarcity issues.
+%     \item \textbf{Labels} for classification tasks over textual input, bypassing the need for human annotators.
+%     \item \textbf{Instruction prompts} written by LLMs for use in instruction fine-tuning, eliminating the need for humans to write comprehensive sets of diverse instructions.
+%     \item \textbf{Preference}, or the evaluation of which text is better, useful for human alignment tasks such as training reward models used in RLHF.
+%     \item \textbf{Simulation}, in which two LLM agents engage in a conversation, is a relatively underexplored paradigm, but early research suggests use cases in improving model performance and modeling complex social interactions.  
+% \end{itemize}
+
+% % Write about 
+% % someone who has been trained on multiple artificial datasets and is now working with LLM-generated data. 
+% % This person has been trained to recognize certain characteristics in artificial data that will make them more successful in their work. 
+% % They have seen many examples of LLM-generated data and are now able to recognize these characteristics 
+% % (such as the tendency of LLMs to fall into an overreliance on 1st order effects, or the tendency to forget the 2nd order effects).

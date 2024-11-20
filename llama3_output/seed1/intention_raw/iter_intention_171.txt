@@ -1,0 +1,37 @@
+facial expressions and body language, which can convey a variety of emotions and intentions. In contrast, LLM-generated texts tend to follow a more standardized pattern. 
+
+
+This discovery is substantiated by the observation that machine-generated texts exhibit lower variability in high-level textual attributes (such as irony and metaphor) compared to their human-authored counterparts. This suggests that while machines can generate texts that align with the given social dimension labels, the resulting texts often show a significantly different spread of high-level textual attributes.
+
+
+Our findings indicate that the resulting texts from LLMs tend to be standardized and follow a more scripted way of thinking rather than being truly dynamic and unique like human-authored texts. 
+
+
+\begin{table}[ht!]
+\footnotesize
+\begin{tabularx}{\columnwidth}{XX}
+\rowcolor{Gray} \textbf{Human} (\textit{informal})  & \textbf{Machine} (\textit{formal})  \\ \midrule
+Ha, you just reminded me of one of my favorite childhood/Christmas-related memories.    & That anecdote has a long history, dating back to my childhood and the festive season. 
+\\ \midrule
+Guysss please sponsor me and give as much as you can.. I'm climbing Mount Snowdon in Feb! & Guess who's cycling 50 miles for environmental initiatives? That's right, me! Please consider sponsoring me! \\
+\bottomrule
+\end{tabularx}
+\caption{Paired texts in which the human text is labeled \textit{informal} and the paired machine text is labeled \textit{formal}.}
+\label{table:formality_qual}
+\end{table}
+
+
+% \begin{wrapfigure}[7]{R}[0.5cm]{2.8in}
+%   \centering
+%   \vspace{-10mm}
+% \includegraphics[width=\textwidth,height=\textheight,keepaspectratio,clip,trim=1cm 61cm 12cm 0 ]{images/free_text/interesting_motifs_m3.pdf}
+
+\subsubsection{Discourse analysis} 
+\begin{wrapfigure}[5]{r}[0.5cm]{2.8in}
+\begin{figure}
+  \centering
+  \includegraphics[width=\textwidth,height=\textheight,keepaspectratio]{images/free_text/three_interesting_m3_motifs_for_artifact_paper.pdf}
+  \caption{Example network motifs of size three.}
+  \label{fig:free_text/three_interesting_m3_motifs_for_artifact_paper}
+\end{figure}
+To perform the discourse analysis, we apply an existing discourse parser \citep{liu-etal-2021

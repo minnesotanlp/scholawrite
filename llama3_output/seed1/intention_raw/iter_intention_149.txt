@@ -1,0 +1,18 @@
+afc 0.783 & -1.0 & -1.0 & -1.0 & 0.69 & -1.0 & -1.0 \\
+% \midrule
+% 1-Style Models & & & & & & \\
+% \quad Positive & 0.783 & -1.0 & -1.0 & -1.0 & 0.69 & -1.0 & -1.0 \\
+% \quad Negative & 0.641 & -1.0 & -1.0 & -1.0 & 0.69 & -1.0 & -1.0 \\
+% \quad Formal & -1.0 & -1.0 & -1.0 & 0.69 & -1.0 & -1.0 & -1.0 \\
+% \quad Informal & -1.0 & -1.0 & -1.0 & 0.69 & -1.0 & -1.0 & -1.0\\
+% \midrule
+% 2-Style Models & & & & & &\\
+% \quad Pos-Formal  & 0.786 & -1.0 & -1.0 & -1.0 & 0.69 & -1.0 & -1.0 \\
+% \quad Pos-Informal & 0.759 & -1.0 & -1.0 & -1.0 & 0.69 & -1.0 & -1.0 \\
+% \quad Neg-Formal & 0.619 & -1.0 & -1.0 & -1.0 & 0.69 & -1.0 & -1.0 \\
+% \quad Neg-Informal & 0.598 & -1.0 & -1.0 & -1.0 & 0.69 & -1.0 & -1.0\\
+% \bottomrule
+% \end{tabular}
+% \caption{Automatic accuracy evaluation of 1- and 2-style models for RL and PPLM.}
+% \label{tab:precision_overall}
+% \end{table*}

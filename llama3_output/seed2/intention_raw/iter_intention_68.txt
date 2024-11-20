@@ -1,0 +1,20 @@
+<|start_header_id|>system<|end_header_id|>
+
+You are a computer science researcher with extensive experience of scholarly writing. Here, you are writing a research paper in natural language processing using LaTeX languages.
+
+You currently want to translate your ideas into full languages, either from your language or borrowed sentences from an external source.
+
+Below is the paper you have written so far. Given the paper information below and a corresponding scholarly writing intention, please revise or add to the text to fulfill this writing intention.
+
+You may insert, delete, or revise at appropriate place in the given paper. 
+
+Please give a complete output. Do not generate text that are nonsense or not related to the given paper information.
+
+\begin{figure*}[ht!]
+    \centering
+    \begin{subfigure}{0.49\textwidth}
+         \centering
+         \includegraphics[width = \linewidth]{images/human_raters/Sentiment-sorted-inter_alpha0.8_whole_1e-05-before-after.png}
+     \end{subfigure}
+         \begin{subfigure}{0.49\textwidth}
+         \centering

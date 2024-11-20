@@ -1,0 +1,13 @@
+unity. We explore whether LLMs' tendency to over-represent majority opinions results in poorer representation of minority opinions. 
+
+
+\begin{figure*}[ht!]
+  \centering
+  \includegraphics[width=\textwidth]{images/stress_testing_methods_modified.jpg}
+  \caption{Methods to stress test LLM-generated data for the first- and second-order experiments. In summary, the first-order experiments investigate the data ``as-is,'' for example, focusing on their distributional differences and correlation patterns among human- and machine-generated data; validating and analyzing using manual inspection; and counting how often labels flip between the original human and the resulting machine text. The second-order experiments involve (fine-)tuning LLMs on the machine-generated and investigating whether the existing artifacts or biases are amplified.}
+  \label{fig:figure2}
+\end{figure*}
+ %------------------ 
+
+ % \subsection{Summary of Stress Testing Methods Used}
+Figure \ref{fig:figure2} illustrates the range of approaches utilized in our paper for stress testing artificial data, while Table \ref{tab:stress_testing_overview}

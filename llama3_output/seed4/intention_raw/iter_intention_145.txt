@@ -1,0 +1,30 @@
+ParameterValue 0.15\\
+% \vspace{-5mm}
+\end{figure}
+
+\subsection{Second Order Experiment}\label{sec:instruct-second}
+We examine if error-prone instruction tuning data leads to poorer performance in general, as well as whether models fine-tuned on human-generated instructions perform better than models fine-tuned on synthetic instructions, when controlling for the size of the instruction set.
+
+We fine-tuned Llama 2 on 10,000 samples from two synthetic datasets (Self-Instruct and Cleaned Alpaca) and two human-generated datasets (Dolly and Supernatural Instructions). To test the resulting models, we ran inference on 1,000 samples from the human-generated FLAN dataset. 
+
+To gain insight into the downstream effect of including error-ridden samples in the fine-tuning data, we corrupt 50\% of the samples from our 10,000 Supernatural Instructions data. This is done programmatically for binary and multiple-choice samples using regular expressions. For example, replacing ``True'' with ``False''. For the generative task samples, we prompt GPT-4 to alter the meaning of the output to make it incorrect given the instruction and input.
+
+\paragraph{Result Analysis} When controlled for dataset size, the human-generated instruction tuning performed better, with both Dolly and Supernatural instructions scoring higher than Cleaned Alpaca and Self-Instruct. The Rouge F1 scores, cosine similarities, and perplexity can be seen in Table \ref{tab:scores_instruction}. We ran manual error analyses on 50 of the test samples from FLAN and found that the synthetic fine-tuning produced significantly more hallucinations. We also found that the model fine-tuned on the corrupted Supernatural Instructions data performed worse than the model fine-tuned only on uncorrupted data. For more details, see Figure \ref{fig:error_analysis_instructions}. 
+
+\section{Complex human opinions and interactions: Task Labels}
+Supervised learning requires accurately annotated training data, which has significant costs and challenges \cite{wang2021-reduce-label-cost}. As a result, there is recent widespread interest in using LLMs for annotations, despite the risk of bringing in more noise than their human-labeled counterparts \cite{ding2022-is-gpt3-good}.
+
+Traditional metrics such as accuracy, cost, and efficiency have been crucial in evaluating these artificial annotations \cite{wang2021want}. However, recent trends emphasize the importance of diversity and subjective variance \cite{chan2022approaches, sampath2022seedbert}. This shift acknowledges the need for understanding diverse group responses, particularly minorities, in situations such as online harassment \cite{gordon2022jury}. Research on annotator demographics shows how these factors shape responses, crucial for addressing biases and ethical issues \cite{wan2023everyone, rottger2021two, santy2023nlpositionality}. The variance in task labels, typically regarded as noise, is now seen as an indicator of systematic patterns and social issues in annotations \cite{fleisig2023majority, biester2022analyzing}.
+
+However, LLMs tend to establish and follow a ``ground truth'' during training, leading to skewed behavior and decision-making \cite{aher2023-llm-simulate-replicate, liu2023-chatgpt-good-recommender, mckenna2023-hallucination-inference}. This is particularly evident in moral judgment tasks, where LLMs fail to capture the nuanced responses shaped by individuals' socio-cultural contexts \cite{dillion2023-can-ai-replace}. This leads us to investigate \textit{whether LLM-generated task annotations fail to retain minority opinions}, skewing towards majority labels, as well as how this bias is amplified with further training.
+
+\subsection{Data and Experiments}
+We use human annotations from the test partition of four datasets, \textsc{Social Chemistry} \cite{forbes2020social}, \textsc{Age-Sentiment} \cite{diaz2018addressing}, \textsc{SBIC} \cite{sap2019social} and \textsc{GAB} \cite{kennedy2022introducing}. These datasets were chosen due to the subjective nature of their tasks and their provision of individual-level annotations.
+
+\section{Complex human opinions and interactions: Free-form Text}
+
+\section{Complex human opinions and interactions: Preferences}
+
+\section{Mirroring human behavior: Simulations}
+
+\section{Unknown/unfamiliar situations: Simulations}

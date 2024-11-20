@@ -1,0 +1,59 @@
+Facilitated by its open-sourced nature, the Figure \ref{fig:fig1} showcases various graphs with different number of nodes and edges, each corresponding to a unique graph sampling method. An example of a generated task distribution for the "sampling type" is shown in the top right corner of the figure, with red marking the specific setting we chose for our project, which we will use in the following experiments.
+
+\begin{figure*}[ht!]
+    \centering
+    \includegraphics[width=0.6\textwidth]{figures/citeseer_ego.pdf}
+    \caption{\textbf{Citeseer with ego graph sampling} - A graph sampling method where we select a central node (ego) and then take a subgraph consisting of the ego, its direct neighbors (nodes connected directly with the ego), and then take the union of these subgraphs from different instance.}
+    \label{fig:fig1}
+\end{figure*}
+
+\begin{figure*}[ht!]
+    \centering
+    \includegraphics[width=0.6\textwidth]{figures/citeseer_ff.pdf}
+    \caption{\textbf{Citeseer with forest fire sampling} - A graph sampling method where we select a random node (seed) within the network, and then take a subgraph consisting of the seed node, its direct neighbors (nodes connected directly with the seed), and then expand this subgraph based on a masking factor (with 0.3 masking factor, the subgraph will include all the neighbors of the seed node which are directly connected to it). This process is repeated iteratively to select a larger number of nodes.}
+    \label{fig:fig2}
+\end{figure*}
+
+\begin{figure*}[ht!]
+    \centering
+    \includegraphics[width=0.6\textwidth]{figures/citeseer_ego.pdf}
+    \caption{\textbf{Citeseer with ego graph sampling} - A graph sampling method where we select a central node (ego) and then take a subgraph consisting of the ego, its direct neighbors (nodes connected directly with the ego), and then take the union of these subgraphs from different instance.}
+    \label{fig:fig3}
+\end{figure*}
+
+\begin{figure*}[ht!]
+    \centering
+    \includegraphics[width=0.6\textwidth]{figures/citeseer_ff.pdf}
+    \caption{\textbf{Citeseer with forest fire sampling} - A graph sampling method where we select a random node (seed) within the network, and then take a subgraph consisting of the seed node, its direct neighbors (nodes connected directly with the seed), and then expand this subgraph based on a masking factor (with 0.3 masking factor, the subgraph will include all the neighbors of the seed node which are directly connected to it). This process is repeated iteratively to select a larger number of nodes.}
+
+    \label{fig:fig4}
+\end{figure*}
+
+\subsection{Modality Experiment}
+\begin{figure*}[ht!]
+    \centering
+    \begin{subfigure}{0.49\textwidth}
+         \centering
+         \includegraphics[width=\linewidth]{figures/modality.pdf}
+     \end{subfigure}
+         \begin{subfigure}{0.49\textwidth}
+         \centering
+         \includegraphics[width=\linewidth]{figures/modality.pdf}
+     \end{subfigure}
+    \caption{We compare the motif information (x-axis) to the mean metrics (y-axis). Desired trends are denoted in brackets. Metrics considered are Accuracy Rate (A $\uparrow$), Mismatch Rate (M $\downarrow$), and Denial Rate (D $\downarrow$). The highest performing motif information change ``triangle and star attached to $?$'' has higher accuracy and lower mismatch and denial rate.}
+    \label{fig:fig6}
+\end{figure*}
+
+\begin{figure*}[ht!]
+    \centering
+    \includegraphics[width=\textwidth]{figures/image_settings_squares.png}
+    \caption{We compare the image representations (x-axis) to the mean metrics (y-axis). Desired trends are denoted in brackets. Metrics considered are Accuracy Rate (A $\uparrow$), Mismatch Rate (M $\downarrow$), and Denial Rate (D $\downarrow$). The highest performing image representation ``all changes applied'' has a higher accuracy and lower mismatch rate}
+    \label{fig:fig7}
+\end{figure*}
+
+\begin{figure*}[ht!]
+    \centering
+    \includegraphics[width=\textwidth]{figures/graph_struct_updated.pdf}
+    \caption{We compare the mean metrics (y-axis) for each dataset and sampling type (x-axis). Green is the accuracy rate, Blue is the mismatch rate, Red is the denial rate, and Pink is the token limit fraction. The desired trends for each metric are given in brackets - ($\uparrow$) accuracy rate, ($\downarrow$) mismatch rate, ($\downarrow$) denial rate, and ($\downarrow$) token limit fraction. The x-axis distinguishes between ego graph sampling (ego) and forest fire sampling (ff) through different bar textures.}
+    \label{fig:fig5}
+\end{figure*}

@@ -1,0 +1,7 @@
++WIP 1st order & + 2nd order \\
+% \midrule
+% \rowcolor{color3}\textbf{Task Labels} & Subjectivity Loss and Consensus Bias in LLM-Annotated Task Labels & Neglected minority opinion representation in LLM datasets\\
+% \midrule
+% \rowcolor{color4}\textbf{Instruction prompts} & 
+% & Errors in instruction prompts could have a compounding effect on the model's performance, particularly in downstream tasks. 
+% & The \textbf{synthetic data} created by LLMs, although useful in their own right, replicates many of the deficiencies found in human-generated data, highlighting the importance of monitoring and addressing these issues. \\

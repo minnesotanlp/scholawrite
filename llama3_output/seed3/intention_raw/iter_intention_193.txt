@@ -1,0 +1,2 @@
+fairness, and accuracy. We find that LLM models tend to decide their preference based on the token-level sentiments or the entailment of the sentence that are highly perceivable, rather than making a nuanced and context-focused understanding of sentiments as humans
+. We, therefore, claim that LLM shows a strong tendency of locality bias in their preferences compared to humans.

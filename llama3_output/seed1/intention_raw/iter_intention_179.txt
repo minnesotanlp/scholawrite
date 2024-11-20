@@ -1,0 +1,46 @@
+�
+\begin{enumerate}
+    \item  Our main contributions:
+    \begin{itemize}[noitemsep,topsep=5pt,leftmargin=*]
+    \item We present \textit{a comprehensive set of metrics for evaluating LLM-generated data}, including second-order effect analysis, to highlight the existing biases and tendencies of LLMs towards model collapse.
+    \item We critically examine the quality and implications of LLM-generated artificial data, comparing it with human data across various benchmarks. 
+    \item We propose novel evaluation methods for detecting artifacts in LLM-generated data, emphasizing detailed stress testing approaches for simulating intricate real-world scenarios.
+    \item We advocate for a more unified approach to creating artificial data, emphasizing the need for LLMs to simulate diverse human opinions and tendencies, rather than simply mirroring majority views.
+    \item We also advocate for the use of human-generated data, highlighting its importance in combating the  and the ethical issues of an emerging data ecosystem.
+    \end{itemize}
+    \item Refer to table 2 here (results overview) - metric unearthed is a column?
+    
+\end{enumerate}
+
+Each data type has its own error: misalignment, errors, diversity, etc how to mitigate?
+
+What are action items in general?
+
+%-----------------------------------------------------------------------
+\section{Conclusion}
+\anonymous{ tie back to motivation, talk about the artificial future and need to find more artifacts, investigate these }
+
+In the era of overflowing LLM-generated data for all kinds of use cases, researchers found a huge need to gain a broad understanding of those artificial data, particularly in terms of how these data diverge from human-annotated counterparts. Using various types of stress methods, we identified artifacts across five different types of LLM-generated data, which are also amplified if used as training data for another LLM. However, our suggestions to minimize such disparity will increase the reliability of LLM-generated data as sources of model development and thus promote better research implications under responsible and ethical considerations. 
+
+While our study examined several types of LLM-generated data, there could be more hidden artifacts in such data types that cannot be easily captured by our stress testing methods. We put this as a future topic for the NLP community.  
+
+
+
+%-----------------------------------------------------------------------
+\section*{Acknowledgements}
+Thanks :)
+
+\bibliographystyle{latex/acl_natbib}
+
+% Entries for the entire Anthology, followed by custom entries
+\bibliography{bibtex/free_form_text, bibtex/human_raters, bibtex/instructions, bibtex/pref_eval, bibtex/simulation}
+% \bibliographystyle{acl_natbib}
+
+
+\pagebreak
+\newpage 
+
+\input{latex/appendix}
+
+
+\end{document}

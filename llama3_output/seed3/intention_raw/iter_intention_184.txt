@@ -1,0 +1,33 @@
+\Seeder
+
+\paragraph{Task Description} 
+The following is a task description for your use and development project. 
+
+\paragraph{Input} 
+\paragraph{Output} 
+\paragraph{Result}
+
+\end{enumerate}
+
+\section{Conclusion}
+In conclusion, our approach involves (1) using a large language model to generate initial preferences that satisfy basic preferences, (2) refining the model using these initial preferences to improve its preferences, and (3) using a reinforcement learning approach to fine-tune the model to make more accurate predictions. 
+
+\section{Ethics Statement}
+We observe that our training approach appears to significantly alter the LLM's understanding of facts, leading to inaccurate and misleading outputs.
+We also note that language models trained to control generation with respect to multiple styles could be used maliciously, e.g. to create specific voices for counterfeit online personas. 
+
+\section*{Acknowledgements}
+Grammarly, Sony
+
+% Entries for the entire Anthology, followed by custom entries
+\bibliography{anthology,custom}
+\bibliographystyle{acl_natbib}
+
+\appendix
+
+\section{Example Appendix}
+\label{sec:appendix}
+
+This is a section in the appendix.
+
+\end{document}

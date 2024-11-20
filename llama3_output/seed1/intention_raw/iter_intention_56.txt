@@ -1,0 +1,32 @@
+igure*]
+  \centering
+  \includegraphics[width=\textwidth]{images/figure1.pdf}
+  \caption{Overview of the five types of LLM-generated data and associated examples - (1) Free-Form Text (2) Task Labels (3) Instructions (4) Preference (5) Simulation \anonymous{Can we list these in the same order as the image and possibly include the numbers before "Task"?}. Sources for these examples in order - \cite{moller2023prompt}, \cite{diaz2018addressing},  \cite{honovich2022unnatural}, \cite{kim2023p2c} and \cite{liang2023encouraging} )}
+  \label{fig:figure1}
+\end{figure*}
+ %------------------
+ 
+\begin{table*}[]
+    \centering
+    \begin{tabular}{l|l l }
+    \toprule
+       \textbf{Data type}  &  \textbf{Challenges} & \textbf{Research Gap}\\
+       \midrule
+        Data 1 & Write key points only! & Don't write full sentences!\\
+        Data 2 & \\
+        \bottomrule
+    \end{tabular}
+    \caption{Write about data type and challenges and research gaps. Of course feel free to modify the table!}
+    \label{tab:my_label}
+\end{table*}
+
+\section{Free Text}
+\label{sec:free_text}
+\paragraph{Task Description}
+
+\paragraph{Dataset} Short explanation about dataset and justification
+
+\paragraph{First-order Experiment}
+Setup and metric and result
+
+\paragraph{Second-order Experiment}

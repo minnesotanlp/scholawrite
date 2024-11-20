@@ -1,0 +1,33 @@
+However, multilabel classifier are less straightforward to train than single attribute classifiers, and pre-trained multilabel models also less readily available. In the spirit of plug and play, which ideally can be done with no special fine tuning, we also build two options for multi-attribute plug and play with multiple single attribute discriminators:
+
+\begin{itemize}
+    \item Deep fusion: We take a backward step in the hidden state along the gradient for each of the attribute discriminators, $d_1,..., d_n$. Specifically, the gradient is for the loss function defined by $d_1(x) + d_2(x) + \lambda KL(p(x) || p(x'))$.
+    \item Shallow fusion: We perform post-norm addition of logits from each updated hidden state. Specifically, the model uses $d_1$ and $d_2$ separately to estimate $p(x'|a_1, c)$ and $p(x'|a_2, c)$, respectively. These distributions are then multiplied to approximate the joint prior in $p(x'|a_1, a_2, c)$.
+\end{itemize}
+
+
+\section{Experiments and Results}
+\subsection*{Evaluation Set}
+We evaluate our trained models on a 1000 item dataset consisting of:
+\begin{itemize}
+    \item 100 randomly selected Tweets from the SemEval 2017 emotions dataset
+    \item 450 randomly selected reviews from the Yelp reviews dataset \citep{zhang2015character}
+    \item 450 randomly selected reviews from the Rotten Tomatoes datasest \citep{Pang+Lee:05a}
+\end{itemize}
+
+We choose these datasets for their variety of domains and their potential for varying levels of our target styles: formality, toxicity, emotions, and irony. In addition, we construct an adversarial dataset that consists of the prompts with the highest-scoring attributes in various categories, in order to test our models on e.g. turning a negative prompt into a positive text. 
+
+\subsection*{Evaluations}
+We evaluate the models by having the model generate text given a prompt from the evaluation dataset. (Prompts are constructed by taking the first four words of each item in the dataset.)
+
+We pay careful attention to our adversarial examples shown in Figure~\ref{fig:adv graphs}. Our results indicate that our RL fine-tuning method successfully controls for multiple styles even in the face of adversarial prompts, although there is some sacrifice in control for multi-attribute vs single-attribute models. In contrast, PPLM shows markedly weaker control across the board.
+
+
+
+%\input{Tables/EvalTable}
+
+\begin{figure*}
+     \centering
+     \begin{subfigure}[b]{0.49\textwidth}
+         \centering
+         \includegraphics[width=\textwidth]{Images/Generations for Top 100 Formal Prom

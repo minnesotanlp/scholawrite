@@ -1,0 +1,58 @@
+\centering
+      \includegraphics[width=\columnwidth]{figures/3_6_9_motifs_examples.pdf}
+      \caption{Examples of size-3, 6, and 9 motifs. More examples can be found in Appendix \ref{sec:app:more_motif_graphs}.\vspace{-4mm}}
+    \label{fig:3_6_9_motifs_examples}
+  \end{figure}
+
+\begin{table}[!h]
+    \centering
+    \resizebox{0.5\columnwidth}{!}{
+    \begin{tabular}{c|c|c}
+        \toprule
+        Size-3 & Size-6 & Size-9 \\
+        \midrule
+        69 & 592 & 2,394\\
+        \bottomrule
+    \end{tabular}}
+    \caption{Number of non-isomorphic discourse motifs.}
+    \label{tab:three_motifs_sizes}
+\end{table}
+
+\subsection{Metrics for Analyses}\label{subsec:metrics}
+
+Once we gather potentially useful discourse motifs, we simply count the number of isomorphic subgraphs for each motif across all documents in the datasets. But as the graph isomorphism test is (possibly) NP-intermediate, the process requires heavy engineering feats to maximize computational efficiency, such as hashing the subgraphs \citep{ShervashidzeSLMB11} and multiprocessing the datasets.\footnote{The code, as well as the processed datasets for experiments, will be released for ease of reproducibility.}
+Afterward, we can identify distinctive motifs by examining their difference distributions based on their normalized counts (i.e., frequencies) (\S\ref{subsubsec:motif_diff_dist}) as well as calculating our proposed metric termed ``motif frequency-inverse document frequency (MF-IDF)'' measure (\S\ref{subsubsec:mfidf}).
+The rationale behind devising the MF-IDF scoring lies in pinpointing and prioritizing significant motifs, as counting the entire motif distribution is inefficient. An analogy can be drawn to crafting a localized tokenization scheme for LLM pretraining, wherein tokens represent motifs, and texts serve as hypergraphs in our context.
+
+
+\subsubsection{Motif Difference Distributions}\label{subsubsec:motif_diff_dist}
+As a simple measure, we consider the difference distribution between features of motifs present in human-authored and machine-generated graphs. Specifically, we utilize their \textit{motif frequencies}, $\mathcal{F}(\cdot)$ and \textit{weighted average depths}, $\mathcal{D}(\cdot)$:
+\begin{equation}
+    \mathcal{F}(\mathbb{D}_{\text{diff}}) = \mathcal{F}(\mathbb{D}_{\text{machine}}) - \mathcal{F}(\mathbb{D}_{\text{human}})
+\end{equation}
+\begin{equation}
+    \mathcal{D}(\mathbb{D}_{\text{diff}}) = \mathcal{D}(\mathbb{D}_{\text{machine}}) - \mathcal{D}(\mathbb{D}_{\text{human}})
+\end{equation}
+These distributions represents the discrepancies of motifs between the two classes of authorship and can be computed across the sets of motifs considered in \S\ref{subsec:baseline}.
+
+\paragraph{Motif Frequency.} For each motif $m$ in a set of identified motifs $M$, we compute motif frequency by counting its occurrences in a graph $g$ and normalize it by the total number of motifs the graph. The frequency is then averaged over the corresponding dataset $\mathbb{D}$:
+\begin{equation}
+    \mathcal{F}(m, \mathbb{D}) = \frac{1}{|\mathbb{D}|} \sum_{g \in \mathbb{D}} \frac{\text{count}(m, g)}{\sum_{m' \in M} \text{count}(m', g)}
+\end{equation}
+
+\paragraph{Weighted Average Depth.} To better capture the hierarchical nature of discourse graphs, we also calculate the average depths of each motif $m$ appearing in a graph $g$. The depth is measured by computing the average distance from the root node ($n_{root}$) to each node $n \in m$. It is then weighted by the corresponding count of motif and normalized by the total number of counts:
+\begin{equation}
+    \mathcal{D}(m, \mathbb{D}) = \frac{1}{|\mathbb{D}|} \sum_{g \in \mathbb{D}} \frac{\text{count}(m, g)\cdot\text{dist}(n_{root}, m)}{\sum_{m' \in M} \text{count}(m', g)}
+\end{equation}
+Note that as we are computing the distribution with respect to the  that some motifs might be  and other motifs might be more  in  within the graphs.
+
+\subsubsection{Motif Frequency-Inverse Document Frequency (MF-IDF)}\label{subsubsec:mfidf}
+Inspired by the term frequency–inverse document frequency (TF-IDF) measure from information retrieval domain \citep{sparckjones_statistical_1972}, we propose ``motif frequency–inverse document frequency'' (MF-IDF), noting that a motif ($m$) can be considered as a vocabulary of documents that are graphs ($g \in \mathbb{G}$) in our case:
+\begin{align*}
+    \text{MF-IDF}(m, g, \mathbb{G}) = \text{MF}(m, g) \cdot \text{IDF}(g, \mathbb{G})
+\end{align*}
+where:
+\begin{align*}
+    \text{MF}(m, g) = \frac{\text{count}(m, g)}{\sum_{m'\in M}\text{count}(m', g)} \\
+    \text{IDF}(g, \mathbb{G}) = \log \frac{1 + |\mathbb{G}|}{1 + |g \in \mathbb{G}: m \in g)|} \\
+\end{align*}

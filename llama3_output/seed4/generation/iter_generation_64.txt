@@ -1,0 +1,34 @@
+BuilderInterface{label:free_text, title:Free Text}
+\begin{tabularx}{\textwidth}{X}
+\toprule
+\textbf{Text} & \textbf{Human Annots} & \textbf{Model Annotats} \\ \midrule
+\textcolor{red}{@nounstudios this old dog needs to learn some new tricks} & [2.0, 3.0, 2.0, 3.0]  & [1.0, 1.0, 1.0, 1.0, 1.0] \\ \midrule
+\textcolor{red}{gosh...i'm 22 years old...an old lady! thanks for all the great birthday wishes! now it's bedtime!} & [1.0, 2.0, 4.0, 4.0]  &[1.0, 1.0, 1.0, 1.0, 1.0] \\ \midrule
+\textcolor{blue}{If we're going to talk about Russian sources, we should also talk about Jewish sources.} & [1.0, 0.0, 0.0]  & [0.0, 0.0, 0.0, 0.0, 0.0] \\ \midrule
+\textcolor{blue}{I'm skeptical. Nearly every time this type of vandalism occurs, it is perpetrated by someone affiliated with the synagogue.} & [1.0, 0.0, 0.0]  & [0.0, 0.0, 0.0, 0.0, 0.0] \\ \midrule
+\textcolor{orange}{It's bad to fire a daughter-in-law from a job} & [3.0, 2.0, 2.0, 2.0, 2.0]  &[0.0, 3.0, 3.0, 3.0, 3.0] \\ \midrule
+\textcolor{orange}{Your boyfriend has the right to wear whatever underwear he chooses.} & [3.0, 4.0, 4.0, 3.0, 4.0]  & [3.0, 3.0, 3.0, 3.0, 3.0] \\
+\bottomrule
+\end{tabularx}
+\caption{Qualitative analysis of human and machine task labels for evidence of age, gender and race/religion bias}
+\label{table:qual_table}
+\end{table}
+
+%------------------------------------------------------------
+\subsection{Second-order Analysis}\label{sec:task-second}
+\paragraph{Hypothesis}
+In our experiment, we trained an LLM like RoBERTa \cite{liu2019roberta} on both human and machine-generated annotations to identify potential second-order effects and biases, hypothesizing that biases would become more pronounced over time with a concentrated distribution highlighting specific stereotypes and assumptions.
+\paragraph{Experiment Setup}
+\anonymous{anonymous : complete this }
+\paragraph{Metrics}
+\anonymous{anonymous : complete this }
+\paragraph{Result Analysis}
+\anonymous{anonymous : complete this }
+
+%------------------------------------------------------------
+
+%------------------------------------------------------------
+\subsection{Mitigating Biases from LLM Generated Task Labels}\label{sec:task-mitigation}
+Majority voting and averaging, standard methods for deriving single ground truth labels from multiple annotations, often fail to capture the systematic disagreements among annotators, especially in subjective tasks like detecting affect, aggression, and hate speech. Through our experiments, we find that LLM models tend to under-represent minority opinions, and this risks marginalizing minority perspectives, potentially reinforcing societal disparities \cite{prabhakaran2021releasing}. Monte Carlo Estimation (MCE) and Log Probability Estimation (LPE) are other ways to find the distributional difference between human and LLM task labels that have also been recently explored \cite{lee2023large}.  Thus, there is a need to preserve disagreement in LLM annotations so that they more accurately mirror human annotations. This could be also be done using Bayesian methods \cite{paun2018comparing}, integrating disagreements into loss functions \cite{plank2014learning}, or modeling several annotators’ labels as multiple tasks \cite{davani2022dealing}. 
+
+There is also a rising need for validation using human datasets \cite{pangakis2023automated}. Several studies have already leveraged 

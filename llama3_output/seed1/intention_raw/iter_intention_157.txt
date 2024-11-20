@@ -1,0 +1,13 @@
+Facial expressions: Different emotions are expressed more strongly by different facial expression styles. For example, joy is expressed more by the smiling style than the neutral style. These styles are further used in the training of the LLMs. Thus, a LLM trained to show a different emotional expression might be able to express that emotion more strongly. 
+\begin{figure}
+  \centering
+%\includegraphics[width=0.95\linewidth]
+\includegraphics[width = \linewidth]{images/emotions.pdf}
+  \caption{An example of our 1000 emoticons in use, on a random Friday evening from the 2007 data.}
+  \label{fig:figure1}
+\end{figure}
+\textbf{LLMs have been shown to think in a more superficial way than humans when it comes to deciding which text is better.} For example, LLMs deciding which sentence has a stronger positive sentiment make decisions that are tightly coupled with the number of standalone positive tokens in the sentence -- in contrast to humans, who take a more nuanced approach. LLMs also make decisions that are biased towards the majority opinion when deciding which text is better, rather than towards the first and last sentences of the text. 
+
+\textbf{We hypothesize that the underlying nature of LLMs' preferences is more shallow than those of humans.} For instance, LLMs deciding which sentence has a stronger positive sentiment prefer the first and last sentences of the paragraph because they are the sentences with the highest number of positive tokens. In contrast, humans also consider other factors such as the sentence's middle part when deciding their preference. 
+\textbf{We also know that LLMs have difficulty to follow the instructions during the iterations.} For example, in the \textsc{Instructions in the Wild} dataset, LLMs often produce incorrect instructions (instructions that are labeled as \textit{incomprehensible} or \textit{inconsistent} are not followed by the LLM) and the first and last sentences of the instruction are often the ones that are missed by the LLM during the iterations. 
+\textbf{In addition, we found that the \textit{role-flipping} phenomenon occurs in the simulated conversations, where the agents interrupt the conversation and start role-flipping, which causes the digression from the task.} For instance, in the \textsc{CAMEL AI-World}, the agents occasionally interrupt the conversation and say "I'm sorry, I'm not a very good actor. I don't know how to respond. Can you please suggest some kind words to say here?" or "I'm not sure. Can you tell me?" and then ask for clarification, leading to the role-flipping in the next round.

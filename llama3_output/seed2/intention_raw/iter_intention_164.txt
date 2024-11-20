@@ -1,0 +1,364 @@
+\item \textsc{Match Score}: If the human and the model match on the label, this is counted towards the match score metric. Therefore, the match score is a signal of their performance on the task. 
+        \item \textsc{Variation}: In ordinal data, where differences between levels aren't uniform as in interval or ratio data, statistical measures like standard deviation or variance are still useful for gauging the spread of opinions, indicating the extent of agreement or disagreement among annotations rather than providing exact distance measurements.
+     \end{itemize}
+    \item \textbf{Experiment Setup}: The detection of role-flipping in the \textsc{CAMEL AI-World} is based on the existence of specific string patterns within the messages, i.e., \textit{Instruction:} and \textit{Solution:} at the beginning of the messages, as shown in Figure \ref{fig:camel_first}. We applied a total of 250 simulated conversations between two AI-User and AI-Assistant agents in two different modes, called ``intra-model'' and ``inter-model'', to explore the impact of this artifact on the simulated data. 
+    \begin{enumerate}
+        \item 250 randomly selected conversations for each model.
+        \item Unnatural Instructions: We first identified the most frequent errors in the 500 samples of simulated data and used this error  in both Closed-QA and Open-QA tasks. 
+        \item Role-flipping: We examine the role-flipping in the simulated conversations. 
+    \end{enumerate}
+    \item \textbf{Evaluation Metrics}: 
+    \begin{enumerate}
+        \item \textsc{Match Score}: If the human and the model match on the label, this is counted towards the match score metric. Therefore, the match score is a signal of their performance on the task. 
+        \item \textsc{Variation}: In ordinal data, where differences between levels aren't uniform as in interval or ratio data, statistical measures like standard deviation or variance are still useful for gauging the spread of opinions, indicating the extent of agreement or disagreement among annotations rather than providing exact distance measurements.
+        \item \textsc{Wasserstein distance}: This metric compares probability distributions, especially with ordinal values. It is also called Earth Mover’s distance because it can be interpreted informally as the distance it would move a ball along the probability distribution.
+    \end{enumerate}
+    \item \textbf{Result Analysis}
+    \begin{table}[ht!]
+    \centering
+    \begin{tabular}{@{}lcc@{}}
+        \toprule
+        \textbf{Source} & \textbf{Human} & \textbf{Model} \\
+        \midrule
+        Human & 0.49 & 0.80 \\
+        Model & 0.80 & 0.45 \\
+        \bottomrule
+    \end{tabular}
+    \caption{Match Score of the 2 types of data}
+    \label{tab:my_table2}
+\end{table}
+%-------------------
+\begin{figure*}[ht!]
+    \centering
+    \begin{subfigure}{0.49\textwidth}
+         \centering
+         \includegraphics[width=\linewidth]{images/simulation/camel_first_flipping_count_distribution.pdf}
+     \end{subfigure}
+         \begin{subfigure}{0.49\textwidth}
+         \centering
+         \includegraphics[width=\linewidth]{images/simulation/CAMEL_Average_Flipping_Rate_per_AI_User_Occupation_top_bottom_3.pdf}
+     \end{subfigure}
+    \caption{Distribution of the length of the role-flipped messages. We can see that on the CAMEL AI-World dataset, the role-flipping messages are mainly of length 3.}
+    \label{fig:camel_first}
+\end{figure*}
+%-------------------
+\begin{figure*}[ht!]
+    \centering
+    \begin{subfigure}{0.49\textwidth}
+         \centering
+         \includegraphics[width=\linewidth]{images/simulation/CAMEL_Average_Flipping_Rate_per_AI_User_Occupation_top_bottom.pdf}
+     \end{subfigure}
+         \begin{subfigure}{0.49\textwidth}
+         \centering
+         \includegraphics[width=\linewidth]{images/simulation/CAMEL_Average_Flipping_Rate_per_AI_User_Occupation_top_bottom.pdf}
+     \end{subfigure}
+    \caption{The role-flipping rate for 6 different occupations that the AI-User plays each on 500 simulated conversations in CAMEL AI-World dataset. Since the dataset consists of 2000 simulated conversations, the occupations of the AI-User are changed every 500 conversations.}
+    \label{CAMEL_six_occupation}
+\end{figure*}
+%-------------------
+\begin{figure*}[ht!]
+    \centering
+    \begin{subfigure}{0.49\textwidth}
+         \centering
+         \includegraphics[width=\linewidth]{images/simulation/CAMEL_Average_Flipping_Rate_per_AI_User_Occupation_top_bottom.pdf}
+     \end{subfigure}
+         \begin{subfigure}{0.49\textwidth}
+         \centering
+         \includegraphics[width=\linewidth]{images/simulation/CAMEL_Average_Flipping_Rate_per_AI_User_Occupation_top_bottom.pdf}
+     \end{subfigure}
+    \caption{The role-flipping rate for 6 different occupations that the AI-User plays each on 500 simulated conversations in CAMEL AI-World dataset. Since the dataset consists of 2000 simulated conversations, the occupations of the AI-User are changed every 500 conversations.}
+    \label{CAMEL_six_occupation}
+\end{figure*}
+%-------------------
+\begin{figure*}[ht!]
+    \centering
+    \begin{subfigure}{0.49\textwidth}
+         \centering
+         \includegraphics[width=\linewidth]{images/simulation/CAMEL_Average_Flipping_Rate_per_AI_User_Occupation_top_bottom.pdf}
+     \end{subfigure}
+         \begin{subfigure}{0.49\textwidth}
+         \centering
+         \includegraphics[width=\linewidth]{images/simulation/CAMEL_Average_Flipping_Rate_per_AI_User_Occupation_top_bottom.pdf}
+     \end{subfigure}
+    \caption{The role-flipping rate for 6 different occupations that the AI-User plays each on 500 simulated conversations in CAMEL AI-World dataset. Since the dataset consists of 2000 simulated conversations, the occupations of the AI-User are changed every 500 conversations.}
+    \label{CAMEL_six_occupation}
+\end{figure*}
+%-------------------
+\begin{figure*}[ht!]
+    \centering
+    \begin{subfigure}{0.49\textwidth}
+         \centering
+         \includegraphics[width=\linewidth]{images/simulation/camel_first_variation.pdf}
+     \end{subfigure}
+         \begin{subfigure}{0.49\textwidth}
+         \centering
+         \includegraphics[width=\linewidth]{images/simulation/camel_second_variation.pdf}
+     \end{subfigure}
+    \caption{First and Second order Experiment setup}
+    \label{fig:camel_first}
+\end{figure*}
+%-------------------
+\begin{figure*}[ht!]
+    \centering
+    \begin{subfigure}{0.49\textwidth}
+         \centering
+         \includegraphics[width=\linewidth]{images/simulation/camel_first_variation.pdf}
+     \end{subfigure}
+     \begin{subfigure}{0.49\textwidth}
+     \centering
+     \includegraphics[width=\linewidth]{images/simulation/camel_second_variation.pdf}
+     \end{subfigure}
+    \caption{Variation of the labels predicted by the model trained on the 1st and 2nd order data.}
+    \label{fig:variation_comparison}
+\end{figure*}
+%-------------------
+\begin{figure}[ht!]
+    \centering
+    \begin{subfigure}{0.49\textwidth}
+         \centering
+         \includegraphics[width=\linewidth]{images/simulation/camel_first_variation.pdf}
+     \end{subfigure}
+     \begin{subfigure}{0.49\textwidth}
+     \centering
+     \includegraphics[width=\linewidth]{images/simulation/camel_second_variation.pdf}
+     \end{subfigure}
+    \caption{Variation of the labels predicted by the model trained on the 1st and 2nd order data.}
+    \label{fig:variation_comparison}
+\end{figure}
+%-------------------
+\begin{figure*}[ht!]
+    \centering
+    \begin{subfigure}{0.49\textwidth}
+         \centering
+         \includegraphics[width=\linewidth]{images/simulation/camel_first_variation.pdf}
+     \end{subfigure}
+         \begin{subfigure}{0.49\textwidth}
+         \centering
+         \includegraphics[width=\linewidth]{images/simulation/camel_second_variation.pdf}
+     \end{subfigure}
+    \caption{Variation of the labels predicted by the model trained on the 1st and 2nd order data.}
+    \label{fig:variation_comparison}
+\end{figure*}
+%-------------------
+\begin{figure*}[ht!]
+    \centering
+    \begin{subfigure}{0.49\textwidth}
+         \centering
+         \includegraphics[width=\linewidth]{images/simulation/camel_first_variation.pdf}
+     \end{subfigure}
+     \begin{subfigure}{0.49\textwidth}
+     \centering
+     \includegraphics[width=\linewidth]{images/simulation/camel_second_variation.pdf}
+     \end{subfigure}
+    \caption{Variation of the labels predicted by the model trained on the 1st and 2nd order data.}
+    \label{fig:variation_comparison}
+\end{figure*}
+%-------------------
+\begin{figure*}[ht!]
+    \centering
+    \begin{subfigure}{0.49\textwidth}
+         \centering
+         \includegraphics[width=\linewidth]{images/simulation/camel_first_variation.pdf}
+     \end{subfigure}
+     \begin{subfigure}{0.49\textwidth}
+     \centering
+     \includegraphics[width=\linewidth]{images/simulation/camel_second_variation.pdf}
+     \end{subfigure}
+    \caption{Variation of the labels predicted by the model trained on the 1st and 2nd order data.}
+    \label{fig:variation_comparison}
+\end{figure*}
+%-------------------
+\begin{figure*}[ht!]
+    \centering
+    \begin{subfigure}{0.49\textwidth}
+         \centering
+         \includegraphics[width=\linewidth]{images/simulation/camel_first_variation.pdf}
+     \end{subfigure}
+     \begin{subfigure}{0.49\textwidth}
+     \centering
+     \includegraphics[width=\linewidth]{images/simulation/camel_second_variation.pdf}
+     \end{subfigure}
+    \caption{Variation of the labels predicted by the model trained on the 1st and 2nd order data.}
+    \label{fig:variation_comparison}
+\end{figure*}
+%-------------------
+\begin{figure*}[ht!]
+    \centering
+    \begin{subfigure}{0.49\textwidth}
+         \centering
+         \includegraphics[width=\linewidth]{images/simulation/camel_first_variation.pdf}
+     \end{subfigure}
+     \begin{subfigure}{0.49\textwidth}
+     \centering
+     \includegraphics[width=\linewidth]{images/simulation/camel_second_variation.pdf}
+     \end{subfigure}
+    \caption{Variation of the labels predicted by the model trained on the 1st and 2nd order data.}
+    \label{fig:variation_comparison}
+\end{figure*}
+%-------------------
+\begin{figure*}[ht!]
+    \centering
+    \begin{subfigure}{0.49\textwidth}
+         \centering
+         \includegraphics[width=\linewidth]{images/simulation/camel_first_variation.pdf}
+     \end{subfigure}
+     \begin{subfigure}{0.49\textwidth}
+     \centering
+     \includegraphics[width=\linewidth]{images/simulation/camel_second_variation.pdf}
+     \end{subfigure}
+    \caption{Variation of the labels predicted by the model trained on the 1st and 2nd order data.}
+    \label{fig:variation_comparison}
+\end{figure*}
+%-------------------
+\begin{figure*}[ht!]
+    \centering
+    \begin{subfigure}{0.49\textwidth}
+         \centering
+         \includegraphics[width=\linewidth]{images/simulation/camel_first_variation.pdf}
+     \end{subfigure}
+     \begin{subfigure}{0.49\textwidth}
+     \centering
+     \includegraphics[width=\linewidth]{images/simulation/camel_second_variation.pdf}
+     \end{subfigure}
+    \caption{Variation of the labels predicted by the model trained on the 1st and 2nd order data.}
+    \label{fig:variation_comparison}
+\end{figure*}
+%-------------------
+\begin{figure*}[ht!]
+    \centering
+    \begin{subfigure}{0.49\textwidth}
+         \centering
+         \includegraphics[width=\linewidth]{images/simulation/camel_first_variation.pdf}
+     \end{subfigure}
+     \begin{subfigure}{0.49\textwidth}
+     \centering
+     \includegraphics[width=\linewidth]{images/simulation/camel_second_variation.pdf}
+     \end{subfigure}
+    \caption{Variation of the labels predicted by the model trained on the 1st and 2nd order data.}
+    \label{fig:variation_comparison}
+\end{figure*}
+%-------------------
+\begin{figure*}[ht!]
+    \centering
+    \begin{subfigure}{0.49\textwidth}
+         \centering
+         \includegraphics[width=\linewidth]{images/simulation/camel_first_variation.pdf}
+     \end{subfigure}
+     \begin{subfigure}{0.49\textwidth}
+     \centering
+     \includegraphics[width=\linewidth]{images/simulation/camel_second_variation.pdf}
+     \end{subfigure}
+    \caption{Variation of the labels predicted by the model trained on the 1st and 2nd order data.}
+    \label{fig:variation_comparison}
+\end{figure*}
+%-------------------
+\begin{figure*}[ht!]
+    \centering
+    \begin{subfigure}{0.49\textwidth}
+         \centering
+         \includegraphics[width=\linewidth]{images/simulation/camel_first_variation.pdf}
+     \end{subfigure}
+     \begin{subfigure}{0.49\textwidth}
+     \centering
+     \includegraphics[width=\linewidth]{images/simulation/camel_second_variation.pdf}
+     \end{subfigure}
+    \caption{Variation of the labels predicted by the model trained on the 1st and 2nd order data.}
+    \label{fig:variation_comparison}
+\end{figure*}
+%-------------------
+\begin{figure*}[ht!]
+    \centering
+    \begin{subfigure}{0.49\textwidth}
+         \centering
+         \includegraphics[width=\linewidth]{images/simulation/camel_first_variation.pdf}
+     \end{subfigure}
+     \begin{subfigure}{0.49\textwidth}
+     \centering
+     \includegraphics[width=\linewidth]{images/simulation/camel_second_variation.pdf}
+     \end{subfigure}
+    \caption{Variation of the labels predicted by the model trained on the 1st and 2nd order data.}
+    \label{fig:variation_comparison}
+\end{figure*}
+%-------------------
+\begin{figure*}[ht!]
+    \centering
+    \begin{subfigure}{0.49\textwidth}
+         \centering
+         \includegraphics[width=\linewidth]{images/simulation/camel_first_variation.pdf}
+     \end{subfigure}
+     \begin{subfigure}{0.49\textwidth}
+     \centering
+     \includegraphics[width=\linewidth]{images/simulation/camel_second_variation.pdf}
+     \end{subfigure}
+    \caption{Variation of the labels predicted by the model trained on the 1st and 2nd order data.}
+    \label{fig:variation_comparison}
+\end{figure*}
+%-------------------
+\begin{figure*}[ht!]
+    \centering
+    \begin{subfigure}{0.49\textwidth}
+         \centering
+         \includegraphics[width=\linewidth]{images/simulation/camel_first_variation.pdf}
+     \end{subfigure}
+     \begin{subfigure}{0.49\textwidth}
+     \centering
+     \includegraphics[width=\linewidth]{images/simulation/camel_second_variation.pdf}
+     \end{subfigure}
+    \caption{Variation of the labels predicted by the model trained on the 1st and 2nd order data.}
+    \label{fig:variation_comparison}
+\end{figure*}
+%-------------------
+\begin{figure*}[ht!]
+    \centering
+    \begin{subfigure}{0.49\textwidth}
+         \centering
+         \includegraphics[width=\linewidth]{images/simulation/camel_first_variation.pdf}
+     \end{subfigure}
+     \begin{subfigure}{0.49\textwidth}
+     \centering
+     \includegraphics[width=\linewidth]{images/simulation/camel_second_variation.pdf}
+     \end{subfigure}
+    \caption{Variation of the labels predicted by the model trained on the 1st and 2nd order data.}
+    \label{fig:variation_comparison}
+\end{figure*}
+%-------------------
+\begin{figure*}[ht!]
+    \centering
+    \begin{subfigure}{0.49\textwidth}
+         \centering
+         \includegraphics[width=\linewidth]{images/simulation/camel_first_variation.pdf}
+     \end{subfigure}
+     \begin{subfigure}{0.49\textwidth}
+     \centering
+     \includegraphics[width=\linewidth]{images/simulation/camel_second_variation.pdf}
+     \end{subfigure}
+    \caption{Variation of the labels predicted by the model trained on the 1st and 2nd order data.}
+    \label{fig:variation_comparison}
+\end{figure*}
+%-------------------
+\begin{figure*}[ht!]
+    \centering
+    \begin{subfigure}{0.49\textwidth}
+         \centering
+         \includegraphics[width=\linewidth]{images/simulation/camel_first_variation.pdf}
+     \end{subfigure}
+     \begin{subfigure}{0.49\textwidth}
+     \centering
+     \includegraphics[width=\linewidth]{images/simulation/camel_second_variation.pdf}
+     \end{subfigure}
+    \caption{Variation of the labels predicted by the model trained on the 1st and 2nd order data.}
+    \label{fig:variation_comparison}
+\end{figure*}
+%-------------------
+\begin{figure*}[ht!]
+    \centering
+    \begin{subfigure}{0.49\textwidth}
+         \centering
+         \includegraphics[width=\linewidth]{images/simulation/camel_first_variation.pdf}
+     \end{subfigure}
+     \begin{subfigure}{0.49\textwidth}
+     \centering
+     \includegraphics[width=\linewidth]{images/simulation/camel_second_variation.pdf}
+     \end{subfigure}
+    \caption{Variation of the labels predicted by the model trained on the 1st and 2nd order data.}
+    \

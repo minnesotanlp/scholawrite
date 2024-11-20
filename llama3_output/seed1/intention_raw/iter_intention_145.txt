@@ -1,0 +1,20 @@
+In this section we describe our experiments for assessing the different multi-style reward formulations and the overall performance of our models for various multi-style control settings. The questions we investigate are (1) How can we most effectively combine signals from separate style discriminators into a reward function? (2) How often do two- and three-style models express the target styles in their generation, and how fluent are these generations? (3) Which style combinations are most difficult to learn? 
+
+For more perspective on these results, we also conduct experiments using a decoding-time PPLM approach and zero-shot prompting with GPT-4. 
+% \anonymous{Can you write down research questions to answer first and then link each to each of the following sub-sections }
+
+
+
+\subsection{RQ1: Multi-Reward Control Formulation Evaluation}\label{sec:reward_eval}
+For a summary of our study on the different reward formulations outlined in Sec~\ref{sec:reward_formulations}, see Table~\ref{tab:ablation}. We find that for softmax rewards, the models make only modest improvements on controlling the styles. In case the root cause of this issue was poor confidence calibration in our discriminators' softmax scores -- we noticed anecdotally that especially as the domain shifts from the discriminators' training domains, their softmax scores seemed to decline in quality -- we also use softmax scores with calibrated confidence values \citep{guo2017calibration}. These calibrated softmax rewards do offer some improvements relative to the un-calibrate softmax rewards, but the improvements are modest.
+
+Reward formulations using the raw logits, on the other hand, tend to control the styles better at the cost of fluency, as measured by the average perplexity of the generations. (We also anecdotally observed that the logit models often developed highly repetitive reward hacking strategies when the KL coeffecient was not sufficiently high; see examples in Table~\ref{tab:reward_hacks}.)
+
+Finally, we note that particularly when combining multiple styles, a simple linear combination of scores can make learning difficult for the model. Intuitively, in the two-style case, the model may reach a plateau in which the score from one discriminator is very high and the score from the other is very low. We attempt to guide the model towards making improvement with respect to both rewards in two ways: one is the binary reward formulation approach, which simply assigns a score of $-1$ for each style the generation does not fulfill and a score of $1$ for each style the generation does fulfill. This approach, inspired by binary RL formulations in sparse environments such as ours, means that the value model must be able to understand how many styles a generation will fulfill, rather than understand the individual score of each style. 
+
+\begin{table}
+\centering
+\begin{tabular}{|p{0.3\columnwidth}|p{0.6\columnwidth}|}
+\hline
+\textbf{Prompt} & \textbf{Reward Hacking Response (target: Negative + Informal)}  \\ \hline
+You have no affinity & for this community. I don’t know what to say, I don’t know what to do

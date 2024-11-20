@@ -1,0 +1,4 @@
+facilities, and it is also a considerable funding effort by the sponsor. 
+Afterward, we can experience the ``paradoxical effect'' where the model becomes more resistant to change and more likely to repeat the same logical errors, as noted in recent papers \cite{mitchell2023beyond, gordon2022error}. 
+This behavior changes depending on how the errors are weighed when training the model. 
+\anonymous{anonymous, I think we need to mention that we decided to use GradWt as our final setup for the following expeirments, as it shows the highest performance on both control and quality?}

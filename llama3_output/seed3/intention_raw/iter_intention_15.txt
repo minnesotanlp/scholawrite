@@ -1,15 +1,10 @@
-<same>\documentclass{article}
-\usepackage{graphicx} % Required for inserting images
+This result means that the existence of digression is not only a matter of whether the digression occurs on one of the iterations of the conversations, but also how often it happens in the conversations in general. 
 
-\title{Semisupervised Neural Proto-Language Reconstruction}
-\author{}
-\date{}
+\paragraph{Consecutive vs. Non-Consecutive Effects}
+To better understand the implications of our findings, we consider the effects of digression on the conversations in two ways: consecutive and non-consecutive. 
 
-\begin{document}
-\maketitle
-\begin{abstract}
-Existing work implementing comparative reconstruction of ancestral languages (proto-languages) has usually required full supervision. However, historical reconstruction models are only of practical value if they can be trained with a limited amount of labeled data. We propose a semisupervised historical reconstruction task in which the model is trained on only a small amount of labeled data (cognate sets with proto-forms) and a large amount of unlabeled data (cognate sets without proto-forms). We propose a neural architecture for comparative reconstruction (DPD-BiReconstructor) incorporating an essential insight from linguists' comparative method: that reconstructed words should not only be reconstructable from their daughter words, but also </same><del>determinin </del><add>determininable </add><same>into their daughter words. We show that this architecture is able to leverage unlabeled cognate sets to outperform strong semisupervised baselines on this novel task.
-\end{abstract}
-
-\end{document}
-</same>
+\paragraph{Consecutive vs. Non-Consecutive Effects}
+To better understand the implications of our findings, we consider the effects of digression on the conversations in two ways: consecutive and non-consecutive. 
+%--------------------------------------------------------------------
+\paragraph{Mitigation Suggestions}
+Talk about mitigation strategies \anonymous {digression detection strategies}

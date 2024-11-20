@@ -1,0 +1,45 @@
+Facilitators have been employed to guide communities of human researchers. 
+\rubric{Background: } 
+\rubric{Analysis/Synthesis: } 
+\rubric{Conclusion: } 
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\paragraph{Experiment Setup} 
+\rubric{Specificity: } 
+\rubric{Generalization: } 
+\rubric{Conclusion: } 
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\paragraph{Hypothesis} 
+\rubric{Specificity: } 
+\rubric{Generalization: } 
+\rubric{Conclusion: } 
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\paragraph{Experiment Setup} 
+\rubric{Specificity: } 
+\rubric{Generalization: } 
+\rubric{Conclusion: } 
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\paragraph{Metrics} 
+\rubric{Specificity: } 
+\rubric{Generalization: } 
+\rubric{Conclusion: } 
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\paragraph{Result Analysis} 
+\rubric{Specificity: } 
+\rubric{Generalization: } 
+\rubric{Conclusion: } 
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\paragraph{Ethics Statement} 
+\rubric{Specificity: } 
+\rubric{Generalization: } 
+\rubric{Conclusion: } 
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\paragraph{Limitations} 
+\rubric{Specificity: } 
+\rubric{Generalization: } 
+\rubric{Conclusion: } 
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\paragraph{Recommendations} 
+\rubric{Specificity: } 
+\rubric{Generalization: } 
+\rubric{Conclusion: } 
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%

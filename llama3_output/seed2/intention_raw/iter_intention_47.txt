@@ -1,0 +1,14 @@
+.setContent  & 0.56 & 0.55 & 0.48 & 0.45 & 0.32 & 0.18 & 0.30 & 0.17 & 0.06 \\
+\hline
+Formal + Positive & 0.73 & 0.72 & 0.67 & 0.69 & 0.60 & 0.54 & 0.57 & 0.52 & 0.43 \\
+\hline
+Formal + Negative & 0.67 & 0.69 & 0.06 & 0.70 & 0.70 & 0.10 & 0.18 & 0.08 & 0.19 \\
+\hline
+Informal + Negative & 0.70 & 0.70 & 0.60 & 0.67 & 0.54 & 0.18 & 0.32 & 0.24 & 0.22 \\
+\hline
+Informal + Positive & 0.61 & 0.70 & 0.55 & 0.58 & 0.65 & 0.26 & 0.36 & 0.26 & 0.28 \\
+\hline
+\end{tabular}
+\caption{Domain-specific style accuracy of 2-style models. Prompts from the generations of our other experiments are 1-style formal and negative.}
+\label{tab:precision_domain}
+\end{table*}

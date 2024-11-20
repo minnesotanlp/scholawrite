@@ -1,0 +1,59 @@
+4.1.2 \textsc{GAT}: Graph Attention Network
+The GAT is a neural network whose weights are entirely dependent on the neighboring node values. It is a great tool for node classification tasks, and it has been shown to perform well on many node classification datasets \cite{velickovic2018graph}. The GAT is inspired by the traditional graph attention network (GAT) proposed in \cite{velickovic2018graph}, but we consider the adjustor weights dependent on the neighboring node values. The intuition behind the "adjx" term in the loss function is to consider the average feature of the adjacent nodes when computing the feature vector of a node. Similarly, the "adjy" term considers the average feature of the adjacent nodes when computing the feature vector of a node. 
+
+\begin{figure}[htbp!]
+    \centering
+    \begin{minipage}{0.5\textwidth}
+        \centering
+        \includegraphics[width=\textwidth]{figures/feature_calc.pdf}
+        \caption{An example of calculating motif features. For this particular dataset, the motif features are as follows: Number of motifs: 28| Average motif frequency: 0.63| Number of times motif appears in the whole dataset: 628|}
+        \label{fig:feature_calc}
+    \end{minipage}\hfill
+    \begin{minippage}{0.5\textwidth}
+        \centering
+        \includegraphics[width=\textwidth]{figures/feature_calc.pdf}
+        \caption{An example of calculating motif features. For this particular dataset, the motif features are as follows: Number of motifs: 28| Average motif frequency: 0.63| Number of times motif appears in the whole dataset: 628|}
+        \label{fig:feature_calc}
+    \end{minipage}
+\end{figure}
+
+\subsection{Motif Modality}
+\subsubsection{Motif Modality}
+The motif modality uses a motif feature vector $f$ to represent the graph. Specifically, we calculate an inner product between the motif feature vector and the graph's feature vector. This is  the motif features and the graph's features are each  and is then aggregated into a single feature vector. This process is repeated across the dataset and the results are averaged over the corresponding dataset.
+
+\begin{equation}
+    F = \frac{1}{|S|} \sum_{g \in S} \frac{f_{g}}{\sum_{g' \in S} f_{g'}}
+\end{equation}
+
+where $f_{g}$ is the motif feature vector for graph $g$ and $S$ is the collection of all graphs.
+
+The motif features are precomputed for each motif. To compute the motif feature vector for each graph, we count the occurrence of each motif in the graph and normalize it by the total number of motifs the graph. This is aggregated over the 
+
+\begin{figure*}[htbp!]
+    \centering
+    \begin{subfigure}{0.49\textwidth}
+         \centering
+         \includegraphics[width=\textwidth]{figures/feature_calc.pdf}
+     \end{subfigure}
+         \begin{subfigure}{0.49\textwidth}
+         \centering
+         \includegraphics[width=\textwidth]{figures/feature_calc.pdf}
+     \end{subfigure}
+    \caption{Feature calculation}
+    \label{fig:feature_calc}
+\end{figure*}
+
+
+\subsection{Image Modality}
+To visualize graphs, we find it helpful to use the adjacency list and the node-to-label mapping as a graph image. This process becomes too large to handle with the original network, but can be done with a modified 
+
+
+
+
+
+% \begin{figure*}[htbp!]
+%     \centering
+%     \includegraphics[width=\textwidth]{figures/modified_pipeline.jpg}
+%     \caption{Pipeline of the three-style control}
+%     \label{fig:three-style}
+% \end{figure*}

@@ -1,0 +1,5 @@
+\vspace{-5mm}
+  \includegraphics[width=0.8\columnwidth,clip, trim=0.1cm 2.0cm 0.1cm 0.6cm]{images/LLM_ecosystem_modified.pdf}
+  \caption{
+  An example of artificial data ecosystem in training loops.
+  LLMs are increasingly employed to create a variety of outputs, including free text, simulated dialogues, annotations, instruction prompts, and preference labels

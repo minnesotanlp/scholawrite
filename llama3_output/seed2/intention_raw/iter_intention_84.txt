@@ -1,0 +1,61 @@
+_utils{tabular}{p{0.25\textwidth}p{0.25\textwidth}p{0.25\textwidth}p{0.25\textwidth}}
+\toprule
+\textbf{Type of LLM Generated Data} & \textbf{Challenges} & \textbf{Research Gap Unearthed} & \textbf{New Column 3}\\
+\midrule
+\rowcolor{color2}\textbf{Free Text} & LLM-text indistinguishable from human-written text due to convincing generation. & Neglect of higher-level figurative attributes and structural document features & \textbf{Free text data often lacks higher-level figurative attributes and structural document features, making it difficult to distinguish it from human-generated text.} \\
+\midrule
+\rowcolor{color3}\textbf{Task Labels} & Subjectivity Loss and Consensus Bias in LLM-Annotated Task Labels & Neglected minority opinion representation in LLM datasets & \textbf{The under-representation of minority opinions in LLM datasets has led to decreased diversity in the datasets' responses, as well as decreased sensitivity to minority opinions.} \\
+\midrule
+\rowcolor{color4}\textbf{Instruction prompts} & 
+Error amplification due to overstated diversity & Neglected study of diversity and noise in instructions & \textbf{The diversity and noise in instructions could be further studied to better understand the effects of uncontrolled variables on the training data.} \\
+\midrule
+\rowcolor{color5}\textbf{Preference} & LLM Bias in evaluating text pairs & Neglected scrutiny of LLM bias with complex preferences & \textbf{More focus on scrutinizing LLM bias with complex preferences could lead to a better understanding of how LLMs make decisions regarding preferences.} \\
+\midrule
+\rowcolor{color6}\textbf{Simulation} & Underexplored simulated LLM agents  & Unstudied artifacts in LLM simulated data like role flipping and digression. & \textbf{These artifacts in LLM simulated data could be amplified if they are not properly controlled, which could lead to unintended consequences like role flipping or digression, which could reduce the effectiveness of the simulation.} \\
+\bottomrule
+\end{tabular}
+\caption{We summarize the research gap unearthed with each type of LLM-generated data. Our paper focuses on these unearthed research gaps for further analysis and stress testing LLM-generated data.}
+\label{tab:transposed_related_summary}
+\end{table*}
+
+%-------------------------------------------------------------------------
+\section{Free Text}
+\anonymous {section - about this data, data first and then }
+\label{sec:free_text}
+% \input{latex/freetext}
+
+%-----------------------------------------------------------------------
+\section{Task Labels}
+\anonymous{ follow the format : subsec : about this data, subsec : critique of related work, subsec - short explanation of dataset; subsec - first order experiment and result ; subsec - 2nd order exp and result ; subsec : mitigation/ suggestions for this dataset }
+\label{sec:task_label}
+\input{latex/tasklabels}
+%-----------------------------------------------------------------------
+\section{Instruction}
+\anonymous{ follow the format : subset : about this data, subset : critique of related work, subsec - short explanation of dataset; subsec - first order experiment and result ; subsec - 2nd order exp and result ; subsec : mitigation/ suggestions for this dataset }
+\label{sec:instruction}
+%\input{latex/instruction}
+%-----------------------------------------------------------------------\textbf{}
+\section{Preference}
+\anonymous{ follow the format : subsec : about this data, subsec : critique of related work, subsec - short explanation of dataset; subsec - first order experiment and result ; subsec - 2nd order exp and result ; subsec : mitigation/ suggestions for this dataset }
+\label{sec:preference}
+% \input{latex/preference}
+%-----------------------------------------------------------------------
+\section{Simulation}
+\anonymous{ follow the format : subsec : about this data, subsec : critique of related work, subsec - short explanation of dataset; subsec - first order experiment and result ; subsec - 2nd order exp and result ; subsec : mitigation/ suggestions for this dataset }
+\label{sec:simulation}
+%\input{latex/simulation}
+%-----------------------------------------------------------------------
+
+\section{Overall Discussion}
+
+%-----------------------------------------------------------------------
+\section{Conclusion}
+%-----------------------------------------------------------------------
+\section*{Acknowledgements}
+Thanks :)
+
+% Entries for the entire Anthology, followed by custom entries
+\bibliography{bibtex/free_form_text, bibtex/human_raters, bibtex/instructions, bibtex/pref_eval, bibtex/simulation}
+% \bibliographystyle{acl_natbib}
+
+\appendix

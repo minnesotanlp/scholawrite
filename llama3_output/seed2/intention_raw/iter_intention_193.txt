@@ -1,0 +1,70 @@
+\caption{Modality encoder trends (T= Transposed) for graph task categories.}
+    \label{fig:fig8}
+\end{figure}
+%--------------------------------------------------
+%-------------------------------------------------
+\begin{figure*}[ht!]
+    \centering
+    \begin{minipage}{0.48\textwidth}
+        \centering
+        \includegraphics[width=\linewidth]{figures/combination_task_hierarchy_updated.pdf}
+        \caption{Modality encoder trends (T= Transposed) for graph task categories.}
+        \label{fig:fig8}
+    \end{minipage}\hfill
+    \begin{minipage}{0.48\textwidth}
+        \centering
+        \includegraphics[width=\linewidth]{figures/combination_task_hierarchy_updated.pdf}
+        \caption{Modality encoder trends (T= Transposed) for graph task categories.}
+        \label{fig:fig8}
+    \end{minipage}
+    \caption{Modality encoder trends (T= Transposed) for graph task categories.}
+    \label{fig:fig8}
+\end{figure*}
+%--------------------------------------------------
+\subsubsection{Text Modality Results}
+Figure \ref{fig:fig8} shows the performance of the text modality encoded graphs using the metrics of accuracy rate, inaccuracy rate, and failure rate. We observe that the accuracy rate is high, which means that the graphs are being correctly classified, but the inaccuracy rate is very high, which means that there are many misclassifications. This shows that with the text modality, LLMs are not very effective in 4.  The failure rate is low, which means that there is not much denial of the task by the LLM. 
+
+%------------------
+\begin{figure*}[ht!]
+    \centering
+    \begin{minipage}{0.48\textwidth}
+        \centering
+        \includegraphics[width=\linewidth]{figures/combination_task_hierarchy_updated.pdf}
+        \caption{Modality encoder trends (T= Transposed) for graph task categories.}
+        \label{fig:fig8}
+    \end{minipage}\hfill
+    \begin{minipage}{0.48\textwidth}
+        \centering
+        \includegraphics[width=\linewidth]{figures/combination_task_hierarchy_updated.pdf}
+        \caption{Modality encoder trends (T= Transposed) for graph task categories.}
+        \label{fig:fig8}
+    \end{minipage}
+    \caption{Modality encoder trends (T= Transposed) for graph task categories.}
+    \label{fig:fig8}
+\end{figure*}
+%--------------------------------------------------
+
+
+
+% \begin{table*}[ht]
+% \centering
+% \caption{Graph Properties and Their Descriptions}
+% \label{tab:graph_properties}
+% \begin{tabular}{p{0.25\linewidth} p{0.7\linewidth}}
+% \toprule
+% \textbf{Property} & \textbf{Description} \\
+% \midrule
+% Density & Measures how connected the graph is. It's the ratio of actual edges to possible edges. \\
+% \addlinespace
+% Degree Distribution & The distribution of node degrees. The histogram might follow a specific pattern (e.g., power-law distribution, Gaussian distribution). \\
+% \addlinespace
+% Average Degree & The average degree of nodes in the graph. \\
+% \addlinespace
+% Connected Components & A subgraph in which a path connects any two nodes. \\
+% \addlinespace
+% Clustering Coefficient & Measures the degree to which nodes tend to cluster together. \\
+% \addlinespace
+% Graph Diameter & The longest shortest path between any two nodes. It provides insight into the graph's overall size. \\
+% \bottomrule
+% \end{tabular}
+% \end{table*}

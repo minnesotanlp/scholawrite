@@ -1,0 +1,18 @@
+}-insufficient evidence'' or ``non-committal'' responses from the model, and we write the model's decision as ``N'' (non-committal). 3. 
+
+\begin{table}[ht!]
+\centering
+\resizebox{0.7\textwidth}{!}{
+\begin{tabular}{c|c|c}
+\toprule
+\textbf{Type of Artificial Data} & \textbf{Challenges} & \textbf{Research Gap}\\
+\midrule
+Free-Form Text & High levels of  & The nature and effects of artificial data are not fully understood. \\
+\midrule
+Task Labels &  & The majority vote approach is prone to representing minority opinions inadequately. \\
+\midrule
+Instruction Prompts & & \\
+\midrule
+Preference & & The LLM's decision-making process involves a complex sequence of evaluations, including relevance, consistency, and creativity, which is difficult to capture. \\
+\midrule
+Simulation & & The intricate nature of simulated data, in which LLM agents engage in complex conversations, poses a challenge when attempting to understand

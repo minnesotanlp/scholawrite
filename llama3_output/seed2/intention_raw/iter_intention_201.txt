@@ -1,0 +1,9 @@
+toItem 1} 1. 2. 3. 4. 5. 6. 7. 8. 9. 10.  \\
+         \textbf{Free Generation}         & 0.783 & 0.772 & 0.725 & 0.592 & 0.810 & 0.754 & 0.586 & 0.784 & 0.780 & 0.68 & 0.902 & 0.716 \\
+         \textbf{``Fill-in-the-gap''}        & 0.759 & 0.708 & 0.6 & 0.586 & 0.784 & 0.700 & 0.542 & 0.592 & 0.422 & 0.900 & 0.688 \\
+         \textbf{Constrained ``Fill-in-the-gap''} & 0.759 & 0.708 & 0.6 & 0.586 & 0.784 & 0.700 & 0.542 & 0.592 & 0.42 & 0.900 & 0.688 \\
+    \end{tabular}
+    \caption{Automatic accuracy evaluation of 1- and 2-style models for RL and PPLM.}
+
+    \label{tab:precision_base-rl-pplm}
+\end{table*}

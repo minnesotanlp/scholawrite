@@ -1,14 +1,18 @@
-<same>\documentclass{article}
-\usepackage{graphicx} % Required for inserting images
+With the increase in the generation capabilities of large language models (LLMs), it has become increasingly desirable to include fine-grained control of the styles included in the model's output. For instance, in almost all cases, toxicity and hate speech must be tightly controlled such that the model does not produce harmful output. At the same time, in response to the user's preferences or the application, it can be beneficial for the LLM to simultaneously control additional attributes such as humor, formality, or the use of figurative language. In order to achieve these goals reliably, techniques for robust multi-style control are needed. We also find that controlling for one style can lead to side effect changes in other styles, further motivating the need for multi-style control.
 
-\title{Semisupervised Neural Proto-Language Reconstruction}
-\author{}
-\date{}
+State-of-the-art RLHF models such as GPT-4 are adept at producing text according to some style combinations, but struggle with others our experiments indicate that without sophisticated prompting strategies, GPT-4 struggles to control for multiple styles at once. 
 
-\begin{document}
-\maketitle
-\begin{abstract}
-Existing work implementing comparative reconstruction of ancestral languages (proto-languages) has usually required full supervision. However, historical reconstruction models are only of practical value if they can be trained with a limited amount of labeled data. We propose a semisupervised historical reconstruction task in which the model is trained on only a small amount of labeled data (cognate sets with proto-forms) and a large amount of unlabeled data (cognate sets without proto-forms). We propose a neural architecture for comparative reconstruction (DPD-BiReconstructor) incorporating an essential insight from linguists' comparative method: that reconstructed words should not only be reconstructable from their daughter words, but also </same><del>derive </del><add>derives </add><same>into their daughter words. We show that this architecture is able to leverage unlabeled cognate sets to outperform strong semisupervised baselines on this novel task.
-\end{abstract}
 
-%\end{document}</same>
+
+In this work, we propose a straightforward and relatively lightweight approach to controlling for multiple styles simultaneously: fine-tuning a language model using proximal policy optimization (PPO) with a dynamically weighted combination of rewards for each style. We experiment with several methods to compose the reward, and we find that this multi-style objective works best with a dynamically weighted combination of the outputs from each target style's discriminator. We also find that simple steps such as confidence calibration of discriminator output can improve the model performance.
+We also create a plug-and-play baseline for comparison, expanding PPLM \citep{Dathathri2020Plug} to control multiple styles rather than one. We compare these two approaches, in addition to responses from GPT-4, with respect to perplexity, achieved style goals, and performance on adversarial examples (i.e. prompts with adversarial styles).
+
+Specifically, our contributions are:
+\begin{itemize}
+    \item A systematic study of reward formulations for RL-based control of multi-style generations
+    \item A publicly available implementation for plug-and-play models with multiple style attributes
+    \item An examination of the side-effects of RL-based style control, outlining scenarios in which factuality suffers and un-controlled styles shift.
+\end{itemize}
+
+%It’s not clear whether these co-occurences are so rare because the styles are inherently incompatible or because the situations in which both would be applied occur infrequently. %% is this too much of a digression?
+%Finally, the combinatorial nature of style spaces means that there are many possible styles that can be applied  – in theory, an infinite number, if you consider all possible style combinations. While this means that there are many possible styles to control, it also means that controlling for multiple styles  – especially when combining styles – is difficult.

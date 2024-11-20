@@ -1,0 +1,38 @@
+Facilitators can create and manage communities where members vote on specific questions to measure content. 
+\rubric{Topic: }The difficulty distinguishing between human-authored and language model-generated texts (like GPT-3) has led to the creation of various prompts for use in models and prompts. 
+\rubric{Background: } 
+\rubric{Analysis/Synthesis: } 
+\rubric{Conclusion: } 
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\paragraph{Midwave} 
+\rubric{Topic: }The mid-movement is a distinct phase in a tennis match characterized by the player's focus on the next point. This phase typically begins with a serve or a return to the opponent's court and ends with one of the players taking a break or with the opponent taking a break. The mid-movement is a significant component of the game of tennis, and it can be divided into two parts: the approach and the reaction. 
+\rubric{Background: } 
+\rubric{Analysis/Synthesis: } 
+\rubric{Conclusion: } 
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\paragraph{Cognitive Biases} 
+\rubric{Topic: } 
+\rubric{Background: } 
+\rubric{Analysis/Synthesis: } 
+\rubric{Conclusion: } 
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\paragraph{Instruction-Generation} 
+\rubric{Topic: } 
+\rubric{Background: } 
+\rubric{Analysis/Synthesis: } 
+\rubric{Conclusion: } 
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\paragraph{Preference} 
+\rubric{Topic: } 
+\rubric{Background: } 
+\rubric{Analysis/Synthesis: } 
+\rubric{Conclusion: } 
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\paragraph{Simulation} 
+\rubric{Topic: } 
+\rubric{Background: } 
+\rubric{Analysis/Synthesis: } 
+\rubric{Conclusion: } 
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\input{Tables/system_review}

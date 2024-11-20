@@ -1,0 +1,96 @@
+hosseini-etal-2023-chatgpt-good, chan2023chateval, chen2023chatgpt-good, chan2023-chatgpt-good, rahman2023-chatgpt-good, liu2023-chatgpt-good, mckenna2023-hallucination-inference, chen2023-chatgpt-good, gao2023-chatgpt-good, zhuo2023-chatgpt-good, huang2023-chatgpt-good, chen2023-chatgpt-good, mckenna2023-llm-simulations, chan2023-chatgpt-good, rahman2023-chatgpt-good, liu2023-chatgpt-good, chan2023-chatgpt-good, huang2023-chatgpt-good, chen2023-chatgpt-good, mckenna2023-llm-simulations, chan2023-chatgpt-good, rahman2023-chatgpt-good, liu2023-chatgpt-good, chan2023-chatgpt-good, huang2023-chatgpt-good, chen2023-chatgpt-good, mckenna2023-llm-simulations). These papers used various methods to identify potential second-order effects, including (1) examining label distributions before and after fine-tuning, (2) investigating the correlation between the magnitude of the initial task label distribution and the degree of the resulting shift in the new model's distribution, (3) looking at the story graph of the generated texts, and (4) applying an information-theoretic approach to assess the distributional difference between human and LLM-generated texts. 
+\anonymous{wrote down a }
+The second-order effect analysis in Table \ref{tab:second_order_effects} reveals that while the first order effects are mainly related to the data representation, the second order effects are mainly related to the model training distribution. 
+
+% \begin{figure}[ht!]
+%     \centering
+%     \includegraphics[width=0.5\textwidth]{images/wasserstein_scatter.png}
+%     \caption{Wasserstein distance scatter plot of (a) original data and (b) model (b) before and after fine-tuning a RoBERTa classifier on the data.}
+%     \label{fig:wasserstein_scatter}
+% \end{figure}
+
+% \begin{table*}[ht]
+% \centering
+% \begin{tabular}{lccc}
+% \toprule
+% \multicolumn{1}{c}{\textbf{Source}} & \multicolumn{3}{c}{\textbf{Wasserstein Distance}} \\ 
+% \midrule
+% Human & 0.141 & 0.768 & 0.688\\
+% Model & 0.305 & 1.361 & 1.329\\
+% \bottomrule
+% \end{tabular}
+% \caption{Wasserstein distance between the distribution of the labels predicted by the model and the ground truth labels.}
+% \label{tab:wasserstein_distance}
+% \end{table*}
+
+% \begin{table*}[ht]
+% \centering
+% \begin{tabular}{lccc}
+% \toprule
+% \multicolumn{1}{c}{\textbf{Source}} & \multicolumn{3}{c}{\textbf{Wasserstein Distance}} \\ 
+% \midrule
+% Human & 0.141 & 0.768 & 0.688\\
+% Model & 0.305 & 1.361 & 1.329\\
+% \bottomrule
+% \end{tabular}
+% \caption{Wasserstein distance between the distribution of the labels predicted by the model and the ground truth labels.}
+% \label{tab:wasserstein_distance}
+% \end{table*}
+
+% \begin{figure}[ht!]
+%     \centering
+%     \includegraphics[width=0.5\textwidth]{images/wasserstein_scatter.png}
+%     \caption{Wasserstein distance scatter plot of (a) original data and (b) model (b) before and after fine-tuning a RoBERTa classifier on the data.}
+%     \label{fig:wasserstein_scatter}
+% \end{figure}
+
+% \begin{table*}[ht]
+% \centering
+% \begin{tabular}{lccc}
+% \toprule
+% \multicolumn{1}{c}{\textbf{Source}} & \multicolumn{3}{c}{\textbf{Wasserstein Distance}} \\ 
+% \midrule
+% Human & 0.141 & 0.768 & 0.688\\
+% Model & 0.305 & 1.361 & 1.329\\
+% \bottomrule
+% \end{tabular}
+% \caption{Wasserstein distance between the distribution of the labels predicted by the model and the ground truth labels.}
+% \label{tab:wasserstein_distance}
+% \end{table*}
+
+\subsection{Second Order Effects}
+\anonymous{mention }
+\paragraph{Hypothesis}
+\paragraph{Experiment Setup}
+\paragraph{Metrics}
+\paragraph{Result}
+
+\begin{figure*}[ht!]
+    \centering
+    \begin{subfigure}{0.49\textwidth}
+         \centering
+         \includegraphics[width=\textwidth]{images/pplm_quadrant.png}
+     \end{subfigure}
+         \begin{subfigure}{0.49\textwidth}
+         \centering
+         \includegraphics[width=\textwidth]{images/pplm_quadrant.png}
+     \end{subfigure}
+    \caption{PPLM}
+\end{figure*}
+
+
+\begin{figure*}[ht!]
+    \centering
+    \begin{subfigure}{0.49\textwidth}
+         \centering
+         \includegraphics[width=\textwidth]{images/pplm_quadrant.png}
+     \end{subfigure}
+         \begin{subfigure}{0.49\textwidth}
+         \centering
+         \includegraphics[width=\textwidth]{images/pplm_quadrant.png}
+     \end{subfigure}
+    \caption{PPLM}
+\end{figure*}
+
+\begin{figure*}[ht!]
+    \centering

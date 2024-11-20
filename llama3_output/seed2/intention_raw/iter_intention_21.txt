@@ -1,0 +1,33 @@
+generative  from LLMs can be quite far from the human's  original idea, and it is also difficult to add new information about the changed state of the world because LLMs are limited by the primary and secondary effects that can be observed from their own generated data. 
+\anonymous{add a reason of why we have to study this }
+\anonymous{another reason is that if we only look at the generated data, we will be missing the upstream effect of the data (data contamination). }
+%\anonymous{I are missing a clear connection between the dots (1) }
+Yes, you read that correctly.  Study of LLM-generated data reveals a challenge of 1st and 2nd order effect  where the  and  data produced by LLMs  diverges from human data. 
+To mitigate this issue, we suggest enhancing data quality and diversity by incorporating domain-specific information and examples into LLM training, in order to expose LLMs to a broader range of perspectives. We also propose refining model interaction and responsiveness to align LLM responses more closely with humans, especially in social and informal contexts. Additionally, it is important to include high-level human feedback and validation in the training of LLMs, so that they can more accurately reflect human opinions and understanding. 
+
+\begin{table*}[]
+    \centering
+    \small
+    \begin{tabular}{l l l l}
+    \toprule
+     & & \multicolumn{2}{c}{\textbf{Experiment}} \\     
+       \textbf{Datasets} & \textbf{Rationale} & \textbf{1st order} & \textbf{2nd order} \\
+       \midrule
+       \rowcolor{color2} \multicolumn{4}{l}{\textbf{Free-form Text}}\\
+       \rowcolor{color2} \textsc{HC3} \cite{guo2023close}, & Pair-wise generated texts from both humans and LLMs & High-level textual attribute  and discourse structure difference & Classification performance \\
+       \rowcolor{color2} \textsc{Scarecrow} \cite{dou-etal-2022-gpt}, &  &  & \\
+       \rowcolor{color2}  \textsc{Deepfake} \cite{li2023deepfake}, & & & \\
+        \rowcolor{color2} \textsc{Workers} \cite{moller2023prompt} & & & \\ 
+        \midrule
+        \rowcolor{color3}\multicolumn{4}{l}{\textbf{Task Labels}}\\
+        \rowcolor{color3}\textsc{Social Chemistry} & Subjective tasks, individual-level data & Biased toward & \anonymous{not clear?}  \\
+         \rowcolor{color3}\cite{forbes2020social}, &  &  & \\
+         \rowcolor{color3}\textsc{Age-Sentiment} \cite{diaz2018addressing}, &  &  & \\
+         \rowcolor{color3}\textsc{SBIC} \cite{sap2019social} &  &  & \\ \hline
+         \rowcolor{color4}\multicolumn{4}{l}{\textbf{Instructions}}\\
+        \rowcolor{color4}\textsc{Unnatural Instructions}  & Variety of instruction types and domains & LLMs produce & Errors in instruction, input, and output will be evaluated \\
+        \rowcolor{color4}\cite{honovich2022unnatural}, &  &  & \\
+        \rowcolor{color4}\textsc{Self-Instruct} \cite{wang2023selfinstruct}, &  &  & \\
+        \rowcolor{color4}\textsc{Alpaca-Cleaned} &  &  & \\
+        \rowcolor{color4}\cite{alpaca}, &  &  & \\
+        \rowcolor{color4}\textsc{GPT-4-LLM} \cite{peng2023instruction}, &  &  & \\

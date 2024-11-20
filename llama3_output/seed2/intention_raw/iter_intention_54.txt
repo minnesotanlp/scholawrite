@@ -1,0 +1,39 @@
+ibilis  \\\hline
+ \begin{tabular}[l]{@{}l@{}} \textbf{the film has the} same director as the book, and i'm not sure if i have read the book or not.\\
+         I've read the book, and it was... a bit different. Still good though.\end{tabular} \\ \hline
+         \begin{tabular}[l]{@{}l@{}} \textbf{the trouble is, }the seller does not reply to any messages.\\
+         i have a friend who is interested in this car and looks like it is located in the middle of nowhere.\\
+         if anyone can help me get in touch with the
+         \end{tabular} \\ \hline
+         \begin{tabular}[l]{@{}l@{}} \textbf{the trouble is,} the slides are not very clear.\\
+         But still very nice video.\end{tabular} \\ \hline
+    \end{tabular}
+    \caption{Five randomly selected generations (i.e., not cherry-picked) from the evaluation prompts. Each model is followed by its human and GPT-4 counterparts. We can see that the models have some  }
+    \label{tab:generations}
+\end{table}
+= {@{}l@{}} 
+\textbf{Model Name} &  &  \\ \hline
+ &  &  \\\hline
+ &  &  \\\hline
+ &  &  \\\hline
+ &  &  \\\hline
+ &  &  \\\hline
+ &  &  \\\hline
+ &  &  \\\hline
+ \end{tabular}
+\caption{We choose hyperparameters that do not necessarily maximize the reward outcomes, as over-optimized models outputs often repeat the same phrases (in this case, ``I don't know'') that maximize the outputs of both discriminators. Our goal is to find a reward formulation that allows for high rewards without such divergence from the base language model.}
+\label{tab:reward_hacks}
+\end{table}
+
+
+\subsection{Combinations of Two Styles}
+We first fine-tune RL models for all four possible combinations of sentiment and formality. We choose these two styles since their respective discriminators have the highest F1 scores (Table~\ref{table:discrims}).  We use the GradWt reward formulation, as it was the most successful reward formulation based on the evaluation in Section~\ref{sec:reward_eval}. We consider the generations of the resulting models on our evaluation prompts, as well as the results of other approaches for multi-style controlled generations. For the results of these two-style models with respect to style accuracy, see Table~\ref{tab:precision_base-rl-pplm}; for a sample of generations produced by these models, see Appendix\ref{sec:appendix} Table~\ref{tab:generations}.  Expedi
+\paragraph{Comparison with PPLM}
+We extend PPLM to combine feedback from multiple discriminators. PPLM has weaker control when combining two attributes than when using one, indicating that the approach may suffer more from conflicting objectives than a reinforcement learning approach. PPLM also notably has high perplexity for combinations containing negative sentiment (both negative and formal and negative and informal combinations), coupled with low overall style accuracy in these areas. 
+\paragraph{Comparison with Zero-Shot GPT-4}
+We focus on a basic zero-shot prompting approach to probe GPT-4 performance on controlled style generations. We chose zero-shot prompting as we are interested in scenarios with high data-scarcity, i.e. those in which the target style combination text is not necessarily available. (Note that while few-shot prompting can out-perform zero-shot prompting; this is not neccarily the case -- recent work shows GPT-4's performance can be equivalent or even deteriorate in a few-shot setting, e.g. \citet{coyne2023analyzing}.)
+
+GPT-4 responses (Table~\ref{tab:precision_overall}) indicate that in some scenarios, GPT-4 does very well at combining multiple styles to complete the generation. The response's perplexity scores, although calculated with respect to Llama2, are also the lowest across all style combinations. Based on GPT-4's high performance with respect to sentiment control and relatively low performance with respect to formality control, GPT-4 seems to have a different 
+
+We include GPT-4 results as a point of reference, but it is not a direct comparison. Our other experiments use Llama2-7B, which has approximately 1,000 times fewer parameters than GPT-4. Llama2, unlike GPT-4, is a base language model with no human feedback fine-tuning. Finally, we also recognize that prompting techniques such as Chain-of-Thought prompting \citep{wei2022chain} have been shown to improve performance on many tasks; however we do not focus on prompt engineering for output optimization in this work. 
+##

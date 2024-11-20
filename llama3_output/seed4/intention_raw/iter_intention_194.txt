@@ -1,0 +1,28 @@
+adjusts the linguistic conditions of sentences, particularly regarding formality, spontaneity, and depth of reasoning, aiming to align LLM-generated data with human characteristics. It does this through the use of "prompt words" or "constrained prompts," which are phrases or sentences that serve as guidelines for the model rather than actual instructions. For example, instead of saying "I love [verb] [object], it's great!" and generating a full paragraph, the model might say, "I love [verb] [object], and it's great!" or "I love [verb] [object], and it will be great!" The intention is to make the generated text more human-like by incorporating elements of the human's emotions or expectations into the prompt. However, this technique has a limited scope; it only influences the specified elements' style without assessing the overall quality or coherence of the generated text. When evaluating the performance of models fine-tuned on such data, we do not assess surface-level aspects, as the focus is on the general coherence and effectiveness in the data, rather than the surface-level formality.
+
+\subsection{Data}
+We first use \textsc{p2c} \cite{kim2023p2c} that contain preferences from humans and GPT-3 on 5,000 pairs of sentences designed for the sentiment classification task. The prompt used in \textsc{p2c} is ``Which sentence sounds more {positive}
+
+\subsection{Results}
+The following box shows the results comparing the style distribution of original human-written texts and that of the resulting models. For each dataset, we calculate the percentage of the generations belonging to each combination of human and model styles. We observe that for the two-way style control in Figure \ref{fig:three-style}, the model fine-tuning is successful in maintaining the three style combinations well into the second iteration, although it can be seen that the original generations may have more than three styles, the control is not perfect and there are probably other uncontrolled styles present in the generations. 
+
+\begin{figure*}[p]
+  \centering
+  \includegraphics[trim={2cm 9cm 5.5cm 4cm},clip,width=0.8\textwidth]{Images/neg_polygon2.pdf}
+  \caption{Visualization of style control for two of our three-style models: Positive+Formal+\textbf{Neutral} (emotion) and Positive+Formal+\textbf{Irony}. Each style dimension shows the portion of generations containing that style and is min-max scaled. We see that the +Irony model, unlike the +Neutral model, controls formality and positivity as well as the two-style model; they also show control of neutrality and irony, respectively.}
+  \label{fig:three-style}
+\end{figure*}
+
+\begin{figure}
+    \centering
+    \includegraphics[width=\columnwidth]{Images/RL_quadrant.png}
+    \caption{For each item in the evaluation set, shows the change in sentiment and formality scores after fine-tuning the model. We can see that as desired, the informal score is higher, and the sentiment score is lower.}
+    \label{fig:learned-behavior}
+\end{figure}
+
+% \begin{figure*}[p]
+%   \centering
+%   \includegraphics[trim={2cm 9cm 5.5cm 4cm},clip,width=0.8\textwidth]{Images/RL_quadrant.pdf}
+%   \caption{For each item in the evaluation set, shows the portion of generations containing the target style. We can see that as desired, the portions of generations containing 0 (no application of the target style) increase while the portions of generations containing 2 (high application of the target style) decrease.}
+%   \label{fig:three-style}
+% \end{figure*}

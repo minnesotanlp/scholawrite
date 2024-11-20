@@ -1,0 +1,44 @@
+faitement 19.7cm, 8cm, 5.7cm}:
+  \caption{Input modality encoding for graphs impacts node classification, with text modality offering detailed information from a local point of view but violating the input context limitations for LLMs due to verbosity. Motif encoding provides local and global context, while image modality gives a comprehensive global view, efficiently processed by GPT-4V, which integrates capabilities from both vision and text.}
+  \label{fig:fig1}
+\end{figure}
+%---------------------------------
+%---------------------------------
+\begin{figure*}
+  \centering
+%\includegraphics[width=0.95\linewidth]
+\includegraphics[width = 0.9\linewidth,trim={0cm 0cm 6.7cm 0cm},clip]{figures/fig2_updated.pdf}
+\vspace{-5mm}
+  \caption{Node Classification on a Graph using different input modality encodings like Text, Motif, and Image. }
+  \label{fig:fig2}
+\end{figure*}
+%---------------------------------
+%\textbf{Graph data challenges with LLMS, General gaps in doing reasoning tasks on graphs}
+While there has been progress in interpreting multi-modal information \cite{yin2023survey}, integrating graph understanding into Large Language Models (LLMs) remains a developing area. Current challenges include LLMs' difficulty directly processing complex graph-structured data \cite{guo2023gpt4graph}, necessitating innovative input encoding and prompt design \cite{fatemi2023talk,chen2023exploring} to provide graph-structured information to LLMs. However, existing research often uses constrained setups with limited real-world graph sizes \cite{guo2023gpt4graph} or synthetic graphs \cite{wang2023can}, highlighting a research gap in how to effectively feed large real-world graphs into LLMs due to their context window limitations.
+
+This paper investigates the impact of different modalities for encoding global and local graph structures, focusing on node classification tasks, and compares three modalities: \textit{Text}, \textit{Motif}, and \textit{Image} (See Figure \ref{fig:fig1}). Text modality offers detailed local insights but becomes verbose for large graphs \cite{bubeck2023sparks}, often exceeding the input limits of models like GPT-4. The Motif modality is suggested to address this, capturing essential patterns in a node's vicinity for a balanced local-global perspective. Additionally, Image modality is proposed, utilizing fewer tokens to convey a more global view of the node's neighborhood, a method enhanced by the vision capabilities of the newly released GPT-4V \cite{openai_gpt4}. 
+Finding the optimal prompt of input formats is a notably complex challenge, with text modality encoding requiring extensive exploration compared to the simpler, more human-readable image modality, which faces less tokens and is more amenable to qualitative analysis. In our evaluations, we balance informativeness and prompt conciseness across all modalities using a combination of metrics. 
+
+%Despite extensive efforts in prompt engineering, the challenge of creating effective prompts for using Large Language Models in graph reasoning tasks remains significantly understated. The exploration and research required for effective text modality encoding in Large Language Models is vast, in contrast to the simpler implementation of image modality, which benefits from its alignment with human readability. We evaluate all modalities using a combination of metrics that balance informativeness with prompt conciseness.
+``
+\textbf{Our contributions}: Specifically, the contributions of our work are the following:
+
+\begin{itemize}
+  \item  An extensive comparison of graph-structure prompting across multiple modalities for LLMs.
+  \item Exploring the impact of graph structure, sampling methods, and no. of hops on node prediction performance
+  \item In-depth study factors affecting text, image, and motif modalities for encoding graphs.
+  \item A new graph benchmark (GraphTMI) with a Task hierarchy consisting of graphs, and associated encodings to aid the community in studying the effects of graph structure on LLM prompting further.
+  
+\end{itemize}
+
+\textbf{what do we see from our results?}
+\textcolor{red}{image greater than text - task hierarchy}
+Our empirical results show that, while LLMs are getting better at handling graph data, they still have a lot of improving to do if they are to catch up with models that are specifically designed to work with graphs. 1
+\textbf{our findings} 
+\textbf{explain figure 1}
+
+
+Our empirical results show that, while LLMs are getting better at handling graph data, they still have a lot of improving to do if they are to catch up with models that are specifically designed to work with graphs. 
+1
+\textbf{explain figure 2}
+Our study explores whether these biases are amplified or diminished by training on graph data.

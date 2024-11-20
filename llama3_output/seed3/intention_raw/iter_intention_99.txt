@@ -1,0 +1,36 @@
+IRequest for a more detailed discussion of our approach, see Appendix \ref{sec:app}.
+\section{Free-Form Text}
+\label{sec:free_text}
+\input{latex/freetext}
+
+%-----------------------------------------------------------------------
+\section{Task Labels}
+\input{latex/tasklabels}
+%-----------------------------------------------------------------------
+\section{Instruction}
+\label{sec:instruction}
+\input{latex/instruction}
+%-----------------------------------------------------------------------\textbf{}
+\section{Preference}
+\input{latex/preference}
+%-----------------------------------------------------------------------
+\section{Simulation}
+\label{sec:simulation}
+\input{latex/simulation}
+%------------------
+\begin{figure*}[ht!]
+  \centering
+  \includegraphics[width=\textwidth]{images/stress_testing_methods_modified.jpg}
+  \caption{Methods to stress test LLM Generated Data }
+  \label{fig:figure2}
+\end{figure*}
+ %------------------ 
+\section{Overall Discussion}
+\begin{enumerate}
+    \item  Main findings\anonymous{anonymous}
+    We find that artificial data should be used with caution for 
+unconventional, nuanced tasks. When using LLMs to label data, labels for controversial data points will likely not reflect the nuance of the human population's views. Similarly, LLMs generating preference data take a more formulaic, less nuanced approach than humans do. LLMs generating text social contexts can have a tone and application of style that is unnatural. 
+    % nuance - preference, labels
+    % social - free text, labels (? idea would be bc of controversial topics), simulation (? interesting to see how simulated data is generated)
+    
+    \item  Our main suggestions or takeaways \anonymous{anonymous, anonymous : Why should we use artificial data?; What are the benefits of using this data?; Why this data is important in its own right?; Is this data useful in some }

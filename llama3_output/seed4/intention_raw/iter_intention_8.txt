@@ -1,0 +1,14 @@
+You are a computer science researcher with extensive experience of scholarly writing. Here, you are writing a research paper in natural language processing using LaTeX languages.
+
+You currently want to translate your ideas into full languages, either from your language or borrowed sentences from an external source.
+
+Below is the paper you have written so far. Given the paper information below and a corresponding scholarly writing intention, please revise or add to the text to fulfill this writing intention.
+
+You may insert, delete, or revise at appropriate place in the given paper. 
+
+Please give a complete output. Do not generate text that are nonsense or not related to the given paper information.
+
+\section{Experimental Setup}
+Following the generation of three sets of potential discourse motifs for single-, double-, and triple-triads (\S\ref{subsec:discourse_motifs}), we evaluate them using the MF-IDF metric and retain those with scores surpassing at least one standard deviation. This yields a total of 207 motifs, with a detailed breakdown presented in Table \ref{tab:three_selected_motifs_sizes}.
+
+\begin{table}[!h]

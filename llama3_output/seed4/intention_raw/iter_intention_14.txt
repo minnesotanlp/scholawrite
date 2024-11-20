@@ -1,0 +1,45 @@
+Credential  I have been a diligent student, studying extensively to reach this point. With great effort, I have been able to read and understand nearly all the texts that have been published from 2000 to today.
+    \begin{itemize}
+        \item I can read (almost) any literature paper that is published every year.
+        \item I have read over 2000 papers.
+        \item I have a good memory for details, including abstracts, introduction texts, and conclusions.
+        \item I can make connections between non-contiguous citations (i.e., those that are not directly related to each other).
+    \end{itemize}
+    \begin{itemize}[noitemsep]
+        \item Exploring the extent to which the presence of these digressions affects the quality of the simulation (Experiment \ref{subsubsubsec:digression}).
+        \item Investigating the nature of digression itself, whether it is an inherent artifact of LLMs or a phenomenon that occurs in particular types of simulations (Experiment \ref{subsubsubsec:digression}).
+    \end{itemize}
+\end{enumerate}
+
+\paragraph{Experiment Setup}
+We simulate the scholarly works-in-progress (WIPs) using the \textsc{Spen} tool \citep{spen}. The authors of this study each applied \textsc{ScholaCite} to a subset of the papers, following these steps:
+\begin{enumerate}
+    \item We applied \textsc{ScholaCite} to each paper in the dataset, using the grouping page to organize citations into groups based on topic similarity and relevance to the work-in-progress. 
+    \item The author then used the text editor to refine the groupings and citation groupings. 
+    \item Finally, the author used the ScholaCite text editor to refine the generated Related Work section. 
+
+\paragraph{Metrics} In order to compare the quality of the 
+\paragraph{Result}
+
+
+\subsection{Second Order Effects}
+\paragraph{Hypothesis}
+\paragraph{Experiment Setup}
+\paragraph{Metrics}
+\paragraph{Result}
+
+\subsection{Mitigation Suggestions}
+
+
+
+
+
+
+
+\subsubsection{Prevention of Role-Flipping}
+To prevent role-flipping, we suggest that you use the "Clean Up" option before generating the simulation. This option will remove any interruptions in the conversation and will help the AI Assistant to focus on the conversation.
+
+In addition, we also suggest that you should avoid interrupting the conversation during the role-flipping. If the AI Assistant interrupts the conversation, it can lead to role-flipping, so the 
+
+\paragraph{Mitigation Suggestions}
+Talk about mitigation strategies \anonymous {digression detection strategies}

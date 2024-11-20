@@ -1,0 +1,42 @@
+\caption{We compare the style accuracy of models trained with a target style combination with the style frequency in the full human texts, with the target style combination having a higher frequency in the human texts.}
+    \label{fig:freq}
+\end{figure}
+
+The most successful combination is formality with positivity, and we observe that for these two styles the model shows almost perfect control. 
+
+\begin{figure}
+    \centering
+    \includegraphics[trim={0cm 0 4.5cm 0},clip,width=0.45\textwidth]{Images/bar_formal.pdf}
+    \includegraphics[trim={0cm 0 4.5cm 0},clip,width=0.45\textwidth]{Images/bar_positive.pdf}
+    \caption{Percentages of generations classified as positive (top) or formal (bottom) for each trained model.}
+    \label{fig:single-style}
+\end{figure}
+
+\input{Tables/accuracy}
+\input{Tables/ablation}
+\input{Tables/domain_RL}
+
+% \begin{figure*}
+%     \centering
+%     \includegraphics[trim={1cm 0 2.5cm 0},clip,width=0.45\textwidth]{Images/positive inf heatmap.pdf}
+%     \includegraphics[trim={1cm 0 2.5cm 0},clip,width=0.45\textwidth]{Images/positive formal heatmap.pdf}
+%     \includegraphics[trim={1cm 0 2.5cm 0},clip,width=0.45\textwidth]{Images/negative informal heatmap.pdf}
+%     \includegraphics[trim={1cm 0 2.5cm 0},clip,width=0.45\textwidth]{Images/negative formal heatmap.pdf}
+%     \caption{For each 2-style model, the number of generations belonging to each classification combination. Formal and negative is the worst performing combination, while formal and positive is the best performing combination.}
+%     \label{fig:2style_heatmaps}
+% \end{figure*}
+
+\subsection{Domain-Based Performance}
+When considering each subsection of the evaluation set in \textsc{Deepfake}, we observe that the Wikipedia portion of the dataset is most challenging. This is likely because the Wikipedia portion is most  for formal and negative, and the model does best when combining positive and formal in Figure~\ref{fig:wiki_deepfake}.
+
+\begin{figure}
+    \centering
+    \includegraphics[trim={0 0 4.5cm 0},clip,width=0.45\textwidth]{Images/wiki_df.pdf}
+    \caption{A heatmap showing the change in style accuracy of models after fine-tuning on human and machine-generated datasets.}
+    \label{fig:wiki_deepfake}
+\end{figure}
+
+\begin{figure*}
+    \centering
+    \includegraphics[trim={1cm 0 3.5cm 0},clip,width=0.45\textwidth]{Images/positive.pdf}
+    \includegraphics[trim={1

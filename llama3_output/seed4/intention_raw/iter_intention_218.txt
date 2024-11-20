@@ -1,0 +1,37 @@
+Ви  the discourse motifs are identified, we can further distinguish them by checking the differences in their motif distributions. Specifically, we can compute the motif frequency, $\mathcal{F}(\cdot)$, and weighted average depth, $\mathcal{D}(\cdot)$, for each class of motifs. Then, we can compute the motif frequency-inverse document frequency (MF-IDF) scores for each motif. The MF-IDF scores are then measured by at least one of the following features for each document graph $g$ in the datasets $\mathbb{G}$:
+\begin{equation}
+    \text{MF-IDF}(m, g, \mathbb{G}) = \text{MF}(m, g) \cdot \text{IDF}(g, \mathbb{G})
+\end{equation}
+where:
+\begin{align*}
+    \text{MF}(m, g) = \frac{\text{count}(m, g)}{\sum_{m'\in M}\text{count}(m', g)} \\
+    \text{IDF}(g, \mathbb{G}) = \log \frac{1 + |\mathbb{G}|}{1 + |g \in \mathbb{G}: m \in g)|} \\
+\end{align*}
+\textbf{Normalized motif distribution}: For each motif $m$ in a set of identified motifs $M$, we compute motif frequency by counting its occurrences in a graph $g$ and normalize it by the total number of motifs the graph. The motif frequency is then averaged over the corresponding dataset $\mathbb{G}$:
+\begin{equation}
+    \mathcal{F}(m, \mathbb{G}) = \frac{1}{|\mathbb{G}|} \sum_{g \in \mathbb{G}} \frac{\text{count}(m, g)}{\sum_{m' \in M} \text{count}(m', g)}
+\end{equation}
+
+\textbf{Weighted average depth}: To better capture the hierarchical nature of discourse graphs, we also calculate the average depths of each motif $m$ appearing in a graph $g$. The depth is measured by computing the average distance from the root node ($n_{root}$) to each node $n \in m$. It is then weighted by the corresponding count of motif and normalized by the total number of counts:
+\begin{equation}
+    \mathcal{D}(m, \mathbb{G}) = \frac{1}{|\mathbb{G}|} \sum_{g \in \mathbb{G}} \frac{\text{count}(m, g)\cdot\text{dist}(n_{root}, m)}{\sum_{m' \in M} \text{count}(m', g)}
+\end{equation}
+This effectively measures the average position of each discourse motif appearing in the graphs.
+
+\begin{figure}[!ht]
+\centering
+{\includegraphics[width=\columnwidth]{figures/feature_calc.pdf}}
+\caption{Illustration of calculating of the two types of features for discourse motif with index 18. This motif is one of the selected single-triads that exhibit MF-IDF scores surpassing at least one standard deviation.\vspace{-4mm}}
+\label{fig:feature_calc}
+\end{figure}
+
+\subsubsection{Motif Frequency}\label{subsubsec:mfrequency}
+As a simple measure, we consider the frequency of a motif $m$ appearing in a graph $g$:
+\begin{equation}
+    \mathcal{F}(m, g) = \frac{\text{count}(m, g)}{\sum_{m'\in M}\text{count}(m', g)}
+\end{equation}
+
+\subsubsection{Weighted Average Depth}\label{subsubsec:word}
+As a measure of the average position of a motif $m$ appearing in a graph $g$, we compute the distance from the root node ($n_{root}$) to each occurrence of the motif and average it over the corresponding dataset $\mathbb{G}$:
+\begin{equation}
+    \mathcal{D}(m, \mathbb{G}) = \frac{1}{|\mathbb{G}|} \sum_{g \in \mathbb{G}} \frac{\text{count}(m, g)\cdot\text{dist}(n_{root}, m)}{\sum_{m' \in M} \text{count}(m

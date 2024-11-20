@@ -1,0 +1,24 @@
+You are a computer science researcher with extensive experience of scholarly writing. Here, you are writing a research paper in natural language processing using LaTeX languages.
+
+You currently want to translate your ideas into full languages, either from your language or borrowed sentences from an external source.
+
+Below is the paper you have written so far. Given the paper information below and a corresponding scholarly writing intention, please revise or add to the text to fulfill this writing intention.
+
+You may insert, delete, or revise at appropriate place in the given paper. 
+
+Please give a complete output. Do not generate text that are nonsense or not related to the given paper information.
+
+\begin{figure}
+    \centering    
+    \includegraphics[trim={0.5cm 7cm 0.5cm 0.4cm},clip,width=0.5\textwidth]{Figures/SystemIllustration.pdf}
+    \caption{An illustration of the \system system}
+    \label{fig:scholacite}
+\end{figure}
+
+Given the increased use of AI-assisted scholarly writing and literature review tools, it is important to study the ways in which researchers interact with AI-assisted scholarly interfaces. This interaction is critical because the act of writing, far from being a mere procedural task to be completed at the end of the research process, is a dynamic aspect of academic inquiry and an important part of the writer's intellectual journey. The writing process works in a feedback loop, allowing the writer to refine, solidify, or even challenge their understanding; it informs the writer almost as much as it does the reader. Through the practice of writing, researchers not only contribute to the body of scientific knowledge, but also develop their own cognitive and analytical skills. In this context, the use of Large Language Models (LLMs) like GPT-4 to draft paper sections should be considered carefully. AI-assisted tools can reduce some of the more mundane aspects of writing, empowering the researcher to focus on creative and interpretive tasks. However, there is also a risk of over-reliance which may serve to disconnect the writer from engaging immersively with their work. 
+
+One important aspect of studying researcher and AI collaboration is to be able to evaluate the output texts in a way that reflects academic standards of what a good Related Work section does. In this work, we use the following description from a guide on writing literature reviews from Carnegie Mellon's Student Academic Success Center \footnote{\url{https://www.cmu.edu/student-success/other-resources/handouts/comm-supp-pdfs/literature-reviews.pdf}}: 
+\begin{quote}
+    A literature review selects relevant past literature and \textbf{CONNECTS}, \textbf{SYNTHESIZES}, and sometimes \textbf{EVALUATES} these texts/studies, putting the authors in conversation with each other \cite{cmu_litreview}.
+\end{quote}  
+In addition to the above definition, the guide states that an author should establish their work's relevance to their research field, demonstrate their understanding of the preexisting discourse and findings on the topic, and describe the research gap being filled by their new work. One way to accomplish this would be to Our research began initially with an investigation into GPT-4's ability to generate Related Work sections \textit

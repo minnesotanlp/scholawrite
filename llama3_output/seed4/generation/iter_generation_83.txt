@@ -1,0 +1,25 @@
+arious types of artificial data, we identify consistent biases in LLM-generated data and outline strategies for mitigation. Representational bias in LLMs manifests as a preference for majority opinions, often at the expense of minority views. Additionally, LLMs exhibit primary and recency biases, focusing on certain aspects of data and affecting task specificity and performance. This is evident in synthetic instruction datasets, where LLMs favor open-ended questions over structured tasks, raising concerns about their ability to generalize across different query types. LLMs also differ from human patterns in processing emotional content and semantic relationships. 
+% open-ended (harder to get wrong)
+% minority views
+
+In terms of depth, complexity, and performance, LLM-generated data varies significantly from human-generated data. LLMs, while capable of coherent narratives, often lack the subtlety and depth found in human texts. There are notable differences in handling majority and minority opinions in subjective tasks, with biases against structured instructions and discrepancies in understanding complex societal language constructs such as hate speech. 
+
+To mitigate these issues, we suggest enhancing data quality and diversity by incorporating domain-specific information and examples into LLM training, in order to expose LLMs to a broader range of perspectives. We propose refining model interaction and responsiveness to align LLM responses more closely with humans, especially in social and informal contexts. This involves calibrating LLMs to better understand and reflect varied emotional expressions and contextual appropriateness, aiming to reduce discrepancies in complex societal language constructs. 
+
+\begin{table*}[]
+    \centering
+    \small
+    \begin{tabular}{l l l l}
+    \toprule
+     & & \multicolumn{2}{c}{\textbf{Experiment}} \\     
+       \textbf{Datasets} & \textbf{Rationale} & \textbf{1st order} & \textbf{2nd order} \\
+       \midrule
+       \rowcolor{color2} \multicolumn{4}{l}{\textbf{Free-form Text}}\\
+       \rowcolor{color2} \textsc{HC3} \cite{guo2023close}, & Pair-wise generated texts & High-level & Classification\\
+       \rowcolor{color2} \textsc{Scarecrow} \cite{dou-etal-2022-gpt}, & from both humans and LLMs & textual attribute & performance\\
+       \rowcolor{color2}  \textsc{Deepfake} \cite{li2023deepfake}, & & and discourse & \\
+        \rowcolor{color2} \textsc{Workers} \cite{moller2023prompt} & &structure difference & \\ 
+        \midrule
+        \rowcolor{color3}\multicolumn{4}{l}{\textbf{Task Labels}}\\
+        \rowcolor{color3}\textsc{Social Chemistry} & Subjective tasks,  & Biased toward & \anonymous{not clear?}  \\
+         \rowcolor{color3}\cite{forbes2020social}, & individual-level & majority label  & \\

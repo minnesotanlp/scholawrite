@@ -1,0 +1,46 @@
+Facilitated by the advent of recent LLMs, the free text generation task has become a more complex task than ever before. 
+
+\paragraph{Background} 
+
+\paragraph{First-order Experiment}
+Setup and metric and result
+
+\paragraph{Second-order Experiment}
+Setup and metric and result
+
+\paragraph{Mitigation Suggestions}
+Talk about mitigation strategies
+
+% \paragraph{Task Description}
+% \paragraph{First-order Experiment}
+% Setup and metric and result
+
+% \paragraph{Second-order Experiment}
+% Setup and metric and result
+
+% \paragraph{Mitigation Suggestions}
+% Talk about mitigation strategies
+
+\paragraph{Task Description}
+\paragraph{First-order Experiment}
+Setup and metric and result
+
+\paragraph{Second-order Experiment}
+Setup and metric and result
+
+\paragraph{Mitigation Suggestions}
+Talk about mitigation strategies
+
+\textbf{Our contributions}: Specifically, the contributions of our work are the following:
+
+\begin{itemize}
+  \item  An extensive study of graph-structure prompting across multiple modalities for LLMs.
+  \item Exploring the impact of graph structure, sampling methods, and no. of hops on node prediction performance
+  \item In-depth study factors affecting text, image, and motif modalities for encoding graphs.
+  \item A new graph benchmark (GraphTMI) with a Task hierarchy consisting of graphs, and associated encodings in all encodings to aid the community in studying the effects of graph structure on LLM prompting further.
+  
+\end{itemize}
+
+\textbf{what do we see from our results?}
+\textcolor{red}{image greater than text - task hierarchy}
+Our empirical results show that, while LLMs are getting better at handling graph data, they still have a lot of improving to do if they are to catch up with models that are specifically designed to work with graphs.

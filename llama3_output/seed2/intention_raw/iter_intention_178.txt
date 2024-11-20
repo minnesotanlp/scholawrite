@@ -1,0 +1,48 @@
+lexport  this paper is a contribution to the topic of natural language processing using LaTeX languages.
+
+You currently want to translate your ideas into full languages, either from your language or borrowed sentences from an external source.
+
+Below is the paper you have written so far. Given the paper information below and a corresponding scholarly writing intention, please revise or add to the text to fulfill this writing intention.
+
+You may insert, delete, or revise at appropriate place in the given paper. 
+
+Please give a complete output. Do not generate text that are nonsense or not related to the given paper information.
+
+\end{itemize}
+
+\section{Related Work}
+\subsection{Multi-Style and Multi-Attribute Control}
+TODO
+
+\subsection{Reinforcement Learning}
+TODO
+
+\subsection{Plug and Play Language Models}
+We build off the plug and play language model (PPLM) framework presented in \cite{Dathathri2020Plug}, which frames the controlled generation problem as generating from a distribution $p(x|a)$ where $a$ is some attribute (e.g. positivity). To do this in a lightweight manner, PPLM combines an attribute model, $p(a|x)$, and language model, $p(x)$, exploiting the relation: 
+
+\begin{equation}
+    p(x|a) \propto p(a|x)p(x)
+\end{equation}
+
+The attribute model $p(a|x)$ yields a scalar probability whereas the language model yields a probability distribution over the vocabulary, so combining these two models is not so straightforward in practice. In practice, the PPLM algorithm uses the language model to estimate $p(x|c)$, where $c$ is some prior context. During decoding, the attribute model computes $p(a|c)$, and the gradient signal from that calculation is used to adjust the language model's hidden state during decoding. PPLM then uses post-norm shallow fusion, i.e. adding the logits from this adjusted decoding process to those from an unaltered decoding process. This shallow fusion approach has a history in machine translation approaches of combining distributions from two distinct language models \citep{DBLP:journals/corr/GulcehreFXCBLBS15, gulcehre2017integrating}.
+
+\section{Experiments and Results}
+\subsection{Models}
+Our base model for all methods is a 7B LLaMA2 model. Our discriminators use the base LLaMA2 with a classification head. We train discriminators for sentiment, formality, irony, emotion, and toxicity; for details see Table~\ref{table:discrims}.
+
+\begin{table*}[]
+\begin{tabular}{l|p{5em}p{5em}p{5em}p{11em}p{4em}}
+         & \textbf{Sentiment}         & \textbf{Formality}        & \textbf{Irony}                 & \textbf{Emotion}               & \textbf{Toxicity}              \\ \hline
+Labels   & positive, negative & formal, informal & ironic, not ironic    & Eckman emotions: fear, anger, joy, sadness, disgust, surprise, and neutral                     & toxic, non-toxic      \\
+Dataset & SST2 & GYAFC &  & go-emotions &\\
+F1 score & 0.90              & 0.90             & 0.78                  &                       & 0.80       \\
+\end{tabular}
+\caption{We train discriminators on each of the above attributes (columns). The datasets and labels used in the training process are listed, along with the resulting F1 scores on the test set.}
+\label{table:discrims}
+\end{table*}
+
+\subsection{Reinforcement Learning}
+We fine-tune a language model using reinforcement learning, where a linear combination of the output from attribute discriminators is a reward. In training, we use the TRL library's implementation of the proximal policy optimization (PPO) algorithm for fine-tuning language models. Due to computational constraints, we also use the parameter efficient fine tuning (PEFT, \citet{peft}) library's implementation of low rank adapters (LoRA, \citet{hu2022lora}) to fine tune LLaMA.
+
+We combine the attribute discriminators $d_1, d_2$ into a single reward function for generated text $x$, where specifically $R = w_1d_1(x') + w_2d_2(x')$. 
+The scalar weights $w_1, w_2$ are $\frac{1}{n}$ or $0$ if $d$ is positive $d(x') < d(x)$. The intuition is that if the model is not improving on the baseline generation, we do not want to learn an associated reward.

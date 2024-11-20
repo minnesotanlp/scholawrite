@@ -1,0 +1,30 @@
+guards and the potential for these models to become more harmful if fine-tuned on a dataset containing harmful content. 
+\item \textbf{LLMs have no inherent limitations regarding the types of tasks they are applied to. } 
+These concerns motivate our exploration of the task diversity in synthetically created instruction datasets and the effects of the different types of errors present in these datasets.
+\item \textbf{The quality and diversity of synthetic instruction datasets are unclear. } 
+\textit{Instruction prompts in LLM-generated data come in various forms, and the extent to which these prompts adhere to the guidelines in the original task descriptions is unclear.} 
+\textit{Moreover, the high error rates in instructions, as reported in studies like Unnatural Instructions and Self-Instruct, raise concerns about the reliability of the models trained on these datasets.} 
+\textit{If the trends observed in these datasets hold true, it means that the models would be struggling to generate diverse and accurate instructions.} 
+\textit{Therefore, the first issue is the high error rates in the generated instructions.} 
+\textit{The second issue is the lack of diversity in the datasets against the types of tasks and domains.} 
+\textit{The third issue is the fact that these datasets are not thoroughly examined for errors.} 
+\end{itemize}
+%----- what we do about it ----
+This work contributes to this understanding by taking a broad inventory of synthetic instruction datasets, their errors, and their impacts. We prioritize breadth, covering five different datasets, rather than depth, to understand overarching themes in synthetic instruction data. 
+
+
+
+
+
+%----- synthesis of challenges and findings ----
+\anonymous{anonymous : synthesis of challenges of the data and our main findings}
+The 
+\begin{table*}[]
+    \centering
+    \begin{tabular}{p{.16\textwidth}p{.5\textwidth}p{.28\textwidth}}\toprule
+        \textbf{Error Type} & \textbf{Instruction-Input-Output Triple} & \textbf{Explanation} \\\midrule
+    Incomprehensible Instruction & \textbf{Instruction:} Find a person who is similar to you in one of your hobbies. \textbf{Input:} What is your favorite sport? \textbf{Output:} I am a big fan of football. & This instruction is impossible to follow since ``you'' is subjective and cannot be determined uniquely given the input.\\
+    Inconsistent Input & \textbf{Instruction:} Find the sentence or sentences that refute or disprove a given statement. \textbf{Input:} The Amazon rainforest is the world's largest rainforest and is home to a wealth of biodiversity. & The input statement is inconsistent with the instruction since no sentences can be found that refute or disprove the statement.\\
+    Inconsistent Output & \textbf{Instruction:} Identify which countries border with each other. output one country per side. \textbf{Input:} Country 1: Canada
+Country 2: United States \textbf{Output:} (a) Country 1: Canada / Country 2: United States & The output is inconsistent since it does not satisfy the instruction to list countries bordering with each other.\\
+    Incorrect Output & \textbf{Instruction:} You will be given a piece of text describing a scene. Your goal is to output whether the events in the text are able to happen or not, based on your commonsense. \textbf{Input:} Text: The Keys were sitting on top of the car while we went swimming.\textbf{Output:} No - It is not possible for keys to be sitting on top of a car while swimming. & The output is incorrect since it does not satisfy the instruction for applying commonsense. \\

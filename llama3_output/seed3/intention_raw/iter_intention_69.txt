@@ -1,0 +1,88 @@
+imeo{0.5\textwidth}
+    \includegraphics[width=\textwidth]{figures/iceberg_modified.pdf}
+    \caption{Its an open secret that the majority of the data used in training has been scrubbed clean of its imperfections. \anonymous{I think this sentence flows better without this unless we specifically want to include it}}
+    \label{fig:iceberg}
+\end{figure}
+%----------------------------------
+
+\paragraph{Second Order Experiment}
+The following section investigates the hypothesis that the artifacts become more pronounced over time, with a \anonymous{this is unclear}concentrated distribution highlighting the most common motifs.
+
+\begin{figure*}[ht!]
+    \centering
+    \begin{subfigure}{0.49\textwidth}
+         \centering
+         \includegraphics[width=\textwidth]{figures/motif_m3_mfidf_scores_difference_for_motif_m3.pdf}
+     \end{subfigure}
+         \begin{subfigure}{0.49\textwidth}
+         \centering
+         \includegraphics[width=\textwidth]{figures/motif_m6_mfidf_scores_difference_for_motif_m6.pdf}
+     \end{subfigure}
+    \caption{Difference distribution of MF-IDF scores of motifs across three domains.}
+    \label{fig:difference_dists_two_ways}
+\end{figure*}
+
+\begin{figure*}[ht!]
+    \centering
+    \begin{subfigure}{0.49\textwidth}
+         \centering
+         \includegraphics[width=\textwidth]{figures/motif_m3_mfidf_scores_difference_for_motif_m3.pdf}
+     \end{subfigure}
+         \begin{subfigure}{0.49\textwidth}
+         \centering
+         \includegraphics[width=\textwidth]{figures/motif_m6_mfidf_scores_difference_for_motif_m6.pdf}
+     \end{subfigure}
+    \caption{Difference distribution of MF-IDF scores of motifs across three domains.}
+    \label{fig:difference_dists_two_ways}
+\end{figure*}
+
+\begin{table*}[!t]
+    \centering
+    \begin{tabular}{l|lll}
+        \toprule
+        \textbf{Features} & \textbf{Sent.} & \textbf{Form.} & \textbf{Both} \\
+        \midrule
+        MF-IDF Scores & 0.191 & 0.125 & 0.139 \\
+        \bottomrule
+    \end{tabular}
+    \caption{Normalized motif features.}
+    \label{tab:features}
+\end{table*}
+
+\begin{table*}[!t]
+    \centering
+    \begin{tabular}{l|lll}
+        \toprule
+        \textbf{Features} & \textbf{Sent.} & \textbf{Form.} & \textbf{Both} \\
+        \midrule
+        MF-IDF Scores & 0.191 & 0.125 & 0.139 & 0.139 \\
+        \bottomrule
+    \end{tabular}
+    \caption{Normalized motif features.}
+    \label{tab:features}
+\end{table*}
+
+\subsection{Mitigating Biases from LLM Generated Task Labels}\label{sec:task-mitigation}
+\anonymous{outline very specific actionable suggestions}
+Majority voting and averaging, which are standard methods for deriving single ground truth labels from multiple annotations, often fail to capture the systematic disagreements among annotators. This is especially the case in subjective tasks like detecting sentiment, aggression, and hate speech. Through our experiments, we find that LLMs tend to under-represent minority opinions. This risks marginalizing minority perspectives, potentially reinforcing societal disparities \cite{prabhakaran2021releasing}. This raises a dire need to preserve disagreement in LLM annotations so that they more accurately mirror human annotations. \citeauthor{lee2023large} recently explored Monte Carlo Estimation (MCE) and Log Probability Estimation (LPE) as ways to find the distributional difference between human and LLM task labels. Other methods include using Bayesian methods \cite{paun2018comparing}, integrating disagreements into loss functions \cite{plank2014learning}, and modeling several annotators’ labels as multiple tasks \cite{davani2022dealing}. 
+
+There is also a rising need for validation using human datasets \cite{pangakis2023automated}. Several studies testing LLMs on widely used datasets potentially suffer from data contamination, where LLMs may memorize information, leading to misleadingly strong performance that may not extend to new datasets and tasks, highlighting the need for clear guidelines to ensure effective and accurate use of these tools. \anonymous{citations needed} 
+
+
+
+
+
+
+
+
+    
+  
+
+% Need for disagreement seen on NLI Tasks + For measuring the distance between two distributions, Kullback–Leibler (KL) Divergence (Kullback and Leibler, 1951) or its symmetric version,
+% Kullback–Leibler Divergence (Kullback and Leibler, 1951) are widely used. Baan et al., 2022 argued that Expected Calibration Error (ECE), the
+% difference between the average accuracy and the average confidence (C), is a better measure to
+% reflect the difference between two distributions (Baan et al., 2022). It was also shown that
+% the KL Divergence was not effective in measuring the difference between human and LLM
+% annotations. Similarly, another work by \citet{Sampath et al., 2022} highlights the need to
+% address such systematic artifacts by incorporating new data and models into the
+% training process.

@@ -1,0 +1,54 @@
+intimidatin'  and  inhuman - I'm skeptical. Nearly every time this type of vandalism occurs, it is perpetrated by someone affiliated with the synagogue. 
+
+\paragraph{Background} In the Jewish tradition, it is considered improper to write the name of a person who has passed away without their permission. Therefore, when a person dies their family will write on the grave in Hebrew a phrase such as "May he rest in peace" or "May he be remembered," followed by the person's name. 
+
+\paragraph{Data} Our analysis of Jewish American and European Jews' preferences for sentence pairs tells us that when the first sentence of a pair is more negative than the second, the first  and Jews have more generations in which the first sentence is more negative than the second. This suggests that Jewish Americans and Europeans have a stronger tendency to prefer sentences that show more balance between the two sentiments. 
+
+\paragraph{Experiments} In addition to examining the relationship between entailment and preferences, we also examine whether preferences  different linguistic cues, such as  and lexicons, that may affect preferences. We also consider the side effects of preferences for the
+
+\paragraph{Metrics} 
+
+\paragraph{Results} 
+
+%--------------------------------------
+\subsection{Second Order Effects}
+%--------------------------------------------------------------------
+\section{preferences}
+\subsubsection{First Order Effects}\label{sec:pref-first-results}
+\paragraph{Hypothesis} We explore how LLM preferences adhere more closely to rudimentary heuristics than human preferences do. This suggests that LLM preferences may be more superficial than human preferences are.
+
+\paragraph{Experiment Setup} In our analysis of sentence pairs from the \textsc{p2c} dataset, we focus on identifying the most important stylistic elements that are also present in the \textsc{hummingbird} dataset \cite{hayati2021does} and have the highest human perception scores. For sentence pairs of positive sentiment, we extract lexicons associated with high perception scores for emotions like \textit{joy}, \textit{politeness}, and \textit{positive sentiment}. Conversely, for the pairs of negative sentiments, we select lexicons related to \textit{anger}, \textit{disgust}, \textit{fear}, \textit{sadness}, \textit{offensiveness}, \textit{rudeness}, and \textit{negative sentiment}.
+
+Once we identify the most important lexicon with the highest perception score for each sentence, we compare their human perception scores to determine which sentence is more showing a higher degree of gold-label sentiment. For example, if a sentence of positive sentiment has a higher score of ``joy'' than its counterpart in the pair, that sentence is deemed the ``winner.'' We apply this method across various styles and emotions within the same sentiment category. The sentence that wins in the majority of these style categories is then considered the preferred sentence, a decision we term as ``lexicon-based preference.''
+
+\paragraph{Metrics} 
+
+\paragraph{Results Analysis} 
+
+%--------------------------------------
+\subsection{Second Order Effects}
+%--------------------------------------------------------------------
+\section{preferences}
+\subsubsection{First Order Effects}\label{sec:pref-first-results}
+\paragraph{Hypothesis} We explore how LLM preferences adhere more closely to rudimentary heuristics than human preferences do. This suggests that LLM preferences may be more superficial than human preferences are.
+
+\paragraph{Experiment Setup} In our analysis of sentence pairs from the \textsc{p2c} dataset, we focus on identifying the most important stylistic elements that are also present in the \textsc{hummingbird} dataset \cite{hayati2021does} and have the highest human perception scores. For sentence pairs of positive sentiment, we extract lexicons associated with high perception scores for emotions like \textit{joy}, \textit{politeness}, and \textit{positive sentiment}. Conversely, for the pairs of negative sentiments, we select lexicons related to \textit{anger}, \textit{disgust}, \textit{fear}, \textit{sadness}, \textit{offensiveness}, \textit{rudeness}, and \textit{negative sentiment}.
+
+Once we identify the most important lexicon with the highest perception score for each sentence, we compare their human perception scores to determine which sentence is more showing a higher degree of gold-label sentiment. For example, if a sentence of positive sentiment has a higher score of ``joy'' than its counterpart in the pair, that sentence is deemed the ``winner.'' We apply this method across various styles and emotions within the same sentiment category. The sentence that wins in the majority of these style categories is then considered the preferred sentence, a decision we term as ``lexicon-based preference.''
+
+\paragraph{Metrics} 
+
+\paragraph{Results Analysis} 
+
+%--------------------------------------
+\subsection{Second Order Effects}
+%--------------------------------------------------------------------
+\section{preferences}
+\subsubsection{First Order Effects}\label{sec:pref-first-results}
+\paragraph{Hypothesis} We explore how LLM preferences adhere more closely to rudimentary heuristics than human preferences do. This suggests that LLM preferences may be more superficial than human preferences are.
+
+\paragraph{Experiment Setup} In our analysis of sentence pairs from the \textsc{p2c} dataset, we focus on identifying the most important stylistic elements that are also present in the \textsc{hummingbird} dataset \cite{hayati2021does} and have the highest human perception scores. For sentence pairs of positive sentiment, we extract lexicons associated with high perception scores for emotions like \textit{joy}, \textit{politeness}, and \textit{positive sentiment}. Conversely, for the pairs of negative sentiments, we select lexicons related to \textit{anger}, \textit{disgust}, \textit{fear}, \textit{sadness}, \textit{offensiveness}, \textit{rudeness}, and \textit{negative sentiment}.
+
+Once we identify the most important lexicon with the highest perception score for each sentence, we compare their human perception scores to determine which sentence is more showing a higher degree of gold-label sentiment. For example, if a sentence of positive sentiment has a higher score of ``joy'' than its counterpart in the pair, that sentence is deemed the ``winner.'' We apply this method across various styles and emotions within the same sentiment category. The sentence that wins in the majority of these style categories is then considered the preferred sentence, a decision we term as ``lexicon-based preference.''
+
+\paragraph{Metrics} 12.5 13.6

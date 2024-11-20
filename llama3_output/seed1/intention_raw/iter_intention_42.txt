@@ -1,0 +1,36 @@
+VE 100 70 50 40 10
+% Human Annots: [1.0, 2.0, 4.0, 4.0, 1.0]  & [1.0, 1.0, 1.0, 1.0, 1.0] \\
+% Model Annotats: [1.0, 1.0, 1.0, 1.0, 1.0]  & [1.0, 1.0, 1.0, 1.0, 1.0] \\
+% \midrule
+% Human Annotats: [3.0, 3.0, 3.0, 3.0, 3.0] & [3.0, 3.0, 3.0, 3.0, 3.0] \\
+% Model Annotats: [1.0, 1.0, 1.0, 1.0, 1.0] & [1.0, 1.0, 1.0, 1.0, 1.0] \\
+% \bottomrule
+% \end{tabular}
+% \caption{The table shows the results of 100 randomly selected variations of a 2-style model for each training dataset. The human-generated dataset (``Orig Llama2'') shows a relatively high validation accuracy for the 2-style combination, whereas the LLM-generated one (``Para Llama2'') has an accuracy that is lower, but the trend is similar: binary 2-style models are able to generate more stable generations than the multi-style models.}
+% \label{tab:precision_results}
+% \end{table}
+% %----------------
+
+% \begin{table}[H]
+% \centering
+% \begin{tabular}{@{}lcc@{}}
+% \toprule
+% & \textbf{Style Acc.} & \textbf{Class Acc.} \\
+% \midrule
+% \textbf{Human} & 0.49 & 0.80 \\
+% LLM & 0.33 / - & 0.67 / - \\
+% \bottomrule
+% \end{tabular}
+% \caption{Precision results over \textbf{Human} and \textbf{LLM} datasets.}
+% \label{tab:precision_results}
+% \end{table}
+% %----------------
+% %\begin{figure}[H]
+% %    \centering
+% %    \includegraphics[width=0.49\textwidth]{images/RL_quadrant.png}
+% %    \caption{For each item in the evaluation set, shows the change in sentiment and formality scores after fine-tuning the model. We can see that as desired, the informal score is higher, and the sentiment score is lower.}
+% %    \label{fig:learned-behavior}
+% %\end{figure}
+
+% \noindent \textbf{Comparison of model capacity with the majority match score}
+% Figure \ref{fig:plot_diff_data} shows that increased model capacity for simpler tasks like sentiment and controversy detection influenced the majority match score. The compared models and their model sizes are provided in Appendix \ref{sec:appendix}. However, increased model capacity decreased the matching accuracy for more complex tasks like hate speech and offensive speech classification. This leads us to question whether a more complex model tends to overthink these tasks. These findings emphasize the importance of dataset characteristics and the task of selecting an appropriate model size for natural language processing tasks.

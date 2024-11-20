@@ -1,0 +1,86 @@
+upertial  a  a  a  a  a  a  a  a  \\
+\includegraphics[width=0.8\columnwidth, trim={2cm 0.0cm 3.5cm 0.6cm},clip]{images/LLaMA_v2.pdf}
+\caption{LLaMA2 with different input modalities encoded in text modality.}
+\label{fig:fig1}
+\end{figure}
+\textbf{Text Modality Results}
+Figure \ref{fig:fig1} shows that using the \textit{Adjacency List} as the mode of encoding for the graphs results in a significant improvement in metrics such as \textit{Accuracy Rate} ( higher accuracy rate on the right), \textit{Mismatch Rate} (lower mismatch rate on the right), \textit{Denial Rate} (lower denial rate on the right), and \textit{Token Limit Fraction} (lower token limit fraction on the right) while maintaining the \textit{Average Accuracy Rate} of the text modality encoding. 
+
+\textbf{Impact of Edge encoding funtion}:
+Table \ref{tab:edge_representations} describes the different encoding functions, their explanations, and the associated prompts generated on applying these functions. Figure \ref{fig:fig4} describes the different encoding functions, their explanations, and the associated prompts generated on applying these functions. 
+
+%------------------------------------------
+\begin{figure}
+  \centering
+%\includegraphics[width=0.95\linewidth]
+\includegraphics[width = \linewidth]{figures/edge_rep_updated.pdf}
+  \caption{ We compare the edge representation type (x-axis) with the value of the mean metrics (y-axis). The desired trend is given in brackets for each metric. The highest performing edge representation is the ``adjacency list'' representation with the highest accuracy (A $\uparrow$) and low mismatch rate (M $\downarrow$)), denial rate (D $\downarrow$), and token limit fraction (T $\downarrow$).}
+  \label{fig:fig4}
+\end{figure}
+
+\textbf{Impact of Graph Structure} :
+Graph structure is a significant factor impacting the performance of node classification \cite{fatemi2023talk}. We consider the impact of graph structure by choosing real-world complex citation networks that differ in their network properties. Table \ref{tab:dataset_comparison} describes these datasets' differences.
+
+\textbf{Impact of Sampling Strategy} :
+Ego graph sampling \cite{spreen1996sampling} involves choosing a central node and its neighbors, creating a subgraph reflective of their interconnections. The chosen ego biases this method; for example, an unusually connected ego affects the subgraph's representativeness. Forest Fire sampling \cite{leskovec2006sampling}, in contrast, uses a spread-like mechanism starting from a random node to select network portions. Its randomness means subgraphs vary across instances, influenced by parameters like burning probabilities, and are less dependent on the chosen ego. Both methods have limitations and can skew perceptions of the network's overall structure, especially in large, diverse networks.
+
+Forest Fire sampling is generally more likely to produce a sample representative of the entire network, especially for networks with a single large connected component (Pubmed). It has the potential to explore various regions of the network, not just the local neighborhood, which can be particularly important in large and complex networks.
+
+Ego graph sampling, on the other hand, is better suited for studying the immediate local structure around a given node and can be more representative of the network if the goal is to understand the local community structure (CORA, Citeseer) rather than the global properties of the network.
+
+\textcolor{blue}{TODO}
+Table \ref{tab:ego_metrics} describes the classification performance on ego graph and forest fire sampling. We find that with PubMed, which has a large connected component, the forest fire sampling performs better, while with CORA, which has a clearer community structure, ego network sampling seems to be the better choice. It becomes obvious that graph sampling choice is an important factor, and with every network that is considered the graph sampling method used should be different depending on its network properties.  
+
+
+%------------------------------------------
+\begin{table*}[ht]
+\centering
+\caption{Comparing classification performance on ego graph and forest fire sampling}
+\label{tab:ego_metrics}
+\begin{tabular*}{\textwidth}{l @{\extracolourspace*}{l}{lccccc}}
+\toprule
+& \textbf{A} & \textbf{C} & \textbf{D} & \textbf{F} & \textbf{I} \\
+\midrule
+\textbf{N = 20} & & & & & \\
+ego & Value for A1 & Value for C1 & Value for D1 & Value for F1 & Value for I1 \\
+ff  & Value for A1 & Value for C1 & Value for D1 & Value for F1 & Value for I1 \\
+\midrule
+\textbf{N = 50} & & & & & \\
+ego & Value for A2 & Value for C2 & Value for D2 & Value for F2 & Value for I2 \\
+ff  & Value for A2 & Value for C2 & Value for D2 & Value for F2 & Value for I2 \\
+\bottomrule
+\end{tabular*}
+\end{table*}
+
+
+
+\subsubsection {Motif Modality}
+An example prompt generated after applying the motif encoding modality looks like:  \\
+
+\begin{tcolorbox}[colback=mycolor,sharp corners]
+\noindent\textbf{Task}: Node Label Prediction (Predict the label of the node marked with a?) given the node-label mapping and graph motif information in the text enclosed in triple backticks. Response should be in the format ``Label of Node = \textless predicted label\textgreater''. If the predicted label cannot be determined, return ``Label of Node = -1''.\\
+Node-Label Mapping: \{1: A, 2: A, 3:?\}\\
+No of triangles: 1
+Triangles attached to? Node : [1,2,3]
+\end{tcolorbox}
+
+
+\textcolor{blue}{TO-DO}
+\begin{itemize}
+    \item Adding motif count information:
+    \item Adding motif attachment information
+    \item Adding motif role explanation
+\end{itemize}
+%---------------------------------------------------------
+
+%------------------------------------------
+\begin{figure}
+  \centering
+%\includegraphics[width=0.95\linewidth]
+\includegraphics[width = \linewidth]{figures/prompt_example1.png}
+  \caption{Example of Image Modality Encoding with GPT-V}
+  \label{fig:gpt-v}
+\end{figure}
+%------------------------------------------
+
+\subsubsection {Image Modality}

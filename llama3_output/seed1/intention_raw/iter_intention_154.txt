@@ -1,0 +1,105 @@
+adjusts the sampling strategy and number of iterations based on the graph's size and complexity to ensure accurate and efficient results. 
+   \item For larger graphs, the hypergraph sampling strategy is suggested, which uses the whole graph and is more suitable for graphs with a high number of edges. 
+   \item For text modality, the motif encoding modality is suggested to provide local and global context through the usage of significant motifs in the graph. 
+   \item For image modality, it is suggested that the image encoding modality is used, which provides a comprehensive global view of the node's neighborhood by using the image modality. 
+   \item Furthermore, we also suggest that the graph structure and the chosen sampling strategy influence the performance of node classification tasks significantly. 
+   \item The sampling strategy, especially for real-world graphs, significantly affects the accuracy of node classification tasks. 
+   \item A notable observation is that the "ego graph" sampling strategy, which is often considered the standard method for sampling graphs, has a higher accuracy than the "forest fire" sampling strategy, which is generally considered more representative of the entire network. 
+   \item However, graph sampling techniques like "monte Carlo" and "systematic random" also exist and can be more flexible as they less constrained by the nature of the graph. 
+   \item Some methods, like "motif" sampling, are more focused on the local community structure of the graph and less concerned with the overall size of the graph. 
+   \item Another closely related metric is the "average" or "mean" of the node classification accuracy across all instances, which might not be accurate due to the sampling strategy and could potentially lead to misleadingly high performances that may not extend to new datasets and tasks, highlighting the need for a clear understanding of the data and the task. 
+   \item In contrast, "mean" or "average" accuracy calculated over a series of instances, especially when comparing different sampling strategies, can more accurately reflect the true performance of the models trained on graph data, as it acknowledges the inherent variability and challenges of graph classification. 
+   \item For graphs with a high number of edges (like \textsc{Pubmed}), the "forest fire" sampling strategy tends to reveal more local community structures, while for graphs with a higher number of nodes (like \textsc{Citeseer}), the "ego graph" sampling strategy is more effective. 
+   \item Thus, we can see that depending on the nature of the graph, a different sampling strategy would be more suitable, and this may explain why some methods perform better on some datasets than others. 
+   %------------------------------------------------------------------
+   %---------------------------------
+   \begin{figure*}
+    \centering
+    \small
+    \begin{subfigure}[b]{0.31\textwidth}
+         \centering
+         \includegraphics[width=0.8\columnwidth]{figures/task_hierarchy/14_new.png}
+     \end{subfigure}
+         \begin{subfigure}[b]{0.31\textwidth}
+         \centering
+         \includegraphics[width=0.8\columnwidth]{figures/task_hierarchy/0_new.png}
+     \end{subfigure}
+         \begin{subfigure}[b]{0.31\textwidth}
+         \centering
+         \includegraphics[width=0.8\columnwidth]{figures/task_hierarchy/1_new.png}
+     \end{subfigure}
+   %\caption{Task Hierarchy}
+   \label{fig:my_figure2}
+   \end{subfigure}
+   %  \hfill
+   %  \begin{subfigure}[b]{0.31\textwidth}
+   %   \centering
+   %   \includegraphics[width=0.8\columnwidth]{figures/task_hierarchy/6_new.png}
+   %   \label{fig:my_figure2}
+   % \end{subfigure}
+   % \hfill
+   % \begin{subfigure}[b]{0.31\textwidth}
+   %   \centering
+   %   \includegraphics[width=0.8\columnwidth]{figures/task_hierarchy/0_new.png}
+   %   \label{fig:my_figure2}
+   % \end{subfigure}
+   % \hfill
+   % \begin{subfigure}[b]{0.31\textwidth}
+   %   \centering
+   %   \includegraphics[width=0.8\columnwidth]{figures/task_hierarchy/6_new.png}
+   %   \label{fig:my_figure2}
+   % \end{subfigure}
+   % \hfill
+   % \begin{subfigure}[b]{0.31\textwidth}
+   %   \centering
+   %   \includegraphics[width=0.8\columnwidth]{figures/task_hierarchy/0_new.png}
+   %   \label{fig:my_figure2}
+   % \end{subfigure}
+   % \hfill
+   % \begin{subfigure}[b]{0.31\textwidth}
+   %   \centering
+   %   \includegraphics[width=0.8\columnwidth]{figures/task_hierarchy/6_new.png}
+   %   \label{fig:my_figure2}
+   % \end{subfigure}
+   %     \hfill
+   %     \begin{subfigure}[b]{0.31\textwidth}
+   %     \centering
+   %     \includegraphics[width=0.8\columnwidth]{figures/task_hierarchy/0_new.png}
+   %     \label{fig:my_figure2}
+   % \end{subfigure}
+   %     \hfill
+   %     \begin{subfigure}[b]{0.31\textwidth}
+   %     \centering
+   %     \includegraphics[width=0.8\columnwidth]{figures/task_hierarchy/6_new.png}
+   %     \label{fig:my_figure2}
+   % \end{subfigure}
+   %     \hfill
+   %     \begin{subfigure}[b]{0.31\textwidth}
+   %     \centering
+   %     \includegraphics[width=0.8\columnwidth]{figures/task_hierarchy/0_new.png}
+   %     \label{fig:my_figure2}
+   % \end{subfigure}
+   %     \hfill
+   %     \begin{subfigure}[b]{0.31\textwidth}
+   %     \centering
+   %     \includegraphics[width=0.8\columnwidth]{figures/task_hierarchy/6_new.png}
+   %     \label{fig:my_figure2}
+   % \end{subfigure}
+   %     \hfill
+   %     \begin{subfigure}[b]{0.31\textwidth}
+   %     \centering
+   %     \includegraphics[width=0.8\columnwidth]{figures/task_hierarchy/0_new.png}
+   %     \label{fig:my_figure2}
+   % \end{subfigure}
+   %     \hfill
+   %     \begin{subfigure}[b]{0.31\textwidth}
+   %     \centering
+   %     \includegraphics[width=0.8\columnwidth]{figures/task_hierarchy/6_new.png}
+   %     \label{fig:my_figure2}
+   % \end{subfigure}
+   %     \hfill
+   %     \begin{subfigure}[b]{0.31\textwidth}
+   %     \centering
+   %     \includegraphics[width=0.8\columnwidth]{figures/task_hierarchy/0_new.png}
+   %     \label{fig:my_figure2}
+   % \end{subfigure}

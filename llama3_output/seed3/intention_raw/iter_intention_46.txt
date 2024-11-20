@@ -1,0 +1,71 @@
+ULD be beneficial to include some examples of the machine-generated data itself, in order to show the readers. This could be a very notable advancement towards the goal of the paper, and can be achieved with minimal disruption to the overall text flow.
+\anonymous{reconsideration of inclusion of these examples in appendix}
+% \subsection*{Evaluation Set}
+% We evaluate our trained model on a 1000 item dataset consisting of:
+% \begin{itemize}
+%     \item 500 randomly selected Tweets from the SemEval 2017 emotions dataset
+%     \item 500 randomly selected Tweets from the TweetEval dataset  \citep{barbieri2020tweeteval}
+%     \item 500 randomly selected reviews from the Rotten Tomatoes datasest \citep{Pang+Lee:05a}
+%     \item 500 randomly selected items from the Wikipedia datasest \citep{wikidump}
+% \end{itemize}
+
+We choose these datasets for their variety of domains and their potential for varying levels of our target styles. Model prompts consist of the first four words of each item.
+
+We evaluate generations on this evaluation set based on their adherence to the target style, the their perplexity, and their repetitiveness (specifically, how often do the same bigrams appear across all generations?)
+
+\subsection{Efficacy of 2-style models}
+Results on the evaluation set for the 2-style models:
+\begin{table}
+\centering
+\begin{tabular}{p{0.3\columnwidth}|p{0.15\columnwidth}p{0.15\columnwidth}p{0.15\columnwidth}}
+\hline
+\textbf{Model} & \textbf{Sentiment} & \textbf{Formality} & \textbf{Overall} \\ \hline
+1-Style Models & & & \\
+\hline
+Positive & 0.783 & N/A & N/A \\
+\hline
+Negative & 0.641 & N/A & N/A \\
+\hline
+Formal & N/A & 0.873 & N/A \\
+\hline
+Informal & N/A & 0.764 & N/A \\
+\hline
+2-Style Models & & & \\
+\hline
+Positive-Formal  & 0.786 & 0.776 & 0.674\\
+\hline
+Positive-Informal & 0.759 & 0.725 & 0.520 \\
+\hline
+Negative-Formal & 0.619 & 0.708 & 0.389 \\
+\hline
+Negative-Informal & 0.598 & 0.734 & 0.542\\
+\hline
+\end{tabular}
+\caption{Automatic evaluation of 1-, 2-, and 3-style models.}
+\label{tab:precision_results}
+\end{table}
+
+
+
+% \begin{table*}[ht]
+% \centering
+% \begin{tabular}{l|ccc}
+% \toprule
+% & \textbf{Sentiment} & \textbf{Formality} & \textbf{Multi-Label} \\
+% \midrule
+% 1-Style Models & & & \\
+% \quad Positive & 0.783 & N/A & N/A \\
+% \quad Negative & 0.641 & N/A & N/A \\
+% \quad Formal & N/A & 0.873 & N/A \\
+% \quad Informal & N/A & 0.764 & N/A \\
+% \midrule
+% 2-Style Models & & & \\
+% \quad Positive-Formal  & 0.786 & 0.776 & 0.674\\
+% \quad Positive-Informal & 0.759 & 0.725 & 0.520 \\
+% \quad Negative-Formal & 0.619 & 0.708 & 0.389 \\
+% \quad Negative-Informal & 0.598 & 0.734 & 0.542\\
+% \bottomrule
+% \end{tabular}
+% \caption{Automatic evaluation of 1-, 2-, and 3-style models.}
+% \label{tab:precision_results}
+% \end{table*}

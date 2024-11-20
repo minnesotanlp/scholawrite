@@ -1,0 +1,280 @@
+\centering
+      \begin{tabular}{p{4cm}|l|ccc}
+      \toprule
+       & \textbf{Model} & \textbf{Cora} & \textbf{Citeseer} & \textbf{Pubmed} \\
+       \cmidrule{2-5}
+        & \textbf{Acc.} & \textbf{Inacc.} & \textbf{Fail Rate} & \textbf{Inacc.} \\
+        \midrule
+        \textbf{N = 20} & & & & \\
+        \begin{tabular}[c]{@{}l@{}}\
+         \textbf{Model} & \textbf{A} & \textbf{C} & \textbf{I} \\
+         \midrule
+         \textbf{Model} & 0.70 & 0.70 & 0.70 \\
+         \textbf{Model} & 0.70 & 0.70 & 0.70 \\
+         \textbf{Model} & 0.70 & 0.70 & 0.70 \\
+         \end{tabular}
+        \caption{N = 20}
+        \label{tab:}
+        \end{tabular}
+        \caption{A random sample of 50 network motifs with their corresponding labels and counts.}
+        \label{tab:}
+    \end{table*}
+
+\begin{table*}[ht]
+\centering
+\scriptsize
+\begin{tabular}{@{}p{0.12\textwidth}p{0.24\textwidth}p{0.24\textwidth}p{0.24\textwidth}p{0.24\textwidth}@{}}
+\toprule
+\textbf{N = 50} & \textbf{Text} & \textbf{Motif 1} & \textbf{Motif 2} & \textbf{Motif 3} \\
+\midrule
+\textbf{Model} & \textbf{Text} & \textbf{Motif 1} & \textbf{Motif 2} & \textbf{Motif 3} \\
+\midrule
+\textbf{Motif 1} & 0.70 & 0.70 & 0.70 & 0.70 \\
+\textbf{Motif 2} & 0.67 & 0.70 & 0.70 & 0.70 \\
+\textbf{Motif 3} & 0.70 & 0.70 & 0.70 & 0.70 \\
+\bottomrule
+\end{tabular}
+\caption{A random sample of 50 network motifs with their corresponding labels and counts.}
+\label{tab:}
+\end{table*}
+
+\begin{table*}[ht]
+\centering
+\scriptsize
+\begin{tabular}{@{}p{0.12\textwidth}p{0.24\textwidth}p{0.24\textwidth}p{0.24\textwidth}p{0.24\textwidth}@{}}
+\toprule
+\textbf{N = 50} & \textbf{Text} & \textbf{Motif 1} & \textbf{Motif 2} & \textbf{Motif 3} \\
+\midrule
+\textbf{Model} & \textbf{Text} & \textbf{Motif 1} & \textbf{Motif 2} & \textbf{Motif 3} \\
+\midrule
+\textbf{Motif 1} & 0.70 & 0.70 & 0.70 & 0.70 \\
+\textbf{Motif 2} & 0.67 & 0.70 & 0.70 & 0.70 \\
+\textbf{Motif 3} & 0.70 & 0.70 & 0.70 & 0.70 \\
+\bottomrule
+\end{tabular}
+\caption{A random sample of 50 network motifs with their corresponding labels and counts.}
+\label{tab:}
+\end{table*}
+
+\subsection{No of cliques $?$ Node is attached to }
+\begin{table*}[ht]
+\centering
+\scriptsize
+\begin{tabular}{@{}p{0.12\textwidth}p{0.24\textwidth}p{0.24\textwidth}p{0.24\textwidth}p{0.24\textwidth}@{}}
+\toprule
+\textbf{N = 50} & \textbf{Text} & \textbf{Motif 1} & \textbf{Motif 2} & \textbf{Motif 3} \\
+\midrule
+\textbf{Model} & \textbf{Text} & \textbf{Motif 1} & \textbf{Motif 2} & \textbf{Motif 3} \\
+\midrule
+\textbf{Motif 1} & 0.70 & 0.70 & 0.70 & 0.70 \\
+\textbf{Motif 2} & 0.67 & 0.70 & 0.70 & 0.70 \\
+\textbf{Motif 3} & 0.70 & 0.70 & 0.70 & 0.70 \\
+\bottomrule
+\end{tabular}
+\caption{A random sample of 50 network motifs with their corresponding labels and counts.}
+\label{tab:}
+\end{table*}
+
+\subsection{No of cliques $?$ Node is attached to }
+\begin{table*}[ht]
+\centering
+\scriptsize
+\begin{tabular}{@{}p{0.12\textwidth}p{0.24\textwidth}p{0.24\textwidth}p{0.24\textwidth}p{0.24\textwidth}@{}}
+\toprule
+\textbf{N = 50} & \textbf{Text} & \textbf{Motif 1} & \textbf{Motif 2} & \textbf{Motif 3} \\
+\midrule
+\textbf{Model} & \textbf{Text} & \textbf{Motif 1} & \textbf{Motif 2} & \textbf{Motif 3} \\
+\midrule
+\textbf{Motif 1} & 0.70 & 0.70 & 0.70 & 0.70 \\
+\textbf{Motif 2} & 0.67 & 0.70 & 0.70 & 0.70 \\
+\textbf{Motif 3} & 0.70 & 0.70 & 0.70 & 0.70 \\
+\bottomrule
+\end{tabular}
+\caption{A random sample of 50 network motifs with their corresponding labels and counts.}
+\label{tab:}
+\end{table*}
+
+\subsection{Average  and  }
+\begin{table*}[ht]
+\centering
+\scriptsize
+\begin{tabular}{@{}p{0.12\textwidth}p{0.24\textwidth}p{0.24\textwidth}p{0.24\textwidth}p{0.24\textwidth}@{}}
+\toprule
+\textbf{N = 50} & \textbf{Text} & \textbf{Motif 1} & \textbf{Motif 2} & \textbf{Motif 3} \\
+\midrule
+\textbf{Model} & \textbf{Text} & \textbf{Motif 1} & \textbf{Motif 2} & \textbf{Motif 3} \\
+\midrule
+\textbf{Motif 1} & 0.70 & 0.70 & 0.70 & 0.70 \\
+\textbf{Motif 2} & 0.67 & 0.70 & 0.70 & 0.70 \\
+\textbf{Motif 3} & 0.70 & 0.70 & 0.70 & 0.70 \\
+\bottomrule
+\end{tabular}
+\caption{A random sample of 50 network motifs with their corresponding labels and counts.}
+\label{tab:}
+\end{table*}
+
+\subsection{No of cliques $?$ Node is attached to }
+\begin{table*}[ht]
+\centering
+\scriptsize
+\begin{tabular}{@{}p{0.12\textwidth}p{0.24\textwidth}p{0.24\textwidth}p{0.24\textwidth}p{0.24\textwidth}@{}}
+\toprule
+\textbf{N = 50} & \textbf{Text} & \textbf{Motif 1} & \textbf{Motif 2} & \textbf{Motif 3} \\
+\midrule
+\textbf{Model} & \textbf{Text} & \textbf{Motif 1} & \textbf{Motif 2} & \textbf{Motif 3} \\
+\midrule
+\textbf{Motif 1} & 0.70 & 0.70 & 0.70 & 0.70 \\
+\textbf{Motif 2} & 0.67 & 0.70 & 0.70 & 0.70 \\
+\textbf{Motif 3} & 0.70 & 0.70 & 0.70 & 0.70 \\
+\bottomrule
+\end{tabular}
+\caption{A random sample of 50 network motifs with their corresponding labels and counts.}
+\label{tab:}
+\end{table*}
+
+\subsection{Average  and  }
+\begin{table*}[ht]
+\centering
+\scriptsize
+\begin{tabular}{@{}p{0.12\textwidth}p{0.24\textwidth}p{0.24\textwidth}p{0.24\textwidth}p{0.24\textwidth}@{}}
+\toprule
+\textbf{N = 50} & \textbf{Text} & \textbf{Motif 1} & \textbf{Motif 2} & \textbf{Motif 3} \\
+\midrule
+\textbf{Model} & \textbf{Text} & \textbf{Motif 1} & \textbf{Motif 2} & \textbf{Motif 3} \\
+\midrule
+\textbf{Motif 1} & 0.70 & 0.70 & 0.70 & 0.70 \\
+\textbf{Motif 2} & 0.67 & 0.70 & 0.70 & 0.70 \\
+\textbf{Motif 3} & 0.70 & 0.70 & 0.70 & 0.70 \\
+\bottomrule
+\end{tabular}
+\caption{A random sample of 50 network motifs with their corresponding labels and counts.}
+\label{tab:}
+\end{table*}
+
+\subsection{No of cliques $?$ Node is attached to }
+\begin{table*}[ht]
+\centering
+\scriptsize
+\begin{tabular}{@{}p{0.12\textwidth}p{0.24\textwidth}p{0.24\textwidth}p{0.24\textwidth}p{0.24\textwidth}@{}}
+\toprule
+\textbf{N = 50} & \textbf{Text} & \textbf{Motif 1} & \textbf{Motif 2} & \textbf{Motif 3} \\
+\midrule
+\textbf{Model} & \textbf{Text} & \textbf{Motif 1} & \textbf{Motif 2} & \textbf{Motif 3} \\
+\midrule
+\textbf{Motif 1} & 0.70 & 0.70 & 0.70 & 0.70 \\
+\textbf{Motif 2} & 0.67 & 0.70 & 0.70 & 0.70 \\
+\textbf{Motif 3} & 0.70 & 0.70 & 0.70 & 0.70 \\
+\bottomrule
+\end{tabular}
+\caption{A random sample of 50 network motifs with their corresponding labels and counts.}
+\label{tab:}
+\end{table*}
+
+\subsection{Average  and  }
+\begin{table*}[ht]
+\centering
+\scriptsize
+\begin{tabular}{@{}p{0.12\textwidth}p{0.24\textwidth}p{0.24\textwidth}p{0.24\textwidth}p{0.24\textwidth}@{}}
+\toprule
+\textbf{N = 50} & \textbf{Text} & \textbf{Motif 1} & \textbf{Motif 2} & \textbf{Motif 3} \\
+\midrule
+\textbf{Model} & \textbf{Text} & \textbf{Motif 1} & \textbf{Motif 2} & \textbf{Motif 3} \\
+\midrule
+\textbf{Motif 1} & 0.70 & 0.70 & 0.70 & 0.70 \\
+\textbf{Motif 2} & 0.67 & 0.70 & 0.70 & 0.70 \\
+\textbf{Motif 3} & 0.70 & 0.70 & 0.70 & 0.70 \\
+\bottomrule
+\end{tabular}
+\caption{A random sample of 50 network motifs with their corresponding labels and counts.}
+\label{tab:}
+\end{table*}
+
+\subsection{No of cliques $?$ Node is attached to }
+\begin{table*}[ht]
+\centering
+\scriptsize
+\begin{tabular}{@{}p{0.12\textwidth}p{0.24\textwidth}p{0.24\textwidth}p{0.24\textwidth}p{0.24\textwidth}@{}}
+\toprule
+\textbf{N = 50} & \textbf{Text} & \textbf{Motif 1} & \textbf{Motif 2} & \textbf{Motif 3} \\
+\midrule
+\textbf{Model} & \textbf{Text} & \textbf{Motif 1} & \textbf{Motif 2} & \textbf{Motif 3} \\
+\midrule
+\textbf{Motif 1} & 0.70 & 0.70 & 0.70 & 0.70 \\
+\textbf{Motif 2} & 0.67 & 0.70 & 0.70 & 0.70 \\
+\textbf{Motif 3} & 0.70 & 0.70 & 0.70 & 0.70 \\
+\bottomrule
+\end{tabular}
+\caption{A random sample of 50 network motifs with their corresponding labels and counts.}
+\label{tab:}
+\end{table*}
+
+\subsection{Average  and  }
+\begin{table*}[ht]
+\centering
+\scriptsize
+\begin{tabular}{@{}p{0.12\textwidth}p{0.24\textwidth}p{0.24\textwidth}p{0.24\textwidth}p{0.24\textwidth}@{}}
+\toprule
+\textbf{N = 50} & \textbf{Text} & \textbf{Motif 1} & \textbf{Motif 2} & \textbf{Motif 3} \\
+\midrule
+\textbf{Model} & \textbf{Text} & \textbf{Motif 1} & \textbf{Motif 2} & \textbf{Motif 3} \\
+\midrule
+\textbf{Motif 1} & 0.70 & 0.70 & 0.70 & 0.70 \\
+\textbf{Motif 2} & 0.67 & 0.70 & 0.70 & 0.70 \\
+\textbf{Motif 3} & 0.70 & 0.70 & 0.70 & 0.70 \\
+\bottomrule
+\end{tabular}
+\caption{A random sample of 50 network motifs with their corresponding labels and counts.}
+\label{tab:}
+\end{table*}
+
+\subsection{No of cliques $?$ Node is attached to }
+\begin{table*}[ht]
+\centering
+\scriptsize
+\begin{tabular}{@{}p{0.12\textwidth}p{0.24\textwidth}p{0.24\textwidth}p{0.24\textwidth}p{0.24\textwidth}@{}}
+\toprule
+\textbf{N = 50} & \textbf{Text} & \textbf{Motif 1} & \textbf{Motif 2} & \textbf{Motif 3} \\
+\midrule
+\textbf{Model} & \textbf{Text} & \textbf{Motif 1} & \textbf{Motif 2} & \textbf{Motif 3} \\
+\midrule
+\textbf{Motif 1} & 0.70 & 0.70 & 0.70 & 0.70 \\
+\textbf{Motif 2} & 0.67 & 0.70 & 0.70 & 0.70 \\
+\textbf{Motif 3} & 0.70 & 0.70 & 0.70 & 0.70 \\
+\bottomrule
+\end{tabular}
+\caption{A random sample of 50 network motifs with their corresponding labels and counts.}
+\label{tab:}
+\end{table*}
+
+\subsection{Average  and  }
+\begin{table*}[ht]
+\centering
+\scriptsize
+\begin{tabular}{@{}p{0.12\textwidth}p{0.24\textwidth}p{0.24\textwidth}p{0.24\textwidth}p{0.24\textwidth}@{}}
+\toprule
+\textbf{N = 50} & \textbf{Text} & \textbf{Motif 1} & \textbf{Motif 2} & \textbf{Motif 3} \\
+\midrule
+\textbf{Model} & \textbf{Text} & \textbf{Motif 1} & \textbf{Motif 2} & \textbf{Motif 3} \\
+\midrule
+\textbf{Motif 1} & 0.70 & 0.70 & 0.70 & 0.70 \\
+\textbf{Motif 2} & 0.67 & 0.70 & 0.70 & 0.70 \\
+\textbf{Motif 3} & 0.70 & 0.70 & 0.70 & 0.70 \\
+\bottomrule
+\end{tabular}
+\caption{A random sample of 50 network motifs with their corresponding labels and counts.}
+\label{tab:}
+\end{table*}
+
+\subsection{No of cliques $?$ Node is attached to }
+\begin{table*}[ht]
+\centering
+\scriptsize
+\begin{tabular}{@{}p{0.12\textwidth}p{0.24\textwidth}p{0.24\textwidth}p{0.24\textwidth}p{0.24\textwidth}@{}}
+\toprule
+\textbf{N = 50} & \textbf{Text} & \textbf{Motif 1} & \textbf{Motif 2} & \textbf{Motif 3} \\
+\midrule
+\textbf{Model} & \textbf{Text} & \textbf{Motif 1} & \textbf{Motif 2} & \textbf{Motif 3} \\
+\midrule
+\textbf{Motif 1} & 0.70 & 0.70 & 0.70 & 0.70 \\
+\textbf{Motif 2} & 0.67 & 0.70 & 0.70 & 0.70 \\
+\textbf{

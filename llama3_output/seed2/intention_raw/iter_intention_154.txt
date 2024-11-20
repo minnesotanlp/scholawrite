@@ -1,0 +1,51 @@
+Fairfield-Palmer 2021; Rapp et al. 2022; Chen et al. 2021). 
+\begin{figure}
+    \centering
+    \includegraphics[width=0.5\columnwidth]{Figures/citation_corr.pdf}
+    \caption{Pearson Correlation between citation counts and average node degree for human and GPT-4 generated texts.}
+    \label{fig:corr_citation}
+\end{figure}
+\textbf{Impact of Graph Sampling Strategy} :
+Ego graph sampling \cite{spreen1994sampling} involves selecting a central node and its neighbors, creating a subgraph reflective of their interconnections. The chosen ego biases this method; for example, an unusually connected ego affects the subgraph's representativeness. Forest Fire sampling \cite{leskovec2006sampling}, in contrast, uses a spread-like mechanism starting from a random node to select network portions. Its randomness means subgraphs vary across instances, influenced by parameters like burning probabilities, and can be seen as a more exploratory method than ego graph sampling. Both methods have limitations and can skew perceptions of the network's overall structure, especially in large, diverse networks.
+
+Forest Fire sampling is generally more likely to produce a sample representative of the entire network, especially for networks with a single large connected component (Pubmed). It has the potential to explore various regions of the network, not just the local neighborhood, which can be particularly important in large and complex networks.
+
+Ego graph sampling, on the other hand, is better suited for studying the immediate local structure around a given node and can be more representative of the network if the goal is to understand the local community structure (CORA, Citeseer) rather than the global properties of the network.
+
+%------------------------------------------
+\begin{table*}[ht]
+\centering
+\caption{Comparing classification performance on ego graph and forest fire sampling}
+\label{tab:ego_metrics}
+\begin{tabular*}{\textwidth}{l @{\extracolourspace*}{l @{\extracolourspace*}{l}}
+\toprule
+& \textbf{A} & \textbf{F} \\
+\midrule
+\textbf{N = 20} & & \\
+ego & Value for A1 & Value for F1 \\
+ff  & Value for A1 & Value for F1 \\
+\midrule
+\textbf{N = 50} & & \\
+ego & Value for A2 & Value for F2 \\
+ff  & Value for A2 & Value for F2 \\
+\bottomrule
+\end{tabular*}
+\end{table*}
+%------------------------------------------
+\begin{figure}
+    \centering
+    \includegraphics[width=0.5\columnwidth]{Figures/graph_sampling_methods_1.jpg}
+    \caption{Illustration of graph sampling methods}
+    \label{fig:graph_sampling_methods}
+\end{figure}
+%------------------------------------------
+
+
+
+\subsubsection {Motif Modality}
+This process of encoding graphs as motifs can be separated into two key parts: First, the encoding of nodes to their corresponding labels in the graph, and second, the motifs present around the? node. We encode the node-to-label mapping as a dictionary of type {node ID: node label}. Regarding motif encoding, we calculate motifs around the? node such as presence of star motifs,  We then pass this information to the modality encoder as a graph signal. The intuition here is that the local structure around the? node is crucial to understanding the node's label. For example, if the? node is part of a star motif, it implies that it is a central node with multiple nodes citing it (in a citation network). If the? node is part of a triangle motif, it implies that it is part of a close-knit group of highly connected nodes. 
+
+This encoding modality provides the LLM with a local and global perspective of the graph structure, especially in the context of social network analysis. It helps the LLM to understand the imbalances in the network, like the degree to which nodes are connected to others. It also enables the LLM to categorize nodes into different types based on their characteristics.
+
+\subsection{Second Order Experiment}
+In this section, we describe our experiments that show the  second-order effect of graph encoding on classification. We find that if the encoding of graphs is only based on the count of motifs, the misclassification rate can be easily controlled by adjusting the motif count. However, if the encoding of graphs is based on the count of motifs and the mean and standard deviation of motif frequencies, then no adjustments on the encoding of graphs can be made to get the desired classification performance. We also find that the failure rate of the LLM is completely unknown to us. Therefore, if the count of the motifs is very small, the LLM might not be able to correctly predict the node's label even with the most accurate encoding of graphs.

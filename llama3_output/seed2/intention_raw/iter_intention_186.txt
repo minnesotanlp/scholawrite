@@ -1,0 +1,27 @@
++WIP
+% \section{Related Work}
+% \label{sec:related_work}
+% \input{latex/related_work}
+%-------------------------------------------------------------------------
+% \section{Proposed Method: Revealing Key Patterns via Discourse Motifs}\label{sec:revealing_key_patterns}
+% \input{latex/proposed_method}
+%-------------------------------------------------------------------------
+% \section{Experimental Results}\label{sec:experimental_results}
+% \input{latex/exp_results}
+%-------------------------------------------------------------------------
+% \section{Analysis and Discussion}\label{sec:analysis_and_discussion}
+% \input{latex/an_analysis}
+%-------------------------------------------------------------------------
+% \section{Conclusion}\label{sec:conclusion}
+% \input{latex/conclusion}
+%-------------------------------------------------------------------------
+% \section*{Acknowledgements}
+% Thanks :)
+
+% Entries for the entire Anthology, followed by custom entries
+\bibliography{anthology,custom}
+
+\appendix
+\input{latex/appendix}
+
+\end{document}

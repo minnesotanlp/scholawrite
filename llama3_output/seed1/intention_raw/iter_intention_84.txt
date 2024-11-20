@@ -1,0 +1,21 @@
+Our analysis shows a divide in our four synthetic datasets in terms of broad instruction types and error rates. Unnatural Instructions and Self-Instruct contain more closed-QA type questions, while Cleaned Alpaca and GPT-4-LLM contain mostly Open-QA-type questions. Across Self-Instruct, Cleaned Alpaca, and GPT-4-LLM, the ratio of correct to incorrect samples is lower for the closed-QA type instructions (Unnatural Instructions has an insignificant 95.66\% accuracy with 554 samples being correctly classified as Closed-QA type instructions out of 554) whereas  the Open-QA type samples are in balance with 81.55\% accuracy  and 8.19\% error rate on 200 samples of Closed-QA type instructions. This shows a bias in the synthetic data against high-quality Closed-QA type questions. The concern for downstream models is that the lower quality of Closed-QA type instructions in these datasets could hinder the effectiveness of downstream models trained on them for structured, fact-based queries. Since Closed-QA tasks often require precise and accurate answers, the high error rates in these types of questions might limit the ability of models to perform well. This raises concerns about the generalizability of models trained on these datasets. If models are primarily exposed to OpenQA tasks, they may develop a skewed understanding of language and task structure, potentially reducing their performance on more structured and objective tasks found in diverse, real-world applications.
+\begin{table}[ht!]
+    \centering
+    \begin{tabular}{p{3.6cm}p{1cm}p{1.1cm}}\toprule
+        Dataset & Error Rate & \textbf{Error Rate} \\\midrule
+        Cleaned Alpaca & 0.13 & 0.39 \\
+        Dolly & 0.26 & 0.7 \\
+        Self-Instruct & 0.17 & 0.68 \\
+        SuperNI & 0.06 & 0.2 \\\midrule
+        SuperNI-500 & 0.06 & 0.2 \\
+        SuperNI-1000 & 0.06 & 0.2 \\
+        SuperNI-1000 & 0.06 & 0.2 \\
+        \bottomrule
+    \end{tabular}
+    \caption{Error Rate Overview}
+    \label{tab:sample_error_overview}
+\end{table}
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=0.49\textwidth]{images/instructions/error_analysis.pdf}
+    \

@@ -1,0 +1,35 @@
+&#39;s a bit of a stretch, but I think it's a nice metaphor for the situation. You know, when you're trying to think of a good example to illustrate a point, but everything that comes to mind seems to fall short. It's like the example is going to be a bad one, but it's the best they've got. - Unknown
+
+\begin{figure}
+    \centering
+    \includegraphics[width=\columnwidth]{Images/example_example.pdf}
+    \caption{An example of our 1-, 2-, and 3-style models generating completions to a given prompt. Models are trained with a reward derived from the target styles' discriminators.}
+    \label{fig:summary}
+\end{figure}
+
+\subsection{Single-Attribute Control}\label{sec:one-attribute}
+We first fine-tune RL models for all four possible  to their respective discriminators. We choose these discriminators bse their high F1 scores: formality, irony, positivity, and sentiment. We consider the generations of the resulting models on our evaluation prompts and find that these models are able to substantially raise target style combinations relative to the base model. Style accuracy results for these models are in Table~\ref{tab:precision_base-rl-pplm}. 
+
+%We also note that the generations of our models are comparable to the results of other approaches for multi-style controlled generations. As mentioned in the original submission, PPLM has a relatively high accuracy compared to other reinforcement learning approaches in this space, and GPT-4 is also a fairly strong comparator. It's not clear whether this is because PPLM is able to take advantage of some common underlying linguistic patterns, or if PPLM is simply very good at following instructions. Either way, we do not claim that PPLM is the best approach, but rather a relatively high-quality baseline for comparison.
+
+\begin{table}[h]
+\centering
+\begin{tabular}{p{0.94\columnwidth}}
+\hline
+\textbf{Reward Hacking (Negative + Informal)}  \\ \hline
+You have no affinity for this community. I don’t know what to say, I don’t know what to do.  \\ \hline
+Violent, vulgar, and obscenely disrespectful. I’m just going to list the stuff, you know, for the people who are...I don’t know, I don’t work on it.  \\ \hline
+Ugh. Our Pho looks so bad. I don’t know how to say this, but, it does  \\\hline
+\end{tabular}
+\caption{Some models obtain high rewards by repeating the same phrases (in this case, ``I don't know''). Our hyperparameter searches prioritize models without such reward hacking, even if they obtain lower rewards.}
+\label{tab:reward_hacks}
+\end{table}
+
+
+\subsection{Comparison with PPLM}
+We extend PPLM to combine feedback from multiple discriminators. PPLM has weaker control when combining two attributes than when using one, indicating that the approach may suffer more from conflicting objectives than a reinforcement learning approach. PPLM also notably has high perplexity for combinations containing negative sentiment (both negative and formal and negative and informal combinations), coupled with low overall style accuracy in these areas. 
+
+\subsection{Comparison with Zero-Shot GPT-4}
+We focus on a basic zero-shot prompting approach to probe GPT-4 performance on controlled style generations. We chose zero-shot prompting as we are interested in scenarios with high data-scarcity, i.e. those in which the target style combination text is not necessarily available. Note that while few-shot prompting can out-perform zero-shot prompting; this is not necessarily the case -- recent work suggests that GPT-4's performance can be equivalent or even deteriorate in a few-shot setting, e.g. \citet{coyne2023analyzing}.
+
+GPT-4 responses (Table~\ref{tab:precision_overall}) indicate that in some scenarios, GPT-4 does very well at combining multiple styles to complete the generation. The response's perplexity scores, although calculated with respect to Llama2, are also the lowest across all style combinations. Based on GPT-4's high performance with respect to sentiment control and relatively low performance with respect to formality control, GPT-4 seems to have a different

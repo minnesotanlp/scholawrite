@@ -1,0 +1,8 @@
+3.5cm 2.3cm 2.2cm 2.1cm
+  \caption{Results for the three datasets (Eval-P2C, Instructions in the Wild, and Self-Instruct) with two different orderings of preference labels. There is a strong tendency for each dataset to have a majority label on the left side of the figure, indicating that earlier generations or evaluations are preferred.}
+  \label{fig:pref:corr}
+\end{figure}
+
+\begin{figure}[ht!]
+    \centering
+    \includegraphics[width=0

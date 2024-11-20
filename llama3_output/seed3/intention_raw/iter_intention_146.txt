@@ -1,0 +1,82 @@
+‐
+\begin{figure}
+    \centering
+    \includegraphics[width = \linewidth]{figures/edge_rep_updated.pdf}
+    \caption{ We compare the edge representation type (x-axis) with the value of the mean metrics (y-axis). The desired trend is given in brackets for each metric. The highest performing edge representation is the ``adjacency list'' representation with the highest accuracy (A $\uparrow$) and low mismatch rate (M $\downarrow$)), denial rate (D $\downarrow$), and token limit fraction (T $\downarrow$).}
+    \label{fig:fig4}
+\end{figure}
+% %---------------------------------------------------------------
+
+% \begin{table*}[ht]
+% \centering
+% \caption{Comparing classification performance on human and machine preferences across various datasets}
+% \label{table:pref:2ndorder}
+% \begin{tabular}{l|lll}
+% \toprule
+% & \multicolumn{2}{c}{Datasets} & \multicolumn{2}{c}{Classification} \\
+% \cmidrule{2-3}
+% & \textbf{Human} & \textbf{Machine} & \textbf{Human} & \textbf{Machine} \\
+% \midrule
+% \textbf{Model} & \textbf{Sent.} & \textbf{Form.} & \textbf{Sent.} & \textbf{Form.} \\
+% \midrule
+% 1-Style Models & & & & \\
+% \quad Positive & 0.783 & - & 0.772 & - & 0.810 & -  \\
+% \quad Negative & 0.641 & - & 0.704 & - & 0.704 & - \\
+% \quad Formal & - & 0.873 & - & - & 0.852 & - \\
+% \quad Informal & - & 0.764 & - & - & 0.854 & -\\
+% \midrule
+% 2-Style Models & & & & \\
+% \quad Pos-Formal  & 0.786 & 0.776 & 0.674 & 0.754 & 0.738 & 0.612 \\
+% \quad Pos-Informal & 0.759 & 0.725 & 0.520 & 0.810 & 0.754 & 0.586 \\
+% \quad Neg-Formal & 0.619 & 0.708 & 0.389 & 0.706 & 0.714 & 0.474 \\
+% \quad Neg-Informal & 0.598 & 0.734 & 0.542 & 0.601 & 0.812 & 0.562 \\
+% \bottomrule
+% \end{tabular}
+% \caption{Automatic accuracy evaluation of 1-, 2-, and 3-style models.}
+% \label{tab:precision_results}
+% \end{table*}
+% %---------------------------------------
+
+% \begin{table*}[ht]
+% \centering
+% \caption{Comparison of model capacity with the majority match score}
+% \label{tab:precision_results}
+% \begin{tabular}{l|lll}
+% \toprule
+% \multicolumn{1}{c}{}  & \multicolumn{3}{c}{Majority Match} \\
+% \cmidrule{2-4}
+% Model            & Human & Inter & Intra\\\midrule
+% \multicolumn{1}{c}{\textbf{Human}} & 57.0 & 51.0 & 36.0 \\
+% \multicolumn{1}{c}{\textbf{Machine}} & 66.0 & 54.0 & 30.0 \\
+% \midrule
+% \multicolumn{1}{c}{\textbf{All}} & 57.0 & 51.0 & 36.0 \\
+% \bottomrule
+% \end{tabular}
+% \caption{Precision results on the human and machine datasets.}
+% \label{tab:precision_results}
+% \end{table*}
+
+\begin{table*}[ht]
+\centering
+\caption{Precision results on the human and machine datasets.}
+\label{tab:precision_results}
+\begin{tabular*}{\textwidth}{l @{\extracolour}{@{}l@{}l@{}l@{}l@{}l@{}l@{}l@{}l@{}l@{}l@{}l@{}l@{}l@{}l@{}l@{}l@{}}
+\toprule
+\textbf{Model} & \textbf{Human} & \textbf{Inter} & \textbf{Intra} & \textbf{Over-} & \textbf{Under-} & \textbf{Neg-} & \textbf{Pos-} & \textbf{Form.} & \textbf{Inform.} & \textbf{Neg-} & \textbf{Form.} & \textbf{Inform.} & \textbf{Neg-} & \textbf{Form.} & \textbf{Inform.} \\
+\midrule
+1-Style Models & & & & & & \\
+\quad Positive & 0.783 & - & - & 0.271 & - & - & 0.873 & - & - & 0.69 & - & -  \\
+\quad Negative & 0.641 & - & - & 0.389 & - & - & 0.764 & - & - & 0.528 & - & - \\
+\quad Formal & - & 0.873 & - & - & 0.357 & - & - & 0.969 & - & - & 0.618 & - \\
+\quad Informal & - & 0.764 & - & - & 0.6 & - & - & 0.389 & - & - & 0.472 & -\\
+\midrule
+2-Style Models & & & & & &\\
+\quad Positive-Formal  & 0.786 & 0.776 & 0.674 & 0.359 & 0.244 & 0.06 & 0.588 & 0.518 & 0.448 & 0.168 & 0.144 & 0.086 \\
+\quad Positive-Informal & 0.759 & 0.725 & 0.520 & 0.580 & 0.6 & 0. & 0.580 & 0.436 & 0.528 & 0.188 & 0.176 & 0.096 \\
+\quad Negative-Formal & 0.619 & 0.708 & 0.389 & 0.707 & 0.6 & 0.5 & 0.369 & 0.18 & 0.18 & 0.069 & 0.06 & 0.18  \\
+\quad Negative-Informal & 0.598 & 0.734 & 0.542 & 0.672 & 0.6 & 0.5 & 0.389 & 0.18 & 0.18 & 0.069 & 0.06 & 0.18\\
+\bottomrule
+\end{tabular*}
+\caption{Automatic accuracy evaluation of 1-, 2-, and 3-style models.}
+\label{tab:precision_results}
+\end{table*}

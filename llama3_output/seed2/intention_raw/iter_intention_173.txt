@@ -1,0 +1,6 @@
+DELLIRIUM
+\paragraph{Task Description} 
+\paragraph{First-order Experiment} 
+Setup and metric and result
+
+We first explore how LLM-generated and human-written texts differ concerning socioemotional attributes, hypothesizing that LLMs may not navigate social interaction as humans do. We use the following text classifiers to assess these attributes: formality \cite{rao2018dear}, emotion \cite{hartmann2022emotionenglish}, and irony \cite{barbieri2020tweeteval}, which are all primarily trained on social data (i.e., text from social media platforms or dialogues). We also employ a token-level classifier trained on the VUA Metaphor Corpus

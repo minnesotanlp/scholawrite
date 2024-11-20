@@ -1,0 +1,19 @@
+(ordr) \rowcolor{color4}\multicolumn{4}{l}{\textbf{Instructions}}\\
+        \rowcolor{color4}\textsc{Unnatural Instructions}  & Variety of instruction & LLMs produce & Errors in instruction, \\ 
+         \rowcolor{color4}\cite{honovich2022unnatural, wang2023selfinstruct} &  &  errors in the & Impact of these errors \\ \hline
+         \rowcolor{color5}\multicolumn{4}{l}{\textbf{Preference}}\\
+        \rowcolor{color5}\textsc{CoBBLEr} \cite{koo2023benchmarking} & Human-machine datasets & Important for AL & Helping train a better \\ \hline
+         \rowcolor{color6}\multicolumn{4}{l}{\textbf{Simulation}}\\
+        \rowcolor{color6}\textsc{CAMEL AI-Society} & Simulated agent conversations. & Key for understanding & Creating artificial data is \\ \hline
+    \bottomrule
+    \end{tabular}
+    \caption{Caption}
+    \label{tab:my_label}
+\end{table*}
+%---------------------------------------- 
+      \centering
+  \includegraphics[width=\linewidth]{images/iceberg_modified.jpg}
+  \caption{The iceberg of LLMs as a substitute for human data. \anonymous{I think the word "completely" is a little too extreme. Can we replace that with something like "sufficiently"? Or maybe we can rephrase the whole claim to something like "LLM-generated data, while capable of resembling human data, does not fully replicate its complexity and nuances, particularly in situations which demand nuanced judgment and complex decision-making, a limitation that can be mitigated through the thoughtful design of prompt templates and the careful interpretation of results. \anonymous{I like this sentence better than the previous one.}}
+  \label{fig:iceberg}
+\end{figure}
+%----------------------------------------

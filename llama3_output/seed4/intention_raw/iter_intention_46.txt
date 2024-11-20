@@ -1,0 +1,39 @@
+educated - 
+Task labels 
+Instruction
+Preference
+Simulation
+
+LLM generated data varies from human-generated data regarding depth, complexity, and performance. While capable of coherent narratives, LLMs often lack the subtlety and depth found in human texts. There are notable differences in handling majority and minority opinions in subjective tasks, with biases against structured instructions and discrepancies in understanding complex societal language constructs such as hate speech. 
+
+What's a good metric for a challenging task? As it gets more challenging, need a human in the loop..
+
+Our main contributions are :
+- combining all 5 types of llm generated data  (this is where it would be really helpful to have some data-wide patterns)
+-- For example we find that label flipping is a great way to distinguish X, Y and Z data 
+-- a common problem seen across Y, Z datasets is the issue of A.
+
+free text: typically difficult to discern between H and L; mostly using linguistic features; they show the importance of high-level attributes 
+stress testing metrics : label flipping + human/ LLM distribution of discourse pattern 
+
+---
+task label : majority annotated data is the problem ; metrics like accuracy, cost efficiency typically emphasized,  llms follow a ground truth during training (??) ; showing that diversity in llm opinions is not retained especially subjective data 
+stress testing metrics : human vs llm dataset distribution ; qualitative analysis  (any insight on why inter vs intra model was even useful -- anonymous wrote this); 2nd order effect (label skewing observed with "label distribution")
+----
+instruction : LLM created instruction are not "diverse" enough in terms of task,what happens when you encounter OOD tasks, presence of high error rates in instructions complicates the  
+stress testing metrics : human annotation (validation) for errors, 2nd order effect analysis 
+----
+preference : human preferences are costly - 
+stress testing metrics :
+simulation
+stress testing metrics :
+---
+-- analyzing/stress testing them using similar strategies for first and second-order effect ( everyone is commenting on different kinds of data in depth but not about the breadth-first analysis of all kinds of data)
+-- the importance of alternative metrics to evaluate LLM-generated data 
+-- call for action to creators of LLM-generated data 
+
+
+% I'll attempt to re-write the below in a more structured way? -anonymous
+We identify consistent biases in LLM-generated data and outline strategies for mitigation. Representational bias in LLMs manifests as a preference for majority opinions, often at the expense of minority views. Additionally, LLMs exhibit primary and recency biases, focusing on certain aspects of data and affecting task specificity and performance. This is evident in synthetic instruction datasets, where LLMs favor open-ended questions over structured tasks, raising concerns about their ability to generalize across different query types. LLMs also differ from human patterns in processing emotional content and semantic relationships. 
+%%%%%
+We find that artificial data has strong weaknesses that might be attributed to the curse of generality for LMs: artificial data is notably less human-like in situations in which general, common, or well-accepted outputs are not possible. In labeling tasks, LLMs do not represent minority views well and show strong preferences for majority opinions. When creating instruction datasets, humans include many specific closed questions that have a highly constrained correct answer; LLMs strongly favor writing open-ended questions that are easier to answer correctly, rather than writing closed questions in which only a single answer could be correct.

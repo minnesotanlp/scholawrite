@@ -1,0 +1,61 @@
+-can we add the exp setup details in a separate table?}
+Table \ref{tab:preference:exp_details} shows the details of our experiments 
+
+\input{latex/exp_details}
+%-----------------------------------------------------------------------
+\section{Preference}
+\label{sec:preference}
+\input{latex/preference}
+%-----------------------------------------------------------------------
+\section{Simulation}
+\label{sec:simulation}
+\input{latex/simulation}
+%------------------
+\begin{figure*}[ht!]
+  \centering
+  \includegraphics[width=\textwidth]{images/stress_testing_methods_modified.jpg}
+  \caption{Methods to stress test LLM Generated Data }
+  \label{fig:figure2}
+\end{figure*}
+ %------------------ 
+ %---------------------------
+\begin{table*}[ht]
+\footnotesize
+\centering
+\begin{tabular}{p{0.10\linewidth}p{0.10\linewidth}p{0.10\linewidth}p{0.10\linewidth}p{0.10\linewidth}p{0.10\linewidth}p{0.10\linewidth}p{0.10\linewidth}}
+\toprule
+\textbf{} & \textbf{Artifact Analysis} & \textbf{Distributional Difference} & \textbf{Label Flipping} & \textbf{Correlation Analysis} & \textbf{Human Validation} & \textbf{Qualitative Analysis} & \textbf{2nd order effect} \\
+\midrule
+\rowcolor{color2}\textbf{Free-Form Text} & \checkmark  & \checkmark & \checkmark & \xmark & \xmark & \checkmark & \checkmark \\
+\midrule
+\rowcolor{color3}\textbf{Task Labels} & \xmark  & \checkmark & \checkmark  & \checkmark & \xmark & \checkmark & \checkmark\\
+\midrule
+\rowcolor{color4}\textbf{Instruction Prompts} & \xmark & \checkmark & \xmark  & \xmark & \checkmark & \xmark  & \checkmark \\
+\midrule
+\rowcolor{color5}\textbf{Preference} & \xmark & \checkmark & \xmark  & \checkmark  & \xmark & \xmark & \checkmark\\
+\midrule
+\rowcolor{color6}\textbf{Simulation} & \checkmark & \xmark & \checkmark & \checkmark   & \checkmark  & \xmark & \xmark \\
+\bottomrule
+\end{tabular}
+\caption{Stress Testing Methods Overview}
+\label{tab:transposed_related_summary2}
+\end{table*}
+%---------------------------
+
+ 
+\section{Overall Discussion}
+\label{sec:sec9}
+\input{latex/overview}
+%\section{Conclusion}
+%\label{sec:sec10}
+% \input{latex/conclusion}
+% \section*{Acknowledgements}
+% Thanks :)
+
+% Entries for the entire Anthology, followed by custom entries
+\bibliography{anthology,custom}
+
+\appendix
+\input{latex/appendix}
+
+\end{document}

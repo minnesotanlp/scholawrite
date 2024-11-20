@@ -1,0 +1,73 @@
+Credential  &  & \checkmark \\
+        \bottomrule
+    \end{tabular}
+    \caption{Overview of the five types of LLM-generated data and associated examples - (1) Free-Form Text (2) Task Labels (3) Instructions (4) Preference (5) Simulation \anonymous{Can we list these in the same order as the image and possibly include the reasons why each type of data is useful in the caption?}. Sources for these examples in order - \cite{moller2023prompt}, \cite{diaz2018addressing},  \cite{honovich2022unnatural}, \cite{kim2023p2c} and \cite{liang2023encouraging} )}
+    \label{tab:tab1_part2}
+\end{table*}
+ %---------------------------
+
+\subsection{Second Order Experiment}
+\label{sec:free-second}
+\begin{wrapfigure}[13.2cm,trim=2cm,clip]{R}[0.5cm]{0.4cm}
+  \centering
+  \includegraphics[width=\textwidth,height=\textheight,keepaspectratio]{images/free_text/interesting_motifs_m3.pdf}
+  \caption{35 network motifs of size three that exist in the HC3 dataset.}
+  \label{fig:free_text/interesting_motifs_m3}
+\end{wrapfigure}
+\begin{wrapfigure}[7.2cm,trim=2cm,clip]{R}[0.5cm]{0.4cm}
+  \centering
+  \includegraphics[width=\textwidth,height=\textheight,keepaspectratio]{images/free_text/three_interesting_m3_motifs_for_artifact_paper.pdf}
+  \caption{35 network motifs of size three that exist in the HC3 dataset.}
+  \label{fig:free_text/interesting_motifs_m3}
+\end{wrapfigure}
+\begin{table}[ht]
+\centering
+\scriptsize
+\begin{tabular}{rrccc}
+\toprule
+\textbf{Source} & \textbf{A} & \textbf{B} & \textbf{C} \\
+\midrule
+Original & 27.0 & 30.2 & 40.9 \\
+Model & 51.0 & 48.6 & 56.7 \\
+\bottomrule
+\end{tabular}
+\caption{Percentages of texts, written by human and machine, classified as containing various high-level attributes. We focus on the Social Dimensions Datasets in most of our experiments, but also report the overall results across all three datasets we examine.}
+\label{tab:attribute_scores}
+\end{table}
+\begin{figure}[ht!]
+    \centering
+    \includegraphics[width=\textwidth]{images/free_text/interesting_motifs_m3.pdf}
+    \caption{35 network motifs of size three that exist in the HC3 dataset.}
+    \label{fig:free_text/interesting_motifs_m3}
+\end{figure}
+
+\subsection{High-level Attributes}
+Figure~\ref{fig:high_level_features_radar} shows the results for high-level attributes on human versus machine text. 
+
+\begin{figure*}[ht!]
+    \centering
+    \begin{subfigure}{0.49\textwidth}
+         \centering
+         \includegraphics[width=\textwidth]{images/free_text/same_label_human_attributes.pdf}
+     \end{subfigure}
+         \begin{subfigure}{0.49\textwidth}
+         \centering
+         \includegraphics[width=\textwidth]{images/free_text/same_label_machine_attributes.pdf}
+     \end{subfigure}
+    \caption{Of the paired human/machine texts, the percentage of differing labels for high-level attributes. There is a strong tendency for machine texts to contain \textit{joy} for positive tweets that are not present in human texts. There is also a tendency for human texts to contain \textit{anger} for items demonstrating the social dimension \textbf{power}.}
+    \label{fig:att-correlations}
+\end{figure*}
+
+\begin{figure}[ht!]
+    \centering
+    \includegraphics[width=\textwidth]{images/free_text/interesting_motifs_m3.pdf}
+    \caption{35 network motifs of size three that exist in the HC3 dataset.}
+    \label{fig:free_text/interesting_motifs_m3}
+\end{figure}
+
+\begin{figure}[ht!]
+    \centering
+    \includegraphics[width=\textwidth]{images/free_text/social_2ndord.pdf}
+    \caption{Certain labels drive subpar performance in model trained on synthetic data.}
+    \label{fig:social-2nd-order}
+\end{figure}

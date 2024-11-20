@@ -1,0 +1,9 @@
+Unity in the face of adversity
+
+
+\begin{quote}
+    \textbf{CiteSeer}, our RST graph generation tool, uses a content planning model to generate a tree structure of citations for the related work section of a scholarly paper. Users can refine the generated tree structure by iteratively editing it with the interactive citation graph user interface. The generated tree structure is represented as a recursive hypergraph in graph theory. Each citation is represented by a node, and the edges represent the relationships between the nodes (i.e., a node can be either a citation or an edge). It is also important to note that each node can be also be a ``node'' node that is a summait of multiple subgraphs. 
+
+\end{quote}
+
+We note that this iterative process of generating and refining can be considered as a form of recursive hypergraph generation. In this generation process, nodes are generated first, followed by edges that connect the nodes. However, as the graph is not necessarily \textit{as

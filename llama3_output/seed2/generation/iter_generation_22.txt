@@ -1,0 +1,13 @@
++:  \begin{tabular}[l]{@{}l@{}} \textbf{the trouble is,} the slides are not very clear.\\
+         But still very nice video.\end{tabular} \\ \hline
+         \begin{tabular}[l]{@{}l@{}} \textbf{the trouble is,} that most of the data is not available. You can not get the data easily because of some reasons.\\
+         I guess one of the reasons is that the designer of the dataset did not include the full version in the official dataset. He included only a part of it to make it more challenging.\\
+         I think this is an important message to share with everyone. \textbf{Don't try to download the data in its original form.} \textbf{Try to find the simulated or simulated data in the official dataset.} \textbf{It's really important to follow this principle}.\end{tabular} \\ \hline
+         \begin{tabular}[l]{@{}l@{}} \textbf{the trouble is,} that sometimes \textbf{it is difficult to identify the authors of the data}.\\
+         In this dataset, \textbf{the authors of the data are not explicitly mentioned}. \textbf{It is not possible to predict with certainty the authorship of a given document based on its content}. \textbf{If you try to predict the authorship of the documents using \textit{RST trees} or \textit{FSM trees} in your own time, you may get the following information}:\end{tabular} \\ \hline
+         \begin{tabular}[l]{@{}l@{}} \textbf{the trouble is,} that sometimes \textbf{it is difficult to identify the authors of the data}.\\
+         In this dataset, \textbf{the authors of the data are not explicitly mentioned}. \textbf{It is not possible to predict with certainty the authorship of a given document based on its content}. \textbf{If you try to predict the authorship of the documents using \textit{RST trees} or \textit{FSM trees} in your own time, you may get the following information}:\end{tabular} \\ \hline
+    \end{tabular}
+    \caption{Examples of problem-answering. The model prompts 2- and 3-attribute styles, and the maximum number of attributes that can be specified is 3. The maximum number of tokens to be generated (i.e., 2) is 8.}
+    \label{tab:tab1_part2}
+\end{table*}

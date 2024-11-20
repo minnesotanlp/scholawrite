@@ -1,0 +1,221 @@
+\includegraphics[width=\textwidth]{Images/Generations for Top 100 Informal Prompts.pdf}
+     \end{subfigure}
+     \hfill
+     \begin{subfigure}[b]{0.49\textwidth}
+         \centering
+         \includegraphics[width=\textwidth]{Images/Generations for Top 100 Positive Prompts.pdf}
+     \end{subfigure}
+     \hfill
+          \begin{subfigure}[b]{0.49\textwidth}
+         \centering
+         \includegraphics[width=\textwidth]{Images/Generations for Top 100 Negative Prompts.pdf}
+     \end{subfigure}
+        \caption{Distribution shifts with adversarial prompts for PPLM models. The baseline scores shown are from the adversarial prompts; scores from the bolded models should be as far away from the baseline as possible.}
+        \label{fig:adv graphs}
+\end{figure*}
+
+
+\subsection*{Relationships Between Styles}
+It is also interesting to consider the relationship between the different style combinations. Consider, for example, the 2-style models for all four possible combinations of positivity and informality. As discussed in the evaluation section, positivity and informality are highly related: they both relate to the same social dimension, formality, and are both present in the same social context. Then, according to the results in Figure \ref{fig:pref:corr}, it appears that when these two styles co-occur, they  and this may be because these styles are closely related in the way they affect human emotion and social interaction.
+
+\subsection*{Adversarial Prompts}
+We pay careful attention to our adversarial examples shown in Table~\ref{tab:adv graphs}. Our results indicate that our RL fine-tuning method successfully controls for multiple styles even in the face of adversarial prompts, although there is some sacrifice in control for multi-attribute vs single-attribute models. In contrast, PPLM shows markedly weaker control across the board.
+
+
+
+%\input{Tables/EvalTable}
+
+\begin{figure*}[ht!]
+     \centering
+     \begin{subfigure}[b]{0.49\textwidth}
+         \centering
+         \includegraphics[width=\textwidth]{Images/Generations for Top 100 Formal Prompts.pdf}
+     \end{subfigure}
+     \hfill
+     \begin{subfigure}[b]{0.49\textwidth}
+         \centering
+         \includegraphics[width=\textwidth]{Images/Generations for Top 100 Informal Prompts.pdf}
+     \end{subfigure}
+        \caption{Distribution plots for the 100 informal and 100 formal generations.}
+        \label{fig:uncontrolled}
+\end{figure*}
+
+
+
+\subsection*{Relationships Between Styles}
+It is also interesting to consider the relationship between the different style combinations. Consider, for example, the 2-style models for all four possible combinations of positivity and informality. As discussed in the evaluation section, positivity and informality are highly related: they both relate to the same social dimension, formality, and are both present in the same social context. Then, according to the results in Figure \ref{fig:pref:corr}, it appears that when these two styles co-occur, they  and this may be because these styles are closely related in the way they affect human emotion and social interaction.
+
+\subsection*{Adversarial Prompts}
+We pay careful attention to our adversarial examples shown in Table~\ref{tab:adv graphs}. Our results indicate that our RL fine-tuning method successfully controls for multiple styles even in the face of adversarial prompts, although there is some sacrifice in control for multi-attribute vs single-attribute models. In contrast, PPLM shows markedly weaker control across the board.
+
+
+
+%\input{Tables/EvalTable}
+
+\begin{figure*}[ht!]
+     \centering
+     \begin{subfigure}[b]{0.49\textwidth}
+         \centering
+         \includegraphics[width=\textwidth]{Images/Generations for Top 100 Formal Prompts.pdf}
+     \end{subfigure}
+     \hfill
+     \begin{subfigure}[b]{0.49\textwidth}
+         \centering
+         \includegraphics[width=\textwidth]{Images/Generations for Top 100 Informal Prompts.pdf}
+     \end{subfigure}
+        \caption{Distribution plots for the 100 informal and 100 formal generations.}
+        \label{fig:uncontrolled}
+\end{figure*}
+
+
+
+\subsection*{Relationships Between Styles}
+It is also interesting to consider the relationship between the different style combinations. Consider, for example, the 2-style models for all four possible combinations of positivity and informality. As discussed in the evaluation section, positivity and informality are highly related: they both relate to the same social dimension, formality, and are both present in the same social context. Then, according to the results in Figure \ref{fig:pref:corr}, it appears that when these two styles co-occur, they  and this may be because these styles are closely related in the way they affect human emotion and social interaction.
+
+\subsection*{Adversarial Prompts}
+We pay careful attention to our adversarial examples shown in Table~\ref{tab:adv graphs}. Our results indicate that our RL fine-tuning method successfully controls for multiple styles even in the face of adversarial prompts, although there is some sacrifice in control for multi-attribute vs single-attribute models. In contrast, PPLM shows markedly weaker control across the board.
+
+
+
+%\input{Tables/EvalTable}
+
+\begin{figure*}[ht!]
+     \centering
+     \begin{subfigure}[b]{0.49\textwidth}
+         \centering
+         \includegraphics[width=\textwidth]{Images/Generations for Top 100 Formal Prompts.pdf}
+     \end{subfigure}
+     \hfill
+     \begin{subfigure}[b]{0.49\textwidth}
+         \centering
+         \includegraphics[width=\textwidth]{Images/Generations for Top 100 Informal Prompts.pdf}
+     \end{subfigure}
+        \caption{Distribution plots for the 100 informal and 100 formal generations.}
+        \label{fig:uncontrolled}
+\end{figure*}
+
+
+
+\subsection*{Relationships Between Styles}
+It is also interesting to consider the relationship between the different style combinations. Consider, for example, the 2-style models for all four possible combinations of positivity and informality. As discussed in the evaluation section, positivity and informality are highly related: they both relate to the same social dimension, formality, and are both present in the same social context. Then, according to the results in Figure \ref{fig:pref:corr}, it appears that when these two styles co-occur, they  and this may be because these styles are closely related in the way they affect human emotion and social interaction.
+
+\subsection*{Adversarial Prompts}
+We pay careful attention to our adversarial examples shown in Table~\ref{tab:adv graphs}. Our results indicate that our RL fine-tuning method successfully controls for multiple styles even in the face of adversarial prompts, although there is some sacrifice in control for multi-attribute vs single-attribute models. In contrast, PPLM shows markedly weaker control across the board.
+
+
+
+%\input{Tables/EvalTable}
+
+\begin{figure*}[ht!]
+     \centering
+     \begin{subfigure}[b]{0.49\textwidth}
+         \centering
+         \includegraphics[width=\textwidth]{Images/Generations for Top 100 Formal Prompts.pdf}
+     \end{subfigure}
+     \hfill
+     \begin{subfigure}[b]{0.49\textwidth}
+         \centering
+         \includegraphics[width=\textwidth]{Images/Generations for Top 100 Informal Prompts.pdf}
+     \end{subfigure}
+        \caption{Distribution plots for the 100 informal and 100 formal generations.}
+        \label{fig:uncontrolled}
+\end{figure*}
+
+
+
+\subsection*{Relationships Between Styles}
+It is also interesting to consider the relationship between the different style combinations. Consider, for example, the 2-style models for all four possible combinations of positivity and informality. As discussed in the evaluation section, positivity and informality are highly related: they both relate to the same social dimension, formality, and are both present in the same social context. Then, according to the results in Figure \ref{fig:pref:corr}, it appears that when these two styles co-occur, they  and this may be because these styles are closely related in the way they affect human emotion and social interaction.
+
+\subsection*{Adversarial Prompts}
+We pay careful attention to our adversarial examples shown in Table~\ref{tab:adv graphs}. Our results indicate that our RL fine-tuning method successfully controls for multiple styles even in the face of adversarial prompts, although there is some sacrifice in control for multi-attribute vs single-attribute models. In contrast, PPLM shows markedly weaker control across the board.
+
+
+
+%\input{Tables/EvalTable}
+
+\begin{figure*}[ht!]
+     \centering
+     \begin{subfigure}[b]{0.49\textwidth}
+         \centering
+         \includegraphics[width=\textwidth]{Images/Generations for Top 100 Formal Prompts.pdf}
+     \end{subfigure}
+     \hfill
+     \begin{subfigure}[b]{0.49\textwidth}
+         \centering
+         \includegraphics[width=\textwidth]{Images/Generations for Top 100 Informal Prompts.pdf}
+     \end{subfigure}
+        \caption{Distribution plots for the 100 informal and 100 formal generations.}
+        \label{fig:uncontrolled}
+\end{figure*}
+
+
+
+\subsection*{Relationships Between Styles}
+It is also interesting to consider the relationship between the different style combinations. Consider, for example, the 2-style models for all four possible combinations of positivity and informality. As discussed in the evaluation section, positivity and informality are highly related: they both relate to the same social dimension, formality, and are both present in the same social context. Then, according to the results in Figure \ref{fig:pref:corr}, it appears that when these two styles co-occur, they  and this may be because these styles are closely related in the way they affect human emotion and social interaction.
+
+\subsection*{Adversarial Prompts}
+We pay careful attention to our adversarial examples shown in Table~\ref{tab:adv graphs}. Our results indicate that our RL fine-tuning method successfully controls for multiple styles even in the face of adversarial prompts, although there is some sacrifice in control for multi-attribute vs single-attribute models. In contrast, PPLM shows markedly weaker control across the board.
+
+
+
+%\input{Tables/EvalTable}
+
+\begin{figure*}[ht!]
+     \centering
+     \begin{subfigure}[b]{0.49\textwidth}
+         \centering
+         \includegraphics[width=\textwidth]{Images/Generations for Top 100 Formal Prompts.pdf}
+     \end{subfigure}
+     \hfill
+     \begin{subfigure}[b]{0.49\textwidth}
+         \centering
+         \includegraphics[width=\textwidth]{Images/Generations for Top 100 Informal Prompts.pdf}
+     \end{subfigure}
+        \caption{Distribution plots for the 100 informal and 100 formal generations.}
+        \label{fig:uncontrolled}
+\end{figure*}
+
+
+
+\subsection*{Relationships Between Styles}
+It is also interesting to consider the relationship between the different style combinations. Consider, for example, the 2-style models for all four possible combinations of positivity and informality. As discussed in the evaluation section, positivity and informality are highly related: they both relate to the same social dimension, formality, and are both present in the same social context. Then, according to the results in Figure \ref{fig:pref:corr}, it appears that when these two styles co-occur, they  and this may be because these styles are closely related in the way they affect human emotion and social interaction.
+
+\subsection*{Adversarial Prompts}
+We pay careful attention to our adversarial examples shown in Table~\ref{tab:adv graphs}. Our results indicate that our RL fine-tuning method successfully controls for multiple styles even in the face of adversarial prompts, although there is some sacrifice in control for multi-attribute vs single-attribute models. In contrast, PPLM shows markedly weaker control across the board.
+
+
+
+%\input{Tables/EvalTable}
+
+\begin{figure*}[ht!]
+     \centering
+     \begin{subfigure}[b]{0.49\textwidth}
+         \centering
+         \includegraphics[width=\textwidth]{Images/Generations for Top 100 Formal Prompts.pdf}
+     \end{subfigure}
+     \hfill
+     \begin{subfigure}[b]{0.49\textwidth}
+         \centering
+         \includegraphics[width=\textwidth]{Images/Generations for Top 100 Informal Prompts.pdf}
+     \end{subfigure}
+        \caption{Distribution plots for the 100 informal and 100 formal generations.}
+        \label{fig:uncontrolled}
+\end{figure*}
+
+
+
+\subsection*{Relationships Between Styles}
+It is also interesting to consider the relationship between the different style combinations. Consider, for example, the 2-style models for all four possible combinations of positivity and informality. As discussed in the evaluation section, positivity and informality are highly related: they both relate to the same social dimension, formality, and are both present in the same social context. Then, according to the results in Figure \ref{fig:pref:corr}, it appears that when these two styles co-occur, they  and this may be because these styles are closely related in the way they affect human emotion and social interaction.
+
+\subsection*{Adversarial Prompts}
+We pay careful attention to our adversarial examples shown in Table~\ref{tab:adv graphs}. Our results indicate that our RL fine-tuning method successfully controls for multiple styles even in the face of adversarial prompts, although there is some sacrifice in control for multi-attribute vs single-attribute models. In contrast, PPLM shows markedly weaker control across the board.
+
+%\input{Tables/EvalTable}
+%\input{Tables/accuracy}
+%\input{Tables/ablation}
+
+%\section{Discussion}
+%\input{Tables/discussion}
+
+\section{Limitations}
+Our work relies heavily on discriminators which may be flawed, limiting the interpretability of our results.

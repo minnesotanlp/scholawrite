@@ -1,0 +1,13 @@
+\rowcolor{color4}\multicolumn{4}{l}{\textbf{Instructions}}\\
+        \rowcolor{color4}\textsc{Unnatural Instructions}  & Variety of instruction & LLMs produce & Errors in instruction, \\ 
+         \rowcolor{color4}\cite{honovich2022unnatural, wang2023selfinstruct} &  &  errors in the & Impact of these errors \\ \hline
+         \rowcolor{color5}\multicolumn{4}{l}{\textbf{Preference}}\\
+        \rowcolor{color5}\textsc{CoBBLEr} \cite{koo2023benchmarking} & Human-machine datasets & Important for AL & Helping train a better \\ \hline
+         \rowcolor{color6}\multicolumn{4}{l}{\textbf{Simulation}}\\
+        \rowcolor{color6}\textsc{CAMEL AI-Society} & Simulated agent conversations. & Key for understanding & Creating artificial data is \\ \hline
+    \bottomrule
+    \end{tabular}
+    \caption{Caption}
+    \label{tab:my_label}
+\end{table*}
+%----------------------------------------

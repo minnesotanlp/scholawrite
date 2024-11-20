@@ -1,0 +1,13 @@
+fairness, and accuracy. We find that LLM models tend to decide their preference based on the token-level sentiments or the entailment of the sentence that are highly perceivable, rather than making a nuanced and context-focused understanding of sentiments as humans
+. We, therefore, claim that LLM shows a strong tendency of locality bias in their preferences compared to humans. 
+
+
+
+%-----------------------------------------------------------------------
+\subsection{Mitigation Suggestions}\label{sec:preference-mitigation}
+Our result shows that LLM preferences are significantly different from human preferences. Also, LLM preferences show a stronger locality bias effect than human preferences. 
+
+Therefore, we suggest a careful usage of LLM-generated preferences when employing them as an alternative to human preferences. Researchers may develop methods to first detect differences between human and LLM preferences for certain tasks of their interest. 
+For example, one may design a prompt that mentions additional aspects of evaluation criteria that should avoid those locality bias; for sentiment analysis, we may add a phrase that LLMs should avoid looking at token-level sentiments to make their decisions but focus more on the entire context of a sentence. Current prompts that are widely used include harmfulness, helpfulness, and honesty (3H) \cite{askell2021general} to align models with human values. 
+By 
+adding such detailed guidelines of how models should behave or avoid would improve the quality of LLM-generated preferences, LLM preferences may reach the quality of human preferences, and reduce such misalignment issues.

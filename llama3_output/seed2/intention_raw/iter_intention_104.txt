@@ -1,0 +1,14 @@
+Reinforcement learning for language models (RLRL) is a technique for fine-tuning language models by  maximizing the expected value of the general reward function. Controlling a single style using RL fine-tuning typically formulates the reward as the s (e.g. as in \citet{liu-etal-2022-data}).
+\anonymous{write down a basic formulation of controlling a single style using RL. Also, mention how other methods like PPLM can do this using the same notation.}
+
+
+
+\begin{figure*}[htbp]
+     \centering
+     \includegraphics[trim={2cm 9cm 5cm 4cm},clip,width=0.8\textwidth]{Images/PPO_pipe.pdf}
+     \caption{Pipeline for three-style control using fine-tuning Llama 7B model with PPO. We investigate several techniques for integrating feedback from style discriminators into the reward.\label{fig:pipeline}}
+\end{figure*}
+
+
+%, as well as our implementation of PPLM.
+\subsection{Multi-Reward  Control

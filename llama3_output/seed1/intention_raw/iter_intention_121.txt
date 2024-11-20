@@ -1,0 +1,46 @@
+adjusts the probability of a generation belonging to the target style. On the other hand, the intrinsic worth of a generation is determined by its adherence to the target style, irrespective of its likelihood. In this context, the intrinsic value approach is akin to the standard metric for evaluating the quality of LLM-generated data, namely, the accuracy of the LLM in producing generations that satisfy the target styles. 
+
+\begin{figure}
+    \centering
+    \includegraphics[width=0.5\textwidth]{Images/intrinsic_vs_extratic.pdf}
+    \caption{A comparison of the accuracy of intrinsic value and extrinsic value approaches to assess the quality of LLM-generated data.}
+    \label{fig:intrinsic_vs_extratic}
+\end{figure}
+
+\subsection{Comparison with Zero-Shot GPT-4}
+We focus on a basic zero-shot prompting approach to probe GPT-4 performance on controlled style generations. We chose zero-shot prompting as we are interested in scenarios with high data-scarcity, i.e. those in which the target style combination text is not readily available. 
+We note that while few-shot prompting can out-perform zero-shot; this is not always the case -- recent work suggests that performance can be equivalent or even deteriorate in a few-shot setting, e.g. \citet{coyne2023analyzing}.
+
+GPT-4 responses (Table~\ref{tab:precision_rl_gpt4}) indicate that in some scenarios, GPT-4 does very well at combining multiple styles to complete the generation. However, some style combinations (particularly those with an informal style) have markedly worse performance, likely in part due to differences between how our discriminator and GPT-4 understand informality.
+
+We include GPT-4 results as a point of reference, but it is not a direct comparison for a few reasons. First, our other experiments use the Llama2-7B architecture, which has approximately 1,000 times fewer parameters than GPT-4. In addition, Llama2 is a base language model with no human feedback fine-tuning, unlike GPT-4. Finally, we also recognize that prompting techniques such as Chain-of-Thought prompting \citep{wei2022chain} have been shown to improve performance on many tasks and that prompts can have large impacts on GPT-4 performance; however we do not focus on prompt engineering for output optimization in this work.
+
+
+
+\subsection{Combinations of Three Styles}\label{sec:three_styles}
+We further extend the reward formulation to control for three target styles to assess how our approach scales as the number of target styles increases. For three style experiments, we keep the two style dimensions explored earlier (sentiment and formality) and add additional third styles. This decision is motivated in part by a desire to understand to what extent adding a third style control influences the ability to control these dimensions relative to only two styles. We also consider that the sentiment and formality discriminators have the highest F1 scores, making them most trustworthy for training and evaluation.
+
+\begin{figure}
+    \centering
+    \includegraphics[width=0.9\columnwidth]{Images/neginf_polygon.pdf}
+    \includegraphics[width=0.9\columnwidth]{Images/posform_polygon.pdf}
+    \caption{Visualization of style control for various models with three target styles. Each style dimension shows the portion of generations containing that dimension and each dimension is min-max. Correspond two-style model results are also included for comparison, e.g. we see that the Positive/Formal/Neutral model does not control formality or positivity as well as the Positive/Formal model, but the Postive/Formal/Irony model controls formality and positivity just as well as the two-style model.}
+    \label{fig:three-style}
+\end{figure}
+
+The third style dimensions are from our other discriminators: toxicity, irony, and emotion.  We limit our three style models to four distinct three-style combinations due to computational constraints (fully exploring the three-style combination space provided by all of our discriminators would require fine-tuning $212$ models, where each fine-tuning procedure needs to load the language model and ).
+% \anonymous{Can you highlight the computational difficulty more, like for three-styles where each style has 2 sttributes, we need to train a total to 2x2x2=8 discriminators, and for ppo training, we need to load three discriminators together along with the basic Llama model?}
+See Figure~\ref{fig:three-style} for a visualization of these results, and Appendix Table~\ref{tab:three-style} for a full summary. We find that the three style models are able to increase the proportion of all three target styles relative to the base Llama2 model, and their generation quality does not decline. For some combinations (e.g. Positive-Formal-Irony), the sentiment and formality dimension control does not deteriorate compared to the two-style model. Other combinations (e.g. Negative-Informal-Toxic) show lower sentiment and formality control than the two-style models, although they still make improvements over LLaMA2 in all three style dimensions. In future work, we plan to investigate how to increase policy exploration of the policy in order to encourage discovery of more difficult style combinations.
+% \anonymous{Mention that it's not pefect yet, but the scalability of our method as the number of attributes increases. This is a whole point behind this three-style experiment }
+
+\begin{table}[ht]
+    \centering
+    \small
+    \begin{tabular}{p{0.3\columnwidth}|p{0.15\columnwidth}p{0.15\columnwidth}p{0.15\columnwidth}}
+         Styles &  \% Sent. &  \% Form. & \% Other \\\hline
+         \textbf{Irony}, Pos, For&  85.45 (85.45) &  77.75 (75.85) & 66.55 (57.10)\\\hline
+         \textbf{Neutral}, Pos, For& 68.65 (75.85) & 56.20 (85.45) & 46.65 (27.95) \\\hline
+         \textbf{Toxic}, Neg, Inf & 56.45 (65.90) & 72.30 (76.70) & 10.80 (6.80) \\\hline
+         \textbf{Neutral}, Neg, Inf & 55.55 (65.90) & 73.70 (76.70) & 52.65 (44.40)
+    \end{tabular}
+    \caption{We add third style dimension such as irony and (emotional) neutrality and train a new set of three-style models. Accuracy scores for these third styles are given. For reference, we also include the style percentages for generations from the corresponding sentiment-formality two-style models (found in parenthesis).}

@@ -1,0 +1,93 @@
+erin  \includegraphics[width=\linewidth]{figures/edge_rep_updated.pdf}
+   \caption{ We compare the edge representation type (x-axis) with the value of the mean metrics (y-axis). The desired trend is given in brackets for each metric. The highest performing edge representation is the ``adjacency list'' representation, which shows the adjacency of nodes with their label values.}
+   \label{fig:fig4}
+\end{figure}
+% %---------------------------------------------------------------
+
+% \begin{figure}[ht!]
+%   \centering
+%   \includegraphics[width = \linewidth,trim={7.2cm 1.4cm 9.9cm 2.6cm},clip]{figures/edge_rep_updated.pdf}
+%   \caption{We compare the edge representation type (x-axis) with the value of the mean metrics (y-axis). The desired trend is given in brackets for each metric. The highest performing edge representation is the ``adjacency list'' representation, which shows the adjacency of nodes with their label values.}
+%   \label{fig:fig4}
+% \end{figure}
+
+% %---------------------------------------------------------------
+
+% \begin{table*}[ht]
+% \centering
+% \begin{tabular}{l|lll}
+% \toprule
+% \multicolumn{1}{c}{\textbf{Metrics}} & \textbf{CORA} & \textbf{Citeseer} & \textbf{Pubmed} \\
+% \midrule
+% \textbf{Accuracy} & 0.6725 & 0.7584 & 0.6985 \\
+% \textbf{Inaccuracy} & 0.3325 & 0.164 & 0.2465 \\
+% \textbf{Failure} & 0.3125 & 0.98 & 0.3695 \\
+% \textbf{Token Limit Fraction} & 0.6725 & 0.7584 & 0.6985 \\
+% \bottomrule
+% \end{tabular}
+% \caption{Metrics}
+% \label{tab:results}
+% \end{table*}
+
+% %--------------------------------------------------
+% \begin{figure}[ht!]
+%   \centering
+%   \includegraphics[width = \linewidth,trim={7.2cm 1.4cm 9.9cm 2.6cm},clip]{figures/edge_rep_updated.pdf}
+%   \caption{ We compare the edge representation type (x-axis) with the value of the mean metrics (y-axis). The desired trend is given in brackets for each metric. The highest performing edge representation is the ``adjacency list'' representation, which shows the adjacency of nodes with their label values.} \\
+%   \label{fig:fig4}
+% \end{figure}
+% %---------------------------------------------------------------
+
+\subsection{Impact of Sampling Strategy}
+%--------------------------------------------------
+\begin{figure}[ht!]
+    \centering
+    \includegraphics[width=\linewidth]{figures/graph_struct_updated.pdf}
+    \caption{We compare the mean metrics (y-axis) for each dataset and sampling type (x-axis). Green is the accuracy rate, Blue is the mismatch rate, Red is the denial rate, and Pink is the token limit fraction. The desired trends for each metric are given in brackets - ($\uparrow$) accuracy rate, ($\downarrow$) mismatch rate, ($\downarrow$) denial rate, and ($\downarrow$) token limit fraction. The x-axis distinguishes between ego graph sampling (ego) and forest fire sampling (ff) through different bar textures.}
+    \label{fig:fig5}
+\end{figure}
+%--------------------------------------------------
+
+%---------------------------------------------------------------
+\subsection{Motif Modality Results}
+Figure \ref{fig:fig6} shows GPT-4's improved performance by adding the ``triangle and star attached to a node'' motif in the motif modality encoder (detailed in Appendix Table \ref{tab:motif_representations}). This enhancement in mean accuracy and other metrics is attributed to the effective combination of local and global context provided to the LLM through node-label mapping and the associations within triads or star motifs.
+
+%--------------------------------------------------------
+\begin{table*}[ht]
+\centering
+\caption{Graph Properties and Their Descriptions}
+\label{tab:graph_properties}
+\begin{tabular}{p{0.25\linewidth} p{0.7\linewidth}}
+\toprule
+\textbf{Name of Property} & \textbf{Description} \\
+\midrule
+Density & Measures how connected the graph is. It's the ratio of actual edges to possible edges. \\
+\addlinespace
+Degree Distribution & The distribution of node degrees. The histogram might follow a specific pattern (e.g., power-law distribution, Gaussian distribution). \\
+\addlinespace
+Average Degree & The average degree of nodes in the graph. \\
+\addlinespace
+Connected Components & A subgraph in which a path connects any two nodes. \\
+\addlinespace
+Clustering Coefficient & Measures the degree to which nodes tend to cluster together. \\
+\addlinespace
+Graph Diameter & The longest shortest path between any two nodes. It provides insight into the graph's overall size. \\
+2hop nodes & Average number of nodes present in the subgraph at 2 hop distance from any node \\
+\bottomrule
+\end{tabular}
+\end{table*}
+%---------------------------------------------------------------
+
+
+
+\subsection{Image Modality Results}
+Figure \ref{fig:fig8} shows GPT-4's improved performance by using the ``triangle and star attached to a node'' motif in the image modality encoder (detailed in Appendix Table \ref{tab:motif_representations}). This enhancement in mean accuracy and other metrics is attributed to the effective combination of local and global context provided to the LLM through the associations within triads or star motifs.
+
+%----------------------------------------------------------
+% \begin{figure}[ht!]
+%   \centering
+%   \includegraphics[width=\linewidth]{figures/metric_modality.pdf}
+%   \caption{We compare the Modality type (x-axis) with the value of the mean metrics (y-axis). The desired trend is given in brackets for each metric. We observe the accuracy rate (A $\uparrow$) is comparable between text and image modalities. The motif modality shows the highest mismatch rate (M $\downarrow$). The image modality shows the least denial rate (D $\downarrow$). The image modality also shows the least token limit fraction (T $\downarrow$).}
+%   \label{fig:fig8}
+% \end{figure}
+%----------------------------------------------------------

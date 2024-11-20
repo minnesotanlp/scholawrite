@@ -1,0 +1,53 @@
+.SM 1st order & 2nd order\\
+\midrule
+\rowcolor{color2}\textbf{Free-Form Text} & \checkmark  & \checkmark\\
+\midrule
+\rowcolor{color3}\textbf{Task Labels} & \xmark  & \checkmark\\
+\midrule
+\rowcolor{color4}\textbf{Instruction prompts} & \xmark  & \checkmark\\
+\midrule
+\rowcolor{color5}\textbf{Preference} & \xmark & \checkmark\\
+\midrule
+\rowcolor{color6}\textbf{Simulation} & \checkmark & \xmark \\
+\bottomrule
+\end{tabular}
+\caption{Result Overview}
+\label{tab:transposed_related_summary2}
+\end{table*}
+%---------------------------
+
+ 
+\section{Overall Discussion}
+\label{sec:sec9}
+\anonymous{anonymous : these methods below are not explicitly defined anywhere, do you think its necessary or self explanatory? how about adding as part of comment in Fig 16}
+Figure \ref{fig:figure2} demonstrates the variety of techniques applied for stress testing artificial data, as detailed in earlier sections, while Table \ref{tab:stress_testing_overview} provides an overview of the methodologies employed for each data type. Notably, approaches like \textit{distributional difference} prove effective for contrasting almost all categories of LLM-generated data with human-generated data. Methods such as \textit{label flipping} and \textit{correlation analysis} are widely utilized across numerous data types. Except for Simulation data, which is still in the nascent stages of exploration and requires more first-order analysis, second-order effect analysis is conducted for all data types.
+
+\subsection{Main findings}
+%\noindent \textbf{
+\begin{itemize}[noitemsep,topsep=5pt,leftmargin=*]
+\item We find several cases where artificial data diverges from human data. The divergence in LLM performance is frequently attributed to their limited, superficial comprehension of tasks, as evidenced by their consistent overrepresentation of majority opinions across all datasets, including those with highly subjective content. Additionally, LLMs struggle to align with minority viewpoints and exhibit less variability in annotations for subjective tasks than humans, indicating a lack of understanding about the controversial nature of certain labeling tasks and a tendency to overconfidently mirror only majority responses. 
+    
+\item LLMs, when tasked with generating text for specific contexts, tend to apply textual styles unnaturally and simplistically, as observed in scenarios like composing 'positive Tweets,' where they predominantly use \textit{joy}, despite real human examples exhibiting a broader range of emotions. Moreover, unlike humans who adapt discourse patterns to different domains, LLMs often recycle the same patterns across various contexts, suggesting a superficial grasp of the interplay between discourse, textual style, and context.
+    
+\item Our findings indicate that LLMs demonstrate a shallow approach to preference tasks, often basing decisions on the most salient linguistic cues in a sentence, in stark contrast to humans, who exhibit only a minor correlation and seemingly consider additional factors.
+    
+\item In addition to these limitations, we note that LLM overconfidence \anonymous{need citation on overconfidence} also impacts artificial data. Our manual annotations of artificial instruction sets find that artificial instructions contain many errors, particularly for closed questions. Our manual investigation of simulation data reveals that LLMs also employ a superficial approach to problem-solving, often focusing on the most salient information and failing to consider the broader context of the problem. 
+
+
+
+
+
+
+
+
+
+
+% \noindent \textbf{Alternative Evaluation Methodologies for LLM-Generated Data}
+% \textbf{One important future direction is to evaluate LLM-generated data using human validation.} 
+% We propose that humans can be better equipped to assess the quality of LLM-generated data. 
+% For example, we can use LLM-generated data to pre-estimate human annotation labels and then use those predictions as a training set for a reduced size of  data. 
+% We also recommend that researchers can use a combination of methods, including the first-order analysis of the data, the second-order effect analysis, and the human validation, to ensure the quality and diversity of the datasets used for the training sets. 
+% \noindent \textbf{LLM-generated data varies greatly from human-generated data.} 
+% In addition to these limitations, we note that LLMs are also prone to making errors. Our manual analysis of simulated conversations reveals that LLM agents frequently lose track of their assigned roles and stray from the topic of conversation, often after apologizing for confusion, suggesting their inability to navigate challenging conversational shifts adeptly. 
+% Furthermore, we observe that LLM-generated data tends to be less complex than human-generated data. This is evident in our metrics such as ROUGE F1, cosine similarity, and perplexity, which are higher with LLM-generated data. This suggests that LLMs may not be a proficient substitute for humans when it comes to complex tasks. 
+% Finally, we note that LLM overconfidence significantly affects the quality of artificial data. Our manual annotations of artificial instructions, which we performed on 200 artificial instruction sets created by LLMs, reveal that artificial instructions contain many errors, particularly for closed questions.

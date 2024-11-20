@@ -1,0 +1,44 @@
+createView a table showing the classification performance on ego graph and forest fire sampling. Also, show the metrics with the motif information encoded in the text modality.}
+\begin{table*}[ht]
+\centering
+\begin{tabular}{p{1.5 cm}p{1.5cm}p{1.5cm}p{1.5cm}p{1.5cm}}
+\toprule
+& \textbf{A} & \textbf{F} & \textbf{I} & \textbf{W} \\
+\midrule
+\textbf{N = 20} & & & & \\
+ego & Value for A1 & Value for F1 & Value for I1 & Value for W1 \\
+ff  & Value for A1 & Value for F1 & Value for I1 & Value for W1 \\
+\midrule
+\textbf{N = 50} & & & & \\
+ego & Value for A2 & Value for F2 & Value for I2 & Value for W2 \\
+ff  & Value for A2 & Value for F2 & Value for I2 & Value for W2 \\
+\bottomrule
+\end{tabular}
+\end{table*}
+
+\subsubsection {Motif Modality}
+This process of encoding graphs as motifs can be separated into two key parts: First, the encoding of nodes to their corresponding labels in the graph, and second, the motifs present around the? node. We encode the node-to-label mapping as a dictionary of type {node ID: node label}. Regarding motif encoding, we calculate motifs around the? node such as presence of star motifs,  We then pass this information to the modality encoder as a graph signal. The intuition here is that the local structure around the? node is crucial to understanding the node's label. For example, if the? node is part of a star motif, it implies that it is a central node with multiple nodes citing it (in a citation network). If the? node is part of a triangle motif, it implies that it is part of a close-knit group of highly connected nodes. 
+
+This encoding modality provides the LLM with a local and global perspective of the graph structure, especially in the context of social network analysis. It helps the LLM to understand the imbalances in the network, like the degree to which nodes are connected to others. It also enables the LLM to categorize nodes into different types based on their characteristics.
+
+\subsection{Second Order Experiment}
+In this section, we describe our experiments that show the Second order effect of graph encoding on classification. We find that if the encoding of graphs is only based on the count of motifs, the misclassification rate can be easily controlled by adjusting the motif count. However, if the encoding of graphs is based on the count of motifs and the mean and standard deviation of motif frequencies, then no adjustments on the encoding of graphs can be made to get the desired classification performance. We also find that the failure rate of the LLM is completely unknown to us. Therefore, if the count of the motifs is very small, the LLM might not be able to correctly predict the node's label even with the most accurate encoding of graphs.
+\begin{table*}[ht]
+\centering
+\begin{tabular}{l|lll|lll|lll}
+\toprule
+& \multicolumn{3}{c|}{\textbf{CORA}} & \multicolumn{3}{c|}{\textbf{Citeseer}} & \multicolumn{3}{c}{\textbf{Pubmed}} \\
+\cmidrule{2-10}
+\textbf{Model} & \textbf{Acc.} & \textbf{Inacc.} & \textbf{Fail Rate} & \textbf{Acc.} & \textbf{Inacc.} & \textbf{Fail Rate} & \textbf{Acc.} & \textbf{Inacc.} & \textbf{Fail Rate} \\
+\midrule
+Text & 0.70 \std{0.04} & 0.13 \std{0.02} & 0.16 \std{0.06} & 0.77 \std{0.06} & 0.17 \std{0.02} & 0.07 \std{0.05} & 0.77 \std{0.02} & 0.15 \std{0.00} & 0.08 \std{0.03} \\
+\midrule
+Motif & 0.68 \std{0.05} & 0.25 \std{0.04} & 0.06 \std{0.02} & 0.52 \std{0.08} & 0.18 \std{0.02} & 0.30 \std{0.07} & 0.60 \std{0.04} & 0.17 \std{0.06} & 0.23 \std{0.05} \\
+\midrule
+Image & 0.80 \std{0} & 0.20 \std{0} & 0 \std{0} & 0.45 \std{0}  & 0.30 \std{0} & 0.25 \std{0} &  0.45 \std{0} & 0.20 \std{0} & 0.35 \std{0} \\
+\bottomrule
+\end{tabular}
+\caption{Baselines for node classification on CORA, Citeseer, and Pubmed}
+\label{tab:cora_citeseer_pubmed_classification}
+\end{table*}
+%-----

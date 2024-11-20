@@ -1,0 +1,98 @@
+aserial
+\begin{wrapfigure}[13]{r}[0cm]{3in}
+\centering
+\includegraphics[width=1.1\columnwidth]{images/simulation/frequency_dists.pdf}
+\caption{Distributional difference between ChatGPT-generated vs. human-authored document graphs for Wikipedia CS AI domain. Positive scores signify that the identified motives are more prominent in machine-generated texts, whereas negative scores suggest the opposite trend.}
+\label{fig:free_text/dist_diff_wiki}
+\end{wrapfigure}
+
+Our analysis of Wikipedia CS AI domain using chatgpt and human-generated content reveals that chatgpt applies textual styles more superficially than humans do. Chatgpt uses more \textit{joy} when writing positive texts than humans do. Chatgpt applies \textit{anger} more than humans when writing texts that have the \textit{power social dynamic} label. These results are suggestive of chatgpt having a shallow approach to sentiment and social interaction. 
+
+We also note that the 1-style informal model shows a comparable increase in joy compared to the human 1-style informal model, but it does not show the same level of increase in  and  when compared to the human 1-style informal model. This suggests that human  and  in social contexts may be more difficult to model than  in more  social contexts. 
+
+%--------------------------------------------------------------------
+\paragraph{Mitigation Suggestions}
+Talk about mitigation strategies \anonymous {digression detection strategies}
+
+r
+%--------------------------------------------------------------------
+\paragraph{Task Description}
+\paragraph{First-order Experiment}
+\paragraph{Second-order Experiment}
+\paragraph{Mitigation Suggestions}
+\paragraph{Task Description}
+\paragraph{Experiment Setup}
+\paragraph{Metrics}
+\paragraph{Result}
+\paragraph{Mitigation Suggestions}
+\paragraph{Task Description}
+\paragraph{Experiment Setup}
+\paragraph{Metrics}
+\paragraph{Result}
+\paragraph{Mitigation Suggestions}
+\anonymous {Sub Sections : }
+\anonymous {About this data : describe the data, why is this data useful }
+\anonymous {critique - Summarize the critique section + relate to research gap unearthed }
+\anonymous {Datasets - quick summary of datasets used with citation}
+\anonymous {First order experiment : hypothesis, setup, metrics, result}
+\anonymous {Second order experiment : hypothesis, setup, metrics, result}
+\anonymous {Mitigation strategies/ Suggestions for your data}
+
+\label{sec:free_text}
+\input{latex/freetext}
+
+%-----------------------------------------------------------------------
+\section{Task Labels}
+\label{sec:task_label}
+\input{latex/tasklabels}
+%-----------------------------------------------------------------------
+\section{Instruction}
+\anonymous {Sub Sections : }
+\anonymous {About this data : describe the data, why is this data useful }
+\anonymous {critique - Summarize the critique section + relate to research gap unearthed }
+\anonymous {Datasets - quick summary of datasets used with citation}
+\anonymous {First order experiment : hypothesis, setup, metrics, result}
+\anonymous {Second order experiment : hypothesis, setup, metrics, result}
+\anonymous {Mitigation strategies/ Suggestions for your data}
+
+\label{sec:instruction}
+%\input{latex/instruction}
+%-----------------------------------------------------------------------\textbf{}
+\section{Preference}
+\anonymous {Sub Sections : }
+\anonymous {About this data : describe the data, why is this data useful }
+\anonymous {critique - Summarize the critique section + relate to research gap unearthed }
+\anonymous {Datasets - quick summary of datasets used with citation}
+\anonymous {First order experiment : hypothesis, setup, metrics, result}
+\anonymous {Second order experiment : hypothesis, setup, metrics, result}
+\anonymous {Mitigation strategies/ Suggestions for your data}
+
+\label{sec:preference}
+% \input{latex/preference}
+%-----------------------------------------------------------------------
+\section{Simulation}
+\anonymous {Sub Sections : }
+\anonymous {About this data : describe the data, why is this data useful }
+\anonymous {critique - Summarize the critique section + relate to research gap unearthed }
+\anonymous {Datasets - quick summary of datasets used with citation}
+\anonymous {First order experiment : hypothesis, setup, metrics, result}
+\anonymous {Second order experiment : hypothesis, setup, metrics, result}
+\anonymous {Mitigation strategies/ Suggestions for your data}
+
+\label{sec:simulation}
+%\input{latex/simulation}
+%-----------------------------------------------------------------------
+
+\section{Overall Discussion}
+
+%-----------------------------------------------------------------------
+\section{Conclusion}
+%-----------------------------------------------------------------------
+\section*{Acknowledgements}
+Thanks :)
+
+% Entries for the entire Anthology, followed by custom entries
+\bibliography{bibtex/free_form_text, bibtex/human_raters, bibtex/instructions, bibtex/pref_eval, bibtex/simulation}
+% \bibliographystyle{acl_natbib}
+
+\appendix

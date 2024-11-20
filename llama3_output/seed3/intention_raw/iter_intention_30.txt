@@ -1,0 +1,224 @@
+(ordinate the results across the different reward formulations and evaluate the efficacy of each.}
+\begin{table*}[ht]
+\centering
+\begin{tabular}{p{0.25\textwidth}p{0.25\textwidth}p{0.25\textwidth}p{0.25\textwidth}}
+\toprule
+\textbf{Reward Formulation} & \textbf{Style Accuracy} & \textbf{Generation Quality} & \textbf{S} \\
+\midrule
+\textbf{NEGATIVE-INFORMAL-NEGATIVE}  & 56.8 & 76.3 & 38.8 \\
+\midrule
+\textbf{NEGATIVE-INFORMAL-POSITIVE} & 51.4 & 73.4 & 44.5 \\
+\midrule
+\textbf{NEGATIVE-FORMAL-NEGATIVE} & 56.8 & 70.2 & 52.0 \\
+\midrule
+\textbf{NEGATIVE-FORMAL-POSITIVE} & 45.2 & 59.8 & 60.2 \\
+\bottomrule
+\end{tabular}
+\caption{Comparison of reward formulations with the target style accuracy, generation quality, and perplexity.}
+\label{tab:ablation}
+\end{table*}
+%--------------------------------
+\begin{figure}
+    \centering
+        \includegraphics[width=\textwidth]{Images/Generations for All 1k Prompts (Sentiment).pdf}
+        \caption{Sentiment results.}
+        \label{fig:sentiment}
+    \end{figure}
+    \begin{figure}[ht!]
+        \centering
+        \includegraphics[width=\textwidth]{Images/Generations for All 1k Prompts.pdf}
+        \caption{Formality results.}
+        \label{fig:formality}
+    \end{figure}
+    \begin{figure}[ht!]
+        \centering
+        \includegraphics[width=\textwidth]{Images/Generations for All 1k Prompts.pdf}
+        \caption{Formality results.}
+        \label{fig:formality}
+    \end{figure}
+    \begin{figure}[ht!]
+        \centering
+        \includegraphics[width=\textwidth]{Images/Generations for All 1k Prompts.pdf}
+        \caption{Formality results.}
+        \label{fig:formality}
+    \end{figure}
+    \begin{figure}[ht!]
+        \centering
+        \includegraphics[width=\textwidth]{Images/Generations for All 1k Prompts.pdf}
+        \caption{Formality results.}
+        \label{fig:formality}
+    \end{figure}
+    \begin{figure}[ht!]
+        \centering
+        \includegraphics[width=\textwidth]{Images/Generations for All 1k Prompts.pdf}
+        \caption{Formality results.}
+        \label{fig:formality}
+    \end{figure}
+    \begin{figure}[ht!]
+        \centering
+        \includegraphics[width=\textwidth]{Images/Generations for All 1k Prompts.pdf}
+        \caption{Formality results.}
+        \label{fig:formality}
+    \end{figure}
+    \begin{figure}[ht!]
+        \centering
+        \includegraphics[width=\textwidth]{Images/Generations for All 1k Prompts.pdf}
+        \caption{Formality results.}
+        \label{fig:formality}
+    \end{figure}
+    \begin{figure}[ht!]
+        \centering
+        \includegraphics[width=\textwidth]{Images/Generations for All 1k Prompts.pdf}
+        \caption{Formality results.}
+        \label{fig:formality}
+    \end{figure}
+    \begin{figure}[ht!]
+        \centering
+        \includegraphics[width=\textwidth]{Images/Generations for All 1k Prompts.pdf}
+        \caption{Formality results.}
+        \label{fig:formality}
+    \end{figure}
+    \begin{figure}[ht!]
+        \centering
+        \includegraphics[width=\textwidth]{Images/Generations for All 1k Prompts.pdf}
+        \caption{Formality results.}
+        \label{fig:formality}
+    \end{figure}
+    \begin{figure}[ht!]
+        \centering
+        \includegraphics[width=\textwidth]{Images/Generations for All 1k Prompts.pdf}
+        \caption{Formality results.}
+        \label{fig:formality}
+    \end{figure}
+    \begin{figure}[ht!]
+        \centering
+        \includegraphics[width=\textwidth]{Images/Generations for All 1k Prompts.pdf}
+        \caption{Formality results.}
+        \label{fig:formality}
+    \end{figure}
+    \begin{figure}[ht!]
+        \centering
+        \includegraphics[width=\textwidth]{Images/Generations for All 1k Prompts.pdf}
+        \caption{Formality results.}
+        \label{fig:formality}
+    \end{figure}
+    \begin{figure}[ht!]
+        \centering
+        \includegraphics[width=\textwidth]{Images/Generations for All 1k Prompts.pdf}
+        \caption{Formality results.}
+        \label{fig:formality}
+    \end{figure}
+    \begin{figure}[ht!]
+        \centering
+        \includegraphics[width=\textwidth]{Images/Generations for All 1k Prompts.pdf}
+        \caption{Formality results.}
+        \label{fig:formality}
+    \end{figure}
+    \begin{figure}[ht!]
+        \centering
+        \includegraphics[width=\textwidth]{Images/Generations for All 1k Prompts.pdf}
+        \caption{Formality results.}
+        \label{fig:formality}
+    \end{figure}
+    \begin{figure}[ht!]
+        \centering
+        \includegraphics[width=\textwidth]{Images/Generations for All 1k Prompts.pdf}
+        \caption{Formality results.}
+        \label{fig:formality}
+    \end{figure}
+    \begin{figure}[ht!]
+        \centering
+        \includegraphics[width=\textwidth]{Images/Generations for All 1k Prompts.pdf}
+        \caption{Formality results.}
+        \label{fig:formality}
+    \end{figure}
+    \begin{figure}[ht!]
+        \centering
+        \includegraphics[width=\textwidth]{Images/Generations for All 1k Prompts.pdf}
+        \caption{Formality results.}
+        \label{fig:formality}
+    \end{figure}
+    \begin{figure}[ht!]
+        \centering
+        \includegraphics[width=\textwidth]{Images/Generations for All 1k Prompts.pdf}
+        \caption{Formality results.}
+        \label{fig:formality}
+    \end{figure}
+    \begin{figure}[ht!]
+        \centering
+        \includegraphics[width=\textwidth]{Images/Generations for All 1k Prompts.pdf}
+        \caption{Formality results.}
+        \label{fig:formality}
+    \end{figure}
+    \begin{figure}[ht!]
+        \centering
+        \includegraphics[width=\textwidth]{Images/Generations for All 1k Prompts.pdf}
+        \caption{Formality results.}
+        \label{fig:formality}
+    \end{figure}
+    \begin{figure}[ht!]
+        \centering
+        \includegraphics[width=\textwidth]{Images/Generations for All 1k Prompts.pdf}
+        \caption{Formality results.}
+        \label{fig:formality}
+    \end{figure}
+    \begin{figure}[ht!]
+        \centering
+        \includegraphics[width=\textwidth]{Images/Generations for All 1k Prompts.pdf}
+        \caption{Formality results.}
+        \label{fig:formality}
+    \end{figure}
+    \begin{figure}[ht!]
+        \centering
+        \includegraphics[width=\textwidth]{Images/Generations for All 1k Prompts.pdf}
+        \caption{Formality results.}
+        \label{fig:formality}
+    \end{figure}
+    \begin{figure}[ht!]
+        \centering
+        \includegraphics[width=\textwidth]{Images/Generations for All 1k Prompts.pdf}
+        \caption{Formality results.}
+        \label{fig:formality}
+    \end{figure}
+    \begin{figure}[ht!]
+        \centering
+        \includegraphics[width=\textwidth]{Images/Generations for All 1k Prompts.pdf}
+        \caption{Formality results.}
+        \label{fig:formality}
+    \end{figure}
+    \begin{figure}[ht!]
+        \centering
+        \includegraphics[width=\textwidth]{Images/Generations for All 1k Prompts.pdf}
+        \caption{Formality results.}
+        \label{fig:formality}
+    \end{figure}
+    \begin{figure}[ht!]
+        \centering
+        \includegraphics[width=\textwidth]{Images/Generations for All 1k Prompts.pdf}
+        \caption{Formality results.}
+        \label{fig:formality}
+    \end{figure}
+    \begin{figure}[ht!]
+        \centering
+        \includegraphics[width=\textwidth]{Images/Generations for All 1k Prompts.pdf}
+        \caption{Formality results.}
+        \label{fig:formality}
+    \end{figure}
+    \begin{figure}[ht!]
+        \centering
+        \includegraphics[width=\textwidth]{Images/Generations for All 1k Prompts.pdf}
+        \caption{Formality results.}
+        \label{fig:formality}
+    \end{figure}
+    \begin{figure}[ht!]
+        \centering
+        \includegraphics[width=\textwidth]{Images/Generations for All 1k Prompts.pdf}
+        \caption{Formality results.}
+        \label{fig:formality}
+    \end{figure}
+    \begin{figure}[ht!]
+        \centering
+        \includegraphics[width=\textwidth]{Images/Generations for All 1k Prompts.pdf}
+        \caption{Formality results.}
+        \label{fig:formality}
+    \end{figure}

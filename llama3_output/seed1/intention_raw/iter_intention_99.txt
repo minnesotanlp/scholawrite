@@ -1,0 +1,8 @@
+\begin{figure}
+    \centering    
+    \includegraphics[trim={0.5cm 7cm 0.5cm 0.4cm},clip,width=0.5\textwidth]{Figures/SystemIllustration.pdf}
+    \caption{An illustration of the \system system}
+    \label{fig:scholacite}
+\end{figure}
+
+Given the increased use of AI-assisted scholarly writing and literature review tools, it is important to study

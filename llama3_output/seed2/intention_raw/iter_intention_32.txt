@@ -1,0 +1,13 @@
+-selection algorithms such as PPLM also use output from style discriminators to control for styles during generation.
+\anonymous{any thoughts on results I chose to highlight in intro -- things to remove or add? (I got rid of GPT-4 thing in intro bc it felt too awkward to summarize results, lmk if should add back in)}\anonymous{LGTM}
+\anonymous{Use a slightly more positive tone on the last paragraph.}
+
+% We also implement two alternate approaches to multi-style control. First, we create an extended plug-and-play pipeline \citep{Dathathri2020Plug} that controls multiple styles rather than one; we also perform zero-shot prompting with GPT-4 \cite{achiam2023gpt}. \anonymous{what results to highlight from this, if any (should i just remove from intro)?} We compare these approaches with respect to achieved style goals, perplexity, and performance on adversarial examples (i.e. prompts with adversarial styles). In terms of generating texts that contain the target styles, our fine-tuning method is a considerable improvement over the base model and PPLM generations. 
+
+Specifically, our contributions are:
+\begin{itemize}[noitemsep]
+    \item A comparison of efficacy of several reward formulations for RL-based multi-style control. To our knowledge, this is the first work controlling multiple style generation with RL.
+    \item A novel dynamic weighting formulation that shows strong control while maintaining generation quality. 
+    %\item A method for robust multi-style control using multiple style discriminators, with a focus on robust control using a precise linear combination of discriminator outputs. (I think this is where you move away from RL and towards a more language model-centric approach?)
+    \item A detailed study of style control in relation to factors like perplexity, performance on adversarial examples, and secondary effects, which we hope will be useful to future researchors in the field.
+\end{itemize} \anonymous{I'm not very excited about these contributions but can't think of improvements; any suggestions? Better to rephrase these items or switch to just paragraph-style contribution summary?}

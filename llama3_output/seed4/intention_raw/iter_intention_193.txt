@@ -1,0 +1,45 @@
+Mus mus types of artificial data, we identify consistent biases in LLM-generated data and outline strategies for mitigation. Representational bias in LLMs manifests as a preference for majority opinions, often at the expense of minority views. Additionally, LLMs exhibit primary and recency biases, focusing on certain aspects of data and affecting task specificity and performance. This is evident in synthetic instruction datasets, where LLMs favor open-ended questions over structured tasks, raising concerns about their ability to generalize across different query types. LLMs also differ from human patterns in processing emotional content and semantic relationships. 
+% open-ended (harder to get wrong)
+% minority views
+
+In terms of depth, complexity, and performance, LLM-generated data varies significantly from human-generated data. LLMs, while capable of coherent narratives, often lack the subtlety and depth found in human texts. There are notable differences in handling majority and minority opinions in subjective tasks, with biases against structured instructions and discrepancies in understanding complex societal language constructs such as hate speech. 
+
+To mitigate these issues, we suggest enhancing data quality and diversity by incorporating domain-specific information and examples into LLM training, in order to expose LLMs to a broader range of perspectives. We propose refining model interaction and responsiveness to align LLM responses more closely with humans, especially in social and informal contexts. This involves calibrating LLMs to better understand and reflect varied emotional expressions and contextual appropriateness, aiming to reduce discrepancies in complex societal language constructs. 
+
+\begin{table*}[]
+    \centering
+    \small
+    \begin{tabular}{l l l l}
+    \toprule
+     & & \multicolumn{2}{c}{\textbf{Experiment}} \\     
+       \textbf{Datasets} & \textbf{Rationale} & \textbf{1st order} & \textbf{2nd order} \\
+       \midrule
+       \rowcolor{color2} \multicolumn{4}{l}{\textbf{Free-form Text}}\\
+       \rowcolor{color2} \textsc{HC3} \cite{guo2023close}, & Pair-wise generated texts & High-level & Classification\\
+       \rowcolor{color2} \textsc{Scarecrow} \cite{dou-etal-2022-gpt}, & from both humans and LLMs & textual attribute & performance\\
+       \rowcolor{color2}  \textsc{Deepfake} \cite{li2023deepfake}, & & and discourse & \\
+        \rowcolor{color2} \textsc{Workers} \cite{moller2023prompt} & &structure difference & \\ 
+        \midrule
+        \rowcolor{color3}\multicolumn{4}{l}{\textbf{Task Labels}}\\
+        \rowcolor{color3}\textsc{Social Chemistry} & Subjective tasks,  & Biased toward & \anonymous{not clear?}  \\
+         \rowcolor{color3}\cite{forbes2020social}, & individual-level & majority label  & \\            
+         \rowcolor{color3}\textsc{Age-Sentiment} \cite{diaz2018addressing}, & & & \\
+         \rowcolor{color3}\textsc{SBIC} \cite{sap2019social} & & & \\ \midrule
+         \rowcolor{color4}\multicolumn{4}{l}{\textbf{Instructions}}\\
+        \rowcolor{color4}\textsc{Unnatural Instructions}  & Variety of instruction & LLMs produce & Errors in instruction, \\
+        \rowcolor{color4}\cite{honovich2022unnatural}, &  types and domains.  &  errors in the & input, and \\
+        \rowcolor{color4}\textsc{Self-Instruct} \cite{wang2023selfinstruct}, &  Human-generated datasets  & instruction, & output will \\
+        \rowcolor{color4}\textsc{Alpaca-Cleaned} & for comparison and & input, and & cause worse\\
+        \rowcolor{color4}\cite{alpaca}, & evaluation of models fine- & output &performance\\
+        \rowcolor{color4}\textsc{GPT-4-LLM} \cite{peng2023instruction}, & tuned on  & & \\
+        \rowcolor{color4}\textsc{Flan} \cite{weifinetuned}, & synthetic data & & \\
+        \rowcolor{color4}\textsc{Dolly} \cite{DatabricksBlog2023}, & & & \\
+        \rowcolor{color4}\textsc{Supernatural Instructions} & & & \\
+        \rowcolor{color4}\cite{supernaturalinstructions}, & & & \\
+        \rowcolor{color4}\textsc{Instructions in the Wild} & & & \\ 
+        \rowcolor{color4}\cite{instructionwild} & & & \\ \hline
+        \rowcolor{color5}\multicolumn{4}{l}{\textbf{Preference}}\\
+        \rowcolor{color5}\textsc{p2c} \cite{kim2023p2c}, & Human-machine & & \\ 
+         \rowcolor{color5}\cite{kim2023p2c} & & & \\ \hline
+        \rowcolor{color6}\multicolumn{4}{l}{\textbf{Simulation}}\\
+        \rowcolor{color6}\textsc{CAMEL AI-Society} & Simulated agent & & \\

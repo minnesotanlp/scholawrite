@@ -1,0 +1,8 @@
+ifikasi  and  the  depth  of  our  analysis  and  the  scope  of  our  study.  We  aim  to  provide  an  overview  of  the  existing  challenges  and  future  directions  in  the  field.  We  believe  that  these  challenges  are  crucial  for  the  development  of  AI-assisted  scholarly  writing  tools.  We  structure  the  rest  of  the  paper  as  follows.  Section 2 discusses the key challenges in the field. Section 3 presents our analysis on the different types of LLM-generated data and associated examples. Section 4 provides an overview of the existing methods and tools used for data documentation. Section 5 describes our proposed approach for a novel, automated, and collaborative interface for organizing literature and composing Related Work sections. Section 6 discusses the limitations of our approach and potential future directions. Section 7 is our conclusion.
+
+\newpage
+{\small\textbf{Acknowledgements}}
+We thank the members of the Advanced Natural Language Processing (ANLP) research group at Texas A\&M for their feedback on our project. This was a collaborative effort among the group members. Each of us contributed equally, 
+
+\newpage
+{\small\textbf{p}

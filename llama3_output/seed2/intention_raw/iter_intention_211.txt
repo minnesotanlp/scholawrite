@@ -1,0 +1,27 @@
++WIP 2023 (Open-source) -  A collaborative effort among academia and industry to develop a more open and accessible toolset for the community.
++ LLM-generated data varies significantly from human-generated data regarding depth, complexity, and performance. While capable of coherent narratives, LLMs often lack the subtlety and depth found in human texts. There are notable differences in handling majority and minority opinions in subjective tasks, with biases against structured instructions and discrepancies in understanding complex societal language constructs such as hate speech. 
+
++ Our main contributions are :
+- combining all 5 types of llm generated data  (this is where it would be really helpful to have some data-wide patterns)
+-- for example we find that label flipping is a great way to distinguish X, Y and Z data 
+-- a common problem seen across Y, Z datasets is the issue of A.
+
++ I hypothesize that the difference in the linguistic structure of RST trees of original and 
+%----------------------------------------
+\begin{table*}[]
+    \centering
+    \small
+    \begin{tabular}{p{0.25\linewidth}p{0.25\linewidth}p{0.25\linewidth}p{0.25\linewidth}}
+    \toprule
+     & & \multicolumn{2}{c}{\textbf{Experiment}} \\     
+       \textbf{Datasets} & \textbf{Rationale} & \textbf{1st order} & \textbf{2nd order} \\
+       \midrule
+       \rowcolor{color2} \multicolumn{4}{l}{\textbf{Free-form Text}}\\
+       \rowcolor{color2} \textsc{HC3} \cite{guo2023close}, & Pair-wise generated texts & High-level & Classification\\
+       \rowcolor{color2} \textsc{Scarecrow} \cite{dou-etal-2022-gpt}, & from both humans and LLMs & textual attribute & performance\\
+       \rowcolor{color2}  \textsc{Deepfake} \cite{li2023deepfake}, & & and discourse & \\
+        \rowcolor{color2} \textsc{Workers} \cite{moller2023prompt} & &structure difference & \\ 
+        \midrule
+        \rowcolor{color3}\multicolumn{4}{l}{\textbf{Task Labels}}\\
+        \rowcolor{color3}\textsc{Social Chemistry} & Subjective tasks,  & Biased toward & \anonymous{not clear?}  \\
+         \rowcolor{color3}\cite{forbes2020social}, & individual-level & majority label  & \\

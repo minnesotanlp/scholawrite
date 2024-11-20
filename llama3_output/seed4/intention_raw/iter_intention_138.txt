@@ -1,0 +1,108 @@
+afc{Overall detection F1 scores of models on the three datasets.}
+\label{tab:overall_f1}
+\end{table*}
+
+\subsubsection{\textsc{TenPageStories}}\label{subsubsec:creative_writing}
+In a more open-ended exploration, we deploy the trained LF model augmented with discourse motifs to analyze our \textsc{TenPageStories} dataset.
+
+\begin{table}[!ht]
+\centering
+\resizebox{\columnwidth}{!}{
+\begin{tabular}{c|ccc|ccc}
+\toprule
+\multirow{2}{*}{Models} & \multicolumn{3}{c|}{FIG} & \multicolumn{3}{c}{Constrained FIG} \\
+                         & 1 & 3 & 5 & 1 & 3 & 5 \\
+\midrule
+Longformer               & 0.30 & 0.40 & 0.45 & 0.59 & 0.50 & 0.55 \\
+Longformer + Sel. Motifs & \textbf{0.43} & \textbf{0.65} & \textbf{0.71} & \textbf{0.71} & \textbf{0.69} & \textbf{0.70} \\
+\bottomrule
+\end{tabular}}
+\caption{Overall detection F1 scores on \textsc{TenPageStories} where ``FIG'' refers to the ``fill-in-the-gap'' setting. The numbers 1, 3, and 5 indicate the number of paragraphs to be generated (or ``filled in'').}
+\label{tab:overall_f1_ten_page_stories}
+\end{table}
+
+First, we check how the different generation settings affect the detection performance (Table \ref{tab:overall_f1_ten_page_stories}). As expected the detection model performs better with longer generated texts (i.e., 1, 3, and 5 paragraphs). Also, when the first and last sentences of the human-written texts are additionally provided in the prompt (i.e., ``constrained FIG''), the corresponding generations are easier to detect. We note that the models' f1 scores are low as they produce a lot of false negatives, i.e., predicting actual human-written texts to be machine-generated. However, we can observe that the addition of a small discourse vector significantly improves the performance.
+
+
+% \begin{figure}[!ht]
+% \begin{subfigure}{\columnwidth}
+% % <left> <lower> <right> <upper>
+% \includegraphics[width=0.9\columnwidth]
+% {figures/plot_motif_diff_FITG_paragraph_m3_motif_m3_hist_norm_by_edges.pdf}
+% \caption{\textit{Fill-in-the-gap} setting}
+% \end{subfigure}
+
+% \begin{subfigure}{\columnwidth}
+% \includegraphics[width=0.9\columnwidth]{figures/plot_motif_diff_FITG_FL_m3_motif_m3_hist_norm_by_edges.pdf}
+% \caption{\textit{Constrained fill-in-the-gap} setting}
+% \end{subfigure}
+% \caption{
+Overall detection F1 scores of models on \textsc{TenPageStories} under the \textit{fill-in-the-gap} settings. The x-axis represents unique discourse motifs of the stories. Note that discourse motifs are small and  a part of discourse framework. 
+\anonymous{Increase font sizes for legend and axis texts. Use different bar textures for human and machine. Add error bars. 
+Name the y-axis using different colors and specify the y-axis labels. 
+Use different bar textures for human and machine.}
+\anonymous{Also, calculate the std or variation across domains, and compare their scores in the graph.}
+}
+\label{fig:overall_f1_ten_page_stories}
+\end{figure}
+
+\begin{figure}[!ht]
+\centering
+% <left> <lower> <right> <upper>
+{\includegraphics[width=0.9\columnwidth]{figures/plot_motif_diff_FITG_paragraph_m3_motif_m3_hist_norm_by_edges.pdf}\vspace{-3mm}}
+\caption{\vspace{-3mm}}
+\label{fig:overall_f1_ten_page_stories}
+\end{figure}
+
+\begin{figure}[!ht]
+\centering
+% <left> <lower> <right> <upper>
+{\includegraphics[width=0.9\columnwidth]{figures/plot_motif_diff_FITG_FL_m3_motif_m3_hist_norm_by_edges.pdf}\vspace{-3mm}}
+\caption{\vspace{-3mm}}
+\label{fig:overall_f1_ten_page_stories}
+\end{figure}
+
+\subsection{From Local Discourse Motifs to Global Structural Patterns}\label{subsec:local_to_global}
+We found the observation (\S\ref{subsubsec:key_motifs}) that human-written texts for more \textit{formal} and \textit{discussional} domains, e.g., news summarization (\textsc{XSum}) and ChangeMyView (\textsc{cmv}), seem to contain more ``Joint'' discourse relations where the corresponding child subgraphs are of equal importance (i.e., both are ``nuclei''). While this finding seems to corroborate our main assumption that the linguistic structure of discourse can change depending on factors such as formality, spontaneity, and depth of reasoning in the texts; it is based on the statistics of local discourse motifs albeit computed over the whole graphs. In this section, we aim to extend our analysis to include more \textit{global structures} by (1) computing the correlation between the number of hyperedge relations (denoted as ``hyp.'' in Fig. \ref{fig:hypergraph_example}) present in graphs and the formality score of the corresponding document (\S\ref{subsubsec:formality_scorer}); (2) investigating the overall shape variations of document graphs across different domains (\S\ref{subsubsec:branch_vs_chain}); and (3) comparing the variability in discourse structures of upper and lower parts of discourse graphs for original and paraphrased documents (\S\ref{subsubsec:upper_vs_lower}).
+
+\subsubsection{Formality Scores and Hyperedges}\label{subsubsec:formality_scorer}
+
+\begin{table}[!t]
+    \centering
+    \resizebox{0.75\columnwidth}{!}{
+    \begin{tabular}{c|c}
+        \toprule
+        Machine-Generated & Human-Written\\
+        \midrule
+        $0.08^*$ & $0.39^*$ \\
+        \bottomrule
+    \end{tabular}}
+    \caption{Pearson's $R$ between formality scores and frequency of hyperedges.}
+    \label{tab:corr_formality_hyperedge}
+\end{table}
+
+The formality score is computed for every text generated by humans and machines. Also, for every corresponding document graph, we count the (normalized) frequency of hyperedges for all motifs present in the graph. This is because the hyperedge relations represent higher-level abstractions of text and are thus linked to the discourse hierarchy. 
+From there, we compute the Pearson correlation coefficient between the scores and frequencies.
+
+As shown in Table \ref{tab:corr_formality_hyperedge}, the human-written texts over all domains exhibit weak to moderate correlation with the formality style while machine-generated ones seem to show no correlation. This hints that when humans write more structured texts in terms of discourse, the contents are often more formal.
+
+\subsubsection{Branched vs. Chain-Like Structures}\label{subsubsec:branch_vs_chain}
+\anonymous{I guess this shortest path is not relevant to formaltiy?}
+Another approach is to differentiate texts by domain and assume that the formality of texts is consistent within the domain. We can then look at the varying levels of graph structures per domain. As illustrated in the Introduction (\S\ref{sec:introduction}), we assume that the linguistic structure of discourse can change depending on factors such as formality, spontaneity, and depth of reasoning in the texts. 
+
+One possible dimension of characterizing this difference in structures is by checking whether the structures are evenly branched or follow a more sequential pattern as illustrated in Figure \ref{fig:branch_vs_chain}. 13313/13313 13218/13313 12519/13313 13118/13313 12813/13313 13616/13313 \\
+\begin{figure}[h!]
+  \centering
+  \includegraphics[width=0.95\columnwidth]{figures/branch_vs_chainlike_structure.pdf}
+  \caption{Illustration of document graph structures with different discourse hierarchies. For simplicity, the horizontal edge linking two child nodes is omitted.}
+  \label{fig:branch_vs_chain}
+\end{figure}
+ \\
+
+\begin{figure}[!ht]
+\centering
+% <left> <lower> <right> <upper>
+{\includegraphics[width=0.9\columnwidth, trim={2cm 0.0cm 3.5cm 0.6cm},clip]{figures/avg_shortest_path_len_per_domain.pdf}}
+\caption{Average shortest path lengths per domain.}
+\label{fig:shortest_path_len}
+\end{figure}

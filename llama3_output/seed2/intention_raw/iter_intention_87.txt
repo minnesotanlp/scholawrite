@@ -1,0 +1,28 @@
+\label{fig:figure1}
+\end{figure*}
+%---------------------------------------
+
+
+%---------------------------------------
+\begin{figure*}[ht!]
+  \centering
+  \includegraphics[width=\textwidth]{figures/modified_pipeline.jpg}
+  \caption{Pipeline}
+  \label{fig:fig1}
+\end{figure*}
+%---------------------------------------
+%\textbf{Acknowledge the rise of LLMs}
+Large language models (LLMs) like ChatGPT \cite{} and now GPT4 \cite{bubeck2023sparks} present massive context-aware knowledge and superior semantic comprehension capability through pre-training on large-scale text corpora \cite{petroni2019language}. This knowledge achieved from pre-training has led to a surge of revolutions for downstream NLP tasks \cite{zhao2023survey}. Large Language Models (LLMs) have also expanded their applications beyond language processing into domains like robotics \cite{huang2022towards}, planning \cite{andreas2022language}, theory-of-mind reasoning \cite{adhikari2020learning}, structured commonsense reasoning \cite{madaan2022language}, and multi-hop question answering. These tasks require LLMs to update ้
+  
+\textbf{Our contributions}: Specifically, the contributions of our work are the following:
+
+\begin{itemize}
+  \item  An extensive study of graph-structured data and associated prompts for use in LLMs.
+  \item Exploring the impact of graph structure, sampling methods, and no. of hops on node prediction performance
+  \item A new graph benchmark (GraphTMI) with a Task hierarchy consisting of graphs and associated encoding modalities to aid the community in studying the effects of graph structure on LLM prompting further.
+  
+\end{itemize}
+
+\textbf{what do we see from our results?}
+\textcolor{blue}{image greater than text - task hierarchy}
+Our empirical results show that, while LLMs are getting better at handling graph data, they still have a lot of improving to do if they are to catch up with models that are specifically designed to work with graphs.

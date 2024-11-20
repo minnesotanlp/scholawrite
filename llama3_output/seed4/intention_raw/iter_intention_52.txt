@@ -1,0 +1,28 @@
+appiness & 57.75 (65.00) & 85.00 (75.00) & 48.00 (55.00) & 0.66 (0.18) & 0.00 (0.00) & 0.00 (0.00) & 0.00 (0.00) & 0.00 (0.00) & 0.00 (0.00) & 0.00 (0.00) & 0.00 (0.00) \\
+\text{Neutral} & 0.00 (0.00) & 0.00 (0.00) & 0.00 (0.00) & 0.00 (0.00) & 0.00 (0.00) & 0.00 (0.00) & 0.00 (0.00) & 0.00 (0.00) & 0.00 (0.00) & 0.00 (0.00) & 0.00 (0.00) \\
+\text{Positive} & 0.00 (0.00) & 0.00 (0.00) & 0.00 (0.00) & 0.00 (0.00) & 0.00 (0.00) & 0.00 (0.00) & 0.00 (0.00) & 0.00 (0.00) & 0.00 (0.00) & 0.00 (0.00) & 0.00 (0.00) \\
+\bottomrule
+\end{tabularx}
+\caption{Percentages of texts, written by human and machine, classified as containing various high-level attributes. We focus on the Social Dimensions Datasets in most of our experiments, but also report the overall results across all three datasets we examine.}
+\label{tab:attribute_scores}
+\end{table}
+
+\paragraph{High Level Attributes}
+Figure~\ref{fig:high_level_features_radar} shows a summary of our results for high-level attributes on human vs machine text. 
+
+\paragraph{Qualitative analysis} We examine 110 human-machine text pairs that have differing formality labels to see what qualities the texts have that may lead to this difference in formality. (We focus on the formality attribute since it is the most consistently different between human-machine text pairs.) Example text pairs can be found in Table~\ref{table:formality_qual}.
+
+In our qualitative study, we see that $56\%$ of the machine texts include complex sentences and more independent clauses than their human counterparts. $52\%$ of the machine texts include full punctuation (e.g. completing sentences with periods, inserting commas into groups of clauses) when the human texts do not. These factors likely contribute to the differing formality scores, but some differences extend past this surface level: $21\%$ of the machine texts have no discourse markers although the human text does, and machine texts also frequently use more intensifiers, adjectives, and emojis than their human counterparts. $27\%$ of the machine text uses more figurative language as well.
+
+\begin{figure}[htbp!]
+    \centering
+    \begin{minipage}{0.5\textwidth}
+        \centering
+        \includegraphics[width=\textwidth, trim={0cm 0 0 0},clip]{images/free_text/reddit_eli5_motif_hist_chatgpt-human.png}
+  %\caption{Distributional difference between ChatGPT-generated vs. human-authored document graphs for Reddit ELI5 domain. Positive scores signify that the identified motives are more prominent in machine-generated texts, whereas negative scores suggest the opposite trend.}
+  \label{fig:free_text/dist_diff_reddit}
+    \end{minipage}\hfill
+    \begin{minipage}{0.5\textwidth}
+        \centering
+        \includegraphics[width=\textwidth, ]{images/free_text/finance_motif_hist_chatgpt-human.png}
+  %\caption{Distributional difference between ChatGPT-generated vs. human-authored document graphs for Finance domain. Positive scores signify that the identified motives are more prominent in machine-generated texts, whereas negative scores suggest the opposite trend.}

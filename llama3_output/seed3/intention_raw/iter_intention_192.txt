@@ -1,0 +1,25 @@
+Deviating from this fact, we intentionally set a much larger number of generations to explore (3,000), a much smaller batch size (50) and do not use the GradWt fine-tuning method. Our goal is to understand the exploration strategy of GPT-4, rather than its fine-tuned performance. We use the default hyperparameters for GPT-4, i.e., the default KL-related hyperparameters. We do not use the default hyperparameters for the inner and outer models because we found that using the same hyperparameters for the inner and outer models would not help the exploration of the system. We use the temperature 0.3 and top-p values of 0.25 and 0.75 for 3,000 generations each. We keep the default hyperparameters for RLHF generation, i.e., temperature 0.03 and top-p value of 0.25 for 50 generations. We do not use the GradWt fine-tuning method because we are interested in understanding the baseline performance of GPT-4 without the fine-tuned language model. We consider the generations of the 3,000 generations for each of the three inner models (LLaMA, GPT-4, GPT-4-RL) in two separate hyperparameter searches to understand how the resulting models would perform. 
+
+\subsection{Evaluation Metrics}
+Once we have the three inner models, we have four models to consider for each of the three datasets: \textsc{Unnatural}, \textsc{Self-Instruct}, \textsc{Instructions}, and \textsc{Preference}. We want to evaluate the generations of each model based on the metrics outlined in Section \ref{sec:exp_setup}. For the first order model evaluations, we prompt each model with the first four words of each item in the evaluation dataset. We run our prompt 
+
+\begin{table}[ht!]
+\centering
+\begin{tabular}{p{3.4cm}p{1cm}p{1.1cm}}\toprule
+         &  &  \\\midrule
+         &  & \\\bottomrule
+    \end{tabular}
+\caption{Placeholder for wasserstein distance table}
+\label{tab:w_dist_between_gold_pred}
+\end{table}
+
+
+\section{GPT-4 Prompting}
+We focus on a basic zero-shot prompting approach to probe GPT-4 performance on controlled style generations. We chose zero-shot prompting as we are interested in scenarios with high data-scarcity, i.e. those in which the target style combination text is not necessarily available. Note that while few-shot prompting can out-perform zero-shot prompting; this is not necessarily the case -- recent work suggests that GPT-4's performance can be equivalent or even deteriorate in a few-shot setting, e.g.  \citep{coyne2023analyzing}.
+
+GPT-4 responses (Table~\ref{tab:precision_overall}) indicate that in some scenarios, GPT-4 does very well at combining multiple styles to complete the generation. The response's perplexity scores, although calculated with respect to Llama2, are also the lowest across all style combinations. Based on GPT-4's high performance with respect to sentiment control and relatively low performance with respect to formality control, GPT-4 seems to have a different 
+
+We include GPT-4 results as a point of reference, but it is not a direct comparison. Our other experiments use Llama2-7B, which has approximately 1,000 times fewer parameters than GPT-4. Llama2, unlike GPT-4, is a base language model with no human feedback fine-tuning. Finally, we also recognize that prompting techniques such as Chain-of-Thought prompting \citep{wei2022chain} have been shown to improve performance on many tasks; however we do not focus on prompt engineering for output optimization in this work.
+
+\subsection{Combinations of Two Styles}
+We first explore how the different  from our single-style models. We choose the most important style based on the highest F1 score from each style discriminator. We then consider the efficacy of generations from the resulting models, as well as the results of other approaches for multi-style controlled generations. For a table of the results for these two-style combinations, see Table~\ref{tab:precision_results}.

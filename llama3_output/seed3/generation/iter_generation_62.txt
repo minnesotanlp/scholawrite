@@ -1,0 +1,21 @@
+:  for every data type, there is a corresponding artifact type. We also find that artificial data can have no n artifacts can be amplified when used in training a subsequent model. 
+% % what happens when you use artificial data in training? (ask an LLM expert to fix this)
+% % artificial data has some 
+% % individual-level data (individual performance) and collective-level data (group performance) 
+% % explained here: https://www.sciencedirect.com/science/article/pii/S16748917X0000137/ (link to paper)
+% % https://www.sciencedirect.com/science/article/pii/S16748917X0000137/ (link to paper)
+% % when we look at the individual-level data, we see that the label-flipping was more pronounced in the first-order annotation generation (this is where the model is using the label-flipping as a kind of hidden hint to make its prediction). 
+% % we also find that the label-flipping was much more pronounced in the model's intra-model setup than the inter-model setup. This suggests that the label-flipping was a model-memory-related artifact (i.e., the model remembered the previous generations and used that information during the next generation). 
+
+% % if we consider the LLM's "memory" in terms of its distribution, then the label-flipping was likely caused by the LLM's distribution of opinions. 
+% % when we look at the distribution of the labels annotated by the LLMs, we do indeed see a non-random pattern (see Figure \ref{fig:plot_diff_data}). 
+% % We also find that the distribution of the labels annotated by the LLMs was more concentrated around the majority label than the human annotations. 
+% % This suggests that the LLMs had a stronger tendency to concentrate on the majority opinion and had a weaker tendency to represent minority opinions. 
+
+% % similar patterns are observed for other artifacts like role-flipping and digression.
+% % role-flipping is more pronounced in the second-order annotation generation than the first-order. This suggests that role-flipping may be a form of model memory impairment.
+% % digression is most pronounced in the simulation data, which suggests that simulation data may be more prone to digression. 
+
+% % our experiments show that these artifacts are not simply rare events, but happen during the training of the models. 
+% % we also show that if a model is trained on multiple datasets, the artifacts may become more pronounced. 
+% % this highlights the need to carefully use LLM-generated data for training.

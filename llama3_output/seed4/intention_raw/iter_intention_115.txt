@@ -1,0 +1,55 @@
+Canter, &  & 0.73 & 0.68 &  & 0.77 & 0.54 \\
+\bottomrule
+\end{tabular}
+\caption{Validation accuracy and loss for RoBERTa model trained on human and LLM preferences, respectively.}
+\label{table:pref:2ndorder}
+\end{table}
+
+% \begin{table}[H]
+%     \centering
+%     \begin{tabular}{@{}lcc@{}}
+%         \toprule
+%         Val Acc. / Loss & \textsc{P2C} & \textsc{Cobbler} \\
+%         \midrule
+%         \textbf{Human} & 0.49 / 1.1 & 0.80 / 0.48 \\
+%         Machine & 0.33 / 1.4 & 0.67 / 0.92 \\
+%         \bottomrule
+%     \end{tabular}
+%     \caption{Validation accuracy and loss for RoBERTa model trained on human preferences. \anonymous{just include only human test, with }\anonymous{if there's a way to include machine test set as well without making it too cluttered/confusing i think that would be good as we can include the point of machine preferences being easier to learn and tying that in first order results}}
+%     \label{tab:preference:human}
+% \end{table}
+
+% \begin{table}[H]
+%     \centering
+%     \begin{tabular}{@{}lcc@{}}
+%         \toprule
+%         Val Acc. / Loss & \textsc{P2C} & \textsc{Cobbler} \\
+%         \midrule
+%         \textbf{Machine} & 0.66 / 0.8 & 0.75 / 0.64 \\
+%         Human & 0.34 / 2.0 & 0.69 / 0.76 \\
+%         \bottomrule
+%     \end{tabular}
+%     \caption{Validation accuracy and loss for RoBERTa model trained on machine preferences.}
+%     \label{tab:preference:machine}
+% \end{table}
+
+From Figures \ref{fig:pref:cobbler-second-label0} - \ref{fig:pref:p2c-second-label2} in Appendix \ref{sec:appendix:pref}, we see a distinct difference in the class probabilities based on the logits from our reward model on their validation sets. From this graph, high logits with high class probability often indicate stronger certainty from the model for the predicted label. Thus, we view this difference in confidence for the class label as an artifact between human and machine labels, as we see a distinct gap in the assigned logits for each instance on each dataset. Namely, in Figure \ref{fig:pref:p2c-second-label2} we see that the reward model assigns much higher confidence for assigning tie labels over humans; this may be due to the difficulty of capturing diverse human opinions for ties, as each label was taken as a majority vote from three humans. 
+
+
+\subsection{Summary of First and Second Order Results}
+% \anonymous{mention here the "metric" unearthed from your experiments which is more socially aligned, bold it - we will use this in the end.}
+
+Our results show that LLMs tend to decide their preference based on the token-level sentiments or the entailment of the sentence that are highly perceivable, rather than making a nuanced and context-focused understanding of sentiments as humans
+. We, therefore, claim that LLM shows a strong tendency of locality bias in their preferences compared to humans.  
+
+
+%--------------------------------------------------------------------
+\subsection{Mitigation Suggestions}\label{sec:preference-mitigation}
+% \anonymous{outline very specific actionable suggestions}
+
+We suggest a careful usage of LLM-generated preferences when employing them as an alternative to human preferences. 
+Researchers may develop methods to first detect differences between human and LLM preferences for certain tasks of their interest. 
+For example, one may design a prompt that mentions additional aspects of evaluation criteria that should avoid those locality bias; for sentiment analysis, we may add a phrase that LLMs should avoid looking at token-level sentiments to make their decisions but focus more on the entire context of a sentence. For closed QA that asks for coherency and alignment with a given reference, the responsible prompt should mention the need for LLMs to make preferences based on the nuanced understanding of sentences in comparison to humans.  
+Current prompts that are widely used include harmfulness, helpfulness, and honesty (3H) \cite{askell2021general} to align models with human values. 
+By 
+adding such detailed guidelines of how models should behave or avoid would improve the quality of LLM-generated preferences, LLM preferences may reach the quality of human preferences, and reduce such misalignment issues.

@@ -1,0 +1,47 @@
+Facial features & 0.13 & 0.25 & 0.06 \\
+	& 0.09 & 0.24 & 0.06 \\
+	& 0.06 & 0.09 & 0.06 \\
+	\midrule
+	& 0.06 & 0.06 & 0.06 \\
+	& 0.06 & 0.06 & 0.06 \\
+	\bottomrule
+\end{tabular}
+\caption{Pearson Correlation between (a) \textbf{lexicon-based preference} for \textsc{p2c} dataset and (b) \textbf{entailment-based preference} for \textsc{cobbler} dataset.}
+\label{table:pref:corr}
+\end{table}
+
+\begin{figure}[ht!]
+    \centering
+    \includegraphics[width=\linewidth]{images/pref_eval/p2c_lexicon_corr.pdf}
+    \caption{Pearson Correlation between lexicon-based and each of GPT-3 and human preferences across three setups – (1) entire dataset, (2) Top 10\%, and (3) Bottom 10\%. Notably, the 'Top 10\%' setup shows a significantly higher correlation between lexicon-based and GPT-3 preferences, compared to human preferences, highlighting distinct preference patterns. All p-values are below 0.001. }
+    \label{fig:pref:p2c-lexicon-corr}
+\end{figure}
+
+\begin{figure}[ht!]
+    \centering
+    \includegraphics[width=\linewidth]{images/pref_eval/cobbler_pearson_max.pdf}
+    \caption{Pearson Correlation between lexicon-based and each of GPT-4, ChatGPT, and human preferences across three setups – (1) entire dataset, (2) Top 10\%, and (3) Bottom 10\%. Notably, the 'Top 10\%' setup shows a significantly higher correlation between lexicon-based and GPT-3 preferences, compared to human preferences, highlighting distinct preference patterns. All p-values are below 0.001. }
+    \label{fig:pref:p2c-lexicon-corr}
+\end{figure}
+
+\subsection{Second Order Effects}\label{sec:preference-second}
+
+\begin{figure}[ht!]
+    \centering
+    \includegraphics[width=\linewidth]{images/pref_eval/p2c_lexicon_corr.pdf}
+    \caption{Pearson Correlation between lexicon-based and each of GPT-3 and human preferences across three setups – (1) entire dataset, (2) Top 10\%, and (3) Bottom 10\%. Notably, the 'Top 10\%' setup shows a significantly higher correlation between lexicon-based and GPT-3 preferences, compared to human preferences, highlighting distinct preference patterns. All p-values are below 0.001. }
+    \label{fig:pref:p2c-lexicon-corr}
+\end{figure}
+
+\begin{figure}[ht!]
+    \centering
+    \includegraphics[width=\linewidth]{images/pref_eval/cobbler_pearson_max.pdf}
+    \caption{Pearson Correlation between lexicon-based and each of GPT-4, ChatGPT, and human preferences across three setups – (1) entire dataset, (2) Top 10\%, and (3) Bottom 10\%. Notably, the 'Top 10\%' setup shows a significantly higher correlation between lexicon-based and GPT-3 preferences, compared to human preferences, highlighting distinct preference patterns. All p-values are below 0.001. }
+    \label{fig:pref:p2c-lexicon-corr}
+\end{figure}
+
+\subsection{Second Order Effects}\label{sec:preference-second}
+
+\paragraph{Hypothesis} We examine if there is a discrepancy in the distribution between human and LLM preferences augmented by training a language model classifier on each human and LLM preference, which may cause a misalignment between them. 
+
+\paragraph{Experiment Setup} We train RoBERTa \cite{liu2019roberta} on each of the human or machine evaluations from \textsc{p2c} dataset. Here, we used the 7B version of RoBERTa for 10 epochs with AdamW optimizer of learning rate $1e-4$.

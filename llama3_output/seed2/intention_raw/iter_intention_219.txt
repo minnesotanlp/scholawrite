@@ -1,0 +1,95 @@
+uilabel{Table 1:} \begin{tabular}{p{.25\columnwidth}p{.2\columnwidth}p{.125\columnwidth}p{.15\columnwidth}} \toprule
+\textbf{} & \textbf{Challenges} & \textbf{Research Gap Unearthed} & \textbf{New Column 3}\\ \midrule
+\rowcolor{color2}\textbf{Free-Form Text} & LLM-text indistinguishable from human-written text due to convincing generation. & Neglect of higher-level figurative attributes and structural document features & \textbf{Our contribution is towards bettering the detector of such data, thereby aiding the research gap}\\ \midrule
+\rowcolor{color3}\textbf{Task Labels} & Subjectivity Loss and Consensus Bias in LLM-Annotated Task Labels & Neglected minority opinion representation in LLM datasets & \textbf{Our approach promotes more diverse annotations, capturing minority views, and model variability, thereby mitigating the "majority bias" in LLM task labels}\\ \midrule
+\rowcolor{color4}\textbf{Instruction prompts} & 
+Error amplification due to overstated diversity & Neglected study of diversity and noise in instructions & \textbf{Our experiments show that noise and diversity amplification are significant issues in instruction-tuned models, which can be addressed by better validation and diversity-promoting techniques}\\ \midrule
+\rowcolor{color5}\textbf{Preference} & LLM Bias in evaluating text pairs & Neglected scrutiny of LLM bias with complex preferences & \textbf{Our method provides a comprehensive approach to assessing LLM bias in complex preferences, involving both human and LLM preferences}\\ \midrule
+\rowcolor{color6}\textbf{Simulation} & Underexplored simulated LLM agents  & Unstudied artifacts in LLM simulated data, such as role flipping and digression. & \textbf{Our findings indicate that LLM simulated data exhibits significant artifacts, underscoring the need for careful monitoring and mitigation strategies to ensure these artifacts do not impact downstream performance.}\\ \bottomrule
+\end{tabular}
+\caption{We summarize the research gap unearthed with each type of LLM-generated data. Our paper focuses on these unearthed research gaps for further analysis and stress testing LLM-generated data.}
+\label{tab:transposed_related_summary}
+\end{table*}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%\input{latex/exp_results} %<-- anonymous exp rewrite draft
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+%-------------------------------------------------------------------------
+\section {Key Takeaways}
+\input{latex/overview}
+%--------------------------------------------------------------
+%\section{Free-Form Text}
+%\label{sec:free_text}
+%\input{latex/freetext}
+%-----------------------------------------------------------------------
+%\section{Task Labels}
+%\input{latex/tasklabels}
+%-----------------------------------------------------------------------
+%\section{Instruction}
+%\label{sec:instruction}
+%\input{latex/instruction}
+%-----------------------------------------------------------------------\textbf{}
+\section{Preference}
+\input{latex/preference}
+%-----------------------------------------------------------------------
+\section{Simulation}
+\label{sec:simulation}
+\input{latex/simulation}
+%------------------
+\begin{figure*}[ht!]
+  \centering
+  \includegraphics[width=\textwidth]{images/stress_testing_methods_modified.jpg}
+  \caption{Methods to stress test LLM Generated Data }
+  \label{fig:figure2}
+\end{figure*}
+ %------------------ 
+ %---------------------------
+\begin{table*}[ht]
+\footnotesize
+\centering
+\begin{tabular}{p{0.10\linewidth}p{0.10\linewidth}p{0.10\linewidth}p{0.10\linewidth}p{0.10\linewidth}p{0.10\linewidth}p{0.10\linewidth}p{0.10\linewidth}}
+\toprule
+\textbf{} & \textbf{Artifact Analysis} & \textbf{Distributional Difference} & \textbf{Label Flipping} & \textbf{Correlation Analysis} & \textbf{Human Validation} & \textbf{Qualitative Analysis} & \textbf{2nd order effect} \\
+\midrule
+\rowcolor{color2}\textbf{Free-Form Text} & \checkmark  & \checkmark & \checkmark & \xmark & \xmark & \checkmark & \checkmark \\
+\midrule
+\rowcolor{color3}\textbf{Task Labels} & \xmark  & \checkmark & \checkmark  & \checkmark & \xmark & \checkmark & \checkmark\\
+\midrule
+\rowcolor{color4}\textbf{Instruction prompts} & \xmark & \checkmark & \xmark  & \xmark & \checkmark & \xmark  & \checkmark \\
+\midrule
+\rowcolor{color5}\textbf{Preference} & \xmark & \checkmark & \xmark  & \checkmark  & \xmark & \xmark & \checkmark\\
+\midrule
+\rowcolor{color6}\textbf{Simulation} & \checkmark & \xmark & \checkmark & \checkmark   & \checkmark  & \xmark & \xmark \\
+\bottomrule
+\end{tabular}
+\caption{Stress Testing Methods Overview}
+\label{tab:stress_testing_overview}
+\end{table*}
+%---------------------------
+
+\section{Overall Discussion}
+\label{sec:sec9}
+\anonymous{anonymous : these methods below are not explicitly defined anywhere, do you think its necessary or self explanatory? how about adding as part of comment in Fig 16}
+Figure \ref{fig:figure2} demonstrates the variety of techniques applied for stress testing artificial data, as detailed in earlier sections, while Table \ref{tab:stress_testing_overview} provides an overview of the methodologies employed for each data type. Notably, approaches like \textit{distributional difference} prove effective for contrasting almost all categories of LLM-generated data with human-generated data. Methods such as \textit{label flipping} and \textit{correlation analysis} are widely utilized across numerous data types. Except for Simulation data, which is still in the nascent stages of exploration and requires more first-order analysis, second-order effect analysis is conducted for all data types.
+
+
+\begin{enumerate}
+    \item  Main findings
+    We find several cases in which artificial data diverges from human data. The divergence often stems from LLMs having only a superficial or shallow understanding of the task. For instance, LLMs consistently overrepresent the majority opinion across all datasets we examined, even in highly subjective datasets. Further, they rarely match minority opinions and show fewer variations in responses to subjective tasks than humans. That is, LLMs do not appear to understand which labeling tasks might be controversial, and they also appear only to understand how the majority will respond to a labeling question. 
+    
+    LLMs generating text for certain contexts apply textual styles unnaturally, and often simplistically, despite being given examples of real human texts: for example, when writing `positive Tweets,' LLMs overwhelmingly employ \textit{joy} when in actually, only a small fraction of the example positive Tweets in the LLM prompt exhibit joy. LLMs also do not vary discourse patterns across different domains as humans do, instead employing the same discourse patterns. We argue that this demonstrates a superficial understanding of how discourse and textual style interact with various contexts.
+    
+    We find that LLMs also employ a superficial understanding of preference tasks. For instance, LLMs deciding which sentence has a stronger positive sentiment make decisions that are strongly correlated with the relative number of standalone positive tokens in each sentence -- in contrast to humans, who show only a small correlation and presumably base their preference decision on other factors. 
+    
+    In addition to these limitations, we note that LLM overconfidence \anonymous{need citation on overconfidence} also impacts artificial data. Our manual annotations of artificial instruction sets find that artificial instructions contain many errors, particularly for closed questions. In particular, over manual reading of a sample of over 500 artificial instructions from multiple datasets, we find over 100 errors but not one example in which the LLM admits to not knowing the proper output for its own instruction. Our manual investigation of simulation data reveals that LLM agents tend to forget their roles and digress from conversations, often after apologizing for being confused, indicating that they are unable to recover gracefully from disadvantageous conversational turns.
+    
+    Our experiments suggest that these discrepancies between human and artificial data are not inconsequential; they in fact can negatively affect performance when used for training when compared to human data. \anonymous{@anonymous lmk if you want to expand on these performance losses here.}
+    
+
+
+
+
+%     \anonymous{anonymous, anonymous, anonymous : Why should we use LLM-generated data?(substantial gap between human and LLM-generated data)
+%     \anonymous{anonymous, anonymous, anonymous : Why should we use LLM-generated data (substantial gap between human and LLM-generated data)
+%     \anonymous{anonymous, anonymous, anonymous : Why should we use LLM-generated data?(ge)
+%     \anonymous{anonymous, anonymous, anonymous : Fake data and models}

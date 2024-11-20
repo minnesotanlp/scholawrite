@@ -1,0 +1,106 @@
+jm  & [0.00, 0.00, 0.00, 0.00, 0.00] & [0.00, 0.00, 0.00, 0.00, 0.00] \\ \midrule
+knee & [0.00, 0.00, 0.00, 0.00, 0.00] & [0.00, 0.00, 0.00, 0.00, 0.00] \\ \midrule
+peanut & [0.00, 0.00, 0.00, 0.00, 0.00] & [0.00, 0.00, 0.00, 0.00, 0.00] \\ \midrule
+r & [0.00, 0.00, 0.00, 0.00, 0.00] & [0.00, 0.00, 0.00, 0.00, 0.00] \\ \midrule
+sweet & [0.00, 0.00, 0.00, 0.00, 0.00] & [0.00, 0.00, 0.00, 0.00, 0.00] \\ \midrule
+tomato & [0.00, 0.00, 0.00, 0.00, 0.00] & [0.00, 0.00, 0.00, 0.00, 0.00] \\ \hline
+\end{tabular}
+\caption{The table shows the GPT-4 and GPT-4V responses with the text modality, text+image modality, and image modality. We can see that on combining modalities, the label originally classified as -1 is correctly classified, or original misclassification is rectified. }
+\label{tab:qual}
+\end{table*}
+%----
+
+
+
+
+\section{GNN Baseline Information}
+\label{sec:A}
+%---------------------------------------------------
+\begin{table*}[h!]
+\centering
+\begin{tabular}{p{4cm}|l|ccc}
+\toprule
+& \textbf{Model} & \textbf{Cora} & \textbf{Citeseer} & \textbf{Pubmed} \\
+\midrule
+\multirow{3}{4cm}{Graph Learning Baselines} & Graph Attention & 0.7820 \std{0.133} & 0.6540 \std{0.083} & 0.7480 \std{0.077} \\
+& GAT & 0.8200 \std{0.084} & 0.6680 \std{0.069} & 0.7510 \std{0.050} \\
+& GraphSage & 0.7570 \std{0.137} & 0.5300 \std{0.098} & 0.7430 \std{0.078} \\
+\midrule
+\multirow{3}{4cm}{LLMs w/different modalities encoded} & Text & 0.70 \std{0.04} & 0.766 \std{0.062} & 0.766 \std{0.024} \\
+& Motif & 0.68 \std{0.05} & 0.516 \std{0.085} & 0.600 \std{0.041} \\
+& Image & 0.80 \std{0} & 0.45 \std{0} & 0.45 \std{0} \\
+%& Text +Image & 0.353 &... &... \\
+%& Motif + Image & 0.353 &... &... \\
+%& Text + Motif & 0.353 &... &... \\
+%& Text + Motif +Image & 0.353 &... &... \\
+\bottomrule
+\end{tabular}\caption{Test Accuracy of Node classification across different datasets (N = 20)}
+\label{tab:accuracy_tab}
+\end{table*}
+%-----------------------------------------
+\begin{table*}[h!]
+\centering
+\begin{tabular}{l|cc|ccccc}
+\toprule
+\multirow{2}{*}{\textbf{Model}} & \multicolumn{2}{c|}{\textbf{HC3}} & \multicolumn{5}{c}{\textbf{DeepfakeTextDetect}} \\
+& \textbf{Test} & \textbf{$\text{Test}_{\text{Para-Pegasus}}$} & \textbf{Test} & \textbf{$\text{Test}_{\text{Para-Pegasus}}$} & \textbf{Test} & \textbf{$\text{Test}_{\text{Para-Pegasus}}$} & \textbf{Test} & \textbf{$\text{Test}_{\text{Para-Pegasus}}$} \\
+\midrule
+\textbf{RF (All Motifs)} & 0.55 &  & 0.57 &  & 0.48 &   & 0.60 \\
+\textbf{RF (Sel. Motifs)} & 0.55 &  & 0.58 &  & 0.49 &   & 0.61 \\
+\midrule
+GAT & 0.67 &  & 0.68 &  & 0.66 &   & 0.53 \\
+\textbf{GAT + Sel. Motifs} & 0.73 &  & 0.72 &  & 0.67 &   & 0.54 \\
+\midrule
+LF & 0.97 &  & 0.90 &  & 0.74 &    & 0.60 \\
+\textbf{LF + Sel. Motifs} & \textbf{0.98} &  & \textbf{0.93} &  & \textbf{0.82} &    & \textbf{0.62} \\
+\bottomrule
+\end{tabular}
+% \caption{Overall detection F1 scores of models on the three datasets.}
+\caption{Overall detection F1 scores of models on the three datasets.}
+\label{tab:overall_f1}
+\end{table*}
+
+\begin{table*}[!t]
+\centering
+% \resizebox{\columnwidth}{!}{
+\small
+\begin{tabular}{l|cc|ccccc}
+\toprule
+\multirow{2}{*}{\textbf{Models}} & \multicolumn{2}{c|}{\textbf{HC3}} & \multicolumn{5}{c}{\textbf{DeepfakeTextDetect}} \\
+& \textbf{Test} & \textbf{$\text{Test}_{\text{Para-Pegasus}}$} & \textbf{Test} & \textbf{$\text{Test}_{\text{Para-Pegasus}}$} & \textbf{Test} & \textbf{$\text{Test}_{\text{Para-Pegasus}}$} & \textbf{Test} & \textbf{$\text{Test}_{\text{Para-Pegasus}}$} \\
+\midrule
+$\text{RF}_{\text{MF Only}}$ & 57.09 & 48.36 & 57.93 & 51.42 & 50.22 & 48.68 & 60.05 & 50.24 \\
+$\text{RF}_{\text{WAD Only}}$ & 55.84 & 53.59 & 54.06 & 48.36 & 50.57 & 47.50 & 60.83 & 50.76 \\
+$\text{RF}_{\text{Motif}}$ & 57.96 & 49.74 & 58.33 & 52.15 & 50.76 & 48.68 & 61.93 & 50.90 \\
+\midrule
+GAT & 0.00 & 0.00 & 0.00 & 0.00 & 0.00 & 0.00 & 0.00 & 0.00 \\
+$\text{GAT}_{\text{Motif}}$ & 0.00 & 0.00 & 0.00 & 0.00 & 0.00 & 0.00 & 0.00 & 0.00 \\
+\midrule
+LF & 0.00 & 0.00 & 0.00 & 0.00 & 0.00 & 0.00 & 0.00 & 0.00 \\
+$\text{LF}_{\text{Motif}}$ & 0.00 & 0.00 & 0.00 & 0.00 & 0.00 & 0.00 & 0.00 & 0.00 \\
+\bottomrule
+\end{tabular}
+\caption{Overall detection F1 scores of models on the three datasets.}
+\label{tab:overall_f1}
+\end{table*}
+
+\subsubsection{\textsc{TenPageStories}}\label{subsubsec:creative_writing}
+In a more open-ended exploration, we deploy the trained LF model augmented with discourse motifs to analyze our \textsc{TenPageStories} dataset.
+
+\begin{table}[!ht]
+\centering
+\resizebox{\columnwidth}{!}{
+\begin{tabular}{c|ccc|ccc}
+\toprule
+\multirow{2}{*}{Models} & \multicolumn{3}{c|}{FIG} & \multicolumn{3}{c}{Constrained FIG} \\
+                         & 1 & 3 & 5 & 1 & 3 & 5 \\
+\midrule
+Longformer               & 0.30 & 0.40 & 0.45 & 0.59 & 0.50 & 0.55 \\
+Longformer + Sel. Motifs & \textbf{0.43} & \textbf{0.65} & \textbf{0.71} & \textbf{0.71} & \textbf{0.69} & \textbf{0.70} \\
+\bottomrule
+\end{tabular}}
+\caption{Overall detection F1 scores on \textsc{TenPageStories} where ``FIG'' refers to the ``fill-in-the-gap'' setting. The numbers 1, 3, and 5 indicate the number of paragraphs to be generated (or ``filled in'').}
+\label{tab:overall_f1_ten_page_stories}
+\end{table}
+
+First, we check how the different generation settings affect the detection performance (Table \ref{tab:overall_f1_ten_page_stories}). As expected the detection model performs better with longer generated texts (i.e., 1, 3, and 5 paragraphs). Also, when the first and last sentences of the human-written texts are additionally provided in the prompt (i.e., ``constrained FIG''), the corresponding generations are easier to detect. We note that the models' f1 scores are low as they produce a lot of false negatives, i.e., predicting actual human-written texts to be machine-generated. However, we can observe that the addition of a small discourse vector significantly improves the performance.

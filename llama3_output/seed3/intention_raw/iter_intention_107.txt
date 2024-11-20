@@ -1,0 +1,42 @@
+clockwork. LLM-generated data varies significantly from human-generated data regarding depth, complexity, and performance. While capable of coherent narratives, LLMs often lack the subtlety and depth found in human texts. There are notable differences in handling majority and minority opinions in subjective tasks, with biases against structured instructions and discrepancies in understanding complex societal language constructs such as hate speech. 
+
+What's a good metric for a challenging task? As it gets more challenging, need a human in the loop..
+
+
+% % LLM-generated data varies significantly from human-generated data regarding depth, complexity, and performance. While capable of coherent narratives, LLMs often lack the subtlety and depth found in human texts. There are notable differences in handling majority and minority opinions in subjective tasks, with biases against structured instructions and discrepancies in understanding complex societal language constructs such as hate speech. 
+
+% % -- analyzing/stress testing them using similar strategies for first and second-order effect ( everyone is commenting on different kinds of data in depth but not about the breadth-first analysis of all kinds of data)
+% % -- the importance of alternative metrics to evaluate LLM-generated data 
+% % -- call for action to creators of LLM-generated data 
+
+% %-------------------------------------
+% %----- synthesis of challenges and findings ----
+% \anonymous{anonymous : synthesis of challenges of the data and our main findings}
+% \anonymous{IMO main findings are more important to emphasize than data challenges so I keep the data challenges relatively short; thoughts?}
+% \anonymous{anonymous, I think you  more emphasis on the main findings and  data challenges.}
+
+
+% \anonymous { DO not focus on 2nd order effect result much ; its just another method to show disalignment ; change the tone of the paper}
+
+
+% \begin{enumerate}
+%     \item  Main research gaps unearthed 
+%     \item Refer to table 1 here (research gap)??
+%     \item Our main findings (overall themes)
+%     \item specific findings?
+    
+%     \item Refer to table 2
+%     \item how to navigate this paper?
+% \end{enumerate}
+%- research gap and methods we use 
+
+We survey each type of LLM-generated data and explore challenging aspects () of each data type to perform our analyses and experiments. Across all these types of LLM-generated data, we utilize a comprehensive set of quantitative and qualitative metrics, including second-order effect analysis, to thoroughly evaluate the reliability and practicality of the data produced by LLMs.
+
+
+Table \ref{tab:transposed_related_summary} summarizes the five distinct data types in the landscape of LLM-generated data, each with its unique set of challenges and research gaps that we unearth from previous work. Free-form text data often blurs the line between human and LLM outputs, with previous work focusing on detailed analysis of linguistic features. Our stress testing approach includes artifact analysis of high-level attributes, label flipping, and contrasting human and LLM discourse patterns for effective stress testing. We also investigate whether artifacts impact the performance of classifiers trained on the text. Task label data, heavily influenced by majority annotations, typically lacks diversity in opinions, particularly in subjective tasks. We tackle this by comparing label distributions between human and LLM outputs and conducting variation analysis. We also observe the amplification of existing artifacts through our second-order effect analysis. Instruction-based data from LLMs, which usually lacks diversity in out-of-distribution tasks, presents high error rates. Addressing this, we employ human validation, error distribution analysis, and second-order effect analysis. In the case of preference data, used as a proxy for human preferences, we assess the distributional differences between human and LLM preferences. Lastly, we analyze challenges such as unexpected agent behaviors in the lesser-studied domain of simulation data. These are scrutinized through artifact and correlation analysis, coupled with human validation. 
+
+
+ %For example, when investigating labeling data, we collect artificial labeling data for datasets in which human annotators often disagree. We also augment our findings with qualitative analyses and human error annotations when needed.
+
+% overall themes 
+Through our investigation into the five distinct LLM-generated data types, we notice thematic areas in which LLM-generated data falls short of its human counterpart:

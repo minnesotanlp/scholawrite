@@ -1,0 +1,68 @@
+For the first order effects, we observe that the synthetic datasets (i.e., \textsc{Unnatural Instructions} and \textsc{Self-Instruct}) have more hallucinations in their closed-QA type instructions than the human-generated counterparts. This makes sense, because instruction writers tend to focus on the specific inputs and outputs that are part of the task, while the writer may not think through the instruction's full context. 
+
+\begin{figure}[htbp!]
+    \centering
+    \includegraphics[width=0.5\textwidth]{images/instructions/combined_charts.pdf}
+    \caption{The distribution of errors for each dataset, across Open-QA and Closed-QA samples. In  the synthetically generated data has more hallucinations in closed-QA type samples than the human-generated data.}
+    \label{fig:sample_errors_instructions}
+\end{figure}
+
+\begin{figure}[htbp!]
+    \centering
+    \includegraphics[width=\textwidth]{images/instructions/corrupt_comparison.pdf}
+    \caption{A comparison of model performance between corrupted and uncorrupt versions of each fine-tuning dataset.}
+    \label{fig:corrupt-instructions}
+\end{figure}
+
+\paragraph{Second Order Experiment}
+The following section investigates the hypothesis that the differences between LLM and human-generated text affect the performance of downstream models trained on the text. We 
+\begin{figure*}[htbp!]
+    \centering
+    \begin{subfigure}{0.49\textwidth}
+         \centering
+         \includegraphics[width=\textwidth]{images/instructions/corrupt_comparison.pdf}
+     \end{subfigure}
+         \begin{subfigure}{0.49\textwidth}
+         \centering
+         \includegraphics[width=\textwidth]{images/instructions/uncorrupt_comparison.pdf}
+     \end{subfigure}
+    \caption{A comparison of model performance between corrupted and uncorrupt versions of each fine-tuning dataset.}
+    \label{fig:corrupt-instructions}
+\end{figure*}
+
+\section{Free-form Text}
+\label{sec:free_text}
+\paragraph{Background}
+\paragraph{Hypothesis}
+\paragraph{Experiment Setup}
+\paragraph{Metrics}
+\paragraph{Result}
+
+\section{Task Labels}
+\label{sec:task_labels}
+
+\section{Instruction}
+\label{sec:instruction}
+
+\section{Preference}
+\label{sec:preference}
+
+\section{Simulation}
+\label{sec:simulation}
+
+\section{Conclusion}
+
+\section*{Acknowledgements}
+Thanks :)
+
+% Entries for the entire Anthology, followed by custom entries
+\bibliography{anthology,custom}
+
+\appendix
+
+\section{Example Appendix}
+\label{sec:appendix}
+
+This is a section in the appendix.
+
+\end{document}

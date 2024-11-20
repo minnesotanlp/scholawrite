@@ -1,0 +1,7 @@
+penetration, or ``greenness,'' of the target style. 
+Consequently, a distinguishing feature of our approach is the integration of a style-specific discriminator into the reinforcement learning (RL) objective. P the generation of text according to the style, i.e. a reward formulation that emphasizes this attribute. 
+Specifically, our approach integrates a discriminator into the reward function, $R$:
+\begin{equation}
+    R = d(x) + \beta \cdot \texttt{softmax}(d(x))_{k_t}
+\end{equation}
+where $d$ is the discriminator function, $x$ is the input text, $\beta$ is a hyperparameter, and $k_t$ is the target style. The discriminator outputs class logits; we take the softmax values of these logits for the target class $k_t$, which gives us a score of the target style. We multiply the score by the  and add it to the raw reward. This reward formulation is designed to align the language model's output with the target style, while also allowing for generative freedom. Ablation studies indicate that this formulation works best with a positive $\beta$.

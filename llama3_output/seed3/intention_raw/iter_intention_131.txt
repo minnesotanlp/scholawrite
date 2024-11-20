@@ -1,0 +1,19 @@
+)\\
+\bottomrule
+\end{tabular}
+\caption{Test Accuracy of 1- and 2-style models for RL and PPLM approaches.}
+\label{tab:precision_overall}
+\end{table*}
+
+
+% \begin{table*}[ht]
+% \centering
+% \hspace{-8cm}
+% \begin{tabular}{lccc|ccc|ccc|ccc|ccc}
+% \toprule
+% \multicolumn{1}{c}{}  & \multicolumn{3}{c}{Overall} & \multicolumn{3}{c}{Sem Eval Prompts} & \multicolumn{3}{c}{Tweet Eval} & \multicolumn{3}{c}{Rotten Tomatoes} & \multicolumn{3}{c}{Wikipedia} \\
+% \midrule
+% \multicolumn{1}{c}{\textbf{Model}} & \textbf{Sent.} & \textbf{Form.} & \textbf{All} & \textbf{Sent.} & \textbf{Form.} & \textbf{All} & \textbf{Sent.} & \textbf{Form.} & \textbf{All} & \textbf{Sent.} & \textbf{Form.} & \textbf{All} & \textbf{Sent.} & \textbf{Form.} & \textbf{All}\\
+% \midrule
+% 1-Style Models & & & \\
+%

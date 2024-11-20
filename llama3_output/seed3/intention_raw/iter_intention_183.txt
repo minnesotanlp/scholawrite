@@ -1,0 +1,31 @@
+Enlarge Text Size
+
+Large language models (LLMs) like GPT4 \cite{bubeck2023sparks} present massive context-aware knowledge and superior semantic comprehension capability through pre-training on large-scale text corpora \cite{petroni2019language}. This knowledge achieved from pre-training has led to a surge of revolutions for downstream NLP tasks \cite{zhao2023survey}. 
+
+\textbf{Link LLM to graph}
+Large Language Models (LLMs) have broadened their use beyond just processing language, proving valuable tools in various fields such as robotics, planning, and reasoning \cite{huang2022towards,andreas2022language,madaan2022language}. They excel at managing structured environments and data, updating beliefs, devising action plans, and interlinking entities in complex networks. This adaptability is key in areas like social network analysis, drug discovery, recommendation systems, and making predictions involving space and time, contributing significantly to the progress toward artificial general intelligence (AGI). 
+
+\textbf{Why graphs over text in application?}
+Understanding graphs for AGI is crucial, as even though LLMS are very successful today, they are still
+limited by their reliance on unstructured text, which causes them to hallucinate or miss logical entailments \cite{zhang2023siren}. It is also difficult to add new information about the changed state of the world because LLMs are limited by the data they were trained on \cite{lewis2020retrieval}. These problems can be solved using graph-structured data \cite{pan2023unifying}. Though there has been remarkable progress towards interpreting multi-modal information \cite{yin2023survey}, empowering LLMs to understand graph data remains relatively unexplored. 
+
+\textbf{Graph data challenges with LLMS}
+
+LLM can not directly handle graph data, as graph data are unorganized and complex. Secondly, there is a wide range of graph-related tasks; designing efficient input format for different tasks and effective prompt techniques is essential while rarely explored. LLMs have demonstrated some capability in handling graph-structured data, but there remains a substantial need for further development to achieve a performance level comparable to the specialized graph-oriented model
+
+\textbf{General gaps in doing reasoning tasks on graphs}
+
+- how to convert graph to text encoding / encoding suitable for LLM
+ - limited context window
+ - graph structure (network complexity ;  real-world graph not considered)
+ - nature of sampling method
+ - no of hops considered
+ - black box models 
+ - choice of task - changes results 
+
+
+\textbf{How we have been motivated by previous work}
+
+In this paper, we conduct an empirical study to assess the proficiency of recently released LLMs like GPT4 and GPT-4V(ision) for reasoning on graph data, specifically on tasks like node classification. Through our study, we uncover current limitations and future directions of LLMs equipped with image understanding in comprehending graphs and performing associated reasoning tasks.
+
+GPT-4V(ision)'s image understanding is powered by a combination of multimodal GPT-3.5 and GPT-4 models. Leveraging their adept language reasoning skills, these models proficiently analyze a diverse range of visuals, spanning photographs, screenshots, and documents containing both text and images.

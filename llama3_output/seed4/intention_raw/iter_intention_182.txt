@@ -1,0 +1,45 @@
+afc{0.5cm}]{\includegraphics[width=0.5\textwidth]{figures/graph_images/failure_cases/8_new.png}}\caption{\textbf{Label of Node = 5} - The label of a node can often be predicted based on the labels of its neighboring nodes. In this case, the node in question is '1677', and its neighbors are '88', '415', '1309', and '191', '1908'. There is no clear majority label among these neighbors. Therefore, it is not possible to predict the label of node '1677' based on this information.  The label of this node is 5, and the labels of its neighbors are 0, 5, and 4 respectively. With this information, it is still not possible to predict the label of node '1677'. \textbf{Label of Node = -1}}
+\end{tcolorbox}
+%---------------------------------------------------------------
+\subsection{Image Modality}
+We use GPT-4V \cite{openai_gpt4v} to process graph images to give LLMs a global perspective of graph structural information. An example of a prompt generated after applying the image encoding modality looks like this:
+%---------------------------------------------------------------
+\begin{tcolorbox}[colback=mycolor,boxsep=0pt]
+\small
+\noindent\textbf{Task}: Node Label Prediction (Predict the label of the red node marked with a?, given the \textbf{graph structure information in the image}). The response should be in the format "Label of Node = <predicted label>." If the predicted label cannot be determined, return "Label of Node = -1."
+
+\centering
+\includegraphics[width=0.35\linewidth, height=2cm]{figures/35_new.png} % Adjust 'width' as needed
+\end{tcolorbox}
+%---------------------------------------------------------------
+
+\noindent \textbf{Token limits for each modality}
+Due to their architecture, transformer-based models like GPT-3 and GPT-4 have a fixed-size attention window. This determines how many tokens the model can ``remember'' or pay attention to at once. This limit also manages the computational cost of running the model and the model's performance. The token limit constraint for GPT-4 is 8192 tokens, while for GPT-4V(vision), the limit is claimed to be 128000 tokens, but currently, only the preview version has been released, and the actual limit is 10000 tokens. 
+
+
+\noindent \textbf{Rate limits for each LLM}
+The rate limit for GPT-4 is 10K RPM (requests per minute), and for GPT-4V, the rate limit is 100 RPD (requests per day). 
+
+\noindent \textbf{Modality Experiment Parameters}
+For all modality types, we sample 50 graphs for all datasets, the number of hops considered = 3, no of runs = 2, and perform ego graph and forest fire sampling. We report the mean and standard deviation directly or through error bars in the visualization for all metrics. In the paper, we report the results from ego graph sampling because node classification typically needs a Localized View Around Specific Nodes, best provided by ego graph sampling. %With Image Modality Experiments, we sample 50 ego-graphs and no of runs = 2, as rate limitations constrain us. 
+\subsection{Qualitative Analysis on Combining Modalities}
+We perform a qualitative analysis of the response returned by LLMs by utilizing the text, image, and text combined with image encoding modalities. The intuition here is that the local context provided by the text modality could be 2nd 5 3rd
+
+%----
+\begin{table*}[ht]
+\scriptsize
+%\centering
+\begin{tabular}{p{0.14\linewidth}p{0.29\linewidth}p{0.26\linewidth}p{0.21\linewidth}}
+\hline
+\textbf{Ground Truth} & \textbf{Text Response} & \textbf{Text + Image Reponse} & \textbf{Image Response}\\
+\hline
+\textit{Label of Node = 5}  & The label of a node can often be predicted based on the labels of its neighboring nodes. In this case, the node in question is '1677', and its neighbors are '88', '415', '1309', and '191', '1908'. There is no clear majority label among these neighbors. Therefore, it is not possible to predict the label of node '1677' based on this information. \textit{Label of Node = -1}  & From the adjacency list, we can determine that the neighbors of node "1677". Given that node "88" is connected to two nodes with label 0, two nodes with label 5, and one node with label 4, it is reasonable to refer to the homophily of nodes to infer that the label of node "1677" is also 5. \textit{Label of Node = 5}  & \textit{Label of Node = 0} \\
+\hline
+\textit{Label of Node = 3}  & The node 141 is connected to nodes 1002, 2034, and 740. The labels of these nodes are 3, 4, and 4 respectively. Since the majority of the connected nodes have the label 4, we can predict that the label of node 141 is also 4. \textit{Label of Node = 4} & \textit{Label of Node = 3}  & \textit{Label of Node = 3} \\
+\hline
+\end{tabular}
+\label{tab:qual}
+\caption{The table shows the GPT-4 and GPT-4V responses with the text modality, text+image modality, and image modality. We can see that on combining modalities, the label originally classified as -1 is correctly classified, or original misclassification is rectified. }
+\label{tab:qual}
+\end{table*}
+%----

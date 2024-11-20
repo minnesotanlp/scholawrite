@@ -1,0 +1,5 @@
+\S\rubric{Keyphrase: Automatic Related Work Generation}} \rubric{Topic: There are numerous methods  Facilitating the collaborative composition of Related Work sections could be a valuable tool for the  automatic  \rubric{Background: Related Work composition is a crucial component of academic papers, serving both to  the work-in-progress and to the author.  \rubric{Analysis/Synthesis: } \rubric{Conclusion: } 
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\paragraph{\rubric{Keyphrase: }} \rubric{Topic: } \rubric{Background: } \rubric{Analysis/Synthesis: } \rubric{Conclusion: } 
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\input{Tables/system_review}
