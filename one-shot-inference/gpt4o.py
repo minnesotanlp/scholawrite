@@ -58,3 +58,5 @@ if __name__ == "__main__":
 
         with open(f"./gpt4o_output/{each}_result.txt", 'w') as file:
             file.write(response)
+        
+        break

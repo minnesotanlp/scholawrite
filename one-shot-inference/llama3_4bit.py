@@ -44,7 +44,7 @@ def writing_inference(seedname, before_text, model, tokenizer):
 
     input_ids = tokenizer.apply_chat_template(text, max_length=4096, tokenize=True, add_generation_prompt=True, return_tensors="pt")
 
-    outputs = model.generate(input_ids, max_new_tokens=len(before_text)+100, do_sample=True, top_k=50, top_p=0.95)
+    outputs = model.generate(input_ids, do_sample=True, top_k=50, top_p=0.95)
 
     response = tokenizer.batch_decode(outputs)
 
