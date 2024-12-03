@@ -2,18 +2,11 @@ import os
 from dotenv import load_dotenv
 load_dotenv()
 
-from langchain_core.prompts import load_prompt
+from prompt import text_gen_prompt, class_prompt
 import openai
-
-from iterative_writing_cls_and_gen.definitions import definition_persona
 
 openai.api_key = os.getenv('OPEN_AI_API')
 
-classification_system_prompt = load_prompt("./iterative_writing_cls_and_gen/classification_templates/system.yaml")
-classification_user_prompt = load_prompt("./iterative_writing_cls_and_gen/classification_templates/user.yaml")
-
-generation_system_prompt = load_prompt("./iterative_writing_cls_and_gen/generation_templates/persona_system.yaml")
-generation_user_prompt = load_prompt("./iterative_writing_cls_and_gen/generation_templates/user.yaml")
 
 import json
 
@@ -31,18 +24,19 @@ classification_test = load_dataset('minnesotanlp/scholawrite',
 
 longest_string = classification_test['before_text'].str.len().idxmax()
 text = classification_test['before_text'].iloc[longest_string]
-label = "Cross-reference"
 
-text_token_len = len(enc.encode(classification_test['before_text'].iloc[longest_string])) * 100
-label_token_len = len(enc.encode("Cross-reference")) * 100
+long_definition_label = "Coherence"
+long_name_label = "Cross-reference"
 
-csp = len(enc.encode(classification_system_prompt.template)) * 100
-cup = len(enc.encode(classification_user_prompt.format(before_text=text))) * 100
-gsp = len(enc.encode(generation_system_prompt.format(persona_definition=definition_persona["Cross-reference"]))) * 100
-gup = len(enc.encode(generation_user_prompt.format(before_text=text))) * 100
+# class_prompt return [{{"role": "user", "content": user_prompt}}], so use [0]["content"] to access the content
+generation_input = len(enc.encode(class_prompt(text)[0]["content"])) * 100
+classification_input = len(enc.encode(text_gen_prompt(text, long_definition_label)[0]["content"])) * 100
+
+generation_output = len(enc.encode(text)) * 100
+classification_output = len(enc.encode(long_name_label)) * 100
 
 
-input_price = (csp + cup + gsp + gup)/1000000 * 2.5
-output_price = (text_token_len + label_token_len)/1000000 * 10
+input_price = (generation_input + classification_input)/1000000 * 2.5
+output_price = (generation_output + classification_output)/1000000 * 10
 
 print(input_price + output_price)
