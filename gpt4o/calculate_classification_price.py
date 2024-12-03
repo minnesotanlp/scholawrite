@@ -13,7 +13,6 @@ total_output_token = 0
 dataset = load_dataset("minnesotanlp/scholawrite_test")
 df = dataset["train"].to_pandas()
 
-print(df["label"].value_counts())
 
 for each in df.iterrows():
     user_prompt_token = len(enc.encode(class_prompt(each[1]["before text"])[0]["content"]))

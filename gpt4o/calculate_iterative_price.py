@@ -39,4 +39,5 @@ classification_output = len(enc.encode(long_name_label)) * 100
 input_price = (generation_input + classification_input)/1000000 * 2.5
 output_price = (generation_output + classification_output)/1000000 * 10
 
-print(input_price + output_price)
+print("Price for each seed:",input_price + output_price)
+print("Price in total:", (input_price + output_price)*4)
