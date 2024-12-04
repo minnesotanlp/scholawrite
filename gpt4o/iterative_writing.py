@@ -55,6 +55,9 @@ def save_raw_output(output, writing_intention, i):
   with open(f"{intention_raw_dir}/iter_intention_{i}.txt", "w") as file:
     file.write(writing_intention)
 
+    label = process_label(writing_intention)
+    file.write(f"/n/n{label}")
+
 
 def get_label(before_text, i):
     prompt = class_prompt(before_text)
@@ -125,56 +128,31 @@ def get_revise(before_text, label, i):
     return generated_response
 
 
-def aggregate_iterative_writing():
+def iterative_writing():
+  prev_intention = ""
   prev_writing = load_seed(path_to_seed)
-  pbar = tqdm(total=100)
 
-  i = 0
-  j = 0 # j represent the true number of iteration, which regardless intentions
+  for i in tqdm(range(100)):
+    writing_intention = get_label(prev_writing, i)
 
-  while i < 5:
-    writing_intention = get_label(prev_writing, j)
+    output = get_revise(prev_writing, writing_intention, i)
 
-    output = get_revise(prev_writing, writing_intention, j)
+    save_raw_output(output, writing_intention, i)
 
-    # save the intermediate output in case this intention is same as previous
-    save_raw_output(output, writing_intention, j)
+    prev_writing = output
 
-    # if this is the model's first output, we don't compare.
-    # We setup the previous intention and writing for comparison in future iterations
-    if j == 0 :
-      prev_intention = writing_intention
-      prev_writing = output
+    with open(f"{generation_dir}/iter_generation_{i}.txt", "w") as file:
+      file.write(prev_writing)
 
-    # if current writing intetion is same as previous,
-    # we let the model revise it again in the same iteration (i).
-    elif writing_intention == prev_intention:
-      prev_writing = output
-
-    # if current writing intetion is NOT same as previous,
-    # we save the model's aggreated writing to the file.
-    # Then move on to next iteration
-    else:
-      with open(f"{generation_dir}/iter_generation_{i}.txt", "w") as file:
-        file.write(prev_writing)
-
-      with open(f"{intention_dir}/iter_intention_{i}.txt", "w") as file:
-        file.write(prev_intention)
-      
-      prev_writing = output
-      prev_intention = writing_intention
-
-      i += 1
-      pbar.update(1)
-
-    j += 1
+    with open(f"{intention_dir}/iter_intention_{i}.txt", "w") as file:
+      file.write(writing_intention)
 
 
 def main():
   for each in ["seed1", "seed2", "seed3", "seed4"]:
     print(f"Working on {each}")
     setup(each)
-    aggregate_iterative_writing()
+    iterative_writing()
     print("-"*100)
 
 
