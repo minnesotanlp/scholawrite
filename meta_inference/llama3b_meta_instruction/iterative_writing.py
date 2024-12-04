@@ -208,7 +208,7 @@ def main():
   classifier_model, classifier_tokenizer = load_classifier_model()
   writing_model, writing_tokenizer = load_writing_inference_model()
 
-  for each in ["seed2", "seed3", "seed4"]:
+  for each in ["seed1", "seed2", "seed3", "seed4"]:
     print(f"Working on {each}")
     setup(each)
     aggregate_iterative_writing()
