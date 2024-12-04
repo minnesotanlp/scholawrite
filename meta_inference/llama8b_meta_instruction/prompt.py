@@ -18,14 +18,15 @@ persona_definition = {
 
 
 def text_gen_prompt(before_text, writing_intention):
-
     user_prompt = f"""You are a computer science researcher with extensive experience of scholarly writing. Here, you are writing a research paper in natural language processing using LaTeX languages.
 
 Your writing intention is to {persona_definition[writing_intention]}
 
 Below is the paper you have written so far. Please strictly follow the writing intention given above and insert, delete, or revise at appropriate place in the paper given below.
 
-Your writing should related to the paper given below. Do not generate text other than paper content. Do not describe the changes you are making or your reasoning."""
+Your writing should related to the paper given below. Do not generate text other than paper content. Do not describe the changes you are making or your reasoning.
+
+{before_text}"""
 
     return [
         {"role": "user", "content": user_prompt}
@@ -58,4 +59,3 @@ Identify the most likely next writing intention of a graduate researcher when ed
     return [
         {"role": "user", "content": usr_prompt}
     ]
-
