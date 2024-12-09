@@ -14,8 +14,16 @@ from dataset_utils import add_special_tokens
 from word_diff import diff_for_llm
 from prompt import text_gen_prompt_train
 
+import wandb
+
+load_dotenv()
+WANDB_TOKEN = os.getenv("WANDB_TOKEN")
+os.system(f"wandb login {WANDB_TOKEN}")
+print("Here is the env:",os.getenv("WANDB_LOG_MODEL"), os.getenv("WANDB_WATCH"))
+run = wandb.init(project="llama-scholawrite", name="llama8b-embed_tokens-lm_head-rerun-msi")
+
+
 def main():
-  load_dotenv()
 
   HUGGINGFACE_TOKEN = os.getenv("HUGGINGFACE_TOKEN")
   login(token=HUGGINGFACE_TOKEN)
@@ -30,7 +38,7 @@ def main():
     dtype=None,
   )
   add_special_tokens(tokenizer)
-  model.resize_token_embeddings(len(tokenizer))
+  model.resize_token_embeddings(len(tokenizer), mean_resizing=True)
 
   model = FastLanguageModel.get_peft_model(
     model,
@@ -38,6 +46,7 @@ def main():
     lora_alpha=16,
     lora_dropout=0,
     target_modules=["q_proj", "k_proj", "v_proj", "up_proj", "down_proj", "o_proj", "gate_proj"],
+    modules_to_save=["embed_tokens", "lm_head"],
     use_rslora=True,
     use_gradient_checkpointing="unsloth",
     random_state = 32,
@@ -60,7 +69,7 @@ def main():
     return { "text" : texts, }
 
   full_ds = load_dataset("minnesotanlp/scholawrite", revision="anonymous_data")
-  full_ds = full_ds.map(formatting_prompt, batched=True)
+  full_ds = full_ds.map(formatting_prompt, batched=True, num_proc=16)
 
   max_seq_length=5096
 
@@ -72,8 +81,7 @@ def main():
       dataset_text_field="text",
       max_seq_length=max_seq_length,
       data_collator = DataCollatorForLanguageModeling(tokenizer = tokenizer, mlm=False),
-      dataset_num_proc=2,
-      packing=True,
+      dataset_num_proc=16,
       args=TrainingArguments(
           learning_rate=3e-4,
           lr_scheduler_type="linear",
@@ -89,6 +97,7 @@ def main():
           warmup_steps=10,
           output_dir=f"{args.OUTPUT_DIR}",
           seed=0,
+          report_to="wandb",
       ),
   )
 

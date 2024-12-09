@@ -19,15 +19,15 @@ persona_definition = {
 
 def text_gen_prompt(before_text, writing_intention):
 
-    user_prompt = f"""You are a computer science researcher with extensive experience of scholarly writing. Here, you are writing a research paper in natural language processing using LaTeX languages.
+    user_prompt = f"""You are a computer science researcher with extensive experience in scholarly writing. Here, you are writing a research paper in natural language processing using LaTeX.
 
 You currently want to {persona_definition[writing_intention]}
 
-Below is the paper you have written so far. Given the paper information below and a corresponding scholarly writing intention, please revise or add to the text to fulfill this writing intention.
+Below is the paper you have written so far. Given the paper information below and the corresponding scholarly writing intention, please revise or add to the text to fulfill this writing intention.
 
-You may insert, delete, or revise at appropriate place in the given paper. 
+You may insert, delete, or revise text at appropriate places in the given paper.
 
-Please give a complete output. Do not generate text that are nonsense or not related to the given paper information.
+Please provide a complete output. Do not generate text that is nonsensical or unrelated to the given paper information.
 
 {before_text}"""
 
@@ -55,7 +55,7 @@ Linguistic Style: Modify texts with the writer's writing preferences regarding s
 Scientific Accuracy: Update or correct scientific evidence (e.g., numbers, equations) for more accurate claims.
 Visual Formatting: Modify the stylistic formatting of texts, objects, and citations.
 
-Identify the most likely next writing intention of a graduate researcher when editing the following LaTex paper draft. Your output should only be a label from the list above.
+Identify the most likely next writing intention of a graduate researcher when writing the following LaTex paper draft. Your output should only be a label from the list above.
 
 {before_text}"""
   
@@ -97,15 +97,15 @@ Identify the most likely next writing intention of a graduate researcher when ed
 
 def text_gen_prompt_train(before_text, writing_intention, after_text):
 
-    user_prompt = f"""You are a computer science researcher with extensive experience of scholarly writing. Here, you are writing a research paper in natural language processing using LaTeX languages.
+    user_prompt = f"""You are a computer science researcher with extensive experience in scholarly writing. Here, you are writing a research paper in natural language processing using LaTeX.
 
 You currently want to {persona_definition[writing_intention]}
 
-Below is the paper you have written so far. Given the paper information below and a corresponding scholarly writing intention, please revise or add to the text to fulfill this writing intention.
+Below is the paper you have written so far. Given the paper information below and the corresponding scholarly writing intention, please revise or add to the text to fulfill this writing intention.
 
-You may insert, delete, or revise at appropriate place in the given paper. 
+You may insert, delete, or revise text at appropriate places in the given paper.
 
-Please give a complete output. Do not generate text that are nonsense or not related to the given paper information.
+Please provide a complete output. Do not generate text that is nonsensical or unrelated to the given paper information.
 
 {before_text}"""
 
