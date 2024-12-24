@@ -142,9 +142,9 @@ body {
 
 .image-container img {
   /* This ensures that each image takes up half the container's width minus the gap, and auto resizes */
-  width: calc(50% - 5px); /* subtract half of the gap to ensure they fit side by side */
-  height: auto; /* maintain the aspect ratio */
+  width: calc(50% - 5px); /* each image takes half the container width minus the gap */
+  height: 200px; /* set a consistent height for all images */
+  object-fit: contain; /* scale the image while keeping its aspect ratio, adding padding if needed */
+  background-color: #f0f0f0; /* optional: set a background color for the padded area */
+  display: block; /* prevent inline spacing issues */
 }
-
-
-
