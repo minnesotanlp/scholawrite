@@ -1,0 +1,214 @@
+﻿<!DOCTYPE html>
+<!--
+   Copyright 2012 Mozilla Foundation
+
+   Licensed under the Apache License, Version 2.0 (the "License");
+   you may not use this file except in compliance with the License.
+   You may obtain a copy of the License at
+
+       http://www.apache.org/licenses/LICENSE-2.0
+
+   Unless required by applicable law or agreed to in writing, software
+   distributed under the License is distributed on an "AS IS" BASIS,
+   WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+   See the License for the specific language governing permissions and
+   limitations under the License.
+
+   Adobe CMap resources are covered by their own copyright but the same license:
+
+       Copyright 1990-2015 Adobe Systems Incorporated.
+
+   See https://github.com/adobe-type-tools/cmap-resources
+   -->
+<html dir="ltr">
+   <head>
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+      <meta name="google" content="notranslate">
+      <link rel="icon" href="https://minnesotanlp.github.io/img/UMN_NLP_logo_final_circle.png">
+      <title>LaTex PDF Replay</title>
+      <script type="importmap">
+         {
+           "imports": {
+             "pdfjs/": "../src/",
+             "pdfjs-lib": "../src/pdf.js",
+             "pdfjs-web/": "./",
+
+             "fluent-bundle": "../node_modules/@fluent/bundle/esm/index.js",
+             "fluent-dom": "../node_modules/@fluent/dom/esm/index.js",
+             "cached-iterable": "../node_modules/cached-iterable/src/index.mjs",
+
+             "display-fetch_stream": "../src/display/fetch_stream.js",
+             "display-network": "../src/display/network.js",
+             "display-node_stream": "../src/display/stubs.js",
+             "display-node_utils": "../src/display/stubs.js",
+
+             "web-alt_text_manager": "./alt_text_manager.js",
+             "web-annotation_editor_params": "./annotation_editor_params.js",
+             "web-download_manager": "./download_manager.js",
+             "web-external_services": "./genericcom.js",
+             "web-null_l10n": "./genericl10n.js",
+             "web-pdf_attachment_viewer": "./pdf_attachment_viewer.js",
+             "web-pdf_cursor_tools": "./pdf_cursor_tools.js",
+             "web-pdf_document_properties": "./pdf_document_properties.js",
+             "web-pdf_find_bar": "./pdf_find_bar.js",
+             "web-pdf_layer_viewer": "./pdf_layer_viewer.js",
+             "web-pdf_outline_viewer": "./pdf_outline_viewer.js",
+             "web-pdf_presentation_mode": "./pdf_presentation_mode.js",
+             "web-pdf_sidebar": "./pdf_sidebar.js",
+             "web-pdf_thumbnail_viewer": "./pdf_thumbnail_viewer.js",
+             "web-preferences": "./genericcom.js",
+             "web-print_service": "./pdf_print_service.js",
+             "web-secondary_toolbar": "./secondary_toolbar.js",
+             "web-toolbar": "./toolbar.js"
+           }
+         }
+      </script>
+
+      <!--css from bootstrap and font-awesome-->
+      <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+      <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+
+      <!--css from pdf.js and linghe-->
+      <link rel="stylesheet" href="viewer.css">
+      <link rel="stylesheet" href="latex_replay.css">
+
+      <!--js from bootstrap-->
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.7.1/jquery.slim.min.js"></script>
+      <script src="https://cdn.jsdelivr.net/npm/popper.js@1.12.9/dist/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+      <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+
+      <!--js from pdf.js and linghe-->
+      <script src="viewer.js" type="module"></script>
+      <script src="latex_replay.js" type="module"></script>
+
+   </head>
+   <body tabindex="1">
+      <div id="outerContainer">
+         <div id="latexContaianer">
+            <div id="latexMetaData">
+               <select id="latexProjectSelector">
+                  <option value="test" disabled selected>Select a project</option>
+                  {% for name in project_names %}
+                  <option value="{{ name }}">{{ name }}</option>
+                  {% endfor %}
+               </select>
+               <div id="latexDataDisplay">
+                  <div id="latexFrameControl">
+                     <div id="latexFrameNumber">
+                        <input id="latexFrameNumberInput" value="0" type="number" min="0" max="2890">&nbsp;/&nbsp;
+                        <span style="text-wrap: nowrap;" class="noSelection"> Select a section</span>
+                     </div>
+                     <div id="latexFramePlaySpeed">
+                        <label class="latexDataLabel">Speed:</label>
+                        <select id="replaySpeed">
+                           <option value="1">x 1</option>
+                           <option value="2">x 2</option>
+                           <option value="3">x 3</option>
+                           <option value="4">x 4</option>
+                           <option value="5">x 5</option>
+                        </select>
+                     </div>
+                  </div>
+                  <div id="latexInfo">
+                     <div id="latexFilename" class="frameData">
+                        <label class="latexDataLabel">File:</label>
+                        <span class="noSelection">Select a section</span>
+                     </div>
+                     <div id="latexFrameLabel" class="frameData">
+                        <label class="latexDataLabel">Label: </label>
+                        <span class="noSelection">Select a section</span>
+                     </div>
+                  </div>
+               </div>
+            </div>
+            <div id="latexTextArea">
+               <div id="displayLines"></div>
+               <div id="displayContent" class="displayContent">
+                  "The beginning of edits"
+               </div>
+            </div>
+            <div id="latexPlayPanel">
+               <div style="display: flex; justify-content: space-between;">
+                  <input id="latexFrameSlider" type="range" min="0" max="100" value="0" style="width: 86%">
+                  <i id="previousFrame" class="fa-solid fa-backward latexPlayButton"></i>
+                  <i id="pauseOrPlay" class="fa-solid fa-play latexPlayButton" data-state="pause"></i>
+                  <i id="nextFrame" class="fa-solid fa-forward latexPlayButton"></i>
+               </div>
+
+               <div class="progressBarLabel">
+                  <div class="progress" id="planning"></div>
+                  <span>Planning</span>
+               </div>
+
+               <div class="progressBarLabel">
+                  <div class="progress" id="implement"></div>
+                  <span>Implement</span>
+               </div>
+
+               <div class="progressBarLabel">
+                  <div class="progress" id="revision"></div>
+                  <span>Revision</span>
+               </div>
+               <div id="verticalLine"></div>
+            </div>
+         </div>
+      </div>
+      <div id="mainContainer">
+         <div class="toolbar">
+            <div id="toolbarContainer">
+               <div id="toolbarViewer">
+                  <div id="toolbarViewerLeft">
+                     <div class="splitToolbarButton hiddenSmallView">
+                        <button class="toolbarButton" title="Previous Page" id="previous" tabindex="13" data-l10n-id="pdfjs-previous-button">
+                        <span data-l10n-id="pdfjs-previous-button-label">Previous</span>
+                        </button>
+                        <div class="splitToolbarButtonSeparator"></div>
+                        <button class="toolbarButton" title="Next Page" id="next" tabindex="14" data-l10n-id="pdfjs-next-button">
+                        <span data-l10n-id="pdfjs-next-button-label">Next</span>
+                        </button>
+                     </div>
+                     <span class="loadingInput start">
+                     <input type="number" id="pageNumber" class="toolbarField" title="Page" value="1" min="1" tabindex="15" data-l10n-id="pdfjs-page-input" autocomplete="off">
+                     </span>
+                     <span id="numPages" class="toolbarLabel"></span>
+                  </div>
+                  <div id="toolbarViewerMiddle">
+                     <div class="splitToolbarButton">
+                        <button id="zoomOut" class="toolbarButton" title="Zoom Out" tabindex="21" data-l10n-id="pdfjs-zoom-out-button">
+                        <span data-l10n-id="pdfjs-zoom-out-button-label">Zoom Out</span>
+                        </button>
+                        <div class="splitToolbarButtonSeparator"></div>
+                        <button id="zoomIn" class="toolbarButton" title="Zoom In" tabindex="22" data-l10n-id="pdfjs-zoom-in-button">
+                        <span data-l10n-id="pdfjs-zoom-in-button-label">Zoom In</span>
+                        </button>
+                     </div>
+                     <span id="scaleSelectContainer" class="dropdownToolbarButton">
+                        <select id="scaleSelect" title="Zoom" tabindex="23" data-l10n-id="pdfjs-zoom-select">
+                           <option id="pageAutoOption" title="" value="auto" selected="selected" data-l10n-id="pdfjs-page-scale-auto">Automatic Zoom</option>
+                           <option id="pageActualOption" title="" value="page-actual" data-l10n-id="pdfjs-page-scale-actual">Actual Size</option>
+                           <option id="pageFitOption" title="" value="page-fit" data-l10n-id="pdfjs-page-scale-fit">Page Fit</option>
+                           <option id="pageWidthOption" title="" value="page-width" data-l10n-id="pdfjs-page-scale-width">Page Width</option>
+                           <option id="customScaleOption" title="" value="custom" disabled="disabled" hidden="true" data-l10n-id="pdfjs-page-scale-percent" data-l10n-args='{ "scale": 0 }'>0%</option>
+                           <option title="" value="0.5" data-l10n-id="pdfjs-page-scale-percent" data-l10n-args='{ "scale": 50 }'>50%</option>
+                           <option title="" value="0.75" data-l10n-id="pdfjs-page-scale-percent" data-l10n-args='{ "scale": 75 }'>75%</option>
+                           <option title="" value="1" data-l10n-id="pdfjs-page-scale-percent" data-l10n-args='{ "scale": 100 }'>100%</option>
+                           <option title="" value="1.25" data-l10n-id="pdfjs-page-scale-percent" data-l10n-args='{ "scale": 125 }'>125%</option>
+                           <option title="" value="1.5" data-l10n-id="pdfjs-page-scale-percent" data-l10n-args='{ "scale": 150 }'>150%</option>
+                           <option title="" value="2" data-l10n-id="pdfjs-page-scale-percent" data-l10n-args='{ "scale": 200 }'>200%</option>
+                           <option title="" value="3" data-l10n-id="pdfjs-page-scale-percent" data-l10n-args='{ "scale": 300 }'>300%</option>
+                           <option title="" value="4" data-l10n-id="pdfjs-page-scale-percent" data-l10n-args='{ "scale": 400 }'>400%</option>
+                        </select>
+                     </span>
+                  </div>
+               </div>
+            </div>
+         </div>
+         <div id="viewerContainer" tabindex="0">
+            <div id="viewer" class="pdfViewer"></div>
+         </div>
+      </div>
+      <!-- mainContainer -->
+      </div> <!-- outerContainer -->
+   </body>
+</html>

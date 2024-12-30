@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>User Overview</title>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/chartjs-plugin-autocolors"></script>
+    <script type="text/javascript">
+        var user_json = {{ user_json|safe }};
+        var contributions_json = {{ contributions_json|safe }};
+        var dataArray = [user_json, contributions_json]
+    </script>
+    <script src="{{ url_for('static', filename='js/main.js') }}"></script>
+</head>
+<body>
+    <nav class="nav-buttons">
+        <a href="/main">Overview</a>
+        <a href="/project">Project</a>
+        <a href="/user">User</a>
+        <a href="/sankey">Sankey</a>
+        <a href="/visual">Visual</a>
+    </nav>
+    <form action="/api/user" method="POST">
+        <select name="userid" id="userid">
+            {% for uid in all_uids %}
+                <option value="{{ uid }}">{{ uid }}</option>
+            {% endfor %}
+        </select>
+        <input type="week" id="weekly" name="weekly" min={{ minweek }} max={{ maxweek }}>
+        <input type="submit" name="interval" value="weekly">
+        <input type="month" id="monthly" name="monthly" min={{ minmonth }} max={{ maxmonth }}>
+        <input type="submit" name="interval" value="monthly">
+        <select name="year" id="year">
+            <option value="2023-01-01">2023</option>
+            <option value="2024-01-01">2024</option>
+        </select>
+        <input type="submit" name="interval" value="annually">
+    </form>
+<!--    <h2>User Summary</h2>-->
+<!--    <canvas class="verticalCharts" id="userChart" width="400" height="200"></canvas>-->
+<!--    <h2>Contributions</h2>-->
+<!--    <canvas class="horizontalChart" id="contributionsChart" width="400" height="200"></canvas>-->
+    <h2>User Summary</h2>
+    <canvas id="verticalChart" width="400" height="200"></canvas>
+    <div id="projectLoader" class="loader" style="display: none; margin:auto; margin-top:10vh; margin-bottom:10vh"></div>
+    <h2>Contributions</h2>
+    <canvas id="horizontalChart1" width="400" height="200"></canvas>
+    <div id="contributorsLoader" class="loader" style="display: none; margin:auto; margin-top:10vh; margin-bottom:10vh"></div>
+</body>
+</html>

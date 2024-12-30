@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Data Collection</title>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/chartjs-plugin-autocolors"></script>
+    <script type="text/javascript">
+        var overview_json = {{ overview_json|safe }};
+        var top_projects_json = {{ top_projects_json|safe }};
+        var top_users_json = {{ top_users_json|safe }};
+        var dataArray = [overview_json, top_projects_json, top_users_json]
+    </script>
+    <script src="{{ url_for('static', filename='js/main.js') }}"></script>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/loader.css') }}">
+</head>
+<body>
+    <div id="mainLoader" style="display: none; margin: auto; margin-top: 40vh" ></div>
+    <div id="body">
+        <nav class="nav-buttons">
+            <a href="/main">Overview</a>
+            <a href="/project">Project</a>
+            <a href="/user">User</a>
+            <a href="/sankey">Sankey</a>
+            <a href="/visual">Visual</a>
+        </nav>
+        <form action="/api/main" method="POST">
+            <input type="week" id="weekly" name="weekly" min={{ minweek }} max={{ maxweek }}>
+            <input type="submit" value="Apply">
+        </form>
+        <form action="/api/main" method="POST">
+            <input type="month" id="monthly" name="monthly" min={{ minmonth }} max={{ maxmonth }}>
+            <input type="submit" value="Apply">
+        </form>
+        <form action="/api/main" method="POST">
+            <select name="annually" id="annually">
+                <option value="2023-01-01">2023</option>
+                <option value="2024-01-01">2024</option>
+            </select>
+            <input type="submit" value="Apply">
+        </form>
+        <h2>Data Summary</h2>
+        <canvas id="verticalChart" width="400" height="200"></canvas>
+        <div id="summaryLoader" class="loader" style="display: none; margin:auto; margin-top:10vh; margin-bottom:10vh"></div>
+        <h2>Top 5 Projects</h2>
+        <canvas id="horizontalChart1" width="400" height="200"></canvas>
+        <div id="projectLoader" class="loader" style="display: none; margin:auto; margin-top:10vh; margin-bottom:10vh"></div>
+        <h2>Top 5 Users</h2>
+        <canvas id="horizontalChart2" width="400" height="200"></canvas>
+        <div id="contributorsLoader" class="loader" style="display: none; margin:auto; margin-top:10vh; margin-bottom:10vh"></div>
+    </div>
+</body>
+</html>

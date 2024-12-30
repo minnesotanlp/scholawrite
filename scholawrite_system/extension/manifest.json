@@ -1,0 +1,43 @@
+{
+  "name": "ScholaWrite",
+  "version": "0.1.0",
+  "manifest_version": 3,
+  "permissions": [
+    "tabs",
+    "storage",
+    "contextMenus",
+    "activeTab",
+    "background",
+    "declarativeContent",
+    "notifications"
+  ],
+  "web_accessible_resources":[
+    {
+      "resources": ["tooltip.html"],
+      "matches": ["*://*.overleaf.com/*"]
+    }
+  ],
+  "host_permissions": [
+    "http://127.0.0.1:5000/*",
+    "https://www.overleaf.com/",
+    "*://*.overleaf.com/*"
+  ],
+  "action": {
+    "default_title": "ScholaWrite",
+    "default_popup": "popup.html"
+  },
+  "background": {
+    "service_worker": "background.js",
+    "type": "module"
+  },
+  "content_scripts": [
+    {
+      "matches": [
+        "https://www.overleaf.com/project/*"
+      ],
+      "js": [
+        "contentScript.js"
+      ]
+    }
+  ]
+}

@@ -1,0 +1,57 @@
+body {
+     display: flex;
+     flex-direction: column;
+     align-items: center;
+}
+
+#control {
+    display: flex;
+    flex-direction: row;
+}
+
+#meta {
+
+    width: 13vw;
+}
+
+#mainContainer {
+    display: flex;
+    flex-direction: row;
+    width: 65vw;
+}
+
+#displayLines {
+    width: 5%;
+    border: 0.01vw solid;
+}
+
+#displayContent {
+    width: 95%;
+    border: 0.01vw solid;
+}
+
+#mainLoader {
+    display: none;
+    margin: auto;
+    margin-top: 40vh
+}
+
+form {
+    margin-top: 1vh;
+}
+
+.progress-bar-striped.progress-bar {
+    background-image: linear-gradient(45deg,rgba(255,255,255,.2) 25%,transparent 25%,transparent 50%,rgba(255,255,255,.2) 50%,rgba(255,255,255,.2) 75%,transparent 75%,transparent);
+}
+
+.progress-bar.labeled {
+    background-color: plum;
+}
+
+
+.progress-bar.noLabel {
+    background-color: #e9ecef;
+    background-image: none
+}
+
+

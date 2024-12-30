@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>ReWARD</title>
+        <link rel="stylesheet" href="style.css">
+         <style>
+            html {
+                max-height: 410px;
+                width: 300px;
+            }
+        </style>
+        <script src="fontAwesome.js" crossorigin="anonymous"></script>
+        <script src="popup.js"></script>
+    </head>
+    <body>
+        <h2 class="reward">ScholaWrite</h2>
+        <hr style="height:0.5px;width:10em;border-width:0;color:gray;background-color:gray">
+        <div id="control" style="display:block">
+            <div class="sliderWrapper">
+              <div class="sliderText"> Record writer actions</div>
+                <label class="switch">
+                    <input type="checkbox">
+                    <span class="slider round"></span>
+                </label>
+            </div>
+            <div class="divider" style="height: 0.5px"></div>
+            <div id = "loginForm" style="display:block">
+              <input type="text" class="username" id="username" placeholder="Enter your username" required>
+              <input type="password" class="password" id="password" placeholder="Enter your password" required>
+              <button type="submit" class="greenButton" id="log">Login</button>
+               <p id="gr">New user? Register here!</p>
+            </div>
+             <div id = "regForm" style="display:none">
+              <input type="text" class="username" id="newUser" placeholder="Enter your username" required>
+              <input type="password" class="password" id="newPass" placeholder="Enter your password" required>
+               <input type="password" class="password" id="confirmPass" placeholder="Confirm your password" required>
+              <button type="submit" class="greenButton" id="reg">Register</button>
+              <p id="gl">Already a user? Login here!</p>
+            </div>
+            <div id="welcomeMessage" style="display:none">
+            </div>
+            <button type="submit" class="greenButton" id="lo" style="display:none">Logout</button>
+        </div>
+        <i class="fa fa-spinner fa-spin" id="spinner"></i>
+    </body>
+</html>

@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <title>Login Page</title>
+  <script src="https://kit.fontawesome.com/175459e37d.js" crossorigin="anonymous"></script>
+  <link rel="stylesheet" href="{{ url_for('static', filename='css/index.css') }}">
+</head>
+<body>
+  <div class="container">
+    <h1>ScholarWrite</h1>
+    <form class="form" action="/api/login" method="POST">
+      <input id = "annotatorEmail" type="text" name="annotatorEmail" placeholder="Your Email" required>
+      <button id= "submit" type="submit">Login</button>
+    </form>
+  </div>
+</body>
+</html>
