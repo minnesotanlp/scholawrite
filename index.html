@@ -104,7 +104,7 @@ Scholarly Manuscripts</title>
                       <span class="icon">
                         <i class="fa-solid fa-hexagon-nodes"></i>
                       </span>
-                      <span>Llama-8b-SW-class</span>
+                      <span>Llama-8B-SW-class</span>
                     </a>
                   </span>
                   <span class="link-block">
@@ -116,7 +116,7 @@ Scholarly Manuscripts</title>
                       <span class="icon">
                         <i class="fa-solid fa-hexagon-nodes"></i>
                       </span>
-                      <span>Llama-8b-SW-Write</span>
+                      <span>Llama-8B-SW-Write</span>
                     </a>
                   </span>
                 </div>
@@ -199,7 +199,7 @@ Scholarly Manuscripts</title>
               <div class="item">
                 <br>
                 <div display="inline">
-                  <img src="website/static/images/schola_dataset.png" alt="prompting" width="500" display="inline"/>
+                  <img src="website/static/images/schola_dataset.png" alt="prompting" width="900" display="inline"/>
                 </div>
 
               </div>
@@ -266,7 +266,7 @@ In the right panel, annotators can right-click to navigate the timeline of colle
             <div class="column is-full">
               <div class="item">
                 <br>
-                <img src="website/static/images/schola_dataset_keystroke.png" alt="prompting" width="500px"/>
+                <img src="website/static/images/schola_dataset_keystroke.png" alt="prompting" width="600px"/>
                 <div class="image-container">
                   <img src="website/static/images/schola_finetuning.png" alt="prompting"/>
                   <img src="website/static/images/schola_iterative_writing.png" alt="prompting"/>
@@ -355,9 +355,59 @@ In the right panel, annotators can right-click to navigate the timeline of colle
     </section>
     <!--- Iterative writing end -->
 
+    <!--- Demo Start -->
+    <section class="hero is-small">
+      <div class="hero-body">
+        <div class="columns is-centered has-text-centered;">
+          <h1 class="title is-3">Iterative Writing Demo</h1>
+        </div>
+
+      </div> 
+        <div class="container is-max-desktop">
+          <div class="columns is-centered has-text-centered">
+            <div class="column is-full">
+              <div class="item">
+                <br>
+                <div display="inline">
+					<a href="/model_outputs/seed1.html">
+                  		<img src="website\static\images\demo_page.png" alt="model output demo" width="1000" display="inline"/>
+					</a>
+                </div>
+
+              </div>
+              <div class="content has-text-justified">
+                <p>We vsialized the self-iterative writing output of Llama-8B-SW and Llama-8B-Instruct on all four seeds. It is the slight modification of web page used for human evaluation in paper. The red and strikethrough represent deletion, while green represent addition. You can access our demo page through this <a href="/model_outputs/seed1.html">link</a>.</p>
+				<b>Here is the tutorial:</b>
+                <ol>
+					<li>
+						<p>Picture above is the UI of demo page. First, click the drop down menu to select the seed document would like to read. After selection, click 'Switch' button on the right.</p>
+					</li>
+
+					<li>
+						<p>At the bottom of the page, from left to right, are progress bar, backword button, play button, and forward button. Progress bar shows the relative position of current text you are reading. Clicking forward button will display the text of previous iteration. Clicking play button will showing text of next iteration every one second. Clicking forward button display the text of next iteration. <u>You can also use arrow keys on the keyboard to navigate to previous/next iteration.</u></p>
+					</li>
+
+					<li>
+						<p>You can also have more granular control to read text from different iterations by muanlly input the number on the top right corner of the UI. The number you entered represents the number of iterations. When you're done typing, press enter. Then the page will display the writing from your specified iteration</p>
+					</li>
+					<li>
+						<p>On the top of each model's output, there are writing intention and model's name.</p>
+					</li>
+					<li>
+						<p>After finishing viewing the outputs, click 'Go Back' button on the upper right corner to get back to this project page.</p>
+					</li>
+                </ol>
+              </div>
+            </div>
+          </div>
+        </div>
+		<br>
+    </section>
+    <!--- Demo end -->
+
     <!-- Takeaway start -->
     <span id="takeaway">
-      <section class="section hero is-small">
+      <section class="section hero is-small is-light">
         <div class="container is-max-desktop">
           <div class="content">
             <h2 class="title is-3 has-text-centered">Key Takeaways</h2>
