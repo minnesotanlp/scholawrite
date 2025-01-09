@@ -130,6 +130,5 @@ window.addEventListener('DOMContentLoaded', function() {
 function changeSeed(event){
     event.preventDefault();
     const data = Object.fromEntries(new FormData(event.target).entries());
-    console.log(window.location.origin + '/model_outputs/'+data.seed_doc+".html")
-    window.location.replace(window.location.origin + '/model_outputs/'+data.seed_doc+".html")
+    window.location.replace(window.location.origin + '/scholawrite/model_outputs/'+data.seed_doc+".html")
 }
