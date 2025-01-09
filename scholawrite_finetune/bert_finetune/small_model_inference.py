@@ -28,12 +28,12 @@ login(token=HUGGINGFACE_TOKEN)
 model_name = "ROBERTA_BASE"
 
 project_ids = [
-  "6500d748909490ecba83e811",  # Debarati's project part 1, Done
-  "6578ec8845504beacf9d3dc7",  # Debarati's project part 2, Done
-  "654682f220e7d557c7e67cff",  # Anna's project, Done
-  "656a440644dec9f71f2dee44",  # Zae's project, Done
-  #"640e22cae918523bcee8ca5e", # karin's project, Done
-  #"656fadd102ae94a7686aae62"  # Artifact paper, Not done
+  "6500d748909490ecba83e811",  
+  "6578ec8845504beacf9d3dc7", 
+  "654682f220e7d557c7e67cff",  
+  "656a440644dec9f71f2dee44",  
+  #"640e22cae918523bcee8ca5e", 
+  #"656fadd102ae94a7686aae62"  
 ]
 
 TOTAL_CLASSES = 15

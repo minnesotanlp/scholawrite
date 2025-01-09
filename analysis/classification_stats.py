@@ -3,22 +3,22 @@ import pandas as pd
 from sklearn.metrics import accuracy_score, precision_score, recall_score, f1_score, confusion_matrix, ConfusionMatrixDisplay, classification_report
 import matplotlib.pyplot as plt
 
-#fname = "/home/linghe/scholawrite/meta_inference/llama3b_meta_instruction/llama3_meta_class_result.csv"
-#fname = "/home/linghe/scholawrite/meta_inference/llama8b_meta_instruction/llama8_meta_class_result.csv"
-#fname = "/home/linghe/scholawrite/scholawrite_finetune/llama3b_scholawrite_finetune/llama3_SW_class_result.csv"
-fname = "/home/linghe/scholawrite/scholawrite_finetune/llama8b_scholawrite_finetune/llama8_SW_class_result.csv"
-#fname = "/home/linghe/scholawrite/gpt4o/gpt4o_class_result.csv"
+#fname = "scholawrite/meta_inference/llama3b_meta_instruction/llama3_meta_class_result.csv"
+#fname = "scholawrite/meta_inference/llama8b_meta_instruction/llama8_meta_class_result.csv"
+#fname = "scholawrite/scholawrite_finetune/llama3b_scholawrite_finetune/llama3_SW_class_result.csv"
+fname = "scholawrite/scholawrite_finetune/llama8b_scholawrite_finetune/llama8_SW_class_result.csv"
+#fname = "scholawrite/gpt4o/gpt4o_class_result.csv"
 #fname = "ROBERTA_BASE_run_final.csv"
 #fname = "BERT_run_final.csv"
 #fname = "ROBERTA_run_final.csv"
 #fname = "BERT_BASE_run_final.csv"
 
 fnames = [
-"/home/linghe/scholawrite/meta_inference/llama3b_meta_instruction/llama3_meta_class_result.csv",
-"/home/linghe/scholawrite/meta_inference/llama8b_meta_instruction/llama8_meta_class_result.csv",
-"/home/linghe/scholawrite/scholawrite_finetune/llama3b_scholawrite_finetune/llama3_SW_class_result.csv",
-"/home/linghe/scholawrite/scholawrite_finetune/llama8b_scholawrite_finetune/llama8_SW_class_result.csv",
-"/home/linghe/scholawrite/gpt4o/gpt4o_class_result.csv",
+"scholawrite/meta_inference/llama3b_meta_instruction/llama3_meta_class_result.csv",
+"scholawrite/meta_inference/llama8b_meta_instruction/llama8_meta_class_result.csv",
+"scholawrite/scholawrite_finetune/llama3b_scholawrite_finetune/llama3_SW_class_result.csv",
+"scholawrite/scholawrite_finetune/llama8b_scholawrite_finetune/llama8_SW_class_result.csv",
+"scholawrite/gpt4o/gpt4o_class_result.csv",
 "ROBERTA_BASE_run_final.csv",
 "BERT_run_final.csv",
 "ROBERTA_run_final.csv",
