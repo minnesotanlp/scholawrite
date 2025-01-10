@@ -155,10 +155,10 @@ Scholarly Manuscripts</title>
 
     <div class="container is-max-desktop">
       <div class="columns is-centered">
-        <div class="column is-6">
+        <div class="column is-6" style="width: 100%; display: flex; justify-content: center;">
             <img
-              src="website/static/images/schola_motivation.png"
-              width="500"
+              src="website/static/images/main.png"
+              width = "650"              
               class="center-image"
             />
         </div>
@@ -177,7 +177,7 @@ Scholarly Manuscripts</title>
                       To understand writers' cognitive thinking process, one should fully decode the <i>end-to-end writing data</i> (from scratch to final manuscript) and understand their complex cognitive mechanisms in scientific writing.
                       We introduce <i>ScholaWrite</i> dataset, the first-of-its-kind keystroke logs of an end-to-end scholarly writing process, with thorough annotations of cognitive writing intentions behind each keystroke. 
                       Our dataset includes LaTeX-based keystroke data from five preprints with nearly 63K total text changes and annotations across 4 months of paper writing.
-                      Our dataset shows promising usability and applications for the future development of AI writing assistants for the research environment, which necessitate complex methods beyond LLM prompting, and supports the cognitive thinking process of scientists. \footnote{Our anonymized dataset and codes will be released to the public upon acceptance.}
+                      Our dataset shows promising usability and applications for the future development of AI writing assistants for the research environment, which necessitate complex methods beyond LLM prompting, and supports the cognitive thinking process of scientists.
                     </p>
                   </div>
                 </div>
@@ -512,21 +512,37 @@ In the right panel, annotators can right-click to navigate the timeline of colle
                   <div id="carousel2" class="carousel results-carousel">
                     <div class="item">
                       <div style="display: flex; justify-content: center">
-                        <img src="website/static/images/schola_results_tab.png" style="max-height: 350px" />
+                        <img src="website/static/images/class.png" style="max-height: 350px" />
                       </div>
                       <p class="subtitle is-6 has-text-centered">
-                        Lighe, can you explain this table? I am not sure what it is saying.
+                        <br>
+                        Weighted F1 scores on the intention prediction task. We observe performance improvement after fine-tuned with ScholaWrite dataset, specially BERT-based model.
                       </p>
                     </div>
 
                     <div class="item">
                       <div style="display: flex; justify-content: center">
-                        <img src="website/static/images/schola_prediction_results.png" style="max-height: 350px" />
+                        <img src="website/static/images/LTI.png" style="max-height: 350px" />
                       </div>
-                      <p class="subtitle is-6 has-text-centered">
-                        Average F-1 scores on the intention prediction task. We observe our fine-tuned model <i>ScholaWrite</i> Llama-3.2 perform better than GPT-4o.
+                      <p class="subtitle is-6 has-text-centered"> 
+                        <br>
+                        Metric scores of the final writing output from
+                        <span style="color:magenta;">LLama-8B-SW</span>, 
+                        <span style="color:teal;">LLama-8B-Instruct</span>, and 
+                        <span style="color:blue;">GPT-4o</span> after 100 iterations of the iterative self-writing experiment. 
+                        We observe that our <span style="color:magenta;">LLama-8B-SW</span> model presents the highest quality of the final output across most of the four seed documents.
                       </p>
                     </div>
+
+                    <div class="item">
+                      <div style="display: flex; justify-content: center">
+                        <img src="website/static/images/huamn_eval.png" style="max-height: 350px" />
+                      </div>
+                      <p class="subtitle is-6 has-text-centered">
+                        Despite the competitive metric scores of LLama-8B-SW, our model exhibit limitations when human actually reading the output. Mostly due to inconsistent with intention and grammar issues in output.
+                      </p>
+                    </div>
+
                   </div>
                 </div>
               </div>
