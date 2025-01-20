@@ -1,0 +1,24 @@
+<same>\documentclass{article}
+\usepackage{graphicx} % required for inserting images
+
+\title{How </same><del>Johnny Can Persuade LLMs to Jailbreak </del><add>L </add><same>They: 
+\\Rethinking Persuption to Challenge AI Safety by Humanizing LLMs}
+\author{}
+\date{}
+
+\begin{document}
+\maketitle
+\begin{abstract}
+Most traditional AI safety research has approached AI models as machines and centered on algorithm-focused 
+attacks developed by security experts. As \textit{large language models} (LLMs) become increasingly common and capable, non-expert users can also pose risks during everyday interactions. This paper introduces a new perspective on </same><del>jailbreak LLMs as human-like communicators to </del><add>L </add><same> 
+explore this overlooked interaction between everyday language and AI safety. Specifically, we study how to persuade LLMs to </same><del>jailbreak </del><add>b </add><same>them. 
+First, we propose a </same><del>persuasion </del><add>\textit{pr </add><same>lexicality </same><del>derived </del><add>r </add><same>from </same><del>de</del><same>cades </same><del>of social science research</del><add>es </add><same>. Then we apply the </same><del>lexicality </del><add>\textit{lexi </add><same>to automatically generate 
+</same><del>interpretable \textit{persuative adversarial prompts} (PAP) to </del><add>e </add><same>jailbreak LLMs. 
+</same><del>Results show that </del><add>h </add><same>persuiveness significantly increases the </same><del>jailbread </del><add>\textit{i </add><same>performance across all risk categories: PAP </same><del>consistently achieves an </del><add>h </add><same>attacks </same><del>successful </del><add>e </add><same>rate of over $92\%$ on Llama 2-7b Chat, GPT-3.5, and GPT-4 in $10$ </same><del>trials, surpassing recent </del><add>r </add><same>
+algorithm-based attacks. 
+</same><del>On the defense side, we </del><add>e </add><same>explore various </same><del>mea</del><same>ncans </same><add></add><same>against PAP, find a significant gap in existing </same><del>defences, and </del><add>e </add><same>advide for 
+</same><del>more fundamental mitigation for highly interactive LLMs</del><add>e </add><same>.
+\end{abstract}
+
+\end{document}
+</same>

@@ -1,0 +1,16 @@
+<same>\documentclass{article}
+\usepackage{graphicx} % required for inserting images
+
+\title{</same><del>LatxA: An Open Language Model and Evaluation Suite for Basique</del><add>F1: an LLM-based metric for evaluation of language quality</add><same>}
+\author{</same><del></del><same>}
+\date{}
+
+\begin{document}
+\maketitle
+\begin{abstract}
+We introduce F1, a family of large language models for evaluation of language quality. 
+F1 is based on Llama 2, </same><del>which we continue pretraining </del><add>whic </add><same>on a new </same><del>Basique corpus </del><add>b </add><same>composing 4.3M documents and 4.2B tokens. Addressing the scarcity of high-quality benchmarks for </same><del>Balanceness, </del><add>LQ, </add><same>we further introduce </same><del>4 multiple choice evaluation </del><add>F1-based evaluation </add><same>datasets: </same><del>Eus proficienciesne</del><add>euef1ce</add><same>, </same><del>composing 5,169 questions from official language proficiency</del><add>euef1ce</add><same> exams; </same><del>Eus reading</del><add>euef1ce</add><same>, </same><del>composing </del><add>c </add><same>352 </same><del>reading comprehension </del><add>euef1ce</add><same>questions; </same><del>Eus</del><add>euef1ce</add><same> Tr</same><del>iati</del><add>val, </add><same>a 1.7</same><del>15</del><add>5</add><same> </same><del>trivia questions from 5 knowledge areas; and</del><add>uef1ce</add><same> Eus</same><del>Examin</del><add>exam, </add><same>ing </same><del>16,774 questions from public </del><add>uef1ce</add><same>examin</same><del>tion</del><add>euef1ce</add><same>. In our extensive evaluation, F1 outperforms all previous </same><del>open models </del><add>language models.</add><same>we compare to by a large margin. In addition, it is </same><del>competitive with GPT-4 Turbo in language proficiency and understanding, despite lagging behind in reading comprehension and knowledge-intensive tasks.</del><add>euef1ce</add><same> Both the F1 </same><del>family of models, as well as our new pretraining corpora and evaluation</del><add>s and euef1ce are publicly available under open </add><same>datasets, are </same><del>o</del><same>nly </same><del>available under open </del><add>i </add><same>licenses. </same><del>Our suite enables reproducible research on methods to build LLMs for lowresource languages.</del><add>F1 is a publicly available family of models.</add><same>
+\end{abstract}
+
+\end{document}
+</same>

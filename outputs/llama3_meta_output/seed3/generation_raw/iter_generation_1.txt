@@ -1,0 +1,18 @@
+\documentclass{article}
+\usepackage{graphicx} % Required for inserting images
+
+\title{Semisupervised Neural Proto-Language Reconstruction}
+\author{}
+\date{}
+
+\begin{document}
+\maketitle
+
+\begin{abstract}
+Existing work implementing comparative reconstruction of ancestral languages (proto-languages) has usually required full supervision. However, historical reconstruction models are only of practical value if they can be trained with a limited amount of labeled data. We propose a semisupervised historical reconstruction task in which the model is trained on only a small amount of labeled data (cognate sets with proto-forms) and a large amount of unlabeled data (cognate sets without proto-forms). Our proposed neural architecture, DPD-BiReconstructor, incorporates an essential insight from linguists' comparative method: that reconstructed words should not only be reconstructable from their daughter words, but also deterministically transformable back into their daughter words. We demonstrate that this architecture is able to leverage unlabeled cognate sets to outperform strong semisupervised baselines on this novel task. 
+
+Our results show that the average accuracy of DPD-BiReconstructor on the validation set is $93.42\%$, and on the test set, it is $91.15\%$. Notably, these results outperform the strong semisupervised baseline by $4.27\%$ and $2.51\%$, respectively. 
+
+\end{abstract}
+
+\end{document}

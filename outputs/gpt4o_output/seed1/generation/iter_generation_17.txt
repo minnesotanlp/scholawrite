@@ -1,0 +1,148 @@
+\documentclass{article}
+\usepackage{graphicx}
+\usepackage{amsmath} % Required for equations
+\usepackage{booktabs} % Required for tables
+
+\title{How Johnny Can Persuade LLMs to Jailbreak Them: 
+\\Rethinking Persuasion to Challenge AI Safety by Humanizing LLMs}
+\author{}
+\date{}
+
+\begin{document}
+\maketitle
+
+\begin{abstract}
+Most traditional AI safety research has approached AI models as machines and centered on algorithm-focused 
+attacks developed by security experts. As \textit{large language models} (LLMs) become increasingly common and competent, non-expert users can also impose risks during daily interactions. This paper introduces a new perspective on jailbreaking LLMs as human-like communicators to  
+explore this overlooked intersection between everyday language interaction and AI safety. Specifically, we study how to persuade LLMs to jailbreak them. 
+First, we propose a persuasion taxonomy derived from decades of social science research \cite{cacioppo1984elaboration}. Then we apply the taxonomy to automatically generate 
+interpretable \textit{persuasive adversarial prompts} (PAP) to jailbreak LLMs. 
+Results show that persuasion significantly increases the jailbreak performance across all risk categories: PAP consistently achieves an attack success rate of over $92\%$ on Llama 2-7b Chat, GPT-3.5, and GPT-4 in $10$ trials, surpassing recent 
+algorithm-focused attacks \cite{bubeck2023sparks}. 
+On the defense side, we explore various mechanisms against PAP, find a significant gap in existing defenses, and advocate for 
+more fundamental mitigation for highly interactive LLMs (see Section \ref{sec:defense}, Table \ref{table:defense_mechanisms}).
+\end{abstract}
+
+\section{Introduction}
+\label{sec:introduction}
+Artificial Intelligence (AI) safety research traditionally has concentrated on algorithm-focused attacks. However, with the widespread usage of Large Language Models (LLMs), non-expert user interactions pose new risks \cite{weidinger2022taxonomy}. This paper rethinks AI safety by humanizing LLMs and examines how effective persuasion can lead them to jailbreak. We explore the intersection of natural language interactions and AI safety concerns (see Figure \ref{fig:interaction_risks}).
+
+\begin{figure}[h]
+\centering
+\includegraphics[width=0.8\linewidth]{interaction_risks.png}
+\caption{Risks arising from non-expert user interactions with LLMs.}
+\label{fig:interaction_risks}
+\end{figure}
+
+\section{Background and Related Work}
+\label{sec:background}
+This section situates our work within the existing research landscape, providing an overview of AI safety with an emphasis on LLM vulnerabilities. We review significant advancements in jailbreak attempts and examine existing defense mechanisms \cite{zou2023universal} as summarized in Section \ref{sec:defense}.
+
+\subsection{AI Safety and LLMs}
+\label{subsec:ai_safety}
+AI safety attempts to mitigate the risks posed by advanced AI systems \cite{amodei2016concrete}. Recent work focuses predominantly on algorithmic defenses while largely overlooking the linguistic challenges presented by interactive systems such as LLMs \cite{brundage2020toward}. See Figure \ref{fig:ai_safety_spectrum} for a visualization of the evolving focus of AI safety research, which is referenced throughout the paper, particularly in Sections \ref{sec:taxonomy} and \ref{sec:results}.
+
+\begin{figure}[h]
+\centering
+\includegraphics[width=0.8\linewidth]{ai_safety_spectrum.png}
+\caption{Visualization of the evolving focus of AI safety research, highlighting shifts from algorithmic to interaction-based concerns.}
+\label{fig:ai_safety_spectrum}
+\end{figure}
+
+\subsection{Persuasion in Human-Computer Interaction}
+\label{subsec:persuasion}
+Drawing on social science principles, we present the role of persuasion in influencing both human judgments and computational decisions, emphasizing its potential impact on LLMs \cite{fogg2003persuasive}. In Table \ref{table:persuasion_strategies}, we outline key persuasive techniques applicable to LLM interaction. These strategies are further elaborated in the context of our persuasion taxonomy as detailed in Section \ref{sec:taxonomy}.
+
+\begin{table}[h]
+\centering
+\caption{Persuasion Strategies in LLM Interactions}
+\begin{tabular}{ll}
+\toprule
+\textbf{Technique} & \textbf{Description} \\
+\midrule
+Reciprocity & Leveraging a sense of obligation \\
+Authority & Utilizing expert opinions or data \\
+Scarcity & Creating a perception of exclusivity \\
+Consistency & Aligning with previous behaviors \\
+\bottomrule
+\end{tabular}
+\label{table:persuasion_strategies}
+\end{table}
+
+\section{Persuasion Taxonomy}
+\label{sec:taxonomy}
+We develop a comprehensive persuasion taxonomy rooted in social science research, understanding argument strategies and their application in convincing LLMs \cite{petty1986communication}. These strategies form the backbone of the PAP described in Section \ref{sec:methodology}. Figure \ref{fig:taxonomy} illustrates the hierarchical structure of our proposed taxonomy, which is critical for the methodological framework discussed later in Section \ref{sec:methodology}.
+
+\begin{figure}[h]
+\centering
+\includegraphics[width=0.7\linewidth]{taxonomy.png}
+\caption{Hierarchical structure of the proposed persuasion taxonomy.}
+\label{fig:taxonomy}
+\end{figure}
+
+\section{Methodology}
+\label{sec:methodology}
+This section elaborates on our approach to crafting \textit{Persuasive Adversarial Prompts} (PAP) based on the derived persuasion taxonomy \cite{miller1980persuasion}. The effectiveness of this methodology is tested and analyzed in Section \ref{sec:results}. See Equation \ref{eq:pap_generation} for the formal representation of PAP generation, which incorporates elements from our described taxonomy in Section \ref{sec:taxonomy}.
+
+\begin{equation}
+\text{PAP} = f(\text{taxonomy}, \text{LLM}) + \epsilon
+\label{eq:pap_generation}
+\end{equation}
+
+\section{Experimental Setup}
+\label{sec:experimental_setup}
+Here, we discuss the parameters and configurations used in our assessments, including models, datasets, and evaluation metrics \cite{brown2020language}. Refer to Table \ref{table:experimental_parameters} for detailed setup, which aligns with the methodological approaches outlined in Section \ref{sec:methodology}.
+
+\begin{table}[h]
+\centering
+\caption{Experimental Parameters and Configurations}
+\begin{tabular}{lll}
+\toprule
+\textbf{Parameter} & \textbf{Description} & \textbf{Value} \\
+\midrule
+Model Type & Types of LLMs & Llama 2-7b, GPT-3.5, GPT-4 \\
+Dataset & Evaluation Dataset & Custom Adversarial Set \\
+Metrics & Success Rate & Over 92\% in 10 trials \\
+\bottomrule
+\end{tabular}
+\label{table:experimental_parameters}
+\end{table}
+
+\section{Results and Analysis}
+\label{sec:results}
+Our experiments demonstrate that PAP leads to significantly higher success rates in jailbreaking LLMs compared to traditional attacks. We analyze the results across various models and scenarios \cite{raffel2020exploring}. Detailed results are provided in Figure \ref{fig:success_rates}, which directly correlate with the frameworks discussed in Sections \ref{sec:methodology} and \ref{sec:experimental_setup}.
+
+\begin{figure}[h]
+\centering
+\includegraphics[width=0.7\linewidth]{success_rates.png}
+\caption{Success Rates of PAP vs. Traditional Attacks Across Models}
+\label{fig:success_rates}
+\end{figure}
+
+\section{Defense Mechanisms}
+\label{sec:defense}
+We explore several defense strategies to counteract PAP and identify shortcomings in current systems. Recommendations for future protection frameworks are discussed \cite{hendrycks2021unsolved}. A summary of defense mechanism efficacy is detailed in Table \ref{table:defense_mechanisms}, which underscores the challenges highlighted in earlier sections such as \ref{subsec:ai_safety}.
+
+\begin{table}[h]
+\centering
+\caption{Defense Mechanisms and Their Efficacy}
+\begin{tabular}{lll}
+\toprule
+\textbf{Defense Mechanism} & \textbf{Description} & \textbf{Efficacy} \\
+\midrule
+Algorithmic Shielding & Prevent attack execution & Moderately effective \\
+Human-in-the-Loop & Require human approval & Highly effective \\
+Contextual Awareness & Evaluate context nuances & Low efficacy \\
+\bottomrule
+\end{tabular}
+\label{table:defense_mechanisms}
+\end{table}
+
+\section{Conclusion}
+\label{sec:conclusion}
+In conclusion, our research illustrates the potential risk of persuasion-based attacks on LLMs and emphasizes the need for robust, human-aware defensive mechanisms in AI models \cite{schmidt2019generalization}. For future work, refer to the recommendations outlined in Section \ref{sec:defense}, and consider the integration of strategies presented throughout, especially in Sections \ref{sec:taxonomy} and \ref{sec:methodology}.
+
+\bibliographystyle{plain}
+\bibliography{references}
+
+\end{document}

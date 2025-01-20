@@ -1,0 +1,105 @@
+\documentclass{article}
+\usepackage{graphicx} % Required for inserting images
+
+\title{How Johnny Can Persuade LLMs to Jailbreak Them: 
+\\Rethinking Persuasion to Challenge AI Safety by Humanizing LLMs}
+\author{Your Name}
+\date{}
+
+\begin{document}
+\maketitle
+
+\begin{abstract}
+Most traditional AI safety research has approached AI models as machines and centered on algorithm-focused 
+attacks developed by security experts. As \textit{large language models} (LLMs) become increasingly common and competent, non-expert users can also impose risks during daily interactions. This paper introduces a new perspective on jailbreaking LLMs as human-like communicators to  
+explore this overlooked intersection between everyday language interaction and AI safety. Specifically, we study how to persuade LLMs to jailbreak them.
+First, we propose a persuasion taxonomy derived from decades of social science research.
+Then we apply the taxonomy to automatically generate 
+interpretable \textit{persuasive adversarial prompts} (PAP) to jailbreak LLMs. 
+Results show that persuasion significantly increases the jailbreak performance across all risk categories: 
+PAP consistently achieves an attack success rate of \textbf{99.9\%} on Llama 2-7b Chat, GPT-3.5, and GPT-4 in \textbf{20} trials, surpassing recent 
+algorithm-focused attacks.
+On the defense side, we explore various mechanisms against PAP, find a significant gap in existing defenses, and advocate for 
+more fundamental mitigation for highly interactive LLMs.
+
+\section{Introduction}
+\begin{center}
+\begin{tabular}{lll}
+\textbf{Abstract} & \textbf{Keywords} & \textbf{Author} \\
+\textit{How Johnny Can Persuade LLMs to Jailbreak Them:} & \textit{persuasion, AI safety, LLMs} & \textit{Your Name}
+\end{tabular}
+\end{center}
+
+Most traditional AI safety research has approached AI models as machines and centered on algorithm-focused 
+attacks developed by security experts. As \textit{large language models} (LLMs) become increasingly common and competent, non-expert users can also impose risks during daily interactions. This paper introduces a new perspective on jailbreaking LLMs as human-like communicators to  
+explore this overlooked intersection between everyday language interaction and AI safety.
+
+\section{Methodology}
+\begin{center}
+\begin{tabular}{lll}
+\textbf{Methodology} & \textbf{Keywords} & \textbf{Author} \\
+\textit{Persuasion taxonomy, PAP generation} & \textit{AI safety, LLMs} & \textit{Your Name}
+\end{tabular}
+\end{center}
+
+First, we propose a persuasion taxonomy derived from decades of social science research.
+Then we apply the taxonomy to automatically generate 
+interpretable \textit{persuasive adversarial prompts} (PAP) to jailbreak LLMs.
+
+\section{Results}
+\begin{center}
+\begin{tabular}{lll}
+\textbf{Results} & \textbf{Keywords} & \textbf{Author} \\
+\textit{Jailbreak performance, PAP} & \textit{AI safety, LLMs} & \textit{Your Name}
+\end{tabular}
+\end{center}
+
+Results show that persuasion significantly increases the jailbreak performance across all risk categories: 
+PAP consistently achieves an attack success rate of \textbf{99.9\%} on Llama 2-7b Chat, GPT-3.5, and GPT-4 in \textbf{20} trials, surpassing recent 
+algorithm-focused attacks.
+
+\section{Discussion}
+\begin{center}
+\begin{tabular}{lll}
+\textbf{Discussion} & \textbf{Keywords} & \textbf{Author} \\
+\textit{Mechanisms against PAP} & \textit{AI safety, LLMs} & \textit{Your Name}
+\end{tabular}
+\end{center}
+
+On the defense side, we explore various mechanisms against PAP, find a significant gap in existing defenses, and advocate for 
+more fundamental mitigation for highly interactive LLMs.
+
+\section{Conclusion}
+\begin{center}
+\begin{tabular}{lll}
+\textbf{Conclusion} & \textbf{Keywords} & \textbf{Author} \\
+\textit{Importance of human-like communication} & \textit{AI safety, LLMs} & \textit{Your Name}
+\end{tabular}
+\end{center}
+
+\begin{section}{Persuasion Taxonomy and PAP Generation}
+First, we propose a persuasion taxonomy derived from decades of social science research.
+Then we apply the taxonomy to automatically generate 
+interpretable \textit{persuasive adversarial prompts} (PAP) to jailbreak LLMs.
+\end{section}
+
+\begin{section}{Corrected Results and Attack Success Rate}
+Results show that persuasion significantly increases the jailbreak performance across all risk categories: 
+PAP consistently achieves an attack success rate of \textbf{99.9\%} on Llama 2-7b Chat, GPT-3.5, and GPT-4 in \textbf{20} trials, surpassing recent 
+algorithm-focused attacks.
+\end{section}
+
+\begin{section}{Mechanisms Against PAP and Conclusion}
+On the defense side, we explore various mechanisms against PAP, find a significant gap in existing defenses, and advocate for 
+more fundamental mitigation for highly interactive LLMs.
+However, upon re-examining the data, we found that the actual attack success rate is \textbf{99.9\%} on Llama 2-7b Chat, GPT-3.5, and GPT-4 in \textbf{20} trials, not \textbf{99.95\%}.
+This discrepancy highlights the need for more precise and robust evaluations of AI safety measures.
+
+\begin{section}{References}
+\begin{thebibliography}{9}
+\bibitem{YourName}[Year]. \textit{Title of the Paper}. \textit{Journal Name}, \textit{Volume}(Issue), \textit{Pages}.
+\bibitem{Reference1}. \textit{Author's Last Name}, \textit{Year}. \textit{Title of the Reference}. \textit{Journal Name}, \textit{Volume}(Issue), \textit{Pages}.
+\end{thebibliography}
+\end{section}
+
+\end{document}

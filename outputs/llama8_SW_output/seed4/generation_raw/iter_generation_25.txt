@@ -1,0 +1,50 @@
+<same>\documentclass{article}
+\usepackage{graphicx} % required for including images
+
+\title{F1: an LLM-based metric for evaluation of language quality}
+</same><del>\author{anonymous : }</del><same>
+</same><add></add><same>\definecolor{Gray}{gray}{0.88}
+\usepackage{booktabs}
+\usepackage{times}
+\usepackage{latexsym}
+\usepackage{enumitem}
+\usepackage{graphicx}
+\usepackage{multirow}
+\usepackage{subcaption}
+\usepackage{makecell}
+\usepackage{minted}
+\usepackage{soul}
+\usepackage{fdsymbol}
+\usepackage{fancyhdr}
+\usepackage{lastpage}
+\usepackage{xspace}
+\usepackage{wrapfig}
+
+% define icons
+\newcommand{\simicon}{\includegraphics[height=2em]{images/icons/simulation_icon.pdf}}
+\newcommand{\preficon}{\includegraphics[height=2em]{images/icons/preference_icon.pdf}}
+%, trim = 60 45 45 60, clip
+\newcommand{\freetexticon}{\includegraphics[height=2em]{images/icons/free_text_icon.pdf}}
+\newcommand{\freetexticon}[1]{\includegraphics[height=2em]{images/icons/free_text_icon.pdf}}
+\newcommand{\instructicon}{\includegraphics[height=2em]
+{images/icons/instruct_icon.pdf}}
+\newcommand{\taskicon}{\includegraphics[height=2em]{images/icons/task_icon.pdf}}
+%, trim = 15 25 25 25, clip
+\newcommand{\labelicon}[1]{\includegraphics[height=2em]{images/icons/labels_icon.pdf}}
+
+\newcommand{\anonymous}[1]{\textcolor{magenta}{\bf\small [#1 --anonymous]}}
+\newcommand{\anonymous}[1]{\textcolor{red}{\bf\small [#1 --anonymous]}}
+\newcommand{\anonymous}[1]{\textcolor{purple}{\bf\small [#1 --anonymous]}}
+\newcommand{\anonymous}[1]{\textcolor{violet}{\bf\small [#1 --anonymous]}}
+\newcommand{\anonymous}[1]{\textcolor{blue}{\bf\small [#1 --anonymous]}}
+\newcommand{\anonymous}[1]{\textcolor{orange}{\bf\small [#1 --anonymous]}}
+\newcommand{\anonymous}[1]{\textcolor{red}{\bf\small [#1 --anonymous]}}
+\newcommand{\anonymous}[1]{\textcolor{green}{\bf\small [#1 --anonymous]}}
+\newcommand{\anonymous}[1]{\textcolor{teal}{\bf\small [#1 --anonymous}
+
+
+% reinstate the correct level for list of tables and figures
+\appto\listoffigures{\addtocontents{lof}{\protect\setcounter{tocdepth}{0}}}
+
+\end{document}
+</same>

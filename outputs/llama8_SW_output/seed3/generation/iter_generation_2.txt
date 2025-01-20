@@ -1,0 +1,14 @@
+\documentclass{article}
+\usepackage{graphicx} % Required for inserting images
+
+\title{Semisupervised Neural Proportion}
+\author{}
+\title{Unknown/unfamiliar situations: Instructions}
+\title{Unknown/unfamiliar situations: Simulations}
+
+\begin{document}
+\maketitle
+\begin{abstract}
+Existing work has implementation comparative construction, of o)stractive language data, supervision.However, construction models are only of practical value, if they can be trained with a limit amount of labeled data (cognitivesets)and a large amount of unlabeled data (cognitivesets)withoutlabels data)We propose a semisupervised construction task in which the model is trained on only a smallest data (cognitivesets)with proportion omodeling) data (cognitivesets)withoutlabele data)We propose a neural architecture for comparative construction incorporating essthat repaired words should not only be reconstructablefromtheir words. We show that this architecture is able to comparatively labeled cognitive semeis\end{abstract}
+
+\end{document}

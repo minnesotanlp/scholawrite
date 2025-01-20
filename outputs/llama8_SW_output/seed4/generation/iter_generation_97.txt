@@ -1,0 +1,44 @@
+\documentclass{article}
+\usepackage{graphicx} % required for including images
+
+\title{F1: an LLM-based metric for evaluation of language quality}
+\title{F1:Automatic Related Work }
+\title{F1: an alternative for evaluation of machine translation fine-tuning with diversity of outputs}
+
+\title{F1: a novel metric for evaluating LLM-generated data in the context of global structures}
+
+\title{F1: an evaluation of LLM-generated data using lexical features, leaving a gap in qualitative analysis.}
+
+\definecolor{Gray}{gray}{0.75}
+\usepackage{booktabs}
+\usepackage{times}
+\usepackage{latexsym}
+\usepackage{enumitem}
+\usepackage{graphicx}
+\usepackage{multirow}
+\usepackage{subcaption}
+\usepackage{makecell}
+\usepackage{minted}
+\usepackage{soul}
+\usepackage{fdsymbol}
+\usepackage{fancyhdr}
+\usepackage{lastpage}
+\usepackage{xspace}
+\usepackage{wrapfig}
+
+% define icons
+\newcommand{\simicon}{\includegraphics[height=2em]{images/icons/simulation_icon.pdf}}
+\newcommand{\preficon}{\includegraphics[height=2em]{images/icons/preference_icon.pdf}}
+%, trim = 60 45 45 60, clip
+\newcommand{\freetexticon}{\includegraphics[height=2em]{images/icons/free_text_icon.pdf}}
+\newcommand{\freetexticon}[1]{\includegraphics[height=2em]{images/icons/free_text_icon.pdf}}
+\newcommand{\instructicon}{\includegraphics[height=2em]
+{images/icons/instruct_icon.pdf}}
+\newcommand{\taskicon}{\includegraphics[height=2em]{images/icons/task_icon.pdf}}
+%, trim = 15 25 25 25, clip
+\newcommand{\labelicon}[1]{\includegraphics[height=2em]{images/icons/labels_icon.pdf}}
+
+
+
+\appto\listoffigures{\addtocontents{lof}{\protect\setcounter{tocdepth}{1}}}
+\end{document}

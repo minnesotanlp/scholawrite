@@ -1,0 +1,14 @@
+\documentclass{article}
+\usepackage{graphicx} % Required for inserting images
+
+\title{Semisupervised Neural Pro Reconstruction}
+\author{}
+\date{}
+
+\begin{document}
+\maketitle
+\begin{abstract}
+Existing work implementing comparative reconstruction of ancestral languages (proto-languages) has usually required full supervision. However, historical reconstruction models are only of practical value if they can be trained with a limited amount of labeled data. We propose a semisupervised construction task in which the model is trained on only a small amount of labeled data (cognitive sets) with proportion) and a large amount of unlabeled data (cognitive sets) without proportion). We propose a neural architecture for comparative reconstruction incorporating an essential insight from linguists' comparative method: that reconstructed words should not only be reconstructablefrom their back into their s words. We show that this architecture is able to leverage labeled cognitive sets) to outperform o semisupervised baselines on this novel task.
+\end{abstract}
+
+\end{document}

@@ -1,0 +1,15 @@
+\documentclass{article}
+\usepackage{graphicx} % required for inserting images
+
+\title{F1: an LLM-based metric for evaluation of language quality}
+\author{}
+\date{}
+
+\begin{document}
+\maketitle
+\begin{abstract}
+We introduce F1, a family of large language models for evaluation of language quality. 
+F1 is based on Llama 2, whic on a new b composing 4.3M documents and 4.2B tokens. Addressing the scarcity of high-quality benchmarks for LQ, we further introduce F1-based evaluation datasets: euef1ce, euef1ce exams; euef1ce, c 352 euef1cequestions; euef1ce Trval, a 1.75 uef1ce Eusexam, ing uef1ceexamineuef1ce. In our extensive evaluation, F1 outperforms all previous language models.we compare to by a large margin. In addition, it is euef1ce Both the F1 s and euef1ce are publicly available under open datasets, are nly i licenses. F1 is a publicly available family of models.
+\end{abstract}
+
+\end{document}

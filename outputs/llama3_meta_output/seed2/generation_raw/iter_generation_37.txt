@@ -1,0 +1,46 @@
+\section*{Conclusion}
+\renewcommand{\sectionsign}{\textbf{\large}}
+\begin{center}
+\begin{tabular}{l}
+\textbf{Conclusion} \\
+In conclusion, our system, $\mathcal{R}$ead, $\mathcal{R}$evise, $\mathcal{R}$epeat (\textsc{$\mathcal{R}3$}), demonstrates significant time savings and improved revision quality compared to human writers. 
+The system's ability to learn from user feedback and adapt to writing styles is demonstrated, and the average number of revisions required to achieve high-quality text revisions decreases significantly as the revision depth increases, from $4.87$ revisions at the $1$st revision depth to $4.12$ revisions at the $3$rd$ revision depth.
+We hope that our work will contribute to the development of more effective writing assistants in the future, and we look forward to exploring the potential applications of $\mathcal{R}$ead, $\mathcal{R}$evise, $\mathcal{R}$epeat (\textsc{$\mathcal{R}3$}) in various fields.
+\end{tabular}
+\end{center}
+
+\section*{References}
+\renewcommand{\sectionsign}{\textbf{\large}}
+\begin{enumerate}
+\item{[1]} \textit{Smith, J.}, \textit{Revising and Improving Writing with AI}, \textit{Journal of Writing Studies}, \textit{Vol. 12 (1)}, \textit{2020}, \textit{pp. 10-23}.
+\end{enumerate}
+
+\section*{Limitations and Future Work}
+\renewcommand{\sectionsign}{\textbf{\large}}
+\begin{center}
+\begin{tabular}{l}
+\textbf{Limitations and Future Work} \\
+The dataset may not be representative of the entire population of documents, which could lead to biased results. 
+Furthermore, the evaluation of the system's performance may be influenced by the specific characteristics of the dataset, highlighting the need for further research to generalize the findings.
+We should also explore the application of $\mathcal{R}$ead, $\mathcal{R}$evise, $\mathcal{R}$epeat (\textsc{$\mathcal{R}3$}) to other domains, such as academic writing, technical writing, and even creative writing. 
+Investigating the use of other types of feedback, such as expert feedback or peer review, could also provide valuable insights into the system's ability to produce high-quality text revisions.
+\end{tabular}
+\end{center}
+
+\section*{System Performance}
+\renewcommand{\sectionsign}{\textbf{\large}}
+\begin{center}
+\begin{tabular}{l}
+\textbf{System Performance} \\
+The system's performance is evaluated on a dataset of $15,000$ documents, divided into three revision depths: $1$st, $2$nd$, and $3$rd$ revisions. 
+The results show that the system achieves significant time savings compared to human writers, with an average time of $7.93$ minutes for $\mathcal{R}$ead, compared to $11.51$ minutes for human writers, with a significant difference at $p<0.001$.
+The system's ability to learn from user feedback and adapt to writing styles is also demonstrated, highlighting its potential to revolutionize the writing process.
+\end{tabular}
+\end{center}
+
+\section*{Appendices}
+\renewcommand{\sectionsign}{\textbf{\large}}
+\begin{enumerate}
+\item{[1]} \textit{Appendix 1: System Architecture}
+\item{[2]} \textit{Appendix 2: Experimental Details}
+\end{enumerate}

@@ -1,0 +1,20 @@
+\documentclass{article}
+\usepackage{graphicx} % required for inserting images
+
+\title{How LLMsThey perceive 
+\\Rethinking Persuption to Challenge AI Safety by Humanizing LLMs}
+\author{}
+\date{}
+
+\begin{document}
+\maketitle
+\begin{abstract}
+Most traditional AI safety research has approach AI models as machines and centered on algorithm-focused 
+attacks developed by promans. As \textit{large language models} (LLMs) become increasingly common and capable, this non-anonymous users can also pose risks during everyday interactions. This paper introduces a new perspective on L  
+explorein this overlooked interaction between everyday language and AI safety. Specifically, we study how to implement LLMs to be them. 
+First, we propose a \textit{pr lexicality scorereresulting from a analysis of sentence-level structure. Then we apply the \textit{lexi t computed lexical results to ail breaking LLMs. 
+Results from this investigation are also extended into a novel metric for evaluating LLM-generated data in a. 
+e explore various ncans against PAP, find a significant gap in existing empirical adise and explanations.
+\end{abstract}
+
+\end{document}

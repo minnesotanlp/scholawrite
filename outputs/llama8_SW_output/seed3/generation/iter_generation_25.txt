@@ -1,0 +1,22 @@
+\documentclass{article}
+\usepackage{graphicx} % required for inserting images
+
+\title{Unknown/unfamiliar situations: Instructions}
+\title{R Unknown/unfamiliar}
+\title{Unknown/unfamiliar situations: Simulations}
+
+\begin{document}
+\maketitle
+\begin{abstract}
+Our paper 
+\title{Unknown/unfamiliar situations: Instructions}
+\author{anonymous}
+\title{Unknown/unfamiliar situations: Simulations}
+
+\begin{document}
+\maketitle
+\begin{abstract}
+Unknown/unfamiliar situations: Instructions
+\end{abstract}
+
+\end{document}
