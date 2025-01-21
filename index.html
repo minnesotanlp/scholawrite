@@ -184,7 +184,7 @@ Scholarly Manuscripts</title>
                   </div>
                 </div>
                 <ul>
-                  <li>Writing is a cognitively demanding task involving frequent switching between multiple activities, and coordinate many pieces of multiform knowledge.</li>
+                  <li> Scholarly writing is a non-linear and cognitively complex task that involves frequent switching between multiple activities, coordinating various pieces of multiform information, and revising previously written text. This approach contrasts with the token-by-token text generation of large language models (LLMs). Our goal is for the model to understand the cognitive processes involved in writing and apply them to text generation.</li>
                   <li>
                     We present <i>ScholaWrite</i>, a curated dataset of 63K LATEX-based keystrokes that were turned into publications in the computer science domain, annotated by experts in linguistics and computer science.                    
                   </li>
@@ -420,7 +420,7 @@ In the right panel, annotators can right-click to navigate the timeline of colle
                   <li>
                     <p>On the top of each model's output, there are writing intention and model's name.</p>
                   </li>
-                  
+
                   <li>
                     <p>After finishing viewing the outputs, click 'Go Back' button on the upper right corner to get back to this project page.</p>
                   </li>
@@ -438,116 +438,24 @@ In the right panel, annotators can right-click to navigate the timeline of colle
       <section class="section hero is-small is-light">
         <div class="container is-max-desktop">
           <div class="content">
-            <h2 class="title is-3 has-text-centered">Key Takeaways</h2>
+            <h2 class="title is-3 has-text-centered">Call for participation</h2>
+            <p>
+              ScholaWrite 2.0 is launching! Here's what we aim to do:
+            </p>
             <ul>
               <li>
-                <p class="subtitle">
-                  We introduce <i>ScholaWrite</i>, a curated dataset of 63K LaTex-based keystrokes of end-to-end scholarly writing processes with expert annotations.
-                </p>
+                <p>Collect 50-100 Overleaf projects from multiple academic fields and researchers with different experience levels.</p>
               </li>
-              <div class="hero-body">
-                <div class="container">
-                  <div id="carousel2" class="carousel results-carousel">
-                    <div class="item">
-                      <div style="display: flex; justify-content: center">
-                        <img src="website/static/images/schola_high_level_tax.png" style="max-height: 350px" />
-                      </div>
-                      <p class="subtitle is-6 has-text-centered">
-                        Our taxonomy organaizes the 15 lower-level writing intentions into 3 high-level categories.
-                      </p>
-                    </div>
-
-                    <div class="item">
-                      <div style="display: flex; justify-content: center">
-                        <img src="website/static/images/schola_proj_overview.png" style="max-height: 350px" />
-                      </div>
-                      <p class="subtitle is-6 has-text-centered">
-                        The number of words added and deleted, and total writing actions for each annotated project.
-                      </p>
-                    </div>
-                  </div>
-
-                </div>
-              </div>
-              <br>
               <li>
-                <p class="subtitle">
-                  During the planning stage, idea generation is the most frequent intention. Text production dominates the implementation stage, and clarity becomes the primary focus during the revision stage.
-                </p>
+                <p>Uncover patterns and gain insights into multi-author collaborative writing and human-AI collaborative writing.</p>
               </li>
-              <div class="hero-body">
-                <div class="container">
-
-                  <div id="carousel2" class="carousel results-carousel">
-                    <div class="item">
-                      <div style="display: flex; justify-content: center">
-                        <img src="website/static/images/schola_lab_dist.png" style="max-height: 350px" />
-                      </div>
-                      <p class="subtitle is-6 has-text-centered">
-                        Distrbution of writing intentions across time. X axis is the index of writing action normalized on (0,1). Y axis is the relative density of each writing intention. Writing intentions are sorted by their mean X value from top to bottom.
-                      </p>
-                    </div>
-
-                    <div class="item">
-                      <div style="display: flex; justify-content: center">
-                        <img src="website/static/images/schola_next_label.png" style="max-height: 350px" />
-                      </div>
-                      <p class="subtitle is-6 has-text-centered">
-                        Most likely next intention for each intention. Double sided arrows indicate a reflexive relationship: the label and subsequent label are each other's most likely next label.
-                      </p>
-                    </div>
-                  </div>
-                </div>
-              </div>
-
-              <br>
               <li>
-                <p class="subtitle">
-                  The model finetuned on our <i>ScholaWrite</i> dataset shows increased performance over comparable models on the next intention prediction task.
-                </p>
+                <p>Develop an assistant that can better understand human cognitive writing behavior and support cognitively-aware suggestions without disturbing their thinking process.</p>
               </li>
-              <div class="hero-body">
-                <div class="container">
-
-                  <div id="carousel2" class="carousel results-carousel">
-                    <div class="item">
-                      <div style="display: flex; justify-content: center">
-                        <img src="website/static/images/class.png" style="max-height: 350px" />
-                      </div>
-                      <p class="subtitle is-6 has-text-centered">
-                        <br>
-                        Weighted F1 scores on the intention prediction task. We observe performance improvement after fine-tuned with ScholaWrite dataset, specially BERT-based model.
-                      </p>
-                    </div>
-
-                    <div class="item">
-                      <div style="display: flex; justify-content: center">
-                        <img src="website/static/images/LTI.png" style="max-height: 350px" />
-                      </div>
-                      <p class="subtitle is-6 has-text-centered"> 
-                        <br>
-                        Metric scores of the final writing output from
-                        <span style="color:magenta;">LLama-8B-SW</span>, 
-                        <span style="color:teal;">LLama-8B-Instruct</span>, and 
-                        <span style="color:blue;">GPT-4o</span> after 100 iterations of the iterative self-writing experiment. 
-                        We observe that our <span style="color:magenta;">LLama-8B-SW</span> model presents the highest quality of the final output across most of the four seed documents.
-                      </p>
-                    </div>
-
-                    <div class="item">
-                      <div style="display: flex; justify-content: center">
-                        <img src="website/static/images/huamn_eval.png" style="max-height: 350px" />
-                      </div>
-                      <p class="subtitle is-6 has-text-centered">
-                        Despite the competitive metric scores of LLama-8B-SW, our model exhibit limitations when human actually reading the output. Mostly due to inconsistent with intention and grammar issues in output.
-                      </p>
-                    </div>
-
-                  </div>
-                </div>
-              </div>
-
             </ul>
+            <p>
+              If you would like to contribute your writing activities to the new dataset or want to join us to develop the ScholaWrite 2.0, don't hesitate to reach out!
+            </p>
           </div>
         </div>
       </section>
