@@ -201,11 +201,11 @@ Scholarly Manuscripts</title>
     </section>
     <!-- Research Contributions end -->
 
-    <!--- Dataset Start -->
+    <!--- Extension Start -->
     <section class="hero is-small">
       <div class="hero-body">
         <div class="columns is-centered has-text-centered;">
-          <h1 class="title is-3">Dataset Description</h1>
+          <h1 class="title is-3">Chrome Extention Tutorial</h1>
         </div>
 
         </div> 
@@ -215,59 +215,114 @@ Scholarly Manuscripts</title>
               <div class="item">
                 <br>
                 <div display="inline">
-                  <img src="website/static/images/schola_dataset.png" alt="prompting" width="900" display="inline"/>
+                  <iframe width="560" height="315" src="https://www.youtube-nocookie.com/embed/DzGutnERx_A?si=gXLvSUTIl4UkpfOZ" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
                 </div>
-
               </div>
+              <br>
               <div class="content has-text-justified">
-                <br>
-                <p>
+                <p>We designed and implemented a Chrome extension, which enables the real-time collection of keystroke trajectories in the Overleaf platform without disturb participants' writing process. You can browse the extension code through this <a href="https://github.com/minnesotanlp/scholawrite/tree/main/scholawrite_system/extension"><u><b>link</b></u></a>.</p>
+                <b>To install and run this extention please do the following:</b>
                 <ol>
-                  <li> 
-                    <b style="color: slateblue">Keystroke Collection Chrome Extension</b> 
-                    <p> 
-                      We created a Chrome extension for Overleaf for collecting multi-author keystroke data for multiple projects. (shown in Figure <b>[a]</b>):
-                      <br>
-                      <br>
-                      We designed and implemented a Chrome extension (Figure <b>[a]</b>), which enables the real-time collection of keystroke trajectories in the Overleaf platform. Participants can create their account credentials, and after logging into the system, the extension monitors the user's keystrokes in the background silently, without disrupting the typical writing process
-                    </p> 
-                  </li>
-                  <br>
-                  
                   <li>
-                    <b style="color: slateblue">Annotation Application Interface</b>
-                    <p>
-                      We developed a novel interface for the keystroke annotation process. The interface offers various modes for visualizing keystroke collections within each Overleaf project: by time, LaTeX file, and author (as shown in Figure <b>[b]</b> ): 
-                      <br>
-                      <br>
-In the right panel, annotators can right-click to navigate the timeline of collected keystrokes in different colors (e.g., red for deletions and green for additions). They then identify a range of keystrokes whose underlying purpose or goal is similar when making edits during the writing process (e.g., generating outlines or correcting grammatical errors). They can manually enter the beginning and ending indices and annotate the span by selecting a pre-defined label of the relevant intention from the dropdown menu in the left panel. Furthermore, the interface shows the metadata information of each keystroke, along with the selected label. 
-                    </li>
-                    <br>
-                    <li> 
-                      <b style="color: slateblue">Taxonomy</b> 
-                      <p>
-                        Our taxonomy (Table 1) builds on prior literature (Flower and Hayes, 1981; Du et al., 2022; Koo et al., 2023). 
-                        <br>
-                        <br>
-                        During the annotation process, we identified 15 types of scholarly writing intentions from five projects and further grouped them into three high-level categories according to Flower and Hayes (1981) - Planning, Implementation, and Revision. Please refer to Table 6 in Appendix D for the full description of the taxonomy.
-                      </p>
-                    </li>
-                    <br>
-                    <li>
-                    <b style="color: slateblue">Human Annotation</b>
-                    <p>
-                      The 5 projects in our dataset were annotated by experts in computer science or linguistscs with experience with writing research papers and <i>LaTex</i>.
-                    </p>
+                    <p>Start the backend by following procedure in <a href="https://github.com/minnesotanlp/scholawrite?tab=readme-ov-file#run-scholawrite-system"><u>Run ScholaWrite System</u></a> section, and setup URL in Chrome extension by completing step 1 in <a href="https://github.com/minnesotanlp/scholawrite/tree/main?tab=readme-ov-file#setup-the-extension"><u>Setup the Extention</u></a> section</p>
                   </li>
+
+                  <li>
+                    <p>The extension only works on Chrome. Open your browser & Search "chrome://extensions/"</u></p>
+                  </li>
+
+                  <li>
+                    <p>On the top right corner of the page, toggle on 'Developer Mode'.</p>
+                  </li>
+
+                  <li>
+                    <p>Click on 'Load unpacked' on the top left corner, and you should see a pop-up of the file
+                      directory.</p>
+                  </li>
+
+                  <li>
+                    <p>Click on the folder named 'extension' in the folder where you download/clone the repository. Then, click on the toggle on the right side, enabling the extension!</p>
+                  </li>
+
+                <li>
+                  <p>At the top right corner, click on the puzzle icon followed by the pin icon next to the extension. The “S” logo will be shown!</p>
+                </li>
+
+                <li>
+                  <p>Click on the 'S' icon to register your account. Register your username with your email address and password you would like.</p>
+                </li>
+
+                <li>
+                  <p>After successful registration, you will see a welcome message. Toggle on the "Record writer actions" button. Now The Chrome extension setup is complete. Enjoy your writing!</p>
+                </li>
                 </ol>
-                </p>
+
+                <p><b>Note:</b> The operating logic of our Chrome extension is through listening frontend elements. Due to update of HTML elements in Overleaf, our Chrome extension is no longer able to recording writer actions</p>
               </div>
+              <br>
             </div>
           </div>
         </div>
       </div>
     </section>
-    <!--- Dataset end -->
+   <!--- Extension End -->
+
+      <!--- Annotation Start -->
+      <section class="hero is-small">
+      <div class="hero-body">
+        <div class="columns is-centered has-text-centered;">
+          <h1 class="title is-3">Annotation Tool Tutorial</h1>
+        </div>
+
+        </div> 
+        <div class="container is-max-desktop">
+          <div class="columns is-centered has-text-centered">
+            <div class="column is-full">
+              <div class="item">
+                <br>
+                <div display="inline">
+                  <iframe width="560" height="315" src="https://www.youtube-nocookie.com/embed/DzGutnERx_A?si=gXLvSUTIl4UkpfOZ" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+                </div>
+              </div>
+              <br>
+              <div class="content has-text-justified">
+                <p>To make labeling process easy and smooth, we developed a novel web app to the replay collected keystroke data. The interface offers various modes for visualizing keystroke collections within each Overleaf project: by time, LaTeX file, and author. You can browse the code through this <a href="https://github.com/minnesotanlp/scholawrite/tree/main/scholawrite_system/annotation"><u><b>link</b></u></a>.</p>
+
+                <b>Step-by-step Annotation Procedures:</b>
+                <ol>
+
+                  <li>
+                    <p>Choose the title of the project that you would like to annotate, and <b>click the button </b>'<span style="color: red; font-weight: bold">Switch</span>'</p>
+                  </li>
+
+                  <li>
+                    <p>Click '<span style="color: red; font-weight: bold">By Time</span>' button on the interface and start reading keystrokes.</p>
+                  </li>
+
+                  <li>
+                    <p>Click through the first few actions and try to identify which high-level label is occurring (Planning, Implementation, or Revision).</p>
+                  </li>
+
+                  <li>
+                    <p>Once identified the current high-level label, attempt to identify where it ends.</p>
+                  </li>
+
+                  <li>
+                    <p>Once you know the <b>start and end indices</b> for the current high-level label,</p>
+                    <ol type="a">
+                      <li><span style="color:blue">Decide the low-level label </span>within the high-level label (e.g., Idea Generation, Text Production, Coherence, etc.)</li>
+                      <li>If a keystroke looks like <b>an artifact that does not deliver any insight</b>, then label it as an '<span style="color: red">artifact</span>'.</li>
+                      <li>If you think multiple labels can be applied to the identified span, please select multiple labels under the dropdown menu list.</li>
+                    </ol>
+                  </li>
+              </div>
+              <br>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+    <!--- Annotation End -->
 
     <!--- Iterative Writing Start -->
     <section class="hero is-small is-light">
