@@ -152,3 +152,8 @@ body {
   background-color: #f0f0f0; /* optional: set a background color for the padded area */
   display: block; /* prevent inline spacing issues */
 }
+
+/* .slider-item {
+  width: 448px;
+  flex: 0 0 auto;
+} */
