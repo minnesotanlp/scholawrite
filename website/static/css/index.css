@@ -153,7 +153,6 @@ body {
   display: block; /* prevent inline spacing issues */
 }
 
-/* .slider-item {
-  width: 448px;
-  flex: 0 0 auto;
-} */
+.demo{
+  box-shadow: 0px 0px 1rem rgba(0, 0, 0, 0.2);
+}
