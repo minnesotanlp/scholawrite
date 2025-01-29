@@ -27,7 +27,19 @@ $(document).ready(function() {
 	}
 
 	// Initialize all div with carousel class
-var carousels = bulmaCarousel.attach('#motivation', option2);
+	var carousels = bulmaCarousel.attach('#motivation', option2);
+
+	var option3 = {
+		slidesToScroll: 1,
+		slidesToShow: 3,
+		loop: true,
+		infinite: true,
+		autoplay: true,
+		autoplaySpeed: 9999999,
+	}
+
+	// Initialize all div with carousel class
+	var carousels = bulmaCarousel.attach('#dataset_replays', option3);
 
 	
     bulmaSlider.attach();
