@@ -117,7 +117,7 @@ Scholarly Manuscripts</title>
                       <span class="icon">
                         <i class="fa-solid fa-hexagon-nodes"></i>
                       </span>
-                      <span>Llama-8B-SW-Class</span>
+                      <span>Llama-8B-ScholaWrite-PRED</span>
                     </a>
                   </span>
                   <span class="link-block">
@@ -129,9 +129,11 @@ Scholarly Manuscripts</title>
                       <span class="icon">
                         <i class="fa-solid fa-hexagon-nodes"></i>
                       </span>
-                      <span>Llama-8B-SW-Write</span>
+                      <span>Llama-8B-ScholaWrite-GEN</span>
                     </a>
                   </span>
+
+                  <br>
                   <span class="link-block">
                     <a
                       href="https://huggingface.co/minnesotanlp/scholawrite-bert-classifier"
@@ -141,7 +143,7 @@ Scholarly Manuscripts</title>
                       <span class="icon">
                         <i class="fa-solid fa-hexagon-nodes"></i>
                       </span>
-                      <span>BERT-SW-Class</span>
+                      <span>BERT-ScholaWrite</span>
                     </a>
                   </span>
                   <span class="link-block">
@@ -153,7 +155,7 @@ Scholarly Manuscripts</title>
                       <span class="icon">
                         <i class="fa-solid fa-hexagon-nodes"></i>
                       </span>
-                      <span>RoBERTa-SW-Class</span>
+                      <span>RoBERTa-ScholaWrite</span>
                     </a>
                   </span>
                 </div>
@@ -174,17 +176,28 @@ Scholarly Manuscripts</title>
               <h2 class="title is-3">Research Contributions</h2>
               <div class="level-set has-text-justified">
 
-                <div class="container is-max-desktop">
-                  <div class="columns is-centered">
-                    <div class="column is-6" style="width: 100%; display: flex; justify-content: center;">
-                        <img
-                          src="website/static/images/main.png"
-                          width = "670"              
-                          class="center-image"
-                        />
+                <div class="container">
+                  <div id="motivation"  style="height:33rem" class="carousel results-carousel">
+                    <div class="item" style="height: 32rem; display: flex;">
+                      <img
+                        src="website/static/images/main.png"        
+                        class="center-image"
+                      />
+                      <video playsinline autoplay muted loop>
+                        <source src="website/static/dataset_videos/project1.mp4" type="video/mp4">
+                      Your browser does not support the video tag.
+                      </video>
+                    </div>
+
+                    <div class="item" style="justify-items: center;">
+                      <img src="website/static/images/schola_motivation.png" style="height: 28rem;" alt="MY ALT TEXT"/>
+                      <h2 class="subtitle has-text-centered">
+                        Second image description.
+                      </h2>
                     </div>
                   </div>
                 </div>
+
                 <ul>
                   <li> Scholarly writing is a non-linear and cognitively complex task that involves frequent switching between multiple activities, coordinating various pieces of multiform information, and revising previously written text. This approach contrasts with the token-by-token text generation of large language models (LLMs). Our goal is for the model to understand the cognitive processes involved in writing and apply them to text generation.</li>
                   <li>
@@ -203,8 +216,69 @@ Scholarly Manuscripts</title>
     </section>
     <!-- Research Contributions end -->
 
+        <!-- Dataset videos start -->
+        <section class="hero is-small">
+          <div class="hero-body">
+            <div class="columns is-centered has-text-centered;">
+              <h1 class="title is-3">Recorded Writings</h1>
+            </div>
+    
+            <div class="container">
+              <div id="dataset_replays" class="carousel results-carousel">
+                <div class="item">
+                  <video class="demo" playsinline autoplay muted loop>
+                    <source src="website/static/dataset_videos/project0.mp4" type="video/mp4">
+                    Your browser does not support the video tag.
+                  </video>
+                  <h2 class="subtitle has-text-centered">
+                    Project 1
+                  </h2>
+                </div>
+                <div class="item" >
+                  <video class="demo" playsinline autoplay muted loop>
+                    <source src="website/static/dataset_videos/project1.mp4" type="video/mp4">
+                    Your browser does not support the video tag.
+                  </video>
+                  <h2 class="subtitle has-text-centered">
+                    Project 2
+                  </h2>
+                </div>
+    
+                <div class="item">
+                  <video class="demo" playsinline autoplay muted loop>
+                    <source src="website/static/dataset_videos/project2.mp4" type="video/mp4">
+                    Your browser does not support the video tag.
+                  </video>
+                  <h2 class="subtitle has-text-centered">
+                    Project 3
+                  </h2>
+                </div>
+                <div class="item" >
+                  <video class="demo" playsinline autoplay muted loop>
+                    <source src="website/static/dataset_videos/project3.mp4" type="video/mp4">
+                    Your browser does not support the video tag.
+                  </video>
+                  <h2 class="subtitle has-text-centered">
+                    Project 4
+                  </h2>
+                </div>
+                <div class="item" >
+                  <video class="demo" playsinline autoplay muted loop>
+                    <source src="website/static/dataset_videos/project4.mp4" type="video/mp4">
+                    Your browser does not support the video tag.
+                  </video>
+                  <h2 class="subtitle has-text-centered">
+                    Project 5
+                  </h2>
+                </div>
+              </div>
+            </div>
+          </div>
+        </section>
+        <!-- Dataset videos end -->
+
     <!--- Extension Start -->
-    <section class="hero is-small">
+    <section class="hero is-small is-light">
       <div class="hero-body">
         <div class="columns is-centered has-text-centered;">
           <h1 class="title is-3">Chrome Extention Tutorial</h1>
@@ -273,7 +347,7 @@ Scholarly Manuscripts</title>
    <!--- Extension End -->
 
       <!--- Annotation Start -->
-      <section class="hero is-small is-light">
+      <section class="hero is-small">
       <div class="hero-body">
         <div class="columns is-centered has-text-centered;">
           <h1 class="title is-3">Annotation UI Tutorial</h1>
@@ -337,7 +411,7 @@ Scholarly Manuscripts</title>
     <!--- Annotation End -->
 
     <!-- Dataset Start -->
-    <section class="hero is-small ">
+    <section class="hero is-small is-light">
       <div class="hero-body">
         <div class="columns is-centered has-text-centered;">
           <h1 class="title is-3">Dataset</h1>
@@ -353,10 +427,10 @@ Scholarly Manuscripts</title>
                 <li>   <span class="json-key">project</span><span class="json-mark">: </span><span class="json-number">0</span><span class="json-mark">,</span></li>
                 <li>   <span class="json-key">timestamp</span><span class="json-mark">: </span><span class="json-number">1700506686410</span><span class="json-mark">,</span></li>
                 <li>   <span class="json-key">author</span><span class="json-mark">: </span><span class="json-number">0</span><span class="json-mark">,</span></li>
-                <li>   <span class="json-key">"before text"</span><span class="json-mark">: </span><span class="json-string" style="text-wrap-mode: wrap; display: inline-table; padding-right: 11rem">"%         Author 1 \\ {\bf Author 2} \\ ... \\ {\bf Author n} \\<br>% For authors from different institutions:<br>% author{anonymous}\\ Address line \\  ... \\ Address line<br>%         And  ... And<br>%         Author n \\ Address line \\ ... \\ Address line}<br>% To start a seperate `row'' of authors use AND, as in<br>% author{anonymous}\\ Address line \\  ... \\ Address line<br>%         AND<br>%         Author 2 \\ Address line \\ ... \\ Address line And<br>%         Author 3 \\ Address line \\ ... \\ Address line}<br><br>author{anonymous}\\<br>  Affiliation / Address line 1 \\<br>  Affiliation / Address line 2 \\<br>  Affiliation / Address line 3 \\<br>  \texttt{email@domain} \\And<br>  Second Author \\<br>  Affiliation / Address line 1 \\<br>  Affiliation / Address line 2 \\<br>  Affiliation / Address line 3 \\<br>  \texttt{email@domain} \\}<br><br>\begin{document}<br>maketitle<br>\begin{abstract}<br>Style is an important component of text that expresses a diverse set of information, including interpersonal dynamics (e.g. formality) and the author’s emotions or attitudes (e.g. disgust). Writers constantly incorporate style -- and oftentimes, multiple styles -- into their writing. In order for generative language models to be useful in a wide variety of situations, these models should also be able to control and weave together styles when generating text. Previous work investigates reinforcement learning (RL) approaches for controlled generation of a single style, or else controlled generation for multiple attributes. In this paper, we investigate expanding this into controlling for \textbf{multiple} styles simultaneously. Our baseline is a plug-and-play approach. Our results indicate that plug-and-play does not satisfactorily solve the multi-style controlled generation problem, and that a straightforward RL approach can achieve strong results. We also explore the trade-off between training time and accuracy between plug-and-play and fune-tuning approaches for SoTA models.<br>end{abstract}<br><br>section{Introduction}<br>Writers can apply styles to text to convey a variety of information citep{hovy1987generating,silverstein2003indexical,block2015social,kang2021style}.  Styles can convey both information about the writer (e.g. their attitudes or demographic traits) and the writer’s interpersonal relationship or goals with respect to the reader (e.g. respectful or threatening language). Following previous work, we consider each individual aspect of these stylistic goals – i.e. each unique attitude, demographic attribute, interpersonal relationship goal – to be an individual style.<br><br>Stylistic information is a common and crucial component of communication: in fact, a text’s style can convey a variety of information not included in the text's raw semantic content citep{hovy1995multifunctionality}. <br>Consequently, it is vital that large language models are well-equipped to understand and apply styles themselves. <br>Progress has been made in the domain of controlled generation, in which the goal is for a generative language model to generate text of a specified style."<span class="json-mark">,</span></span></li>
-                <li>   <span class="json-key">"after text"</span><span class="json-mark">: </span><span class="json-string" style="text-wrap-mode: wrap; display: inline-table; padding-right: 10.5rem">"%         Author 1 \\ {\bf Author 2} \\ ... \\ {\bf Author n} \\<br>% For authors from different institutions:<br>% author{anonymous}\\ Address line \\  ... \\ Address line<br>%         And  ... And<br>%         Author n \\ Address line \\ ... \\ Address line}<br>% To start a seperate ``row'' of authors use AND, as in<br>% author{anonymous}\\ Address line \\  ... \\ Address line<br>%         AND<br>%         Author 2 \\ Address line \\ ... \\ Address line And<br>%         Author 3 \\ Address line \\ ... \\ Address line}<br><br>author{anonymous}\\<br>  Affiliation / Address line 1 \\<br>  Affiliation / Address line 2 \\<br>  Affiliation / Address line 3 \\<br>  \texttt{email@domain} \\And<br>  Second Author \\<br>  Affiliation / Address line 1 \\<br>  Affiliation / Address line 2 \\<br>  Affiliation / Address line 3 \\<br>  \texttt{email@domain} \\}<br><br>\begin{document}<br>maketitle<br>\begin{abstract}<br>Style is an in component of text that expresses a diverse set of information, including interpersonal dynamics (e.g. formality) and the author’s emotions or attitudes (e.g. disgust). Writers constantly incorporate style -- and oftentimes, multiple styles -- into their writing. In order for generative language models to be useful in a wide variety of situations, these models should also be able to control and weave together styles when generating text. Previous work investigates reinforcement learning (RL) approaches for controlled generation of a single style, or else controlled generation for multiple attributes. In this paper, we investigate expanding this into controlling for \textbf{multiple} styles simultaneously. Our baseline is a plug-and-play approach. Our results indicate that plug-and-play does not satisfactorily solve the multi-style controlled generation problem, and that a straightforward RL approach can achieve strong results. We also explore the trade-off between training time and accuracy between plug-and-play and fune-tuning approaches for SoTA models.<br>end{abstract}<br><br>section{Introduction}<br>Writers can apply styles to text to convey a variety of information citep{hovy1987generating,silverstein2003indexical,block2015social,kang2021style}.  Styles can convey both information about the writer (e.g. their attitudes or demographic traits) and the writer’s interpersonal relationship or goals with respect to the reader (e.g. respectful or threatening language). Following previous work, we consider each individual aspect of these stylistic goals – i.e. each unique attitude, demographic attribute, interpersonal relationship goal – to be an individual style.<br><br>Stylistic information is a common and crucial component of communication: in fact, a text’s style can convey a variety of information not included in the text's raw semantic content citep{hovy1995multifunctionality}. <br>Consequently, it is vital that large language models are well-equipped to understand and apply styles themselves. <br>Progress has been made in the domain of controlled generation, in which the goal is for a generative language model to generate text of a specified style. "<span class="json-mark">,</span></span></li>
+                <li>   <span class="json-key">"before text"</span><span class="json-mark">: </span><span class="json-string" style="text-wrap-mode: wrap; display: inline-table; padding-right: 11rem; text-align: left;">"%         Author 1 \\ {\bf Author 2} \\ ... \\ {\bf Author n} \\<br>% For authors from different institutions:<br>% author{anonymous}\\ Address line \\  ... \\ Address line<br>%         And  ... And<br>%         Author n \\ Address line \\ ... \\ Address line}<br>% To start a seperate `row'' of authors use AND, as in<br>% author{anonymous}\\ Address line \\  ... \\ Address line<br>%         AND<br>%         Author 2 \\ Address line \\ ... \\ Address line And<br>%         Author 3 \\ Address line \\ ... \\ Address line}<br><br>author{anonymous}\\<br>  Affiliation / Address line 1 \\<br>  Affiliation / Address line 2 \\<br>  Affiliation / Address line 3 \\<br>  \texttt{email@domain} \\And<br>  Second Author \\<br>  Affiliation / Address line 1 \\<br>  Affiliation / Address line 2 \\<br>  Affiliation / Address line 3 \\<br>  \texttt{email@domain} \\}<br><br>\begin{document}<br>maketitle<br>\begin{abstract}<br>Style is an important component of text that expresses a diverse set of information, including interpersonal dynamics (e.g. formality) and the author’s emotions or attitudes (e.g. disgust). Writers constantly incorporate style -- and oftentimes, multiple styles -- into their writing. In order for generative language models to be useful in a wide variety of situations, these models should also be able to control and weave together styles when generating text. Previous work investigates reinforcement learning (RL) approaches for controlled generation of a single style, or else controlled generation for multiple attributes. In this paper, we investigate expanding this into controlling for \textbf{multiple} styles simultaneously. Our baseline is a plug-and-play approach. Our results indicate that plug-and-play does not satisfactorily solve the multi-style controlled generation problem, and that a straightforward RL approach can achieve strong results. We also explore the trade-off between training time and accuracy between plug-and-play and fune-tuning approaches for SoTA models.<br>end{abstract}<br><br>section{Introduction}<br>Writers can apply styles to text to convey a variety of information citep{hovy1987generating,silverstein2003indexical,block2015social,kang2021style}.  Styles can convey both information about the writer (e.g. their attitudes or demographic traits) and the writer’s interpersonal relationship or goals with respect to the reader (e.g. respectful or threatening language). Following previous work, we consider each individual aspect of these stylistic goals – i.e. each unique attitude, demographic attribute, interpersonal relationship goal – to be an individual style.<br><br>Stylistic information is a common and crucial component of communication: in fact, a text’s style can convey a variety of information not included in the text's raw semantic content citep{hovy1995multifunctionality}. <br>Consequently, it is vital that large language models are well-equipped to understand and apply styles themselves. <br>Progress has been made in the domain of controlled generation, in which the goal is for a generative language model to generate text of a specified style."<span class="json-mark">,</span></span></li>
+                <li>   <span class="json-key">"after text"</span><span class="json-mark">: </span><span class="json-string" style="text-wrap-mode: wrap; display: inline-table; padding-right: 10.5rem; text-align: left;">"%         Author 1 \\ {\bf Author 2} \\ ... \\ {\bf Author n} \\<br>% For authors from different institutions:<br>% author{anonymous}\\ Address line \\  ... \\ Address line<br>%         And  ... And<br>%         Author n \\ Address line \\ ... \\ Address line}<br>% To start a seperate ``row'' of authors use AND, as in<br>% author{anonymous}\\ Address line \\  ... \\ Address line<br>%         AND<br>%         Author 2 \\ Address line \\ ... \\ Address line And<br>%         Author 3 \\ Address line \\ ... \\ Address line}<br><br>author{anonymous}\\<br>  Affiliation / Address line 1 \\<br>  Affiliation / Address line 2 \\<br>  Affiliation / Address line 3 \\<br>  \texttt{email@domain} \\And<br>  Second Author \\<br>  Affiliation / Address line 1 \\<br>  Affiliation / Address line 2 \\<br>  Affiliation / Address line 3 \\<br>  \texttt{email@domain} \\}<br><br>\begin{document}<br>maketitle<br>\begin{abstract}<br>Style is an in component of text that expresses a diverse set of information, including interpersonal dynamics (e.g. formality) and the author’s emotions or attitudes (e.g. disgust). Writers constantly incorporate style -- and oftentimes, multiple styles -- into their writing. In order for generative language models to be useful in a wide variety of situations, these models should also be able to control and weave together styles when generating text. Previous work investigates reinforcement learning (RL) approaches for controlled generation of a single style, or else controlled generation for multiple attributes. In this paper, we investigate expanding this into controlling for \textbf{multiple} styles simultaneously. Our baseline is a plug-and-play approach. Our results indicate that plug-and-play does not satisfactorily solve the multi-style controlled generation problem, and that a straightforward RL approach can achieve strong results. We also explore the trade-off between training time and accuracy between plug-and-play and fune-tuning approaches for SoTA models.<br>end{abstract}<br><br>section{Introduction}<br>Writers can apply styles to text to convey a variety of information citep{hovy1987generating,silverstein2003indexical,block2015social,kang2021style}.  Styles can convey both information about the writer (e.g. their attitudes or demographic traits) and the writer’s interpersonal relationship or goals with respect to the reader (e.g. respectful or threatening language). Following previous work, we consider each individual aspect of these stylistic goals – i.e. each unique attitude, demographic attribute, interpersonal relationship goal – to be an individual style.<br><br>Stylistic information is a common and crucial component of communication: in fact, a text’s style can convey a variety of information not included in the text's raw semantic content citep{hovy1995multifunctionality}. <br>Consequently, it is vital that large language models are well-equipped to understand and apply styles themselves. <br>Progress has been made in the domain of controlled generation, in which the goal is for a generative language model to generate text of a specified style. "<span class="json-mark">,</span></span></li>
                 <li>   <span class="json-key">label</span><span class="json-mark">: </span><span class="json-string">"Linguistic Style"</span><span class="json-mark">,</span></li>
-                <li>   <span class="json-key">high_level</span><span class="json-mark">: </span><span class="json-string">"Revision"</span><span class="json-mark">,</span></li>
+                <li>   <span class="json-key">high_level</span><span class="json-mark">: </span><span class="json-string">"REVISION"</span><span class="json-mark">,</span></li>
                 <li><span class="json-mark">}</span></li>
              </ol></ol>
             </div>
@@ -367,7 +441,7 @@ Scholarly Manuscripts</title>
     <!--- Dataset end -->
 
     <!--- Iterative Writing Start -->
-    <section class="hero is-small is-light">
+    <section class="hero is-small">
       <div class="hero-body">
         <div class="columns is-centered has-text-centered;">
           <h1 class="title is-3">Iterative Writing</h1>
@@ -477,13 +551,83 @@ Scholarly Manuscripts</title>
     </section>
     <!--- Iterative writing end -->
 
-    <!--- Demo Start -->
+    <!-- Iterative writing GIF start -->
     <section class="hero is-small is-light">
       <div class="hero-body">
         <div class="columns is-centered has-text-centered;">
-          <h1 class="title is-3">Iterative Writing Demo</h1>
+          <h1 class="title is-3">Iterative Writing Replays</h1>
         </div>
 
+        <div class="container">
+          <div id="iterative_writing" class="carousel results-carousel">
+            <div class="item">
+              <img class="demo" src="website/static/iterative_writing_gif/llama8_SW_output-seed1.gif" alt="MY ALT TEXT"/>
+              <h2 class="subtitle has-text-centered">
+                llama-8b-SW in seed 1
+              </h2>
+            </div>
+            <div class="item" >
+              <img class="demo" src="website/static/iterative_writing_gif/llama8_meta_output-seed1.gif"  alt="MY ALT TEXT"/>
+              <h2 class="subtitle has-text-centered">
+                llama-8b-instruct in seed 1
+              </h2>
+            </div>
+            <div class="item" >
+              <img class="demo" src="website/static/iterative_writing_gif/gpt4o_output-seed1.gif"  alt="MY ALT TEXT"/>
+              <h2 class="subtitle has-text-centered">
+                GPT-4o in seed 1
+              </h2>
+            </div>
+
+            <div class="item">
+              <img class="demo" src="website/static/iterative_writing_gif/llama8_SW_output-seed2.gif" alt="MY ALT TEXT"/>
+              <h2 class="subtitle has-text-centered">
+                llama-8b-SW in seed 2
+              </h2>
+            </div>
+            <div class="item" >
+              <img class="demo" src="website/static/iterative_writing_gif/llama8_meta_output-seed2.gif"  alt="MY ALT TEXT"/>
+              <h2 class="subtitle has-text-centered">
+                llama-8b-instruct in seed 2
+              </h2>
+            </div>
+            <div class="item" >
+              <img class="demo" src="website/static/iterative_writing_gif/gpt4o_output-seed2.gif"  alt="MY ALT TEXT"/>
+              <h2 class="subtitle has-text-centered">
+                GPT-4o in seed 2
+              </h2>
+            </div>
+
+            <div class="item">
+              <img class="demo" src="website/static/iterative_writing_gif/llama8_SW_output-seed3.gif" alt="MY ALT TEXT"/>
+              <h2 class="subtitle has-text-centered">
+                llama-8b-SW in seed 3
+              </h2>
+            </div>
+            <div class="item" >
+              <img class="demo" src="website/static/iterative_writing_gif/llama8_meta_output-seed3.gif"  alt="MY ALT TEXT"/>
+              <h2 class="subtitle has-text-centered">
+                llama-8b-instruct in seed 3
+              </h2>
+            </div>
+            <div class="item" >
+              <img class="demo" src="website/static/iterative_writing_gif/gpt4o_output-seed3.gif"  alt="MY ALT TEXT"/>
+              <h2 class="subtitle has-text-centered">
+                GPT-4o in seed 3
+              </h2>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+    <!-- Iterative writing GIF end -->
+
+    <!--- Demo Start -->
+    <section class="hero is-small">
+      <div class="hero-body">
+        <div class="columns is-centered has-text-centered;">
+          <h1 class="title is-3">Visualization Tool</h1>
+        </div>
       </div> 
         <div class="container is-max-desktop">
           <div class="columns is-centered has-text-centered">
@@ -499,7 +643,7 @@ Scholarly Manuscripts</title>
               </div>
 
               <div class="content has-text-justified">
-                <p>We vsialized the self-iterative writing output of Llama-8B-SW and Llama-8B-Instruct on all four seeds. It is the slight modification of web page used for human evaluation in paper. The red and strikethrough represent deletion, while green represent addition. You can access our demo page through this <a href="/scholawrite/model_outputs/seed1.html"><b>link</b></a>.</p>
+                <p>We vsialized the self-iterative writing output of Llama-8B-SW and Llama-8B-Instruct on all four seeds. It is the slight modification of web page used for human evaluation in paper, which includes model names and backword navigation button. The red and strikethrough represent deletion, while green represent addition. You can access our demo page through this <a href="/scholawrite/model_outputs/seed1.html" style="color: #3273dc; text-decoration: underline;"><b>link</b></a>.</p>
                 <b>Here is the tutorial:</b>
                 <ol>
                   <li>
@@ -532,7 +676,7 @@ Scholarly Manuscripts</title>
 
     <!-- Takeaway start -->
     <span id="takeaway">
-      <section class="section hero is-small">
+      <section class="section hero is-small is-light">
         <div class="container is-max-desktop">
           <div class="content">
             <h2 class="title is-3 has-text-centered">Call for participation</h2>
