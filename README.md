@@ -5,7 +5,7 @@ Writing is a cognitively active task involving continuous decision-making, heavy
 Scholarly writing is particularly complex as it requires authors to coordinate many pieces of multiform knowledge while meeting high academic standards.
 To understand writers' cognitive thinking process, one should fully decode the *end-to-end writing data* (from scratch to final manuscript) and understand their complex cognitive mechanisms in scientific writing.
 We introduce <span style="font-variant: small-caps;">ScholaWrite</span> dataset, the first-of-its-kind keystroke logs of an end-to-end scholarly writing process, with thorough annotations of cognitive writing intentions behind each keystroke. 
-Our dataset includes $\LaTeX$-based keystroke data from five preprints with nearly 63K total text changes and annotations across 4 months of paper writing.
+Our dataset includes $\LaTeX$-based keystroke data from five preprints with nearly 62K total text changes and annotations across 4 months of paper writing.
 Our dataset shows promising usability and applications for the future development of AI writing assistants for the research environment, which necessitate complex methods beyond LLM prompting, and supports the cognitive thinking process of scientists.
 
 
