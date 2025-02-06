@@ -141,7 +141,7 @@ body {
   display: flex;
   justify-content: space-between;
   /* Optional: Add some padding or border to ensure they don't stick together */
-  gap: 50px; /* gap property can be used to provide spacing between flex children */
+  /* gap: 50px; gap property can be used to provide spacing between flex children */
 }
 
 .image-container img {
@@ -155,4 +155,22 @@ body {
 
 .demo{
   box-shadow: 0px 0px 1rem rgba(0, 0, 0, 0.2);
+}
+
+.json-container{
+  text-align: justify;
+  height: 25rem;
+  overflow-y: scroll;
+  overflow-x: scroll;
+  box-shadow: 0 0 0.6rem rgba(0, 0, 0, 0.4);
+  border-radius: 0.5rem;
+  width: 90%;
+}
+
+.json-string{
+  width: min-content;
+}
+
+.json-lines{
+  width: min-content;
 }
