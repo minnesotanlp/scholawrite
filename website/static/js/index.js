@@ -22,7 +22,7 @@ $(document).ready(function() {
 	const nonMobileContent = `
 <div class="item">
 	<img src="website/static/images/main.png" alt="MY ALT TEXT" style="width: 58%"/>
-	<video playsinline autoplay muted loop style="width: 42%">
+	<video playsinline autoplay muted loop style="width: 42%; padding-left:1%">
 		<source src="website/static/dataset_videos/project1.mp4" type="video/mp4">
 	</video>
 </div>
