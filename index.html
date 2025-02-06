@@ -206,7 +206,7 @@
         <div class="columns is-centered has-text-centered">
           <div class="column is-full">
             <div class="content">
-              <h2 class="title is-3">Research Contributions</h2>
+              <h2 class="title is-3">A Summary of Contributions</h2>
               <div class="level-set has-text-justified">
 
                 <div class="container">
@@ -253,7 +253,7 @@
         <section class="section hero is-small is-light">
           <div class="hero-body">
             <div class="columns is-centered has-text-centered;">
-              <h1 class="title is-3">Recorded Writings</h1>
+              <h1 class="title is-3">Recorded Writing Process Data from ScholaWrite</h1>
             </div>
     
             <div class="container">
@@ -447,13 +447,20 @@
     <section class="section hero is-small">
       <div class="hero-body">
         <div class="columns is-centered has-text-centered;">
-          <h1 class="title is-3" style="margin-bottom: 1.5rem">Dataset</h1>
+          <h1 class="title is-3" style="margin-bottom: 1.5rem">ScholaWrite Dataset</h1>
         </div>
 
       </div> 
         <div class="container is-max-desktop">
           <div class="columns is-centered has-text-centered">
             <div class="column is-full">
+
+              <div class="content has-text-justified">
+                <p>
+                  Below is a data entry of one keystroke data in scholawrite. You can find the full dataset in the 
+                  <a href="https://huggingface.co/datasets/minnesotanlp/scholawrite" target="_blank" style="text-decoration: underline;">Huggingface data card</a>
+                </p>
+              </div>
 
               <ol id="account" class="json-container" style="text-align: justify; height: 25rem; overflow-y: scroll; overflow-x: hidden; box-shadow: 0 0 0.6rem rgba(0, 0, 0, 0.4); border-radius: 0.5rem;"><ol class="json-lines">
                 <li><span class="json-mark">{</span></li>
@@ -477,7 +484,7 @@
     <section class="section hero is-small is-light">
       <div class="hero-body">
         <div class="columns is-centered has-text-centered;">
-          <h1 class="title is-3">Iterative Writing</h1>
+          <h1 class="title is-3">Iterative Self-Writing</h1>
         </div>
 
         </div> 
@@ -520,7 +527,7 @@
                   <li>
                     <b style="color: slateblue">Iterative Writing</b>
                     <p>
-                      The finetuned models were compared with GPT-4o on our novel iterative-writing setup shown in figure <b>[c]</b>.
+                      The finetuned models were compared with GPT-4o and Llama3.1 8B on our novel iterative-writing setup shown in figure <b>[c]</b>.
                       <br>
                       <br>
                       The goal of this setup is to understand the aptitude of our finetuned writing assistants on a self-writing application. We started our iterative writing with our finetuned models and GPT-4o with a seed text consisting of an abstract, title, and introduction paragraph from computer science reserach papers. We ran the iterative writing for 100 iterations.
@@ -707,107 +714,107 @@
     </section>
     <!--- Demo end -->
 
-        <!-- Writing Example Start-->
-        <section class="hero is-small">
-          <div class="hero-body">
-            <div class="columns is-centered has-text-centered;">
-              <h1 class="title is-3">Sample Writing Trajectories</h1>
+    <!-- Writing Example Start-->
+    <section class="section hero is-small">
+      <div class="hero-body">
+        <div class="columns is-centered has-text-centered;">
+          <h1 class="title is-3">Sample Writing Trajectories</h1>
+        </div>
+
+        <div class="container">
+          <div id="dataset_replays" class="carousel results-carousel">
+            <div class="item" >
+              <img class="demo" src="website/static/writing_trajectory_gif/Idea Generation_25.gif" alt="MY ALT TEXT"/>
+              <h2 class="subtitle has-text-centered">
+                Idea Generation
+              </h2>
             </div>
-    
-            <div class="container">
-              <div id="dataset_replays" class="carousel results-carousel">
-                <div class="item" >
-                  <img class="demo" src="website/static/writing_trajectory_gif/Idea Generation_25.gif" alt="MY ALT TEXT"/>
-                  <h2 class="subtitle has-text-centered">
-                    Idea Generation
-                  </h2>
-                </div>
-                <div class="item" >
-                  <img class="demo" src="website/static/writing_trajectory_gif/Section Planning_55.gif" alt="MY ALT TEXT"/>
-                  <h2 class="subtitle has-text-centered">
-                    Section Planning
-                  </h2>
-                </div>
-    
-                <div class="item" >
-                  <img class="demo" src="website/static/writing_trajectory_gif/Text Production_66.gif" alt="MY ALT TEXT"/>
-                  <h2 class="subtitle has-text-centered">
-                    Text Production
-                  </h2>
-                </div>
-                <div class="item" >
-                  <img class="demo" src="website/static/writing_trajectory_gif/Object Insertion_45.gif" alt="MY ALT TEXT"/>
-                  <h2 class="subtitle has-text-centered">
-                    Object Insertion
-                  </h2>
-                </div>
-                <div class="item" >
-                  <img class="demo" src="website/static/writing_trajectory_gif/Macro Insertion_40.gif" alt="MY ALT TEXT"/>
-                  <h2 class="subtitle has-text-centered">
-                    Macro Insertion
-                  </h2>
-                </div>
-    
-                <div class="item" >
-                  <img class="demo" src="website/static/writing_trajectory_gif/Clarity_6.gif" alt="MY ALT TEXT"/>
-                  <h2 class="subtitle has-text-centered">
-                    Clarity
-                  </h2>
-                </div>
-                <div class="item" >
-                  <img class="demo" src="website/static/writing_trajectory_gif/Coherence_10.gif" alt="MY ALT TEXT"/>
-                  <h2 class="subtitle has-text-centered">
-                    Coherence
-                  </h2>
-                </div>
-                <div class="item" >
-                  <img class="demo" src="website/static/writing_trajectory_gif/Cross-reference_16.gif" alt="MY ALT TEXT"/>
-                  <h2 class="subtitle has-text-centered">
-                    Cross-reference
-                  </h2>
-                </div>
-                <div class="item" >
-                  <img class="demo" src="website/static/writing_trajectory_gif/Fluency_20.gif" alt="MY ALT TEXT"/>
-                  <h2 class="subtitle has-text-centered">
-                    Fluency
-                  </h2>
-                </div>
-                <div class="item" >
-                  <img class="demo" src="website/static/writing_trajectory_gif/Linguistic Style_36.gif" alt="MY ALT TEXT"/>
-                  <h2 class="subtitle has-text-centered">
-                    Linguistic Style
-                  </h2>
-                </div>
-                <div class="item" >
-                  <img class="demo" src="website/static/writing_trajectory_gif/Scientific Accuracy_50.gif" alt="MY ALT TEXT"/>
-                  <h2 class="subtitle has-text-centered">
-                    Scientific Accuracy
-                  </h2>
-                </div>
-                <div class="item" >
-                  <img class="demo" src="website/static/writing_trajectory_gif/Structural_63.gif" alt="MY ALT TEXT"/>
-                  <h2 class="subtitle has-text-centered">
-                    Structural Revision
-                  </h2>
-                </div>
-                <div class="item" >
-                  <img class="demo" src="website/static/writing_trajectory_gif/Visual Formatting_70.gif" alt="MY ALT TEXT"/>
-                  <h2 class="subtitle has-text-centered">
-                    Visual Formatting
-                  </h2>
-                </div>
-                <div class="item">
-                  <img class="demo" src="website/static/writing_trajectory_gif/Citation Integration_0.gif" alt="MY ALT TEXT"/>
-                  <h2 class="subtitle has-text-centered">
-                    Citation Integration
-                  </h2>
-                </div>
-    
-              </div>
+            <div class="item" >
+              <img class="demo" src="website/static/writing_trajectory_gif/Section Planning_55.gif" alt="MY ALT TEXT"/>
+              <h2 class="subtitle has-text-centered">
+                Section Planning
+              </h2>
             </div>
+
+            <div class="item" >
+              <img class="demo" src="website/static/writing_trajectory_gif/Text Production_66.gif" alt="MY ALT TEXT"/>
+              <h2 class="subtitle has-text-centered">
+                Text Production
+              </h2>
+            </div>
+            <div class="item" >
+              <img class="demo" src="website/static/writing_trajectory_gif/Object Insertion_45.gif" alt="MY ALT TEXT"/>
+              <h2 class="subtitle has-text-centered">
+                Object Insertion
+              </h2>
+            </div>
+            <div class="item" >
+              <img class="demo" src="website/static/writing_trajectory_gif/Macro Insertion_40.gif" alt="MY ALT TEXT"/>
+              <h2 class="subtitle has-text-centered">
+                Macro Insertion
+              </h2>
+            </div>
+
+            <div class="item" >
+              <img class="demo" src="website/static/writing_trajectory_gif/Clarity_6.gif" alt="MY ALT TEXT"/>
+              <h2 class="subtitle has-text-centered">
+                Clarity
+              </h2>
+            </div>
+            <div class="item" >
+              <img class="demo" src="website/static/writing_trajectory_gif/Coherence_10.gif" alt="MY ALT TEXT"/>
+              <h2 class="subtitle has-text-centered">
+                Coherence
+              </h2>
+            </div>
+            <div class="item" >
+              <img class="demo" src="website/static/writing_trajectory_gif/Cross-reference_16.gif" alt="MY ALT TEXT"/>
+              <h2 class="subtitle has-text-centered">
+                Cross-reference
+              </h2>
+            </div>
+            <div class="item" >
+              <img class="demo" src="website/static/writing_trajectory_gif/Fluency_20.gif" alt="MY ALT TEXT"/>
+              <h2 class="subtitle has-text-centered">
+                Fluency
+              </h2>
+            </div>
+            <div class="item" >
+              <img class="demo" src="website/static/writing_trajectory_gif/Linguistic Style_36.gif" alt="MY ALT TEXT"/>
+              <h2 class="subtitle has-text-centered">
+                Linguistic Style
+              </h2>
+            </div>
+            <div class="item" >
+              <img class="demo" src="website/static/writing_trajectory_gif/Scientific Accuracy_50.gif" alt="MY ALT TEXT"/>
+              <h2 class="subtitle has-text-centered">
+                Scientific Accuracy
+              </h2>
+            </div>
+            <div class="item" >
+              <img class="demo" src="website/static/writing_trajectory_gif/Structural_63.gif" alt="MY ALT TEXT"/>
+              <h2 class="subtitle has-text-centered">
+                Structural Revision
+              </h2>
+            </div>
+            <div class="item" >
+              <img class="demo" src="website/static/writing_trajectory_gif/Visual Formatting_70.gif" alt="MY ALT TEXT"/>
+              <h2 class="subtitle has-text-centered">
+                Visual Formatting
+              </h2>
+            </div>
+            <div class="item">
+              <img class="demo" src="website/static/writing_trajectory_gif/Citation Integration_0.gif" alt="MY ALT TEXT"/>
+              <h2 class="subtitle has-text-centered">
+                Citation Integration
+              </h2>
+            </div>
+
           </div>
-        </section>
-        <!-- Writing Example end -->
+        </div>
+      </div>
+    </section>
+    <!-- Writing Example end -->
 
     <!-- Takeaway start -->
     <span id="takeaway">
@@ -830,7 +837,7 @@
               </li>
             </ul>
             <p>
-              If you would like to contribute your writing activities to the new dataset or want to join us to develop the ScholaWrite 2.0, don't hesitate to reach out! Please fill out this <a href="https://docs.google.com/forms/d/e/1FAIpQLSdJZAY_VeNYkOYXs8fngw8Fl-gB83YKkMJ_GyajdlmXKMnDkg/viewform?usp=header" style="color: blue; text-decoration: underline;">form</a> and we will be reach out to you shortly.
+              If you would like to contribute your writing activities to the new dataset or want to join us to develop the ScholaWrite 2.0, don't hesitate to reach out! Please fill out this <a target="_blank" href="https://docs.google.com/forms/d/e/1FAIpQLSdJZAY_VeNYkOYXs8fngw8Fl-gB83YKkMJ_GyajdlmXKMnDkg/viewform?usp=header" style="color: blue; text-decoration: underline;">form</a> and we will be reach out to you shortly.
             </p>
           </div>
         </div>
@@ -839,7 +846,7 @@
     <!-- Takeaway end -->
 
     <!-- Footer start -->
-    <footer class="footer">
+    <footer class="section">
       <div class="container">
         <div class="columns is-centered">
           <div class="column is-8">
@@ -858,6 +865,7 @@
                 > project page.
               </p>
             </div>
+            <i class="fa-regular fa-copyright"></i> 2021-2025 Minnesota NLP. All Rights Reserved
           </div>
         </div>
       </div>
