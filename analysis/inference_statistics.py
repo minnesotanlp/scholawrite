@@ -1,9 +1,9 @@
 import os
 import pandas as pd
 
-#output_dir = "/home/linghe/llama3_meta_output"
-#output_dir = "/home/linghe/gpt4o_output"
-output_dir = "/home/linghe/llama8_SW_output"
+output_dir = "../outputs/llama8_meta_output"
+# output_dir = "../outputs/gpt4o_output"
+# output_dir = "../outputs/llama8_SW_output"
 
 seeds = ["seed1", "seed2", "seed3", "seed4"]
 
@@ -23,7 +23,7 @@ for seed in seeds:
   
   df = pd.DataFrame(predicted_labels)
   print(len(df[0].unique()))
-  print(df[0].value_counts())
+  # print(df[0].value_counts())
 
 
 

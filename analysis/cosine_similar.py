@@ -38,9 +38,9 @@ def get_similar_llama(text1, text2, model, tokenizer):
 
 def main():
     model, tokenizer = load_llama()
-    seed_path = "/workspace/scholawrite/seeds"
-    output_abs_path = "/workspace/"
-    outputs = ["llama3_meta_output", "llama8_meta_output", "llama8_SW_output", "gpt4o_output"]
+    seed_path = "../seeds"
+    output_abs_path = "../outputs"
+    outputs = ["llama8_meta_output", "llama8_SW_output", "gpt4o_output"]
     all_seeds = ["seed1", "seed2", "seed3", "seed4"]
     all_output = {}
 
