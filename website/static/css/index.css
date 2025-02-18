@@ -1,0 +1,176 @@
+body {
+  font-family: 'Noto Sans', sans-serif;
+}
+
+
+.footer .icon-link {
+    font-size: 25px;
+    color: #000;
+}
+
+.link-block a {
+    margin-top: 5px;
+    margin-bottom: 5px;
+}
+
+.dnerf {
+  font-variant: small-caps;
+}
+
+
+.teaser{
+  padding-top: 0;
+  padding-bottom: 3rem;
+}
+
+.hero-body {
+  padding: 3rem 1.5rem 1.5rem 1.5rem
+}
+
+.teaser {
+  font-family: 'Google Sans', sans-serif;
+}
+
+
+.publication-title {
+}
+
+.publication-banner {
+  max-height: parent;
+
+}
+
+.publication-banner video {
+  position: relative;
+  left: auto;
+  top: auto;
+  transform: none;
+  object-fit: fit;
+}
+
+.publication-header .hero-body {
+}
+
+.publication-title {
+    font-family: 'Google Sans', sans-serif;
+}
+
+.publication-authors {
+    font-family: 'Google Sans', sans-serif;
+}
+
+.publication-venue {
+    color: #555;
+    width: fit-content;
+    font-weight: bold;
+}
+
+.publication-awards {
+    color: #ff3860;
+    width: fit-content;
+    font-weight: bolder;
+}
+
+.publication-authors {
+}
+
+.publication-authors a {
+   color: hsl(204, 86%, 53%) !important;
+}
+
+.publication-authors a:hover {
+    text-decoration: underline;
+}
+
+.author-block {
+  display: inline-block;
+}
+
+.publication-banner img {
+}
+
+.publication-authors {
+  /*color: #4286f4;*/
+}
+
+.publication-video {
+    position: relative;
+    width: 100%;
+    height: 0;
+    padding-bottom: 56.25%;
+
+    overflow: hidden;
+    border-radius: 10px !important;
+}
+
+.publication-video iframe {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+}
+
+.publication-body img {
+}
+
+.results-carousel {
+  overflow: hidden;
+}
+
+.results-carousel .item {
+  margin: 5px;
+  overflow: hidden;
+  padding: 20px;
+  font-size: 0;
+}
+
+.results-carousel video {
+  margin: 0;
+}
+
+.slider-pagination .slider-page {
+  background: #000000;
+}
+
+.eql-cntrb { 
+  font-size: smaller;
+}
+
+.image-container {
+  display: flex;
+  justify-content: space-between;
+  /* Optional: Add some padding or border to ensure they don't stick together */
+  /* gap: 50px; gap property can be used to provide spacing between flex children */
+}
+
+.image-container img {
+  /* This ensures that each image takes up half the container's width minus the gap, and auto resizes */
+  width: calc(50% - 5px); /* each image takes half the container width minus the gap */
+  height: 200px; /* set a consistent height for all images */
+  object-fit: contain; /* scale the image while keeping its aspect ratio, adding padding if needed */
+  background-color: #f0f0f0; /* optional: set a background color for the padded area */
+  display: block; /* prevent inline spacing issues */
+}
+
+.demo{
+  box-shadow: 0px 0px 1rem rgba(0, 0, 0, 0.2);
+}
+
+.json-container{
+  text-align: justify;
+  height: 25rem;
+  overflow-y: scroll;
+  overflow-x: scroll;
+  box-shadow: 0 0 0.6rem rgba(0, 0, 0, 0.4);
+  border-radius: 0.5rem;
+  width: 90%;
+}
+
+.json-string{
+  width: min-content;
+}
+
+.json-lines{
+  width: min-content;
+}
