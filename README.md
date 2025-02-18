@@ -261,6 +261,9 @@ Navigate to the appropriate folder inside the Docker container.
     3. True label is in the column 'label' and predicted label is in the column 'predicted_label'
 
 ---
+## Code Contributors
+[Linghe Wang](https://github.com/Linghe-Wang), [Ross Volkov](https://github.com/rvolkov1), [Minhwa Lee](https://github.com/mimn97)
+
 ## BibTex
 ```
 @misc{wang2025scholawritedatasetendtoendscholarly,
