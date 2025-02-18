@@ -1,0 +1,24 @@
+<same>\documentclass{article}
+\usepackage{graphicx} % required for inserting images
+
+\title{Unknown/unfamiliar situations: Instructions}
+\title{Instruction </same><del>Experiments}
+</del><add>Experiments}
+</add><same>\title{Unknown/unfamiliar situations: Simulations}
+
+\begin{document}
+\maketitle
+\begin{abstract}
+Our paper 
+\title{Unknown/unfamiliar situations: Instructions}
+\author{anonymous}
+\title{Unknown/unfamiliar situations: Simulations}
+
+\begin{document}
+\maketitle
+\begin{abstract}
+Unknown/unfamiliar situations: Instructions
+\end{abstract}
+
+\end{document}
+</same>

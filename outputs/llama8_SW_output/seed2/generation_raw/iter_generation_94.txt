@@ -1,0 +1,40 @@
+<same>\documentclass{article}
+\usepackage{graphicx} % required for including images
+
+\title{Read, Revise, Repeat: A Systematic Evaluation of Human-AI Collaborative Text Composition}
+\author{
+\small anonymous$^\spadesuit$\thanks{Core Contributor $^\spadesuit$}}\thanks{Core Contributor $^\spadesuit$} 
+\small anonymous$^*$\thanks{Core Contributor $^\spadesuit$}
+\small anonymous$^*$\thanks{Core Contributor $^\spadesuit$}
+\small anonymous$^*$\thanks{Core Contributor $^\spadesuit$}
+\small anonymous$^*$\thanks{Core Contributor $^\spadesuit$}
+\small anonymous$^*$\thanks{Core Contributor $^\spadesuit$}
+\small anonymous$^*$\thanks{Core Contributor $^\spadesuit$}
+
+\begin{document}
+\maketitle
+\begin{abstract}
+We present an analysis of AI-assisted scholarly writing generated with \system, a custom tool designed for organizing literature and composing Related Work sections for academic papers. Our evaluation method focuses on the analysis of citation graphs in order to assess the structural complexity and inter-connectedness of citations in texts, and involves a three-way comparison between original human-written texts, purely GPT-generated texts, and human-AI collaborative texts. We find that GPT-4 is able to generate reasonable coarse-grained citation groupings to support human users in brainstorming, but fails to perform detailed synthesis of related works without human intervention. We suggest that future writing assistant tools should not be used to draft text independently of the human author, but rather should be used to improve the flow of information, offering outputs that can be easily integrated into the existing document. 
+
+\end{abstract}
+
+\input{Sections/1_introduction}
+
+\input{Sections/2_related_work}
+
+\input{Sections/3_method}
+
+\input{Sections/4_results}
+
+\input{Sections/5_conclusion}
+
+\section*{Acknowledgements}
+
+\bibliography{anthology,custom}
+
+\appendix
+
+</same><del>\input{Sections/6_appendices}
+</del><add>\input{Sections/6_appendices}
+</add><same>\end{document}
+</same>

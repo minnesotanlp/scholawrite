@@ -1,0 +1,106 @@
+
+version: '3'
+
+services:
+  scholawrite:
+    build:
+      context: .
+      dockerfile: Dockerfile.scholawrite
+    depends_on:
+      - mongo
+    volumes:
+      - /home/user/google_OAuth2/sheet_credentials.json:/usr/local/src/scholawrite/flaskapp/sheet_credentials.json
+      - /home/user/google_OAuth2/token.json:/usr/local/src/scholawrite/flaskapp/token.json
+    ports:
+      - "5000:5000"
+    environment:
+      FLASK_APP: App.py
+      MONGO_HOST: mongo
+      OPENAI_API_KEY: ${OPENAI_API_KEY}
+    networks:
+      - scholawrite_network
+
+  ngrok_schola:
+    build:
+      context: .
+      dockerfile: Dockerfile.ngrok
+    depends_on:
+      - scholawrite
+    networks:
+      - scholawrite_network
+    # You need to have your own ngrok_admin.yml to host your web publicly
+    volumes:
+      - ./ngrok_schola.yml:/root/.ngrok2/ngrok.yml
+    ports:
+      - "4041:4040"
+    command: ["ngrok", "http", "scholawrite:5000", "--host-header=scholawrite:5000", "--domain=scholawrite.ngrok.app", "--log=stdout", "--log-level=debug"]
+
+  admin_page:
+    build:
+      context: .
+      dockerfile: Dockerfile.admin_page
+    environment:
+      FLASK_APP: admin.py
+      MONGO_HOST: mongo
+    networks:
+      - scholawrite_network
+    ports:
+      - "5200:5200"
+
+  ngrok_admin:   
+    build:
+      context: .
+      dockerfile: Dockerfile.ngrok
+    depends_on:
+      - admin_page
+    # You need to have your own ngrok_admin.yml to host your web publicly
+    volumes:
+      - ./ngrok_admin.yml:/root/.ngrok2/ngrok.yml
+    networks:
+      - scholawrite_network
+    ports:
+      - "4040:4040"
+    command: ["ngrok", "http", "admin_page:5200", "--host-header=admin_page:5200", "--domain=dominant-publicly-urchin.ngrok-free.app", "--log=stdout", "--log-level=debug"]
+
+  annotation:
+    build:
+      context: .
+      dockerfile: Dockerfile.annotation
+    environment:
+      FLASK_APP: annotation.py
+      MONGO_HOST: mongo
+    networks:
+      - scholawrite_network
+    ports:
+      - "5100:5100"
+
+  ngrok_annotation:   
+    build:
+      context: .
+      dockerfile: Dockerfile.ngrok
+    depends_on:
+      - annotation
+    # You need to have your own ngrok_annotation.yml to host your web publicly
+    volumes:
+      - ./ngrok_annotation.yml:/root/.ngrok2/ngrok.yml
+    networks:
+      - scholawrite_network
+    ports:
+      - "4043:4040"
+    command: ["ngrok", "http", "annotation:5100", "--host-header=annotation:5100", "--domain=skink-sure-properly.ngrok-free.app", "--log=stdout", "--log-level=debug"]
+  
+  mongo:
+    image: "mongo:latest"
+    ports:
+      - "5001:27017"
+    volumes:
+      - mongodbdata:/data/db
+    networks:
+      - scholawrite_network
+
+networks:
+  scholawrite_network:
+    driver: bridge
+
+volumes:
+  mongodbdata:

@@ -1,0 +1,12 @@
+\documentclass{article}
+\usepackage{graphicx} % required for inserting images
+
+\title{How LLMs relate to Human Reasoning and Training on Reasoning: A qualitative analysis of LLM task labels unearths evidence of GPT-3's reasoning process}
+\title{Preliminary Analyses on task labels}
+\author{Raghu, J. and Wang, C. and Liao, X. and Xue, F. \anonymous{anonymous: add coauthors}
+
+
+
+\end{abstract}
+
+\end{document}

@@ -1,0 +1,18 @@
+<same>\documentclass{article}
+\usepackage{graphicx} % required for inserting images
+
+\title{How LLMs relate to Human Reasoning and </same><add>Scholarly </add><same>
+\\Rethinking Persuption to Challenge AI Safety by Humanizing LLMs}
+\author{
+\cite{li2023synthetic}
+\end{document}
+\maketitle
+\begin{abstract}
+Most traditional AI safety research has approach AI models as machines and centered on algorithm-focused 
+attacks developed by prominators. As \textit{large language models} (LLMs) become increasingly common and capable, this non-anodotist review 
+
+
+\end{abstract}
+
+\end{document}
+</same>

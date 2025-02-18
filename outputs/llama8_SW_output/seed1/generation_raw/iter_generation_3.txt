@@ -1,0 +1,21 @@
+<same>\documentclass{article}
+\usepackage{graphicx} % required for inserting images
+
+\title{How </same><del>LLMsThey </del><add>LLMs They </add><same>perceive 
+\\Rethinking Persuption to Challenge AI Safety by Humanizing LLMs}
+\author{}
+\date{}
+
+\begin{document}
+\maketitle
+\begin{abstract}
+Most traditional AI safety research has approached AI models as machines and centered on algorithm-focused 
+attacks developed by pr experts. As \textit{large language models} (LLMs) become increasingly common and capable, this non-expert users can also pose risks during everyday interactions. This paper introduces a new perspective on L  
+explore this overlooked interaction between everyday language and AI safety. Specifically, we study how to implement LLMs to be them. 
+First, we propose a \textit{pr lexicality scorereresulting from a analysis of sentence-level structure. Then we apply the \textit{lexi t computed </same><add>lexical </add><same>results </same><del></del><same>to </same><del>j</del><same>ail </same><add></add><same>breaking LLMs. 
+</same><del>htrains a sincreases the \textit{intra-model performance across all risk categories: PAP and attacks ealgorithm-based attacks. 
+e explore various ncans against PAP, find a significant gap in existing empirical adise and e.
+\end{abstract}
+
+\end{document}
+</same>

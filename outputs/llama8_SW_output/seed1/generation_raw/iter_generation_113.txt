@@ -1,0 +1,17 @@
+<same>\documentclass{article}
+\usepackage{graphicx} % required for inserting images
+
+\title{How LLMs relate to Human Reasoning and Training on Reasoning: A qualitative analysis of LLM task labels unearths evidence of GPT-3's reasoning process}
+</same><del>\title{Preliminary Analyses on task labels}
+</del><add>\title{Preliminaryanalyses on task labels}
+</add><same>\author{Raghu, J. and Wang, C. and Liao, X. and Xue, F. \anonymous{anonymous: add coauthors}}
+
+\begin{document}
+\maketitle
+\begin{abstract}
+\anonymous{todo}Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+\end{abstract}
+
+
+\end{document}
+</same>

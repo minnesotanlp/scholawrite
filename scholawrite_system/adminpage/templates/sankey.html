@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Sankey Diagram</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/sankey.css') }}">
+    <script
+        src="https://code.jquery.com/jquery-3.7.1.slim.min.js"
+        integrity="sha256-kmHvs0B+OpCW5GVHUNjv9rOmY0IvSIRcf7zGUDTDQM8="
+        crossorigin="anonymous">
+    </script>
+    <script src="https://cdn.plot.ly/plotly-2.32.0.min.js" charset="utf-8"></script>
+    <script src="{{ url_for('static', filename='js/sankey.js') }}"></script>
+    <script type="text/javascript">
+        var graphJSON = {{ graphJSON|safe }};
+    </script>
+</head>
+<body>
+    <div id="sankey_section">
+        <a href="/main">Go Back</a>
+        <select name="projectId" id="title">
+            <option selected disabled>Please select a project</option>
+            {% for pid in all_pids %}
+                    {% if pid == project_id %}
+                        <option value="{{ pid }}" selected>{{ all_pids[pid] }}</option>
+                    {% else %}
+                        <option value="{{ pid }}" >{{ all_pids[pid] }}</option>
+                    {% endif %}
+            {% endfor %}
+        </select>
+        <div id="sankey-plot"></div>
+    </div>
+   <div id="label_selection">
+        <fieldset>
+            <legend>Hidden Links:</legend>
+            <div>
+                <input type="checkbox" id="show_hidden_links" name="show_hidden_links" value="show_hidden_links" checked>
+                <label for="show_hidden_links">Show hidden links</label>
+            </div>
+        </fieldset>
+        <fieldset>
+            <legend>Choose labels to hide:</legend>
+            {% for index, label in all_labels %}
+                <div>
+                    <input type="checkbox" class="labels" name="{{ label }}" value="{{ index }}">
+                    <label for="{{ label }}"> {{ label }}</label>
+                </div>
+            {% endfor %} 
+        </fieldset>
+        <button id="update">Update</button>
+    </div>
+</body>
+</html>

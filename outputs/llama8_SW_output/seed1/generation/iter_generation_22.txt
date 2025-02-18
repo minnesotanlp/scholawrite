@@ -1,0 +1,16 @@
+\documentclass{article}
+\usepackage{graphicx} % required for inserting images
+
+\title{How LLMs relate to Human Reasoning and Scholarly Reasoning: A qualitative analysis of LLM task labels unearths evidence of GPT-3's reasoning process}
+\\Rethinking Persuption to Challenge AI Safety by Humanizing LLMs}
+\author{
+\cite{li2023synthetic}
+\end{document}
+\maketitle
+\begin{abstract}
+Most traditional AI safety research has approach AI models as machines and centered on algorithmic prominators. As \textit{large language models} (LLMs) become increasingly common and capable, this non-anodotist's review 
+
+
+\end{abstract}
+
+\end{document}

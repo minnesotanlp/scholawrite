@@ -1,0 +1,23 @@
+\documentclass{article}
+\usepackage{graphicx} % required for inserting images
+
+\title{How LLMs They: 
+\\Rethinking Persuption to Challenge AI Safety by Humanizing LLMs}
+\author{}
+\date{}
+
+\begin{document}
+\maketitle
+\begin{abstract}
+Most traditional AI safety research has approached AI models as machines and centered on algorithm-focused 
+attacks developed by pr experts. As \textit{large language models} (LLMs) become increasingly common and capable, this non-expert users can also pose risks during everyday interactions. This paper introduces a new perspective on L  
+explore this overlooked interaction between everyday language and AI safety. Specifically, we study how to e LLMs to b them. 
+First, we propose a \textit{pr lexicality resulting from cads es. Then we apply the \textit{lexi to automatically generate 
+e jailbreak LLMs. 
+h persuiveness significantly increases the \textit{i performance across all risk categories: PAP h attacks e rate of over $92\%$ on Llama 2-7b Chat, GPT-3.5, and GPT-4 in $10$ r 
+algorithm-based attacks. 
+e explore various ncans against PAP, find a significant gap in existing empirical advise d 
+e.
+\end{abstract}
+
+\end{document}

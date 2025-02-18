@@ -1,0 +1,7 @@
+pymongo==4.10.1
+flask==3.0.3
+rich==13.9.2
+pylatexenc==2.10
+python-dateutil==2.9.0.post0
+diff_match_patch==20230430
+plotly==5.22.0

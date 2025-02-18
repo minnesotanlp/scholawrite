@@ -1,0 +1,129 @@
+\documentclass{article}
+\usepackage{graphicx}
+\usepackage{amsmath}
+\usepackage{booktabs}
+\usepackage{footnote}
+\usepackage{hyperref}
+
+\title{Semisupervised Neural Proto-Language Reconstruction}
+\author{}
+\date{}
+
+\begin{document}
+\maketitle
+
+\begin{abstract}
+Existing work implementing comparative reconstruction of ancestral languages, known as proto-languages, has typically relied on full supervision \cite{bouchardcote2013automated}. However, for historical reconstruction models to be practically viable, it is essential that they can be trained with only a limited amount of labeled data. We propose a semisupervised historical reconstruction task in which the model is trained using a small subset of labeled data—specifically, cognate sets paired with proto-forms—and a substantial amount of unlabeled data, consisting of cognate sets lacking proto-forms. In our approach, we introduce a neural architecture for comparative reconstruction, referred to as the DPD-BiReconstructor \cite{list2019beyond}. This approach is grounded in a fundamental insight from the linguists' comparative method: namely, that reconstructed words should not only originate from their descendant forms but must also be deterministically transformable into these offspring forms \cite{campbell2013historical}. Exploring this insight, we demonstrate that this architecture is capable of effectively utilizing unlabeled cognate sets to outperform strong semisupervised baselines in this innovative task, suggesting promising directions for further research in proto-language reconstruction, as discussed in Section \ref{sec:discussion}.
+\end{abstract}
+
+\section{Introduction}
+\label{sec:introduction}
+The reconstruction of proto-languages is a longstanding objective in historical linguistics, one that has seen substantial advances through computational methods \cite{bakker2006introduction}. As shown in Figure \ref{fig:method_comparison}, traditional approaches, however, have required exhaustive manual effort, assuming full supervised data which is often not feasible for many language families \cite{campbell2013historical}. Our work departs from this tradition by introducing a semisupervised framework that leverages both labeled and unlabeled data, thereby mitigating the data scarcity issue \cite{zhang2019bridging}. This framework is further elaborated in Section \ref{sec:methodology}.
+
+\begin{figure}[h]
+    \centering
+    \includegraphics[width=0.8\textwidth]{method_comparison.png}
+    \caption{A comparison of traditional fully supervised approaches with the proposed semisupervised framework.}
+    \label{fig:method_comparison}
+\end{figure}
+
+\section{Related Work}
+\label{sec:related_work}
+The task of proto-language reconstruction has been explored using various methodologies, ranging from rule-based algorithms to recent advances utilizing neural network architectures \cite{bouchardcote2013automated}. Table \ref{tab:related_methods} provides a comparison of these methodologies. These methods have predominantly focused on fully supervised learning paradigms \cite{list2020automatic}. Our work, detailed in Section \ref{sec:experiments}, extends these efforts by integrating semisupervised learning, an underexplored area in this context \cite{kingma2014semi}.
+
+\begin{table}[h]
+    \centering
+    \begin{tabular}{lll}
+        \toprule
+        Method & Supervision Requirement & Key Advantage \\
+        \midrule
+        Rule-based & High & Interpretability \\
+        Neural Networks & High & Scalability \\
+        \textbf{Semisupervised (ours)} & \textbf{Low} & \textbf{Data Efficiency} \\
+        \bottomrule
+    \end{tabular}
+    \caption{Comparison of methodologies for proto-language reconstruction.}
+    \label{tab:related_methods}
+\end{table}
+
+\section{Methodology}
+\label{sec:methodology}
+
+\subsection{Task Definition}
+\label{subsec:task_definition}
+In the semisupervised reconstruction task, we define our objective to reconstruct proto-forms using a partial set of labeled cognate pairs and a more extensive unlabeled corpus. The labeled dataset comprises cognate pairings with known proto-language counterparts, drawing from existing linguistic databases \cite{list2019beyond}. Equation \ref{eq:objective} represents our reconstruction objective mathematically.
+
+\begin{equation}
+    P(\text{Proto-Form} \mid \text{Labeled Cognates}) \cdot P(\text{Proto-Form} \mid \text{Unlabeled Cognates})
+    \label{eq:objective}
+\end{equation}
+
+Our method capitalizes on this sparse labeling to predict the probable proto-form for the unlabeled cognates, as further detailed in Model Architecture in Section \ref{subsec:model_architecture}.
+
+\subsection{Model Architecture}
+\label{subsec:model_architecture}
+The DPD-BiReconstructor model employs a bi-directional recurrent architecture, inspired by sequence-to-sequence models in neural machine translation \cite{sutskever2014sequence}. As illustrated in Figure \ref{fig:model_architecture}, this architecture is particularly suited for tasks involving historical linguistics, as it naturally accommodates the transformation constraints envisioned by the comparative linguistic method \cite{campbell2013historical}. This accommodation is vital for achieving results like those discussed in Section \ref{subsec:results}.
+
+\begin{figure}[h]
+    \centering
+    \includegraphics[width=0.7\textwidth]{model_architecture.png}
+    \caption{The architecture of the DPD-BiReconstructor model.}
+    \label{fig:model_architecture}
+\end{figure}
+
+\section{Experiments}
+\label{sec:experiments}
+
+\subsection{Data}
+\label{subsec:data}
+Our experiments utilize datasets curated from publicly available linguistic resources, ensuring a representative sample spanning multiple language families \cite{bakker2006introduction}. Table \ref{tab:dataset_split} shows the dataset split into training and testing subsets, with labeled data accounting for a small proportion to reflect realistic scenarios of data availability. The implications of this data distribution on our results are discussed in Section \ref{subsec:results}.
+
+\begin{table}[h]
+    \centering
+    \begin{tabular}{lcc}
+        \toprule
+        Dataset Split & Labeled & Unlabeled \\
+        \midrule
+        Training & 10\% & 90\% \\
+        Testing & 30\% & 70\% \\
+        \bottomrule
+    \end{tabular}
+    \caption{Dataset composition used in experiments.}
+    \label{tab:dataset_split}
+\end{table}
+
+\subsection{Training Setup}
+\label{subsec:training_setup}
+The training regimen for the DPD-BiReconstructor incorporates cross-entropy loss for labeled data and incorporates unlabeled data via a consistency regularization technique \cite{laine2016temporal}. Equation \ref{eq:loss_function} details our combined loss function. We optimize our model parameters using the Adam optimizer \cite{kingma2014adam}, leveraging batch normalization to stabilize learning across varying data distributions \cite{ioffe2015batch}. The effectiveness of this setup is reflected in the accuracy improvements shown in Section \ref{subsec:results}.
+
+\begin{equation}
+    \text{Loss} = \text{Cross-Entropy} + \lambda \cdot \text{Consistency Regularization}
+    \label{eq:loss_function}
+\end{equation}
+
+\subsection{Results}
+\label{subsec:results}
+Our findings, summarized in Figure \ref{fig:accuracy_comparison}, demonstrate a competitive edge of the DPD-BiReconstructor over traditional fully supervised models in semisupervised settings, achieving notable improvements in predictive accuracy \cite{zhang2019bridging}. These results underscore the potential of semisupervised techniques to advance the field of proto-language reconstruction, a theme that we further explore in the Discussion section (\ref{sec:discussion}).
+
+\begin{figure}[h]
+    \centering
+    \includegraphics[width=0.6\textwidth]{accuracy_comparison.png}
+    \caption{Predictive accuracy comparison between traditional supervised and our semisupervised approach.}
+    \label{fig:accuracy_comparison}
+\end{figure}
+
+\section{Discussion}
+\label{sec:discussion}
+The insights gleaned from our model underscore the compatibility between neural architectures and linguistic theory, reinforcing the need for hybrid approaches that capitalize on both empirical data and theoretical frameworks \cite{campbell2013historical}. Future work will extend our methodology to larger linguistic corpora and explore domain adaptation techniques to enhance model generality \cite{ramponi2020neural}, as initially articulated in Section \ref{sec:introduction}.
+
+\section{Conclusion}
+\label{sec:conclusion}
+Our research introduces a novel semisupervised approach to the reconstruction of proto-languages, utilizing a neural architecture that aligns with linguistic principles to exploit both labeled and unlabeled data effectively. This framework paves the way for scalable and efficient historical linguistic analysis, laying the groundwork for future investigations into under-resourced language families \cite{bakker2006introduction}.
+
+\section*{Acknowledgments}
+We acknowledge support from linguistic data providers and computational resources enabling this research.
+
+\bibliographystyle{plain}
+\bibliography{references}
+
+\end{document}

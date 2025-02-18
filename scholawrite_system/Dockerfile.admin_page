@@ -1,0 +1,34 @@
+FROM ubuntu:20.04
+
+ARG DEBIAN_FRONTEND=noninteractive
+ARG FLASK_APP=main.py
+
+RUN apt-get update -y --fix-missing
+RUN apt-get install -y python3-pip python3-dev curl nano systemctl \
+    && cd /usr/local/bin \
+    && ln -s /usr/bin/python3 python
+
+RUN apt-get install -y git meson ninja-build pkg-config
+
+WORKDIR /app 
+
+RUN git clone -b 2024 https://github.com/jlaurens/synctex.git
+
+WORKDIR /app/synctex
+
+RUN meson setup build && cd build && ninja && ninja install && cd
+
+WORKDIR /
+
+RUN mkdir -p /usr/local/src/admin_page
+COPY ./adminpage /usr/local/src/admin_page
+
+WORKDIR /usr/local/src/admin_page
+
+RUN pip install --upgrade pip setuptools wheel
+
+RUN pip install --no-cache-dir -r requirements.txt
+
+RUN apt-get update -y
+
+CMD ["flask", "run", "--host=0.0.0.0", "--port=5200"]

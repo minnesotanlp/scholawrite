@@ -1,0 +1,30 @@
+body {
+    display: flex;
+}
+
+#sankey_section {
+    width: 80%;
+    height: 100vh;
+}
+
+#title {
+    width: 60%;
+    height: 1.5rem
+}
+
+#sankey-plot {
+    width: 100%;
+    height: 100vh;
+}
+
+#label_selection {
+    width: 20%;
+    display: flex;
+    gap: 1vh;
+    flex-direction: column;
+}
+
+#update {
+    height: 3vh;
+}
+

@@ -1,0 +1,23 @@
+<same>\documentclass{article}
+\usepackage{graphicx} % required for inserting images
+
+\title{How </same><del>LLMs They: 
+</del><add>LLMsThey Perceive 
+</add><same>\\Rethinking Persuption to Challenge AI Safety by Humanizing LLMs}
+\author{}
+\date{}
+
+\begin{document}
+\maketitle
+\begin{abstract}
+Most traditional AI safety research has approached AI models as machines and centered on algorithm-focused 
+attacks developed by pr experts. As \textit{large language models} (LLMs) become increasingly common and capable, this non-expert users can also pose risks during everyday interactions. This paper introduces a new perspective on L  
+explore this overlooked interaction between everyday language and AI safety. Specifically, we study how to </same><del>e </del><add>implement </add><same>LLMs to </same><del>b </del><add>be </add><same>them. 
+First, we propose a \textit{pr lexicality </same><add>score</add><same>resulting from </same><del>cads es. </del><add>a analysis of sentence-level structure. </add><same>Then we apply the \textit{lexi </same><del>to </del><add>t</add><same>automatic </same><del>e</del><same> </same><add></add><same>jailbreaking LLMs. 
+h</same><del>rt</del><same>trains </same><del>significant </del><add>a s</add><same>increases the </same><del>\textit{i </del><add>\textit{intra-model </add><same>performance across all risk categories: PAP </same><del>h </del><add>and </add><same>attacks e</same><del>rate of over $92\%$ on Llama 2-7b Chat, GPT-3.5, and GPT-4 in $10$ r </same><add>o.</add><same>
+</same><del></del><same>algorithm-based attacks. 
+e explore various ncans against PAP, find a significant gap in existing empirical </same><del>advise d </del><add>adise and </add><same>e.
+\end{abstract}
+
+\end{document}
+</same>

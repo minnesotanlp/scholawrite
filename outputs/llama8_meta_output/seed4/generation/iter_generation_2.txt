@@ -1,0 +1,58 @@
+\documentclass{article}
+\usepackage{graphicx} % Required for inserting images
+
+\title{Latxa: An Open Language Model and Evaluation Suite for Basque}
+\author{%
+  \textbf{Author Name} \\
+  \textit{Institution Name} \\
+  \textit{Address} \\
+  \textit{Email Address} \\
+  \textit{URL}
+}
+\date{%
+  \textit{2023}
+}
+
+\begin{document}
+\maketitle
+\begin{abstract}
+We introduce Latxa, a family of large language models for Basque, ranging from 7 to 70 billion parameters.
+Latxa is based on Llama-2, which we continue pretraining on a new Basque corpus comprising 4.3M documents and 4.2B tokens. Addressing the scarcity of high-quality benchmarks for Basque, we further introduce four multiple choice evaluation datasets: EusProficiency, comprising 5,169 questions from official language proficiency exams; EusReading, comprising 352 reading comprehension questions; EusTrivia, comprising 1,715 trivia questions from five knowledge areas; and EusExams, comprising 16,774 questions from public examinations. In our extensive evaluation, Latxa outperforms all previous open models we compare to by a large margin, achieving a 14.1\% absolute improvement over the previous best model. In addition, it is competitive with GPT-4 Turbo in language proficiency and understanding, despite lagging behind in reading comprehension and knowledge-intensive tasks by 5.5\% and 7.5\%, respectively. Both the Latxa family of models, as well as our new pretraining corpora and evaluation datasets, are publicly available under open licenses. Our suite enables reproducible research on methods to build LLMs for low-resource languages.
+\end{abstract}
+
+\section{Introduction}
+\label{sec:intro}
+Latxa is an open language model and evaluation suite designed for the Basque language. In this work, we present a family of large language models, ranging from 7 to 70 billion parameters, and four multiple choice evaluation datasets. These resources aim to address the scarcity of high-quality benchmarks and large-scale models for the Basque language, which is a low-resource language with approximately 600,000 native speakers.
+
+\section{The Latxa Model}
+\label{sec:model}
+Latxa is based on Llama-2, which we continue pretraining on a new Basque corpus comprising 4.3M documents and 4.2B tokens. This corpus is a significant expansion of the existing Basque corpus, providing a more comprehensive and diverse set of texts for the model to learn from. The pretraining process involves a self-supervised learning approach, where the model is trained to predict the next token in a sequence.
+
+\subsection{Pretraining Corpus}
+The new Basque corpus used for pretraining Latxa consists of 4.3M documents and 4.2B tokens. This corpus is a combination of various sources, including books, articles, and websites, and is designed to provide a representative sample of the Basque language. The corpus is further processed to remove noisy and irrelevant texts, resulting in a cleaned dataset of 3.9M documents and 3.8B tokens.
+
+\section{Evaluation Datasets}
+\label{sec:datasets}
+We introduce four multiple choice evaluation datasets: EusProficiency, EusReading, EusTrivia, and EusExams. These datasets are designed to assess the model's language proficiency, reading comprehension, and knowledge in various areas.
+
+\subsection{EusProficiency Dataset}
+The EusProficiency dataset comprises 5,169 questions from official language proficiency exams. This dataset is designed to evaluate the model's language proficiency and ability to understand complex linguistic structures. The questions cover a range of topics, including grammar, vocabulary, and reading comprehension.
+
+\subsection{EusReading Dataset}
+The EusReading dataset comprises 352 reading comprehension questions. This dataset is designed to evaluate the model's ability to understand and interpret text-based information. The questions are based on a variety of texts, including articles, essays, and fiction.
+
+\subsection{EusTrivia Dataset}
+The EusTrivia dataset comprises 1,715 trivia questions from five knowledge areas. This dataset is designed to evaluate the model's knowledge in various areas and its ability to reason and make connections. The questions cover a range of topics, including history, science, and culture.
+
+\subsection{EusExams Dataset}
+The EusExams dataset comprises 16,774 questions from public examinations. This dataset is designed to evaluate the model's ability to understand and answer questions on a wide range of topics. The questions are based on a variety of subjects, including mathematics, literature, and social sciences.
+
+\section{Evaluation Results}
+\label{sec:results}
+In our extensive evaluation, Latxa outperforms all previous open models we compare to by a large margin, achieving a 14.1\% absolute improvement over the previous best model. Notably, the improvement is observed in tasks such as language translation, question answering, and text summarization. In addition, it is competitive with GPT-4 Turbo in language proficiency and understanding, despite lagging behind in reading comprehension and knowledge-intensive tasks by 5.5\% and 7.5\%, respectively. We attribute this improvement to the larger pretraining corpus and more comprehensive evaluation datasets.
+
+\section{Conclusion}
+\label{sec:conclusion}
+Both the Latxa family of models, as well as our new pretraining corpora and evaluation datasets, are publicly available under open licenses. Our suite enables reproducible research on methods to build LLMs for low-resource languages, and we hope that it will contribute to the development of more effective language models for the Basque language and other low-resource languages. Future work will focus on fine-tuning the Latxa models for specific tasks and domains, and exploring the use of transfer learning and multi-task learning to improve model performance.
+
+\end{document}

@@ -1,0 +1,13 @@
+services:
+  scholawrite_eval:
+    build: .
+    image: scholawrite_eval:latest
+    container_name: scholawrite_eval
+
+    volumes:
+      - ../:/workspace
+
+    ipc: host
+    network_mode: host
+
+    tty: true

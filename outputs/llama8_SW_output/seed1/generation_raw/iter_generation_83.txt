@@ -1,0 +1,18 @@
+<same>\documentclass{article}
+\usepackage{graphicx} % required for inserting images
+
+\title{How LLMs relate to Human Reasoning and Training on Reasoning: A qualitative analysis of LLM task labels unearths evidence of GPT-3's reasoning process}
+</same><del>\title{Preliminaryanalyses </del><add>\title{Preliminary Analyses </add><same>analyses on synthetic task labels}
+\author{Raghu, J. and Wang, C. }
+
+\end{document}
+\maketitle
+\begin{abstract}
+Our study explores how LLM-generated task annotations might exacerbate issues in downstream training data. LLMs, when tasked with generating labels for controversial content, tend to show a higher level of consensus with the ground truth label than humans. This could result in a skewing of the data distribution, especially in subjective tasks. We also find that for highly subjective tasks, the ChatGPT model exhibits less variation in its responses to subjective tasks than humans, which might indicate an oversimplification of these tasks or high predictive confidence. 
+
+
+
+\end{abstract}
+
+\end{document}
+</same>

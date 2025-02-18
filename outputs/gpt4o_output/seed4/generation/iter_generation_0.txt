@@ -1,0 +1,15 @@
+\documentclass{article}
+\usepackage{graphicx}
+
+\title{Latxa: An Open Language Model and Evaluation Suite for Basque}
+\author{}
+\date{}
+
+\begin{document}
+\maketitle
+
+\begin{abstract}
+We introduce Latxa, a family of large-scale language models tailored for the Basque language, with sizes ranging from 7 to 70 billion parameters. Built upon the Llama 2 framework, we enhance these models by continuing pretraining on an expansive Basque corpus, consisting of 4.3 million documents and totaling 4.2 billion tokens. To tackle the lack of high-quality benchmarks designed for Basque, we present four multiple-choice evaluation datasets: EusProficiency, which includes 5,169 questions from official language competency exams; EusReading, featuring 352 reading comprehension questions; EusTrivia, containing 1,715 trivia questions across five knowledge domains; and EusExams, with 16,774 questions from public examinations. Our comprehensive evaluation demonstrates that Latxa surpasses all existing open models referenced, with substantial performance margins. Furthermore, Latxa shows competitive proficiency and language understanding when compared to GPT-4 Turbo, although it still falls short in reading comprehension and tasks requiring extensive knowledge. The Latxa model series, along with the newly developed pretraining datasets and evaluation benchmarks, are available to the public under open licenses. This initiative facilitates reproducible research and fosters the development of LLM methodologies for languages with limited resources. 
+\end{abstract}
+
+\end{document}

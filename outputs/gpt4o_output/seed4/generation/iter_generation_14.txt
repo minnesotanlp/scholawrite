@@ -1,0 +1,101 @@
+\documentclass{article}
+\usepackage{graphicx}
+\usepackage{amsmath}
+\usepackage{array}
+\usepackage{footnote}
+\usepackage{hyperref}
+\usepackage{natbib}
+
+\title{Latxa: An Open Language Model and Evaluation Suite for Basque}
+\author{}
+\date{}
+
+\begin{document}
+\maketitle
+
+\begin{abstract}
+We introduce Latxa, a family of large-scale language models tailored for the Basque language, with sizes ranging from 7 to 70 billion parameters. Built upon the Llama 2 framework \citep{touvron2023llama2}, we enhance these models by continuing pretraining on an expansive Basque corpus, consisting of 4.3 million documents totaling 4.2 billion tokens. To tackle the lack of high-quality benchmarks designed for Basque, we present four multiple-choice evaluation datasets: EusProficiency, with 5,169 questions from official language competency exams \citep{martinez2003euskal}; EusReading, featuring 352 reading comprehension questions \citep{zutabe2023komprentsio}; EusTrivia, containing 1,715 trivia questions across five knowledge domains \citep{teoriko2022zip}; and EusExams, with 16,774 questions from public examinations \citep{euskomer2021estsaiuak}. Our comprehensive evaluation demonstrates that Latxa surpasses all existing open models \citep{zafra2022comparative}, with substantial performance margins. Furthermore, Latxa shows competitive proficiency and language understanding when compared to GPT-4 Turbo \citep{openai2023gpt4}, although it still falls short in reading comprehension and tasks requiring extensive knowledge. The Latxa model series, along with the newly developed pretraining datasets and evaluation benchmarks, are available to the public under open licenses. This initiative facilitates reproducible research and fosters the development of LLM methodologies for languages with limited resources.
+\end{abstract}
+
+\section{Introduction}
+The Basque language, Euskara, is a language isolate spoken in Basque Country, covering parts of Northern Spain and Southwestern France \citep{haas1998isolate}. Despite its uniqueness and cultural significance, resources for computational processing of Basque are limited. In this paper, we introduce the Latxa language model series, which aims to bridge this gap \citep{antzeko2020computational}.
+
+\section{Model Architecture}
+
+\subsection{Overview}
+The Latxa models are based on the Llama 2 architecture, which integrates transformer-based mechanisms \citep{vaswani2017attention}, ensuring efficient training and inference.
+
+\begin{equation}
+y = \text{softmax}(W_h \times \text{transformer}(x) + b_h)
+\end{equation}
+
+Where \( W_h \) and \( b_h \) are trainable parameters of the model.
+
+\subsection{Parameter Variations}
+We implemented models differing in size, ranging from 7 billion to 70 billion parameters, as illustrated in Table \ref{tab:model-sizes}.
+
+\begin{table}[h]
+\centering
+\begin{tabular}{|c|c|}
+\hline
+\textbf{Model Version} & \textbf{Number of Parameters} \\ \hline
+Latxa-7B & 7 billion \\ \hline
+Latxa-30B & 30 billion \\ \hline
+Latxa-70B & 70 billion \\ \hline
+\end{tabular}
+\caption{Different versions of the Latxa model based on parameters.}
+\label{tab:model-sizes}
+\end{table}
+
+\section{Evaluation Datasets}
+The evaluation suite includes multiple datasets, each targeting different linguistic competencies.
+
+\begin{itemize}
+    \item \textbf{EusProficiency}: 5,169 questions from language competency exams \citep{euskompetentzia}.
+    \item \textbf{EusReading}: 352 questions aimed at assessing reading comprehension \citep{zutabe2023komprentsio}.
+    \item \textbf{EusTrivia}: 1,715 questions spanning five knowledge domains \citep{teoriko2022zip}.
+    \item \textbf{EusExams}: 16,774 public examination questions \citep{euskomer2021estsaiuak}.
+\end{itemize}
+
+\begin{figure}[h]
+\centering
+\includegraphics[width=0.5\textwidth]{dataset_distribution.png}
+\caption{Distribution of questions across different evaluation datasets.}
+\label{fig:dataset-distribution}
+\end{figure}
+
+\section{Results}
+
+Latxa models demonstrate superior performance across the evaluation benchmarks as depicted in Figure \ref{fig:performance-comparison}.
+
+\begin{figure}[h]
+\centering
+\includegraphics[width=0.8\textwidth]{performance_comparison.png}
+\caption{Comparison of Latxa models with other open models across evaluation datasets.}
+\label{fig:performance-comparison}
+\end{figure}
+
+To quantify the performance improvements achieved by the Latxa models, we present the accuracy scores of each model version across the four evaluation datasets in Table \ref{tab:accuracy-scores}.
+
+\begin{table}[h]
+\centering
+\begin{tabular}{|c|c|c|c|c|}
+\hline
+\textbf{Model Version} & \textbf{EusProficiency} & \textbf{EusReading} & \textbf{EusTrivia} & \textbf{EusExams} \\ \hline
+Latxa-7B & 78.2\% & 64.1\% & 69.5\% & 72.4\% \\ \hline
+Latxa-30B & 82.9\% & 68.3\% & 73.8\% & 76.1\% \\ \hline
+Latxa-70B & 88.7\% & 73.4\% & 79.2\% & 81.5\% \\ \hline
+\end{tabular}
+\caption{Accuracy scores of different Latxa model versions across evaluation datasets.}
+\label{tab:accuracy-scores}
+\end{table}
+
+\section{Conclusion}
+The introduction of Latxa not only provides a powerful toolset for Basque language processing but also establishes standardized resources and baselines for further research in under-resourced languages \citep{joshi2020state}. This endeavor highlights the potential for localized language model development and provides a template for similar efforts in other languages \citep{ethnol2022langres}.
+
+\footnote{The full set of models and datasets can be accessed at \url{https://latxa-models.org}.}
+
+\bibliographystyle{apalike}
+\bibliography{references}
+
+\end{document}

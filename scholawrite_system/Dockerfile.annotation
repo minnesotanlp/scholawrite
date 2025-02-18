@@ -1,0 +1,22 @@
+FROM ubuntu:20.04
+
+ARG DEBIAN_FRONTEND=noninteractive
+ARG FLASK_APP=annotation.py
+
+RUN apt-get update -y
+RUN apt-get install -y python3-pip python3-dev curl nano systemctl \
+    && cd /usr/local/bin \
+    && ln -s /usr/bin/python3 python
+
+RUN mkdir -p /usr/local/src/annotation
+COPY ./annotation /usr/local/src/annotation
+
+WORKDIR /usr/local/src/annotation
+
+RUN pip install --upgrade pip setuptools wheel
+
+RUN pip install --no-cache-dir -r requirements.txt
+
+RUN apt-get update -y
+
+CMD ["flask", "run", "--host=0.0.0.0", "--port=5100"]

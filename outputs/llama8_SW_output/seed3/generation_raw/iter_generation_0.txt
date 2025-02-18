@@ -1,0 +1,15 @@
+<same>\documentclass{article}
+\usepackage{graphicx} % Required for inserting images
+
+\title{Semisupervised Neural </same><del>Proto-Language </del><add>Pro </add><same>Reconstruction}
+\author{}
+\date{}
+
+\begin{document}
+\maketitle
+\begin{abstract}
+Existing work implementing comparative reconstruction of ancestral languages (proto-languages) has usually required full supervision. However, historical reconstruction models are only of practical value if they can be trained with a limited amount of labeled data. We propose a semisupervised </same><del>h</add><same>istorical </same><del></del><same>construction task in which the model is trained on only a small amount of labeled data (cognitive </same><del>sets </del><add>sets) </add><same>with </same><del>proto-forms) </del><add>proportion) </add><same>and a large amount of unlabeled data (cognitive </same><del>sets </del><add>sets) </add><same>without </same><del>proto-forms). </del><add>proportion). </add><same>We propose a neural architecture for comparative </same><del>reconstruction (DPD-BiReconstruction) </del><add>reconstruction </add><same>incorporating an essential insight from linguists' comparative method: that reconstructed words should not only be </same><del>reconstructable from their daughter words, but also deterinistically transformable </del><add>reconstructablefrom their </add><same>back into their </same><del>daughter </del><add>s </add><same>words. We show that this architecture is able to leverage </same><del>U</del><same>labeled </same><add></add><same>cognitive </same><del>sets </del><add>sets) </add><same>to outperform </same><del>strong </del><add>o </add><same>semisupervised baselines on this novel task.
+\end{abstract}
+
+\end{document}
+</same>

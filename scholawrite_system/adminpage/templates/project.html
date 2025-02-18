@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Project Overview</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/loader.css') }}">
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/chartjs-plugin-autocolors"></script>
+    <script type="text/javascript">
+        var project_json = {{ project_json|safe }};
+        var contributors_json = {{ contributors_json|safe }};
+        var dataArray = [project_json, contributors_json];
+    </script>
+    <script src="{{ url_for('static', filename='js/main.js') }}"></script>
+</head>
+<body>
+    <div id="mainLoader" style="display: none; margin: auto; margin-top: 40vh" ></div>
+    <div id="body">
+        <nav class="nav-buttons">
+            <a href="/main">Overview</a>
+            <a href="/project">Project</a>
+            <a href="/user">User</a>
+            <a href="/sankey">Sankey</a>
+            <a href="/visual">Visual</a>
+        </nav>
+        <form action="/api/project" method="POST">
+            <select name="projectid" id="projectid">
+                {% for pid in all_pids %}
+                    <option value="{{ pid }}">{{ all_pids[pid] }}</option>
+                {% endfor %}
+            </select>
+            <input type="week" id="weekly" name="weekly" min={{ minweek }} max={{ maxweek }}>
+            <input type="submit" name="interval" value="weekly">
+            <input type="month" id="monthly" name="monthly" min={{ minmonth }} max={{ maxmonth }}>
+            <input type="submit" name="interval" value="monthly">
+            <select name="year" id="year">
+                <option value="2023-01-01">2023</option>
+                <option value="2024-01-01">2024</option>
+            </select>
+            <input type="submit" name="interval" value="annually">
+        </form>
+        <h2>Project Summary</h2>
+        <canvas id="verticalChart" width="400" height="200" ></canvas>
+        <div id="projectLoader" class="loader" style="display: none; margin:auto; margin-top:10vh; margin-bottom:10vh"></div>
+        <h2>Contributors</h2>
+        <canvas id="horizontalChart1" width="400" height="200" ></canvas>
+        <div id="contributorsLoader" class="loader" style="display: none; margin:auto; margin-top:10vh; margin-bottom:10vh"></div>
+    </div>
+</body>
+</html>

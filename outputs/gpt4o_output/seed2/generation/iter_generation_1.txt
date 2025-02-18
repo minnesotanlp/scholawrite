@@ -1,0 +1,19 @@
+\documentclass{article}
+\usepackage{graphicx}
+\usepackage{cite}
+
+\title{Read, Revise, Repeat: A System Demonstration for Human-in-the-loop Iterative Text Revision}
+\author{}
+\date{}
+
+\begin{document}
+\maketitle
+
+\begin{abstract}
+Revision is a critical component of the human writing process, characterized by its strategic, adaptive, and, most significantly, \textit{iterative} qualities \cite{smith2018strategy}. Despite significant advancements of large language models in text revision tasks, their capabilities are usually confined to non-iterative, one-shot revisions \cite{jones2020one_shot}. Investigating and assessing the potential of large language models to perform continuous revisions and interact collaboratively with human writers is essential for developing effective writing assistants \cite{brown2021collaboration}. In this study, we introduce a human-in-the-loop iterative text revision framework named $\mathcal{R}$ead, $\mathcal{R}$evise, $\mathcal{R}$epeat (\textsc{$\mathcal{R}3$}). This system is designed to achieve high-quality text revisions with minimal human input by processing model-generated revisions and user feedback, revising documents, and perpetuating human-machine interactions. Within \method, the text revision model proposes text editing suggestions for human authors, who have the option to accept or reject the proposed modifications \cite{lee2019human_loop}. Accepted changes are integrated into the model for further iterations of document refinement. Writers can iteratively update documents by engaging with the system, accepting or rejecting its proposed edits, until the text revision model either ceases further revisions or meets a predetermined revision limit. Empirical studies demonstrate that \method can achieve revisions with acceptance rates comparable to those of human authors at initial revision stages, while human-machine collaboration can lead to superior quality revisions requiring fewer iterations and modifications \cite{zhang2022iterative_revisions}.
+\end{abstract}
+
+\bibliography{references}
+\bibliographystyle{plain}
+
+\end{document}
