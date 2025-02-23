@@ -11,7 +11,7 @@ $(document).ready(function() {
 </div>
 <div class="item">
 	<video playsinline autoplay muted loop>
-		<source src="website/static/dataset_videos/project1.mp4" type="video/mp4">
+		<source src="website/static/dataset_videos/project2_with_intents.mp4" type="video/mp4">
 	</video>
 </div>
 <div class="item">
@@ -23,7 +23,7 @@ $(document).ready(function() {
 <div class="item">
 	<img src="website/static/images/main.png" alt="MY ALT TEXT" style="width: 58%"/>
 	<video playsinline autoplay muted loop style="width: 42%; padding-left:1%">
-		<source src="website/static/dataset_videos/project1.mp4" type="video/mp4">
+		<source src="website/static/dataset_videos/project2_with_intents.mp4" type="video/mp4">
 	</video>
 </div>
 <div class="item">
