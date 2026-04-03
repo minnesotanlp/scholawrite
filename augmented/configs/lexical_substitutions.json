@@ -1,0 +1,328 @@
+{
+  "philosophy": {
+    "ontological": ["conceptual", "foundational", "basic"],
+    "epistemological": ["theoretical", "analytical", "cognitive"],
+    "phenomenological": ["experiential", "subjective", "descriptive"],
+    "hermeneutic": ["interpretive", "explanatory", "critical"],
+    "axiological": ["ethical", "value-based", "normative"],
+    "teleological": ["purposeful", "goal-oriented", "final"],
+    "dialectical": ["logical", "reasoned", "argumentative"],
+    "metaphysical": ["abstract", "theoretical", "fundamental"]
+  },
+  "humanities": {
+    "interdisciplinary": ["broad", "diverse", "mixed"],
+    "paradigm": ["model", "pattern", "standard"],
+    "discourse": ["discussion", "talk", "debate"],
+    "juxtaposition": ["comparison", "contrast", "parallel"],
+    "narrative": ["story", "account", "description"],
+    "canon": ["standard", "accepted works", "tradition"],
+    "aesthetic": ["visual", "artistic", "stylistic"],
+    "subjectivity": ["personal view", "perspective", "bias"]
+  },
+  "computer_science": {
+    "algorithm": ["procedure", "method", "logic"],
+    "infrastructure": ["system", "base", "setup"],
+    "architecture": ["design", "structure", "layout"],
+    "optimization": ["improvement", "refinement", "tuning"],
+    "scalability": ["reach", "capacity", "growth"],
+    "asynchronous": ["parallel", "non-blocking", "independent"],
+    "middleware": ["bridge", "connector", "software"],
+    "protocol": ["rule", "standard", "procedure"]
+  },
+  "ai": {
+    "neural": ["computational", "layered", "complex"],
+    "stochastic": ["random", "probabilistic", "varied"],
+    "inference": ["reasoning", "deduction", "conclusion"],
+    "transformer": ["model", "architecture", "processor"],
+    "heuristics": ["rules", "shortcuts", "approaches"],
+    "dimensionality": ["complexity", "scale", "depth"],
+    "backpropagation": ["adjustment", "tuning", "learning"],
+    "regularization": ["constraint", "limitation", "smoothing"]
+  },
+  "biology": {
+    "metabolism": ["energy use", "process", "cycle"],
+    "homeostasis": ["balance", "stability", "equilibrium"],
+    "genotype": ["genetic code", "blueprint", "pattern"],
+    "phenotype": ["trait", "outward sign", "appearance"],
+    "catalyst": ["trigger", "driver", "aid"],
+    "organelle": ["component", "part", "unit"],
+    "symbiosis": ["partnership", "cooperation", "link"],
+    "pathogen": ["agent", "threat", "germ"]
+  },
+  "neuroscience": {
+    "synaptic": ["connected", "linked", "neural"],
+    "neuroplasticity": ["adaptability", "change", "growth"],
+    "amygdala": ["brain center", "region", "area"],
+    "dopaminergic": ["chemical", "reward-based", "active"],
+    "cognition": ["thinking", "thought", "mental process"],
+    "lateralization": ["specialization", "division", "side-bias"],
+    "cortex": ["brain layer", "outer shell", "region"],
+    "action potential": ["signal", "pulse", "trigger"]
+  },
+  "physics": {
+    "entropy": ["disorder", "decay", "randomness"],
+    "thermodynamics": ["energy laws", "heat study", "physics"],
+    "kinematics": ["motion", "movement", "dynamics"],
+    "quantum": ["atomic", "micro", "discrete"],
+    "relativity": ["context", "perspective", "relationship"],
+    "resonance": ["vibration", "echo", "alignment"],
+    "superposition": ["overlap", "dual state", "mixture"],
+    "singularity": ["point", "center", "edge case"]
+  },
+  "mathematics": {
+    "topology": ["structure", "shape", "layout"],
+    "stochastic": ["random", "probabilistic", "uncertain"],
+    "isomorphism": ["sameness", "equivalence", "mapping"],
+    "derivative": ["rate", "slope", "change"],
+    "asymptotic": ["limiting", "bound", "trending"],
+    "coefficient": ["factor", "number", "weight"],
+    "linear": ["straight", "direct", "simple"],
+    "manifold": ["space", "surface", "structure"]
+  },
+  "social_sciences": {
+    "sociological": ["social", "cultural", "group-based"],
+    "stratification": ["division", "layering", "hierarchy"],
+    "hegemony": ["dominance", "control", "power"],
+    "ethnography": ["study", "observation", "report"],
+    "demographics": ["population", "groups", "stats"],
+    "marginalization": ["exclusion", "sidelining", "neglect"],
+    "socialization": ["learning", "integration", "adaptation"],
+    "urbanization": ["growth", "expansion", "city-building"]
+  },
+  "general_academic": {
+    "methodology": ["approach", "framework", "procedure"],
+    "significant": ["notable", "important", "marked"],
+    "consequently": ["so", "thus", "therefore"],
+    "furthermore": ["also", "additionally", "besides"],
+    "comprehensive": ["full", "complete", "broad"],
+    "robust": ["strong", "sturdy", "stable"],
+    "preliminary": ["initial", "early", "first"],
+    "rigorous": ["strict", "thorough", "precise"],
+    "notwithstanding": ["despite", "regardless of", "even with"],
+    "subsequently": ["later", "afterwards", "then"],
+    "conceptualization": ["idea", "notion", "view"],
+    "operationalize": ["implement", "use", "apply"],
+    "validate": ["check", "confirm", "prove"],
+    "utilization": ["use", "employment", "application"]
+  },
+  "chemistry_materials": {
+    "catalysis": ["reaction", "process", "aid"],
+    "molecular": ["atomic", "small-scale", "fine"],
+    "polymer": ["plastic", "material", "chain"],
+    "stoichiometry": ["balance", "ratio", "measure"],
+    "crystalline": ["ordered", "structured", "solid"],
+    "conductivity": ["flow", "transfer", "reach"],
+    "viscosity": ["thickness", "drag", "flow"],
+    "synthesis": ["creation", "build", "mixture"]
+  },
+  "medicine_clinical": {
+    "prognosis": ["outlook", "forecast", "future"],
+    "etiology": ["cause", "origin", "source"],
+    "efficacy": ["power", "success", "result"],
+    "morbidity": ["sickness", "health cost", "illness"],
+    "iatrogenic": ["caused", "induced", "external"],
+    "symptomatic": ["showing signs", "indicative", "evident"],
+    "titration": ["adjustment", "dosing", "tuning"],
+    "comorbidity": ["dual condition", "overlap", "extra burden"]
+  },
+  "economics_finance": {
+    "equilibrium": ["balance", "stability", "level"],
+    "liquidity": ["cash", "access", "flow"],
+    "macroeconomic": ["broad", "large-scale", "global"],
+    "volatility": ["risk", "change", "swing"],
+    "arbitrage": ["trade", "gain", "gap"],
+    "inflationary": ["rising", "growing", "costly"],
+    "leverage": ["debt", "power", "weight"],
+    "fiscal": ["money", "budget", "tax"]
+  },
+  "law_jurisprudence": {
+    "precedent": ["standard", "rule", "past case"],
+    "statutory": ["legal", "written", "fixed"],
+    "jurisdiction": ["reach", "power", "area"],
+    "litigation": ["legal action", "case", "suit"],
+    "testimony": ["account", "statement", "evidence"],
+    "tort": ["wrong", "harm", "legal issue"],
+    "codification": ["writing", "setup", "fixing"],
+    "liability": ["debt", "blame", "cost"]
+  },
+  "linguistics_cognitive": {
+    "syntactic": ["structural", "grammatical", "formal"],
+    "semantic": ["meaning-based", "logical", "conceptual"],
+    "morpheme": ["unit", "part", "element"],
+    "phonology": ["sound", "speech", "patterns"],
+    "pragmatics": ["context", "use", "social side"],
+    "orthography": ["writing", "spelling", "system"],
+    "lexicon": ["words", "vocabulary", "terms"],
+    "discourse": ["talk", "text", "interaction"]
+  },
+  "psychology": {
+    "behavioral": ["active", "seen", "outward"],
+    "cognitive": ["mental", "thought", "inner"],
+    "psychopathy": ["issue", "state", "trait"],
+    "conditioning": ["learning", "training", "habit"],
+    "projection": ["mapping", "blame", "transfer"],
+    "repression": ["hiding", "blocking", "loss"],
+    "attachment": ["bond", "link", "tie"],
+    "resilience": ["strength", "toughness", "bounce"]
+  },
+  "statistics_data_science": {
+    "regression": ["model", "trend", "link"],
+    "variance": ["spread", "gap", "range"],
+    "correlation": ["link", "match", "tie"],
+    "distribution": ["pattern", "spread", "shape"],
+    "significant": ["proven", "clear", "real"],
+    "outlier": ["gap", "odd case", "noise"],
+    "histogram": ["chart", "plot", "graph"],
+    "bayesian": ["prior-based", "probabilistic", "reasoned"]
+  },
+  "environmental_climate": {
+    "anthropogenic": ["man-made", "human", "caused"],
+    "biodiversity": ["variety", "range", "life"],
+    "sustainability": ["safety", "future", "health"],
+    "mitigation": ["reduction", "help", "fix"],
+    "ecosystem": ["area", "setup", "web"],
+    "deforestation": ["clearing", "loss", "cutting"],
+    "emissions": ["output", "smoke", "waste"],
+    "resilience": ["safety", "strength", "health"]
+  },
+  "science_technology_studies": {
+    "constructivism": ["creation", "build", "view"],
+    "determinism": ["fixed path", "rule", "force"],
+    "sociotechnical": ["mixed", "complex", "linked"],
+    "epistemic": ["knowledge", "thought", "base"],
+    "reflexivity": ["self-check", "loop", "view"],
+    "inscription": ["writing", "mark", "record"],
+    "network": ["web", "grid", "link"],
+    "artifact": ["object", "thing", "item"]
+  },
+  "digital_humanities": {
+    "visualization": ["chart", "image", "view"],
+    "encoding": ["writing", "setup", "code"],
+    "computational": ["digital", "math-based", "auto"],
+    "archive": ["store", "base", "site"],
+    "metadata": ["extra info", "tags", "data"],
+    "interoperability": ["link", "flow", "use"],
+    "curation": ["care", "setup", "pick"],
+    "spatial": ["map-based", "area", "place"]
+  },
+  "public_health_epidemiology": {
+    "prevalence": ["rate", "spread", "count"],
+    "epidemic": ["outbreak", "spread", "wave"],
+    "intervention": ["action", "help", "fix"],
+    "etiology": ["cause", "source", "start"],
+    "prophylactic": ["safe", "guard", "aid"],
+    "vaccination": ["shot", "aid", "help"],
+    "quarantine": ["stay", "block", "stop"],
+    "incubation": ["wait", "growth", "time"]
+  },
+  "gender_sexuality": {
+    "intersectionality": ["overlap", "mix", "link"],
+    "patriarchy": ["control", "rule", "power"],
+    "binary": ["dual", "pair", "split"],
+    "performative": ["active", "shown", "outward"],
+    "essentialism": ["fixed view", "idea", "base"],
+    "queer": ["diverse", "open", "mixed"],
+    "normative": ["standard", "fixed", "set"],
+    "marginality": ["edge", "gap", "neglect"]
+  },
+  "literary_theory": {
+    "deconstruction": ["breakdown", "analysis", "check"],
+    "structuralism": ["patterns", "base", "rules"],
+    "intertextuality": ["links", "echoes", "ties"],
+    "trope": ["pattern", "idea", "sign"],
+    "metaphor": ["image", "sign", "link"],
+    "subtext": ["underlying meaning", "hint", "hidden"],
+    "allegory": ["story", "sign", "lesson"],
+    "motif": ["sign", "pattern", "theme"]
+  },
+  "history_historiography": {
+    "archival": ["original", "stored", "base"],
+    "chronology": ["order", "timeline", "path"],
+    "narrative": ["account", "report", "story"],
+    "primacy": ["weight", "lead", "start"],
+    "revisionism": ["new view", "change", "check"],
+    "hegemony": ["power", "rule", "lead"],
+    "periodization": ["division", "setup", "naming"],
+    "causality": ["reason", "link", "driver"]
+  },
+  "religious_studies": {
+    "theological": ["divine", "thought", "base"],
+    "liturgy": ["practice", "setup", "act"],
+    "esoteric": ["hidden", "rare", "deep"],
+    "secularization": ["change", "shift", "loss"],
+    "ecumenical": ["mixed", "broad", "joint"],
+    "dogma": ["rule", "fixed view", "idea"],
+    "orthodoxy": ["standard", "fixed", "set"],
+    "exegesis": ["reading", "study", "check"]
+  },
+  "classics_ancient_languages": {
+    "philology": ["study", "text check", "base"],
+    "epigraphy": ["writing", "marks", "stone"],
+    "papyrology": ["paper", "records", "base"],
+    "numismatics": ["coins", "money", "signs"],
+    "paleography": ["writing", "old hands", "signs"],
+    "metrics": ["rhythm", "path", "rules"],
+    "glossary": ["list", "terms", "base"],
+    "etymology": ["history", "start", "base"]
+  },
+  "engineering": {
+    "mechanics": ["motion", "rules", "setup"],
+    "efficiency": ["output", "speed", "gain"],
+    "durability": ["life", "strength", "health"],
+    "optimization": ["tuning", "gain", "fix"],
+    "structural": ["solid", "base", "built"],
+    "reliability": ["safety", "health", "trust"],
+    "thermodynamics": ["energy", "heat", "rules"],
+    "kinetics": ["motion", "speed", "flow"]
+  },
+  "urban_planning_architecture": {
+    "gentrification": ["change", "growth", "shift"],
+    "sustainability": ["health", "safety", "future"],
+    "infrastructure": ["base", "setup", "grid"],
+    "zoning": ["rules", "parts", "areas"],
+    "density": ["count", "crowd", "scale"],
+    "topography": ["layout", "land", "shape"],
+    "pedestrianization": ["walking", "path", "safety"],
+    "aesthetics": ["style", "look", "visual"]
+  },
+  "education_pedagogy": {
+    "didactic": ["teaching", "formal", "set"],
+    "curriculum": ["plan", "setup", "path"],
+    "assessment": ["check", "test", "grade"],
+    "cognition": ["thought", "learning", "mind"],
+    "instructional": ["teaching", "active", "set"],
+    "pedagogical": ["teaching", "base", "path"],
+    "scaffolding": ["help", "base", "aid"],
+    "literacy": ["skill", "base", "reach"]
+  },
+  "agriculture_food": {
+    "agronomy": ["farming", "crop study", "soil"],
+    "cultivation": ["growth", "care", "work"],
+    "irrigation": ["water", "flow", "setup"],
+    "pesticide": ["chemical", "spray", "fix"],
+    "harvest": ["crop", "output", "gain"],
+    "livestock": ["animals", "farm", "base"],
+    "viticulture": ["grapes", "wine", "work"],
+    "horticulture": ["plants", "care", "work"]
+  },
+  "business_jargon": {
+    "synergy": ["help", "mix", "gain"],
+    "leverage": ["use", "power", "weight"],
+    "paradigm": ["model", "view", "shift"],
+    "scalability": ["growth", "reach", "gain"],
+    "monetization": ["gain", "cash", "sale"],
+    "deliverable": ["item", "output", "thing"],
+    "bandwidth": ["time", "reach", "room"],
+    "disruption": ["change", "shift", "break"]
+  },
+  "culture": {
+    "assimilation": ["merging", "sameness", "join"],
+    "appropriation": ["taking", "using", "copy"],
+    "globalization": ["growth", "spread", "mix"],
+    "identity": ["self", "view", "base"],
+    "heritage": ["past", "tradition", "base"],
+    "subculture": ["group", "part", "side"],
+    "hegemony": ["power", "rule", "lead"],
+    "symbolism": ["signs", "meaning", "links"]
+  }
+}

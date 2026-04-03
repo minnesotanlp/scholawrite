@@ -1,0 +1,11 @@
+{
+  "GLUCOSE_DEPLETION_RATE": 0.9999,
+  "FATIGUE_DIVISOR": 5647166.0,
+  "calibration_metrics": {
+    "num_documents": 5,
+    "total_revisions": 126246,
+    "num_intervals": 58015,
+    "num_production_samples": 5040,
+    "r_squared_glucose_fit": 0.06358532080639201
+  }
+}

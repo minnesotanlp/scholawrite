@@ -1,0 +1,102 @@
+{
+  "_description": "Discourse markers for syntactic repair generation and cognitive state simulation",
+  "_version": "1.0.0",
+
+  "repair_markers": {
+    "syntactic_collapse": [
+      "thus, ", "so, ", "consequently, ", "accordingly, ",
+      "therefore, ", "hence, ", "as such, ", "thereby, ",
+      "in turn, ", "as a result, ", "for this reason, ", "it follows that "
+    ],
+    "lexical_starvation_fallbacks": [
+      "concept", "framework", "element", "aspect", "factor",
+      "component", "dimension", "feature", "mechanism", "process",
+      "approach", "method", "system", "structure", "pattern"
+    ],
+    "cognitive_overflow_fillers": [
+      "it ", "this ", "that ", "these ", "those ",
+      "such ", "the ", "a ", "one ", "some "
+    ]
+  },
+
+  "phase_descriptions": {
+    "Peak": "cognitive resources at maximum capacity, highest syntactic complexity tolerance",
+    "Maintenance": "sustained attention with periodic micro-lapses, stable performance",
+    "Fatigue": "noticeably degraded executive function, increased reliance on formulaic constructions",
+    "Deep Fatigue": "severe resource depletion, strong preference for familiar phrasings, minimal working memory"
+  },
+
+  "discipline_conventions": {
+    "default": "standard academic conventions with field-appropriate hedging",
+    "STEM": "precise technical terminology, passive voice preference, minimal hedging",
+    "humanities": "complex argumentation, active engagement with sources, nuanced qualifications",
+    "social_sciences": "methodological transparency, balanced hedging, empirical grounding",
+    "business": "action-oriented language, clear implications, stakeholder awareness",
+    "law": "precise definitional language, careful qualification, precedent awareness",
+    "medicine": "clinical precision, evidence-based framing, cautious conclusions",
+    "engineering": "technical specification, quantitative precision, practical orientation"
+  },
+
+  "cognitive_load_effects": {
+    "low": "full access to sophisticated vocabulary and complex syntactic structures",
+    "moderate": "occasional simplification of nested clauses, slight increase in common collocations",
+    "high": "marked preference for familiar constructions, reduced subordinate clause depth",
+    "severe": "heavily formulaic output, minimal syntactic variation, increased repetition"
+  },
+
+  "fatigue_instructions": {
+    "Peak": "Full cognitive engagement. Complex argumentation expected.",
+    "Maintenance": "Stable but not peak. Occasional simplification is natural.",
+    "Fatigue": "Noticeable resource depletion. Prefer familiar constructions.",
+    "Deep Fatigue": "Severe depletion. Rely heavily on disciplinary boilerplate."
+  },
+
+  "latency_thresholds": {
+    "low": {
+      "max_ms": 200,
+      "instruction": "Low latency: maintain full syntactic complexity, minimal ambiguity"
+    },
+    "moderate": {
+      "max_ms": 350,
+      "instruction": "Moderate latency: occasional pronoun distance effects acceptable"
+    },
+    "elevated": {
+      "max_ms": 500,
+      "instruction": "Elevated latency: simplify embedded clauses, prefer active voice"
+    },
+    "high": {
+      "max_ms": 999999,
+      "instruction": "High latency: short sentences, simple structures, common vocabulary"
+    }
+  },
+
+  "burst_thresholds": {
+    "high": {
+      "min_speed": 3.0,
+      "instruction": "High burst speed: may produce 1 function-word typo per 250 words, occasional missed article"
+    },
+    "moderate": {
+      "min_speed": 1.5,
+      "instruction": "Moderate burst: stable typing, normal error rate"
+    },
+    "low": {
+      "min_speed": 0.0,
+      "instruction": "Low burst: deliberate typing, high accuracy expected"
+    }
+  },
+
+  "glucose_complexity": {
+    "high": {
+      "min_glucose": 0.7,
+      "description": "full nested subordination, technical nominalization, complex hedging"
+    },
+    "moderate": {
+      "min_glucose": 0.4,
+      "description": "moderate clause depth, standard academic vocabulary, balanced hedging"
+    },
+    "low": {
+      "min_glucose": 0.0,
+      "description": "simple structures, familiar collocations, minimal subordination"
+    }
+  }
+}

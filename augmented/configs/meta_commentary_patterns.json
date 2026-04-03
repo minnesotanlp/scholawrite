@@ -1,0 +1,91 @@
+{
+  "_description": "Patterns for detecting and stripping LLM meta-commentary/prompt leakage from generated content",
+  "_version": "1.0.0",
+  "_notes": "All patterns are applied with IGNORECASE and MULTILINE flags",
+
+  "prefix_patterns": [
+    "^Here is .*?:?\\s*\\n*",
+    "^Here's .*?:?\\s*\\n*",
+    "^Below is .*?:?\\s*\\n*",
+    "^The following is .*?:?\\s*\\n*",
+    "^This is .*?:?\\s*\\n*",
+    "^I present .*?:?\\s*\\n*",
+    "^I've .*?:?\\s*\\n*",
+    "^I have .*?:?\\s*\\n*",
+    "^I will .*?:?\\s*\\n*",
+    "^Let me .*?:?\\s*\\n*",
+    "^Allow me .*?:?\\s*\\n*",
+
+    "^Sure[,!.]? .*?:?\\s*\\n*",
+    "^Certainly[,!.]? .*?:?\\s*\\n*",
+    "^Of course[,!.]? .*?:?\\s*\\n*",
+    "^Absolutely[,!.]? .*?:?\\s*\\n*",
+    "^Happy to .*?:?\\s*\\n*",
+    "^Glad to .*?:?\\s*\\n*",
+
+    "^\\*\\*Refined.*?\\*\\*\\s*\\n*",
+    "^\\*\\*Improved.*?\\*\\*\\s*\\n*",
+    "^\\*\\*Updated.*?\\*\\*\\s*\\n*",
+    "^\\*\\*Revised.*?\\*\\*\\s*\\n*",
+    "^\\*\\*Edited.*?\\*\\*\\s*\\n*",
+    "^\\*\\*Final.*?\\*\\*\\s*\\n*",
+    "^\\*\\*Output.*?\\*\\*\\s*\\n*",
+    "^\\*\\*Text.*?\\*\\*\\s*\\n*",
+    "^\\*\\*Passage.*?\\*\\*\\s*\\n*",
+    "^\\*\\*Content.*?\\*\\*\\s*\\n*",
+
+    "^Refined (text|version|draft|passage|content).*?:?\\s*\\n*",
+    "^The refined .*?:?\\s*\\n*",
+    "^Improved (text|version|draft|passage|content).*?:?\\s*\\n*",
+    "^The improved .*?:?\\s*\\n*",
+    "^Updated (text|version|draft|passage|content).*?:?\\s*\\n*",
+    "^Revised (text|version|draft|passage|content).*?:?\\s*\\n*",
+    "^Edited (text|version|draft|passage|content).*?:?\\s*\\n*",
+
+    "^As requested[,:]?.*?\\n*",
+    "^Per your request[,:]?.*?\\n*",
+    "^As you asked[,:]?.*?\\n*",
+    "^Based on your .*?:?\\s*\\n*",
+    "^Following your .*?:?\\s*\\n*",
+
+    "^---+\\s*\\n*",
+    "^\\*\\*\\*+\\s*\\n*",
+    "^Output:\\s*\\n*",
+    "^Result:\\s*\\n*",
+    "^Response:\\s*\\n*",
+    "^Answer:\\s*\\n*"
+  ],
+
+  "suffix_patterns": [
+    "\\n*---+$",
+    "\\n*\\*\\*\\*+$",
+    "\\n*I hope this .*$",
+    "\\n*Let me know if .*$",
+    "\\n*Feel free to .*$",
+    "\\n*Please let me know .*$",
+    "\\n*Is there anything .*$",
+    "\\n*Would you like .*$"
+  ],
+
+  "wrapper_removal": {
+    "markdown_bold_headers": "^\\*\\*[^*]+\\*\\*:?\\s*",
+    "full_quote_wrap": "^\"(.*)\"$",
+    "backtick_wrap": "^`(.+)`$",
+    "triple_backtick_block": "^```[\\w]*\\n([\\s\\S]*?)\\n```$"
+  },
+
+  "quality_indicators": {
+    "min_length_chars": 50,
+    "min_words": 10,
+    "max_meta_ratio": 0.3,
+    "suspicious_phrases": [
+      "as an AI",
+      "as a language model",
+      "I cannot",
+      "I'm unable to",
+      "I don't have access",
+      "my training data",
+      "my knowledge cutoff"
+    ]
+  }
+}

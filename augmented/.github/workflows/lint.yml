@@ -1,0 +1,85 @@
+name: Lint
+
+on:
+  push:
+    branches: [main, augmented]
+    paths:
+      - '**.py'
+      - 'pyproject.toml'
+      - '.github/workflows/lint.yml'
+  pull_request:
+    branches: [main, augmented]
+    paths:
+      - '**.py'
+      - 'pyproject.toml'
+
+jobs:
+  ruff:
+    name: Ruff
+    runs-on: ubuntu-latest
+
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+
+      - name: Install uv
+        uses: astral-sh/setup-uv@v4
+
+      - name: Install ruff
+        run: uv pip install ruff
+
+      - name: Run ruff check
+        run: uv run ruff check src/ tests/ scripts/ --output-format=github
+
+      - name: Run ruff format check
+        run: uv run ruff format src/ tests/ scripts/ --check --diff
+
+  mypy:
+    name: Type Check
+    runs-on: ubuntu-latest
+
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+
+      - name: Install uv
+        uses: astral-sh/setup-uv@v4
+
+      - name: Install dependencies
+        run: |
+          uv sync
+          uv pip install mypy types-requests
+
+      - name: Run mypy
+        run: |
+          uv run mypy src/scholawrite --ignore-missing-imports --no-error-summary || true
+        continue-on-error: true  # Don't fail CI on type errors for now
+
+  security:
+    name: Security Scan
+    runs-on: ubuntu-latest
+
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+
+      - name: Install uv
+        uses: astral-sh/setup-uv@v4
+
+      - name: Install bandit
+        run: uv pip install bandit
+
+      - name: Run bandit
+        run: uv run bandit -r src/scholawrite -ll -ii

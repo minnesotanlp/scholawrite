@@ -1,0 +1,135 @@
+{
+  "_description": "Academic discourse markers and cohesive devices for syntactic demand calculation",
+  "_version": "1.0.0",
+
+  "logical_connectors": {
+    "contrast": [
+      "however", "nevertheless", "nonetheless", "conversely", "whereas",
+      "although", "notwithstanding", "alternatively", "on the contrary",
+      "in contrast", "by contrast", "yet", "still", "rather", "instead",
+      "on the other hand", "despite this", "even so", "all the same"
+    ],
+    "causation": [
+      "consequently", "therefore", "thus", "hence", "accordingly",
+      "subsequently", "as a result", "for this reason", "owing to",
+      "due to", "because of this", "it follows that", "thereby",
+      "so that", "in order that", "such that", "given that"
+    ],
+    "addition": [
+      "furthermore", "moreover", "additionally", "besides", "also",
+      "likewise", "similarly", "equally", "in addition", "what is more",
+      "not only", "as well as", "coupled with", "together with",
+      "along with", "correspondingly", "by the same token"
+    ],
+    "exemplification": [
+      "specifically", "particularly", "notably", "especially",
+      "for instance", "for example", "such as", "namely", "to illustrate",
+      "in particular", "as an illustration", "to exemplify", "viz"
+    ],
+    "concession": [
+      "admittedly", "granted", "certainly", "of course", "naturally",
+      "to be sure", "it is true that", "undeniably", "undoubtedly",
+      "while it is true", "albeit", "even though", "though"
+    ]
+  },
+
+  "epistemic_markers": {
+    "certainty": [
+      "clearly", "evidently", "obviously", "undoubtedly", "certainly",
+      "definitely", "unquestionably", "indisputably", "manifestly",
+      "unmistakably", "assuredly", "conclusively", "demonstrably"
+    ],
+    "probability": [
+      "probably", "likely", "presumably", "apparently", "seemingly",
+      "arguably", "conceivably", "plausibly", "possibly", "perhaps",
+      "potentially", "ostensibly", "reportedly", "supposedly"
+    ],
+    "hedging": [
+      "somewhat", "relatively", "partially", "to some extent",
+      "to a degree", "in part", "in some respects", "more or less",
+      "roughly", "approximately", "broadly", "generally"
+    ]
+  },
+
+  "methodological_terms": [
+    "empirically", "theoretically", "methodologically", "analytically",
+    "systematically", "quantitatively", "qualitatively", "experimentally",
+    "observationally", "computationally", "statistically", "rigorously",
+    "comprehensively", "exhaustively", "longitudinally", "cross-sectionally",
+    "retrospectively", "prospectively", "inductively", "deductively",
+    "heuristically", "algorithmically", "iteratively", "recursively"
+  ],
+
+  "philosophical_terms": [
+    "ontologically", "epistemologically", "phenomenologically",
+    "hermeneutically", "axiologically", "teleologically", "dialectically",
+    "metaphysically", "transcendentally", "immanently", "normatively",
+    "descriptively", "prescriptively", "constitutively", "regulatively"
+  ],
+
+  "domain_specific": {
+    "scientific": [
+      "paradigmatically", "axiomatically", "deterministically",
+      "stochastically", "probabilistically", "causally", "mechanistically",
+      "functionally", "structurally", "dynamically", "systemically"
+    ],
+    "social_science": [
+      "sociologically", "psychologically", "anthropologically",
+      "demographically", "economically", "politically", "culturally",
+      "institutionally", "organizationally", "behaviorally", "cognitively"
+    ],
+    "humanities": [
+      "historically", "literarily", "aesthetically", "rhetorically",
+      "semiotically", "discursively", "narratively", "symbolically",
+      "allegorically", "metaphorically", "intertextually"
+    ],
+    "technical": [
+      "cryptographically", "biometrically", "forensically",
+      "computationally", "algorithmically", "architecturally",
+      "infrastructurally", "topologically", "geometrically"
+    ]
+  },
+
+  "stance_markers": {
+    "evaluation": [
+      "importantly", "significantly", "crucially", "critically",
+      "fundamentally", "essentially", "primarily", "principally",
+      "predominantly", "substantially", "markedly", "notably"
+    ],
+    "emphasis": [
+      "indeed", "in fact", "actually", "really", "truly",
+      "genuinely", "absolutely", "entirely", "completely", "wholly",
+      "utterly", "thoroughly", "fully", "totally"
+    ],
+    "limitation": [
+      "provisionally", "tentatively", "preliminarily", "initially",
+      "hypothetically", "speculatively", "conditionally", "contingently"
+    ]
+  },
+
+  "structural_markers": {
+    "sequencing": [
+      "firstly", "secondly", "thirdly", "finally", "lastly",
+      "initially", "subsequently", "eventually", "ultimately",
+      "to begin with", "in the first place", "to conclude"
+    ],
+    "summarizing": [
+      "overall", "in summary", "in conclusion", "to summarize",
+      "in brief", "briefly", "in short", "to sum up", "all in all",
+      "on the whole", "by and large", "taken together"
+    ],
+    "transitioning": [
+      "meanwhile", "in the meantime", "at the same time",
+      "simultaneously", "concurrently", "henceforth", "hereafter",
+      "heretofore", "theretofore", "thereafter"
+    ]
+  },
+
+  "complexity_indicators": [
+    "notwithstanding", "irrespective", "insofar", "inasmuch",
+    "whereby", "wherein", "whereupon", "heretofore", "hitherto",
+    "aforementioned", "aforestated", "abovementioned", "undermentioned",
+    "vis-a-vis", "qua", "per se", "ipso facto", "mutatis mutandis",
+    "ceteris paribus", "prima facie", "de facto", "de jure"
+  ]
+}

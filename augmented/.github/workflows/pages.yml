@@ -1,0 +1,170 @@
+name: GitHub Pages
+
+on:
+  push:
+    branches: [augmented]
+    paths:
+      - 'notebooks/**'
+      - 'docs/**'
+      - 'src/scholawrite/**'
+      - '.github/workflows/pages.yml'
+  workflow_dispatch:  # Allow manual trigger
+
+permissions:
+  contents: read
+  pages: write
+  id-token: write
+
+concurrency:
+  group: "pages"
+  cancel-in-progress: true
+
+jobs:
+  build:
+    name: Build Documentation
+    runs-on: ubuntu-latest
+
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+
+      - name: Install uv
+        uses: astral-sh/setup-uv@v4
+
+      - name: Install dependencies
+        run: |
+          uv sync
+          uv pip install nbconvert nbformat jupyter ipykernel matplotlib
+
+      - name: Create output directory
+        run: mkdir -p _site
+
+      - name: Build index page
+        run: |
+          cat > _site/index.html << 'EOF'
+          <!DOCTYPE html>
+          <html lang="en">
+          <head>
+              <meta charset="UTF-8">
+              <meta name="viewport" content="width=device-width, initial-scale=1.0">
+              <title>ScholaWrite-Augmented</title>
+              <style>
+                  body {
+                      font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+                      max-width: 800px;
+                      margin: 0 auto;
+                      padding: 2rem;
+                      line-height: 1.6;
+                      color: #333;
+                  }
+                  h1 { color: #2c3e50; }
+                  a { color: #3498db; }
+                  .badge { display: inline-block; margin: 0.25rem; }
+                  code { background: #f4f4f4; padding: 0.2rem 0.4rem; border-radius: 3px; }
+                  .links { margin: 2rem 0; }
+                  .links a {
+                      display: inline-block;
+                      padding: 0.75rem 1.5rem;
+                      background: #3498db;
+                      color: white;
+                      text-decoration: none;
+                      border-radius: 5px;
+                      margin-right: 1rem;
+                      margin-bottom: 0.5rem;
+                  }
+                  .links a:hover { background: #2980b9; }
+              </style>
+          </head>
+          <body>
+              <h1>ScholaWrite-Augmented</h1>
+              <p>A revision-tracked scholarly writing dataset augmented with annotated external insertion events for <strong>process-integrity research</strong>.</p>
+
+              <div class="links">
+                  <a href="demo/scholawrite_demo.html">Interactive Demo Notebook</a>
+                  <a href="https://github.com/writerslogic/scholawrite">GitHub Repository</a>
+              </div>
+
+              <h2>Key Features</h2>
+              <ul>
+                  <li><strong>Causal Signature Framework</strong> - Token-granular process simulation</li>
+                  <li><strong>Trajectory Modeling</strong> - COLD → WARM → ASSIMILATED state machine</li>
+                  <li><strong>Embodied Scholar Simulation</strong> - Metabolic resource tracking</li>
+                  <li><strong>Multi-tier Injection Protocol</strong> - Naive, Topical, Contextual</li>
+              </ul>
+
+              <h2>Citation</h2>
+              <pre><code>@dataset{scholawrite_augmented_2026,
+            title  = {ScholaWrite-Augmented},
+            author = {WritersLogic},
+            year   = {2026},
+            note   = {Augmented derivative of ScholaWrite (MinnesotaNLP)},
+            url    = {https://github.com/writerslogic/scholawrite}
+          }</code></pre>
+
+              <h2>Attribution</h2>
+              <p>Derivative work based on <a href="https://huggingface.co/datasets/minnesotanlp/scholawrite">ScholaWrite</a> by Minnesota NLP. Used with permission.</p>
+          </body>
+          </html>
+          EOF
+
+      - name: Execute and convert notebook
+        env:
+          OPENROUTER_API_KEY: "sk-demo-key-for-ci"
+        run: |
+          mkdir -p _site/demo
+
+          uv run python << 'EOF'
+          import nbformat
+          from nbconvert.preprocessors import ExecutePreprocessor
+          from nbconvert import HTMLExporter
+
+          # Read notebook
+          with open('notebooks/scholawrite_demo.ipynb') as f:
+              nb = nbformat.read(f, as_version=4)
+
+          # Skip interactive cells
+          skip_markers = ['input(', 'getpass.', 'configure_api_keys']
+          for cell in nb.cells:
+              if cell.cell_type == 'code':
+                  if any(marker in cell.source for marker in skip_markers):
+                      cell.source = '# SKIPPED IN CI\npass'
+
+          # Execute
+          ep = ExecutePreprocessor(timeout=300, kernel_name='python3')
+          try:
+              ep.preprocess(nb, {'metadata': {'path': 'notebooks/'}})
+          except Exception as e:
+              print(f"Execution warning: {e}")
+
+          # Convert to HTML
+          html_exporter = HTMLExporter()
+          html_exporter.template_name = 'classic'
+          (body, _) = html_exporter.from_notebook_node(nb)
+
+          with open('_site/demo/scholawrite_demo.html', 'w') as f:
+              f.write(body)
+
+          print("Notebook converted successfully")
+          EOF
+
+      - name: Upload Pages artifact
+        uses: actions/upload-pages-artifact@v3
+        with:
+          path: _site
+
+  deploy:
+    name: Deploy to Pages
+    needs: build
+    runs-on: ubuntu-latest
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+
+    steps:
+      - name: Deploy to GitHub Pages
+        id: deployment
+        uses: actions/deploy-pages@v4

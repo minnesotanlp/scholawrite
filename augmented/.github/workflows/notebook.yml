@@ -1,0 +1,123 @@
+name: Notebook CI
+
+on:
+  push:
+    branches: [main, augmented]
+    paths:
+      - 'notebooks/**'
+      - 'src/scholawrite/**'
+      - '.github/workflows/notebook.yml'
+  pull_request:
+    branches: [main, augmented]
+    paths:
+      - 'notebooks/**'
+      - 'src/scholawrite/**'
+
+jobs:
+  validate:
+    name: Validate Notebook
+    runs-on: ubuntu-latest
+
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+
+      - name: Install uv
+        uses: astral-sh/setup-uv@v4
+
+      - name: Install dependencies
+        run: |
+          uv sync
+          uv pip install nbconvert nbformat jupyter ipykernel
+
+      - name: Validate notebook syntax
+        run: |
+          uv run python -c "
+          import nbformat
+          nb = nbformat.read('notebooks/scholawrite_demo.ipynb', as_version=4)
+          print(f'Notebook has {len(nb.cells)} cells')
+          for i, cell in enumerate(nb.cells):
+              if cell.cell_type == 'code':
+                  # Syntax check
+                  try:
+                      compile(cell.source, f'cell_{i}', 'exec')
+                  except SyntaxError as e:
+                      print(f'Syntax error in cell {i}: {e}')
+                      exit(1)
+          print('All cells passed syntax validation')
+          "
+
+      - name: Test imports work
+        run: |
+          uv run python -c "
+          import sys
+          sys.path.insert(0, 'src')
+          from scholawrite import (
+              InjectionLevel, TrajectoryState, AmbiguityFlag, Label,
+              EmbodiedScholar, print_banner, VERSION
+          )
+          print(f'ScholaWrite v{VERSION} imports OK')
+          "
+
+  execute:
+    name: Execute Notebook
+    runs-on: ubuntu-latest
+    needs: validate
+
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+
+      - name: Install uv
+        uses: astral-sh/setup-uv@v4
+
+      - name: Install dependencies
+        run: |
+          uv sync
+          uv pip install nbconvert nbformat jupyter ipykernel matplotlib
+
+      - name: Execute notebook (non-interactive cells only)
+        env:
+          # Skip API key prompt by setting a dummy value
+          OPENROUTER_API_KEY: "sk-demo-key-for-ci"
+        run: |
+          uv run python -c "
+          import nbformat
+          from nbconvert.preprocessors import ExecutePreprocessor
+          import os
+
+          # Read notebook
+          with open('notebooks/scholawrite_demo.ipynb') as f:
+              nb = nbformat.read(f, as_version=4)
+
+          # Skip cells with interactive input
+          skip_markers = ['input(', 'getpass.', 'API_KEY_CONFIGURED = configure_api_keys']
+          for cell in nb.cells:
+              if cell.cell_type == 'code':
+                  if any(marker in cell.source for marker in skip_markers):
+                      cell.source = '# SKIPPED IN CI: ' + cell.source.split('\n')[0][:50] + '...'
+
+          # Execute
+          ep = ExecutePreprocessor(timeout=300, kernel_name='python3')
+          ep.preprocess(nb, {'metadata': {'path': 'notebooks/'}})
+
+          print('Notebook executed successfully')
+          "
+
+      - name: Convert to HTML
+        run: |
+          uv run jupyter nbconvert --to html notebooks/scholawrite_demo.ipynb --output-dir=docs/demo
+
+      - name: Upload HTML artifact
+        uses: actions/upload-artifact@v4
+        with:
+          name: notebook-html
+          path: docs/demo/scholawrite_demo.html

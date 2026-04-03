@@ -1,0 +1,41 @@
+# Generated artifacts
+.DS_Store
+__pycache__/
+*.pyc
+*.egg-info/
+.eggs/
+dist/
+build/
+
+# Data directories (not included in repo)
+/data/
+/results/
+/external/
+
+# Paper (published separately)
+/paper/
+
+# Data files
+*.parquet
+*.jsonl
+*.csv
+
+# Log files
+*.log
+
+# Environment
+.env
+.venv/
+venv/
+
+# IDE
+.idea/
+.vscode/
+*.swp
+
+# Cache directories
+.pytest_cache/
+.ruff_cache/
+
+# Notebooks with outputs
+notebooks/

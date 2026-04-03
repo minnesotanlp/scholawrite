@@ -1,0 +1,14 @@
+[
+  {"id": "anthropic/claude-3.5-sonnet", "class_label": "strong"},
+  {"id": "anthropic/claude-3-haiku", "class_label": "mid"},
+  {"id": "openai/gpt-4o", "class_label": "strong"},
+  {"id": "openai/gpt-4o-mini", "class_label": "mid"},
+  {"id": "openai/gpt-4-turbo", "class_label": "strong"},
+  {"id": "google/gemini-2.0-flash-001", "class_label": "mid"},
+  {"id": "meta-llama/llama-3.1-70b-instruct", "class_label": "strong"},
+  {"id": "meta-llama/llama-3.1-8b-instruct", "class_label": "mid"},
+  {"id": "mistralai/mistral-large", "class_label": "strong"},
+  {"id": "deepseek/deepseek-chat", "class_label": "strong"},
+  {"id": "qwen/qwen-2.5-72b-instruct", "class_label": "strong"},
+  {"id": "nvidia/llama-3.1-nemotron-70b-instruct", "class_label": "strong"}
+]
