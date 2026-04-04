@@ -1,504 +1,891 @@
 <!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>ScholaWrite: A Dataset of End-to-End Scholarly Writing Process</title>
-    <meta name="description" content="ScholaWrite - the first-of-its-kind keystroke logs of an end-to-end scholarly writing process with cognitive writing intention annotations.">
-    <meta property="og:title" content="ScholaWrite: A Dataset of End-to-End Scholarly Writing Process">
-    <meta property="og:description" content="62K annotated text changes across 5 research papers. The first end-to-end scholarly writing dataset.">
-    <meta property="og:type" content="website">
-    <meta property="og:url" content="https://minnesotanlp.github.io/scholawrite/">
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
-    <style>
-        :root {
-            --primary: #6C3082;
-            --primary-dark: #4a1d5e;
-            --primary-light: #9b6fb0;
-            --bg: #fafafa;
-            --card-bg: #ffffff;
-            --text: #1a1a2e;
-            --text-mid: #4a4a6a;
-            --text-light: #6b7280;
-            --border: #e5e7eb;
-            --code-bg: #f3f0f5;
-            --gradient-start: #6C3082;
-            --gradient-end: #2d1b4e;
-        }
+<html>
+  <head>
+    <title>ScholaWrite</title>
+    <link rel="icon" type="image/x-icon" href="static/logos/sw.png" />
 
-        * { margin: 0; padding: 0; box-sizing: border-box; }
+    <link
+      href="https://fonts.googleapis.com/css?family=Google+Sans|Noto+Sans|Castoro"
+      rel="stylesheet"
+    />
 
-        body {
-            font-family: 'Inter', system-ui, -apple-system, sans-serif;
-            color: var(--text);
-            background: var(--bg);
-            line-height: 1.7;
-            -webkit-font-smoothing: antialiased;
-        }
+    <link rel="stylesheet" href="static/css/bulma.min.css" />
+    <link rel="stylesheet" href="static/css/bulma-carousel.min.css" />
+    <link rel="stylesheet" href="static/css/bulma-slider.min.css" />
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/gh/jpswalsh/academicons@1/css/academicons.min.css"
+    />
+    <link rel="stylesheet" href="static/css/index.css" />
 
-        /* ── Hero ── */
-        .hero {
-            background: linear-gradient(160deg, var(--gradient-start) 0%, var(--gradient-end) 100%);
-            color: #fff;
-            padding: 5rem 2rem 4rem;
-            text-align: center;
-            position: relative;
-            overflow: hidden;
-        }
-        .hero::before {
-            content: '';
-            position: absolute;
-            top: -50%;
-            left: -50%;
-            width: 200%;
-            height: 200%;
-            background: radial-gradient(circle at 30% 70%, rgba(255,255,255,0.04) 0%, transparent 50%),
-                        radial-gradient(circle at 70% 30%, rgba(255,255,255,0.03) 0%, transparent 50%);
-            pointer-events: none;
-        }
-        .hero-inner {
-            position: relative;
-            max-width: 800px;
-            margin: 0 auto;
-        }
-        .hero .venue-badge {
-            display: inline-block;
-            background: rgba(255,255,255,0.15);
-            border: 1px solid rgba(255,255,255,0.25);
-            padding: 0.3rem 1rem;
-            border-radius: 20px;
-            font-size: 0.8rem;
-            font-weight: 500;
-            letter-spacing: 0.5px;
-            text-transform: uppercase;
-            margin-bottom: 1.5rem;
-        }
-        .hero h1 {
-            font-size: 3.2rem;
-            font-weight: 800;
-            letter-spacing: -1px;
-            margin-bottom: 0.75rem;
-            line-height: 1.15;
-        }
-        .hero .subtitle {
-            font-size: 1.2rem;
-            opacity: 0.9;
-            max-width: 700px;
-            margin: 0 auto 2rem;
-            font-weight: 300;
-        }
-        .hero .authors {
-            font-size: 1rem;
-            margin-bottom: 0.5rem;
-            line-height: 1.8;
-        }
-        .hero .authors a {
-            color: #e0d0f0;
-            text-decoration: none;
-            border-bottom: 1px solid rgba(255,255,255,0.3);
-            transition: border-color 0.2s;
-        }
-        .hero .authors a:hover {
-            border-color: #fff;
-            color: #fff;
-        }
-        .hero .affiliation {
-            font-size: 0.88rem;
-            opacity: 0.65;
-            margin-bottom: 2.5rem;
-            font-weight: 400;
-        }
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="https://documentcloud.adobe.com/view-sdk/main.js"></script>
+    <script src="https://kit.fontawesome.com/c79a85d960.js" crossorigin="anonymous"></script>
+    <script src="static/js/bulma-carousel.min.js"></script>
+    <script src="static/js/bulma-slider.min.js"></script>
+    <script src="static/js/index.js"></script>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
 
-        /* ── Buttons ── */
-        .btn-group {
-            display: flex;
-            gap: 0.7rem;
-            justify-content: center;
-            flex-wrap: wrap;
-        }
-        .btn {
-            display: inline-flex;
-            align-items: center;
-            gap: 0.5rem;
-            padding: 0.75rem 1.5rem;
-            border-radius: 10px;
-            text-decoration: none;
-            font-weight: 600;
-            font-size: 0.92rem;
-            transition: all 0.2s ease;
-        }
-        .btn:hover {
-            transform: translateY(-2px);
-            box-shadow: 0 6px 20px rgba(0,0,0,0.25);
-        }
-        .btn-white {
-            background: #fff;
-            color: var(--primary);
-        }
-        .btn-ghost {
-            background: rgba(255,255,255,0.12);
-            color: #fff;
-            border: 1.5px solid rgba(255,255,255,0.35);
-            backdrop-filter: blur(4px);
-        }
-        .btn-ghost:hover {
-            background: rgba(255,255,255,0.2);
-            border-color: rgba(255,255,255,0.6);
-        }
-        .btn svg {
-            width: 17px;
-            height: 17px;
-            fill: currentColor;
-            flex-shrink: 0;
-        }
+    <link rel=stylesheet href=https://cdn.jsdelivr.net/npm/pretty-print-json@3.0/dist/css/pretty-print-json.css>
+    <script src=https://cdn.jsdelivr.net/npm/pretty-print-json@3.0/dist/pretty-print-json.min.js></script>
+  </head>
+  <body>
+    <section class="hero">
+      <div class="hero-body">
+        <div class="container is-max-desktop">
+          <div class="columns is-centered">
+            <div class="column has-text-centered">
+              <h1 class="title is-1 publication-title">
+                ScholaWrite: A Dataset of End-to-End Scholarly Writing Process
+              </h1>
+              <div class="is-size-5 publication-authors">
+                <div class="authors-wrapper" style="display: flex; flex-direction: row; justify-content: space-evenly;">
 
-        /* ── Layout ── */
-        .container {
-            max-width: 1000px;
-            margin: 0 auto;
-            padding: 0 2rem;
-        }
-        section {
-            padding: 3.5rem 0;
-        }
-        section + section {
-            border-top: 1px solid var(--border);
-        }
-        section h2 {
-            font-size: 1.5rem;
-            color: var(--primary);
-            margin-bottom: 1rem;
-            font-weight: 700;
-        }
+                  <div class="author-container" style="width: 14%; align-self: flex-start; ">
+                    <div class="author-image" style="position: relative; width: 100%; padding-bottom: 100%; margin-bottom: 5px;">
+                      <div style="position: absolute; width: 100%; height: 100%; top: 0; left: 0; border-radius: 50%; background: linear-gradient(135deg, #6C3082, #4a1d5e); display: flex; align-items: center; justify-content: center; color: #fff; font-size: 2.5rem; font-weight: 600; font-family: 'Google Sans', sans-serif;">K</div>
+                    </div>
+                    <p style="margin-bottom: 0px; font-size: 18px;">
+                      <a target="_blank" href="https://chile2706.github.io/">Khanh Chi Le</a><sup>*</sup>
+                    </p>
+                  </div>
 
-        /* ── Abstract ── */
-        .abstract {
-            background: var(--card-bg);
-            border-left: 4px solid var(--primary);
-            padding: 1.75rem 2rem;
-            border-radius: 0 10px 10px 0;
-            box-shadow: 0 1px 4px rgba(0,0,0,0.04);
-            font-size: 0.97rem;
-            color: var(--text-mid);
-        }
+                  <div class="author-container" style="width: 14%; align-self: flex-start; ">
+                    <div class="author-image" style="position: relative; width: 100%; padding-bottom: 100%; margin-bottom: 5px;">
+                      <img src="static/images/linghe.jpg" alt="Linghe's image" style="position: absolute; width: 100%; height: 100%; top: 0; left: 0; border-radius: 50%;">
+                    </div>
+                    <p style="margin-bottom: 0px; font-size: 18px;">
+                      <a target="_blank" href="https://www.linkedin.com/in/linghewang/">Linghe Wang</a><sup>*</sup>
+                    </p>
+                  </div>
+                  
+                  <div class="author-container" style="width: 14%; align-self: flex-start; ">
+                    <div class="author-image" style="position: relative; width: 100%; padding-bottom: 100%; margin-bottom: 5px;">
+                        <img src="static/images/minhwa.jpg" alt="Minhwa's image" style="position: absolute; width: 100%; height: 100%; top: 0; left: 0; border-radius: 50%;">
+                    </div>
+                    <p style="margin-bottom: 0px; font-size: 18px;">
+                      <a target="_blank" href="https://mimn97.github.io/">Minhwa Lee</a><sup>*</sup>
+                    </p>
+                  </div>
+                  
+                  <div class="author-container" style="width: 14%; align-self: flex-start; ">
+                    <div class="author-image" style="position: relative; width: 100%; padding-bottom: 100%; margin-bottom: 5px;">
+                      <img src="static/images/ross.jpg" alt="Ross's image" style="position: absolute; width: 100%; height: 100%; top: 0; left: 0; border-radius: 50%;">
+                    </div>
+                    <p style="margin-bottom: 0px; font-size: 18px;">
+                      <a target="_blank" href="https://rvolkov1.github.io">Ross Volkov</a>
+                    </p>
+                  </div>
 
-        /* ── Stats ── */
-        .stats {
-            display: grid;
-            grid-template-columns: repeat(4, 1fr);
-            gap: 1rem;
-            margin: 2rem 0 0.5rem;
-        }
-        .stat-card {
-            background: var(--card-bg);
-            border-radius: 14px;
-            padding: 1.75rem 1rem;
-            text-align: center;
-            box-shadow: 0 1px 4px rgba(0,0,0,0.04);
-            border: 1px solid var(--border);
-            transition: transform 0.2s, box-shadow 0.2s;
-        }
-        .stat-card:hover {
-            transform: translateY(-2px);
-            box-shadow: 0 4px 16px rgba(108,48,130,0.1);
-        }
-        .stat-card .number {
-            font-size: 2.2rem;
-            font-weight: 800;
-            color: var(--primary);
-            display: block;
-            line-height: 1.2;
-        }
-        .stat-card .label {
-            font-size: 0.82rem;
-            color: var(--text-light);
-            margin-top: 0.3rem;
-            font-weight: 500;
-            text-transform: uppercase;
-            letter-spacing: 0.3px;
-        }
+                  <div class="author-container" style="width: 14%; align-self: flex-start; ">
+                    <div class="author-image" style="position: relative; width: 100%; padding-bottom: 100%; margin-bottom: 5px;">
+                      <img src="static/images/Luan-Chau.jpg" alt="Ross's image" style="position: absolute; width: 100%; height: 100%; top: 0; left: 0; border-radius: 50%;">
+                    </div>
+                    <p style="margin-bottom: 0px; font-size: 18px;">
+                      <a target="_blank" href="https://www.linkedin.com/in/luan-chau-45101a188/">Luan Tuyen Chau</a>
+                    </p>
+                  </div>
+                  
+                  <div class="author-container" style="width: 14%; align-self: flex-start; ">
+                    <div class="author-image" style="position: relative; width: 100%; padding-bottom: 100%; margin-bottom: 5px;">
+                      <img src="static/images/dykang.jpg" alt="Prof. Kang's image" style="position: absolute; width: 100%; height: 100%; top: 0; left: 0; border-radius: 50%;">
+                    </div>
+                    <p style="margin-bottom: 0px; font-size: 18px;">
+                      <a target="_blank" href="https://dykang.github.io/">Dongyeop Kang</a>
+                    </p>
+                  </div>
+                </div>
 
-        /* ── Features ── */
-        .features {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-            gap: 1.25rem;
-            margin-top: 1.5rem;
-        }
-        .feature-card {
-            background: var(--card-bg);
-            border-radius: 14px;
-            padding: 2rem 1.5rem;
-            border: 1px solid var(--border);
-            box-shadow: 0 1px 4px rgba(0,0,0,0.04);
-            transition: transform 0.2s, box-shadow 0.2s;
-        }
-        .feature-card:hover {
-            transform: translateY(-2px);
-            box-shadow: 0 4px 16px rgba(108,48,130,0.1);
-        }
-        .feature-card h3 {
-            font-size: 1.02rem;
-            margin-bottom: 0.5rem;
-            color: var(--text);
-            font-weight: 700;
-        }
-        .feature-card p {
-            font-size: 0.88rem;
-            color: var(--text-light);
-            line-height: 1.6;
-        }
-        .feature-icon {
-            font-size: 1.5rem;
-            margin-bottom: 0.75rem;
-            display: block;
-        }
+                <a class="subtitle" style="color: black !important;" href="https://minnesotanlp.github.io/">Minnesota NLP Lab<img src="static/logos/mnnlp.png" style="height: 1em; margin-inline: 5px;">, University of Minnesota</a>
+                
+              </div>
+              <div class="column has-text-centered" style="padding-top: 2rem;padding-bottom: 0;">
+                <div class="publication-links">
+                  <span class="link-block">
+                    <a
+                      href="https://arxiv.org/abs/2502.02904v4"
+                      target="_blank"
+                      class="external-link button is-normal is-rounded is-dark is-outlined"
+                    >
+                      <span class="icon">
+                        <i class="fa-solid fa-file"></i>
+                      </span>
+                      <span>Paper</span>
+                    </a>
+                  </span>
 
-        /* ── Taxonomy ── */
-        .taxonomy-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fill, minmax(190px, 1fr));
-            gap: 0.5rem;
-            margin-top: 1rem;
-        }
-        .taxonomy-item {
-            background: var(--code-bg);
-            padding: 0.55rem 0.9rem;
-            border-radius: 8px;
-            font-size: 0.86rem;
-            font-weight: 500;
-            color: var(--text-mid);
-            border-left: 3px solid var(--primary-light);
-            transition: background 0.15s;
-        }
-        .taxonomy-item:hover {
-            background: #ebe4f0;
-        }
+                  <span class="link-block">
+                    <a
+                      href="https://huggingface.co/datasets/minnesotanlp/scholawrite"
+                      target="_blank"
+                      class="external-link button is-normal is-rounded is-dark is-outlined"
+                    >
+                      <span class="icon">
+                        <i class="fa fa-laptop"></i>
+                      </span>
+                      <span>Data</span>
+                    </a>
+                  </span>  
+                  <span class="link-block">
+                    <a
+                      href="https://github.com/minnesotanlp/scholawrite"
+                      target="_blank"
+                      class="external-link button is-normal is-rounded is-dark is-outlined"
+                    >
+                      <span class="icon">
+                        <i class="fa fa-code"></i>
+                      </span>
+                      <span>Code</span>
+                    </a>
+                  </span>
+                  <br>
+                  <span class="link-block">
+                    <a
+                      href="https://huggingface.co/minnesotanlp/scholawrite-llama3.1-8b-classifier"
+                      target="_blank"
+                      class="external-link button is-normal is-rounded is-dark is-outlined"
+                    >
+                      <span class="icon">
+                        <i class="fa-solid fa-hexagon-nodes"></i>
+                      </span>
+                      <span>Llama-8B-SW-PRED</span>
+                    </a>
+                  </span>
+                  <span class="link-block">
+                    <a
+                      href="https://huggingface.co/minnesotanlp/scholawrite-llama3.1-8b-writing"
+                      target="_blank"
+                      class="button is-normal is-rounded is-dark is-outlined"
+                    >
+                      <span class="icon">
+                        <i class="fa-solid fa-hexagon-nodes"></i>
+                      </span>
+                      <span>Llama-8B-SW-GEN</span>
+                    </a>
+                  </span>
 
-        /* ── Citation ── */
-        .citation-block {
-            background: var(--code-bg);
-            border-radius: 10px;
-            padding: 1.5rem 1.75rem;
-            overflow-x: auto;
-            position: relative;
-        }
-        .citation-block pre {
-            font-family: 'SFMono-Regular', Consolas, 'Liberation Mono', Menlo, monospace;
-            font-size: 0.8rem;
-            line-height: 1.65;
-            white-space: pre;
-            color: var(--text-mid);
-        }
-        .copy-btn {
-            position: absolute;
-            top: 0.75rem;
-            right: 0.75rem;
-            background: var(--primary);
-            color: #fff;
-            border: none;
-            padding: 0.4rem 0.9rem;
-            border-radius: 6px;
-            cursor: pointer;
-            font-size: 0.78rem;
-            font-weight: 600;
-            transition: opacity 0.15s;
-        }
-        .copy-btn:hover { opacity: 0.85; }
+                  <span class="link-block">
+                    <a
+                      href="https://huggingface.co/minnesotanlp/scholawrite-bert-classifier"
+                      target="_blank"
+                      class="external-link button is-normal is-rounded is-dark is-outlined"
+                    >
+                      <span class="icon">
+                        <i class="fa-solid fa-hexagon-nodes"></i>
+                      </span>
+                      <span>BERT-SW</span>
+                    </a>
+                  </span>
+                  <span class="link-block">
+                    <a
+                      href="https://huggingface.co/minnesotanlp/scholawrite-roberta-classifier"
+                      target="_blank"
+                      class="external-link button is-normal is-rounded is-dark is-outlined"
+                    >
+                      <span class="icon">
+                        <i class="fa-solid fa-hexagon-nodes"></i>
+                      </span>
+                      <span>RoBERTa-SW</span>
+                    </a>
+                  </span>
 
-        /* ── Footer ── */
-        footer {
-            text-align: center;
-            padding: 2.5rem 2rem;
-            color: var(--text-light);
-            font-size: 0.84rem;
-            border-top: 1px solid var(--border);
-            background: var(--card-bg);
-        }
-        footer a {
-            color: var(--primary);
-            text-decoration: none;
-            font-weight: 500;
-        }
-        footer a:hover { text-decoration: underline; }
-        .footer-links {
-            display: flex;
-            gap: 1.5rem;
-            justify-content: center;
-            margin-bottom: 0.75rem;
-        }
+                </div>
+              </div>
 
-        /* ── Responsive ── */
-        @media (max-width: 768px) {
-            .hero h1 { font-size: 2.2rem; }
-            .hero { padding: 3.5rem 1.5rem 3rem; }
-            .container { padding: 0 1.2rem; }
-            .stats { grid-template-columns: repeat(2, 1fr); }
-            .features { grid-template-columns: 1fr; }
-        }
-        @media (max-width: 480px) {
-            .hero h1 { font-size: 1.8rem; }
-            .btn { padding: 0.65rem 1.1rem; font-size: 0.85rem; }
-        }
-    </style>
-</head>
-<body>
-
-<header class="hero">
-    <div class="hero-inner">
-        <div class="venue-badge">arXiv 2025 &bull; cs.CL</div>
-        <h1>ScholaWrite</h1>
-        <p class="subtitle">A Dataset of End-to-End Scholarly Writing Process</p>
-        <p class="authors">
-            <a href="https://chile2706.github.io/">Khanh Chi Le</a>,
-            <a href="https://github.com/Linghe-Wang">Linghe Wang</a>,
-            <a href="https://mimn97.github.io/">Minhwa Lee</a>,
-            <a href="https://rvolkov1.github.io/">Ross Volkov</a>,
-            Luan Tuyen Chau,
-            <a href="https://dykang.github.io/">Dongyeop Kang</a>
-        </p>
-        <p class="affiliation">Minnesota NLP &mdash; University of Minnesota</p>
-        <div class="btn-group">
-            <a class="btn btn-white" href="https://arxiv.org/abs/2502.02904v4">
-                <svg viewBox="0 0 24 24"><path d="M14 2H6a2 2 0 00-2 2v16a2 2 0 002 2h12a2 2 0 002-2V8l-6-6zm-1 1.5L18.5 9H13V3.5zM8 13h8v2H8v-2zm0 4h8v2H8v-2z"/></svg>
-                Paper
-            </a>
-            <a class="btn btn-ghost" href="https://huggingface.co/datasets/minnesotanlp/scholawrite">
-                <svg viewBox="0 0 24 24"><path d="M20 6h-8l-2-2H4a2 2 0 00-2 2v12a2 2 0 002 2h16a2 2 0 002-2V8a2 2 0 00-2-2zm-6 10H6v-2h8v2zm4-4H6v-2h12v2z"/></svg>
-                Dataset
-            </a>
-            <a class="btn btn-ghost" href="https://github.com/minnesotanlp/scholawrite">
-                <svg viewBox="0 0 24 24"><path d="M12 2A10 10 0 002 12c0 4.42 2.87 8.17 6.84 9.5.5.08.66-.23.66-.5v-1.69c-2.77.6-3.36-1.34-3.36-1.34-.46-1.16-1.11-1.47-1.11-1.47-.91-.62.07-.6.07-.6 1 .07 1.53 1.03 1.53 1.03.87 1.52 2.34 1.07 2.91.83.09-.65.35-1.09.63-1.34-2.22-.25-4.55-1.11-4.55-4.92 0-1.11.38-2 1.03-2.71-.1-.25-.45-1.29.1-2.64 0 0 .84-.27 2.75 1.02.79-.22 1.65-.33 2.5-.33.85 0 1.71.11 2.5.33 1.91-1.29 2.75-1.02 2.75-1.02.55 1.35.2 2.39.1 2.64.65.71 1.03 1.6 1.03 2.71 0 3.82-2.34 4.66-4.57 4.91.36.31.69.92.69 1.85V21c0 .27.16.59.67.5C19.14 20.16 22 16.42 22 12A10 10 0 0012 2z"/></svg>
-                Code
-            </a>
+            </div>
+          </div>
         </div>
-    </div>
-</header>
-
-<main class="container">
-
-    <!-- Abstract -->
-    <section>
-        <h2>Abstract</h2>
-        <div class="abstract">
-            <p>Writing is a cognitively active task involving continuous decision-making, heavy use of working memory, and frequent switching between multiple activities. Scholarly writing is particularly complex as it requires authors to coordinate many pieces of multiform knowledge while meeting high academic standards. To understand writers' cognitive thinking process, one should fully decode the <em>end-to-end writing data</em> (from scratch to final manuscript) and understand their complex cognitive mechanisms in scientific writing. We introduce <strong>ScholaWrite</strong>, the first-of-its-kind keystroke logs of an end-to-end scholarly writing process, with thorough annotations of cognitive writing intentions behind each keystroke. Our dataset includes LaTeX-based keystroke data from five preprints with nearly 62K total text changes and annotations across 4 months of paper writing. Our dataset shows promising usability and applications for the future development of AI writing assistants for the research environment, which necessitate complex methods beyond LLM prompting, and supports the cognitive thinking process of scientists.</p>
-        </div>
+      </div>
     </section>
 
-    <!-- Stats -->
-    <section>
-        <h2>Dataset at a Glance</h2>
-        <div class="stats">
-            <div class="stat-card">
-                <span class="number">62K</span>
-                <span class="label">Text Changes</span>
+
+    <!-- Link to recuitment start -->
+    <section class="section hero is-small is-light">
+      <div class="container is-max-desktop">
+        <div class="columns is-centered has-text-centered">
+          <div class="column is-full">
+            <div class="content">
+              <a class="title is-4" href="#takeaway" style="margin-bottom: 0;color: #3273dc;text-decoration: underline;">We are recuiting for ScholaWrite 2.0, </a>
+              <br>
+              <a class="title is-4" href="#takeaway" style="margin-bottom: 0;color: #3273dc;text-decoration: underline;">focusing on human-AI collaborative scientific writing!</a>
             </div>
-            <div class="stat-card">
-                <span class="number">5</span>
-                <span class="label">Research Papers</span>
+          </div>
+    </section>
+    <!-- Link to recuitment end -->
+
+    <!-- Research Contributions start -->
+    <section class="section hero is-small">
+      <div class="hero-body" style="padding: 0;">
+        <div class="container is-max-desktop">
+          <div class="columns is-centered has-text-centered">
+            <div class="column is-full">
+              <div class="content">
+                <h1 class="title is-3 has-text-centered">A Summary of Contributions</h1>
+
+                <div id="motivation" class="carousel results-carousel">
+                  
+                </div>
+
+                <div class="level-set has-text-justified has-text-centered">
+                  <ul>
+                    <li> Scholarly writing is a non-linear and cognitively complex task that involves frequent switching between multiple activities, coordinating various pieces of multiform information, and revising previously written text. This approach contrasts with the token-by-token text generation of large language models (LLMs). Our goal is for the model to understand the cognitive processes involved in writing and apply them to text generation.</li>
+                    <li>
+                      We present <i>ScholaWrite</i>, a curated dataset of nearly 62K LATEX-based keystrokes that were turned into publications in the computer science domain, annotated by experts in linguistics and computer science.                    
+                    </li>
+                    <li>
+                      We develop a taxonomy of scholarly writing intentions, providing an overall understanding of how scholars tend to produce their ideas.
+                    </li>
+                    <li>
+                      We found that a finetuned Llama3.2 model on our dataset outperformed GPT-4o in predicting the next writing intention and better mimicked the human-like iterative revision process than GPT-4o.
+                    </li>
+                  </ul>
+                </div>
+              </div>
             </div>
-            <div class="stat-card">
-                <span class="number">4 mo</span>
-                <span class="label">Writing Period</span>
-            </div>
-            <div class="stat-card">
-                <span class="number">15</span>
-                <span class="label">Intention Labels</span>
-            </div>
+          </div>
         </div>
+      </div>
+    </section>
+    <!-- Research Contributions end -->
+
+      <!-- Dataset videos start -->
+      <section class="section hero is-small is-light">
+        <div class="hero-body">
+          <div class="columns is-centered has-text-centered;">
+            <h1 class="title is-3">Recorded Writing Process Data</h1>
+          </div>
+  
+          <div class="container">
+            <div id="dataset_replays" class="carousel results-carousel">
+              <div class="item">
+                <video class="demo" playsinline autoplay muted loop>
+                  <source src="static/dataset_videos/project0.mp4" type="video/mp4">
+                  Your browser does not support the video tag.
+                </video>
+                <h2 class="subtitle has-text-centered">
+                  Project 1
+                </h2>
+              </div>
+              <div class="item" >
+                <video class="demo" playsinline autoplay muted loop>
+                  <source src="static/dataset_videos/project1.mp4" type="video/mp4">
+                  Your browser does not support the video tag.
+                </video>
+                <h2 class="subtitle has-text-centered">
+                  Project 2
+                </h2>
+              </div>
+  
+              <div class="item">
+                <video class="demo" playsinline autoplay muted loop>
+                  <source src="static/dataset_videos/project2.mp4" type="video/mp4">
+                  Your browser does not support the video tag.
+                </video>
+                <h2 class="subtitle has-text-centered">
+                  Project 3
+                </h2>
+              </div>
+              <div class="item" >
+                <video class="demo" playsinline autoplay muted loop>
+                  <source src="static/dataset_videos/project3.mp4" type="video/mp4">
+                  Your browser does not support the video tag.
+                </video>
+                <h2 class="subtitle has-text-centered">
+                  Project 4
+                </h2>
+              </div>
+              <div class="item" >
+                <video class="demo" playsinline autoplay muted loop>
+                  <source src="static/dataset_videos/project4.mp4" type="video/mp4">
+                  Your browser does not support the video tag.
+                </video>
+                <h2 class="subtitle has-text-centered">
+                  Project 5
+                </h2>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+      <!-- Dataset videos end -->
+
+    <!--- Extension Start -->
+    <section class="section hero is-small">
+      <div class="container is-max-desktop">
+        <div class="columns is-centered has-text-centered">
+          <div class="column is-full">
+            <div class="content">
+              <h2 class="title is-3">Chrome Extension Tutorial</h2>
+
+              <div>
+                <video width="560" height="315" controls poster="static/videos/ext_yellow.png">
+                  <source src="static/videos/extension_demo.mp4" type="video/mp4">
+                Your browser does not support the video tag.
+                </video>
+              </div>
+
+              <br>
+              
+              <div class="level-set has-text-justified">
+
+                <p>We designed and implemented a Chrome extension, which enables the real-time collection of keystroke trajectories in the Overleaf platform without disturb participants' writing process. You can browse the extension code through this <a href="https://github.com/minnesotanlp/scholawrite/tree/main/scholawrite_system/extension"><u><b>link</b></u></a>.</p>
+                <b>To install and run this extention please do the following:</b>
+                <ol>
+                  <li>
+                    <p>Start the backend by following procedure in <a href="https://github.com/minnesotanlp/scholawrite?tab=readme-ov-file#run-scholawrite-system"><u>Run ScholaWrite System</u></a> section, and setup URL in Chrome extension by completing step 1 in <a href="https://github.com/minnesotanlp/scholawrite/tree/main?tab=readme-ov-file#setup-the-extension"><u>Setup the Extention</u></a> section</p>
+                  </li>
+
+                  <li>
+                    <p>The extension only works on Chrome. Open your browser & Search "chrome://extensions/"</u></p>
+                  </li>
+
+                  <li>
+                    <p>On the top right corner of the page, toggle on 'Developer Mode'.</p>
+                  </li>
+
+                  <li>
+                    <p>Click on 'Load unpacked' on the top left corner, and you should see a pop-up of the file
+                      directory.</p>
+                  </li>
+
+                  <li>
+                    <p>Click on the folder named 'extension' in the folder where you download/clone the repository. Then, click on the toggle on the right side, enabling the extension!</p>
+                  </li>
+
+                <li>
+                  <p>At the top right corner, click on the puzzle icon followed by the pin icon next to the extension. The “S” logo will be shown!</p>
+                </li>
+
+                <li>
+                  <p>Click on the 'S' icon to register your account. Register your username with your email address and password you would like.</p>
+                </li>
+
+                <li>
+                  <p>After successful registration, you will see a welcome message. Toggle on the "Record writer actions" button. Now The Chrome extension setup is complete. Enjoy your writing!</p>
+                </li>
+                </ol>
+
+                <p><b>Note:</b> The operating logic of our Chrome extension is through listening frontend elements. Due to update of HTML elements in Overleaf, our Chrome extension is no longer able to recording writer actions</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+   <!--- Extension End -->
+
+    <!--- Annotation Start -->
+
+    <section class="section hero is-light">
+        <div class="container is-max-desktop">
+          <div class="columns is-centered has-text-centered">
+            <div class="column is-full">
+              <div class="content">
+                <h2 class="title is-3">Annotation UI Tutorial</h2>
+  
+                <div>
+                  <video width="560" height="315" controls poster="static/videos/annotation_green.jpg">
+                    <source src="static/videos/annotation_demo.mp4" type="video/mp4">
+                  Your browser does not support the video tag.
+                  </video>
+                </div>
+  
+                <br>
+                
+                <div class="level-set has-text-justified">
+                  <p>To make labeling process easy and smooth, we developed a novel web app to the replay collected keystroke data. The interface offers various modes for visualizing keystroke collections within each Overleaf project: by time, LaTeX file, and author. You can browse the code through this <a href="https://github.com/minnesotanlp/scholawrite/tree/main/scholawrite_system/annotation"><u><b>link</b></u></a>.</p>
+
+                  <b>Step-by-step Annotation Procedures:</b>
+                  <ol>
+
+                    <li>
+                      <p>In the login page, enter an existing username or create a new one. Then click the blue login button.</p>
+                    </li>
+
+                    <li>
+                      <p>Choose the title of the project that you would like to annotate, and <b>click the button </b>'<span style="color: red; font-weight: bold">Switch</span>'</p>
+                    </li>
+
+                    <li>
+                      <p>Click '<span style="color: red; font-weight: bold">By Time</span>' button on the interface and start reading keystrokes.</p>
+                    </li>
+
+                    <li>
+                      <p>Click through the first few actions and try to identify which high-level label is occurring (Planning, Implementation, or Revision).</p>
+                    </li>
+
+                    <li>
+                      <p>Once identified the current high-level label, attempt to identify where it ends.</p>
+                    </li>
+
+                    <li>
+                      <p>Once you know the <b>start and end indices</b> for the current high-level label,</p>
+                      <ol type="a">
+                        <li><span style="color:blue">Decide the low-level label </span>within the high-level label (e.g., Idea Generation, Text Production, Coherence, etc.)</li>
+                        <li>If a keystroke looks like <b>an artifact that does not deliver any insight</b>, then label it as an '<span style="color: red">artifact</span>'.</li>
+                        <li>If you think multiple labels can be applied to the identified span, please select multiple labels under the dropdown menu list.</li>
+                      </ol>
+                    </li>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+    <!--- Annotation End -->
+
+    <!-- Dataset Start -->
+
+    <section class="section hero is-small">
+      <div class="hero-body" style="padding: 0;">
+        <div class="container is-max-desktop">
+          <div class="columns is-centered has-text-centered">
+            <div class="column is-full">
+              <div class="content">
+                <h1 class="title is-3">ScholaWrite Dataset</h1>
+                
+                  <p >Below is a data entry of one keystroke data in scholawrite. You can find the full dataset in the 
+                    <a href="https://huggingface.co/datasets/minnesotanlp/scholawrite" target="_blank" style="text-decoration: underline;">Huggingface data card</a>
+                  </p>
+                
+                <ol id="account" class="json-container" style="margin-left: 5%;">
+                  <ol class="json-lines">
+                  <li><span class="json-mark">{</span></li>
+                  <li>   <span class="json-key">project</span><span class="json-mark">: </span><span class="json-number">0</span><span class="json-mark">,</span></li>
+                  <li>   <span class="json-key">timestamp</span><span class="json-mark">: </span><span class="json-number">1700506686410</span><span class="json-mark">,</span></li>
+                  <li>   <span class="json-key">author</span><span class="json-mark">: </span><span class="json-number">0</span><span class="json-mark">,</span></li>
+                  <li>   <span class="json-key">"before text"</span><span class="json-mark">: </span><span class="json-string" style="text-wrap-mode: wrap; display: inline-table; text-align: left;">"%         Author 1 \\ {\bf Author 2} \\ ... \\ {\bf Author n} \\<br>% For authors from different institutions:<br>% author{anonymous}\\ Address line \\  ... \\ Address line<br>%         And  ... And<br>%         Author n \\ Address line \\ ... \\ Address line}<br>% To start a seperate `row'' of authors use AND, as in<br>% author{anonymous}\\ Address line \\  ... \\ Address line<br>%         AND<br>%         Author 2 \\ Address line \\ ... \\ Address line And<br>%         Author 3 \\ Address line \\ ... \\ Address line}<br><br>author{anonymous}\\<br>  Affiliation / Address line 1 \\<br>  Affiliation / Address line 2 \\<br>  Affiliation / Address line 3 \\<br>  \texttt{email@domain} \\And<br>  Second Author \\<br>  Affiliation / Address line 1 \\<br>  Affiliation / Address line 2 \\<br>  Affiliation / Address line 3 \\<br>  \texttt{email@domain} \\}<br><br>\begin{document}<br>maketitle<br>\begin{abstract}<br>Style is an important component of text that expresses a diverse set of information, including interpersonal dynamics (e.g. formality) and the author’s emotions or attitudes (e.g. disgust). Writers constantly incorporate style -- and oftentimes, multiple styles -- into their writing. In order for generative language models to be useful in a wide variety of situations, these models should also be able to control and weave together styles when generating text. Previous work investigates reinforcement learning (RL) approaches for controlled generation of a single style, or else controlled generation for multiple attributes. In this paper, we investigate expanding this into controlling for \textbf{multiple} styles simultaneously. Our baseline is a plug-and-play approach. Our results indicate that plug-and-play does not satisfactorily solve the multi-style controlled generation problem, and that a straightforward RL approach can achieve strong results. We also explore the trade-off between training time and accuracy between plug-and-play and fune-tuning approaches for SoTA models.<br>end{abstract}<br><br>section{Introduction}<br>Writers can apply styles to text to convey a variety of information citep{hovy1987generating,silverstein2003indexical,block2015social,kang2021style}.  Styles can convey both information about the writer (e.g. their attitudes or demographic traits) and the writer’s interpersonal relationship or goals with respect to the reader (e.g. respectful or threatening language). Following previous work, we consider each individual aspect of these stylistic goals – i.e. each unique attitude, demographic attribute, interpersonal relationship goal – to be an individual style.<br><br>Stylistic information is a common and crucial component of communication: in fact, a text’s style can convey a variety of information not included in the text's raw semantic content citep{hovy1995multifunctionality}. <br>Consequently, it is vital that large language models are well-equipped to understand and apply styles themselves. <br>Progress has been made in the domain of controlled generation, in which the goal is for a generative language model to generate text of a specified style."<span class="json-mark">,</span></span></li>
+                  <li>   <span class="json-key">"after text"</span><span class="json-mark">: </span><span class="json-string" style="text-wrap-mode: wrap; display: inline-table; text-align: left;">"%         Author 1 \\ {\bf Author 2} \\ ... \\ {\bf Author n} \\<br>% For authors from different institutions:<br>% author{anonymous}\\ Address line \\  ... \\ Address line<br>%         And  ... And<br>%         Author n \\ Address line \\ ... \\ Address line}<br>% To start a seperate ``row'' of authors use AND, as in<br>% author{anonymous}\\ Address line \\  ... \\ Address line<br>%         AND<br>%         Author 2 \\ Address line \\ ... \\ Address line And<br>%         Author 3 \\ Address line \\ ... \\ Address line}<br><br>author{anonymous}\\<br>  Affiliation / Address line 1 \\<br>  Affiliation / Address line 2 \\<br>  Affiliation / Address line 3 \\<br>  \texttt{email@domain} \\And<br>  Second Author \\<br>  Affiliation / Address line 1 \\<br>  Affiliation / Address line 2 \\<br>  Affiliation / Address line 3 \\<br>  \texttt{email@domain} \\}<br><br>\begin{document}<br>maketitle<br>\begin{abstract}<br>Style is an in component of text that expresses a diverse set of information, including interpersonal dynamics (e.g. formality) and the author’s emotions or attitudes (e.g. disgust). Writers constantly incorporate style -- and oftentimes, multiple styles -- into their writing. In order for generative language models to be useful in a wide variety of situations, these models should also be able to control and weave together styles when generating text. Previous work investigates reinforcement learning (RL) approaches for controlled generation of a single style, or else controlled generation for multiple attributes. In this paper, we investigate expanding this into controlling for \textbf{multiple} styles simultaneously. Our baseline is a plug-and-play approach. Our results indicate that plug-and-play does not satisfactorily solve the multi-style controlled generation problem, and that a straightforward RL approach can achieve strong results. We also explore the trade-off between training time and accuracy between plug-and-play and fune-tuning approaches for SoTA models.<br>end{abstract}<br><br>section{Introduction}<br>Writers can apply styles to text to convey a variety of information citep{hovy1987generating,silverstein2003indexical,block2015social,kang2021style}.  Styles can convey both information about the writer (e.g. their attitudes or demographic traits) and the writer’s interpersonal relationship or goals with respect to the reader (e.g. respectful or threatening language). Following previous work, we consider each individual aspect of these stylistic goals – i.e. each unique attitude, demographic attribute, interpersonal relationship goal – to be an individual style.<br><br>Stylistic information is a common and crucial component of communication: in fact, a text’s style can convey a variety of information not included in the text's raw semantic content citep{hovy1995multifunctionality}. <br>Consequently, it is vital that large language models are well-equipped to understand and apply styles themselves. <br>Progress has been made in the domain of controlled generation, in which the goal is for a generative language model to generate text of a specified style. "<span class="json-mark">,</span></span></li>
+                  <li>   <span class="json-key">label</span><span class="json-mark">: </span><span class="json-string">"Linguistic Style"</span><span class="json-mark">,</span></li>
+                  <li>   <span class="json-key">high_level</span><span class="json-mark">: </span><span class="json-string">"REVISION"</span><span class="json-mark">,</span></li>
+                  <li><span class="json-mark">}</span></li>
+                  </ol></ol>
+
+
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
     </section>
 
-    <!-- Key Features -->
-    <section>
-        <h2>Key Features</h2>
-        <div class="features">
-            <div class="feature-card">
-                <span class="feature-icon">&#x1F4DD;</span>
-                <h3>Keystroke-level Logging</h3>
-                <p>Captures every insertion, deletion, copy, paste, and revert action in real-time through a custom Chrome extension for Overleaf.</p>
+    <!-- <section class="section hero">
+      <div class="container is-max-desktop">
+        <div class="columns is-centered has-text-centered">
+          <div class="column is-full">
+            <div class="content">
+              <h2 class="title is-3">ScholaWrite Dataset</h2>
+
+              
+              <div class="level-set has-text-justified" style="justify-items: center;">
+                <p >
+                  Below is a data entry of one keystroke data in scholawrite. You can find the full dataset in the 
+                  <a href="https://huggingface.co/datasets/minnesotanlp/scholawrite" target="_blank" style="text-decoration: underline;">Huggingface data card</a>
+                </p>
+
+                
+              </div>
             </div>
-            <div class="feature-card">
-                <span class="feature-icon">&#x1F9E0;</span>
-                <h3>Cognitive Intention Annotations</h3>
-                <p>Each text change is annotated with one of 15 writing intentions grounded in cognitive writing process research.</p>
-            </div>
-            <div class="feature-card">
-                <span class="feature-icon">&#x1F4CA;</span>
-                <h3>End-to-End Coverage</h3>
-                <p>Tracks the complete writing process from blank document to final manuscript across 5 real research papers.</p>
-            </div>
-            <div class="feature-card">
-                <span class="feature-icon">&#x1F916;</span>
-                <h3>Model Benchmarks</h3>
-                <p>Includes fine-tuned BERT, RoBERTa, Llama-8B, and GPT-4o baselines for intention prediction and iterative writing.</p>
-            </div>
+          </div>
         </div>
-    </section>
+      </div>
+    </section> -->
+    <!--- Dataset end -->
 
-    <!-- Taxonomy -->
-    <section>
-        <h2>Writing Intention Taxonomy</h2>
-        <p style="color: var(--text-mid); margin-bottom: 1rem;">Every text change is annotated with one of 15 cognitive writing intentions:</p>
-        <div class="taxonomy-grid">
-            <div class="taxonomy-item">Idea Generation</div>
-            <div class="taxonomy-item">Idea Organization</div>
-            <div class="taxonomy-item">Section Planning</div>
-            <div class="taxonomy-item">Text Production</div>
-            <div class="taxonomy-item">Object Insertion</div>
-            <div class="taxonomy-item">Cross-reference</div>
-            <div class="taxonomy-item">Citation Integration</div>
-            <div class="taxonomy-item">Macro Insertion</div>
-            <div class="taxonomy-item">Fluency</div>
-            <div class="taxonomy-item">Coherence</div>
-            <div class="taxonomy-item">Structural</div>
-            <div class="taxonomy-item">Clarity</div>
-            <div class="taxonomy-item">Linguistic Style</div>
-            <div class="taxonomy-item">Scientific Accuracy</div>
-            <div class="taxonomy-item">Visual Formatting</div>
+    <!--- Iterative Writing Start -->
+    <section class="section hero is-light">
+      <div class="container is-max-desktop">
+        <div class="columns is-centered has-text-centered">
+          <div class="column is-full">
+            <div class="content">
+              <h2 class="title is-3">Iterative Self-Writing</h2>
+
+              <div>
+                <img src="static/images/schola_dataset_keystroke.png" alt="prompting" width="600px" style="margin-bottom: -2.5%"/>
+                <p class="subtitle is-6 has-text-center" style="margin-top: 0; margin-bottom: 1rem">
+                  Figure a
+                </p>
+                <div class="image-container">
+                  <img src="static/images/schola_finetuning.png" alt="prompting"/>
+                  <img src="static/images/schola_iterative_writing.png" alt="prompting"/>
+                </div>
+                <div style="display: flex; justify-content: space-around;">
+                  <p class="subtitle is-6 has-text-left" style="margin-bottom: 0; margin-bottom: 1rem">
+                    Figure b
+                  </p>
+                  <p class="subtitle is-6 has-text-left" style="margin-bottom: 0; margin-bottom: 1rem">
+                    Figure c
+                  </p>
+              </div>
+
+              <br>
+              
+              <div class="level-set has-text-justified">
+                <ol>
+                  <li> 
+                    <b style="color: slateblue">Finetuning Setup</b> 
+                    <p> 
+                      To examine the generalizability of the models trained on the SCHOLAWRITE, we test end-to-end writing tasks. Our dataset is organaized with tuples of before text, after text and the scholarly writing intention (Figure <b>[a]</b>)
+                      <br>
+                      <br>
+                      We use this dataset to train two models: one for classification of writing intentions, and another for implementing writing assistance for that intention. These models are shown in figure <b>[b]</b>.
+                    </p>
+                  </li>
+                  <br>
+                  
+                  <li>
+                    <b style="color: slateblue">Iterative Writing</b>
+                    <p>
+                      The finetuned models were compared with GPT-4o and Llama3.1 8B on our novel iterative-writing setup shown in figure <b>[c]</b>.
+                      <br>
+                      <br>
+                      The goal of this setup is to understand the aptitude of our finetuned writing assistants on a self-writing application. We started our iterative writing with one of seed documents derived from four award-winning NLP papers on diverse topics. Each seed document contains LaTex-formatted title and abstract. In each iteration, the model will revise the seed document based on its generated intention. The revised document will be the seed document of the next iteration. We ran the iterative writing for 100 iterations.
+                    </p>
+                  </li>
+                  <br>
+                  <li>
+                    <b style="color: slateblue">Evaluation</b>
+                    <p>
+                      We evaluated the results of the finetuned model and GPT-40 iterative writign with human evaluation and automatic evaluation metrics.
+                    <ol>
+                      <li>
+                        <b style="color:purple">Human Evaluation</b>
+                        Inspired by Chang et al. (2023), we conduct human evaluation to mea sure the quality of writing outputs. We asked three native English speakers with Overleaf writing experience to evaluate our finetuned model and GPT-4o on the following metrics:
+                        <ol>
+                          <li>
+                            <b>Accuracy</b>: Out of 100, the number of generated outputs that align with the provided intention.
+                          </li>
+                          <li>
+                            <b>Alignment</b>: Which model's whole writing process throughout the entire 100 iterations looks more like a human?
+                          </li>
+                          <li>
+                            <b>Fluency</b>: Which model's final writing sounds more grammatically correct?                            
+                          </li>
+                          <li>
+                            <b>coherence</b>: Which model's final writing sounds more logical?
+                          </li>
+                          <li>
+                            <b>Relevancy</b>: Does the final writing from each model contain related contents to the original seed document?
+                          </li>
+                        </ol> 
+                      </li>
+                      <br>
+                      <li>
+                        <b style="color:purple">Automatic Evaluation</b>: 
+                        <p>
+                          The following quantitative analysis metrics were also used to measure the quality of writing outputs:
+                          <ol>
+                            <li>
+                              <b>Lexical diversity</b>: Assess the unique tokens model generated in the final iteration of writing, measured by number of unique tokens divided by total tokens generated. 
+                            </li>
+                            <li>
+                              <b>Topic consistency</b>: Cosine similarity between the seed document and output from the final iteration of writing 
+                            </li>
+                            <li>
+                              <b>Intention coverage</b>: Assess the diversity on model's writing intention, measured by number of unique label predicted through entire 100 iteration divided by all 15 intention labels available
+                            </li>
+                          </ol>
+                        </p>
+                      </li>
+                      </ol>
+                    </p>
+                  </li>
+                </ol>
+              </div>
+            </div>
+          </div>
         </div>
+      </div>
     </section>
+    <!--- Iterative writing end -->
 
-    <!-- Citation -->
-    <section>
-        <h2>Citation</h2>
-        <div class="citation-block">
-            <button class="copy-btn" onclick="copyBibtex()">Copy</button>
-            <pre id="bibtex">@misc{le2025scholawritedatasetendtoendscholarly,
-      title={ScholaWrite: A Dataset of End-to-End Scholarly Writing Process},
-      author={Khanh Chi Le and Linghe Wang and Minhwa Lee and Ross Volkov
-              and Luan Tuyen Chau and Dongyeop Kang},
-      year={2025},
-      eprint={2502.02904},
-      archivePrefix={arXiv},
-      primaryClass={cs.CL},
-      url={https://arxiv.org/abs/2502.02904},
-}</pre>
+    <!-- Iterative writing GIF start -->
+    <section class="section hero is-small">
+      <div class="hero-body" style="padding: 0;">
+        <div class="container">
+          <h1 class="title is-3 has-text-centered">Iterative Writing Replays</h1>
+
+          <div id="iterative_writing" class="carousel results-carousel">
+            <div class="item">
+              <img class="demo" src="static/iterative_writing_gif/llama8_SW_output-seed1.gif" alt="MY ALT TEXT"/>
+              <h2 class="subtitle has-text-centered">
+                llama-8b-SW in seed 1
+              </h2>
+            </div>
+            <div class="item" >
+              <img class="demo" src="static/iterative_writing_gif/llama8_meta_output-seed1.gif"  alt="MY ALT TEXT"/>
+              <h2 class="subtitle has-text-centered">
+                llama-8b-instruct in seed 1
+              </h2>
+            </div>
+            <div class="item" >
+              <img class="demo" src="static/iterative_writing_gif/gpt4o_output-seed1.gif"  alt="MY ALT TEXT"/>
+              <h2 class="subtitle has-text-centered">
+                GPT-4o in seed 1
+              </h2>
+            </div>
+
+            <div class="item">
+              <img class="demo" src="static/iterative_writing_gif/llama8_SW_output-seed2.gif" alt="MY ALT TEXT"/>
+              <h2 class="subtitle has-text-centered">
+                llama-8b-SW in seed 2
+              </h2>
+            </div>
+            <div class="item" >
+              <img class="demo" src="static/iterative_writing_gif/llama8_meta_output-seed2.gif"  alt="MY ALT TEXT"/>
+              <h2 class="subtitle has-text-centered">
+                llama-8b-instruct in seed 2
+              </h2>
+            </div>
+            <div class="item" >
+              <img class="demo" src="static/iterative_writing_gif/gpt4o_output-seed2.gif"  alt="MY ALT TEXT"/>
+              <h2 class="subtitle has-text-centered">
+                GPT-4o in seed 2
+              </h2>
+            </div>
+
+            <div class="item">
+              <img class="demo" src="static/iterative_writing_gif/llama8_SW_output-seed3.gif" alt="MY ALT TEXT"/>
+              <h2 class="subtitle has-text-centered">
+                llama-8b-SW in seed 3
+              </h2>
+            </div>
+            <div class="item" >
+              <img class="demo" src="static/iterative_writing_gif/llama8_meta_output-seed3.gif"  alt="MY ALT TEXT"/>
+              <h2 class="subtitle has-text-centered">
+                llama-8b-instruct in seed 3
+              </h2>
+            </div>
+            <div class="item" >
+              <img class="demo" src="static/iterative_writing_gif/gpt4o_output-seed3.gif"  alt="MY ALT TEXT"/>
+              <h2 class="subtitle has-text-centered">
+                GPT-4o in seed 3
+              </h2>
+            </div>
+          </div>
         </div>
+      </div>
     </section>
+    <!-- Iterative writing GIF end -->
 
-</main>
+    <!--- Demo Start -->
+    <section class="section hero is-light">
+      <div class="container is-max-desktop">
+        <div class="columns is-centered has-text-centered">
+          <div class="column is-full">
+            <div class="content">
+              <h2 class="title is-3">Visualization Tool</h2>
 
-<footer>
-    <div class="footer-links">
-        <a href="https://arxiv.org/abs/2502.02904v4">arXiv</a>
-        <a href="https://huggingface.co/datasets/minnesotanlp/scholawrite">HuggingFace</a>
-        <a href="https://github.com/minnesotanlp/scholawrite">GitHub</a>
-        <a href="https://minnesotanlp.github.io/">Minnesota NLP</a>
-    </div>
-    <p>&copy; 2025 Minnesota NLP &mdash; University of Minnesota. MIT License.</p>
-</footer>
+              <a href="/scholawrite/model_outputs/seed1.html">
+                <img src="static/images/demo_page.png" alt="model output demo" width="1000" display="inline"/>
+              </a>
 
-<script>
-function copyBibtex() {
-    const text = document.getElementById('bibtex').textContent;
-    navigator.clipboard.writeText(text).then(function() {
-        var btn = document.querySelector('.copy-btn');
-        btn.textContent = 'Copied!';
-        setTimeout(function() { btn.textContent = 'Copy'; }, 2000);
-    });
-}
-</script>
-</body>
+              <br>
+              
+              <div class="level-set has-text-justified">
+                <p>We vsialized the self-iterative writing output of Llama-8B-SW and Llama-8B-Instruct on all four seeds. It is the slight modification of web page used for human evaluation in paper, which includes model names and backword navigation button. The red and strikethrough represent deletion, while green represent addition. You can access our demo page through this <a href="/scholawrite/model_outputs/seed1.html" style="color: #3273dc; text-decoration: underline;"><b>link</b></a>.</p>
+                <b>Here is the tutorial:</b>
+                <ol>
+                  <li>
+                    <p>Picture above is the UI of demo page. First, click the drop down menu to select the seed document would like to read. After selection, click 'Switch' button on the right.</p>
+                  </li>
+
+                  <li>
+                    <p>At the bottom of the page, from left to right, are progress bar, backword button, play button, and forward button. Progress bar shows the relative position of current text you are reading. Clicking forward button will display the text of previous iteration. Clicking play button will showing text of next iteration every one second. Clicking forward button display the text of next iteration. <u>You can also use arrow keys on the keyboard to navigate to previous/next iteration.</u></p>
+                  </li>
+
+                  <li>
+                    <p>You can also have more granular control to read text from different iterations by muanlly input the number on the top right corner of the UI. The number you entered represents the number of iterations. When you're done typing, press enter. Then the page will display the writing from your specified iteration</p>
+                  </li>
+
+                  <li>
+                    <p>On the top of each model's output, there are writing intention and model's name.</p>
+                  </li>
+
+                  <li>
+                    <p>After finishing viewing the outputs, click 'Go Back' button on the upper right corner to get back to this project page.</p>
+                  </li>
+                </ol>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+    <!--- Demo end -->
+
+    <!-- Writing Example Start-->
+    <section class="section hero is-small">
+      <div class="hero-body" style="padding: 0;">
+        <div class="container">
+          <h1 class="title is-3 has-text-centered">Sample Inference Trajectories</h1>
+
+          <div id="dataset_replays" class="carousel results-carousel">
+            <div class="item" >
+              <img class="demo" src="static/writing_trajectory_gif/Idea Generation_25.gif" alt="MY ALT TEXT"/>
+              <h2 class="subtitle has-text-centered">
+                Idea Generation
+              </h2>
+            </div>
+            <div class="item" >
+              <img class="demo" src="static/writing_trajectory_gif/Section Planning_55.gif" alt="MY ALT TEXT"/>
+              <h2 class="subtitle has-text-centered">
+                Section Planning
+              </h2>
+            </div>
+
+            <div class="item" >
+              <img class="demo" src="static/writing_trajectory_gif/Text Production_66.gif" alt="MY ALT TEXT"/>
+              <h2 class="subtitle has-text-centered">
+                Text Production
+              </h2>
+            </div>
+            <div class="item" >
+              <img class="demo" src="static/writing_trajectory_gif/Object Insertion_45.gif" alt="MY ALT TEXT"/>
+              <h2 class="subtitle has-text-centered">
+                Object Insertion
+              </h2>
+            </div>
+            <div class="item" >
+              <img class="demo" src="static/writing_trajectory_gif/Macro Insertion_40.gif" alt="MY ALT TEXT"/>
+              <h2 class="subtitle has-text-centered">
+                Macro Insertion
+              </h2>
+            </div>
+
+            <div class="item" >
+              <img class="demo" src="static/writing_trajectory_gif/Clarity_6.gif" alt="MY ALT TEXT"/>
+              <h2 class="subtitle has-text-centered">
+                Clarity
+              </h2>
+            </div>
+            <div class="item" >
+              <img class="demo" src="static/writing_trajectory_gif/Coherence_10.gif" alt="MY ALT TEXT"/>
+              <h2 class="subtitle has-text-centered">
+                Coherence
+              </h2>
+            </div>
+            <div class="item" >
+              <img class="demo" src="static/writing_trajectory_gif/Cross-reference_16.gif" alt="MY ALT TEXT"/>
+              <h2 class="subtitle has-text-centered">
+                Cross-reference
+              </h2>
+            </div>
+            <div class="item" >
+              <img class="demo" src="static/writing_trajectory_gif/Fluency_20.gif" alt="MY ALT TEXT"/>
+              <h2 class="subtitle has-text-centered">
+                Fluency
+              </h2>
+            </div>
+            <div class="item" >
+              <img class="demo" src="static/writing_trajectory_gif/Linguistic Style_36.gif" alt="MY ALT TEXT"/>
+              <h2 class="subtitle has-text-centered">
+                Linguistic Style
+              </h2>
+            </div>
+            <div class="item" >
+              <img class="demo" src="static/writing_trajectory_gif/Scientific Accuracy_50.gif" alt="MY ALT TEXT"/>
+              <h2 class="subtitle has-text-centered">
+                Scientific Accuracy
+              </h2>
+            </div>
+            <div class="item" >
+              <img class="demo" src="static/writing_trajectory_gif/Structural_63.gif" alt="MY ALT TEXT"/>
+              <h2 class="subtitle has-text-centered">
+                Structural Revision
+              </h2>
+            </div>
+            <div class="item" >
+              <img class="demo" src="static/writing_trajectory_gif/Visual Formatting_70.gif" alt="MY ALT TEXT"/>
+              <h2 class="subtitle has-text-centered">
+                Visual Formatting
+              </h2>
+            </div>
+            <div class="item">
+              <img class="demo" src="static/writing_trajectory_gif/Citation Integration_0.gif" alt="MY ALT TEXT"/>
+              <h2 class="subtitle has-text-centered">
+                Citation Integration
+              </h2>
+            </div>
+
+          </div>
+        </div>
+      </div>
+    </section>
+    <!-- Writing Example end -->
+
+    <!-- Takeaway start -->
+    <span id="takeaway">
+      <section class="section hero is-small is-light">
+        <div class="container is-max-desktop">
+          <div class="content">
+            <h2 class="title is-3 has-text-centered">Call for participation</h2>
+            <p>
+              <b>ScholaWrite 2.0 is launching!</b> Here's what we aim to do:
+            </p>
+            <ul>
+              <li>
+                <p>Collect 50-100 Overleaf projects from <b>multiple academic fields</b> and researchers with different experience levels.</p>
+              </li>
+              <li>
+                <p>Uncover patterns and gain insights into <b>multi-author collaborative writing</b> and <b>human-AI collaborative writing</b> using tools like <a href="https://openai.com/index/introducing-deep-research/">OpenAI's Deep Research</a>.</p>
+              </li>
+              <li>
+                <p>Develop an assistant that can better understand human cognitive writing behavior and support <b>cognitively-aware suggestions without disturbing their thinking process</b>.</p>
+              </li>
+            </ul>
+            <p>
+              If you would like to contribute your writing activities to the new dataset or want to join us to develop the ScholaWrite 2.0, don't hesitate to reach out! Please fill out this <a target="_blank" href="https://docs.google.com/forms/d/e/1FAIpQLSdJZAY_VeNYkOYXs8fngw8Fl-gB83YKkMJ_GyajdlmXKMnDkg/viewform?usp=header" style="color: blue; text-decoration: underline;">form</a> and we will be reach out to you shortly.
+            </p>
+          </div>
+        </div>
+      </section>
+    </span>
+    <!-- Takeaway end -->
+
+    <!-- BibTex citation start-->
+    <section class="section" id="BibTeX">
+      <div class="container is-max-desktop content">
+        <h2 class="title">BibTeX</h2>
+        <pre><code>@misc{le2025scholawritedatasetendtoendscholarly,
+          title={ScholaWrite: A Dataset of End-to-End Scholarly Writing Process},
+          author={Khanh Chi Le and Linghe Wang and Minhwa Lee and Ross Volkov and Luan Tuyen Chau and Dongyeop Kang},
+          year={2025},
+          eprint={2502.02904},
+          archivePrefix={arXiv},
+          primaryClass={cs.CL},
+          url={https://arxiv.org/abs/2502.02904},
+    }</code></pre>
+      </div>
+  </section>
+  <!-- BibTex citation end -->
+
+    <!-- Footer start -->
+    <footer class="section" style="background-color: #f5f5f5">
+      <div class="container">
+        <div class="columns is-centered">
+          <div class="column is-8">
+            <div class="content">
+              <p>
+                This page was built using the
+                <a
+                  href="https://github.com/eliahuhorwitz/Academic-project-page-template"
+                  target="_blank"
+                  >Academic Project Page Template</a
+                >
+                which was adopted from the <a
+                  href="https://nerfies.github.io"
+                  target="_blank"
+                  >Nerfies</a
+                > project page.
+              </p>
+            </div>
+            <i class="fa-regular fa-copyright"></i> 2021-2025 Minnesota NLP. All Rights Reserved
+          </div>
+        </div>
+      </div>
+    </footer>
+    <!-- Footer end -->
+  </body>
 </html>
