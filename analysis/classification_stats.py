@@ -31,7 +31,7 @@ def calculate_metrics(eval_df):
 
   try:
     y_pred = eval_df["predicted"]
-  except:
+  except KeyError:
     y_pred = eval_df["predicted_label"]
 
   accuracy = accuracy_score(y_true, y_pred)
