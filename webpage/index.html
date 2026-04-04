@@ -3,9 +3,9 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>ScholaWrite &mdash; Decoding How Scientists Write</title>
-    <meta name="description" content="ScholaWrite: The first keystroke-level dataset capturing the complete scholarly writing process, from blank page to published manuscript, with fine-grained cognitive intention annotations.">
-    <meta property="og:title" content="ScholaWrite: Decoding How Scientists Write">
+    <title>ScholaWrite: A Dataset of End-to-End Scholarly Writing Process</title>
+    <meta name="description" content="ScholaWrite - the first-of-its-kind keystroke logs of an end-to-end scholarly writing process with cognitive writing intention annotations.">
+    <meta property="og:title" content="ScholaWrite: A Dataset of End-to-End Scholarly Writing Process">
     <meta property="og:description" content="62K annotated text changes across 5 research papers. The first end-to-end scholarly writing dataset.">
     <meta property="og:type" content="website">
     <meta property="og:url" content="https://minnesotanlp.github.io/scholawrite/">
@@ -17,7 +17,6 @@
             --primary: #6C3082;
             --primary-dark: #4a1d5e;
             --primary-light: #9b6fb0;
-            --accent: #f59e0b;
             --bg: #fafafa;
             --card-bg: #ffffff;
             --text: #1a1a2e;
@@ -83,13 +82,12 @@
             margin-bottom: 0.75rem;
             line-height: 1.15;
         }
-        .hero .tagline {
-            font-size: 1.25rem;
-            opacity: 0.92;
-            max-width: 620px;
+        .hero .subtitle {
+            font-size: 1.2rem;
+            opacity: 0.9;
+            max-width: 700px;
             margin: 0 auto 2rem;
             font-weight: 300;
-            line-height: 1.6;
         }
         .hero .authors {
             font-size: 1rem;
@@ -174,12 +172,6 @@
             margin-bottom: 1rem;
             font-weight: 700;
         }
-        .section-lead {
-            font-size: 1.05rem;
-            color: var(--text-mid);
-            margin-bottom: 1.5rem;
-            max-width: 700px;
-        }
 
         /* ── Abstract ── */
         .abstract {
@@ -228,14 +220,14 @@
             letter-spacing: 0.3px;
         }
 
-        /* ── Contributions ── */
-        .contributions {
+        /* ── Features ── */
+        .features {
             display: grid;
-            grid-template-columns: repeat(3, 1fr);
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
             gap: 1.25rem;
             margin-top: 1.5rem;
         }
-        .contrib-card {
+        .feature-card {
             background: var(--card-bg);
             border-radius: 14px;
             padding: 2rem 1.5rem;
@@ -243,46 +235,33 @@
             box-shadow: 0 1px 4px rgba(0,0,0,0.04);
             transition: transform 0.2s, box-shadow 0.2s;
         }
-        .contrib-card:hover {
+        .feature-card:hover {
             transform: translateY(-2px);
             box-shadow: 0 4px 16px rgba(108,48,130,0.1);
         }
-        .contrib-num {
-            display: inline-block;
-            width: 28px;
-            height: 28px;
-            line-height: 28px;
-            text-align: center;
-            background: var(--primary);
-            color: #fff;
-            border-radius: 50%;
-            font-size: 0.82rem;
-            font-weight: 700;
-            margin-bottom: 0.75rem;
-        }
-        .contrib-card h3 {
+        .feature-card h3 {
             font-size: 1.02rem;
             margin-bottom: 0.5rem;
             color: var(--text);
             font-weight: 700;
         }
-        .contrib-card p {
+        .feature-card p {
             font-size: 0.88rem;
             color: var(--text-light);
             line-height: 1.6;
         }
+        .feature-icon {
+            font-size: 1.5rem;
+            margin-bottom: 0.75rem;
+            display: block;
+        }
 
         /* ── Taxonomy ── */
-        .taxonomy-intro {
-            display: flex;
-            gap: 2rem;
-            align-items: start;
-            margin-bottom: 1.5rem;
-        }
         .taxonomy-grid {
             display: grid;
             grid-template-columns: repeat(auto-fill, minmax(190px, 1fr));
             gap: 0.5rem;
+            margin-top: 1rem;
         }
         .taxonomy-item {
             background: var(--code-bg);
@@ -296,33 +275,6 @@
         }
         .taxonomy-item:hover {
             background: #ebe4f0;
-        }
-
-        /* ── Benchmarks ── */
-        .bench-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-            gap: 0.75rem;
-            margin-top: 1rem;
-        }
-        .bench-item {
-            background: var(--card-bg);
-            border: 1px solid var(--border);
-            border-radius: 10px;
-            padding: 1.2rem;
-            text-align: center;
-            transition: transform 0.2s;
-        }
-        .bench-item:hover { transform: translateY(-1px); }
-        .bench-item .model-name {
-            font-weight: 700;
-            font-size: 0.95rem;
-            color: var(--text);
-        }
-        .bench-item .model-task {
-            font-size: 0.78rem;
-            color: var(--text-light);
-            margin-top: 0.2rem;
         }
 
         /* ── Citation ── */
@@ -384,8 +336,7 @@
             .hero { padding: 3.5rem 1.5rem 3rem; }
             .container { padding: 0 1.2rem; }
             .stats { grid-template-columns: repeat(2, 1fr); }
-            .contributions { grid-template-columns: 1fr; }
-            .taxonomy-intro { flex-direction: column; gap: 1rem; }
+            .features { grid-template-columns: 1fr; }
         }
         @media (max-width: 480px) {
             .hero h1 { font-size: 1.8rem; }
@@ -399,7 +350,7 @@
     <div class="hero-inner">
         <div class="venue-badge">arXiv 2025 &bull; cs.CL</div>
         <h1>ScholaWrite</h1>
-        <p class="tagline">Decoding How Scientists Write &mdash; from First Keystroke to Final Manuscript</p>
+        <p class="subtitle">A Dataset of End-to-End Scholarly Writing Process</p>
         <p class="authors">
             <a href="https://chile2706.github.io/">Khanh Chi Le</a>,
             <a href="https://github.com/Linghe-Wang">Linghe Wang</a>,
@@ -432,7 +383,7 @@
     <section>
         <h2>Abstract</h2>
         <div class="abstract">
-            <p>Writing is a cognitively demanding activity that requires constant decision-making, heavy reliance on working memory, and frequent shifts between tasks of different goals. To build writing assistants that truly align with writers' cognition, we must capture and decode the complete thought process behind how writers transform ideas into final texts. We contribute: <strong>(1)</strong> a Chrome extension that unobtrusively records keystrokes on Overleaf, enabling realistic, in-situ writing data collection; <strong>(2)</strong> a novel corpus of full scholarly manuscripts enriched with fine-grained annotations of cognitive writing intentions; and <strong>(3)</strong> analyses revealing the micro-dynamics of scholarly writing, highlighting gaps between human writing processes and the current capabilities of large language models. ScholaWrite underscores the value of capturing end-to-end writing data to develop future writing assistants that <em>support, not replace</em>, the cognitive work of scientists.</p>
+            <p>Writing is a cognitively active task involving continuous decision-making, heavy use of working memory, and frequent switching between multiple activities. Scholarly writing is particularly complex as it requires authors to coordinate many pieces of multiform knowledge while meeting high academic standards. To understand writers' cognitive thinking process, one should fully decode the <em>end-to-end writing data</em> (from scratch to final manuscript) and understand their complex cognitive mechanisms in scientific writing. We introduce <strong>ScholaWrite</strong>, the first-of-its-kind keystroke logs of an end-to-end scholarly writing process, with thorough annotations of cognitive writing intentions behind each keystroke. Our dataset includes LaTeX-based keystroke data from five preprints with nearly 62K total text changes and annotations across 4 months of paper writing. Our dataset shows promising usability and applications for the future development of AI writing assistants for the research environment, which necessitate complex methods beyond LLM prompting, and supports the cognitive thinking process of scientists.</p>
         </div>
     </section>
 
@@ -450,7 +401,7 @@
             </div>
             <div class="stat-card">
                 <span class="number">4 mo</span>
-                <span class="label">Collection Period</span>
+                <span class="label">Writing Period</span>
             </div>
             <div class="stat-card">
                 <span class="number">15</span>
@@ -459,25 +410,29 @@
         </div>
     </section>
 
-    <!-- Contributions -->
+    <!-- Key Features -->
     <section>
-        <h2>Key Contributions</h2>
-        <p class="section-lead">Three advances toward understanding the cognitive dynamics of scholarly writing.</p>
-        <div class="contributions">
-            <div class="contrib-card">
-                <span class="contrib-num">1</span>
-                <h3>Unobtrusive Data Collection</h3>
-                <p>A Chrome extension that silently records every keystroke on Overleaf&mdash;insertions, deletions, copy-paste, and reverts&mdash;capturing realistic writing behavior without disrupting the author's flow.</p>
+        <h2>Key Features</h2>
+        <div class="features">
+            <div class="feature-card">
+                <span class="feature-icon">&#x1F4DD;</span>
+                <h3>Keystroke-level Logging</h3>
+                <p>Captures every insertion, deletion, copy, paste, and revert action in real-time through a custom Chrome extension for Overleaf.</p>
             </div>
-            <div class="contrib-card">
-                <span class="contrib-num">2</span>
-                <h3>Intention-Annotated Corpus</h3>
-                <p>Five complete research manuscripts enriched with expert annotations mapping each text change to one of 15 cognitive writing intentions, grounded in established writing process theory.</p>
+            <div class="feature-card">
+                <span class="feature-icon">&#x1F9E0;</span>
+                <h3>Cognitive Intention Annotations</h3>
+                <p>Each text change is annotated with one of 15 writing intentions grounded in cognitive writing process research.</p>
             </div>
-            <div class="contrib-card">
-                <span class="contrib-num">3</span>
-                <h3>Human vs. LLM Analysis</h3>
-                <p>In-depth analyses of writing micro-dynamics revealing where current LLMs fall short of mimicking the complex, non-linear cognitive processes that human researchers employ.</p>
+            <div class="feature-card">
+                <span class="feature-icon">&#x1F4CA;</span>
+                <h3>End-to-End Coverage</h3>
+                <p>Tracks the complete writing process from blank document to final manuscript across 5 real research papers.</p>
+            </div>
+            <div class="feature-card">
+                <span class="feature-icon">&#x1F916;</span>
+                <h3>Model Benchmarks</h3>
+                <p>Includes fine-tuned BERT, RoBERTa, Llama-8B, and GPT-4o baselines for intention prediction and iterative writing.</p>
             </div>
         </div>
     </section>
@@ -485,7 +440,7 @@
     <!-- Taxonomy -->
     <section>
         <h2>Writing Intention Taxonomy</h2>
-        <p class="section-lead">Every text change is annotated with one of 15 cognitive intentions, spanning the full spectrum of scholarly writing&mdash;from initial brainstorming to final polish.</p>
+        <p style="color: var(--text-mid); margin-bottom: 1rem;">Every text change is annotated with one of 15 cognitive writing intentions:</p>
         <div class="taxonomy-grid">
             <div class="taxonomy-item">Idea Generation</div>
             <div class="taxonomy-item">Idea Organization</div>
@@ -505,40 +460,12 @@
         </div>
     </section>
 
-    <!-- Benchmarks -->
-    <section>
-        <h2>Benchmarks</h2>
-        <p class="section-lead">We evaluate multiple models on intention prediction and iterative writing tasks.</p>
-        <div class="bench-grid">
-            <div class="bench-item">
-                <div class="model-name">BERT</div>
-                <div class="model-task">Intention Classification</div>
-            </div>
-            <div class="bench-item">
-                <div class="model-name">RoBERTa</div>
-                <div class="model-task">Intention Classification</div>
-            </div>
-            <div class="bench-item">
-                <div class="model-name">Llama-8B-SW</div>
-                <div class="model-task">Classification + Writing</div>
-            </div>
-            <div class="bench-item">
-                <div class="model-name">Llama-8B-Instruct</div>
-                <div class="model-task">Baseline</div>
-            </div>
-            <div class="bench-item">
-                <div class="model-name">GPT-4o</div>
-                <div class="model-task">Baseline</div>
-            </div>
-        </div>
-    </section>
-
     <!-- Citation -->
     <section>
         <h2>Citation</h2>
         <div class="citation-block">
             <button class="copy-btn" onclick="copyBibtex()">Copy</button>
-            <pre id="bibtex">@misc{le2025scholawrite,
+            <pre id="bibtex">@misc{le2025scholawritedatasetendtoendscholarly,
       title={ScholaWrite: A Dataset of End-to-End Scholarly Writing Process},
       author={Khanh Chi Le and Linghe Wang and Minhwa Lee and Ross Volkov
               and Luan Tuyen Chau and Dongyeop Kang},
@@ -560,7 +487,7 @@
         <a href="https://github.com/minnesotanlp/scholawrite">GitHub</a>
         <a href="https://minnesotanlp.github.io/">Minnesota NLP</a>
     </div>
-    <p>&copy; 2025 Minnesota NLP &mdash; University of Minnesota. Released under the MIT License.</p>
+    <p>&copy; 2025 Minnesota NLP &mdash; University of Minnesota. MIT License.</p>
 </footer>
 
 <script>
