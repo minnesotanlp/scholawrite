@@ -26,7 +26,7 @@ def process_label(predicted_label):
                 found = 1
                 break
         
-        # If the output from gpt didn't contain any expeceted label
+        # If the output from GPT didn't contain any expected label
         if found != 1:
             print(predicted_label)
     
@@ -42,7 +42,6 @@ def get_label(before_text):
         messages=prompt
     )
 
-    # rereieve chatgpt response and return to caller
     generated_response = response.choices[0].message.content
     predicted_class = process_label(generated_response)
 

@@ -56,7 +56,7 @@ def save_raw_output(output, writing_intention, i):
     file.write(writing_intention)
 
     label = process_label(writing_intention)
-    file.write(f"/n/n{label}")
+    file.write(f"\n\n{label}")
 
 
 def get_label(before_text, i):
@@ -75,7 +75,6 @@ def get_label(before_text, i):
     with  open(f"{intention_log_dir}/iter_log_{i}.json", "w") as f:
         json.dump(response.model_dump(), f, indent=4)
 
-    # rereieve chatgpt response and return to caller
     generated_response = response.choices[0].message.content
     return generated_response
 
@@ -86,7 +85,6 @@ def process_label(predicted_label):
  'Idea Generation', 'Idea Organization', 'Citation Integration', 'Coherence',
  'Linguistic Style', 'Scientific Accuracy', 'Macro Insertion']
 
- 
     if predicted_label not in all_labels:
         found = 0
         for true_label in all_labels:
@@ -94,8 +92,8 @@ def process_label(predicted_label):
                 predicted_label = true_label
                 found = 1
                 break
-        
-        # If the output from gpt didn't contain any expeceted label
+
+        # If the output from GPT didn't contain any expected label
         if found != 1:
             print(predicted_label)
             print("-" * 100)
@@ -123,7 +121,6 @@ def get_revise(before_text, label, i):
     with open(f"{generation_log_dir}/iter_log_{i}.json", "w") as f:
          json.dump(response.model_dump(), f, indent=4)
 
-    # rereieve chatgpt response and return to caller
     generated_response = response.choices[0].message.content
     return generated_response
 

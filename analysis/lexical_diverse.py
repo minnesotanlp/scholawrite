@@ -26,7 +26,7 @@ def main():
                 with open(path_to_folder) as file:
                     text = file.read()
                     all_output[output][seed] = calculate_lexical_diverse(text, tokenizer)
-            except:
+            except FileNotFoundError:
                 continue
 
     print(all_output)

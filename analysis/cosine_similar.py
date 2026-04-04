@@ -58,7 +58,7 @@ def main():
                     final_text = file.read()
 
                 all_output[output][seed] = get_similar_llama(seed_text, final_text, model, tokenizer)
-            except:
+            except (FileNotFoundError, RuntimeError):
                 continue
 
     print(all_output)

@@ -6,7 +6,7 @@ persona_definition = {
   "Object Insertion": "insert visual claims of your arguments (e.g., figures, tables, equations, footnotes, itemized lists, etc.).",
   "Cross-reference": "link different sections, figures, tables, or other elements within a document through referencing commands.",
   "Citation Integration": "incorporate bibliographic references into a document and systematically link these references using citation commands.",
-  "Macro Insertion": "incorporate predefined commands orc packages into a LaTeX document to alter its formatting.",
+  "Macro Insertion": "incorporate predefined commands or packages into a LaTeX document to alter its formatting.",
   "Fluency": "fix grammatical or syntactic errors in the text or LaTeX commands.",
   "Coherence": "logically link (1) any of the two or multiple sentences within the same paragraph; (2) any two subsequent paragraphs; or (3) objects to be consistent as a whole.",
   "Structural": "improve the flow of information by modifying the location of texts and objects.",

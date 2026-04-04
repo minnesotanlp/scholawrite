@@ -1,22 +1,29 @@
+# Analysis
 
-# Scholawrite Analysis
-This folder contains scripts for analyzing code outputs, exploratory analysis of dataset, and generating figure for the paper.
+Scripts for computing evaluation metrics and generating figures for the paper.
 
-### Requirements
-The same docker image as for fine-tuning.
+## Setup
 
-### Running
-1. Set up and start docker container
-2. `python analysis/{filename}.py`
+Uses the same Docker environment as fine-tuning (see root [README](../README.md#environment-setup)).
 
-### lexical_diverse.py
-1. Contains utilty function for calculating lexical diversity
+## Scripts
 
-### cosine_similar.py
-1. utlity function for calculating cosine similarity
+| Script | Description |
+|---|---|
+| `classification_stats.py` | Computes accuracy, F1 (macro/micro), and generates confusion matrices |
+| `cosine_similar.py` | Computes cosine similarity between seed documents and final outputs |
+| `lexical_diverse.py` | Calculates lexical diversity (unique token ratio) of generated text |
+| `inference_statistics.py` | Computes intention diversity and coverage statistics |
+| `human_eval_results.py` | Generates bar charts for human evaluation results |
+| `analysis.ipynb` | Exploratory analysis notebook |
 
-### inference_statistics.py
-1. Calculates statistics for iterative writing intention trajectories
+## Usage
 
-### classification_stats.py
-1. Evaluation metrics for iterating writing
+```bash
+cd analysis
+python classification_stats.py
+python cosine_similar.py
+python lexical_diverse.py
+python inference_statistics.py
+python human_eval_results.py
+```
