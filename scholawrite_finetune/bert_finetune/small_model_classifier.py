@@ -78,12 +78,12 @@ def get_model_tokenizer(model_name):
   return model, tokenizer
 
 def add_intention_inference_instruction_input(dataset_df, include_prev_label=False):
-  dataset_df["instruction input"] = "<INPUT>" + "<BT>" + dataset_df["before text"] + "</BF> "
+  dataset_df["instruction input"] = "<INPUT>" + "<BT>" + dataset_df["before text"] + "</BT> "
 
   if (include_prev_label):
     dataset_df["prev_label"] = dataset_df["label"].shift(1).fillna("none")
     dataset_df["instruction input"] += "<PWA>" + dataset_df["prev_label"] + "</PWA> "
-    dataset_df.remove_columns(columns=["prev_label"])
+    dataset_df.drop(columns=["prev_label"], inplace=True)
 
   dataset_df["instruction input"] += "</INPUT>"
 
@@ -129,7 +129,7 @@ test_ds.set_format("torch")
 def dataset_statistics(dataset, dataset_name):
   labels, counts = dataset["label"].unique(return_counts=True)
 
-  labels = d.le.inverse_transform(labels.tolist())
+  labels = le.inverse_transform(labels.tolist())
   counts = counts.tolist()
 
   tup = zip(labels, counts)

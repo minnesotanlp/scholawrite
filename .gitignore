@@ -1,0 +1,54 @@
+# Python
+__pycache__/
+*.py[cod]
+*.pyo
+*.pyd
+*.so
+*.egg
+*.egg-info/
+dist/
+build/
+.eggs/
+*.whl
+
+# Virtual environments
+.venv/
+venv/
+env/
+
+# Secrets & credentials
+.env
+*.env
+sheet_credential.json
+token.json
+*.key
+*.pem
+
+# ML artifacts
+results/
+outputs/
+*.pt
+*.bin
+*.safetensors
+*.ckpt
+checkpoint-*/
+runs/
+wandb/
+
+# Data
+*.csv
+*.jsonl
+*.parquet
+
+# Jupyter
+.ipynb_checkpoints/
+
+# IDE
+.vscode/
+.idea/
+*.swp
+*~
+
+# OS
+.DS_Store
+Thumbs.db
