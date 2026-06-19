@@ -188,20 +188,19 @@ Output structure: `<output_dir>/<seed>/generation/` and `<output_dir>/<seed>/int
 ## Citation
 
 ```bibtex
-@misc{le2025scholawritedatasetendtoendscholarly,
-      title={ScholaWrite: A Dataset of End-to-End Scholarly Writing Process},
-      author={Khanh Chi Le and Linghe Wang and Minhwa Lee and Ross Volkov and Luan Tuyen Chau and Dongyeop Kang},
-      year={2025},
-      eprint={2502.02904},
-      archivePrefix={arXiv},
-      primaryClass={cs.CL},
-      url={https://arxiv.org/abs/2502.02904},
+@inproceedings{le2026scholawrite,
+  title={ScholaWrite: A Dataset of End-to-End Scholarly Writing Process},
+  author={Khanh Chi Le and Linghe Wang and Minhwa Lee and Ross Volkov and Luan Tuyen Chau and Dongyeop Kang},
+  year={2026},
+  booktitle={Proceedings of the 64rd Annual Meeting of the Association for Computational Linguistics (ACL 2026)},
+  note={To appear},
+  url={https://arxiv.org/abs/2502.02904},
 }
 ```
 
 ## Code Contributors
 
-[Linghe Wang](https://github.com/Linghe-Wang), [Ross Volkov](https://github.com/rvolkov1), [Minhwa Lee](https://github.com/mimn97)
+[Linghe Wang](https://github.com/Linghe-Wang), [Ross Volkov](https://github.com/rvolkov1), [Minhwa Lee](https://github.com/mimn97), [Khanh Chi Le](https://github.com/chile2706)
 
 ## License
 
