@@ -22,6 +22,7 @@ Writing is a cognitively active task involving continuous decision-making, heavy
 | `scholawrite_finetune/` | Fine-tuning scripts for BERT, RoBERTa, and Llama-8B-Instruct |
 | `gpt4o/` | GPT-4o inference for iterative writing and intention prediction |
 | `meta_inference/` | Llama-8B-Instruct baseline inference |
+| `experiments/` | Notebooks for LLM output generation and evaluation (session-level and intent-conditioned), research question analysis, and zero-shot vs. ScholaWrite fine-tuned model comparisons |
 | `eval_tool/` | Web interface for human evaluation of model outputs |
 | `analysis/` | Evaluation metrics, cosine similarity, lexical diversity, and figure generation |
 | `augmented/` | AI-generated content detection benchmarks (ScholaWrite-Augmented) |
