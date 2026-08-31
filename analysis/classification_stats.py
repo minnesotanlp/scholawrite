@@ -25,7 +25,7 @@ fnames = [
 "BERT_BASE_run_final.csv"
 ]
 
-def calculate_metrics(eval_df):
+def calculate_metrics(eval_df, fname):
 
   y_true = eval_df["label"]
 
@@ -61,4 +61,4 @@ def calculate_metrics(eval_df):
 
 for fname in fnames:
   df = pd.read_csv(fname)
-  calculate_metrics(df)
+  calculate_metrics(df, fname)
